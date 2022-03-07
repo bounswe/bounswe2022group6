@@ -25,7 +25,7 @@ CmpE 352 / 451 is a course aimed to improve teamwork and collaborative software 
 	- [Egemen İşgüder](https://github.com/egosis)
 	- [Gözde Aslantaş](https://github.com/gozdeaslantas)
 	- [Burak Suyunu](https://github.com/suyunu)
-## The Team
+## 📷 The Team
 ![meeting](group_photo.png)
 
 ## 📖 Wiki Page
