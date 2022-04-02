@@ -6,18 +6,18 @@ CmpE 352 / 451 is a course aimed to improve teamwork and collaborative software 
 
 ## 🧍 Group Members 
 
-- [Artun Akdoğan](https://github.com/artun-akdogan)
-- [Hakan Balık](https://github.com/LehabuL)
-- [Ali Kaan Biber](https://github.com/Aliqaan)
-- [Yasir Dikbaş](https://github.com/yasirdikbas)
-- [Aral Dörtoğul](https://github.com/araldortogul)
-- [Hatice Erk](https://github.com/haticerk)
-- [Alp Eren İnceoğlu](https://github.com/aeren)
-- [Yusuf Erdem Nacar](https://github.com/yusuferdemnacar)
-- [Ramazan Bedirhan Pamukçuoğlu](https://github.com/BPamukcuoglu)
-- [Berfin Şimşek](https://github.com/berfinsimsekk)
-- [Mustafa Berk Turgut](https://github.com/mberkturgut)
-- [Beyza İrem Urhan](https://github.com/iremmer)
+- [Artun Akdoğan](https://github.com/bounswe/bounswe2022group6/wiki/Artun-Akdo%C4%9Fan)
+- [Hakan Balık](https://github.com/bounswe/bounswe2022group6/wiki/Hakan-Bal%C4%B1k)
+- [Ali Kaan Biber](https://github.com/bounswe/bounswe2022group6/wiki/Ali-Kaan-Biber)
+- [Yasir Dikbaş](https://github.com/bounswe/bounswe2022group6/wiki/Yasir-Dikba%C5%9F)
+- [Aral Dörtoğul](https://github.com/bounswe/bounswe2022group6/wiki/Aral-D%C3%B6rto%C4%9Ful)
+- [Hatice Erk](https://github.com/bounswe/bounswe2022group6/wiki/Hatice-Erk)
+- [Alp Eren İnceoğlu](https://github.com/bounswe/bounswe2022group6/wiki/Alp-Eren-%C4%B0nceo%C4%9Flu)
+- [Yusuf Erdem Nacar](https://github.com/bounswe/bounswe2022group6/wiki/Yusuf-Erdem-Nacar)
+- [Ramazan Bedirhan Pamukçuoğlu](https://github.com/bounswe/bounswe2022group6/wiki/Bedirhan-Pamukcuoglu)
+- [Berfin Şimşek](https://github.com/bounswe/bounswe2022group6/wiki/Berfin-%C5%9Eim%C5%9Fek)
+- [Mustafa Berk Turgut](https://github.com/bounswe/bounswe2022group6/wiki/Mustafa-Berk-Turgut)
+- [Beyza İrem Urhan](https://github.com/bounswe/bounswe2022group6/wiki/Beyza-%C4%B0rem-Urhan)
 
 ## 👩‍🏫 Teaching Staff
 - **Instructor:** [Suzan Üsküdarlı](https://github.com/uskudarli)
