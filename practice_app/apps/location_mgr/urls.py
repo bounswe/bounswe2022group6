@@ -4,4 +4,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('iplocation', views.getIpLocation, name='iplocation'),
+    #path('places', views.places, name='places'),
 ]
