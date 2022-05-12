@@ -3,6 +3,7 @@ from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.http import JsonResponse
+from django.http import HttpResponseRedirect
 import requests
 import json
 from rest_framework import status
@@ -39,7 +40,7 @@ class api(APIView):
         for advice in r["Result"]["Resources"]["some"]["Resource"]:
             advice_list.append({"index":i, "advice_title":advice["MyHFTitle"], "advice_desc":advice["MyHFDescription"].lstrip("<p>").rstrip(" (USPSTF)</p>\r\n").replace("\u2014&nbsp", "")})
             i += 1
-    
+            
         return JsonResponse({"advice_list":advice_list}, status=status.HTTP_200_OK)
         
 class home(APIView):
@@ -62,3 +63,28 @@ class home(APIView):
         c=json.loads(r_str)
         
         return Response(c, status=status.HTTP_200_OK)
+        
+    def post(self, request):
+    
+        # POST request to the advice/api
+        
+        r_post=api.as_view()(request=request._request)
+        
+        # Extract the contents of the response as a JSON string
+        
+        r_post_str=str(r_post.content).lstrip("b'").rstrip("'")
+        
+        # Convert JSON response string back to dictionary to pass to the Response method as context
+        
+        c=json.loads(r_post_str)
+        
+        current_url=request.build_absolute_uri()
+        
+        r_get=requests.get(current_url+"api")
+        
+        r_get_str=str(r_get.content).lstrip("b'").rstrip("'")
+        
+        c.update(json.loads(r_get_str))
+        
+        return Response(c, status=status.HTTP_200_OK)
+        

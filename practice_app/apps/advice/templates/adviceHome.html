@@ -40,5 +40,60 @@
 		</div>
 	  </div>
 	</div>
+	<div class="p-5 bg-light text-center">
+		<h3>Tell us about yourself</h3>
+        <form id="form" class="form-group" method="POST" action="{%url 'home' %}#tips">
+			{%csrf_token%}
+			<label>Your age</label><br>
+			<input type="number" name="age" placeholder="Age" min="0" max="120" required>
+			<br>
+			<br>
+			<label>Your sex</label><br>
+			<input type="radio" name="sex" value="male" required>
+			<label for="male">Male</label>
+			<input type="radio" name="sex" value="female" required>
+			<label for="female">Female</label>
+			<br>
+			<br>
+			<label>Do you smoke?</label><br>
+			<input type="radio" name="tobaccoUse" value=0 required>
+			<label for="male">Yes</label>
+			<input type="radio" name="tobaccoUse" value=1 required>
+			<label for="female">No</label>
+			<br>
+			<br>
+			<label>Are you sexually active?</label><br>
+			<input type="radio" name="sexuallyActive" value=0 required>
+			<label for="male">Yes</label>
+			<input type="radio" name="sexuallyActive" value=1 required>
+			<label for="female">No</label>
+			<br>
+			<br>
+			<input class="btn btn-success" type="submit" value="Get tips">
+			<br>
+			<br>
+        </form>
+    </div>
+	{% if advice_list %}
+	<div class="p-5 bg-primary text-white text-center" id="tips">
+        <h2>Things you can do</h2>
+    </div>
+	{% endif %}
+	<div class="accordion" id="accordion1">
+	  {% for advice in advice_list %}
+	  <div class="accordion-item">
+		<h2 class="accordion-header" id="heading{{advice.index}}">
+		  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{advice.index}}" aria-expanded="true" aria-controls="collapse{{advice.index}}">
+			{{advice.advice_title}}
+		  </button>
+		</h2>
+		<div id="collapse{{advice.index}}" class="accordion-collapse collapse" aria-labelledby="heading{{advice.index}}" data-bs-parent="#accordion1">
+		  <div class="accordion-body">
+			{{advice.advice_desc}}
+		  </div>
+		</div>
+	  </div>
+	  {% endfor %}
+	</div>
 </body>
 </html>
