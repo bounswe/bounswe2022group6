@@ -4,6 +4,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.http import JsonResponse
 import requests
+import json
 from rest_framework import status
 from django.utils.decorators import method_decorator
 
@@ -40,3 +41,24 @@ class api(APIView):
             i += 1
     
         return JsonResponse({"advice_list":advice_list}, status=status.HTTP_200_OK)
+        
+class home(APIView):
+
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = 'adviceHome.html'
+
+    def get(self, request):
+    
+        # GET request to the advice/api
+        
+        r=api.as_view()(request=request._request)
+        
+        # Extract the contents of the response as a JSON string
+        
+        r_str=str(r.content).lstrip("b'").rstrip("'")
+        
+        # Convert JSON response string back to dictionary to pass to the Response method as context
+        
+        c=json.loads(r_str)
+        
+        return Response(c, status=status.HTTP_200_OK)
