@@ -7,28 +7,31 @@ from .models import *
 import requests
 import json
 
-# External ip-api gateway to get ip location
-def get_ip(ip):
-    res = requests.get(f"http://ip-api.com/json/{ip}")
-    if res.status_code==200:
-        data = res.json()
-        if data["status"]=="success":
-            return data
-        return {"error":f"Failed with message: {data['message']}"}
-    
-    return {"error":f"Failed with code: {res.status_code}"}
-
-# API Classes
+# API Class to get location info from ip, and register user's location.
 class Location(APIView):
-    def get(self, req, *args,**kwargs):
+    # External ip-api gateway to get ip location
+    def get_ip(ip):
+        res = requests.get(f"http://ip-api.com/json/{ip}")
+        if res.status_code==200:
+            data = res.json()
+            # If ip was localhost or equivalent, API will return error.
+            if data["status"]=="success":
+                return data
+            return {"error":f"Failed with message: {data['message']}"}
+        
+        return {"error":f"Failed with code: {res.status_code}"}
+
+    # Return requested ip's location information
+    def get(self, req):
         if req.GET.get("ip"):
-            data = get_ip(req.GET["ip"])
+            data = self.get_ip(req.GET["ip"])
             if "error" in data:
                 return JsonResponse({"loc": []})
             return JsonResponse({"loc": [data['country'], data['regionName'], data['city']]})
         return JsonResponse({"loc": []})
 
-    def post(self, req, *args,**kwargs):
+    # Insert new user location information and return success message.
+    def post(self, req):
         username = req.POST["username"].lower()
         country_text = req.POST["country"].title()
         state_text = req.POST.get("state", "").title()
@@ -36,6 +39,9 @@ class Location(APIView):
         if state_text=='-': state_text=''
         if city_text=='-': city_text=''
         country = Countries.objects.filter(country=country_text).first()
+        # If user did not entered an appropriate country name, abort.
+        if country == None:
+            return JsonResponse({"info": "Operation failed! No country information"})
         state = States.objects.filter(state=state_text, country=country).first()
         city = Cities.objects.filter(city=city_text, state=state).first()
         user = UserLocation(username=username, country=country, state=state, city=city)
@@ -43,8 +49,10 @@ class Location(APIView):
         data = UserLocation.objects.filter(username= username).first()
         return JsonResponse({"info": "Operation completed successfully!"})
 
+# Api to get country list, get user location and users near location.
 class Info(APIView):
-    def get(self, req, *args,**kwargs):
+    # Return location list
+    def get(self, req):
         country = req.GET.get("country")
         state = req.GET.get("state", None)
         if state:
@@ -55,7 +63,9 @@ class Info(APIView):
             return JsonResponse(list(States.objects.filter(country__country= country).order_by('state').values_list('state', flat=True)), safe=False)
         return JsonResponse(list(Countries.objects.all().order_by('country').values_list('country', flat=True)), safe=False)
 
-    def post(self, req, *args,**kwargs):
+    # This request handles 2 operations. Considering action, either return user location information,
+    # or return users near location.
+    def post(self, req):
         action = req.POST.get("action", None)
         if action=="userdata":
             username = req.POST.get("username", "")
@@ -84,10 +94,12 @@ class Info(APIView):
                 return JsonResponse({"near": list(UserLocation.objects.filter(country__country= country).values_list('username', flat=True))})
         return JsonResponse({})
 
+# Endpoint for users to use api's easily.
 class Index(APIView):
     renderer_classes = [TemplateHTMLRenderer]
     template_name = 'index.html'
 
+    # This function will call Location api to get location information based on ip.
     def ipResolver(self, req):
         ip = req.META.get('HTTP_X_FORWARDED_FOR')
         if not ip:
@@ -97,15 +109,15 @@ class Index(APIView):
         request.GET = {"ip": ip}
         return json.loads(Location.as_view()(request=request).content)
 
-    def get(self, req, *args,**kwargs):
+    def get(self, req):
         return Response(self.ipResolver(req))
 
-    def post(self, req, *args,**kwargs):
+    def post(self, req):
         action = req.POST["action"]
-        r=""
+        data = ""
         if action == "add":
-            r = Location.as_view()(request=req._request)
+            data = Location.as_view()(request=req._request).content
         else:
-            r = Info.as_view()(request=req._request)
+            data = Info.as_view()(request=req._request).content
 
-        return Response(dict(json.loads(r.content), **self.ipResolver(req)))
+        return Response(dict(json.loads(data), **self.ipResolver(req)))
