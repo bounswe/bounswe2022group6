@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href = "../static/button.css">
+        <title>
+            Search Results
+        </title>
+        <style>
+            body {
+            background: dodgerblue linear-gradient(22deg, aqua, dodgerblue, deeppink) fixed;
+                color: white;
+            font: normal 22px/1.6 system-ui, sans-serif;
+                text-shadow: 0 1px 1px hsl(0 0% 0% / 20%);
+            margin: 3rem;
+            }
+            p {
+                text-align: center;
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <div>
+            
+                {% if isEmpty == False   %}
+                    {% for tuple in ArticleInfoList%}
+                    <div>
+                        <h2 style = "text-align: center"> Article {{ tuple.4 }}</h2>
+                        <p> <strong>Title :</strong> {{ tuple.0 }}</p>
+                        <p> <strong>Abstract :</strong> {{ tuple.1 }}</p>
+                        <p><strong>Authors :</strong></p>
+                        <ul>
+                            {% for author in tuple.2 %}
+                            <li> {{ author }}</li>
+                            {% endfor %}
+                        </ul>
+                        
+                        <p>Click <a href={{ tuple.3 }} target = "_blank">here</a> to see the article.</p>
+                    </div>
+                    {% endfor %}
+            
+                {% else %}
+                <div >
+                    <br><br><br>
+                    <h2 style = "text-align: center"> <strong> Could not find any record to list</strong> </h2>
+                    <br><br><br>
+                {% endif %}
+    
+        </div>
+        <div  style = "text-align: center" >
+            <button type ="submit" class="custom-btn btn-3" onclick="history.back()" ><span> Go back </span></button>
+        </div>
+        
+
+    </body>
+
+</html>
+
+
+
