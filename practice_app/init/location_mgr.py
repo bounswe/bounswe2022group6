@@ -1,10 +1,10 @@
 from apps.location_mgr.models import *
 from django.conf import settings
 import csv
-import os
+from pathlib import PurePath
 
 cnt=0
-with open(os.path.join(settings.BASE_DIR, os.path.join('init', 'world-cities.csv')), newline='', encoding="utf8") as csvfile:
+with open(PurePath(settings.BASE_DIR, 'init', 'world-cities.csv'), newline='', encoding="utf8") as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
         country = Countries.objects.filter(country=row['country']).first()

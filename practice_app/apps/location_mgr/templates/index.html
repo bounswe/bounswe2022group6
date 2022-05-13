@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  	<title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        table, th, td {
+            border: 1px solid;
+        }
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+        }
+        form { 
+            margin: 0 auto; 
+            width:250px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div style="background-color:lavender; !important" class="jumbotron text-center bg-primary">
+    </div>
+    <form id="index" class="form-group" method="POST" action="{% url 'index' %}">
+        {%csrf_token%}
+        <br>
+        <label>Add User Location: </label>
+        <br>
+        <input type="text" name="username" placeholder="username" required>
+        <br>
+        <input type="text" name="country" placeholder="country" required>
+        <br>
+        <input type="text" name="state" placeholder="state" >
+        <br>
+        <input type="text" name="city" placeholder="city" >
+        <br>
+        <input type="submit" name="submit" value="Add">
+        <br>
+    </form>
+    <form id="index" class="form-group" method="Get" action="{% url 'user' %}">
+        <br>
+        <label>Get User Location: </label>
+        <br>
+        <input type="text" name="username" placeholder="username" required>
+        <br>
+        <input type="submit" name="submit" value="Get">
+        <br>
+    </form>
+    <form id="index" class="form-group" method="Get" action="{% url 'near' %}">
+        <br>
+        <label>Get Users Near Location: </label>
+        <br>
+        <input type="text" name="country" placeholder="country" required>
+        <br>
+        <input type="text" name="state" placeholder="state" >
+        <br>
+        <input type="text" name="city" placeholder="city" >
+        <br>
+        <input type="submit" name="submit" value="Get">
+        <br>
+    </form>
+</body>
+</html>
