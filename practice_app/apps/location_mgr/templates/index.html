@@ -24,10 +24,49 @@
     <div class="wrapper">
         <div style="background-color:lavender; !important" class="jumbotron text-center bg-primary">
     </div>
+    {% if info %}
+        <div class="alert" role="alert">
+            <h4 class="alert-heading">{{ info }}</h4>
+        </div>
+    {% endif %}
+    {% if userdata %}
+        <table class="center">
+            <tr>
+                <th>Username</th>
+                <th>Country</th>
+                <th>State</th>
+                <th>City</th>
+            </tr>
+            <tr>
+                <td>{{userdata.username}}</td>
+                <td>{{userdata.country}}</td>
+                <td>{{userdata.state}}</td>
+                <td>{{userdata.city}}</td>
+            </tr>
+        </table>
+    {% endif %}
+    {% if near %}
+        <table class="center">
+            <tr>
+                <th>
+                    Users
+                </th>
+            </tr>
+            
+            {% for text in near %}
+            <tr>
+                <td>
+                    {{text}}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
     <form id="index" class="form-group" method="POST" action="{% url 'index' %}">
         {%csrf_token%}
         <br>
         <label>Add User Location: </label>
+        <input type="hidden" name="action" value="add" size ="40" />
         <br>
         <label>Username: </label>
         <input type="text" name="username" placeholder="username" style="width:170px" required>
@@ -47,9 +86,11 @@
         <input type="submit" name="submit" value="Add">
         <br>
     </form>
-    <form id="index" class="form-group" method="Get" action="{% url 'user' %}">
+    <form id="index" class="form-group" method="POST" action="{% url 'index' %}">
+        {%csrf_token%}
         <br>
         <label>Get User Location: </label>
+        <input type="hidden" name="action" value="userdata" size ="40" />
         <br>
         <label>Username: </label>
         <input type="text" name="username" placeholder="username" style="width:170px" required>
@@ -57,9 +98,11 @@
         <input type="submit" name="submit" value="Get">
         <br>
     </form>
-    <form id="index" class="form-group" method="Get" action="{% url 'near' %}">
+    <form id="index" class="form-group" method="POST" action="{% url 'index' %}">
+        {%csrf_token%}
         <br>
         <label>Get Users Near Location: </label>
+        <input type="hidden" name="action" value="near" size ="40" />
         <br>
         <label>Country: </label>
         <select id="country_get" name="country" style="overflow:hidden; width:175px">
@@ -84,7 +127,7 @@
             return JSON.parse(xmlHttpReq.responseText);
         }
         function update_elements(element, str=""){
-            let data = get_data(window.parent.location+"places"+str);
+            let data = get_data(window.parent.location+"info"+str);
             data.forEach(item => {
                 var opt = document.createElement('option');
                 opt.value = item;
@@ -126,7 +169,7 @@
                     update_elements(city, "?state=" + value);
                 }
             });
-            let location = JSON.parse("{{ loc }}".replace(/&quot;/g,'"'));
+            let location = JSON.parse("{{ loc }}".replace(/&#x27;/g,'"'));
             if(location.length != 0){  
                 let changeEvent = new Event('change');
                 if(search(country.options, location[0])){

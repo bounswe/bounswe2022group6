@@ -1,9 +1,11 @@
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
-from django.views import View
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.renderers import TemplateHTMLRenderer
+from django.http import JsonResponse
+from django.http import HttpRequest
 from .models import *
 import requests
-import csv
+import json
 
 # External ip-api gateway to get ip location
 def get_ip(ip):
@@ -16,34 +18,15 @@ def get_ip(ip):
     
     return {"error":f"Failed with code: {res.status_code}"}
 
-def getIpLocation(req):
-    if req.GET.get("ip"):
-        data = get_ip(req.GET["ip"])
-        if "error" in data:
-            return HttpResponse(data["error"])
-        return HttpResponse(str([data['country'], data['regionName'], data['city']]).replace("'", "\""))
-    return HttpResponseRedirect('../location_mgr')
-
-def places(req):
-    country = req.GET.get("country")
-    state = req.GET.get("state", None)
-    if state:
-        state = state.title()
-        return HttpResponse(str(list(Cities.objects.filter(state__state= state).order_by('city').values_list('city', flat=True))).replace("'", "\""))
-    if country:
-        country = country.title()
-        return HttpResponse(str(list(States.objects.filter(country__country= country).order_by('state').values_list('state', flat=True))).replace("'", "\""))
-    return HttpResponse(str(list(Countries.objects.all().order_by('country').values_list('country', flat=True))).replace("'", "\""))
-
-class Index(View):
+# API Classes
+class Location(APIView):
     def get(self, req, *args,**kwargs):
-        ip = req.META.get('HTTP_X_FORWARDED_FOR')
-        if not ip:
-            ip = req.META.get('REMOTE_ADDR')
-        loc = get_ip(ip)
-        if "error" in loc:
-            return render(req,'index.html', {"loc": str([])})
-        return render(req,'index.html', {"loc": str([loc['country'], loc['regionName'], loc['city']]).replace("'", "\"")})
+        if req.GET.get("ip"):
+            data = get_ip(req.GET["ip"])
+            if "error" in data:
+                return JsonResponse({"loc": []})
+            return JsonResponse({"loc": [data['country'], data['regionName'], data['city']]})
+        return JsonResponse({"loc": []})
 
     def post(self, req, *args,**kwargs):
         username = req.POST["username"].lower()
@@ -57,29 +40,72 @@ class Index(View):
         city = Cities.objects.filter(city=city_text, state=state).first()
         user = UserLocation(username=username, country=country, state=state, city=city)
         user.save()
-        return HttpResponseRedirect('../location_mgr')
-
-
-def userLocation(req):
-    username = req.GET.get("username")
-    if username:
-        username = username.lower()
         data = UserLocation.objects.filter(username= username).first()
-        return HttpResponse(f"Country: {data.country}, State: {data.state}, City: {data.city}")
+        return JsonResponse({"info": "Operation completed successfully!"})
 
-    return HttpResponse("[]")
-
-def nearLocation(req):
-    country = req.GET.get("country")
-    state = req.GET.get("state")
-    city = req.GET.get("city")
-    if country:
-        if state != '-':
-            if city != '-':
-                city = city.title()
-                return HttpResponse(str(list(UserLocation.objects.filter(city__city= city).values_list('username', flat=True))))
+class Info(APIView):
+    def get(self, req, *args,**kwargs):
+        country = req.GET.get("country")
+        state = req.GET.get("state", None)
+        if state:
             state = state.title()
-            return HttpResponse(str(list(UserLocation.objects.filter(state__state= state).values_list('username', flat=True))))
-        country = country.title()
-        return HttpResponse(str(list(UserLocation.objects.filter(country__country= country).values_list('username', flat=True))))
-    return HttpResponse("[]")
+            return JsonResponse(list(Cities.objects.filter(state__state= state).order_by('city').values_list('city', flat=True)), safe=False)
+        if country:
+            country = country.title()
+            return JsonResponse(list(States.objects.filter(country__country= country).order_by('state').values_list('state', flat=True)), safe=False)
+        return JsonResponse(list(Countries.objects.all().order_by('country').values_list('country', flat=True)), safe=False)
+
+    def post(self, req, *args,**kwargs):
+        action = req.POST.get("action", None)
+        if action=="userdata":
+            username = req.POST.get("username", "")
+            if username !="":
+                username = username.lower()
+                data = UserLocation.objects.filter(username= username).first()        
+                return JsonResponse({"userdata":{
+                    "username": username,
+                    "country": data.country.__str__(),
+                    "state": data.state.__str__(), 
+                    "city": data.city.__str__()
+                }})
+
+        elif action=="near":
+            country = req.POST.get("country", "")
+            state = req.POST.get("state", "-")
+            city = req.POST.get("city", "-")
+            if country !="":
+                if state != '-':
+                    if city != '-':
+                        city = city.title()
+                        return JsonResponse({"near": list(UserLocation.objects.filter(city__city= city).values_list('username', flat=True))})
+                    state = state.title()
+                    return JsonResponse({"near": list(UserLocation.objects.filter(state__state= state).values_list('username', flat=True))})
+                country = country.title()
+                return JsonResponse({"near": list(UserLocation.objects.filter(country__country= country).values_list('username', flat=True))})
+        return JsonResponse({})
+
+class Index(APIView):
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = 'index.html'
+
+    def ipResolver(self, req):
+        ip = req.META.get('HTTP_X_FORWARDED_FOR')
+        if not ip:
+            ip = req.META.get('REMOTE_ADDR')
+        request = HttpRequest()
+        request.method = 'GET'
+        request.GET = {"ip": ip}
+        return json.loads(Location.as_view()(request=request).content)
+
+    def get(self, req, *args,**kwargs):
+        return Response(self.ipResolver(req))
+
+    def post(self, req, *args,**kwargs):
+        action = req.POST["action"]
+        r=""
+        if action == "add":
+            r = Location.as_view()(request=req._request)
+        else:
+            r = Info.as_view()(request=req._request)
+
+        return Response(dict(json.loads(r.content), **self.ipResolver(req)))
