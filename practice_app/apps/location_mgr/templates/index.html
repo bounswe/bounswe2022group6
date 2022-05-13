@@ -29,7 +29,8 @@
         <br>
         <label>Add User Location: </label>
         <br>
-        <input type="text" name="username" placeholder="username" required>
+        <label>Username: </label>
+        <input type="text" name="username" placeholder="username" style="width:170px" required>
         <br>
         <label>Country: </label>
         <select id="country" name="country" style="overflow:hidden; width:175px">
@@ -50,7 +51,8 @@
         <br>
         <label>Get User Location: </label>
         <br>
-        <input type="text" name="username" placeholder="username" required>
+        <label>Username: </label>
+        <input type="text" name="username" placeholder="username" style="width:170px" required>
         <br>
         <input type="submit" name="submit" value="Get">
         <br>
@@ -75,17 +77,30 @@
         <br>
     </form>
     <script>
-        function update_elements(element, str=""){
+        function get_data(url){
             let xmlHttpReq = new XMLHttpRequest();
-            xmlHttpReq.open("GET", window.parent.location+"places"+str, false); 
+            xmlHttpReq.open("GET", url, false); 
             xmlHttpReq.send(null);
-            let data = JSON.parse(xmlHttpReq.responseText)
+            return JSON.parse(xmlHttpReq.responseText);
+        }
+        function update_elements(element, str=""){
+            let data = get_data(window.parent.location+"places"+str);
             data.forEach(item => {
                 var opt = document.createElement('option');
                 opt.value = item;
                 opt.innerHTML = item;
                 element.appendChild(opt);
             });
+        }
+        function search(element, str){
+            let retval=false;
+            Array.from(element).forEach(item =>{
+                if(item.value===str){
+                    retval=true;
+                    return
+                }
+            });
+            return retval;
         }
         function eventListener(str=""){
             let country = document.getElementById('country'+str);
@@ -111,6 +126,21 @@
                     update_elements(city, "?state=" + value);
                 }
             });
+            let location = JSON.parse("{{ loc }}".replace(/&quot;/g,'"'));
+            if(location.length != 0){  
+                let changeEvent = new Event('change');
+                if(search(country.options, location[0])){
+                    country.value = location[0];
+                    country.dispatchEvent(changeEvent);
+                    if(search(state.options, location[1])){
+                        state.value = location[1];
+                        state.dispatchEvent(changeEvent);
+                        if(search(city.options, location[2])){
+                            city.value = location[2];
+                        }
+                    }
+                }
+            }
         }
         eventListener("");
         eventListener("_get");

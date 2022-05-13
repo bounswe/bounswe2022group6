@@ -21,29 +21,29 @@ def getIpLocation(req):
         data = get_ip(req.GET["ip"])
         if "error" in data:
             return HttpResponse(data["error"])
-        return HttpResponse(str(data))
+        return HttpResponse(str([data['country'], data['regionName'], data['city']]).replace("'", "\""))
     return HttpResponseRedirect('../location_mgr')
 
 def places(req):
     country = req.GET.get("country")
-    state = req.GET.get("state")
+    state = req.GET.get("state", None)
     if state:
         state = state.title()
-        return HttpResponse(str(list(Cities.objects.filter(state__state= state).values_list('city', flat=True))).replace("'", "\""))
+        return HttpResponse(str(list(Cities.objects.filter(state__state= state).order_by('city').values_list('city', flat=True))).replace("'", "\""))
     if country:
         country = country.title()
-        return HttpResponse(str(list(States.objects.filter(country__country= country).values_list('state', flat=True))).replace("'", "\""))
-    return HttpResponse(str(list(Countries.objects.all().values_list('country', flat=True))).replace("'", "\""))
+        return HttpResponse(str(list(States.objects.filter(country__country= country).order_by('state').values_list('state', flat=True))).replace("'", "\""))
+    return HttpResponse(str(list(Countries.objects.all().order_by('country').values_list('country', flat=True))).replace("'", "\""))
 
 class Index(View):
     def get(self, req, *args,**kwargs):
         ip = req.META.get('HTTP_X_FORWARDED_FOR')
         if not ip:
             ip = req.META.get('REMOTE_ADDR')
-
         loc = get_ip(ip)
-        
-        return render(req,'index.html')
+        if "error" in loc:
+            return render(req,'index.html', {"loc": str([])})
+        return render(req,'index.html', {"loc": str([loc['country'], loc['regionName'], loc['city']]).replace("'", "\"")})
 
     def post(self, req, *args,**kwargs):
         username = req.POST["username"].lower()
