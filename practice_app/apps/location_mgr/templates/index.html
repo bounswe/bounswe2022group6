@@ -31,11 +31,17 @@
         <br>
         <input type="text" name="username" placeholder="username" required>
         <br>
-        <input type="text" name="country" placeholder="country" required>
+        <label>Country: </label>
+        <select id="country" name="country" style="overflow:hidden; width:175px">
+        </select>
         <br>
-        <input type="text" name="state" placeholder="state" >
+        <label>State: </label>
+        <select id="state" name="state" style="overflow:hidden; width:175px">
+        </select>
         <br>
-        <input type="text" name="city" placeholder="city" >
+        <label>City: </label>
+        <select id="city" name="city" style="overflow:hidden; width:175px">
+        </select>
         <br>
         <input type="submit" name="submit" value="Add">
         <br>
@@ -53,14 +59,61 @@
         <br>
         <label>Get Users Near Location: </label>
         <br>
-        <input type="text" name="country" placeholder="country" required>
+        <label>Country: </label>
+        <select id="country_get" name="country" style="overflow:hidden; width:175px">
+        </select>
         <br>
-        <input type="text" name="state" placeholder="state" >
+        <label>State: </label>
+        <select id="state_get" name="state" style="overflow:hidden; width:175px">
+        </select>
         <br>
-        <input type="text" name="city" placeholder="city" >
+        <label>City: </label>
+        <select id="city_get" name="city" style="overflow:hidden; width:175px">
+        </select>
         <br>
         <input type="submit" name="submit" value="Get">
         <br>
     </form>
+    <script>
+        function update_elements(element, str=""){
+            let xmlHttpReq = new XMLHttpRequest();
+            xmlHttpReq.open("GET", window.parent.location+"places"+str, false); 
+            xmlHttpReq.send(null);
+            let data = JSON.parse(xmlHttpReq.responseText)
+            data.forEach(item => {
+                var opt = document.createElement('option');
+                opt.value = item;
+                opt.innerHTML = item;
+                element.appendChild(opt);
+            });
+        }
+        function eventListener(str=""){
+            let country = document.getElementById('country'+str);
+            let state = document.getElementById('state'+str);
+            let city = document.getElementById('city'+str);
+            update_elements(country);
+            tmp_value = country.options[country.selectedIndex].text;
+            state.innerHTML = '<option value=\"-\"> --- </option>">';
+            update_elements(state, "?country=" + tmp_value);
+            city.innerHTML = '<option value=\"-\"> --- </option>">';
+            country.addEventListener("change", ()=>{
+                value = country.options[country.selectedIndex].text;
+                state.innerHTML = '<option value=\"-\"> --- </option>">';
+                city.innerHTML = '<option value=\"-\"> --- </option>">';
+                if(value!=="-"){
+                    update_elements(state, "?country=" + value);
+                }
+            });
+            state.addEventListener("change", ()=>{
+                value = state.options[state.selectedIndex].text;
+                city.innerHTML = '<option value=\"-\"> --- </option>">';
+                if(value!=="-"){
+                    update_elements(city, "?state=" + value);
+                }
+            });
+        }
+        eventListener("");
+        eventListener("_get");
+    </script>
 </body>
 </html>

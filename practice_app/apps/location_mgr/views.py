@@ -29,11 +29,11 @@ def places(req):
     state = req.GET.get("state")
     if state:
         state = state.title()
-        return HttpResponse(str(list(Cities.objects.filter(state__state= state).values_list('city', flat=True))))
+        return HttpResponse(str(list(Cities.objects.filter(state__state= state).values_list('city', flat=True))).replace("'", "\""))
     if country:
         country = country.title()
-        return HttpResponse(str(list(States.objects.filter(country__country= country).values_list('state', flat=True))))
-    return HttpResponse(str(list(Countries.objects.all().values_list('country', flat=True))))
+        return HttpResponse(str(list(States.objects.filter(country__country= country).values_list('state', flat=True))).replace("'", "\""))
+    return HttpResponse(str(list(Countries.objects.all().values_list('country', flat=True))).replace("'", "\""))
 
 class Index(View):
     def get(self, req, *args,**kwargs):
@@ -50,6 +50,8 @@ class Index(View):
         country_text = req.POST["country"].title()
         state_text = req.POST.get("state", "").title()
         city_text = req.POST.get("city", "").title()
+        if state_text=='-': state_text=''
+        if city_text=='-': city_text=''
         country = Countries.objects.filter(country=country_text).first()
         state = States.objects.filter(state=state_text, country=country).first()
         city = Cities.objects.filter(city=city_text, state=state).first()
@@ -71,13 +73,13 @@ def nearLocation(req):
     country = req.GET.get("country")
     state = req.GET.get("state")
     city = req.GET.get("city")
-    if city:
-        city = city.title()
-        return HttpResponse(str(list(UserLocation.objects.filter(city__city= city).values_list('username', flat=True))))
-    if state:
-        state = state.title()
-        return HttpResponse(str(list(UserLocation.objects.filter(state__state= state).values_list('username', flat=True))))
     if country:
+        if state != '-':
+            if city != '-':
+                city = city.title()
+                return HttpResponse(str(list(UserLocation.objects.filter(city__city= city).values_list('username', flat=True))))
+            state = state.title()
+            return HttpResponse(str(list(UserLocation.objects.filter(state__state= state).values_list('username', flat=True))))
         country = country.title()
         return HttpResponse(str(list(UserLocation.objects.filter(country__country= country).values_list('username', flat=True))))
     return HttpResponse("[]")
