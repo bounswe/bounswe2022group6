@@ -10,7 +10,7 @@ import json
 # API Class to get location info from ip, and register user's location.
 class Location(APIView):
     # External ip-api gateway to get ip location
-    def get_ip(ip):
+    def get_ip(self, ip):
         res = requests.get(f"http://ip-api.com/json/{ip}")
         if res.status_code==200:
             data = res.json()
@@ -32,16 +32,18 @@ class Location(APIView):
 
     # Insert new user location information and return success message.
     def post(self, req):
-        username = req.POST["username"].lower()
-        country_text = req.POST["country"].title()
+        username = req.POST.get("username", "").lower()
+        country_text = req.POST.get("country", "").title()
         state_text = req.POST.get("state", "").title()
         city_text = req.POST.get("city", "").title()
         if state_text=='-': state_text=''
         if city_text=='-': city_text=''
-        country = Countries.objects.filter(country=country_text).first()
         # If user did not entered an appropriate country name, abort.
+        if country_text == "" or username == "":
+            return JsonResponse({"info": "Operation failed!"})
+        country = Countries.objects.filter(country=country_text).first()
         if country == None:
-            return JsonResponse({"info": "Operation failed! No country information"})
+            return JsonResponse({"info": "Operation failed!"})
         state = States.objects.filter(state=state_text, country=country).first()
         city = Cities.objects.filter(city=city_text, state=state).first()
         user = UserLocation(username=username, country=country, state=state, city=city)
@@ -80,9 +82,9 @@ class Info(APIView):
                 }})
 
         elif action=="near":
-            country = req.POST.get("country", "")
-            state = req.POST.get("state", "-")
-            city = req.POST.get("city", "-")
+            country = req.POST.get("country", "").title()
+            state = req.POST.get("state", "-").title()
+            city = req.POST.get("city", "-").title()
             if country !="":
                 if state != '-':
                     if city != '-':
