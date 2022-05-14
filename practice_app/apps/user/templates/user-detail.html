@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  	<title>Home</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	
+	<style type="text/css">
+		table, th, td {
+            border: 1px solid;
+        }
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+        }
+        form { 
+            margin: 0 auto; 
+            width:250px;
+        }
+
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+        <div style="background-color:#ADD8E6; !important" class="jumbotron text-center bg-primary">
+            <h1> User Portal </h1>
+            <p>
+				Welcome!
+            </p>
+        </div>
+	</div>
+	<div class="container">
+		<div class="container-fluid">
+            <div class="container">
+                <table class="center">
+                   <colgroup>
+						<col span="1" style="width: 10%;">
+						<col span="1" style="width: 30%;">
+						<col span="1" style="width: 30%;">
+						<col span="1" style="width: 30%;">
+                	</colgroup>
+                    <tr>
+						<th>ID</th>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>E-mail</th>
+                    </tr>
+                    {% for row in results %}
+                    <tr>
+                        {% for value in row %}
+                        <td>
+                            {{value}}
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                    </table>
+                </div>
+			</div>
+			<div class="center">
+				<form id="postform" class="form-group" method="POST" action="{%url 'user-detail-worker' %}">
+						{% csrf_token %}
+						<br>
+						<label>Get User Detail:</label>
+						<br>
+						<input type="text" name="username" placeholder="Username" required>
+						<br>
+						<input type="submit" name="submit" value="Get">
+						<br>
+				</form>
+			</div>	
+		</div>
+	</div>
+    <a href="{%url 'home' %}"> <p style="text-align:center">Back to Home Page</p></a>
+</body>
+</html>
