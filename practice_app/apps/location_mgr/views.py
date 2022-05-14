@@ -32,10 +32,10 @@ class Location(APIView):
 
     # Insert new user location information and return success message.
     def post(self, req):
-        username = req.POST.get("username", "").lower()
-        country_text = req.POST.get("country", "").title()
-        state_text = req.POST.get("state", "").title()
-        city_text = req.POST.get("city", "").title()
+        username = req.POST.get("username", "").lower().strip()
+        country_text = req.POST.get("country", "").title().strip()
+        state_text = req.POST.get("state", "").title().strip()
+        city_text = req.POST.get("city", "").title().strip()
         if state_text=='-': state_text=''
         if city_text=='-': city_text=''
         # If user did not entered an appropriate country name, abort.
@@ -55,7 +55,7 @@ class Location(APIView):
 class Info(APIView):
     # Return location list
     def get(self, req):
-        country = req.GET.get("country")
+        country = req.GET.get("country", None)
         state = req.GET.get("state", None)
         if state:
             state = state.title()
@@ -70,21 +70,22 @@ class Info(APIView):
     def post(self, req):
         action = req.POST.get("action", None)
         if action=="userdata":
-            username = req.POST.get("username", "")
+            username = req.POST.get("username", "").strip()
             if username !="":
                 username = username.lower()
-                data = UserLocation.objects.filter(username= username).first()        
-                return JsonResponse({"userdata":{
-                    "username": username,
-                    "country": data.country.__str__(),
-                    "state": data.state.__str__(), 
-                    "city": data.city.__str__()
-                }})
+                data = UserLocation.objects.filter(username= username).first()
+                if data:      
+                    return JsonResponse({"userdata":{
+                        "username": username,
+                        "country": data.country.__str__(),
+                        "state": data.state.__str__(), 
+                        "city": data.city.__str__()
+                    }})
 
         elif action=="near":
-            country = req.POST.get("country", "").title()
-            state = req.POST.get("state", "-").title()
-            city = req.POST.get("city", "-").title()
+            country = req.POST.get("country", "").title().strip()
+            state = req.POST.get("state", "-").title().strip()
+            city = req.POST.get("city", "-").title().strip()
             if country !="":
                 if state != '-':
                     if city != '-':
