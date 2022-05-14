@@ -2,7 +2,7 @@ from django.test import TestCase
 from .models import *
 import json
 
-# Create your tests here.
+# This class will test location and info API's
 class TestLocationMgr(TestCase):
     @classmethod
     def setUpTestData(self):
