@@ -1,5 +1,3 @@
-from asyncio.windows_events import NULL
-from nntplib import ArticleInfo
 import json
 from django.shortcuts import render
 from django.http import HttpResponse
