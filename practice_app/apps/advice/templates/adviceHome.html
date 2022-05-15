@@ -18,13 +18,123 @@
             margin: 0 auto; 
             width:250px;
         }
-    </style>
+		body { overflow-y: scroll; }
+	</style>
+	
+	
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	
+	
+	<script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Age'],
+          [12.2],
+          [ 9.1],
+          [12.2]]);
+
+        var options = {
+          legend: { position: 'none' },
+		  chartArea: {left: 50},
+		  width:350,
+		  histogram:{hideBucketItems: true}
+        };
+
+        var chart = new google.visualization.Histogram(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+	
+	
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Male',     11],
+          ['Female',      2]
+        ]);
+
+        var options = {
+          title: 'Sex Distribution of the Users',
+		  chartArea: {left: 0, width: 400, height: 300},
+		  width:350,
+		  pieSliceText:"none"
+        };
+		
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechartSex'));
+
+        chart.draw(data, options);
+      }
+    </script>
+	
+	<script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Non-smoker',     11],
+          ['Smoker',      2]
+        ]);
+
+        var options = {
+          title: 'Tobacco Use Distribution of the Users',
+		  chartArea: {left: 0, width: 400, height: 300},
+		  width:350,
+		  pieSliceText:"none"
+        };
+		
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechartTobacco'));
+
+        chart.draw(data, options);
+      }
+    </script>
+	
+	<script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Active',     11],
+          ['Inactive',      2]
+        ]);
+
+        var options = {
+          title: 'Sexual Activity Distribution of the Users',
+		  chartArea: {left: 0, width: 400, height: 300},
+		  width:350,
+		  pieSliceText:"none"
+        };
+		
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechartActive'));
+
+        chart.draw(data, options);
+      }
+    </script>
+	
+	
 </head>
 <body>
+
+
     <div class="p-5 bg-primary text-white text-center">
         <h1>Get Tips for Living Healthier</h1>
     </div>
-	<div class="accordion" id="accordion0">
+	<div class="accordion bg-light" id="accordion0">
 	  <div class="accordion-item">
 		<h2 class="accordion-header" id="heading0">
 		  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse0" aria-expanded="true" aria-controls="collapse0">
@@ -40,6 +150,85 @@
 		</div>
 	  </div>
 	</div>
+	
+	
+	
+	<div class="row g-0 bg-light">
+		<div class="col-xxl-3">
+			<div class="accordion" id="accordionsta1">
+			  <div class="accordion-item">
+				<h2 class="accordion-header" id="headingsta1">
+				  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsesta1" aria-expanded="true" aria-controls="collapsesta1">
+					<strong class="text-secondary">Age Distribution</strong>
+				  </button>
+				</h2>
+				<div id="collapsesta1" class="accordion-collapse collapse" aria-labelledby="headingsta1" data-bs-parent="#accordionsta1">
+				  <div class="accordion-body">
+					<div id="chart_div"></div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		</div>
+		
+		
+		<div class="col-xxl-3">
+			<div class="accordion" id="accordionsta2">
+			  <div class="accordion-item">
+				<h2 class="accordion-header" id="headingsta2">
+				  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsesta2" aria-expanded="true" aria-controls="collapsesta2">
+					<strong class="text-secondary">Sex Distribution</strong>
+				  </button>
+				</h2>
+				<div id="collapsesta2" class="accordion-collapse collapse" aria-labelledby="headingsta2" data-bs-parent="#accordionsta2">
+				  <div class="accordion-body">
+					<div id="piechartSex"></div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		</div>
+		
+		
+		<div class="col-xxl-3">
+			<div class="accordion" id="accordionsta3">
+			  <div class="accordion-item">
+				<h2 class="accordion-header" id="headingsta3">
+				  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsesta3" aria-expanded="true" aria-controls="collapsesta3">
+					<strong class="text-secondary">Tobacco Use Distribution</strong>
+				  </button>
+				</h2>
+				<div id="collapsesta3" class="accordion-collapse collapse" aria-labelledby="headingsta3" data-bs-parent="#accordionsta3">
+				  <div class="accordion-body">
+					<div id="piechartTobacco"></div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		</div>
+		
+		
+		<div class="col-xxl-3">
+			<div class="accordion" id="accordionsta4">
+			  <div class="accordion-item">
+				<h2 class="accordion-header" id="headingsta4">
+				  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsesta4" aria-expanded="true" aria-controls="collapsesta4">
+					<strong class="text-secondary">Sexual Activity Distribution</strong>
+				  </button>
+				</h2>
+				<div id="collapsesta4" class="accordion-collapse collapse" aria-labelledby="headingsta4" data-bs-parent="#accordionsta4">
+				  <div class="accordion-body">
+					<div id="piechartActive"></div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	
 	<div class="p-5 bg-light text-center">
 		<h3>Tell us about yourself</h3>
         <form id="form" class="form-group" method="POST" action="{%url 'home' %}#tips">
