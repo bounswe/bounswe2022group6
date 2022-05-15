@@ -43,7 +43,7 @@ class api(APIView):
             
         return JsonResponse({"advice_list":advice_list}, status=status.HTTP_200_OK)
         
-class home(APIView):
+class advice_home(APIView):
 
     renderer_classes = [TemplateHTMLRenderer]
     template_name = 'adviceHome.html'

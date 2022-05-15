@@ -231,7 +231,7 @@
 	
 	<div class="p-5 bg-light text-center">
 		<h3>Tell us about yourself</h3>
-        <form id="form" class="form-group" method="POST" action="{%url 'home' %}#tips">
+        <form id="form" class="form-group" method="POST" action="{%url 'advice_home' %}#tips">
 			{%csrf_token%}
 			<label>Your age</label><br>
 			<input type="number" name="age" placeholder="Age" min="0" max="120" required>
