@@ -38,15 +38,15 @@
     <form id="postform" class="form-group" method="GET" action="{%url 'getPost' %}" >
         {% csrf_token %}
   <label for="id">Post ID:</label><br>
-  <input type="text" id="id" name="id" required><br>
+  <input type="text" id="id" name="id" placeholder="ID" required><br>
  <button type="submit" style="margin-top: 10px;"  class="btn btn-success">Get Post Info</button>
 </form>
     <form id="post" class="form-group" method="POST" action="{%url 'createPost' %}" >
         {% csrf_token %}
   <label for="id">Create New Post:</label><br>
-        <input type="text"style="margin-top: 1px;" placeholder="title" id="title" name="title" required><br>
-        <input type="text"style="margin-top: 1px;"  placeholder="description" id="description" name="description" required><br>
-        <input type="text"style="margin-top: 1px;"  placeholder="post type label" id="post_type_label" name="post_type_label" required><br>
+        <input type="text"style="margin-top: 1px;" placeholder="Title" id="title" name="title" required><br>
+        <input type="text"style="margin-top: 1px;"  placeholder="Description" id="description" name="description" required><br>
+        <input type="text"style="margin-top: 1px;"  placeholder="Post Type Label" id="post_type_label" name="post_type_label" required><br>
 
  <button type="submit" style="margin-top: 10px;"  class="btn btn-success"> Create Post </button>
 </form>
