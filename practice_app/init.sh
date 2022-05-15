@@ -1,6 +1,6 @@
 # Init database, create ramdisk for faster deployment
 mkdir database
-sudo mount -t tmpfs -o size=10m tmpfs database 
+sudo mount -t tmpfs -o size=10m tmpfs database
 python3 manage.py makemigrations
 python3 manage.py migrate --run-syncdb
 
