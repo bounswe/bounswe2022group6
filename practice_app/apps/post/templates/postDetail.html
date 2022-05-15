@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  	<title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        table, th, td {
+            border: 1px solid;
+        }
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+        }
+        form {
+            margin: 0 auto;
+            width:250px;
+        }
+    </style>
+</head>
+<style>
+
+table {
+
+  font-family: arial, sans-serif;
+
+  border-collapse: collapse;
+
+  width: 100%;
+
+
+}
+
+
+td, th {
+
+  border: 1px solid #dddddd;
+
+  text-align: left;
+
+  padding: 8px;
+
+
+}
+
+
+
+
+</style>
+<body>
+    <div class="wrapper">
+        <div style="background-color:plum; !important" class="jumbotron text-center bg-primary">
+            <h2> Details of post #{{id}}</h2>
+    </div>
+
+
+    <div class="container">
+
+
+        <table class="center">
+
+            <tr>
+
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Post Type Label</th>
+                <th>Date</th>
+
+
+            </tr>
+            {% for row in results %}
+            <tr>
+                {% for value in row %}
+                <td>
+                    {{value}}
+                </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <a href="indexHome"> <p style="text-align:center;margin-top: 300px">Go to Previous Page</p></a>
+</body>
+</html>

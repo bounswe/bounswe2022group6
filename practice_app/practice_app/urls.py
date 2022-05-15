@@ -21,4 +21,5 @@ urlpatterns = [
     path('advice/', include('apps.advice.urls')),
     path('article/', include('apps.article.urls')),
     path('user/', include('apps.user.urls')),
+    path('post/', include('apps.post.urls'))
 ]
