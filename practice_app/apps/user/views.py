@@ -8,6 +8,7 @@ import json
 from .serializers import UserSerializer
 from .models import User
 from .forms import UserForm
+import requests
 
 @api_view(['GET'])
 def apiOverview(request):
@@ -52,7 +53,8 @@ def listAll(request):
         username = row["username"]
         password = row["password"]
         mail= row["mail"]
-        users.append((id, username, password, mail))
+        horoscope = row["horoscope"]
+        users.append((id, username, password, mail,horoscope))
 
     return render(request,'user-list.html',{"results": users})
 
@@ -66,15 +68,26 @@ def listOneWorker(request):
         user = User.objects.get(username=username)
         serializer = UserSerializer(user, many=False)
         data = serializer.data
-
+    
         users=[]
         id = data["id"]
         username = data["username"]
         password = data["password"]
         mail= data["mail"]
+        horoscope = data["horoscope"]
 
-        users.append((id, username, password, mail))
-        return render(request,'user-detail.html',{"results": users})
+        params = (
+        ('sign', horoscope),
+        ('day', 'today'),
+        )
+        
+        daily = requests.post('https://aztro.sameerkumar.website/', params=params)
+        resp = daily.json()
+
+        desc = resp["description"] 
+
+        users.append((id, username, password, mail,horoscope))   
+        return render(request,'user-detail.html',{"results": users, "daily":desc})
 
     except:
         isFailed=request.GET.get("fail",True)
