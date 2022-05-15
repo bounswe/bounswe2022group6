@@ -1,3 +1,4 @@
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,22 +6,6 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-	
-	<style type="text/css">
-		table, th, td {
-            border: 1px solid;
-        }
-        .center {
-            margin-left: auto;
-            margin-right: auto;
-            justify-content: center;
-        }
-        form { 
-            margin: 0 auto; 
-            width:250px;
-        }
-
-	</style>
 </head>
 <body>
 	<div class="wrapper">
@@ -41,28 +26,19 @@
 		{% if action_fail %}
             <div class="alert alert-danger" role="alert">
                 <h4 class="alert-heading">Failed</h4>
-                <p>This username already taken.</p>
+                <p>Username or e-mail address is not valid.</p>
             </div>
         {% endif %}
 		<div class="container-fluid">
 			<div class="center">
-				<form id="postform" class="form-group" method="POST" action="{%url 'user-create-worker' %}">
-						{% csrf_token %}
-						<br>
-						<label>Add New User:</label>
-						<br>
-						<input type="text" name="username" placeholder="Username" required>
-						<br>
-						<input type="text" name="password" placeholder="Password" required>
-						<br>
-						<input type="text" name="mail" placeholder="E-mail" required>
-						<br>
-						<input type="submit" name="submit" value="Add">
-						<br>
-				</form>
+				<form class="form-group" method="POST" novalidate action="{% url 'user-create-worker' %}">
+					{{form|crispy}}
+					{% csrf_token %}
+					<button type="submit" style="margin-top: 10px;"class="btn btn-success">Add</button>	
+				</form>   
 			</div>
 		</div>
 	</div>
-	<a href="{%url 'home' %}"> <p style="text-align:center">Back to Home Page</p></a>
+	<a href="{%url 'user-home' %}"> <p style="text-align:center">Back to Home Page</p></a>
 </body>
 </html>
