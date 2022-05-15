@@ -39,25 +39,11 @@ class TestViews(TestCase):
         self.assertEquals(response.status_code,200)
         self.assertTemplateUsed(response ,'index.html')
 
-    def test_list_GET(self):
-        response = self.client.get(reverse('list'))
-
-        self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response,'list.html')
-
     def test_search_GET(self):
         response = self.client.get(reverse('search'))
 
         self.assertEquals(response.status_code,200)
         self.assertTemplateUsed(response ,'index.html')
-
-    def test_search_POST(self):
-        response = self.client.post(reverse('search'), {
-            'subject': 'testSubject',
-            'numberOfArticles': '5'
-        })
-        self.assertEquals(response.status_code,200)
-        self.assertTemplateUsed(response,'search.html')
 
     def test_deleteHistory_POST(self):
         response = self.client.post(reverse('deleteHistory'))
@@ -116,5 +102,4 @@ class TestModels(TestCase):
             Article_authors = "author1",
             Article_link = "link1",
         )
-        print(article1)
         self.assertEquals(article1.__str__(),"title1")
