@@ -8,6 +8,7 @@ import requests
 import json
 from rest_framework import status
 from django.utils.decorators import method_decorator
+from .models import AdviceUser
 
 class api(APIView):
 
@@ -30,6 +31,9 @@ class api(APIView):
         user_sex=request.POST["sex"]
         user_tobaccoUse=request.POST["tobaccoUse"]
         user_sexuallyActive=request.POST["sexuallyActive"]
+        
+        ad_user=AdviceUser.objects.create(age=user_age, sex=user_sex, tobaccoUse=user_tobaccoUse, sexuallyActive=user_sexuallyActive)
+        ad_user.save()
         
         r = requests.get(f"https://health.gov/myhealthfinder/api/v3/myhealthfinder.json?lang=en&age={user_age}&sex={user_sex}&tobaccoUse={user_tobaccoUse}&sexuallyActive={user_sexuallyActive}&category=some").json()
         
