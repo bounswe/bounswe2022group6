@@ -14,7 +14,7 @@ import json
 
 
 def index(req):
-    return render(req, "index.html")
+    return render(req, "postindex.html")
 
 
 
@@ -25,7 +25,7 @@ def getPost(request):
     try:
         post = Post.objects.get(pk=post_id)
     except:
-        return render(request, "error.html")
+        return render(request, "posterror.html")
 
     serializer = PostSerializer(post)
     data = serializer.data
@@ -49,7 +49,7 @@ def createPost(request):
     if serializer.is_valid():
         serializer.save()
 
-    return render(request, "index.html", {"success":True })
+    return render(request, "postindex.html", {"success":True })
 
 
 
