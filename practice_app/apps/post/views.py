@@ -10,11 +10,20 @@ from rest_framework.response import Response
 from rest_framework import status
 import requests
 import json
+import urllib.request as request
 
 
 
 def index(req):
-    return render(req, "postindex.html")
+
+    f = request.urlopen('https://api.openweathermap.org/data/2.5/weather?lat=41.0096334&lon=28.9651646&appid=bd91d7972aabcee560cb9eda43e28070')
+    json_string = f.read()
+    parsed_json = json.loads(json_string)
+    x = json.dumps(parsed_json['main']['temp'], indent = 4)
+    f.close()
+    x = (float(x)-273.15)
+    weather= format(x, ".2f")
+    return render(req, "postindex.html",{"weather": weather})
 
 
 
