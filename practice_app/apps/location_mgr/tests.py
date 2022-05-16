@@ -2,19 +2,22 @@ from django.test import TestCase
 from .models import *
 import json
 
+def insert_default_loc():
+    country = Countries.objects.create(country="Turkey")
+    state = States.objects.create(country=country, state="Istanbul")
+    city = Cities.objects.create(state=state, city="Yakuplu")
+    UserLocation.objects.create(username="user0", country=country, state=state, city=city)
+    city = Cities.objects.create(state=state, city="Umraniye")
+    UserLocation.objects.create(username="user1", country=country, state=state, city=city)
+    state = States.objects.create(country=country, state="Ankara")
+    city = Cities.objects.create(state=state, city="Kazan")
+    UserLocation.objects.create(username="user2", country=country, state=state, city=city)
+
 # This class will test location and info API's
-class TestLocationMgr(TestCase):
+class TestViews(TestCase):
     @classmethod
     def setUpTestData(self):
-        country = Countries.objects.create(country="Turkey")
-        state = States.objects.create(country=country, state="Istanbul")
-        city = Cities.objects.create(state=state, city="Yakuplu")
-        UserLocation.objects.create(username="user0", country=country, state=state, city=city)
-        city = Cities.objects.create(state=state, city="Umraniye")
-        UserLocation.objects.create(username="user1", country=country, state=state, city=city)
-        state = States.objects.create(country=country, state="Ankara")
-        city = Cities.objects.create(state=state, city="Kazan")
-        UserLocation.objects.create(username="user2", country=country, state=state, city=city)
+        insert_default_loc()
 
     def test_location_get(self):
         print("Checking location API get method")
@@ -66,3 +69,23 @@ class TestLocationMgr(TestCase):
         self.assertEqual(data, {'near': []})
         data = json.loads(self.client.post('/location_mgr/info', {"action":"near", "country": "Turkey", "state": "sdf"}).content)
         self.assertEqual(data, {'near': []})
+
+    def test_index_post(self):
+        print("Checking index post method")
+        response = self.client.post('/location_mgr/', {"action":"near", "country": "Turkey"})
+        self.assertEquals(response.status_code,200)
+        self.assertTemplateUsed(response ,'index.html')
+        self.assertContains(response, "user0")
+        self.assertContains(response, "user1")
+        
+        response = self.client.post('/location_mgr/', {"action":"add", "username": "user1", "country": "Turkey", "state": "sdf"})
+        self.assertEquals(response.status_code,200)
+        self.assertTemplateUsed(response ,'index.html')
+        self.assertContains(response, "Operation completed successfully!")
+
+    def test_index_get(self):
+        print("Checking index get method")
+        response = self.client.get('/location_mgr/')
+        self.assertEquals(response.status_code,200)
+        self.assertTemplateUsed(response ,'index.html')
+        
