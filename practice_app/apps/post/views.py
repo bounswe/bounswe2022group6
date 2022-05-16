@@ -14,7 +14,7 @@ import urllib.request as request
 
 
 
-def index(req):
+def postindex(req):
 
     f = request.urlopen('https://api.openweathermap.org/data/2.5/weather?lat=41.0096334&lon=28.9651646&appid=bd91d7972aabcee560cb9eda43e28070')
     json_string = f.read()
@@ -31,6 +31,7 @@ def index(req):
 @api_view(['GET', 'POST'])
 def getPost(request):
     post_id = request.GET["id"]
+    
     try:
         post = Post.objects.get(pk=post_id)
     except:
