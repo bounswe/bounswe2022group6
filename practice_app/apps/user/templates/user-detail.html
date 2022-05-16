@@ -82,10 +82,12 @@
                     </form>
                 </div>	
             </div>
+            {% if daily %}
             <div class="alert alert-info" role="alert">
                 <h4 class="alert-heading">Daily Horoscope</h4>
                 <p>{{daily}}</p>
             </div>
+            {% endif %}
         </div>
 	</div>
     <a href="{%url 'user-home' %}"> <p style="text-align:center">Back to Home Page</p></a>

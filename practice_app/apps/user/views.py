@@ -10,40 +10,11 @@ from .models import User
 from .forms import UserForm
 import requests
 
-@api_view(['GET'])
-def apiOverview(request):
-    api_urls = {
-        'List':'/user-list/',
-        'Detail':'/user-detail/',
-        'Post':'/user-create/',
-    }
-    return Response(api_urls)
-
-@api_view(['GET'])
-def userList(request):
-    users = User.objects.all()
-    serializer = UserSerializer(users, many=True)
-    return Response(serializer.data)
-
-@api_view(['GET'])
-def userDetail(request, pk):
-    user = User.objects.get(id=pk)
-    serializer = UserSerializer(user, many=False)
-    return Response(serializer.data)
-
-@api_view(['POST'])
-def userCreate(request):
-    serializer = UserSerializer(data=request.data)
-
-    if serializer.is_valid():
-        serializer.save()
-
-    return Response(serializer.data)
-
 def index(request):
     return render(request, 'user-home.html')
 
-def listAll(request):
+@api_view(['GET'])
+def userList(request):
     users = User.objects.all()
     serializer = UserSerializer(users, many=True)
     data = serializer.data
@@ -58,10 +29,11 @@ def listAll(request):
 
     return render(request,'user-list.html',{"results": users})
 
-def listOne(request):
+def userDetail(request):
     return render(request,'user-detail.html')
 
-def listOneWorker(request):
+@api_view(['GET','POST'])
+def userDetailWorker(request):
     username=request.POST["username"]
 
     try:
@@ -93,16 +65,14 @@ def listOneWorker(request):
         isFailed=request.GET.get("fail",True)
         return render(request,'user-detail.html',{"action_fail": isFailed})
 
-
-
-def addNew(request):
+def userCreate(request):
     form = UserForm()
     isFailed=request.GET.get("fail",False)
     isSuccessful=request.GET.get("success",False)
     return render(request,'user-create.html',{"action_success": isSuccessful, "action_fail": isFailed,"form":form})
 
 @api_view(['POST'])
-def addNewWorker(request):
+def userCreateWorker(request):
     form = UserForm()
     serializer = UserSerializer(data = request.data)
 
