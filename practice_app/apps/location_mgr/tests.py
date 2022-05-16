@@ -31,18 +31,25 @@ class TestViews(TestCase):
     def test_location_post(self):
         print("Checking location API post method")
         message = json.loads(self.client.post('/location_mgr/location', { "username": "user10",
-        "country": "Turkey", "state": "ISTANBUL", "city":"umraniye"}).content)
-        self.assertEqual(message, {'info': 'Operation completed successfully!'})
+        "country": "Turkey", "state": "ISTANBUL", "city":"umraniye", "action":"add"}).content)
+        self.assertEqual(message, {'info': 'User added/updated successfully!'})
         message = json.loads(self.client.post('/location_mgr/location', {
-            "username": "user2", "country": "Turkey", "state": "ISTANBUL"}).content)
-        self.assertEqual(message, {'info': 'Operation completed successfully!'})
+            "username": "user2", "country": "Turkey", "state": "ISTANBUL", "action":"add"}).content)
+        self.assertEqual(message, {'info': 'User added/updated successfully!'})
         message = json.loads(self.client.post('/location_mgr/location', {
-            "username": "user11"}).content)
+            "username": "user11", "action":"add"}).content)
         self.assertEqual(message, {'info': 'Operation failed!'})
         message = json.loads(self.client.post('/location_mgr/location', {
-            "username": "", "country": "Turkey", "state": "Istanbul"}).content)
+            "username": "", "country": "Turkey", "state": "Istanbul", "action":"add"}).content)
         self.assertEqual(message, {'info': 'Operation failed!'})
         self.assertEqual(UserLocation.objects.count(), 4)
+        message = json.loads(self.client.post('/location_mgr/location', { 
+            "username": "user10","action":"delete"}).content)
+        self.assertEqual(message, {'info': 'User deleted successfully!'})
+        message = json.loads(self.client.post('/location_mgr/location', { 
+            "username": "user11","action":"delete"}).content)
+        self.assertEqual(message, {'info': 'Operation failed!'})
+        self.assertEqual(UserLocation.objects.count(), 3)
 
     def test_info_get(self):
         print("Checking info API get method")
@@ -81,7 +88,7 @@ class TestViews(TestCase):
         response = self.client.post('/location_mgr/', {"action":"add", "username": "user1", "country": "Turkey", "state": "sdf"})
         self.assertEquals(response.status_code,200)
         self.assertTemplateUsed(response ,'index.html')
-        self.assertContains(response, "Operation completed successfully!")
+        self.assertContains(response, "User added/updated successfully!")
 
     def test_index_get(self):
         print("Checking index get method")

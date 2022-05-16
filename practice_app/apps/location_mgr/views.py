@@ -33,23 +33,30 @@ class Location(APIView):
     # Insert new user location information and return success message.
     def post(self, req):
         username = req.POST.get("username", "").lower().strip()
-        country_text = req.POST.get("country", "").title().strip()
-        state_text = req.POST.get("state", "").title().strip()
-        city_text = req.POST.get("city", "").title().strip()
-        if state_text=='-': state_text=''
-        if city_text=='-': city_text=''
-        # If user did not entered an appropriate country name, abort.
-        if country_text == "" or username == "":
-            return JsonResponse({"info": "Operation failed!"})
-        country = Countries.objects.filter(country=country_text).first()
-        if country == None:
-            return JsonResponse({"info": "Operation failed!"})
-        state = States.objects.filter(state=state_text, country=country).first()
-        city = Cities.objects.filter(city=city_text, state=state).first()
-        user = UserLocation(username=username, country=country, state=state, city=city)
-        user.save()
-        data = UserLocation.objects.filter(username= username).first()
-        return JsonResponse({"info": "Operation completed successfully!"})
+        action = req.POST.get("action", None)
+        if action=="add":
+            country_text = req.POST.get("country", "").title().strip()
+            state_text = req.POST.get("state", "").title().strip()
+            city_text = req.POST.get("city", "").title().strip()
+            if state_text=='-': state_text=''
+            if city_text=='-': city_text=''
+            # If user did not entered an appropriate country name, abort.
+            if country_text != "" and username != "":
+                country = Countries.objects.filter(country=country_text).first()
+                if country != None:
+                    state = States.objects.filter(state=state_text, country=country).first()
+                    city = Cities.objects.filter(city=city_text, state=state).first()
+                    user = UserLocation(username=username, country=country, state=state, city=city)
+                    user.save()
+                    data = UserLocation.objects.filter(username= username).first()
+                    return JsonResponse({"info": "User added/updated successfully!"})
+        elif action=="delete":
+            user = UserLocation.objects.filter(username=username).first()
+            if user!=None:
+                user.delete()
+                return JsonResponse({"info": "User deleted successfully!"})
+
+        return JsonResponse({"info": "Operation failed!"})
 
 # Api to get country list, get user location and users near location.
 class Info(APIView):
@@ -118,7 +125,7 @@ class Index(APIView):
     def post(self, req):
         action = req.POST["action"]
         data = ""
-        if action == "add":
+        if action == "add" or action=="delete":
             data = Location.as_view()(request=req._request).content
         else:
             data = Info.as_view()(request=req._request).content

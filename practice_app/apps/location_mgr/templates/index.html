@@ -50,7 +50,7 @@
     <form id="index" class="form-group" method="POST" action="{% url 'index' %}">
         {%csrf_token%}
         <br>
-        <label>Add User Location: </label>
+        <label>Add/Update User Location: </label>
         <input type="hidden" name="action" value="add" size ="40" />
         <br>
         <label for="username">Username: </label>
@@ -69,6 +69,18 @@
         </select>
         <br>
         <input type="submit" name="submit" value="Add">
+        <br>
+    </form>
+    <form id="index" class="form-group" method="POST" action="{% url 'index' %}">
+        {%csrf_token%}
+        <br>
+        <label>Delete User Location: </label>
+        <input type="hidden" name="action" value="delete" size ="40" />
+        <br>
+        <label for="username">Username: </label>
+        <input type="text" name="username" placeholder="username" required>
+        <br>
+        <input type="submit" name="submit" value="Delete">
         <br>
     </form>
     <form id="index" class="form-group" method="POST" action="{% url 'index' %}">
