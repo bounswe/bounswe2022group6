@@ -25,6 +25,6 @@ def insert(request):
         return render(request, 'comment/insert.html', context={'users': User.objects.all()})
     else:
         author = User.objects.get(username=request.POST['author'])
-        new_comment = Comment(text = request.POST['text'], author=author, pub_date=request.POST['pub_date'], upvotes=request.POST['upvotes'], downvotes=request.POST['downvotes'], parentID=request.POST['parentID'], isMarkedNSFW=(True if request.POST['nsfw'] else False))
+        new_comment = Comment(text = request.POST['text'], author=author, pub_date=request.POST['pub_date'], upvotes=request.POST['upvotes'], downvotes=request.POST['downvotes'], parentID=request.POST['parentID'], isMarkedNSFW=(True if request.POST['nsfw']=='Yes' else False))
         new_comment.save()
         return HttpResponseRedirect(reverse('comment:index'))
