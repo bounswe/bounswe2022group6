@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<head>
+    <title>Comment #{{ comment.id }}</title>
+    <meta name="author" content="Aral Dörtoğul">
+    <meta name="description" content="Details for comment #{{ comment.id }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<style type="text/css">
+    body {
+        background: #FFFFF0;
+        text-align: center;
+        font-family: verdana;
+    }
+    .button {
+        display: inline-block;
+        height: 25px;
+        background: green;
+        padding: 1em;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        line-height: 25px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    h1, p {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1.5em;
+        margin-bottom: 1.5em;
+    }
+    #nsfw {
+
+        color: #B03A2E;
+        border-radius: 5px;
+        background: #F5B7B1;
+        padding: 1em;
+        max-width: 50vw;
+    }
+    main {
+        border: 1px solid;
+        border-radius: 5px;
+        display: inline-block;
+        padding: 2em;
+        max-width: 80vw;
+    }
+</style>
+
+<body>
+    <h1>Details of Comment #{{ comment.id }}</h1>
+    {% if comment.isMarkedNSFW %}
+        <p id="nsfw">!! Trigger Warning: NSFW Content !!</p>
+    {% endif %}
+    <main>
+    <p><strong>Text:</strong><br>
+        {{ comment.text }}</p>
+    <p><strong>Last edited on:</strong><br>
+        {{ comment.pub_date }}</p>
+    <p><strong>Author:</strong><br>
+        {{ comment.author }}</p>
+    <p><strong>Parent ID:</strong><br>
+        {{ comment.parentID }}</p>
+    <p><strong>Upvotes:</strong><br>
+        {{ comment.upvotes }}<br>
+    <strong>Downvotes:</strong><br>
+    {{ comment.downvotes}}</p>
+    </main>
+    <p><a class="button" href="{% url 'comment:index' %}">Go back to comments list!</a></p>
+</body>
