@@ -54,13 +54,18 @@ def getPost(request):
 
 @api_view(['POST'])
 def createPost(request):
+    isvalid = False
+    notvalid =False
     
     serializer = PostSerializer(data = request.data)
 
     if serializer.is_valid():
         serializer.save()
+        isvalid = True
+    else:
+        notvalid = True
 
-    return render(request, "postindex.html", {"success":True })
+    return render(request, "postindex.html", {"success":isvalid, "fail": notvalid })
 
 
 
