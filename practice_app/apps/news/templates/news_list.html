@@ -1,0 +1,39 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+    <title>Found News</title>
+    
+</head>
+<body>
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <h1 class="title">
+                Here are the News!
+            </h1>
+            <a href="home"> <p style="text-align:right;margin-top: 50px">Go Back to Home Page</p></a>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container" style="text-align: center;">
+            <div class="rows">
+                <div class="column is-offset-16 is-10">
+                    {% for title, description, image, url in list_of_news %}
+                    <div class="box" style="border: 10px solid #00d1b2; background-color: #e0f3f0;">
+                        <article class="media">
+                            <div class="media-content" style="overflow: hidden;">
+                                <div class="content">
+                                    <p>
+                                        <span class="title" style="font-family:'Courier'">{{ title }}</span>
+                                        <br><br>
+                                        <a href="{{ url }}"><img src="{{ image }}" ></a><br><br>
+                                        <span class="subtitle">{{ description }}</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
