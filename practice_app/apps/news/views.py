@@ -65,6 +65,8 @@ def news_with_query(req):
                 urls.append(article["url"])
 
         list_of_news = zip(titles, descriptions, images, url)
+        if len(titles) == 0:
+            list_of_news = zip(["There is no current news with these parameters"], ["Please go back to the home page using the top right option."], " ", " ")
         return render(req, 'news_list.html', {'list_of_news': list_of_news})
     else:
         return JsonResponse({"Message": str(news_response.content)}, status=news_response.status_code)

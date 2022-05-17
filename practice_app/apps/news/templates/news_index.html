@@ -81,65 +81,68 @@
 
                         {% csrf_token %}
 
-                        <label style="font-size:20px;"> Country <br><input list="countries" style="font-size:15px;" name="country" placeholder="Choose country" />
+                        <label style="font-size:20px;"> Country </label><br>
                         
-                        </label><br><br>
-                        <datalist id="countries">
-                            <option value="Argentina">
-                                <option value="Australia">
-                                <option value="Austria">
-                                <option value="Belgium">
-                                <option value="Brazil">
-                                <option value="Bulgaria">
-                                <option value="Canada">
-                                <option value="China">
-                                <option value="Colombia">
-                                <option value="Cuba">
-                                <option value="Czech Republic">
-                                <option value="Egypt">
-                                <option value="France">
-                                <option value="Germany">
-                                <option value="Greece">
-                                <option value="Hong Kong">
-                                <option value="Hungary">
-                                <option value="India">
-                                <option value="Indonesia">
-                                <option value="Ireland">
-                                <option value="Israel">
-                                <option value="Italy">
-                                <option value="Japan">
-                                <option value="Latvia">
-                                <option value="Lithuania">
-                                <option value="Malaysia">
-                                <option value="Mexico">
-                                <option value="Morocco">
-                                <option value="Netherlands">
-                                <option value="New Zealand">
-                                <option value="Nigeria">
-                                <option value="Norway">
-                                <option value="Philippines">
-                                <option value="Poland">
-                                <option value="Portugal">
-                                <option value="Romania">
-                                <option value="Russia">
-                                <option value="Saudi Arabia">
-                                <option value="Serbia">
-                                <option value="Singapore">
-                                <option value="Slovakia">
-                                <option value="Slovenia">
-                                <option value="South Africa">
-                                <option value="South Korea">
-                                <option value="Sweden">
-                                <option value="Switzerland">
-                                <option value="Taiwan">
-                                <option value="Thailand">
-                                <option value="Turkey">
-                                <option value="UAE">
-                                <option value="Ukraine">
-                                <option value="United Kingdom">
-                                <option value="United States">
-                                <option value="Venuzuela">
-                        </datalist>
+                        <select style="font-size:15px;" name="country" placeholder="Choose country">
+                            <option value=""> Select a Country </option>
+                            <option value="Argentina"> Argentina </option>
+                            <option value="Australia"> Australia </option>
+                            <option value="Austria"> Austria </option>
+                            <option value="Belgium"> Belgium </option>
+                            <option value="Brazil"> Brazil </option>
+                            <option value="Bulgaria"> Bulgaria </option>
+                            <option value="Canada"> Canada </option>
+                            <option value="China"> China </option>
+                            <option value="Colombia"> Colombia </option>
+                            <option value="Cuba"> Cuba </option>
+                            <option value="Czech Republic"> Czech Republic </option>
+                            <option value="Egypt"> Egypt </option>
+                            <option value="France"> France </option>
+                            <option value="Germany"> Germany </option>
+                            <option value="Greece"> Greece </option>
+                            <option value="Hong Kong"> Hong Kong </option>
+                            <option value="Hungary"> Hungary </option>
+                            <option value="India"> India </option>
+                            <option value="Indonesia"> Indonesia </option>
+                            <option value="Ireland"> Ireland </option>
+                            <option value="Israel"> Israel </option>
+                            <option value="Italy"> Italy </option>
+                            <option value="Japan"> Japan </option>
+                            <option value="Latvia"> Latvia </option>
+                            <option value="Lithuania"> Lithuania </option>
+                            <option value="Malaysia"> Malaysia </option>
+                            <option value="Mexico"> Mexico </option>
+                            <option value="Morocco"> Morocco </option>
+                            <option value="Netherlands"> Netherlands </option>
+                            <option value="New Zealand"> New Zealand </option>
+                            <option value="Nigeria"> Nigeria </option>
+                            <option value="Norway"> Norway </option>
+                            <option value="Philippines"> Philippines </option>
+                            <option value="Poland"> Poland</option>
+                            <option value="Portugal"> Portugal </option>
+                            <option value="Romania"> Romania </option>
+                            <option value="Russia"> Russia </option>
+                            <option value="Saudi Arabia"> Saudi Arabia </option>
+                            <option value="Serbia"> Serbia </option>
+                            <option value="Singapore"> Singapore </option>
+                            <option value="Slovakia"> Slovakia </option>
+                            <option value="Slovenia"> Slovenia </option>
+                            <option value="South Africa"> South Africa </option>
+                            <option value="South Korea"> South Korea </option>
+                            <option value="Sweden"> Sweden </option>
+                            <option value="Switzerland"> Switzerland </option>
+                            <option value="Taiwan"> Taiwan </option>
+                            <option value="Thailand"> Thailand </option>
+                            <option value="Turkey"> Turkey </option>
+                            <option value="UAE"> United Arab Emirates </option>
+                            <option value="Ukraine"> Ukraine </option>
+                            <option value="United Kingdom"> United Kingdom </option>
+                            <option value="United States"> United States </option>
+                            <option value="Venuzuela"> Venuzuela </option>
+
+                        </select>
+                        
+                        <br><br>
                         
                         <label style="font-size:20px;"> Keyword </label><br>
                         <input type="text" name="keyword" style="font-size:15px;" placeholder="Enter Keyword"><br><br>
