@@ -160,7 +160,11 @@
 						</h2>
 						<div id="collapsesta1" class="accordion-collapse collapse" aria-labelledby="headingsta1" data-bs-parent="#accordionsta1">
 							<div class="accordion-body">
-								<div id="chart_div"></div>
+								{% if statistics.all_user_ages|length == 0 %}
+									<h2 class="text-secondary text-center">You are the first user<br>No data to display</h2>
+								{% else %}
+									<div id="chart_div"></div>
+								{% endif %}
 							</div>
 						</div>
 					</div>
@@ -177,7 +181,11 @@
 						</h2>
 						<div id="collapsesta2" class="accordion-collapse collapse" aria-labelledby="headingsta2" data-bs-parent="#accordionsta2">
 							<div class="accordion-body">
-								<div id="piechartSex"></div>
+								{% if statistics.all_user_ages|length == 0 %}
+									<h2 class="text-secondary text-center">You are the first user<br>No data to display</h2>
+								{% else %}
+									<div id="piechartSex"></div>
+								{% endif %}
 							</div>
 						</div>
 					</div>
@@ -194,7 +202,11 @@
 						</h2>
 						<div id="collapsesta3" class="accordion-collapse collapse" aria-labelledby="headingsta3" data-bs-parent="#accordionsta3">
 							<div class="accordion-body">
-								<div id="piechartTobacco"></div>
+								{% if statistics.all_user_ages|length == 0 %}
+									<h2 class="text-secondary text-center">You are the first user<br>No data to display</h2>
+								{% else %}
+									<div id="piechartTobacco"></div>
+								{% endif %}
 							</div>
 						</div>
 					</div>
@@ -211,7 +223,11 @@
 						</h2>
 						<div id="collapsesta4" class="accordion-collapse collapse" aria-labelledby="headingsta4" data-bs-parent="#accordionsta4">
 							<div class="accordion-body">
-								<div id="piechartActive"></div>
+								{% if statistics.all_user_ages|length == 0 %}
+									<h2 class="text-secondary text-center">You are the first user<br>No data to display</h2>
+								{% else %}
+									<div id="piechartActive"></div>
+								{% endif %}
 							</div>
 						</div>
 					</div>
