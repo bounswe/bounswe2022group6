@@ -2,12 +2,9 @@ from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from django.http import JsonResponse
-from django.http import HttpResponseRedirect
+from rest_framework import status
 import requests
 import json
-from rest_framework import status
-from django.utils.decorators import method_decorator
 from .models import AdviceUser
 
 # This class is for the operations of the advice app.
@@ -24,7 +21,7 @@ class api(APIView):
         try:
             r = requests.get("https://health.gov/myhealthfinder/api/v3/itemlist.json?type=category").json()
         except Exception as e:
-            return JsonResponse({"error": "There was an error with the response of the MyHealthFinder API."}, status=status.HTTP_502_BAD_GATEWAY)
+            return Response({"error": "There was an error with the response of the MyHealthFinder API."}, status=status.HTTP_502_BAD_GATEWAY)
         
         advice_categories=set()
         
@@ -48,7 +45,7 @@ class api(APIView):
         for usage in all_users:
             all_ages.append([usage["age"]])
 
-        return JsonResponse({"advice_categories":advice_categories,
+        return Response({"advice_categories":advice_categories,
                              "statistics":{"male_count":male_count,
                                            "female_count":female_count,
                                            "smoker_count":smoker_count,
@@ -69,7 +66,7 @@ class api(APIView):
             user_tobaccoUse=request.POST["tobaccoUse"]
             user_sexuallyActive=request.POST["sexuallyActive"]
         except Exception as e:
-            return JsonResponse({"error": "Missing parameter(s)."}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"error": "Missing parameter(s)."}, status=status.HTTP_400_BAD_REQUEST)
             
         # Check if age is an integer in the interval [0, 120]
         
@@ -79,22 +76,22 @@ class api(APIView):
             return Response({"error": "'age' parameter has to be an integer."}, status=status.HTTP_400_BAD_REQUEST)
         
         if int(user_age) not in range(0, 121):
-            return JsonResponse({"error": "'age' parameter has to be an integer between 0 and 120."}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"error": "'age' parameter has to be an integer between 0 and 120."}, status=status.HTTP_400_BAD_REQUEST)
             
         # Check if tobaccoUse is an integer which is 0 or 1
             
         if user_tobaccoUse != "0" and user_tobaccoUse != "1":
-            return JsonResponse({"error": "'tobaccoUse' parameter has to be either 0 or 1."}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"error": "'tobaccoUse' parameter has to be either 0 or 1."}, status=status.HTTP_400_BAD_REQUEST)
             
         # Check if sexuallyActive is an integer which is 0 or 1
             
         if user_sexuallyActive != "0" and user_sexuallyActive != "1":
-            return JsonResponse({"error": "'sexuallyActive' parameter has to be either 0 or 1."}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"error": "'sexuallyActive' parameter has to be either 0 or 1."}, status=status.HTTP_400_BAD_REQUEST)
             
         # Check if sex is male or female
         
         if user_sex != "male" and user_sex != "female":
-            return JsonResponse({"error": "'sex' parameter has to be either male or female."}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({"error": "'sex' parameter has to be either male or female."}, status=status.HTTP_400_BAD_REQUEST)
         
         ad_user=AdviceUser.objects.create(age=user_age, sex=user_sex, tobaccoUse=user_tobaccoUse, sexuallyActive=user_sexuallyActive)
         ad_user.save()
@@ -104,7 +101,7 @@ class api(APIView):
         try:
             r = requests.get(f"https://health.gov/myhealthfinder/api/v3/myhealthfinder.json?lang=en&age={user_age}&sex={user_sex}&tobaccoUse={user_tobaccoUse}&sexuallyActive={user_sexuallyActive}&category=some").json()
         except Exception as e:
-            return JsonResponse({"error": "There was an error with the response of the MyHealthFinder API."}, status=status.HTTP_502_BAD_GATEWAY)
+            return Response({"error": "There was an error with the response of the MyHealthFinder API."}, status=status.HTTP_502_BAD_GATEWAY)
             
         # Parse the returned JSON string and create the JSON response
         
@@ -116,7 +113,7 @@ class api(APIView):
                 advice_list.append({"index":i, "advice_title":advice["MyHFTitle"], "advice_desc":advice["MyHFDescription"].lstrip("<p>").rstrip(" (USPSTF)</p>\r\n").replace("\u2014&nbsp", "")})
                 i += 1
             
-        return JsonResponse({"advice_list":advice_list}, status=status.HTTP_200_OK)
+        return Response({"advice_list":advice_list}, status=status.HTTP_200_OK)
         
 class advice_home(APIView):
 
@@ -132,7 +129,7 @@ class advice_home(APIView):
         r_get=requests.get(current_url+"api")
         
         if r_get.status_code == 502:
-            return JsonResponse({"error": "There was an error with the response of the MyHealthFinder API."}, status=status.HTTP_502_BAD_GATEWAY)
+            return Response({"error": "There was an error with the response of the MyHealthFinder API."}, status=status.HTTP_502_BAD_GATEWAY)
         
         # Extract the contents of the response as a JSON string
         
@@ -188,7 +185,7 @@ class advice_home(APIView):
         r_post=requests.post(current_url+"api", data={"age": user_age, "sex": user_sex, "tobaccoUse": user_tobaccoUse, "sexuallyActive": user_sexuallyActive})
         
         if r_post.status_code == 502:
-            return JsonResponse({"error": "There was an error with the response of the MyHealthFinder API."}, status=status.HTTP_502_BAD_GATEWAY)
+            return Response({"error": "There was an error with the response of the MyHealthFinder API."}, status=status.HTTP_502_BAD_GATEWAY)
         
         # Extract the contents of the response as a JSON string
         
@@ -201,7 +198,7 @@ class advice_home(APIView):
         r_get=requests.get(current_url+"api")
         
         if r_get.status_code == 502:
-            return JsonResponse({"error": "There was an error with the response of the MyHealthFinder API."}, status=status.HTTP_502_BAD_GATEWAY)
+            return Response({"error": "There was an error with the response of the MyHealthFinder API."}, status=status.HTTP_502_BAD_GATEWAY)
         
         r_get_str=r_get.content.decode("utf-8")
         
