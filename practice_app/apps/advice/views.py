@@ -14,7 +14,7 @@ from .models import AdviceUser
 
 # POST requests return a JSON containing the list of advices with an index, a title and a short description.
 
-class api(APIView):
+class advice_api(APIView):
 
     def get(self, request):
     
