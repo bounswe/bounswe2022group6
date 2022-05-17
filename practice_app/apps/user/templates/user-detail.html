@@ -25,7 +25,7 @@
 </head>
 <body>
 	<div class="wrapper">
-        <div style="background-color:#ADD8E6; !important" class="jumbotron text-center bg-primary">
+        <div style="background-color: #FF8D6E; !important" class="jumbotron text-center bg-primary">
             <h1> User Portal </h1>
             <p>
 				Welcome!
@@ -70,14 +70,14 @@
             </div>
             <div class="container">
                 <div class="center">
-                    <form id="postform" class="form-group" method="POST" action="{%url 'user-detail-worker' %}">
+                    <form id="postform" class="form-group" method="POST" action="{%url 'user:user-detail-worker' %}">
                             {% csrf_token %}
                             <br>
                             <label>Get User Detail:</label>
                             <br>
                             <input type="text" name="username" placeholder="Username" required>
                             <br>
-                            <input type="submit" name="submit" value="Get">
+                            <button type="submit" style="margin-top: 10px;"class="btn btn-success">Get</button>
                             <br>
                     </form>
                 </div>	
@@ -90,6 +90,6 @@
             {% endif %}
         </div>
 	</div>
-    <a href="{%url 'user-home' %}"> <p style="text-align:center">Back to Home Page</p></a>
+    <a href="{%url 'user:user-home' %}"> <p style="text-align:center">Back to Home Page</p></a>
 </body>
 </html>
