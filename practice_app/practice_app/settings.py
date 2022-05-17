@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'apps.article',
     'apps.post',
     'apps.user',
-    'apps.drug_side_effects'
+    'apps.drug_side_effects',
     'apps.comment',
 ]
 
