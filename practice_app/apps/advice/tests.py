@@ -64,11 +64,25 @@ class ViewTests(TestCase):
         self.assertEquals(list(json.loads(response.content).keys()), ["advice_list"])
         self.assertEquals(response.status_code, 200)
         
-    def test_api_POST_correct_all_ages(self):
-        for i in range(0,121):
-            response = self.client.post(reverse("advice_api"), {"age": str(i), "sex": "male", "tobaccoUse": "0", "sexuallyActive": "0"})
-            self.assertEquals(list(json.loads(response.content).keys()), ["advice_list"])
-            self.assertEquals(response.status_code, 200)
+    def test_api_POST_age_interval_boundary_1(self):
+        response = self.client.post(reverse("advice_api"), {"age": "0", "sex": "male", "tobaccoUse": "0", "sexuallyActive": "0"})
+        self.assertEquals(list(json.loads(response.content).keys()), ["advice_list"])
+        self.assertEquals(response.status_code, 200)
+        
+    def test_api_POST_age_interval_boundary_2(self):
+        response = self.client.post(reverse("advice_api"), {"age": "120", "sex": "male", "tobaccoUse": "0", "sexuallyActive": "0"})
+        self.assertEquals(list(json.loads(response.content).keys()), ["advice_list"])
+        self.assertEquals(response.status_code, 200)
+    
+    # This test tests for all values of age parameter
+    # It takes too long so it is commented out
+    # Please uncomment if you wish to use it
+        
+    # def test_api_POST_correct_all_ages(self):
+        # for i in range(0,121):
+            # response = self.client.post(reverse("advice_api"), {"age": str(i), "sex": "male", "tobaccoUse": "0", "sexuallyActive": "0"})
+            # self.assertEquals(list(json.loads(response.content).keys()), ["advice_list"])
+            # self.assertEquals(response.status_code, 200)
         
     # Bad inputs    
         
@@ -77,13 +91,13 @@ class ViewTests(TestCase):
         self.assertEquals(json.loads(response.content)["error"], "'age' parameter has to be an integer.")
         self.assertEquals(response.status_code, 400)
         
-    def test_api_POST_out_of_range_age_1(self):
-        response = self.client.post(reverse("advice_api"), {"age": "140", "sex": "male", "tobaccoUse": "0", "sexuallyActive": "0"})
+    def test_api_POST_age_interval_boundary_3(self):
+        response = self.client.post(reverse("advice_api"), {"age": "-1", "sex": "male", "tobaccoUse": "0", "sexuallyActive": "0"})
         self.assertEquals(json.loads(response.content)["error"], "'age' parameter has to be an integer between 0 and 120.")
         self.assertEquals(response.status_code, 400)
         
-    def test_api_POST_out_of_range_age_2(self):
-        response = self.client.post(reverse("advice_api"), {"age": "-20", "sex": "male", "tobaccoUse": "0", "sexuallyActive": "0"})
+    def test_api_POST_age_interval_boundary_4(self):
+        response = self.client.post(reverse("advice_api"), {"age": "121", "sex": "male", "tobaccoUse": "0", "sexuallyActive": "0"})
         self.assertEquals(json.loads(response.content)["error"], "'age' parameter has to be an integer between 0 and 120.")
         self.assertEquals(response.status_code, 400)
         
