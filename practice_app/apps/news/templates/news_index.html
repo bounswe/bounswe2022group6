@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>News App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+    <style>
+        .button {
+            display: inline-flex;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #00d1b2;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #2b3a38;
+            align-items: flex-end; 
+        }
+        
+        .button:hover {
+            background-color: #00af95;
+            color: #fff;
+        }
+        
+        .button:active {
+            background-color: #00aa91;
+            color: #fff;
+            box-shadow: 0 5px #46615d;
+            transform: translateY(3px);
+        }
+        .center {
+            text-align: center;
+        }
+        .float-container {
+            border: 3px solid #fff;
+            padding: 10px;
+        }
+
+        .float-child {
+            width: 50%;
+            float: left;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <h1 class="title">
+                Welcome to the News App!
+            </h1>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <h1 class="title" style="text-align:center">
+                Please choose your request type
+            </h1>
+        </div>
+        <div class="float-container">
+
+            <div class="float-child">
+                <div class="center" style="margin-top:200px; margin-left:200px;">
+                    <form id="no_query" class="form-group" method="GET" action="{%url 'newsWithoutQuery' %}">
+                        {%csrf_token%}
+                        <button class="button" type="submit">Browse without Query!</button>
+                    </form>
+                    
+                </div>
+            </div>
+
+            <div class="float-child">
+                <div class="center" style="margin-top:20px; margin-right:200px;">
+
+                    <form id="queries" class="form-group" method="POST" action="{%url 'newsWithQuery' %}">
+
+                        {% csrf_token %}
+
+                        <label style="font-size:20px;"> Country <br><input list="countries" style="font-size:15px;" name="country" placeholder="Choose country" />
+                        
+                        </label><br><br>
+                        <datalist id="countries">
+                            <option value="Argentina">
+                                <option value="Australia">
+                                <option value="Austria">
+                                <option value="Belgium">
+                                <option value="Brazil">
+                                <option value="Bulgaria">
+                                <option value="Canada">
+                                <option value="China">
+                                <option value="Colombia">
+                                <option value="Cuba">
+                                <option value="Czech Republic">
+                                <option value="Egypt">
+                                <option value="France">
+                                <option value="Germany">
+                                <option value="Greece">
+                                <option value="Hong Kong">
+                                <option value="Hungary">
+                                <option value="India">
+                                <option value="Indonesia">
+                                <option value="Ireland">
+                                <option value="Israel">
+                                <option value="Italy">
+                                <option value="Japan">
+                                <option value="Latvia">
+                                <option value="Lithuania">
+                                <option value="Malaysia">
+                                <option value="Mexico">
+                                <option value="Morocco">
+                                <option value="Netherlands">
+                                <option value="New Zealand">
+                                <option value="Nigeria">
+                                <option value="Norway">
+                                <option value="Philippines">
+                                <option value="Poland">
+                                <option value="Portugal">
+                                <option value="Romania">
+                                <option value="Russia">
+                                <option value="Saudi Arabia">
+                                <option value="Serbia">
+                                <option value="Singapore">
+                                <option value="Slovakia">
+                                <option value="Slovenia">
+                                <option value="South Africa">
+                                <option value="South Korea">
+                                <option value="Sweden">
+                                <option value="Switzerland">
+                                <option value="Taiwan">
+                                <option value="Thailand">
+                                <option value="Turkey">
+                                <option value="UAE">
+                                <option value="Ukraine">
+                                <option value="United Kingdom">
+                                <option value="United States">
+                                <option value="Venuzuela">
+                        </datalist>
+                        
+                        <label style="font-size:20px;"> Keyword </label><br>
+                        <input type="text" name="keyword" style="font-size:15px;" placeholder="Enter Keyword"><br><br>
+
+                        <label style="font-size:20px;"> Start Date </label><br>
+                        <input type="date" min="2022-04-20" max="2022-05-20" name="start_date" style="font-size:15px;"><br><br>
+
+                        <label style="font-size:20px;"> Sort Option </label><br>
+
+                        <input type="radio" name="sort" value="popularity" checked>
+                        <label style="font-size:15px;"> By Popularity </label><br>
+                        <input type="radio" name="sort" value="relevancy">
+                        <label style="font-size:15px;"> By Relevancy </label><br>
+                        <input type="radio" name="sort" value="publishedAt">
+                        <label style="font-size:15px;"> By Publish Date </label><br>
+                        
+                        <br>
+                        <button class="button" type="submit" >Browse with Queries!</button>
+                    </form>
+                </div>
+
+            </div>
+           
+        </div>
+        
+        
+        
+    </section>
+</body>
+</html>
