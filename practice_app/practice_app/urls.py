@@ -22,5 +22,6 @@ urlpatterns = [
     path('article/', include('apps.article.urls')),
     path('user/', include('apps.user.urls')),
     path('post/', include('apps.post.urls')),
-    path('drug-side-effects/', include('apps.drug_side_effects.urls'))
+    path('drug-side-effects/', include('apps.drug_side_effects.urls')),
+    path('comment/', include('apps.comment.urls')),
 ]
