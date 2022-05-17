@@ -25,7 +25,7 @@
 </head>
 <body>
 	<div class="wrapper">
-        <div style="background-color:#ADD8E6; !important" class="jumbotron text-center bg-primary">
+        <div style="background-color: #FF8D6E; !important" class="jumbotron text-center bg-primary">
             <h1> User Portal </h1>
             <p>
 				Welcome!
@@ -47,12 +47,14 @@
                         <col span="1" style="width: 30%;">
                         <col span="1" style="width: 30%;">
                         <col span="1" style="width: 30%;">
+                        <col span="1" style="width: 30%;">
                     </colgroup>
                     <tr>
                         <th>ID</th>
                         <th>Username</th>
                         <th>Password</th>
                         <th>E-mail</th>
+                        <th>Horoscope</th>
                     </tr>
                     {% for row in results %}
                     <tr>
@@ -75,11 +77,17 @@
                             <br>
                             <input type="text" name="username" placeholder="Username" required>
                             <br>
-                            <input type="submit" name="submit" value="Get">
+                            <button type="submit" style="margin-top: 10px;"class="btn btn-success">Get</button>
                             <br>
                     </form>
                 </div>
             </div>
+            {% if daily %}
+            <div class="alert alert-info" role="alert">
+                <h4 class="alert-heading">Daily Horoscope</h4>
+                <p>{{daily}}</p>
+            </div>
+            {% endif %}
         </div>
 	</div>
     <a href="{%url 'user:user-home' %}"> <p style="text-align:center">Back to Home Page</p></a>
