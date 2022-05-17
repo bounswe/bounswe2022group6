@@ -31,14 +31,14 @@
         {% endif %}
 		<div class="container-fluid">
 			<div class="center">
-				<form class="form-group" method="POST" novalidate action="{% url 'user-create-worker' %}">
+				<form class="form-group" method="POST" novalidate action="{% url 'user:user-create-worker' %}">
 					{{form|crispy}}
 					{% csrf_token %}
-					<button type="submit" style="margin-top: 10px;"class="btn btn-success">Add</button>	
-				</form>   
+					<button type="submit" style="margin-top: 10px;"class="btn btn-success">Add</button>
+				</form>
 			</div>
 		</div>
 	</div>
-	<a href="{%url 'user-home' %}"> <p style="text-align:center">Back to Home Page</p></a>
+	<a href="{%url 'user:user-home' %}"> <p style="text-align:center">Back to Home Page</p></a>
 </body>
 </html>
