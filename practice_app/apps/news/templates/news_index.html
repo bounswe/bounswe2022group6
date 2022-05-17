@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>News App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+    <style>
+        .button {
+            display: inline-flex;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #00d1b2;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #2b3a38;
+            align-items: flex-end; 
+        }
+        
+        .button:hover {
+            background-color: #00af95;
+            color: #fff;
+        }
+        
+        .button:active {
+            background-color: #00aa91;
+            color: #fff;
+            box-shadow: 0 5px #46615d;
+            transform: translateY(3px);
+        }
+        .center {
+            text-align: center;
+        }
+        .float-container {
+            border: 3px solid #fff;
+            padding: 10px;
+        }
+
+        .float-child {
+            width: 50%;
+            float: left;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <h1 class="title">
+                Welcome to the News App!
+            </h1>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <h1 class="title" style="text-align:center">
+                Please choose your request type
+            </h1>
+        </div>
+        <div class="float-container">
+
+            <div class="float-child">
+                <div class="center" style="margin-top:200px; margin-left:200px;">
+                    <form id="no_query" class="form-group" method="GET" action="{%url 'newsWithoutQuery' %}">
+                        {%csrf_token%}
+                        <button class="button" type="submit">Browse without Query!</button>
+                    </form>
+                    
+                </div>
+            </div>
+
+            <div class="float-child">
+                <div class="center" style="margin-top:20px; margin-right:200px;">
+
+                    <form id="queries" class="form-group" method="POST" action="{%url 'newsWithQuery' %}">
+
+                        {% csrf_token %}
+
+                        <label style="font-size:20px;"> Country </label><br>
+                        
+                        <select style="font-size:15px;" name="country" placeholder="Choose country">
+                            <option value=""> Select a Country </option>
+                            <option value="Argentina"> Argentina </option>
+                            <option value="Australia"> Australia </option>
+                            <option value="Austria"> Austria </option>
+                            <option value="Belgium"> Belgium </option>
+                            <option value="Brazil"> Brazil </option>
+                            <option value="Bulgaria"> Bulgaria </option>
+                            <option value="Canada"> Canada </option>
+                            <option value="China"> China </option>
+                            <option value="Colombia"> Colombia </option>
+                            <option value="Cuba"> Cuba </option>
+                            <option value="Czech Republic"> Czech Republic </option>
+                            <option value="Egypt"> Egypt </option>
+                            <option value="France"> France </option>
+                            <option value="Germany"> Germany </option>
+                            <option value="Greece"> Greece </option>
+                            <option value="Hong Kong"> Hong Kong </option>
+                            <option value="Hungary"> Hungary </option>
+                            <option value="India"> India </option>
+                            <option value="Indonesia"> Indonesia </option>
+                            <option value="Ireland"> Ireland </option>
+                            <option value="Israel"> Israel </option>
+                            <option value="Italy"> Italy </option>
+                            <option value="Japan"> Japan </option>
+                            <option value="Latvia"> Latvia </option>
+                            <option value="Lithuania"> Lithuania </option>
+                            <option value="Malaysia"> Malaysia </option>
+                            <option value="Mexico"> Mexico </option>
+                            <option value="Morocco"> Morocco </option>
+                            <option value="Netherlands"> Netherlands </option>
+                            <option value="New Zealand"> New Zealand </option>
+                            <option value="Nigeria"> Nigeria </option>
+                            <option value="Norway"> Norway </option>
+                            <option value="Philippines"> Philippines </option>
+                            <option value="Poland"> Poland</option>
+                            <option value="Portugal"> Portugal </option>
+                            <option value="Romania"> Romania </option>
+                            <option value="Russia"> Russia </option>
+                            <option value="Saudi Arabia"> Saudi Arabia </option>
+                            <option value="Serbia"> Serbia </option>
+                            <option value="Singapore"> Singapore </option>
+                            <option value="Slovakia"> Slovakia </option>
+                            <option value="Slovenia"> Slovenia </option>
+                            <option value="South Africa"> South Africa </option>
+                            <option value="South Korea"> South Korea </option>
+                            <option value="Sweden"> Sweden </option>
+                            <option value="Switzerland"> Switzerland </option>
+                            <option value="Taiwan"> Taiwan </option>
+                            <option value="Thailand"> Thailand </option>
+                            <option value="Turkey"> Turkey </option>
+                            <option value="UAE"> United Arab Emirates </option>
+                            <option value="Ukraine"> Ukraine </option>
+                            <option value="United Kingdom"> United Kingdom </option>
+                            <option value="United States"> United States </option>
+                            <option value="Venuzuela"> Venuzuela </option>
+
+                        </select>
+                        
+                        <br><br>
+                        
+                        <label style="font-size:20px;"> Keyword </label><br>
+                        <input type="text" name="keyword" style="font-size:15px;" placeholder="Enter Keyword"><br><br>
+
+                        <label style="font-size:20px;"> Start Date </label><br>
+                        <input type="date" min="2022-04-20" max="2022-05-20" name="start_date" style="font-size:15px;"><br><br>
+
+                        <label style="font-size:20px;"> Sort Option </label><br>
+
+                        <input type="radio" name="sort" value="popularity" checked>
+                        <label style="font-size:15px;"> By Popularity </label><br>
+                        <input type="radio" name="sort" value="relevancy">
+                        <label style="font-size:15px;"> By Relevancy </label><br>
+                        <input type="radio" name="sort" value="publishedAt">
+                        <label style="font-size:15px;"> By Publish Date </label><br>
+                        
+                        <br>
+                        <button class="button" type="submit" >Browse with Queries!</button>
+                    </form>
+                </div>
+
+            </div>
+           
+        </div>
+        
+        
+        
+    </section>
+</body>
+</html>
