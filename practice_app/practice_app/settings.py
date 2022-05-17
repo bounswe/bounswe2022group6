@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'apps.advice',
     'apps.article',
-    'apps.news'
+    'apps.news',
     'apps.post',
     'apps.user',
     'apps.comment',
