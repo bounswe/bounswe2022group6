@@ -17,7 +17,7 @@ class User(models.Model):
     ]
     username = models.CharField(max_length=50, unique = True)
     password = models.CharField(max_length=50)
-    mail = models.EmailField(max_length = 254)
+    mail = models.EmailField(max_length = 254, unique = True)
     horoscope = models.CharField(max_length=11,choices=horoscope_choices, default="aries")
 
     def __str__(self):

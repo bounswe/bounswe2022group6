@@ -9,6 +9,7 @@ from .serializers import UserSerializer
 from .models import User
 from .forms import UserForm
 import requests
+from rest_framework import status
 
 def index(request):
     return render(request, 'user-home.html')
@@ -63,7 +64,7 @@ def userDetailWorker(request):
 
     except:
         isFailed=request.GET.get("fail",True)
-        return render(request,'user-detail.html',{"action_fail": isFailed})
+        return render(request,'user-detail.html',{"action_fail": isFailed}, status=status.HTTP_404_NOT_FOUND)
 
 def userCreate(request):
     form = UserForm()
@@ -84,4 +85,4 @@ def userCreateWorker(request):
     else:
         isFailed=request.GET.get("fail",True)
         isSuccessful=request.GET.get("success",False)
-        return render(request, 'user-create.html',{"action_success": isSuccessful,"action_fail": isFailed,"form":form})
+        return render(request, 'user-create.html',{"action_success": isSuccessful,"action_fail": isFailed,"form":form},status=status.HTTP_422_UNPROCESSABLE_ENTITY)
