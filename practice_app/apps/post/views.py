@@ -54,6 +54,7 @@ def getPost(request):
 
 @api_view(['POST'])
 def createPost(request):
+    
     serializer = PostSerializer(data = request.data)
 
     if serializer.is_valid():
