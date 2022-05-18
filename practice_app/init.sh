@@ -1,4 +1,5 @@
 # Init database, create ramdisk for faster deployment
+rm -rf database
 mkdir database
 sudo mount -t tmpfs -o size=10m tmpfs database
 python3 manage.py makemigrations
