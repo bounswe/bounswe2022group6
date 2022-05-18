@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Comment API</title>
+    <meta name="author" content="Aral Dörtoğul">
+    <meta name="description" content="Comment API">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<style type="text/css">
+    body {
+        background: #FFFFF0;
+        text-align: center;
+        font-family: verdana;
+    }
+    .button {
+        display: inline-block;
+        height: 25px;
+        background: green;
+        padding: 10px;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        line-height: 25px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    h1, h2, table, p {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1.5em;
+        margin-bottom: 1.5em;
+    }
+    td {
+        padding: 5px;
+    }
+    td a{
+        color: green;
+    }
+    .text{
+        max-width: 50vw;
+        text-align: justify;
+    }
+</style>
+
+<body>
+    <header>
+        <small>
+            {{ content }}<br>
+            &#8212;{{ author }}
+        </small>
+    </header>
+    <h1>Welcome to the Comments API</h1>
+    <p><a class="button" href="{% url 'comment:insert' %}">Add a comment</a></p>
+    <h2>The latest comments:</h2>
+    {% if latest_comment_list %}
+    <table>
+        <tr>
+            <th>Comment</th>
+            <th>Author</th>
+            <th>Published On:</th>
+        </tr>
+        {% for comment in latest_comment_list %}
+        <tr>
+            <td class="text"><a href="{% url 'comment:detail' comment.id %}">
+                {% if comment.text|length > 50 %} {{ comment.text|slice:":50" }}... {% else %}{{ comment.text }}{% endif %}</a></td>
+            <td>{{ comment.author }}</td>
+            <td>{{ comment.published_how_long_ago }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No comments are available.</p>
+    {% endif %}
+    <p><a class="button" href="#">API list</a></p>
+</body>

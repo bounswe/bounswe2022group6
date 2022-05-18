@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coronavirus Data for {{ country_name }}</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width : 100%;
+            height : 100pt;
+            background-color: #9acfea;
+            color: #1e347b;
+            font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+            font-size: 30pt;
+            text-align: center;
+            vertical-align: center;
+        }
+        #coronavirus_data > tr > td : first-child {
+            font-weight: bold;
+        }
+        #coronavirus_data > tr > td : last-child {
+            padding-left: 5pt;
+        }
+        #coronavirus_data {
+            font-size: 20pt;
+        }
+    </style>
+</head>
+<body>
+    <h1>Coronavirus Data for {{ country_name }}</h1>
+
+    <table id="coronavirus_data">
+        <tr><td>Last Update:</td><td>{{ Last_Update }}</td></tr>
+        <tr><td>Confirmed Cases:</td><td>{{ Confirmed }}</td></tr>
+        <tr><td>Recovered:</td><td>{{ Recovered }}</td></tr>
+        <tr><td>Deaths:</td><td>{{ Deaths }}</td></tr>
+        <tr><td>Case Fatality Ratio:</td><td>{{ Case_Fatality_Ratio }}%</td></tr>
+    </table>
+
+</body>
+</html>
