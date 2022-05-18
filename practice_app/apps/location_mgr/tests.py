@@ -81,18 +81,18 @@ class TestViews(TestCase):
         print("Checking index post method")
         response = self.client.post('/location_mgr/', {"action":"near", "country": "Turkey"})
         self.assertEquals(response.status_code,200)
-        self.assertTemplateUsed(response ,'index.html')
+        self.assertTemplateUsed(response ,'location.html')
         self.assertContains(response, "user0")
         self.assertContains(response, "user1")
         
         response = self.client.post('/location_mgr/', {"action":"add", "username": "user1", "country": "Turkey", "state": "sdf"})
         self.assertEquals(response.status_code,200)
-        self.assertTemplateUsed(response ,'index.html')
+        self.assertTemplateUsed(response ,'location.html')
         self.assertContains(response, "User added/updated successfully!")
 
     def test_index_get(self):
         print("Checking index get method")
         response = self.client.get('/location_mgr/')
         self.assertEquals(response.status_code,200)
-        self.assertTemplateUsed(response ,'index.html')
+        self.assertTemplateUsed(response ,'location.html')
         
