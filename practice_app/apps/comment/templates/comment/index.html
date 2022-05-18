@@ -45,25 +45,28 @@
 </style>
 
 <body>
+    <header>
+        <small>
+            {{ content }}<br>
+            &#8212;{{ author }}
+        </small>
+    </header>
     <h1>Welcome to the Comments API</h1>
     <p><a class="button" href="{% url 'comment:insert' %}">Add a comment</a></p>
-    {% if new_comment %}
-    <p>New comment added: {{ new_comment }}</p>
-    {% endif %}
     <h2>The latest comments:</h2>
     {% if latest_comment_list %}
     <table>
         <tr>
             <th>Comment</th>
             <th>Author</th>
-            <th>Last Edited On:</th>
+            <th>Published On:</th>
         </tr>
         {% for comment in latest_comment_list %}
         <tr>
             <td class="text"><a href="{% url 'comment:detail' comment.id %}">
-                {% if comment.text|length > 50 %} {{ comment.text|slice:":50" }}...</a> {% else %}{{ comment.text }}{% endif %}</td>
+                {% if comment.text|length > 50 %} {{ comment.text|slice:":50" }}... {% else %}{{ comment.text }}{% endif %}</a></td>
             <td>{{ comment.author }}</td>
-            <td>{{ comment.pub_date }}</td>
+            <td>{{ comment.published_how_long_ago }}</td>
         </tr>
         {% endfor %}
     </table>

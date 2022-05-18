@@ -4,7 +4,7 @@ from . import views
 
 app_name = 'comment'
 urlpatterns = [
-    path('', views.IndexView.as_view(), name='index'),
+    path('', views.index, name='index'),
     # ex: /comment/5/
     path('<int:pk>/', views.DetailView.as_view(), name='detail'),
     # /comment/insert/

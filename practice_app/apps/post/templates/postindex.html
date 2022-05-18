@@ -42,13 +42,13 @@
 
     {% endif %}
 
-    <form id="postform" class="form-group" method="GET" action="{%url 'getPost' %}" >
+    <form id="postform" class="form-group" method="GET" action="{%url 'post:getPost' %}" >
         {% csrf_token %}
   <label for="id">Post ID:</label><br>
   <input type="text" id="id" name="id" placeholder="ID" required><br>
  <button type="submit" style="margin-top: 10px;"  class="btn btn-success">Get Post Info</button>
 </form>
-    <form id="post" class="form-group" method="POST" action="{%url 'createPost' %}" >
+    <form id="post" class="form-group" method="POST" action="{%url 'post:createPost' %}" >
         {% csrf_token %}
   <label for="id">Create New Post:</label><br>
         <input type="text"style="margin-top: 1px;" placeholder="Title" id="title" name="title" required><br>
