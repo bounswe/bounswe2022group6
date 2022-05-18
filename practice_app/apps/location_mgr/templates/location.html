@@ -47,6 +47,9 @@
             <strong class="text-white">{{ info }}</strong>
         </div>
     {% endif %}
+    <div class="text-center">
+        <a href="/"><input type="button" value="Home Page"/></a>
+    </div>
     <form id="index" class="form-group" method="POST" action="{% url 'index' %}">
         {%csrf_token%}
         <br>

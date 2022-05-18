@@ -86,3 +86,33 @@ def userCreateWorker(request):
         isFailed=request.GET.get("fail",True)
         isSuccessful=request.GET.get("success",False)
         return render(request, 'user-create.html',{"action_success": isSuccessful,"action_fail": isFailed,"form":form},status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
+@api_view(['GET'])
+def apiOverview(request):
+    api_urls = {
+        'List':'/user-list/',
+        'Detail':'/user-detail/',
+        'Post':'/user-create/',
+    }
+    return Response(api_urls)
+
+@api_view(['GET'])
+def userListApi(request):
+    users = User.objects.all()
+    serializer = UserSerializer(users, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def userDetailApi(request, pk):
+    user = User.objects.get(id=pk)
+    serializer = UserSerializer(user, many=False)
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def userCreateApi(request):
+    serializer = UserSerializer(data=request.data)
+
+    if serializer.is_valid():
+        serializer.save()
+
+    return Response(serializer.data)

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'rest_framework',
+    'apps.home',
     'apps.location_mgr',
     'apps.advice',
     'apps.article',
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
     'apps.post',
     'apps.user',
     'apps.coronavirus',
+    'apps.drug_side_effects',
     'apps.comment',
 ]
 
@@ -64,9 +66,7 @@ ROOT_URLCONF = 'practice_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            PurePath(BASE_DIR, 'apps', 'location_mgr', 'templates'),
-        ],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
