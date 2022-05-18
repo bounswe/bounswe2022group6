@@ -107,7 +107,7 @@ class Info(APIView):
 # Endpoint for users to use api's easily.
 class Index(APIView):
     renderer_classes = [TemplateHTMLRenderer]
-    template_name = 'index.html'
+    template_name = 'location.html'
 
     # This function will call Location api to get location information based on ip.
     def ipResolver(self, req):
