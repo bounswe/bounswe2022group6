@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Drugs and Side Effects</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+	<style>
+		table,
+		th,
+		td {
+			border: 1px solid;
+		}
+
+		.center {
+			margin-left: auto;
+			margin-right: auto;
+			justify-content: center;
+		}
+
+		form {
+			margin: 0 auto;
+			width: 250px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="p-5 text-white text-center" style="background: linear-gradient(#e66465, #9198e5);">
+		<h1>Get Side Effects of a Drug</h1>
+	</div>
+	<div class="accordion" id="accordion0">
+		<div class="accordion-item">
+			<h2 class="accordion-header" id="heading0">
+				<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse0"
+					aria-expanded="true" aria-controls="collapse0">
+					<strong class="text-secondary">Want to add new medicines? Click here!.</strong>
+				</button>
+			</h2>
+			<div id="collapse0" class="accordion-collapse collapse" aria-labelledby="heading0"
+				data-bs-parent="#accordion0">
+				<div class="accordion-body">
+					<form id="form" class="form-group" method="POST">
+						<label>Name of the Medicine</label><br>
+						<input type="name" name="drug_name" placeholder="Medicine" min="0" max="120" required>
+						<br>
+						<br>
+						<label>Side Effects</label><br>
+						<input type="name" name="side_effects" placeholder="Please split by ," min="0" max="120"
+							required>
+						<br>
+						<br>
+						<input class="btn btn-success" type="submit" value="Add Medicine" name="add-drug">
+						<br>
+						<br>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="accordion" id="accordion1">
+		<div class="accordion-item">
+			<h2 class="accordion-header" id="heading1">
+				<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1"
+					aria-expanded="true" aria-controls="collapse1">
+					<strong class="text-secondary">Aren't you sure about name of the medicine? Click here to search it
+						with images!.</strong>
+				</button>
+			</h2>
+			<div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1"
+				data-bs-parent="#accordion1">
+				<div class="accordion-body">
+					<form id="form" class="form-group" method="POST">
+						<label>Name of the Medicine</label><br>
+						<input type="name" name="drug_name" placeholder="Medicine" min="0" max="120" required>
+						<br>
+						<br>
+						<input class="btn btn-success" type="submit" value="Search Medicine" name="search-drug">
+						<br>
+						<br>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% if new_drug %}
+	<div style="width: 100%; background-color: #36ca78 ">
+		<p style="font-weight: bolder;">{{ new_drug }}</p>
+	</div>
+	{% endif %}
+	{% if drug_list %}
+	<div style="display: flex; justify-content: center;" >
+		<table>
+			<tr>
+				<th>Image</th>
+				<th>Full Name</th>
+				<th>Link to Details</th>
+			</tr>
+			{% for drug in drug_list %}
+			<tr>
+				<td><img src={{ drug.medicineImage }} href={{ drug.medicineImage }} alt={{ drug.medicineImage }} width="100" height="100"></img></td>
+				<td>{{drug.medicineName}}</td>
+				<td><a href={{drug.detailsUrl}}>{{drug.detailsUrl}}</a></td>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+	{% endif %}
+	<div class="p-5 bg-light text-center">
+		<form id="form" class="form-group" method="POST">
+			<label>Name of the Medicine</label><br>
+			<input type="name" name="drug_name" placeholder="Medicine" min="0" max="120" required>
+			<br>
+			<br>
+			<input class="btn btn-success" type="submit" value="Get side effects" name="get-side-effects">
+			<br>
+			<br>
+		</form>
+
+		<ul>
+			{% for side_effect in side_effects %}
+			<li>
+				{{ side_effect }}
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+
+</body>
+
+</html>
