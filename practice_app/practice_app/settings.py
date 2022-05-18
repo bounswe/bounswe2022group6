@@ -37,9 +37,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'rest_framework',
+    'apps.home',
     'apps.location_mgr',
     'apps.advice',
+    'apps.article',
+    'apps.news',
+    'apps.post',
+    'apps.user',
+    'apps.drug_side_effects',
+    'apps.comment',
 ]
 
 MIDDLEWARE = [
@@ -57,9 +65,7 @@ ROOT_URLCONF = 'practice_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            PurePath(BASE_DIR, 'apps', 'location_mgr', 'templates'),
-        ],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -110,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Istanbul'
 
 USE_I18N = True
 

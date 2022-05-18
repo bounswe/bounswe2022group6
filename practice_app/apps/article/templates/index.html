@@ -1,0 +1,147 @@
+<html>
+      
+    <head>
+        <title> Welcome to Articles Page </title>
+        <link rel="stylesheet" href = "../static/button.css">
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
+        <style>
+            
+            .col-3{float: left; width: 27.33%; margin: 40px 3%; position: relative;}
+            body {
+            background: dodgerblue linear-gradient(22deg, aqua, dodgerblue, deeppink) fixed;
+                color: white;
+            font: normal 32px/1.6 system-ui, sans-serif;
+                text-shadow: 0 1px 1px hsl(0 0% 0% / 20%);
+            margin: 3rem;
+            }
+            .loader {
+                position: fixed;
+            background-color: #FFF;
+            opacity: 1;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            -webkit-animation: load-out 1s;
+            animation: load-out 1s;
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+        }
+        
+        @-webkit-keyframes load-out {
+            from {
+                top: 0;
+                opacity: 1;
+            }
+        
+            to {
+                top: 100%;
+                opacity: 0;
+            }
+        }
+        
+        @keyframes load-out {
+            from {
+                top: 0;
+                opacity: 1;
+            }
+        
+            to {
+                top: 100%;
+                opacity: 0;
+            }
+        }
+            .center {
+                margin: auto;
+                width: 40%;
+                border: 1px solid rgb(0, 0, 0);
+                padding: 10px;
+                    }
+            .text-center{ text-align:center }
+
+            a.bg-primary:focus,a.bg-primary:hover{background-color:#286090}
+            .jumbotron{
+                padding-top:30px;
+                padding-bottom:30px;
+                margin-bottom:30px;
+                color:inherit;
+               
+            }
+            jumbotron .h1,.jumbotron h1{
+                color:inherit
+            }
+            .jumbotron p{
+                margin-bottom:15px;
+                font-size:21px;
+                font-weight:200
+            }
+            .jumbotron>hr{
+                border-top-color:#d5d5d5
+            }
+            .container .jumbotron,.container-fluid .jumbotron{
+                padding-right:15px;
+                padding-left:15px;
+                border-radius:6px
+            }
+            .jumbotron .container{max-width:100%}@media screen and (min-width:768px){
+                .jumbotron{
+                    padding-top:48px;
+                    padding-bottom:48px
+                }
+                .container .jumbotron,.container-fluid .jumbotron{
+                    padding-right:60px;
+                    padding-left:60px
+                }
+                .jumbotron .h1,.jumbotron h1{
+                    font-size:63px
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="loader" id ="loader">
+  
+            <span>↓</span>
+            <span style="--delay: 0.1s">↓</span>
+            <span style="--delay: 0.3s">↓</span>
+            <span style="--delay: 0.4s">↓</span>
+            <span style="--delay: 0.5s">↓</span>
+            
+          </div>
+          <div id = "page">
+            <div class="jumbotron text-center" >
+                <h2> Welcome to the Search for Articles Page.</h2>
+                <p> Quick note on how to use this page:</p>
+                <p>You can list the articles you searched before (GET), you can find certain amount of articles with your own subject choice(POST) or you can delete your article search history.</p>
+                <p></p>
+        </div>
+        <div>
+            <form class="form-group center" style = "text-align: center;" method="GET" action="list">
+                {% csrf_token %}
+                <button type ="submit" class="custom-btn btn-3"><span>Show History</span></button>
+                </form>
+        </div>
+
+        <div class ="center" style="text-align:center">
+            <form class="form-group" method="POST" action="search">
+                {% csrf_token %}
+                <br>
+                <input type="text" name="subject" placeholder="Subject" size="50" required>
+                <br><br>
+                <input type="number" style="width:362px" name="numberOfArticles" placeholder ="Number of Abstracts" min=1 max = 100 size="50" required>
+                <br>
+                <button type ="submit" class="custom-btn btn-3"><span> Search for articles</span></button>
+                </form>
+        </div>
+        <div>
+            <form class="form-group center" style = "text-align: center;" method="POST" action="deleteHistory">
+                {% csrf_token %}
+                <button type ="submit" class="custom-btn btn-3"><span>Delete History</span></button>
+                </form>
+        </div>
+          </div>
+    
+        </body>
+</html>
