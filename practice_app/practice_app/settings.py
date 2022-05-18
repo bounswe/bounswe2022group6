@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'apps.news',
     'apps.post',
     'apps.user',
+    'apps.drug_side_effects',
     'apps.comment',
 ]
 
