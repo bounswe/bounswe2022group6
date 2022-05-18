@@ -2,7 +2,7 @@
 <head>
     <title>Add New Comment </title>
     <meta name="author" content="Aral Dörtoğul">
-    <meta name="description" content="Insert a new comment to the database.">
+    <meta name="description" content="Add a new comment to the database.">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -24,6 +24,8 @@
         margin-left: auto;
         margin-right: auto;
         border: none;
+        cursor: pointer;
+        font-size: 15px;
     }
     h1, h2, table, p {
         margin-left: auto;
@@ -45,6 +47,7 @@
     fieldset {
         padding: 1em 3em;
         border-radius: 20px;
+        border: 4px double;
     }
 </style>
 
@@ -56,7 +59,6 @@
     {% if not users %}
     <p><strong>There is no user to comment!</strong></p>
     <p>You can go to <a href="{% url 'user:user-home'%}">User API</a> to create users!</p>
-    <p><a class="button" href="{% url 'comment:index' %}">Go back</a></p>
     {% else %}
     <table>
         <tr>
@@ -78,12 +80,12 @@
 
         <tr>
             <th><label for="upvotes">Upvotes:</label></th>
-            <td><input type="number" id="upvotes" name="upvotes" min="0"></td>
+            <td><input type="number" id="upvotes" name="upvotes" min="0" value="0" required></td>
         </tr>
 
         <tr>
             <th><label for="downvotes">Downvotes:</label></th>
-            <td><input type="number" id="downvotes" name="downvotes" min="0"><br></td>
+            <td><input type="number" id="downvotes" name="downvotes" min="0" value="0" required><br></td>
         </tr>
 
         <tr>
@@ -96,7 +98,7 @@
             <td>
                 <input type="radio" id="yes" name="nsfw" value="Yes">
                 <label for="yes">Yes</label>
-                <input type="radio" id="no" name="nsfw" value="No">
+                <input type="radio" id="no" name="nsfw" value="No" checked>
                 <label for="no">No</label>
         </td>
         </tr>
