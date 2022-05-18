@@ -6,6 +6,7 @@ from django.utils import timezone
 
 from .models import Comment
 from apps.user.models import User
+from apps.post.models import Post
 
 import json
 import requests
@@ -32,8 +33,9 @@ def insert(request): # Adding a new comment to the database.
     model = Comment
     if request.method == 'POST': # If the method is POST
         author = User.objects.get(username=request.POST['author'])
-        new_comment = Comment(text = request.POST['text'], author=author, pub_date=request.POST['pub_date'], upvotes=request.POST['upvotes'], downvotes=request.POST['downvotes'], parentID=request.POST['parentID'], isMarkedNSFW=(True if request.POST['nsfw']=='Yes' else False))
+        parent = Post.objects.get(pk=request.POST['parentID'])
+        new_comment = Comment(text = request.POST['text'], author=author, pub_date=request.POST['pub_date'], upvotes=request.POST['upvotes'], downvotes=request.POST['downvotes'], parent=parent, isMarkedNSFW=(True if request.POST['nsfw']=='Yes' else False))
         new_comment.save()
         return HttpResponseRedirect(reverse('comment:index'))
     else:
-        return render(request, 'comment/insert.html', context={'users': User.objects.all()})
+        return render(request, 'comment/insert.html', context={'users': User.objects.all(), 'posts': Post.objects.all()})

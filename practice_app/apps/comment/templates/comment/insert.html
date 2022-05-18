@@ -59,6 +59,13 @@
     {% if not users %}
     <p><strong>There is no user to comment!</strong></p>
     <p>You can go to <a href="{% url 'user:user-home'%}">User API</a> to create users!</p>
+        {% if not posts %}
+        <p><strong>There is no post to comment to!</strong></p>
+        <p>You can go to <a href="{% url 'post:index'%}">Post API</a> to create posts!</p>
+        {% endif %}
+    {% elif not posts %}
+    <p><strong>There is no post to comment to!</strong></p>
+    <p>You can go to <a href="{% url 'post:index'%}">Post API</a> to create posts!</p>
     {% else %}
     <table>
         <tr>
@@ -89,8 +96,12 @@
         </tr>
 
         <tr>
-            <th><label for="parentID">Parent ID:</label></th>
-            <td><input type="number" id="parentID" name="parentID" required></td>
+            <th><label for="parentID">Parent Post:</label></th>
+            <td><select id="parentID" name="parentID" required>
+                {% for post in posts %}
+                <option value="{{ post.id }}">{{ post.id }} - {% if post.title|length > 75 %} {{ post.title|slice:":75" }}... {% else %}{{ post.title }}{% endif %}</option>
+                {% endfor %}
+            </select><br></td>
         </tr>
 
         <tr>

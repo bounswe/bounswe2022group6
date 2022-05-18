@@ -3,6 +3,7 @@ import datetime
 from django.db import models
 from django.utils import timezone
 from apps.user.models import User
+from apps.post.models import Post
 
 class Comment(models.Model):
     text = models.CharField(max_length=500, default='')
@@ -10,7 +11,7 @@ class Comment(models.Model):
     pub_date = models.DateTimeField(verbose_name='date published', default=timezone.now)
     upvotes = models.IntegerField(default=0)
     downvotes = models.IntegerField(default=0)
-    parentID = models.IntegerField(default=0)
+    parent = models.ForeignKey(Post, on_delete=models.CASCADE, null=True) # Parent Post
     isMarkedNSFW = models.BooleanField(default=False) #True if NSFW, False otherwise
 
     def __str__(self):
@@ -21,13 +22,12 @@ class Comment(models.Model):
 
     def is_not_published_yet(self):
         """True if pub_date is larger than timezone.now()"""
-
         return timezone.now() <= self.pub_date
 
     def published_how_long_ago(self):
 
         if self.is_not_published_yet():
-            return "Not published yet"
+            return "Not published yet!"
 
         elif self.was_published_recently():
             return "Published recently!"
