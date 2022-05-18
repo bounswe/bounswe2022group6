@@ -25,6 +25,7 @@ urlpatterns = [
     path('news/', include('apps.news.urls')),
     path('user/', include('apps.user.urls')),
     path('post/', include('apps.post.urls')),
+    path('coronavirus/', include('apps.coronavirus.urls')),
     path('drug-side-effects/', include('apps.drug_side_effects.urls')),
     path('comment/', include('apps.comment.urls')),
 ]
