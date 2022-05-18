@@ -48,7 +48,7 @@ class TestViews(TestCase):
         self.new_data = {
             'username':'name2',
             'password':'password2',
-            'mail':'mail@mail.com',
+            'mail':'mail1@mail.com',
             'horoscope':'aquarius'
         }
 
@@ -85,7 +85,7 @@ class TestViews(TestCase):
         self.assertTemplateUsed(response ,'user-create.html')
         self.assertEquals(new_user.username, 'name2')
         self.assertEquals(new_user.password, 'password2')
-        self.assertEquals(new_user.mail, 'mail@mail.com')
+        self.assertEquals(new_user.mail, 'mail1@mail.com')
         self.assertEquals(new_user.horoscope, 'aquarius')
 
 class TestModels(TestCase):
