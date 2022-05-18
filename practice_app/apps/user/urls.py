@@ -10,4 +10,8 @@ urlpatterns = [
     path('user-detail-worker', views.userDetailWorker, name="user-detail-worker"),
     path('user-create/', views.userCreate ,name="user-create"),
     path('user-create-worker', views.userCreateWorker, name="user-create-worker"),
+    path('api-overview/', views.apiOverview, name="api-overview"),
+    path('api-user-list/', views.userListApi, name="api-user-list"),
+    path('api-user-detail/<str:pk>', views.userDetailApi, name="api-user-detail"),
+    path('api-user-create/', views.userCreateApi, name="api-user-create"),
 ]
