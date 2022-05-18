@@ -61,11 +61,11 @@
     <p>You can go to <a href="{% url 'user:user-home'%}">User API</a> to create users!</p>
         {% if not posts %}
         <p><strong>There is no post to comment to!</strong></p>
-        <p>You can go to <a href="{% url 'post:index'%}">Post API</a> to create posts!</p>
+        <p>You can go to <a href="{% url 'post:postindex'%}">Post API</a> to create posts!</p>
         {% endif %}
     {% elif not posts %}
     <p><strong>There is no post to comment to!</strong></p>
-    <p>You can go to <a href="{% url 'post:index'%}">Post API</a> to create posts!</p>
+    <p>You can go to <a href="{% url 'post:postindex'%}">Post API</a> to create posts!</p>
     {% else %}
     <table>
         <tr>
