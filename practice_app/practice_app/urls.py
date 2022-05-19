@@ -28,5 +28,5 @@ urlpatterns = [
     path('coronavirus/', include('apps.coronavirus.urls')),
     path('drug-side-effects/', include('apps.drug_side_effects.urls')),
     path('comment/', include('apps.comment.urls')),
-    path('Hospi/', include('apps.Hospi.urls'))
+    path('Hospi/', include('apps.Hospi.urls')),
 ]
