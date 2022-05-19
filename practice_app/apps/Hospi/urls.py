@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app.views import *
 from rest_framework.documentation import include_docs_urls
 
+from apps.Hospi.views import Error, IndexView, Thanks, getHospitals
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     path('docs/', include_docs_urls(title='Hospitals')),
     path('', IndexView.as_view(), name='home'),
     path('api/get/<city>/', getHospitals.as_view(), name='get_city'),

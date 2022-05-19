@@ -11,7 +11,7 @@ from django.views.generic import FormView, TemplateView
 
 
 class IndexView(FormView):
-    template_name = "index.html"
+    template_name = "hospi-index.html"
     form_class = HospitalCreationForm
     success_url = 'thanks'
 
