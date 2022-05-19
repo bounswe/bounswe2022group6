@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'apps.coronavirus',
     'apps.drug_side_effects',
     'apps.comment',
+    'apps.Hospi',
 ]
 
 MIDDLEWARE = [
