@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'apps.comment',
     'apps.hospital',
     'drf_yasg',
+    'apps.report',
 ]
 
 MIDDLEWARE = [
