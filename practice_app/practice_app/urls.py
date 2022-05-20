@@ -21,16 +21,14 @@ from drf_yasg import openapi
 
 schema_view = get_schema_view(
    openapi.Info(
-      title="Practice Application",
-      default_version='v1',
-      description="Test description",
-      terms_of_service="https://www.google.com/policies/terms/",
-      contact=openapi.Contact(email="contact@snippets.local"),
-      license=openapi.License(name="BSD License"),
+      title="Practice Application Advice App API Documentation",
+      description="API documentation for the Advice App endpoint of the practice application.",
+      default_version=""
    ),
    public=True,
    permission_classes=[permissions.AllowAny],
-   authentication_classes=[]
+   authentication_classes=[],
+   patterns=[path('advice/', include('apps.advice.urls'))],
 )
 
 urlpatterns = [
@@ -45,5 +43,5 @@ urlpatterns = [
     path('coronavirus/', include('apps.coronavirus.urls')),
     path('drug-side-effects/', include('apps.drug_side_effects.urls')),
     path('comment/', include('apps.comment.urls')),
-    path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('advicedocs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 ]

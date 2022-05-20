@@ -6,11 +6,10 @@ from rest_framework import status
 import requests
 import json
 from .models import AdviceUser
-from .serializers import AdviceUserSerializer
-from .schemas import MySchema
+from .schemas import AdviceSchema
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
-from rest_framework.parsers import MultiPartParser
+from rest_framework.parsers import FormParser
 
 # This class is for the operations of the advice app.
 
@@ -21,7 +20,7 @@ from rest_framework.parsers import MultiPartParser
 
 class advice_api(APIView):
     
-    parser_classes = [MultiPartParser]
+    parser_classes = [FormParser]
     
     @swagger_auto_schema(
         operation_id='api-get',
@@ -74,8 +73,8 @@ class advice_api(APIView):
         manual_parameters=[
             openapi.Parameter('age', openapi.IN_FORM, type=openapi.TYPE_INTEGER, description='integer between 0 and 120'),
             openapi.Parameter('sex', openapi.IN_FORM, type=openapi.TYPE_STRING, description='male or female'),
-            openapi.Parameter('tobaccoUse', openapi.IN_FORM, type=openapi.TYPE_STRING, description='integer 0 or 1'),
-            openapi.Parameter('sexuallyActive', openapi.IN_FORM, type=openapi.TYPE_STRING, description='integer 0 or 1'),
+            openapi.Parameter('tobaccoUse', openapi.IN_FORM, type=openapi.TYPE_STRING, description='integer 0 for no or 1 for yes'),
+            openapi.Parameter('sexuallyActive', openapi.IN_FORM, type=openapi.TYPE_STRING, description='integer 0 for no or 1 for yes'),
         ],
     )
 
@@ -142,10 +141,10 @@ class advice_home(APIView):
 
     renderer_classes = [TemplateHTMLRenderer]
     template_name = 'adviceHome.html'
-    parser_classes = [MultiPartParser]
+    parser_classes = [FormParser]
     
     @swagger_auto_schema(
-        auto_schema=MySchema,
+        auto_schema=AdviceSchema,
         operation_id='flat-get',
         operation_description='Get medical advice categories and user statistics in the HTML format. The Response HTML is the one that is used in rendering the home page UI.',
     )
@@ -172,14 +171,14 @@ class advice_home(APIView):
         return Response(c, status=status.HTTP_200_OK)
     
     @swagger_auto_schema(
-        auto_schema=MySchema,
+        auto_schema=AdviceSchema,
         operation_id='flat-post',
-        operation_description='Get personal medical advice in the HTML format by providing age, sex, tobacco use status and sexual activity status.. The Response HTML is the one that is used in rendering the home page UI.',
+        operation_description='Get personal medical advice in the HTML format by providing age, sex, tobacco use status and sexual activity status. The Response HTML is the one that is used in rendering the home page UI.',
         manual_parameters=[
             openapi.Parameter('age', openapi.IN_FORM, type=openapi.TYPE_INTEGER, description='integer between 0 and 120'),
             openapi.Parameter('sex', openapi.IN_FORM, type=openapi.TYPE_STRING, description='male or female'),
-            openapi.Parameter('tobaccoUse', openapi.IN_FORM, type=openapi.TYPE_STRING, description='integer 0 or 1'),
-            openapi.Parameter('sexuallyActive', openapi.IN_FORM, type=openapi.TYPE_STRING, description='integer 0 or 1'),
+            openapi.Parameter('tobaccoUse', openapi.IN_FORM, type=openapi.TYPE_STRING, description='integer 0 for no or 1 for yes'),
+            openapi.Parameter('sexuallyActive', openapi.IN_FORM, type=openapi.TYPE_STRING, description='integer 0 for no or 1 for yes'),
         ],  
     )
     
