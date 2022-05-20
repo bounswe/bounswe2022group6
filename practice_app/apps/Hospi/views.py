@@ -31,14 +31,7 @@ class Error(TemplateView):
 
 def write_hospitals(city=None):
     #Get request to external api with NO INPUTS:
-    domain = RequestSession(
-            host="https://www.communitybenefitinsight.org/", max_retries=1, raise_for_status=True
-    )
-    result = domain.get(
-        path="api/get_hospitals.php",
-        sleep_before_repeat=2,
-        request_category="get_hospitals",
-    )
+    result=requests.get("https://www.communitybenefitinsight.org/api/get_hospitals.php")
     #Writing to db:
     items_list = []
     for item in result.json():
