@@ -2,9 +2,9 @@ import requests
 from django.test import TestCase, Client
 from django.urls import reverse
 
-from hospital.views import write_hospitals, getHospitals
-from hospital.models import Hospital
-from hospital.forms import HospitalCreationForm
+from .views import write_hospitals, getHospitals
+from .models import Hospital
+from .forms import HospitalCreationForm
 
 testData = {"hospital_id": "1",
                "hospital_org_id": "1",
