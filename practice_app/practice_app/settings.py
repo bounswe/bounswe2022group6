@@ -49,7 +49,11 @@ INSTALLED_APPS = [
     'apps.coronavirus',
     'apps.drug_side_effects',
     'apps.comment',
+<<<<<<< Updated upstream
     'apps.Hospi',
+=======
+    'apps.hospital',
+>>>>>>> Stashed changes
 ]
 
 MIDDLEWARE = [
