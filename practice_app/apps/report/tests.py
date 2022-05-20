@@ -9,10 +9,6 @@ import json
 
 class TestUrls(SimpleTestCase):
 
-    def test_index_url(self):
-        url = reverse('report:report-home')
-        self.assertEquals(resolve(url).func, index)
-
-    def test_list_url(self):
-        url = reverse('report:report-list')
-        self.assertEquals(resolve(url).func, reportList)
+    def test_api_GET(self):
+        response = self.client.get("/report/")
+        self.assertEquals(response.status_code, 200)
