@@ -1,0 +1,32 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <div style="background-color:#fc0f0f" class="jumbotron text-center bg-primary">
+            <h2> Report Creation</h2>
+            <p>   
+				Your reports are crucial for the well-being of this program.
+                All reports are reviewed by our admins in less than 7 days after their creation and given the necessary response.
+            </p>
+            <p> If the response you got to your report was unsatisfactory, you can always reach the admins personally from site.admin@health.com.tr</p>
+        </div>
+	</div>
+    <div class="container">
+        <div class="container-fluid">
+            <div class="center">
+                <form class="form-group" method="POST" novalidate action="{% url 'user:user-create-worker' %}">
+                    {{form|crispy}}
+                    {% csrf_token %}
+                    <button type="submit" style="margin-top: 10px;"class="btn btn-success">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <a href="/" class="btn btn-secondary" role="button">Back to API List</a> <br>
+</body>
