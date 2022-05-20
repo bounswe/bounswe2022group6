@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from request_session import RequestSession
+import requests
 from rest_framework import generics
 from rest_framework.response import Response
 from django.shortcuts import redirect
