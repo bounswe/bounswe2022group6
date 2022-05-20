@@ -15,6 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import permissions
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+
+schema_view = get_schema_view(
+   openapi.Info(
+      title="Practice Application Advice App API Documentation",
+      description="API documentation for the Advice App endpoint of the practice application.",
+      default_version=""
+   ),
+   public=True,
+   permission_classes=[permissions.AllowAny],
+   authentication_classes=[],
+   patterns=[path('advice/', include('apps.advice.urls'))],
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,4 +44,5 @@ urlpatterns = [
     path('drug-side-effects/', include('apps.drug_side_effects.urls')),
     path('comment/', include('apps.comment.urls')),
     path('hospital/', include('apps.hospital.urls')),
+    path('advicedocs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 ]

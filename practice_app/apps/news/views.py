@@ -24,11 +24,11 @@ def news_without_query(req):
     for i in range(len(articles)):
             article = articles[i]
             titles.append(article['title'])
-            descriptions.append(article['description'])
+            descriptions.append(article['description']) 
             images.append(article['urlToImage'])
             urls.append(article["url"])
 
-    list_of_news = zip(titles, descriptions, images, url)
+    list_of_news = zip(titles, descriptions, images, urls)
     return render(req, 'news_list.html', {'list_of_news': list_of_news})
 
 #This post method receives the input from the html form and sends the necessary request to newsapi service.
@@ -64,7 +64,7 @@ def news_with_query(req):
                 images.append(article['urlToImage'])
                 urls.append(article["url"])
 
-        list_of_news = zip(titles, descriptions, images, url)
+        list_of_news = zip(titles, descriptions, images, urls)
         if len(titles) == 0:
             list_of_news = zip(["There is no current news with these parameters"], ["Please go back to the home page using the top right option."], " ", " ")
         return render(req, 'news_list.html', {'list_of_news': list_of_news})
