@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'apps.coronavirus',
     'apps.drug_side_effects',
     'apps.comment',
-    'drf_yasg'
+    'apps.hospital',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
