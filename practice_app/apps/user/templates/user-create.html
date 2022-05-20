@@ -2,14 +2,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  	<title>Home</title>
+  	<title>User Create</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
 	<div class="wrapper">
-        <div style="background-color:#ADD8E6; !important" class="jumbotron text-center bg-primary">
+        <div style="background-color:#FF8D6E; !important" class="jumbotron text-center bg-primary">
             <h1> User Portal </h1>
             <p>
 				Welcome!
@@ -31,14 +31,14 @@
         {% endif %}
 		<div class="container-fluid">
 			<div class="center">
-				<form class="form-group" method="POST" novalidate action="{% url 'user-create-worker' %}">
+				<form class="form-group" method="POST" novalidate action="{% url 'user:user-create-worker' %}">
 					{{form|crispy}}
 					{% csrf_token %}
-					<button type="submit" style="margin-top: 10px;"class="btn btn-success">Add</button>	
-				</form>   
+					<button type="submit" style="margin-top: 10px;"class="btn btn-success">Add</button>
+				</form>
 			</div>
 		</div>
 	</div>
-	<a href="{%url 'user-home' %}"> <p style="text-align:center">Back to Home Page</p></a>
+	<a href="{%url 'user:user-home' %}"> <p style="text-align:center">Back to Home Page</p></a>
 </body>
 </html>

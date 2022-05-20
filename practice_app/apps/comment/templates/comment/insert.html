@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<head>
+    <title>Add New Comment </title>
+    <meta name="author" content="Aral Dörtoğul">
+    <meta name="description" content="Insert a new comment to the database.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<style type="text/css">
+    body {
+        background: #FFFFF0;
+        text-align: center;
+        font-family: verdana;
+    }
+    .button {
+        display: inline-block;
+        background: green;
+        padding: 10px 30px;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        line-height: 25px;
+        margin-left: auto;
+        margin-right: auto;
+        border: none;
+    }
+    h1, h2, table, p {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1.5em;
+        margin-bottom: 1.5em;
+    }
+    textarea, select, label {
+        padding: 5px;
+    }
+    th {
+        font-weight: bold;
+        text-align: right;
+    }
+    form {
+        display: inline-block;
+        padding: 2em;
+    }
+    fieldset {
+        padding: 1em 3em;
+        border-radius: 20px;
+    }
+</style>
+
+<body>
+    <form action="{% url 'comment:insert' %}" method="post">
+{% csrf_token %}
+<fieldset>
+    <legend><h1>Add a New Comment</h1></legend>
+    {% if not users %}
+    <p><strong>There is no user to comment!</strong></p>
+    <p>You can go to <a href="{% url 'user:user-home'%}">User API</a> to create users!</p>
+    <p><a class="button" href="{% url 'comment:index' %}">Go back</a></p>
+    {% else %}
+    <table>
+        <tr>
+            <th><label for="text">Comment:</label></th>
+            <td><textarea name="text" placeholder="Type your comment here." required></textarea></td>
+        </tr>
+        <tr>
+            <th><label for="author">Author:</label></th>
+            <td><select id="author" name="author" required>
+                {% for user in users %}
+                <option value="{{ user }}">{{ user }}</option>
+                {% endfor %}
+            </select><br></td>
+        </tr>
+        <tr>
+            <th><label for="pub_date">Published On:</label></th>
+            <td><input type="datetime-local" id="pub_date" name="pub_date" required></td>
+        </tr>
+
+        <tr>
+            <th><label for="upvotes">Upvotes:</label></th>
+            <td><input type="number" id="upvotes" name="upvotes" min="0"></td>
+        </tr>
+
+        <tr>
+            <th><label for="downvotes">Downvotes:</label></th>
+            <td><input type="number" id="downvotes" name="downvotes" min="0"><br></td>
+        </tr>
+
+        <tr>
+            <th><label for="parentID">Parent ID:</label></th>
+            <td><input type="number" id="parentID" name="parentID" required></td>
+        </tr>
+
+        <tr>
+            <th><label for="nsfw">Is it NSFW?</label></th>
+            <td>
+                <input type="radio" id="yes" name="nsfw" value="Yes">
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="nsfw" value="No">
+                <label for="no">No</label>
+        </td>
+        </tr>
+    </table>
+    <p><input class="button" type="submit" value="Add"></p>
+</fieldset>
+
+</form>
+{% endif %}
+<p><a class="button" href="{% url 'comment:index' %}">Go back to comments list!</a></p>
+</body>

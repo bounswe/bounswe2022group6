@@ -8,41 +8,14 @@ import json
 from .serializers import UserSerializer
 from .models import User
 from .forms import UserForm
-
-@api_view(['GET'])
-def apiOverview(request):
-    api_urls = {
-        'List':'/user-list/',
-        'Detail':'/user-detail/',
-        'Post':'/user-create/',
-    }
-    return Response(api_urls)
-
-@api_view(['GET'])
-def userList(request):
-    users = User.objects.all()
-    serializer = UserSerializer(users, many=True)
-    return Response(serializer.data)
-
-@api_view(['GET'])
-def userDetail(request, pk):
-    user = User.objects.get(id=pk)
-    serializer = UserSerializer(user, many=False)
-    return Response(serializer.data)
-
-@api_view(['POST'])
-def userCreate(request):
-    serializer = UserSerializer(data=request.data)
-
-    if serializer.is_valid():
-        serializer.save()
-
-    return Response(serializer.data)
+import requests
+from rest_framework import status
 
 def index(request):
     return render(request, 'user-home.html')
 
-def listAll(request):
+@api_view(['GET'])
+def userList(request):
     users = User.objects.all()
     serializer = UserSerializer(users, many=True)
     data = serializer.data
@@ -52,44 +25,55 @@ def listAll(request):
         username = row["username"]
         password = row["password"]
         mail= row["mail"]
-        users.append((id, username, password, mail))
+        horoscope = row["horoscope"]
+        users.append((id, username, password, mail,horoscope))
 
     return render(request,'user-list.html',{"results": users})
 
-def listOne(request):
+def userDetail(request):
     return render(request,'user-detail.html')
 
-def listOneWorker(request):
+@api_view(['GET','POST'])
+def userDetailWorker(request):
     username=request.POST["username"]
 
     try:
         user = User.objects.get(username=username)
         serializer = UserSerializer(user, many=False)
         data = serializer.data
-
+    
         users=[]
         id = data["id"]
         username = data["username"]
         password = data["password"]
         mail= data["mail"]
+        horoscope = data["horoscope"]
 
-        users.append((id, username, password, mail))
-        return render(request,'user-detail.html',{"results": users})
+        params = (
+        ('sign', horoscope),
+        ('day', 'today'),
+        )
+        
+        daily = requests.post('https://aztro.sameerkumar.website/', params=params)
+        resp = daily.json()
+
+        desc = resp["description"] 
+
+        users.append((id, username, password, mail,horoscope))   
+        return render(request,'user-detail.html',{"results": users, "daily":desc})
 
     except:
         isFailed=request.GET.get("fail",True)
-        return render(request,'user-detail.html',{"action_fail": isFailed})
+        return render(request,'user-detail.html',{"action_fail": isFailed}, status=status.HTTP_404_NOT_FOUND)
 
-
-
-def addNew(request):
+def userCreate(request):
     form = UserForm()
     isFailed=request.GET.get("fail",False)
     isSuccessful=request.GET.get("success",False)
     return render(request,'user-create.html',{"action_success": isSuccessful, "action_fail": isFailed,"form":form})
 
 @api_view(['POST'])
-def addNewWorker(request):
+def userCreateWorker(request):
     form = UserForm()
     serializer = UserSerializer(data = request.data)
 
@@ -101,4 +85,34 @@ def addNewWorker(request):
     else:
         isFailed=request.GET.get("fail",True)
         isSuccessful=request.GET.get("success",False)
-        return render(request, 'user-create.html',{"action_success": isSuccessful,"action_fail": isFailed,"form":form})
+        return render(request, 'user-create.html',{"action_success": isSuccessful,"action_fail": isFailed,"form":form},status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
+@api_view(['GET'])
+def apiOverview(request):
+    api_urls = {
+        'List':'/user-list/',
+        'Detail':'/user-detail/',
+        'Post':'/user-create/',
+    }
+    return Response(api_urls)
+
+@api_view(['GET'])
+def userListApi(request):
+    users = User.objects.all()
+    serializer = UserSerializer(users, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def userDetailApi(request, pk):
+    user = User.objects.get(id=pk)
+    serializer = UserSerializer(user, many=False)
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def userCreateApi(request):
+    serializer = UserSerializer(data=request.data)
+
+    if serializer.is_valid():
+        serializer.save()
+
+    return Response(serializer.data)

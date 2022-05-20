@@ -10,11 +10,20 @@ from rest_framework.response import Response
 from rest_framework import status
 import requests
 import json
+import urllib.request as request
 
 
 
-def index(req):
-    return render(req, "postindex.html")
+def postindex(req):
+
+    f = request.urlopen('https://api.openweathermap.org/data/2.5/weather?lat=41.0096334&lon=28.9651646&appid=bd91d7972aabcee560cb9eda43e28070')
+    json_string = f.read()
+    parsed_json = json.loads(json_string)
+    x = json.dumps(parsed_json['main']['temp'], indent = 4)
+    f.close()
+    x = (float(x)-273.15)
+    weather= format(x, ".2f")
+    return render(req, "postindex.html",{"weather": weather})
 
 
 
@@ -22,6 +31,7 @@ def index(req):
 @api_view(['GET', 'POST'])
 def getPost(request):
     post_id = request.GET["id"]
+    
     try:
         post = Post.objects.get(pk=post_id)
     except:
@@ -44,12 +54,18 @@ def getPost(request):
 
 @api_view(['POST'])
 def createPost(request):
+    isvalid = False
+    notvalid =False
+    
     serializer = PostSerializer(data = request.data)
 
     if serializer.is_valid():
         serializer.save()
+        isvalid = True
+    else:
+        notvalid = True
 
-    return render(request, "postindex.html", {"success":True })
+    return render(request, "postindex.html", {"success":isvalid, "fail": notvalid })
 
 
 

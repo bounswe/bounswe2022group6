@@ -1,99 +1,300 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head>
-  	<title>Home</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <style>
-        table, th, td {
+	<head>
+		<title>Home</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+		<style>
+			table, th, td {
             border: 1px solid;
-        }
-        .center {
+			}
+			.center {
             margin-left: auto;
             margin-right: auto;
             justify-content: center;
-        }
-        form { 
+			}
+			form { 
             margin: 0 auto; 
             width:250px;
-        }
-    </style>
-</head>
-<body>
-    <div class="p-5 bg-primary text-white text-center">
-        <h1>Get Tips for Living Healthier</h1>
-    </div>
-	<div class="accordion" id="accordion0">
-	  <div class="accordion-item">
-		<h2 class="accordion-header" id="heading0">
-		  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse0" aria-expanded="true" aria-controls="collapse0">
-			<strong class="text-secondary">We offer advice in a wide variety of topics. Click to see the categories.</strong>
-		  </button>
-		</h2>
-		<div id="collapse0" class="accordion-collapse collapse" aria-labelledby="heading0" data-bs-parent="#accordion0">
-		  <div class="accordion-body">
-			{% for category in advice_categories %}
-				<strong class="text-secondary">∙ {{category}}<br></strong>
+			}
+			body { overflow-y: scroll; }
+		</style>
+		
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		
+		<script type="text/javascript">
+			google.charts.load("current", {packages:["corechart"]});
+			google.charts.setOnLoadCallback(drawChart);
+			function drawChart() {
+				
+				
+				var all_ag = {{statistics.all_user_ages}};
+				all_ag.unshift(["Age"]);
+				var data = google.visualization.arrayToDataTable(all_ag);
+				
+				var options = {
+					legend: { position: 'none' },
+					chartArea: {left: 50},
+					width:350,
+					histogram:{hideBucketItems: true}
+				};
+				
+				var chart = new google.visualization.Histogram(document.getElementById('chart_div'));
+				
+				var myCollapsible = document.getElementById('accordionsta1')
+				myCollapsible.addEventListener('shown.bs.collapse', function () {
+					chart.draw(data, options);
+				})
+			}
+		</script>
+		
+		<script type="text/javascript">
+			google.charts.load('current', {'packages':['corechart']});
+			google.charts.setOnLoadCallback(drawChart);
+			
+			function drawChart() {
+				
+				var data = google.visualization.arrayToDataTable([
+				['Task', 'Hours per Day'],
+				['Male',     {{statistics.male_count}} ],
+				['Female',      {{statistics.female_count}} ]
+				]);
+				
+				var options = {
+					title: 'Sex Distribution of the Users',
+					chartArea: {left: 0, width: 400, height: 300},
+					width:350,
+					pieSliceText:"none"
+				};
+				
+				
+				var chart = new google.visualization.PieChart(document.getElementById('piechartSex'));
+				
+				chart.draw(data, options);
+			}
+		</script>
+		
+		<script type="text/javascript">
+			google.charts.load('current', {'packages':['corechart']});
+			google.charts.setOnLoadCallback(drawChart);
+			
+			function drawChart() {
+				
+				var data = google.visualization.arrayToDataTable([
+				['Task', 'Hours per Day'],
+				['Non-smoker',     {{statistics.non_smoker_count}}],
+				['Smoker',      {{statistics.smoker_count}}]
+				]);
+				
+				var options = {
+					title: 'Tobacco Use Distribution of the Users',
+					chartArea: {left: 0, width: 400, height: 300},
+					width:350,
+					pieSliceText:"none"
+				};
+				
+				
+				var chart = new google.visualization.PieChart(document.getElementById('piechartTobacco'));
+				
+				chart.draw(data, options);
+			}
+		</script>
+		
+		<script type="text/javascript">
+			google.charts.load('current', {'packages':['corechart']});
+			google.charts.setOnLoadCallback(drawChart);
+			
+			function drawChart() {
+				
+				var data = google.visualization.arrayToDataTable([
+				['Task', 'Hours per Day'],
+				['Active',     {{statistics.active_count}}],
+				['Inactive',      {{statistics.inactive_count}}]
+				]);
+				
+				var options = {
+					title: 'Sexual Activity Distribution of the Users',
+					chartArea: {left: 0, width: 400, height: 300},
+					width:350,
+					pieSliceText:"none"
+				};
+				
+				
+				var chart = new google.visualization.PieChart(document.getElementById('piechartActive'));
+				
+				chart.draw(data, options);
+			}
+		</script>
+		
+	</head>
+	<body>
+		<div class="p-5 bg-primary text-white text-center">
+			<h1>Get Tips for Living Healthier</h1>
+		</div>
+		<div class="accordion bg-light" id="accordion0">
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="heading0">
+					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse0" aria-expanded="false" aria-controls="collapse0">
+						<strong class="text-secondary">We offer advice in a wide variety of topics. Click to see the categories.</strong>
+					</button>
+				</h2>
+				<div id="collapse0" class="accordion-collapse collapse" aria-labelledby="heading0" data-bs-parent="#accordion0">
+					<div class="accordion-body">
+						{% for category in advice_categories %}
+						<strong class="text-secondary">∙ {{category}}<br></strong>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row g-0 bg-light">
+			<div class="col-xxl-3">
+				<div class="accordion" id="accordionsta1">
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="headingsta1">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsesta1" aria-expanded="false" aria-controls="collapsesta1">
+								<strong class="text-secondary">Age Distribution</strong>
+							</button>
+						</h2>
+						<div id="collapsesta1" class="accordion-collapse collapse" aria-labelledby="headingsta1" data-bs-parent="#accordionsta1">
+							<div class="accordion-body">
+								{% if statistics.all_user_ages|length == 0 %}
+									<h2 class="text-secondary text-center">You are the first user<br>No data to display</h2>
+								{% else %}
+									<div id="chart_div"></div>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-xxl-3">
+				<div class="accordion" id="accordionsta2">
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="headingsta2">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsesta2" aria-expanded="false" aria-controls="collapsesta2">
+								<strong class="text-secondary">Sex Distribution</strong>
+							</button>
+						</h2>
+						<div id="collapsesta2" class="accordion-collapse collapse" aria-labelledby="headingsta2" data-bs-parent="#accordionsta2">
+							<div class="accordion-body">
+								{% if statistics.all_user_ages|length == 0 %}
+									<h2 class="text-secondary text-center">You are the first user<br>No data to display</h2>
+								{% else %}
+									<div id="piechartSex"></div>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-xxl-3">
+				<div class="accordion" id="accordionsta3">
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="headingsta3">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsesta3" aria-expanded="false" aria-controls="collapsesta3">
+								<strong class="text-secondary">Tobacco Use Distribution</strong>
+							</button>
+						</h2>
+						<div id="collapsesta3" class="accordion-collapse collapse" aria-labelledby="headingsta3" data-bs-parent="#accordionsta3">
+							<div class="accordion-body">
+								{% if statistics.all_user_ages|length == 0 %}
+									<h2 class="text-secondary text-center">You are the first user<br>No data to display</h2>
+								{% else %}
+									<div id="piechartTobacco"></div>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-xxl-3">
+				<div class="accordion" id="accordionsta4">
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="headingsta4">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsesta4" aria-expanded="false" aria-controls="collapsesta4">
+								<strong class="text-secondary">Sexual Activity Distribution</strong>
+							</button>
+						</h2>
+						<div id="collapsesta4" class="accordion-collapse collapse" aria-labelledby="headingsta4" data-bs-parent="#accordionsta4">
+							<div class="accordion-body">
+								{% if statistics.all_user_ages|length == 0 %}
+									<h2 class="text-secondary text-center">You are the first user<br>No data to display</h2>
+								{% else %}
+									<div id="piechartActive"></div>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="p-5 bg-light text-center">
+			<h3>Tell us about yourself</h3>
+			<form id="form" class="form-group" method="POST" action="{%url 'advice_home' %}#tips">
+				{%csrf_token%}
+				<label>Your age</label><br>
+				<input type="number" name="age" placeholder="Age" min="0" max="120" required>
+				<br>
+				<br>
+				<label>Your sex</label><br>
+				<input class="form-check-input" type="radio" name="sex" value="male" required>
+				<label for="male">Male</label>
+				<input class="form-check-input" type="radio" name="sex" value="female" required>
+				<label for="female">Female</label>
+				<br>
+				<br>
+				<label>Do you smoke?</label><br>
+				<input class="form-check-input" type="radio" name="tobaccoUse" value=1 required>
+				<label for="male">Yes</label>
+				<input class="form-check-input" type="radio" name="tobaccoUse" value=0 required>
+				<label for="female">No</label>
+				<br>
+				<br>
+				<label>Are you sexually active?</label><br>
+				<input class="form-check-input" type="radio" name="sexuallyActive" value=1 required>
+				<label for="male">Yes</label>
+				<input class="form-check-input" type="radio" name="sexuallyActive" value=0 required>
+				<label for="female">No</label>
+				<br>
+				<br>
+				<input class="btn btn-success" type="submit" value="Get tips">
+				<br>
+				<br>
+			</form>
+			<a href="/" class="btn btn-secondary" role="button">Back to Home</a> <br>
+		</div>
+		{% if advice_list %}
+		<div class="p-5 bg-primary text-white text-center" id="tips">
+			<h2>Things you can do</h2>
+		</div>
+		{% endif %}
+		<div class="accordion" id="accordion1">
+			{% for advice in advice_list %}
+			<div class="accordion-item">
+				<h2 class="accordion-header" id="heading{{advice.index}}">
+					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{advice.index}}" aria-expanded="false" aria-controls="collapse{{advice.index}}">
+						{{advice.advice_title}}
+					</button>
+				</h2>
+				<div id="collapse{{advice.index}}" class="accordion-collapse collapse" aria-labelledby="heading{{advice.index}}" data-bs-parent="#accordion1">
+					<div class="accordion-body">
+						{{advice.advice_desc}}
+					</div>
+				</div>
+			</div>
 			{% endfor %}
-		  </div>
 		</div>
-	  </div>
-	</div>
-	<div class="p-5 bg-light text-center">
-		<h3>Tell us about yourself</h3>
-        <form id="form" class="form-group" method="POST" action="{%url 'home' %}#tips">
-			{%csrf_token%}
-			<label>Your age</label><br>
-			<input type="number" name="age" placeholder="Age" min="0" max="120" required>
-			<br>
-			<br>
-			<label>Your sex</label><br>
-			<input type="radio" name="sex" value="male" required>
-			<label for="male">Male</label>
-			<input type="radio" name="sex" value="female" required>
-			<label for="female">Female</label>
-			<br>
-			<br>
-			<label>Do you smoke?</label><br>
-			<input type="radio" name="tobaccoUse" value=0 required>
-			<label for="male">Yes</label>
-			<input type="radio" name="tobaccoUse" value=1 required>
-			<label for="female">No</label>
-			<br>
-			<br>
-			<label>Are you sexually active?</label><br>
-			<input type="radio" name="sexuallyActive" value=0 required>
-			<label for="male">Yes</label>
-			<input type="radio" name="sexuallyActive" value=1 required>
-			<label for="female">No</label>
-			<br>
-			<br>
-			<input class="btn btn-success" type="submit" value="Get tips">
-			<br>
-			<br>
-        </form>
-    </div>
-	{% if advice_list %}
-	<div class="p-5 bg-primary text-white text-center" id="tips">
-        <h2>Things you can do</h2>
-    </div>
-	{% endif %}
-	<div class="accordion" id="accordion1">
-	  {% for advice in advice_list %}
-	  <div class="accordion-item">
-		<h2 class="accordion-header" id="heading{{advice.index}}">
-		  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{advice.index}}" aria-expanded="true" aria-controls="collapse{{advice.index}}">
-			{{advice.advice_title}}
-		  </button>
-		</h2>
-		<div id="collapse{{advice.index}}" class="accordion-collapse collapse" aria-labelledby="heading{{advice.index}}" data-bs-parent="#accordion1">
-		  <div class="accordion-body">
-			{{advice.advice_desc}}
-		  </div>
+		<div class="p-5 bg-light text-white text-center">
+			<a href="https://health.gov/myhealthfinder" title="MyHealthfinder">
+				<img src="https://health.gov/themes/custom/healthfinder/images/MyHF.svg" alt="MyHealthfinder"/>
+			</a>
 		</div>
-	  </div>
-	  {% endfor %}
-	</div>
-</body>
+	</body>
 </html>

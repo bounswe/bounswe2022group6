@@ -25,6 +25,7 @@
 
     <div style="background-color:plum; !important" class="jumbotron text-center bg-primary">
             <h2> Welcome </h2>
+            <h2> The temperature in Istanbul is {{weather}} C.</h2>
     </div>
 
       {% if success %}
@@ -32,6 +33,12 @@
         <h4 class="alert-heading">Post is successfully created .</h4>
 
     </div>
+    {% elif fail %}
+        <div class="alert alert-danger" role="alert" >
+        <h4 class="alert-heading">Post creation failed.</h4>
+
+    </div>
+      
 
     {% endif %}
 
@@ -50,7 +57,7 @@
 
  <button type="submit" style="margin-top: 10px;"  class="btn btn-success"> Create Post </button>
 </form>
-
+<a href="/" class="btn btn-secondary" role="button">Back to Home</a> <br>
 
 </body>
 </html>
