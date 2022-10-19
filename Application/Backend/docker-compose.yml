@@ -1,0 +1,25 @@
+version: '3'
+services:
+  database:
+    build:
+      context: .
+      dockerfile: ./Database/Dockerfile
+    ports:
+      - "3306:3306"
+    env_file:
+      - .env
+    volumes:
+      - ./Database/_db:/var/lib/mysql
+  backend:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: ./init_backend.sh
+    expose:
+      - 8000
+    ports:
+      - "8000:8000"
+    env_file:
+        - .env
+    depends_on:
+      - database
