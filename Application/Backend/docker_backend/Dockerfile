@@ -4,15 +4,15 @@ ENV PYTHONUNBUFFERED 1
 
 WORKDIR /backend/django
 
-COPY ./requirements.txt /backend/django
+COPY ./requirements.txt /backend/django/
 RUN pip3 install -r requirements.txt
 
-COPY ./docker_backend/init_backend.sh /backend
+COPY ./docker_backend/init_backend.sh /backend/
 RUN chmod +x /backend/init_backend.sh
 
 # Run test
-COPY ./.env /backend/django
-COPY ./manage.py /backend/django
+COPY ./.env /backend/django/
+COPY ./manage.py /backend/django/
 COPY ./src /backend/django/src
 RUN python manage.py test
 
