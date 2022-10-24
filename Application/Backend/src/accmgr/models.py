@@ -2,7 +2,6 @@ from django.db import models
 from django.core.validators import RegexValidator, MinLengthValidator
 
 class User(models.Model):
-
     userID = models.AutoField(primary_key=True)
     username = models.CharField(unique=True, max_length=16, validators=[RegexValidator(r'^[\w-]*$'), MinLengthValidator(3)])
     email = models.EmailField(unique=True, blank=False)
@@ -15,3 +14,9 @@ class User(models.Model):
         ("D", "Do not want to specify")
     )
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
+
+    def save(self, *args, **kwargs):
+        choice = self.gender
+        if not any(choice in _tuple for _tuple in self.GENDER_CHOICES):
+            raise ValueError('Invalid choice!')
+        super(User, self).save(*args, **kwargs)
