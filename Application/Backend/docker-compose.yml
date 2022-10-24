@@ -2,21 +2,20 @@ version: '3'
 services:
   database:
     build:
-      context: .
-      dockerfile: ./Database/Dockerfile
+      context: ./docker_database
     ports:
       - "3306:3306"
     env_file:
       - .env
     volumes:
-      - ./Database/_db:/var/lib/mysql
+      - ./_temp_db:/var/lib/mysql
   backend:
     build:
       context: .
-      dockerfile: ./Dockerfile
-    command: ./init_backend.sh
+      dockerfile: ./docker_backend/Dockerfile
+    command: ../init_backend.sh
     volumes:
-      - .:/backend
+      - .:/backend/django
     expose:
       - 8000
     ports:
