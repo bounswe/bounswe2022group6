@@ -20,6 +20,6 @@ class RegisterUser(APIView):
             new_user = User(username=username, email=email, password_hash=password_hash, birth_date=birth_date, gender=gender)
 
             new_user.save()
-            return JsonResponse({"info": "Success!", "user": new_user.userID})
+            return JsonResponse({"info": "success", "user": new_user.userID})
         except Exception as e:
-            return JsonResponse({"info": "Fail!", "error": str(e)})
+            return JsonResponse({"info": "failure", "error": str(e)})
