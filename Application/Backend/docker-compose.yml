@@ -3,12 +3,12 @@ services:
   database:
     build:
       context: ./docker_database
-    ports:
-      - "3306:3306"
     env_file:
       - .env
     volumes:
       - ./_temp_db:/var/lib/mysql
+    networks:
+      - db-backend
   backend:
     build:
       context: .
@@ -16,11 +16,15 @@ services:
     command: ../init_backend.sh
     volumes:
       - .:/backend/django
-    expose:
-      - 8000
     ports:
       - "8000:8000"
     env_file:
         - .env
     depends_on:
       - database
+    networks:
+      - db-backend
+
+networks:
+  db-backend:
+    name: db-backend
