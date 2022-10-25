@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "22b35ba7-a5cb-4eee-b741-9c73a825fe2b",
+		"name": "Backend Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8000/register/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "tsdf",
+							"type": "default"
+						},
+						{
+							"key": "email",
+							"value": "asd@user.com",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "default"
+						},
+						{
+							"key": "gender",
+							"value": "M",
+							"type": "default"
+						},
+						{
+							"key": "birth_day",
+							"value": "4",
+							"type": "default"
+						},
+						{
+							"key": "birth_month",
+							"value": "12",
+							"type": "default"
+						},
+						{
+							"key": "birth_year",
+							"value": "1998",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/register/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
