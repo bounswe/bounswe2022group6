@@ -16,7 +16,5 @@ class User(models.Model):
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
 
     def save(self, *args, **kwargs):
-        choice = self.gender
-        if not any(choice in _tuple for _tuple in self.GENDER_CHOICES):
-            raise ValueError('Invalid choice!')
+        self.full_clean()
         super(User, self).save(*args, **kwargs)
