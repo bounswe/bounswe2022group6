@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,8 +19,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+# Only for testing! This key is not used on production.
+SECRET_KEY = "This part will only used for testing"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -73,17 +72,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'src.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
+# Database only used for testing, so sqlite3 is a better and lighter alternative
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('MYSQL_DATABASE'),
-        'USER': os.environ.get('MYSQL_USER'),
-        'PASSWORD': os.environ.get('MYSQL_PASSWORD'),
-        'HOST': os.environ.get('MYSQL_DATABASE_HOST'),
-        'PORT': os.environ.get('MYSQL_DATABASE_PORT'),
+        'ENGINE': 'django.db.backends.sqlite3',
     }
 }
 
