@@ -77,3 +77,33 @@ class RegistrationTest(TestCase):
         self.assertEqual(response_content["info"], 'user registration failed')
         self.assertEqual(response_content["error"], "{'email': ['Enter a valid email address.']}")
         self.assertEqual(response.status_code, 400)
+
+    def test_success(self):
+        response = self.client.post('/register/', { "username": "mark", "email": "mark.zucky@facadeledger.com",
+                "password": "passWord!", "gender":"m", "birth_day":"06", "birth_month":"10", "birth_year":"1970"})
+        response_content = json.loads(response.content)
+        self.assertEqual(response_content["info"], 'user registration successful')
+        self.assertEqual(response_content["userID"], 1)
+        self.assertEqual(response.status_code, 201)
+
+    def test_duplicate_username(self):
+        self.client.post('/register/', { "username": "mark", "email": "mark.zucky@facadeledger.com",
+                "password": "passWord!", "gender":"m", "birth_day":"06", "birth_month":"10", "birth_year":"1970"})
+
+        response = self.client.post('/register/', { "username": "mark", "email": "mark.zuckymucky@facadeledger.com",
+                "password": "passWord!", "gender":"m", "birth_day":"06", "birth_month":"10", "birth_year":"1970"})
+        response_content = json.loads(response.content)
+        self.assertEqual(response_content["info"], 'user registration failed')
+        self.assertEqual(response_content["error"], "{'username': ['User with this Username already exists.']}")
+        self.assertEqual(response.status_code, 400)
+
+    def test_duplicate_email(self):
+        self.client.post('/register/', { "username": "mark", "email": "mark.zucky@facadeledger.com",
+                "password": "passWord!", "gender":"m", "birth_day":"06", "birth_month":"10", "birth_year":"1970"})
+
+        response = self.client.post('/register/', { "username": "markzucky", "email": "mark.zucky@facadeledger.com",
+                "password": "passWord!", "gender":"m", "birth_day":"06", "birth_month":"10", "birth_year":"1970"})
+        response_content = json.loads(response.content)
+        self.assertEqual(response_content["info"], 'user registration failed')
+        self.assertEqual(response_content["error"], "{'email': ['User with this Email already exists.']}")
+        self.assertEqual(response.status_code, 400)
