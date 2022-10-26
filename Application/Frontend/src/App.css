@@ -142,6 +142,8 @@ footer p {
 .yellow-font {
   color: #c2cd23;
 }
+
+/* Landing Page css*/
 form {
   display: inline-block;
   background: #f3f3f3;
@@ -172,4 +174,16 @@ input {
 }
 form span {
   font-size: .8rem
+}
+
+.h2Register {
+  color: #c2cd23;
+  margin-top: 0px;
+  font-weight: 500;
+  font-size: 100px;
+}
+
+.h5Register{
+  color: #0f7375;
+  font-size: 30px;
 }
