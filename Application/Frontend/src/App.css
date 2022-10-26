@@ -76,3 +76,63 @@ body {
 .center {
   text-align: center;
 }
+
+/* Login Page css*/
+
+h2 {
+  margin-top: -30px;
+  font-weight: 500;
+  font-size: 100px;
+}
+
+form {
+  display: inline-block;
+  background: #f3f3f3;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  padding: 2rem;
+  margin: 2rem 0 1rem 0
+}
+
+form label {
+  float: left;
+  font-size: .9rem;
+  margin: 0;
+  padding: 0
+}
+
+.right-label {
+  float: right;
+  cursor: pointer
+}
+
+input {
+  width: 15rem;
+  padding: .3rem;
+  border-radius: 5px;
+  outline: none;
+  border: none
+}
+
+#sub_btn {
+  display: block;
+  width: 100%;
+  padding: .3rem;
+  border: none;
+  background: #222;
+  color: #fff;
+  border-radius: 3px;
+}
+
+#sub_btn:hover {
+  background: #333;
+  transition: all .5s
+}
+
+footer p {
+  margin: 0;
+  font-size: .9rem
+}
+.yellow-font {
+  color: #c2cd23;
+}
