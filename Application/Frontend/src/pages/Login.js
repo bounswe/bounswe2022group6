@@ -22,8 +22,9 @@ export default function Login() {
                         </p>
                         <br/>
                         <p>
-                            <button id="sub_btn" type="submit">Login</button>
+                            <button id="submit_btn" type="submit">Login</button>
                         </p>
+                        <br/>
                         <p>First time? <Link to="/register">Create an account</Link>.</p>
                         <p><Link to="/">Back to Homepage</Link>.</p>
                     </form>

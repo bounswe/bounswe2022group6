@@ -114,7 +114,7 @@ input {
   border: none
 }
 
-#sub_btn {
+#submit_btn {
   display: block;
   width: 100%;
   padding: .3rem;
@@ -124,7 +124,7 @@ input {
   border-radius: 3px;
 }
 
-#sub_btn:hover {
+#submit_btn:hover {
   background: #333;
   transition: all .5s
 }
