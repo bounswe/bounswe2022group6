@@ -6,7 +6,7 @@ import '../App.css'
 import BackgroundImage from '../assets/boun_3.png'
 
 
-export default function SignUpPage() {
+export default function Register() {
  
     return (
         <header style={ HeaderStyle }>
