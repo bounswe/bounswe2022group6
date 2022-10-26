@@ -1,3 +1,4 @@
+from re import I
 from django.test import TestCase, Client
 from .models import *
 import json
@@ -14,6 +15,8 @@ class RegistrationTest(TestCase):
         self.assertEqual(response_content["info"], 'user registration failed')
         self.assertEqual(response_content["error"], "{'form_data': ['Missing form data.']}")
         self.assertEqual(response.status_code, 400)
+
+    # Note that there are more cases for special characters but they do not need to be tested aswell
 
     def test_bad_username(self):
         response = self.client.post('/register/', { "username": "mark.zucky", "email": "mark.zucky@facadeledger.com",
@@ -37,4 +40,40 @@ class RegistrationTest(TestCase):
         response_content = json.loads(response.content)
         self.assertEqual(response_content["info"], 'user registration failed')
         self.assertEqual(response_content["error"], "{'username': ['Ensure this value has at least 3 characters (it has 2).']}")
+        self.assertEqual(response.status_code, 400)
+
+    def test_gender_choice(self):
+        response = self.client.post('/register/', { "username": "mark", "email": "mark.zucky@facadeledger.com",
+                "password": "passWord!", "gender":"y", "birth_day":"06", "birth_month":"10", "birth_year":"1970"})
+        response_content = json.loads(response.content)
+        self.assertEqual(response_content["info"], 'user registration failed')
+        self.assertEqual(response_content["error"], "{'gender': [\"Value 'Y' is not a valid choice.\"]}")
+        self.assertEqual(response.status_code, 400)
+
+    # Note that this applies to each date field
+
+    def test_date_integer(self):
+        response = self.client.post('/register/', { "username": "mark", "email": "mark.zucky@facadeledger.com",
+                "password": "passWord!", "gender":"m", "birth_day":"06", "birth_month":"a", "birth_year":"1970"})
+        response_content = json.loads(response.content)
+        self.assertEqual(response_content["info"], 'user registration failed')
+        self.assertEqual(response_content["error"], "{'birth_month': ['Enter an integer.']}")
+        self.assertEqual(response.status_code, 400)
+    
+    # This does not prevent entering very small values, just check invalid dates
+
+    def test_bad_date(self):
+        response = self.client.post('/register/', { "username": "mark", "email": "mark.zucky@facadeledger.com",
+                "password": "passWord!", "gender":"m", "birth_day":"223", "birth_month":"10", "birth_year":"1970"})
+        response_content = json.loads(response.content)
+        self.assertEqual(response_content["info"], 'user registration failed')
+        self.assertEqual(response_content["error"], "{'birth_date': ['day is out of range for month']}")
+        self.assertEqual(response.status_code, 400)
+
+    def test_bad_email(self):
+        response = self.client.post('/register/', { "username": "mark", "email": "zuckymucky",
+                "password": "passWord!", "gender":"m", "birth_day":"06", "birth_month":"10", "birth_year":"1970"})
+        response_content = json.loads(response.content)
+        self.assertEqual(response_content["info"], 'user registration failed')
+        self.assertEqual(response_content["error"], "{'email': ['Enter a valid email address.']}")
         self.assertEqual(response.status_code, 400)
