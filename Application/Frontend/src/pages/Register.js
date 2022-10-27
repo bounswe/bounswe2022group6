@@ -1,5 +1,6 @@
 import React from 'react'
-
+import {Redirect, useHistory} from 'react-router-dom'
+import {useState} from "react"
 
 import RegisterForm from '../components/RegisterForm'
 import '../App.css'
@@ -32,6 +33,7 @@ async function sendRequest(data) {
     const response = await fetch("/register", requestOptions)
     const resMessage = await response.json()
     if (response.status === 400) {
+        console.log(resMessage["error"])
         return resMessage["error"]
     } else {
         return null
@@ -40,6 +42,7 @@ async function sendRequest(data) {
 
 export default function Register() {
 
+    let history = useHistory()
 
     const [formData, setFormData] = useState( {
         username: "", 
@@ -63,7 +66,11 @@ export default function Register() {
             event.preventDefault()
             console.log("test")
             sendRequest(formData).then(res => {
-                console.log(res)
+                if (res === null){
+                    history.push('/login')
+                } else {
+                    console.log(errors)                
+                }
             })
             
     }
