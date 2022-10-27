@@ -11,7 +11,7 @@ async function sendRequest(data) {
     var formData = new FormData()
 
     for (var key in data) {
-        console.log(key, typeof data[key])
+        console.log(key, data[key])
         if (key !== "date")
             formData.append(key, data[key])
         else {
@@ -62,7 +62,7 @@ export default function Register() {
     const [errors, setErrors] = useState(initialErrorState)
 
     const clearErrorState = () => {
-        setErrors(initialErrorState)
+        setErrors({...initialErrorState})
     }
 
     function handleChange(event) {
@@ -79,17 +79,18 @@ export default function Register() {
     const handleSubmit = event => {
             event.preventDefault()
             console.log("test")
-            clearErrorState()
             sendRequest(formData).then(res => {
                 if (res === null){
                     history.push('/login')
                 } else {
                     const jsonString = JSON.parse(res.replaceAll("'", "\""))
                     console.log(jsonString)
+                    clearErrorState()
+                    console.log(errors)
                     for (const key of Object.keys(jsonString)){
                         errors[key] = jsonString[key][0]
                     }
-                    console.log(errors)                
+                    console.log(errors)
                 }
             })
             
