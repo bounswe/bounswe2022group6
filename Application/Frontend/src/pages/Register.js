@@ -40,6 +40,14 @@ async function sendRequest(data) {
     }
 }
 
+
+const initialErrorState = {
+    username: "", 
+    email: "", 
+    password: "", 
+    date: "", 
+}
+
 export default function Register() {
 
     let history = useHistory()
@@ -50,6 +58,12 @@ export default function Register() {
         password: "", 
         date: "", 
     } )
+
+    const [errors, setErrors] = useState(initialErrorState)
+
+    const clearErrorState = () => {
+        setErrors(initialErrorState)
+    }
 
     function handleChange(event) {
         console.log(event)
@@ -65,10 +79,16 @@ export default function Register() {
     const handleSubmit = event => {
             event.preventDefault()
             console.log("test")
+            clearErrorState()
             sendRequest(formData).then(res => {
                 if (res === null){
                     history.push('/login')
                 } else {
+                    const jsonString = JSON.parse(res.replaceAll("'", "\""))
+                    console.log(jsonString)
+                    for (const key of Object.keys(jsonString)){
+                        errors[key] = jsonString[key][0]
+                    }
                     console.log(errors)                
                 }
             })
@@ -83,7 +103,8 @@ export default function Register() {
                     <RegisterForm 
                     handleChange = {handleChange} 
                     handleSubmit = {handleSubmit} 
-                    formData = {formData}>
+                    formData = {formData}
+                    errors = {errors}>
                     </RegisterForm>
                 </div>
             </header>
