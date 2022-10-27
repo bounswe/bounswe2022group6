@@ -1,0 +1,25 @@
+version: '3'
+services:
+  backend:
+    extends:
+      file: ../Backend/docker-compose.yml
+      service: backend
+  database:
+    extends:
+      file: ../Backend/docker-compose.yml
+      service: database
+  frontend:
+    build:
+      context: .
+    command: npm start
+    volumes:
+      - ./src:/frontend/src
+      - ./public:/frontend/public
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+networks:
+  db-backend:
+    name: db-backend
