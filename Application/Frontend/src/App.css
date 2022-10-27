@@ -8,7 +8,9 @@
 }
 
 body {
-  margin: 0 auto
+  margin: 0 auto;
+  background: #e9e9e9;
+
 }
 
 
@@ -135,4 +137,11 @@ footer p {
 }
 .yellow-font {
   color: #c2cd23;
+}
+.home-page-title {
+  color: #222;
+  padding-top: 0rem;
+  font-size: 4rem;
+  margin: auto;
+  text-align: center;
 }
