@@ -8,8 +8,7 @@
 }
 
 body {
-  margin: 0 auto;
-  background: #e9e9e9;
+  margin: 0 auto
 }
 
 
@@ -187,12 +186,4 @@ form span {
 .h5Register{
   color: #0f7375;
   font-size: 30px;
-}
-
-.home-page-title {
-  color: #222;
-  padding-top: 0rem;
-  font-size: 4rem;
-  margin: auto;
-  text-align: center;
 }
