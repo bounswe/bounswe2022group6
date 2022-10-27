@@ -1,59 +1,86 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 
+import RegisterForm from '../components/RegisterForm'
 import '../App.css'
 import BackgroundImage from '../assets/boun_3.png'
 
+async function sendRequest(data) {
+
+    var formData = new FormData()
+
+    for (var key in data) {
+        console.log(key, typeof data[key])
+        if (key !== "date")
+            formData.append(key, data[key])
+        else {
+            const splittedString = data[key].split("-")
+            formData.append("birth_year", splittedString[0])
+            formData.append("birth_month", splittedString[1])
+            formData.append("birth_day", splittedString[2])
+        }
+    }
+    formData.append("gender", "m")
+
+    const requestOptions = {
+        method: "POST",
+        header: "Content-Type: multipart/form-data",
+        body: formData
+    }
+    console.log("Sending Request")
+    
+    const response = await fetch("/register", requestOptions)
+    const resMessage = await response.json()
+    if (response.status === 400) {
+        return resMessage["error"]
+    } else {
+        return null
+    }
+}
 
 export default function Register() {
- 
+
+
+    const [formData, setFormData] = useState( {
+        username: "", 
+        email: "", 
+        password: "", 
+        date: "", 
+    } )
+
+    function handleChange(event) {
+        console.log(event)
+        const {name, value} = event.target
+        setFormData(prevFormData => {
+            return {
+                ...prevFormData,
+                [name]: value
+            }
+        })
+    }
+
+    const handleSubmit = event => {
+            event.preventDefault()
+            console.log("test")
+            sendRequest(formData).then(res => {
+                console.log(res)
+            })
+            
+    }
+
     return (
-        <header style={ HeaderStyle }>
-            <div className="center">
-                <h2 class="h2Register">Register to MediShare</h2>
-                <h5 class="h5Register">Create your personal account</h5>
-                <form action="/home" >
-                    <p>
-                        <label>Username</label><br/>
-                        <input type="text" name="first_name" required />
-                    </p>
-                    <br/>
-                    <p>
-                        <label>Email address</label><br/>
-                        <input type="email" name="email" required />
-                    </p>
-                    <br/>
-                    <p>
-                        <label>Password</label><br/>
-                        <input type="password" name="password" required />
-                    </p>
-                    <br/>
-                    <p>
-                        <label>Date of Birth</label><br/> 
-                        <input type="date" name="date" required />
-                    </p>
-                    <br/>
-                    <label htmlFor="genderSelect">Gender</label><br/>
-                    
-                    <select id="genderSelect" >
-                    <option value="do not want to specify" >Do not want to specify</option>
-                    <option value="male">Male</option> 
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                    </select><br/><br/>
-                    <p>
-                        <input type="checkbox" name="checkbox" id="checkbox" required /> <span>I agree all statements in <a href="https://google.com" target="_blank" rel="noopener noreferrer">terms of service</a></span>.
-                    </p>
-                    <p>
-                        <button id="submit_btn" type="submit">Register</button>
-                    </p>
-                    <br/>
-                    <p><Link to="/">Back to Homepage</Link>.</p>
-                </form>
-            </div>
-        </header>
-    )
+            <header style={ HeaderStyle }>
+                <div className="center">
+                    <h2 class="h2Register">Register to MediShare</h2>
+                    <h5 class="h5Register">Create your personal account</h5>
+                    <RegisterForm 
+                    handleChange = {handleChange} 
+                    handleSubmit = {handleSubmit} 
+                    formData = {formData}>
+                    </RegisterForm>
+                </div>
+            </header>
+        )
 
 }
 
