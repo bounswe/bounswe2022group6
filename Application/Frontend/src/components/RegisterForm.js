@@ -21,7 +21,7 @@ function RegisterForm() {
         email: "", 
         password: "", 
         date: "",
-        gender: ""
+        gender: "Do not want to specify"
     } )
 
     const [errors, setErrors] = useState(initialErrorState)
