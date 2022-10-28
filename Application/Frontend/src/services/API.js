@@ -1,3 +1,5 @@
+// Use this when backend is deployed
+const URL = ""
 
 // register endpoint
 async function register(data) {
