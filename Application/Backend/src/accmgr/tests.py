@@ -107,3 +107,53 @@ class RegistrationTest(TestCase):
         self.assertEqual(response_content["info"], 'user registration failed')
         self.assertEqual(response_content["error"], "{'email': ['User with this Email already exists.']}")
         self.assertEqual(response.status_code, 400)
+
+class LoginTest(TestCase):
+
+    def test_fields(self):
+        response = self.client.post('/login/', { "useridentifier": "markine"})
+        response_content = json.loads(response.content)
+        self.assertEqual(response_content["info"], 'user login failed')
+        self.assertEqual(response_content["error"], "{'form_data': ['Missing form data.']}")
+        self.assertEqual(response.status_code, 400)
+
+    def test_username(self):
+        response = self.client.post('/login/', { "useridentifier": "markine", "password": "markineworld"})
+        response_content = json.loads(response.content)
+        self.assertEqual(response_content["info"], 'user login failed')
+        self.assertEqual(response_content["error"], "{'username': ['No user with such username.']}")
+        self.assertEqual(response.status_code, 400)
+
+    def test_email(self):
+        response = self.client.post('/login/', { "useridentifier": "markine@facadeledger.com", "password": "markineworld"})
+        response_content = json.loads(response.content)
+        self.assertEqual(response_content["info"], 'user login failed')
+        self.assertEqual(response_content["error"], "{'email': ['No user with such email.']}")
+        self.assertEqual(response.status_code, 400)
+
+    def test_password_username(self):
+        self.client.post('/register/', { "username": "markine", "email": "markine@facadeledger.com",
+                "password": "markineworld", "gender":"f", "birth_day":"12", "birth_month":"3", "birth_year":"1988"})
+        response = self.client.post('/login/', { "useridentifier": "markine", "password": "markineworld123"})
+        response_content = json.loads(response.content)
+        self.assertEqual(response_content["info"], 'user login failed')
+        self.assertEqual(response_content["error"], "{'password': ['Password incorrect']}")
+        self.assertEqual(response.status_code, 401)
+
+    def test_password_email(self):
+        self.client.post('/register/', { "username": "markine", "email": "markine@facadeledger.com",
+                "password": "markineworld", "gender":"f", "birth_day":"12", "birth_month":"3", "birth_year":"1988"})
+        response = self.client.post('/login/', { "useridentifier": "markine@facadeledger.com", "password": "markineworld123"})
+        response_content = json.loads(response.content)
+        self.assertEqual(response_content["info"], 'user login failed')
+        self.assertEqual(response_content["error"], "{'password': ['Password incorrect']}")
+        self.assertEqual(response.status_code, 401)
+
+    def test_success(self):
+        self.client.post('/register/', { "username": "markine", "email": "markine@facadeledger.com",
+                "password": "markineworld", "gender":"f", "birth_day":"12", "birth_month":"3", "birth_year":"1988"})
+        response = self.client.post('/login/', { "useridentifier": "markine", "password": "markineworld"})
+        response_content = json.loads(response.content)
+        self.assertEqual(response_content["info"], "user login successful")
+        self.assertIn("token", response_content.keys())
+        self.assertEqual(response.status_code, 200)
