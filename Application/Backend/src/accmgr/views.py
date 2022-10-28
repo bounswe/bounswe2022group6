@@ -1,5 +1,7 @@
 from rest_framework.views import APIView
+from rest_framework.authtoken.models import Token
 from rest_framework.permissions import IsAuthenticated, AllowAny
+from django.contrib.auth import login
 from django.http import JsonResponse
 from datetime import date
 from hashlib import sha256
@@ -74,3 +76,42 @@ class RegisterUser(APIView):
             return JsonResponse({"info": "user registration successful", "userID": new_user.userID}, status=201)
         except Exception as e:
             return JsonResponse({"info":"user registration failed", "error": str(e)}, status=400)
+
+class LoginUser(APIView):
+
+    permission_classes = (AllowAny, )
+
+    def post(self, req):
+
+        try:
+            useridentifier = req.POST["useridentifier"]
+            password_str = req.POST["password"]
+        except:
+            return JsonResponse({"info":"user login failed", "error": "{'form_data': ['Missing form data.']}"}, status=400)
+
+        user = None
+
+        if "@" in useridentifier:
+            try:
+                user = RegisteredUser.objects.get(email=useridentifier)
+            except:
+                return JsonResponse({"info":"user login failed", "error": "{'email': ['No user with such email.']}"}, status=400)
+
+        else:
+            try:
+                user = RegisteredUser.objects.get(username=useridentifier)
+            except:
+                return JsonResponse({"info":"user login failed", "error": "{'email': ['No user with such username.']}"}, status=400)
+
+        password = sha256(password_str.encode("UTF-8")).hexdigest()
+
+        if password != user.password:
+            return JsonResponse({"info":"user login failed", "error": "{'password': ['Password incorrect']}"}, status=401)
+
+        token = Token.objects.get_or_create(user=user)[0].key
+
+        login(req, user)
+
+        return JsonResponse({"info":"user login successful", "token":token}, status=200)
+
+            
