@@ -3,45 +3,13 @@ import {Redirect, useHistory} from 'react-router-dom'
 import {useState} from "react"
 import { Link } from 'react-router-dom'
 
-async function sendRequest(data) {
-
-    var formData = new FormData()
-
-    for (var key in data) {
-        console.log(key, data[key])
-        if (key !== "date")
-            formData.append(key, data[key])
-        else {
-            const splittedString = data[key].split("-")
-            formData.append("birth_year", splittedString[0])
-            formData.append("birth_month", splittedString[1])
-            formData.append("birth_day", splittedString[2])
-        }
-    }
-    formData.append("gender", "m")
-
-    const requestOptions = {
-        method: "POST",
-        header: "Content-Type: multipart/form-data",
-        body: formData
-    }
-    console.log("Sending Request")
-    
-    const response = await fetch("/register", requestOptions)
-    const resMessage = await response.json()
-    if (response.status === 400) {
-        console.log(resMessage["error"])
-        return resMessage["error"]
-    } else {
-        return null
-    }
-}
+import register from '../services/API'
 
 const initialErrorState = {
     username: "", 
     email: "", 
     password: "", 
-    date: "", 
+    date: ""
 }
 
 function RegisterForm() {
@@ -52,7 +20,8 @@ function RegisterForm() {
         username: "", 
         email: "", 
         password: "", 
-        date: "", 
+        date: "",
+        gender: ""
     } )
 
     const [errors, setErrors] = useState(initialErrorState)
@@ -62,7 +31,6 @@ function RegisterForm() {
     }
 
     function handleChange(event) {
-        console.log(event)
         const {name, value} = event.target
         setFormData(prevFormData => {
             return {
@@ -74,8 +42,7 @@ function RegisterForm() {
 
     const handleSubmit = event => {
             event.preventDefault()
-            console.log("test")
-            sendRequest(formData).then(res => {
+            register(formData).then(res => {
                 if (res === null){
                     history.push('/login')
                 } else {
@@ -83,11 +50,9 @@ function RegisterForm() {
                     clearErrorState()
                     var newErrors = {}
                     for (const key of Object.keys(jsonString)){
-                        
                         newErrors[key] = jsonString[key][0]
                     }
                     setErrors({...newErrors})
-                    console.log(errors)
                 }
             })
             
@@ -124,7 +89,7 @@ function RegisterForm() {
         <br/>
 
         <label style = {{paddingLeft : "40%"}} htmlFor="genderSelect">Gender</label><br/>
-        <select id="genderSelect" >
+        <select name='gender' value = {formData.gender} onChange = {handleChange} id="genderSelect" >
         <option value="do not want to specify" >Do not want to specify</option>
         <option value="male">Male</option> 
         <option value="female">Female</option>
