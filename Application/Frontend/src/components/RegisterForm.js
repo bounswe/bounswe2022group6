@@ -1,11 +1,10 @@
 import React from 'react'
-import {Redirect, useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import {useState} from "react"
 import { Link } from 'react-router-dom'
 
 import MessageBox from './MessageBox'
 import register from '../services/API'
-import { wait } from '@testing-library/user-event/dist/utils'
 
 const initialErrorState = {
     username: "", 
@@ -116,8 +115,6 @@ function RegisterForm() {
         <br/>
         <p><Link to="/">Back to Homepage</Link>.</p>
     </form>
-
-    
     </div>
     )
 }
@@ -125,18 +122,6 @@ function RegisterForm() {
 const formStyle = {
     width: "30%",
     heigth: "50%"
-}
-
-const labelStyle = {
-    display: 'inline-block',
-    textAlign: 'right',
-    float: "left",
-}
-
-const inputStyle = {
-    display: "inline-block",
-    textAlign: "left",
-    float: "right"
 }
 
 export default RegisterForm
