@@ -223,7 +223,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"info\": \"user login failed\",\n    \"error\": \"{'email': ['No user with such username.']}\"\n}"
+					"body": "{\n    \"info\": \"user login failed\",\n    \"error\": \"{'username': ['No user with such username.']}\"\n}"
 				}
 			]
 		},
