@@ -101,7 +101,7 @@ class LoginUser(APIView):
             try:
                 user = RegisteredUser.objects.get(username=useridentifier)
             except:
-                return JsonResponse({"info":"user login failed", "error": "{'email': ['No user with such username.']}"}, status=400)
+                return JsonResponse({"info":"user login failed", "error": "{'username': ['No user with such username.']}"}, status=400)
 
         password = sha256(password_str.encode("UTF-8")).hexdigest()
 
