@@ -67,7 +67,7 @@ function RegisterForm() {
 
     return (
     <div>
-    <div> {isSuccessfull && <MessageBox data = "Successfull Registration" style = {{color: "#222", fontSize: "2.5rem", textTransform: "capitalize"}}> </MessageBox>}
+    <div> {isSuccessfull && <MessageBox data = "Successful Registration" style = {{color: "#222", fontSize: "2.5rem", textTransform: "capitalize"}}> </MessageBox>}
     </div>
     <form style = {formStyle} onSubmit = {handleSubmit}>
         <div>
