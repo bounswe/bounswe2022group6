@@ -3,7 +3,9 @@ import {Redirect, useHistory} from 'react-router-dom'
 import {useState} from "react"
 import { Link } from 'react-router-dom'
 
+import MessageBox from './MessageBox'
 import register from '../services/API'
+import { wait } from '@testing-library/user-event/dist/utils'
 
 const initialErrorState = {
     username: "", 
@@ -15,6 +17,8 @@ const initialErrorState = {
 function RegisterForm() {
 
     let history = useHistory()
+
+    const [isSuccessfull, setSuccessfull] = useState(false)
 
     const [formData, setFormData] = useState( {
         username: "", 
@@ -43,11 +47,15 @@ function RegisterForm() {
     const handleSubmit = event => {
             event.preventDefault()
             register(formData).then(res => {
+                clearErrorState()
                 if (res === null){
-                    history.push('/login')
+                    setSuccessfull(true)
+                    setTimeout(() => {
+                        history.push('/login');
+                      }, "1500")
+                   
                 } else {
                     const jsonString = JSON.parse(res.replaceAll("'", "\""))
-                    clearErrorState()
                     var newErrors = {}
                     for (const key of Object.keys(jsonString)){
                         newErrors[key] = jsonString[key][0]
@@ -59,6 +67,9 @@ function RegisterForm() {
     }
 
     return (
+    <div>
+    <div> {isSuccessfull && <MessageBox data = "Successfull Registration" style = {{color: "#222", fontSize: "2.5rem", textTransform: "capitalize"}}> </MessageBox>}
+    </div>
     <form style = {formStyle} onSubmit = {handleSubmit}>
         <div>
             <label style = {{paddingLeft : "40%"}} >Username</label><br/>
@@ -105,6 +116,9 @@ function RegisterForm() {
         <br/>
         <p><Link to="/">Back to Homepage</Link>.</p>
     </form>
+
+    
+    </div>
     )
 }
 
