@@ -1,5 +1,5 @@
-// Use this when backend is deployed
-const URL = ""
+// Local port of backend will need to change when deployed
+const URL = "/"
 
 // register endpoint
 async function register(data) {
@@ -20,7 +20,7 @@ async function register(data) {
             formData.append("birth_day", splittedString[2])
         }
     }
-    
+
     const requestOptions = {
         method: "POST",
         header: "Content-Type: multipart/form-data",
@@ -28,7 +28,7 @@ async function register(data) {
     }
     console.log("Sending Request")
     
-    const response = await fetch("/register", requestOptions)
+    const response = await fetch("http://localhost:8000/register", requestOptions)
     const resMessage = await response.json()
     if (response.status === 400) {
         console.log(resMessage["error"])
