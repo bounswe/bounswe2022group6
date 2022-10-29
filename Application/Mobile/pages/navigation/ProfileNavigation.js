@@ -14,7 +14,7 @@ const ProfileNavigation = () => {
     return (
         <Stack.Navigator initialRouteName='Profile'>
             <Stack.Screen name='Profile' component={ProfileScreen} options={{headerShown: false}} />
-            <Stack.Screen name='EditProfile' component={EditProfileScreen} />
+            <Stack.Screen name='EditProfile' component={EditProfileScreen} options={{title: 'Edit Profile'}} />
         </Stack.Navigator>
     )
 }
