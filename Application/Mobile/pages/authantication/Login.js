@@ -6,7 +6,7 @@ import { Stack, Button, TextInput, Text, Box, ActivityIndicator } from "@react-n
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { login } from '../../apis/Authentication';
 
-export const LoginPage = () => {
+export const LoginPage = ({navigation}) => {
 
   const [mail, setMail] = useState("")
   const [password, setPassword] = useState("")
@@ -20,8 +20,6 @@ export const LoginPage = () => {
       alert(error)      
     }  
   }
-
-
 
   return (
     <Stack spacing={2} style={{ paddingTop: '20%', margin: 16, paddingBottom: 30 }}>
@@ -49,11 +47,13 @@ export const LoginPage = () => {
       <Stack spacing={2} direction="row" >
         <Button
           title='Log In'
-          onPress={handleClick}
+          //onPress={handleClick}
+          onPress={() => navigation.navigate('Drawer')}
           style={{ width: "50%" }}
         />
         <Button
-          title='Sign Up'
+          title='Sign Up!'
+          onPress={() => navigation.navigate('Sign Up')}
           style={{ width: "50%" }}
         />
       </Stack>
