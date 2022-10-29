@@ -1,0 +1,1816 @@
+{
+	"info": {
+		"_postman_id": "638d23e4-8113-488c-a1bf-8adf2097dc1a",
+		"name": "Registration",
+		"description": "# Introduction\n\nThis endpoint is used for registration of new users to the app.\n\nThe endpoints\n\n- register\n- register/\n    \n\nhave exactly the same functionality\n\n# Overview\n\nThe username should be string of at least 3, at most 16 characters, and can only include alphanumeric characters and \"-\".\n\nThe email should be a valid email string.\n\nThe birth date fields should constitute a valid date.\n\nThe gender choices are m for male, f for female, o for other, and d for do not want to specify.\n\n# Authentication\n\nNo authentication needed for this endpoint.\n\n# Error Codes\n\n201: User registration is successful.\n\n400: The user creation failed. The data is not suitable for creating a user",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24070174"
+	},
+	"item": [
+		{
+			"name": "Duplicate Email",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "markzucky",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "mark.zucky@facadeledger.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "passWord!",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "m",
+							"type": "text"
+						},
+						{
+							"key": "birth_day",
+							"value": "06",
+							"type": "text"
+						},
+						{
+							"key": "birth_month",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "birth_year",
+							"value": "1970",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/register/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"register",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Duplicate Email",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "markzucky",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "mark.zucky@facadeledger.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "passWord!",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "m",
+									"type": "text"
+								},
+								{
+									"key": "birth_day",
+									"value": "06",
+									"type": "text"
+								},
+								{
+									"key": "birth_month",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "birth_year",
+									"value": "1970",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/register/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"register",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 19:14:58 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "100"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"user registration failed\",\n    \"error\": \"{'email': ['User with this Email already exists.']}\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Duplicate Username",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "mark",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "mark.zuckymucky@facadeledger.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "passWord!",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "m",
+							"type": "text"
+						},
+						{
+							"key": "birth_day",
+							"value": "06",
+							"type": "text"
+						},
+						{
+							"key": "birth_month",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "birth_year",
+							"value": "1970",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/register/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"register",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Duplicate Username",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "mark",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "mark.zuckymucky@facadeledger.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "passWord!",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "m",
+									"type": "text"
+								},
+								{
+									"key": "birth_day",
+									"value": "06",
+									"type": "text"
+								},
+								{
+									"key": "birth_month",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "birth_year",
+									"value": "1970",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/register/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"register",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 19:14:53 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "106"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"user registration failed\",\n    \"error\": \"{'username': ['User with this Username already exists.']}\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Success",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "mark",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "mark.zucky@facadeledger.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "passWord!",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "m",
+							"type": "text"
+						},
+						{
+							"key": "birth_day",
+							"value": "06",
+							"type": "text"
+						},
+						{
+							"key": "birth_month",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "birth_year",
+							"value": "1970",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/register/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"register",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "mark",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "mark.zucky@facadeledger.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "passWord!",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "m",
+									"type": "text"
+								},
+								{
+									"key": "birth_day",
+									"value": "06",
+									"type": "text"
+								},
+								{
+									"key": "birth_month",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "birth_year",
+									"value": "1970",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/register/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"register",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 19:14:46 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "53"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"user registration successful\",\n    \"userID\": 3\n}"
+				}
+			]
+		},
+		{
+			"name": "Bad Email",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "mark",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "zuckymucky",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "passWord!",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "m",
+							"type": "text"
+						},
+						{
+							"key": "birth_day",
+							"value": "06",
+							"type": "text"
+						},
+						{
+							"key": "birth_month",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "birth_year",
+							"value": "1970",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/register/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"register",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Bad Email",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "mark",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "zuckymucky",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "passWord!",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "m",
+									"type": "text"
+								},
+								{
+									"key": "birth_day",
+									"value": "06",
+									"type": "text"
+								},
+								{
+									"key": "birth_month",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "birth_year",
+									"value": "1970",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/register/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"register",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 19:13:53 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "92"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"user registration failed\",\n    \"error\": \"{'email': ['Enter a valid email address.']}\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Bad Date",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "mark",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "mark.zucky@facadeledger.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "passWord!",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "m",
+							"type": "text"
+						},
+						{
+							"key": "birth_day",
+							"value": "223",
+							"type": "text"
+						},
+						{
+							"key": "birth_month",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "birth_year",
+							"value": "1970",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/register/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"register",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Bad Date",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "mark",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "mark.zucky@facadeledger.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "passWord!",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "m",
+									"type": "text"
+								},
+								{
+									"key": "birth_day",
+									"value": "223",
+									"type": "text"
+								},
+								{
+									"key": "birth_month",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "birth_year",
+									"value": "1970",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/register/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"register",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 19:14:00 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "98"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"user registration failed\",\n    \"error\": \"{'birth_date': ['day is out of range for month']}\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Date Integer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "mark",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "mark.zucky@facadeledger.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "passWord!",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "m",
+							"type": "text"
+						},
+						{
+							"key": "birth_day",
+							"value": "06",
+							"type": "text"
+						},
+						{
+							"key": "birth_month",
+							"value": "a",
+							"type": "text"
+						},
+						{
+							"key": "birth_year",
+							"value": "1970",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/register/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"register",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Date Integer",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "mark",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "mark.zucky@facadeledger.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "passWord!",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "m",
+									"type": "text"
+								},
+								{
+									"key": "birth_day",
+									"value": "06",
+									"type": "text"
+								},
+								{
+									"key": "birth_month",
+									"value": "a",
+									"type": "text"
+								},
+								{
+									"key": "birth_year",
+									"value": "1970",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/register/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"register",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 19:14:07 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "87"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"user registration failed\",\n    \"error\": \"{'birth_month': ['Enter an integer.']}\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Gender Choice",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "mark",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "mark.zucky@facadeledger.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "passWord!",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "y",
+							"type": "text"
+						},
+						{
+							"key": "birth_day",
+							"value": "06",
+							"type": "text"
+						},
+						{
+							"key": "birth_month",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "birth_year",
+							"value": "1970",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/register/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"register",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Gender Choice",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "mark",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "mark.zucky@facadeledger.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "passWord!",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "y",
+									"type": "text"
+								},
+								{
+									"key": "birth_day",
+									"value": "06",
+									"type": "text"
+								},
+								{
+									"key": "birth_month",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "birth_year",
+									"value": "1970",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/register/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"register",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 19:14:12 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "99"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"user registration failed\",\n    \"error\": \"{'gender': [\\\"Value 'Y' is not a valid choice.\\\"]}\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Short Username",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "mk",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "mark.zucky@facadeledger.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "passWord!",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "m",
+							"type": "text"
+						},
+						{
+							"key": "birth_day",
+							"value": "06",
+							"type": "text"
+						},
+						{
+							"key": "birth_month",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "birth_year",
+							"value": "1970",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/register/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"register",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Short Username",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "mk",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "mark.zucky@facadeledger.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "passWord!",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "m",
+									"type": "text"
+								},
+								{
+									"key": "birth_day",
+									"value": "06",
+									"type": "text"
+								},
+								{
+									"key": "birth_month",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "birth_year",
+									"value": "1970",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/register/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"register",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 19:14:16 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "122"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"user registration failed\",\n    \"error\": \"{'username': ['Ensure this value has at least 3 characters (it has 2).']}\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Long Username",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "markzuckyzuckerson",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "mark.zucky@facadeledger.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "passWord!",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "m",
+							"type": "text"
+						},
+						{
+							"key": "birth_day",
+							"value": "06",
+							"type": "text"
+						},
+						{
+							"key": "birth_month",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "birth_year",
+							"value": "1970",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/register/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"register",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Long Username",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "markzuckyzuckerson",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "mark.zucky@facadeledger.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "passWord!",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "m",
+									"type": "text"
+								},
+								{
+									"key": "birth_day",
+									"value": "06",
+									"type": "text"
+								},
+								{
+									"key": "birth_month",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "birth_year",
+									"value": "1970",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/register/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"register",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 19:14:20 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "123"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"user registration failed\",\n    \"error\": \"{'username': ['Ensure this value has at most 16 characters (it has 18).']}\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Missing Form Data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "mark",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "mark.zucky@facadeledger.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "passWord!",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "m",
+							"type": "text"
+						},
+						{
+							"key": "birth_day",
+							"value": "06",
+							"type": "text"
+						},
+						{
+							"key": "birth_month",
+							"value": "10",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/register/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"register",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Missing Form Data",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "mark",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "mark.zucky@facadeledger.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "passWord!",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "m",
+									"type": "text"
+								},
+								{
+									"key": "birth_day",
+									"value": "06",
+									"type": "text"
+								},
+								{
+									"key": "birth_month",
+									"value": "10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/register/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"register",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 19:14:24 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "86"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"user registration failed\",\n    \"error\": \"{'form_data': ['Missing form data.']}\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Bad Username",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "mark.zucky",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "mark.zucky@facadeledger.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "passWord!",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "m",
+							"type": "text"
+						},
+						{
+							"key": "birth_day",
+							"value": "06",
+							"type": "text"
+						},
+						{
+							"key": "birth_month",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "birth_year",
+							"value": "1970",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/register/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"register",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Bad Username",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "mark.zucky",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "mark.zucky@facadeledger.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "passWord!",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "m",
+									"type": "text"
+								},
+								{
+									"key": "birth_day",
+									"value": "06",
+									"type": "text"
+								},
+								{
+									"key": "birth_month",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "birth_year",
+									"value": "1970",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/register/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"register",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 19:14:28 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "87"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"user registration failed\",\n    \"error\": \"{'username': ['Enter a valid value.']}\"\n}"
+				}
+			]
+		}
+	]
+}
