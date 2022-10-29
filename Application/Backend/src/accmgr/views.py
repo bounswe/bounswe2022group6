@@ -1,7 +1,8 @@
+from typing import overload
 from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
 from rest_framework.permissions import IsAuthenticated, AllowAny
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.http import JsonResponse
 from datetime import date
 from hashlib import sha256
@@ -114,4 +115,12 @@ class LoginUser(APIView):
 
         return JsonResponse({"info":"user login successful", "token":token}, status=200)
 
-            
+class LogoutUser(APIView):
+
+    permission_classes = (IsAuthenticated,)
+
+    def get(self, req):
+
+        req.user.auth_token.delete()
+        logout(req)
+        return JsonResponse({"detail": "user logout successful"}, status=200)

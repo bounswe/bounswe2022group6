@@ -1,4 +1,3 @@
-from re import I
 from django.test import TestCase, Client
 from .models import *
 import json
@@ -157,3 +156,28 @@ class LoginTest(TestCase):
         self.assertEqual(response_content["info"], "user login successful")
         self.assertIn("token", response_content.keys())
         self.assertEqual(response.status_code, 200)
+
+class LogoutTest(TestCase):
+
+    def setUp(self):
+        self.client = Client()
+
+    def test_invalid_token(self):
+        self.client.post('/register/', { "username": "markine", "email": "markine@facadeledger.com",
+                "password": "markineworld", "gender":"f", "birth_day":"12", "birth_month":"3", "birth_year":"1988"})
+        self.client.post('/login/', { "useridentifier": "markine", "password": "markineworld"})
+
+        response = self.client.get('/logout/', HTTP_AUTHORIZATION="Token d5d4aa2aef61b74cecd086970171617a538e3f5a")
+        response_content = json.loads(response.content)
+        self.assertEqual(response_content["detail"], "Invalid token.")
+
+    def test_success(self):
+        self.client.post('/register/', { "username": "markine", "email": "markine@facadeledger.com",
+                "password": "markineworld", "gender":"f", "birth_day":"12", "birth_month":"3", "birth_year":"1988"})
+        response_login = self.client.post('/login/', { "useridentifier": "markine", "password": "markineworld"})
+        response_login_content = json.loads(response_login.content)
+        token = response_login_content["token"]
+
+        response = self.client.get('/logout/', HTTP_AUTHORIZATION="Token " + token)
+        response_content = json.loads(response.content)
+        self.assertEqual(response_content["detail"], "user logout successful")
