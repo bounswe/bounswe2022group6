@@ -4,7 +4,7 @@ import {useState} from "react"
 import { Link } from 'react-router-dom'
 
 import MessageBox from './MessageBox'
-import register from '../services/API'
+import register from '../services/Register_API'
 
 const initialErrorState = {
     username: "", 
