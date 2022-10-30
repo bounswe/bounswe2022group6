@@ -38,4 +38,4 @@ async function register(data) {
     }
 }
 
-export default register
+export default register;
