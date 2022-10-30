@@ -124,3 +124,22 @@ class LogoutUser(APIView):
         req.user.auth_token.delete()
         logout(req)
         return JsonResponse({"detail": "user logout successful"}, status=200)
+
+
+class Profile(APIView):
+    
+    permission_classes = (IsAuthenticated,)
+
+    def get(self, req):
+        profile = RegisteredUser.objects.get(username=req.user)
+        return JsonResponse({"username": profile.username, "email": profile.email, "birth_date": profile.birth_date, "gender": profile.gender}, status=200)
+
+    def put(self, req):
+        # TODO: Can't change username
+        # TODO: Can change email and others
+        # TODO: Should be able to add Name and Surname
+        return JsonResponse({})
+
+    def delete(self, req):
+        # TODO: Remove account with username
+        return JsonResponse({})
