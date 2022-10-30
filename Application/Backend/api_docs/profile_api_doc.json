@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "83bb7029-dcfc-42c6-b24f-0c80a0ac3f2f",
+		"name": "Profile",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Request Success",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 54626e2797bf716dced5aae370b6b1041829fb6e",
+						"description": "A valid token which means the user is logged in.",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/profile",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"profile"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Request Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 54626e2797bf716dced5aae370b6b1041829fb6e",
+								"description": "A valid token which means the user is logged in.",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/profile",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 30 Oct 2022 17:32:54 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, PUT, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "103"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"username\": \"mark\",\n    \"email\": \"mark.zucky@facadeledger.com\",\n    \"birth_date\": \"1970-10-06\",\n    \"gender\": \"M\"\n}"
+				}
+			]
+		}
+	]
+}
