@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Stack, Button, TextInput, Text, Box, ActivityIndicator } from "@react-native-material/core";
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { login } from '../../apis/Authentication';
 import LoadingDisplay from '../../components/LoadingDisplay';
 import { HelperText } from 'react-native-paper';
+import { handleLoginRequest } from '../authAPI';
 
 export const LoginPage = ({ navigation }) => {
 
@@ -24,10 +24,16 @@ export const LoginPage = ({ navigation }) => {
       else { setPasswordError("") }
       if (!error) {
         setLoading(true);
-        setTimeout(() => { setLoading(false); alert("Login!") }, 2000)
+
+        handleLoginRequest(mail, password).then(() => {
+          setLoading(false)
+          navigation.navigate("Drawer")
+        }).catch(err => {
+          setLoading(false)
+          alert(err)
+        })
       }
 
-      // login(mail, password).catch(e => {alert(e)})
     } catch (error) {
       alert(error)
     }

@@ -4,10 +4,11 @@ import React, { useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { Stack, Button, TextInput, Text, Box, ActivityIndicator } from "@react-native-material/core";
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { Picker } from '@react-native-picker/picker'; 
+import { Picker } from '@react-native-picker/picker';
 import DatePicker from 'react-native-date-picker'
 import LoadingDisplay from '../../components/LoadingDisplay';
 import { HelperText } from 'react-native-paper';
+import { handleSignUpRequest } from '../authAPI';
 
 export const Dropdown = () => {
     return (
@@ -21,7 +22,7 @@ export const Dropdown = () => {
     );
 };
 
-export const SignUpScreen = (props, { navigation }) => {
+export const SignUpScreen = (props) => {
 
     const [loading, setLoading] = useState(false)
     const [mail, setMail] = useState(props.route.params.mail || "")
@@ -34,7 +35,7 @@ export const SignUpScreen = (props, { navigation }) => {
     const [showPassAgain, setShowPassAgain] = useState(false)
     const [showHelper, setShowHelper] = useState(false)
     const [showDatePicker, setShowDatePicker] = useState(false)
-    const [errors, setErrors] = useState({mail: "", password: "", userName: "", birthDate: "", gender: "" })
+    const [errors, setErrors] = useState({ mail: "", password: "", userName: "", birthDate: "", gender: "" })
     const [refresh, setRefresh] = useState(false)
 
     const handleClick = () => {
@@ -42,37 +43,40 @@ export const SignUpScreen = (props, { navigation }) => {
             let error = false
             let copyErrors = errors
             if (mail == "" || !mail.includes('@') || !mail.includes('.')) { error = true; copyErrors.mail = "Please write valid mail address!" }
-            else {copyErrors.mail = ""}
+            else { copyErrors.mail = "" }
             if (userName == "") { error = true; copyErrors.userName = "Please write username!" }
-            else {copyErrors.userName = ""}
+            else { copyErrors.userName = "" }
             if (password == "") { error = true; copyErrors.password = "Please write password!" }
-            else {copyErrors.password = ""}
+            else { copyErrors.password = "" }
             if (birthDate == "" || birthDate.toDateString() == new Date().toDateString()) { error = true; copyErrors.birthDate = "Please write birthdate!" }
-            else {copyErrors.birthDate = ""}
+            else { copyErrors.birthDate = "" }
             if (gender == "") { error = true; copyErrors.gender = "Please write gender!" }
-            else {copyErrors.gender = ""}
+            else { copyErrors.gender = "" }
 
             setErrors(copyErrors)
             setRefresh(!refresh)
 
             if (!error) {
                 setLoading(true)
-                setTimeout(() => { setLoading(false), alert("Welcome captain!") }, 2000)
+                console.log(mail, password, userName, gender, birthDate.getDate(), birthDate.getMonth(), birthDate.getFullYear())
+
+                handleSignUpRequest(mail, password, userName, gender, birthDate.getDate(), birthDate.getMonth()+1, birthDate.getFullYear())
+                .then(() => { alert("Success!"); props.navigation.navigate("Login") })
+                .catch(err => { setLoading(false); alert(err)})
             }
 
-            // login(mail, password).catch(e => { alert(e) })
         } catch (error) {
+            setLoading(false)
             alert(error)
         }
     }
-
 
     return (
         <>
             <ScrollView>
                 <Stack spacing={2} style={{ paddingTop: '6%', marginBottom: '30%', margin: 16, paddingBottom: 30, elevation: 20 }}>
-                    <Text variant="subtitle1" style={{paddingBottom: "4%"}} >We are glad to see that you are joining to worlds #1 Medical Experience Sharing Platform!</Text>
-                    <Text variant="subtitle2" style={{paddingBottom: "6%"}} >Please fill the boxes below to share your experiences and problems</Text>
+                    <Text variant="subtitle1" style={{ paddingBottom: "4%" }} >We are glad to see that you are joining to worlds #1 Medical Experience Sharing Platform!</Text>
+                    <Text variant="subtitle2" style={{ paddingBottom: "6%" }} >Please fill the boxes below to share your experiences and problems</Text>
                     <TextInput
                         label="Username"
                         value={userName}
@@ -142,8 +146,8 @@ export const SignUpScreen = (props, { navigation }) => {
                         onValueChange={(itemValue) =>
                             setGender(itemValue)
                         }>
-                        <Picker.Item label="Female" value="female" />
-                        <Picker.Item label="Male" value="male" />
+                        <Picker.Item label="Female" value="f" />
+                        <Picker.Item label="Male" value="m" />
                     </Picker>
                     <HelperText type="error" visible={errors.gender != ""} >{errors.gender}</HelperText>
                     <Button
