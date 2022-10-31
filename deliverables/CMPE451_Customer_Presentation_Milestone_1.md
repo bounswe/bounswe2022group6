@@ -138,6 +138,49 @@
 
 * [Hakan Balık](https://github.com/bounswe/bounswe2022group6/wiki/Hakan-Bal%C4%B1k)
 
+   * **Member:** My name is Hakan Balık and I am a frontend developer in frontend sub-team of Group 6.
+   * **Responsibilities:** I have been involved with most of the tasks either by owning or reviewing. I believe my most important contribution was to finalize the M2 deliverable last semester. For this semester, I have taken active role on onboarding the new customer. I also led the task where we decided on the project name and color palette. Apart from that I focused on delivering the frontend functionalities decided for Milestone 1 and taken role on every aspect except for Dockerization. Apart from those I took meeting notes, did a lot of research and reviewed the Requirements with my team. I will also be taking notes during the Demo presentation.
+   * **Main contributions:**
+      * **Code related significant issues:**
+         * Created Issues:
+            1. [#184 - Creating the Initials of Frontend](https://github.com/bounswe/bounswe2022group6/issues/184)
+            2. [#193 - Creating the Base Pages for Frontend](https://github.com/bounswe/bounswe2022group6/issues/193)
+            3. [#224 - Implementing Log-in Functionality Backend Integration](https://github.com/bounswe/bounswe2022group6/issues/224)
+            4. [#238 - Implementing Log-out Functionality Backend Integration](https://github.com/bounswe/bounswe2022group6/issues/238)
+         * Contributed Issues:
+            1. [#196 - Creating Register and Profile Pages for Frontend](https://github.com/bounswe/bounswe2022group6/issues/196)
+            2. [#202 - Designing HomePage for Frontend](https://github.com/bounswe/bounswe2022group6/issues/202)
+            3. [#198 - Implementing Sign-Up Functionality Backend Integration](https://github.com/bounswe/bounswe2022group6/issues/198)
+            4. [#213 - Creating API Documentation for Login](https://github.com/bounswe/bounswe2022group6/issues/213)
+            5. [#240 - Resolving Final Issues Regarding Deployment For Milestone I](https://github.com/bounswe/bounswe2022group6/issues/240)
+      * **Management related significant issues:**
+         * Created Issues:
+            1. [#170 - Introducing new customer to the project](https://github.com/bounswe/bounswe2022group6/issues/170)
+            2. [#182 - Updating Meeting Notes 3](https://github.com/bounswe/bounswe2022group6/issues/182)
+            3. [#183 - Uploading Frontend Meeting Notes 1](https://github.com/bounswe/bounswe2022group6/issues/183)
+            4. [#185 - Determining Project Name and Colors](https://github.com/bounswe/bounswe2022group6/issues/185)
+         * Contributed Issues:
+            1. [#160 - Revising the Wiki](https://github.com/bounswe/bounswe2022group6/issues/160)
+            2. [#163 - Requirements Review (1.1.1.7-1.1.2.2.4)](https://github.com/bounswe/bounswe2022group6/issues/163)
+            3. [#166 - Creating a Communication Plan for Frontend, Backend and Mobile Subteams](https://github.com/bounswe/bounswe2022group6/issues/166)
+            4. [#195 - Uploading Frontend Meeting #2 Notes](https://github.com/bounswe/bounswe2022group6/issues/195)
+            5. [#227 - Preparing Customer Milestone 1 Deliverables](https://github.com/bounswe/bounswe2022group6/issues/227)
+            6. [#231 - Reporting Individual Contribution](https://github.com/bounswe/bounswe2022group6/issues/231)
+            7. [#232 - Creating Milestone I Group Review Report](https://github.com/bounswe/bounswe2022group6/issues/232)
+   * **Pull requests:**
+      * Created Pull Requests:
+         1. [#192 - Initialized frontend project.](https://github.com/bounswe/bounswe2022group6/pull/192)
+         2. [#194 - Frontend/feature/base pages](https://github.com/bounswe/bounswe2022group6/pull/194)
+         3. [#226 - Frontend/feature/log in api integration](https://github.com/bounswe/bounswe2022group6/pull/226)
+         4. [#239 - Frontend/feature/log out api integration](https://github.com/bounswe/bounswe2022group6/pull/239)
+      * Reviewed Pull Requests:
+         1. [#199 - Profile and register pages are added.](https://github.com/bounswe/bounswe2022group6/pull/199)
+         2. [#205 - Home Page Designed](https://github.com/bounswe/bounswe2022group6/pull/205)
+         3. [#216 - Registration endpoint integration](https://github.com/bounswe/bounswe2022group6/pull/216)
+         4. [#237 - Home Page Changes](https://github.com/bounswe/bounswe2022group6/pull/237)
+   * **Additional information:** You can check my [Weekly Efforts](https://github.com/bounswe/bounswe2022group6/wiki/Hakan-Bal%C4%B1k#weekly-efforts) in my wiki page which is up-to-date to get more information about my individual contributions.
+
+
 * [İhsan Mert Atalay](https://github.com/bounswe/bounswe2022group6/wiki/%C4%B0hsan-Mert-Atalay)
 
 * [Mustafa Berk Turgut](https://github.com/bounswe/bounswe2022group6/wiki/Mustafa-Berk-Turgut)
