@@ -8,7 +8,7 @@ const posts = [
     name: "Mehmet Ali",
     date: "5",
     description:
-      "Hi I’m 23F, last night I was drinking and probably had 4 drinks total. This is not out of the ordinary for me. I was feeling good and then all of a sudden I was having muscle...",
+      "Hi I’m 23F, last night I was drinking parol and probably had 4 parol drinks total. This is not out of the ordinary for me. I was feeling good and then all of a sudden I was having muscle...",
       score: "11",
       labels: ["Bones/Joints/Ligaments", "Question","Help"],
   },
@@ -24,7 +24,7 @@ const posts = [
     name: "Fatma",
     date: "20",
     description:
-      "I took horny pills  Hello everyone. I took horny pills at midnight and it’s like 6am. I’m not even tired. Why am I not tired? I’m not even horny, I’ve just lost touch with reality... ",
+      "I took parol pills  Hello everyone. I took parol pills at midnight and it’s like 6am. I’m not even tired. Why am I not tired?I’ve just lost touch with reality... ",
       score: "3",
       labels: ["Other"],
   },
