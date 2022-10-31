@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text} from 'react-native';
 import { LoginPage } from "../authantication/Login";
-import SignUpScreen from "../authantication/SignUpScreen";
 import DrawerNavigation from "./DrawerNavigation";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { SignUpScreen } from "../authantication/SignUpScreen"
 
 const Stack = createNativeStackNavigator();
 
