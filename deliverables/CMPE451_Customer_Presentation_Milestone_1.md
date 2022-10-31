@@ -62,6 +62,48 @@
 
 * [Ali Kaan Biber](https://github.com/bounswe/bounswe2022group6/wiki/Ali-Kaan-Biber)
 
+     **Member:** I am working as a frontend developer in the frontend team of group 6.
+
+    **Responsibilities:**
+
+    We started this semester with analyzing our requirements and introducing our project to our new team member. I reviewed and made changes
+    to some of the requirements if necessary. After we decided to use ReactJS for frontend development, I made some research and spent some time learning it since I had no prior experience with it.
+
+    My most important task in the frontend team was to integrate the register endpoint to our backend which was the first endpoint integration. I got CORS errors when I send requests to backend and also fixed it. After considerable amount of time I finished the integration and provide an overlay for my team members to follow for endpoint calls to integrate later on in the project.
+
+    Apart from these I took some meeting notes and participated the dockerization and deployment meeting.
+
+    **Main Contributions:** 
+
+    * **Code related significant issues:**
+
+        * Issues created by me:
+
+            * [#198: Implementing Sign-Up Functionality Backend Integration](https://github.com/bounswe/bounswe2022group6/issues/198)
+            * [#214: Fixing the CORS problem in Frontend](https://github.com/bounswe/bounswe2022group6/issues/214)
+        
+        * Issues assigned to me:
+
+            * [#208: AWS EC2 instance creation and deployment](https://github.com/bounswe/bounswe2022group6/issues/208)
+            
+    * **Management related significant issues:**
+
+        * Issues created by me:
+
+            * [#168: Reviewing the Requirement Sections 1.1.2.4 to 1.2.1](https://github.com/bounswe/bounswe2022group6/issues/168)
+            * [#195: Uploading Frontend Meeting #2 Notes](https://github.com/bounswe/bounswe2022group6/issues/195)
+
+    **Pull Requests:**
+    * Pull requests opened by me:
+
+        * [#215: Solving the encountered CORS error](https://github.com/bounswe/bounswe2022group6/pull/215)
+        * [#216: Registration endpoint integration](https://github.com/bounswe/bounswe2022group6/pull/216)
+
+    * Pull requests reviewed by me:
+
+        * [#226: Frontend/feature/log in api integration](https://github.com/bounswe/bounswe2022group6/pull/226)
+        * [#207: Add dockerfile and docker-compose.yml for containerization](https://github.com/bounswe/bounswe2022group6/pull/207)
+
 * [Yasir Dikbaş](https://github.com/bounswe/bounswe2022group6/wiki/Yasir-Dikba%C5%9F)
 
 * [Aral Dörtoğul](https://github.com/bounswe/bounswe2022group6/wiki/Aral-D%C3%B6rto%C4%9Ful)
