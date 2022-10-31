@@ -42,4 +42,19 @@
 
   p{padding: 5px;
 margin: 5px;}
-
+::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 5px;
+  }
+  
+ 
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(130, 127, 127); 
+  }
