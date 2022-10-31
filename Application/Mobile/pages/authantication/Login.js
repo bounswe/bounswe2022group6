@@ -42,6 +42,7 @@ export const LoginPage = ({ navigation }) => {
 
 
   return (
+<<<<<<< HEAD
     <>
       <Stack spacing={2} style={{ paddingTop: '12%', margin: 16, paddingBottom: 30 }}>
         <Text variant="h1">M</Text>
@@ -65,6 +66,40 @@ export const LoginPage = ({ navigation }) => {
           trailing={() =>
             showPass ? <Icon onPress={() => { setShowPass(!showPass) }} name="visibility" size={20} /> : <Icon onPress={() => { setShowPass(!showPass) }} name="visibility-off" size={20} />
           }
+=======
+    <Stack spacing={2} style={{ paddingTop: '20%', margin: 16, paddingBottom: 30 }}>
+      <Text variant="h1">M</Text>
+      <Text variant="subtitle1">Welcome! Medishare</Text>
+      <Box style={{ height: "10%" }}></Box>
+      <TextInput
+        label="Mail"
+        value={mail}
+        variant='filled'
+        onChangeText={(text) => setMail(text)}
+        leading={() => (<Icon name="user" size={20} />)}
+      />
+      <TextInput
+        label="Password"
+        value={password}
+        variant="filled"
+        onChangeText={(text) => setPassword(text)}
+        secureTextEntry={!showPass}
+        leading={() => (<Icon name="lock" size={20} />)}
+        trailing={() =>
+          showPass ? <Icon onPress={() => { setShowPass(!showPass) }} name="eye" size={20} /> : <Icon onPress={() => { setShowPass(!showPass) }} name="eye-slash" size={20} />
+        }
+      />
+      <Stack spacing={2} direction="row" >
+        <Button
+          title='Log In'
+          onPress={() => navigation.navigate('Drawer')}
+          style={{ width: "50%" }}
+        />
+        <Button
+          title='Sign Up'
+          onPress={() => navigation.navigate('Sign Up')}
+          style={{ width: "50%" }}
+>>>>>>> master
         />
         <HelperText type="error" visible={passwordError}>{passwordError}</HelperText>
         <Box style={{ height: "6%" }}></Box>

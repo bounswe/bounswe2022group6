@@ -177,3 +177,8 @@ cython_debug/
 # End of https://www.toptal.com/developers/gitignore/api/django
 
 
+# Temporary folders/files
+_temp_db
+
+# MacOS files
+.DS_Store

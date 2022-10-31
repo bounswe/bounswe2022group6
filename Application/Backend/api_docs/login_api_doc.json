@@ -1,0 +1,664 @@
+{
+	"info": {
+		"_postman_id": "55df67fb-f972-4c98-be03-75d0f3a01c33",
+		"name": "Login",
+		"description": "# Introduction\n\nThis endpoint is used for login of registered users to the app\n\nThe endpoints\n\n- login\n- login/\n    \n\nhave exactly the same functionality\n\n# Overview\n\nUsers can login with either their username or their email.\n\n# Authentication\n\nNo authentication needed for this endpoint.\n\n# Error Codes\n\n200: User login is successful.\n\n400: Missing form data.\n\n401: Authentication failed.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24070174"
+	},
+	"item": [
+		{
+			"name": "Missing Form Data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "useridentifier",
+							"value": "markine",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/login/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"login",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Missing Form Data",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "useridentifier",
+									"value": "markine",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/login/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"login",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 18:58:56 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "79"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"user login failed\",\n    \"error\": \"{'form_data': ['Missing form data.']}\"\n}"
+				}
+			]
+		},
+		{
+			"name": "No Such Username",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "useridentifier",
+							"value": "markine",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "markineworld",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/login/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"login",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "No Such Username",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "useridentifier",
+									"value": "markine",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "markineworld",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/login/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"login",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 19:01:01 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "84"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"user login failed\",\n    \"error\": \"{'username': ['No user with such username.']}\"\n}"
+				}
+			]
+		},
+		{
+			"name": "No Such Email",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "useridentifier",
+							"value": "markine@facadeledger.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "markineworld",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/login/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"login",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "No Such Email",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "useridentifier",
+									"value": "markine@facadeledger.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "markineworld",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/login/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"login",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 19:01:45 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "81"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"user login failed\",\n    \"error\": \"{'email': ['No user with such email.']}\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Wrong Password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "useridentifier",
+							"value": "markine@facadeledger.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "markineworld123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/login/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"login",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Wrong Password With Username",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "useridentifier",
+									"value": "markine",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "markineworld123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/login/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"login",
+								""
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 19:21:27 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "78"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"user login failed\",\n    \"error\": \"{'password': ['Password incorrect']}\"\n}"
+				},
+				{
+					"name": "Wrong Password With Email",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "useridentifier",
+									"value": "markine@facadeledger.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "markineworld123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/login/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"login",
+								""
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 19:22:01 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "78"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"user login failed\",\n    \"error\": \"{'password': ['Password incorrect']}\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Success",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "useridentifier",
+							"value": "markine@facadeledger.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "markineworld",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/login/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"login",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "useridentifier",
+									"value": "markine@facadeledger.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "markineworld",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/login/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"login",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Oct 2022 19:11:22 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "86"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "csrftoken=COphbK2B3pWd5JB3QtKx6djAQK9VxvUI; expires=Fri, 27 Oct 2023 19:11:22 GMT; Max-Age=31449600; Path=/; SameSite=Lax"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "sessionid=0pv3u17orpjlw1zfznt8jh74mvwvcsh3; expires=Fri, 11 Nov 2022 19:11:22 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"user login successful\",\n    \"token\": \"62609f47002117f5a96e526a710fcfec045c3022\"\n}"
+				}
+			]
+		}
+	]
+}
