@@ -80,8 +80,60 @@
 
 * [Artun Akdoğan](https://github.com/bounswe/bounswe2022group6/wiki/Artun-Akdo%C4%9Fan)
 
+<details><summary>Berfin Şimşek</summary>
+
 * [Berfin Şimşek](https://github.com/bounswe/bounswe2022group6/wiki/Berfin-%C5%9Eim%C5%9Fek)
 
+     **Member:**
+   [Berfin Şimşek](https://github.com/bounswe/bounswe2022group6/wiki/Berfin-%C5%9Eim%C5%9Fek)
+    
+    I am working as a Frontend developer in the Frontend team of Group 6.
+
+    **Responsibilities:**
+
+   As a team, we started the new term by revising our wiki page and requirements. I updated and edited README.md, deliverables and meeting notes in the first week. After cleaning up our wiki, we spent some time on requirements. I reviewed "voting a post" and "Interactions Between the Users and the Comments" requirements with İrem.
+   
+   After dividing into subgroups as Mobile, Backend and Frontend, I decided to be on the frontend team. I was responsible for creating a profile and a register page. Since I was not familiar with React.js, I spent some time on practicing it. After looking some example pages, I have created profile and register page for our app.
+   
+   Finally, I have updated the project plan with Aral according to our new arrangements.
+  
+   
+    **Main Contributions:** 
+
+    * **Code related significant issues:**
+
+        * Issues created by me:
+
+            * [#196: Creating Register and Profile Pages for Frontend ](https://github.com/bounswe/bounswe2022group6/issues/196)
+        
+        * Issues assigned to me:
+
+            * [#208: AWS EC2 instance creation and deployment](https://github.com/bounswe/bounswe2022group6/issues/208)
+
+    * **Management related significant issues:**
+
+        * Issues created by me:
+
+            * [#165: Reviewing the requirements](https://github.com/bounswe/bounswe2022group6/issues/165)
+
+        * Issues assigned to me:
+
+            * [#160: Revising the Wiki](https://github.com/bounswe/bounswe2022group6/issues/160)
+            * [#201: Updating Project Plan](https://github.com/bounswe/bounswe2022group6/issues/201)
+
+    **Pull Requests:**
+    * Pull requests opened by me:
+
+        * [#199: Profile and register pages are added](https://github.com/bounswe/bounswe2022group6/pull/199)
+
+    * Pull requests reviewed by me:
+
+        * [#205: Home Page Designed ](https://github.com/bounswe/bounswe2022group6/pull/205)
+
+        * [#194: Frontend/feature/base pages](https://github.com/bounswe/bounswe2022group6/pull/194)
+</details>
+   
+   
 * [Beyza İrem Urhan](https://github.com/bounswe/bounswe2022group6/wiki/Beyza-%C4%B0rem-Urhan)
 
 * [Hakan Balık](https://github.com/bounswe/bounswe2022group6/wiki/Hakan-Bal%C4%B1k)
