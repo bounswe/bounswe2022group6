@@ -58,7 +58,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'src.urls'
 
 #Might need to add deployed url later
-CORS_ALLOWED_ORIGINS = ["http://localhost:3000",]
+CORS_ALLOWED_ORIGINS = ["*"]
 
 TEMPLATES = [
     {
