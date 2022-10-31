@@ -5,7 +5,7 @@ import axios from 'axios';
 
 // LOGIN REQUEST
 export const login = async (mail, password) => {
-    baseurl = process.env.REACT_APP_SERVER_BASE_URL;
+    baseurl = "http://18.206.229.240:8000/";
 
     axios.post(baseurl + "login", { mail, password })
     .then(resp => {
