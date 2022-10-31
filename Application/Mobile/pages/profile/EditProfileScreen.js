@@ -71,7 +71,9 @@ const EditProfileScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     body: {
-backgroundColor: '#cbe6ef'
+
+    },
+    backgroundColor:{
     },
     section: {
 
@@ -84,10 +86,13 @@ backgroundColor: '#cbe6ef'
         justifyContent: 'space-between',
         alignItems: 'center',
         marginBottom: 5,
+        borderBottomWidth: 1,
+        borderBottomColor: '#DCDCDC',
     },
     sectionTitle: {
         fontSize: 24,
-        backgroundColor: '#ADD8E6',
+        borderBottomWidth: 2,
+        borderBottomColor: '#DCDCDC',
         paddingVertical: 10,
         paddingLeft: '3%',
     },
