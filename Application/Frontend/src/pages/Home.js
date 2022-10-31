@@ -2,68 +2,63 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./home.module.css";
 
-/*const postStyle ={
-        backgroundColor: "white",
-        width: "98%",
-        margin: "auto",
-        height: "150px",
-        marginBlockEnd: "20px",
-        display: "flex",
-        borderRadius: "5px",
-        border: "1px solid lightgray",
-        overflow: "hidden",
-       
-  };*/
 
 const posts = [
   {
-    name: "mert",
-    date: "10",
+    name: "Mehmet Ali",
+    date: "5",
     description:
-      "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface ",
-    labels: ["Article", "Post", "Advice"],
+      "Hi I’m 23F, last night I was drinking and probably had 4 drinks total. This is not out of the ordinary for me. I was feeling good and then all of a sudden I was having muscle...",
+      score: "11",
+      labels: ["Bones/Joints/Ligaments", "Question","Help"],
   },
   {
-    name: "mert",
-    date: "10",
+    name: "Fatih",
+    date: "12",
     description:
-      "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface ",
-    labels: ["Article", "Post", "Advice"],
+      "I am 17 and a week ago I almost passed out because I got up from bed too quickly, 2 days ago I had bright blood in stool, yesterday I had the same but with more blood... ",
+      score: "6",
+      labels: ["Digestion/Stomach/Bowels", "Question","Help"],
   },
   {
-    name: "mert",
-    date: "10",
+    name: "Fatma",
+    date: "20",
     description:
-      "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface ",
-    labels: ["Article", "Post", "Advice"],
+      "I took horny pills  Hello everyone. I took horny pills at midnight and it’s like 6am. I’m not even tired. Why am I not tired? I’m not even horny, I’ve just lost touch with reality... ",
+      score: "3",
+      labels: ["Other"],
   },
   {
-    name: "mert",
-    date: "10",
+    name: "Mert",
+    date: "40",
     description:
-      "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface ",
-    labels: ["Article", "Post", "Advice"],
+      "Overtaking 45mg Mirtazapine for 6 months straight So I have been prescribed 1 45mg Mirtazapine a night I am 22 now, for the last 6 months I have been taking 3 of ...      ",
+      score: "3",
+      labels: ["Medication", "Question","Help"],
   },
   {
-    name: "mert",
-    date: "10",
+    name: "İhsan ",
+    date: "50",
     description:
-      "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface ",
-    labels: ["Article", "Post", "Advice"],
+      "Misdiagnosed tennis elbow?So i've had this lingering elbow ache/soreness/discomort for around 3 months and a few weeks back I finally decided to get it checked out.  ...",
+      score: "2",
+      labels: ["Bones/Joints/Ligaments", "Question","Help"],
   },
   {
-    name: "mert",
-    date: "10",
+    name: "Murat",
+    date: "55",
     description:
-      "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface ",
-    labels: ["Article", "Post", "Advice"],
+      "Odd eye spasm when trying to sleep  this has been happening to me for years and I don’t think it’s anything serious it’s just odd. I cant find anything g online either! when ...    ",
+      score: "1",
+      labels: ["Eyes", "Question","Help"],
   },
   {
-    name: "mert",
-    date: "10",
+    name: "Berk",
+    date: "59",
     description:
-      "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface ",
-    labels: ["Article", "Post", "Advice"],
+      "Still have a have a fever 2 weeks after recovering from possible scarlet fever..please help (23M) Hey so on October 15th I woke up with a 105° fever and all symptoms of covid I remember ... ",
+      score: "-1",
+      labels: ["Other"],
   },
 ];
 
@@ -96,8 +91,8 @@ export default function Home() {
         >
           {posts.map((post) => (
             <div className={styles.mypost}>
-              <div style={{ width: "10%", backgroundColor: "#f0feff" }}>
-                <h1>+</h1> <h3>1</h3> <h1>-</h1>
+              <div style={{ width: "10%", backgroundColor: "#f0feff" ,alignItems:"center"}}>
+                <h1 style={{marginTop:"40%"}}>+</h1> <h3>{post.score}</h3> <h1>-</h1>
               </div>
 
               <div style={{ width: "80%", margin: "auto" }}>
@@ -106,15 +101,16 @@ export default function Home() {
                 >
                   <p>{post.name}</p>{" "}
                   <div
-                    style={{ display: "flex", justifyContent: "space-between" }}
+                    style={{ display: "flex", justifyContent: "space-between",alignItems:"center" }}
                   >
                     {post.labels.map((label) => (
                       <p
                         style={{
+                          fontSize:"x-small",
                           borderRadius: "5px",
                           border: "1px solid lightgray",
                           padding: "3px 5px",
-                          marginRight: "5px",
+                          marginRight: "0px",
                           backgroundColor: "lightgoldenrodyellow",
                         }}
                       >
