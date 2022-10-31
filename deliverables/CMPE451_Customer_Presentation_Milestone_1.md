@@ -116,15 +116,21 @@
             * [#171: Deciding a Communication Method for Mobile Development](https://github.com/bounswe/bounswe2022group6/issues/171)
 
     **Pull Requests:**
-    * Pull requests opened by me:
+    * Pull requests opened by/assigned to me:
 
         * [#221: Main Navigation Framework Established](https://github.com/bounswe/bounswe2022group6/pull/221)
+
+        * [#234: Profile Page Initialized](https://github.com/bounswe/bounswe2022group6/pull/234)
 
     * Pull requests reviewed by me:
 
         * [#187: Application Can Be Run on Emulator](https://github.com/bounswe/bounswe2022group6/pull/187)
 
         * [#203: Login Screen Implemented](https://github.com/bounswe/bounswe2022group6/pull/203)
+
+        * [#235: Signup Page Implemented](https://github.com/bounswe/bounswe2022group6/pull/235)
+
+        * [#236: Conflicts Resolved](https://github.com/bounswe/bounswe2022group6/pull/236)
 
 * [Alp Eren İnceoğlu](https://github.com/bounswe/bounswe2022group6/wiki/Alp-Eren-%C4%B0nceo%C4%9Flu)
 
