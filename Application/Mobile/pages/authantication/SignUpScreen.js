@@ -58,7 +58,6 @@ export const SignUpScreen = (props) => {
 
             if (!error) {
                 setLoading(true)
-                console.log(mail, password, userName, gender, birthDate.getDate(), birthDate.getMonth(), birthDate.getFullYear())
 
                 handleSignUpRequest(mail, password, userName, gender, birthDate.getDate(), birthDate.getMonth()+1, birthDate.getFullYear())
                 .then(() => { alert("Success!"); props.navigation.navigate("Login") })
@@ -146,6 +145,7 @@ export const SignUpScreen = (props) => {
                         onValueChange={(itemValue) =>
                             setGender(itemValue)
                         }>
+                        <Picker.Item label="Select" value="" disabled />
                         <Picker.Item label="Female" value="f" />
                         <Picker.Item label="Male" value="m" />
                     </Picker>

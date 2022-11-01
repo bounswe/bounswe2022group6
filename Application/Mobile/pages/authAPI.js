@@ -40,9 +40,9 @@ export const handleSignUpRequest = async (mail, password, username, gender, birt
     formdata.append("email", mail);
     formdata.append("password", password);
     formdata.append("gender", gender);
-    formdata.append("birth_day", "06");
-    formdata.append("birth_month", "10");
-    formdata.append("birth_year", "1970");
+    formdata.append("birth_day", birth_date);
+    formdata.append("birth_month", birth_month);
+    formdata.append("birth_year", birth_year);
 
     var requestOptions = {
         method: 'POST',
