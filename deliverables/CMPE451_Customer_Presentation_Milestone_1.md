@@ -122,23 +122,21 @@ You can check our updated project plan from [this link](https://github.com/bouns
   * **Main contributions:**
       * **Code related significant issues:**
          * Created Issues:
-            1. [Designing HomePage for Frontend](https://github.com/bounswe/bounswe2022group6/issues/202)
+            1. [#202 - Designing HomePage for Frontend](https://github.com/bounswe/bounswe2022group6/issues/202)
          
-         * Contributed Issues:
           
       * **Management related significant issues:**
          * Created Issues:
-            1. [Reviewing the System requirements 1.2.2 to 1.2.5](https://github.com/bounswe/bounswe2022group6/issues/164)
-            2. [As a fresh eyes. provide feedback to improve repo](https://github.com/bounswe/bounswe2022group6/issues/161)
-            3. [Creating a personal Wiki page for İhsan Mert Atalay](https://github.com/bounswe/bounswe2022group6/issues/159)
+            1. [#164 - Reviewing the System requirements 1.2.2 to 1.2.5](https://github.com/bounswe/bounswe2022group6/issues/164)
+            2. [#161 - As a fresh eyes. provide feedback to improve repo](https://github.com/bounswe/bounswe2022group6/issues/161)
+            3. [#159 - Creating a personal Wiki page for İhsan Mert Atalay](https://github.com/bounswe/bounswe2022group6/issues/159)
            
-         * Contributed Issues:
 
    * **Pull requests:**
       * Created Pull Requests:
-         1. [Home Page Designed.](https://github.com/bounswe/bounswe2022group6/pull/205) Merged
-         1. [Home Page Designed](https://github.com/bounswe/bounswe2022group6/pull/204) Canceled
-         1. [Home Page Changes ](https://github.com/bounswe/bounswe2022group6/pull/237) Merged
+         1. [#205 - Home Page Designed.](https://github.com/bounswe/bounswe2022group6/pull/205) Merged
+         1. [#204 - Home Page Designed](https://github.com/bounswe/bounswe2022group6/pull/204) Canceled
+         1. [#237 - Home Page Changes ](https://github.com/bounswe/bounswe2022group6/pull/237) Merged
  
       * Reviewed Pull Requests:
          1. [#192 - Initialized frontend project.](https://github.com/bounswe/bounswe2022group6/pull/192)
