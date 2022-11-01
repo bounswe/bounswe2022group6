@@ -17,16 +17,14 @@ export default class MessagesScreen extends Component {
     super(props);
     this.state = {
       calls: [
-        { id: 1, name: 'Mark Doe', status: 'active', image: 'https://bootdey.com/img/Content/avatar/avatar7.png' },
-        { id: 2, name: 'Clark Man', status: 'active', image: 'https://bootdey.com/img/Content/avatar/avatar6.png' },
-        { id: 3, name: 'Jaden Boor', status: 'active', image: 'https://bootdey.com/img/Content/avatar/avatar5.png' },
-        { id: 4, name: 'Srick Tree', status: 'active', image: 'https://bootdey.com/img/Content/avatar/avatar4.png' },
-        { id: 5, name: 'Erick Doe', status: 'active', image: 'https://bootdey.com/img/Content/avatar/avatar3.png' },
-        { id: 6, name: 'Francis Doe', status: 'active', image: 'https://bootdey.com/img/Content/avatar/avatar2.png' },
-        { id: 8, name: 'Matilde Doe', status: 'active', image: 'https://bootdey.com/img/Content/avatar/avatar1.png' },
-        { id: 9, name: 'John Doe', status: 'active', image: 'https://bootdey.com/img/Content/avatar/avatar4.png' },
-        { id: 10, name: 'Fermod Doe', status: 'active', image: 'https://bootdey.com/img/Content/avatar/avatar7.png' },
-        { id: 11, name: 'Danny Doe', status: 'active', image: 'https://bootdey.com/img/Content/avatar/avatar1.png' },
+        {id:1,  name: "Vanessa Henry",    status:"active", image:"https://bootdey.com/img/Content/avatar/avatar3.png"},
+        {id:2,  name: "Tammy Ramirez",   status:"last seen: today at 12:37", image:"https://bootdey.com/img/Content/avatar/avatar6.png"} ,
+        {id:3,  name: "Nathan Brown",  status:"last seen: Sat at 22:13", image:"https://bootdey.com/img/Content/avatar/avatar5.png"} ,
+        {id:4,  name: "Clara Oneill",  status:"active", image:"https://bootdey.com/img/Content/avatar/avatar8.png"} ,
+        {id:5,  name: "Justin Welch",   status:"last seen: 21 Sep 2022", image:"https://bootdey.com/img/Content/avatar/avatar7.png"} ,
+        {id:6,  name: "Anthony Fox", status:"last seen: yesterday at 21:44", image:"https://bootdey.com/img/Content/avatar/avatar2.png"} ,
+        {id:8,  name: "Patrick Vang", status:"last seen: today at 13:05", image:"https://bootdey.com/img/Content/avatar/avatar1.png"} ,
+        {id:9,  name: "Oscar Wilkerson",    status:"active", image:"https://bootdey.com/img/Content/avatar/avatar4.png"} ,
       ]
     };
   }
@@ -39,7 +37,7 @@ export default class MessagesScreen extends Component {
           <View>
             <View style={styles.nameContainer}>
               <Text style={styles.nameTxt} numberOfLines={1} ellipsizeMode="tail">{item.name}</Text>
-              <Text style={styles.mblTxt}>Mobile</Text>
+              <Text style={styles.mblTxt}></Text>
             </View>
             <View style={styles.msgContainer}>
               <Text style={styles.msgTxt}>{item.status}</Text>
