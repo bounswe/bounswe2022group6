@@ -305,6 +305,83 @@ You can check our updated project plan from [this link](https://github.com/bouns
 
 * [Yusuf Erdem Nacar](https://github.com/bounswe/bounswe2022group6/wiki/Yusuf-Erdem-Nacar)
 
+**Yusuf Erdem Nacar - Group 6 - Backend**
+
+***01.11.2022***
+
+## Responsibilities
+I am a part of the backend subteam of group 6 and most of my responsibilities are related to the backend side of the app. However, like everybody else, I also had other responsibilites related to the general management of the project. Thus, I will list them in separate subsections.
+
+Please note that I will list the responsibilities in the importance order.
+
+### General Management Responsibilities
+1. Reviewing the requirement subsections
+   1.  [1.1.1.1](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1111-creating-an-account)
+   2.  [1.1.1.2](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1112-adding-information-to-a-account)
+   3.  [1.1.1.3](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1113-editing-the-information-in-an-account)
+   4.  [1.1.1.4](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1114-removing-information-from-an-account)
+   5.  [1.1.1.5](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1115-deleting-an-account)
+   6.  [1.1.1.6](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1116-logging-inlogging-out)
+2. Creating API documents for the endpoints for the use of frontend and mobile teams
+   1. registration
+   2. login
+   3. logout
+3. Creating and linking issues for the tracking of milestone I deliverables
+4. Taking and uploading notes for
+   1. General meeting #2
+   2. General meeting #4
+   3. Backend meeting #3
+
+### Code Related Responsibilities
+1. Implementing registration functionality
+2. Implementing login functionality
+3. Implementing logout functionality
+4. Deploying the app to the AWS instance - *shared responsibility*
+
+## Main Contributions
+Overall, I believe I contributed to both how we manage the deployment and the code significantly.
+
+My contributions to the management range from more significant things like reviewing a part of the requirements and creating API documents, to less significant things like general upkeep of the wiki (by fixing many things wherever and whenever I see them) and keeping track of the discussions during the meetings to ensure that we as a group do not sidetrack from the agenda.
+
+My contribution to the code includes both solo and shared tasks. The solo tasks were where I implemented registration, login and logout on the backend side. The shared tasks were deciding on the directory structure of the backend side with [Artun](https://github.com/artun-akdogan) and deploying the app to the AWS instance with [Artun](https://github.com/artun-akdogan), [Ali Kaan](https://github.com/Aliqaan), [Bedirhan](https://github.com/BPamukcuoglu), [Aral](https://github.com/araldortogul), and [Berfin](https://github.com/berfinsimsekk). In addition, I helped deploy the version that will be used in the demo with [Hakan](https://github.com/LehabuL) and [Artun](https://github.com/artun-akdogan).
+
+In total, I am involved in 23 issues so far either by being the author of it, assignee of it, or commenting on it.
+
+### Code Related Significant Issues
+
+#### Solo
+
+* [#181 Implementing User Registration](https://github.com/bounswe/bounswe2022group6/issues/181)
+* [#212 Implementing Login](https://github.com/bounswe/bounswe2022group6/issues/212)
+* [#220 Implementing Logout](https://github.com/bounswe/bounswe2022group6/issues/220)
+
+#### Shared
+
+* [#208 AWS EC2 instance creation and deployment](https://github.com/bounswe/bounswe2022group6/issues/208)
+* [#178 Backend Application Folder Structure Refactor](https://github.com/bounswe/bounswe2022group6/issues/178)
+* [#240 Resolving Final Issues Regarding Deployment For Milestone I](https://github.com/bounswe/bounswe2022group6/issues/240)
+
+### Management Related Significant Issues
+
+* [#167 Reviewing the Requirement Sections 1.1.1.1 to 1.1.1.6](https://github.com/bounswe/bounswe2022group6/issues/167)
+* [#181 Comment under Implementing User Registration](https://github.com/bounswe/bounswe2022group6/issues/181#issuecomment-1291493923)
+  * Unfortunately, I did not create a separate issue for writing the API doc because I decided to write one after I implemented the registration feature.
+* [#213 Creating API Documentation for Login](https://github.com/bounswe/bounswe2022group6/issues/213)
+* [#222 Creating API Documentation for Logout](https://github.com/bounswe/bounswe2022group6/issues/222)
+
+## Pull Requests
+
+* [#191 Signup Feature Completion](https://github.com/bounswe/bounswe2022group6/pull/191)
+* [#217 Login Feature Completion](https://github.com/bounswe/bounswe2022group6/pull/217)
+* [#223 Logout Feature Completion](https://github.com/bounswe/bounswe2022group6/pull/223)
+
+## Additional Information
+
+In general, I tried my best to be consistent about my fingerprint on the management system and the wiki. You can see that the style and form of my issues, pull requests, comments, commit messages, and page edit notes are all consistent within themselves. I believe by doing so, one can find what they are looking for in my contribution much more faster and easier because it takes less effort to search and to reach something in a consistent pattern.
+
+I also tended to the wiki very frequently, and fixed numerous things such as typos whenever I found them. 
+
+
 * [Ramazan Bedirhan Pamukçuoğlu](https://github.com/bounswe/bounswe2022group6/wiki/Bedirhan-Pamukcuoglu)
 
 <details><summary>Berfin Şimşek</summary>
