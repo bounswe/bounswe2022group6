@@ -7,7 +7,7 @@ import { Stack, Button, TextInput, Text, Box, ActivityIndicator } from "@react-n
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Picker } from '@react-native-picker/picker';
 import DatePicker from 'react-native-date-picker'
-import LoadingDisplay from '../../components/LoadingDisplay';
+import LoadingDisplay from '../components/LoadingDisplay';
 import { HelperText } from 'react-native-paper';
 import { handleSignUpRequest } from '../authAPI';
 

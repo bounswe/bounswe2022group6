@@ -1,8 +1,6 @@
 import { AsyncStorage } from 'react-native';
 
 
-
-
 export const handleLoginRequest = async (mail, password) => {
     console.log(mail, password)
 

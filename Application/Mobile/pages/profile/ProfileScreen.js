@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigation } from '@react-navigation/native';
-
+import { handleGetUserData } from '../userAPI';
 import {
     StyleSheet,
     Text,
@@ -10,27 +10,40 @@ import {
     TouchableOpacity,
     SafeAreaView
 } from 'react-native';
+import LoadingDisplay from "../components/LoadingDisplay";
 
 const ProfileScreen = () => {
+    const [user, setUser] = useState("")
+
+    useEffect(() => {
+        handleGetUserData().then(data => {
+            console.log(typeof data)
+            setUser(data)
+        }).catch(err => {
+            alert(err)
+        })
+    }, [])
+
     const navigator = useNavigation();
     return (
         <SafeAreaView>
-        <ScrollView contentContainerStyle={styles.container}>
-            <View style={styles.header} />
-            
-                <Image style={styles.avatar} source={{ uri: 'https://bootdey.com/img/Content/avatar/avatar6.png' }} />
-            <View style={styles.body}>
-                <View style={styles.bodyContent}>
-                    <Text style={styles.name}>John Smith</Text>
-                    <Text style={styles.info}>Dermatologist</Text>
-                    <Text style={styles.description}> Biography text here. Lorem ipsum dolor sit amet, saepe sapientem eu nam. Qui ne assum electram expetendis.</Text>
-                    <TouchableOpacity style={styles.buttonContainer} onPress={() => navigator.navigate('EditProfile')}>
-                        <Text>Edit Profile</Text>
-                    </TouchableOpacity>
-                </View>
-
-            </View>
-        </ScrollView>
+            <ScrollView contentContainerStyle={styles.container}>
+                <>
+                    <View style={styles.header} />
+                    <Image style={styles.avatar} source={{ uri: 'https://bootdey.com/img/Content/avatar/avatar6.png' }} />
+                    <View style={styles.body}>
+                        <View style={styles.bodyContent}>
+                            <Text style={styles.name}>{user?.username}</Text>
+                            <Text style={styles.info}>User</Text>
+                            <Text style={styles.description}> This is the place where you tell people about you.</Text>
+                            <TouchableOpacity style={styles.buttonContainer} onPress={() => navigator.navigate('EditProfile', { user })}>
+                                <Text>Edit Profile</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                    {!user && <LoadingDisplay />}
+                </>
+            </ScrollView>
         </SafeAreaView>
     );
 }
@@ -43,7 +56,7 @@ const styles = StyleSheet.create({
         height: 125,
     },
     avatar: {
-        aspectRatio: 1/1,
+        aspectRatio: 1 / 1,
         marginTop: -65,
         height: 130,
         borderRadius: 65,
