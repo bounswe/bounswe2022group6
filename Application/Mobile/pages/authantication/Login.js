@@ -27,6 +27,8 @@ export const LoginPage = ({ navigation }) => {
 
         handleLoginRequest(mail, password).then(() => {
           setLoading(false)
+          setMail("")
+          setPassword("")
           navigation.navigate("Drawer")
         }).catch(err => {
           setLoading(false)
