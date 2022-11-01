@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import { View, Text, Button } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -20,11 +21,19 @@ function CustomDrawerContent(props) {
                 <DrawerItemList {...props} />
             </View>
             <DrawerItem
+                label="Give Error"
+                onPress={() => props.navigation.navigate('Error')}
+                icon={
+                    ({ focused, color, size }) =>
+                        <Ionicons color={color} size={size} name={focused ? 'close' : 'close-outline'} />
+                }
+            />
+            <DrawerItem
                 label="Log Out"
                 onPress={() => props.navigation.getParent().popToTop()}
                 icon={
-                    ({ focused, color, size }) => 
-                    <Ionicons color={color} size={size} name={focused ? 'log-out' : 'log-out-outline'} />
+                    ({ focused, color, size }) =>
+                        <Ionicons color={color} size={size} name={focused ? 'log-out' : 'log-out-outline'} />
                 }
             />
         </DrawerContentScrollView>
@@ -56,7 +65,7 @@ const DrawerNavigation = ({ navigation }) => {
                 title: 'Messages',
                 drawerIcon: ({ focused, color, size }) => (
                     <Ionicons
-                        name={focused? 'mail' : 'mail-outline'}
+                        name={focused ? 'mail' : 'mail-outline'}
                         size={size} color={color}
                     />
                 ),

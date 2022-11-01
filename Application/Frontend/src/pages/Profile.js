@@ -1,11 +1,34 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import logout from "../services/Logout_API";
+import { useHistory } from 'react-router-dom';
+import { useState } from "react";
+import MessageBox from "../components/MessageBox";
 
 export default function Profile() {
+
+    let history = useHistory()
+
+    const [isLoggedout, setLoggedout] = useState(false)
+  
+    function handleClick(event) {
+      event.preventDefault()
+      logout().then(res => {
+          if (res === null) {
+              setLoggedout(true)
+              setTimeout(() => {
+                  history.push('/');
+              }, "1500")
+  
+          }
+      })
+    }
     
     return (
         <div className="center" >
             <h1 className="profile-title home-page-title">Your Profile</h1>
+            <div> {isLoggedout && <MessageBox data="Logout Successful!" style={{ color: "#222", fontSize: "2.5rem", textTransform: "capitalize" }}> </MessageBox>}
+            </div>
             <form >
             <p>
                         <label>Username</label><br/>
@@ -55,7 +78,7 @@ export default function Profile() {
             </Link>
 
             <Link to="/">
-                <button className="primary-button">Log out</button>
+                <button className="primary-button" onClick={handleClick}>Log out</button>
             </Link>
 
                 </div>
