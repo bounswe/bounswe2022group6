@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 // AUTHOR: BEDIRHAN PAMUKCUOGLU
 
 import React, { useState } from 'react';
@@ -61,9 +60,9 @@ export const SignUpScreen = (props) => {
                 setLoading(true)
                 console.log(mail, password, userName, gender, birthDate.getDate(), birthDate.getMonth(), birthDate.getFullYear())
 
-                handleSignUpRequest(mail, password, userName, gender, birthDate.getDate(), birthDate.getMonth() + 1, birthDate.getFullYear())
-                    .then(() => { alert("Success!"); props.navigation.navigate("Login") })
-                    .catch(err => { setLoading(false); alert(err) })
+                handleSignUpRequest(mail, password, userName, gender, birthDate.getDate(), birthDate.getMonth()+1, birthDate.getFullYear())
+                .then(() => { alert("Success!"); props.navigation.navigate("Login") })
+                .catch(err => { setLoading(false); alert(err)})
             }
 
         } catch (error) {
