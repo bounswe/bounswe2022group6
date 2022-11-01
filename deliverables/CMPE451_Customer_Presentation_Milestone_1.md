@@ -113,7 +113,8 @@ You can check our updated project plan from [this link](https://github.com/bouns
         2. [#217: Login Feature Completion ](https://github.com/bounswe/bounswe2022group6/pull/217)
         3. [#215: Solving the encountered CORS error](https://github.com/bounswe/bounswe2022group6/pull/215)
         4. [#191: Signup Feature Completion ](https://github.com/bounswe/bounswe2022group6/pull/191)
-   * **Additional information:** I have only written the most important issues in this report. Please check my [personal wiki page](https://github.com/bounswe/bounswe2022group6/wiki/Artun-Akdo%C4%9Fan) for more issues and work details as I keep it update with my individual contributions.
+  
+  **Additional information:** I have only written the most important issues in this report. Please check my [personal wiki page](https://github.com/bounswe/bounswe2022group6/wiki/Artun-Akdo%C4%9Fan) for more issues and work details as I keep it update with my individual contributions.
 
 </details>
 
