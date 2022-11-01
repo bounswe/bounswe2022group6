@@ -232,6 +232,48 @@ You can check our updated project plan from [this link](https://github.com/bouns
         * [#207: Add dockerfile and docker-compose.yml for containerization](https://github.com/bounswe/bounswe2022group6/pull/207)
 
 * [Yasir Dikbaş](https://github.com/bounswe/bounswe2022group6/wiki/Yasir-Dikba%C5%9F)
+*     **Member:**
+    
+    I am part of the mobile sub-team of the Group 6.
+
+    **Responsibilities:**
+
+   As a team we reviewed whats necessary for new customers point of view and updated necessary stuff. Moreover, decided on the name of the platform. I personally checked some requirements with Alp Eren and we collaborated.
+    
+    I made research about mobile app development and asked my seniors about advantages and disadvantages of certain frameworks. While choosing our programming language and framework we deeply cared about the reflection of the tools that we use on the sector as we want to make insvestment for after graduation.
+     
+    For this milestone, I have not contributed significantly to the codebase as I was not familiar with both React Native and mobile app development so I had to study 
+    in order to be ready for making contributions for the following milestones and tasks. Despite this I took part in the meetings while developing the app and reviewed pull requests.
+    **Main Contributions:** 
+
+    * **Code related significant issues:**
+
+        * Issues created by me:
+            * [#173: Deciding Prog Lang](https://github.com/bounswe/bounswe2022group6/issues/173)
+            
+        * Issues assigned to me:
+
+            * [#176: Mobile Application Initiliaziton](https://github.com/bounswe/bounswe2022group6/issues/176)
+
+            * [#200: Creating Base Pages for Mobile](https://github.com/bounswe/bounswe2022group6/issues/200)
+
+           
+
+    * **Management related significant issues:**
+
+        * Issues created by me:
+
+        * Issues assigned to me:
+
+            * [#171: Deciding a Communication Method for Mobile Development](https://github.com/bounswe/bounswe2022group6/issues/171)
+            
+            * [#175: Reviewing the Requirement Sections 2.1 to 2.5](https://github.com/bounswe/bounswe2022group6/issues/208)
+
+    **Pull Requests:**
+    * Pull requests reviewed by me:
+        * [#234: Profile Page Initialized](https://github.com/bounswe/bounswe2022group6/pull/234)
+        * [#236: Conflicts Resolved](https://github.com/bounswe/bounswe2022group6/pull/236)
+
 
 * [Aral Dörtoğul](https://github.com/bounswe/bounswe2022group6/wiki/Aral-D%C3%B6rto%C4%9Ful)
 
