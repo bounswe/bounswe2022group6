@@ -1,4 +1,13 @@
-# Getting Started with Create React App
+# Frontend Application 
+## Instructions For Containerized Execution
+<b>Note:</b> To run this application, you need to have docker and docker-compose installed on your computer. (Docker Desktop installs them both)
+* Add .env file to Backend folder. (Without it, system will not work)
+* Change directory (cd) to this folder via terminal.
+* Run "docker-compose up".
+
+Those commands will run Frontend application with all required backend API's.
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
