@@ -55,25 +55,27 @@ You can check our updated project plan from [this link](https://github.com/bouns
 
     **Responsibilities:**
 
-    * Researching on technologies to use in Backend development.
-    * Deciding on the roadmap of Backend Development via meetings and requirements review.
-    * Creating Application workspace folders for Backend, Frontend, and Mobile subteams.
-    * Initializing Backend workspace via Django and with MySQL database.
-    * Deploying the application via docker compose on AWS EC2 instance.
-    * Containerizing both Backend and Frontend applications via Docker.
-    * Implementing the Account View function.
-    * Implementing the User Registration feature.
-    * Documenting API's via Postman.
-    * Fixing bugs that are related to Backend or Deployment.
-    * Attending all meetings and taking notes for them.
+    We started this semester by reviewing last semester's already-prepared requirements. I suggested and changed parts of the account management requirements to make them more precise and correct. Also, I was able to plan the Backend subteam's communication plan and initialize the communication channel via Discord.
+
+    As a backend developer, I was responsible for initializing the application and implementing the basic API for the first milestone described in the requirements. I have taken an active role in containerizing both Backend and Frontend via Docker, finding the most suitable database for our project, and unifying them in a relevant, robust and secure manner via Docker Compose. I also took an active role in the Deployment of the pre-release on the AWS EC2 instance. Besides, I have created the profile view API and user registration API. Apart from those work, I was constantly dealing with bugs that are either caused by backend frameworks, or by Deployment.
+
+    Last but not least, I was able to fix some deployment bugs on the Amazon instance and deploy the milestone demo. Also, I updated the project plan according to my work.
    
     **Main Contributions:** 
-
-    We started this semester by reviewing last semester's already prepared requirements. I suggested and changed parts of account management requirements to make it more precise and correct. Also, I was able to plan Backend subteam's communication plan and initialize cthe communication channel via Discord.
-
-    As a backend developer, I was responsible for initializing the application, and implementing the basic API's for the first milestone described on the requirements. I have taken active role in containerizing both Backend and Frontend via Docker, finding the most suitable database for our project, and unifying them in a relevant, robust and secure manner via Docker Compose. I also took an active role on the Deployment of the pre-release on AWS EC2 instance. Besides, I have created profile view API and user registration API. Apart from those work, I was constantly dealing with bugs that are either caused by backend frameworks, or by Deployment.
-
-    Last but not least, I was able to fix some deployment bugs on Amazon instance and deploy the milestone demo. Also, I updated project plan according to my work.
+  
+    * **Brief list of responsibilities that are contributed by me:**
+  
+      * Researching on technologies to use in Backend development.
+      * Deciding on the roadmap of Backend Development via meetings and requirements review.
+      * Creating Application workspace folders for Backend, Frontend, and Mobile subteams.
+      * Initializing Backend workspace via Django and with MySQL database.
+      * Deploying the application via docker compose on AWS EC2 instance.
+      * Containerizing both Backend and Frontend applications via Docker.
+      * Implementing the Account View function.
+      * Implementing the User Registration feature.
+      * Documenting API's via Postman.
+      * Fixing bugs that are related to Backend or Deployment.
+      * Attending all meetings and taking notes for them.
 
     * **Code related significant issues:**
 
