@@ -1,7 +1,3 @@
-// Local port of backend will need to change when deployed
-const URL =  "http://localhost:8000"
-
-// register endpoint
 async function register(data) {
 
     var formData = new FormData()
@@ -28,7 +24,7 @@ async function register(data) {
     }
     console.log("Sending Request")
     
-    const response = await fetch( URL +'/register', requestOptions)
+    const response = await fetch( window.location.href.replace(":3000", ":8000"), requestOptions)
     const resMessage = await response.json()
     if (response.status === 400) {
         console.log(resMessage["error"])

@@ -1,14 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./home.module.css";
-
+import logout from "../services/Logout_API";
+import { useHistory } from 'react-router-dom';
+import { useState } from "react";
+import MessageBox from "../components/MessageBox";
 
 const posts = [
   {
     name: "Mehmet Ali",
     date: "5",
     description:
-      "Hi I’m 23F, last night I was drinking and probably had 4 drinks total. This is not out of the ordinary for me. I was feeling good and then all of a sudden I was having muscle...",
+      "Hi I’m 23F, last night I was drinking parol and probably had 4 parol drinks total. This is not out of the ordinary for me. I was feeling good and then all of a sudden I was having muscle...",
       score: "11",
       labels: ["Bones/Joints/Ligaments", "Question","Help"],
   },
@@ -24,7 +27,7 @@ const posts = [
     name: "Fatma",
     date: "20",
     description:
-      "I took horny pills  Hello everyone. I took horny pills at midnight and it’s like 6am. I’m not even tired. Why am I not tired? I’m not even horny, I’ve just lost touch with reality... ",
+      "I took parol pills  Hello everyone. I took parol pills at midnight and it’s like 6am. I’m not even tired. Why am I not tired?I’ve just lost touch with reality... ",
       score: "3",
       labels: ["Other"],
   },
@@ -63,6 +66,24 @@ const posts = [
 ];
 
 export default function Home() {
+
+  let history = useHistory()
+
+  const [isLoggedout, setLoggedout] = useState(false)
+
+  function handleClick(event) {
+    event.preventDefault()
+    logout().then(res => {
+        if (res === null) {
+            setLoggedout(true)
+            setTimeout(() => {
+                history.push('/');
+            }, "1500")
+
+        }
+    })
+  }
+
   return (
     <div className="text-center">
       <Link to="/profile">
@@ -72,12 +93,14 @@ export default function Home() {
         <button
           className={styles.mybutton}
           style={{ position: "absolute", top: "20px", right: "5px" }}
+          onClick={handleClick}
         >
           Log out
         </button>
       </Link>
       <h5 className="main-title home-page-title">MEDI SHARE</h5>
-
+      <div> {isLoggedout && <MessageBox data="Logout Successful!" style={{ color: "#222", fontSize: "2.5rem", textTransform: "capitalize" }}> </MessageBox>}
+            </div>
       <div style={{ display: "flex" }}>
         <div
           className="posts"
@@ -91,8 +114,8 @@ export default function Home() {
         >
           {posts.map((post) => (
             <div className={styles.mypost}>
-              <div style={{ width: "10%", backgroundColor: "#f0feff" ,alignItems:"center"}}>
-                <h1 style={{marginTop:"40%"}}>+</h1> <h3>{post.score}</h3> <h1>-</h1>
+              <div style={{ width: "10%", backgroundColor: "#f0feff" }}>
+                <h1>+</h1> <h3>1</h3> <h1>-</h1>
               </div>
 
               <div style={{ width: "80%", margin: "auto" }}>
@@ -101,16 +124,15 @@ export default function Home() {
                 >
                   <p>{post.name}</p>{" "}
                   <div
-                    style={{ display: "flex", justifyContent: "space-between",alignItems:"center" }}
+                    style={{ display: "flex", justifyContent: "space-between" }}
                   >
                     {post.labels.map((label) => (
                       <p
                         style={{
-                          fontSize:"x-small",
                           borderRadius: "5px",
                           border: "1px solid lightgray",
                           padding: "3px 5px",
-                          marginRight: "0px",
+                          marginRight: "5px",
                           backgroundColor: "lightgoldenrodyellow",
                         }}
                       >
