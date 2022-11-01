@@ -428,6 +428,82 @@ I also tended to the wiki very frequently, and fixed numerous things such as typ
 
 
 * [Ramazan Bedirhan Pamukçuoğlu](https://github.com/bounswe/bounswe2022group6/wiki/Bedirhan-Pamukcuoglu)
+<details open><summary>Artun Akdoğan</summary>
+
+    **Member:**
+    I am Bedirhan, and I am working as a Developer in the "Mobile Team" of Group 6.
+
+    **Responsibilities:**
+
+    As one of team members of the mobile team, I did contribute to project up to this point with all my efforts. First of all we had a meeting to decide on which communication plan and platform should be used and then decide to which framework should be used to develop application. We made necessarry searches about those topics as whole team and shared the results. We decide discord as communication platform and react-native as development framework. Since we using discord, anyone who is available is at the room can help each other in minutes. We like being agile as team :)
+  
+    After choosing react-native, I've created an hello-world application from scratch and made project structure (where to put interface file, api files etc). I've pushed the so called "hello-world" application and asked to team to be sure that they can run the application on an emulator. We had a little meeting with Aral on Discord to run the application.
+
+    After everyone of the team members can run the application we split the work among us and worked seperately most of the time. However, whenever is necesarry we were in touch. I waas responsible for the login/signup pages and API endpoints.
+  
+    I've also attended a meeting to deploy back-end and front-end applications to the AWS. I've initiated an AWS EC2 instance and deployed the containerized application. Special thanks to Artun for his efforts about dockerization.
+  
+    I've done some bugfixes along the way and resolved some conflicts.
+  
+    I've also handled the User Profile API implementation and edited the Profile Page and Edit Profile Page accordingly with the API response. Thanks to Aral for his works on Profile Pages.
+  
+    Lastly, I've tested application end to end for presentation.
+   
+    **Main Contributions:** 
+  
+    * **Brief list of responsibilities that are contributed by me:**
+      
+      * Researching group communication methods. 
+      * Researching on technologies to use in Mobile development.
+      * Reviewing the requirements.
+      * Deciding on the file structure of Mobile Development with respect to requirements and meeting notes.
+      * Initializing Mobile application with react-native.
+      * Creating an AWS instance and deploy the application.
+      * Implementing the Login View page.
+      * Implementing the SignUp View page.
+      * Implementing API requests to backend for login, logout, signup and get profile.
+      * Documenting API's via Postman.
+      * Fixing bugs that are related to Mobile.
+      * Attending all meetings and taking notes for them.
+
+    * **Code related significant issues:**
+
+        * Created issues by me:
+            * [#200: Creating Base Pages for Mobile ](https://github.com/bounswe/bounswe2022group6/issues/200)
+            * [#197: Necessary Developments for the BackEnd API Integration ](https://github.com/bounswe/bounswe2022group6/issues/176)
+            * [#176: Mobile Application Inıtialization ](https://github.com/bounswe/bounswe2022group6/issues/176)
+        
+        * Contributed isssues by me:
+            * [#208: AWS EC2 instance creation and deployment](https://github.com/bounswe/bounswe2022group6/issues/208)
+            * [#173: Deciding which programming language to use for mobile development](https://github.com/bounswe/bounswe2022group6/issues/173)
+
+    * **Management related significant issues:**
+
+        * Created issues by me:
+            * [#172: Uploading Mobile Team Meeting #1 Notes](https://github.com/bounswe/bounswe2022group6/issues/172)
+            * [#163: Requirements Review (1.1.1.7-1.1.2.2.4)](https://github.com/bounswe/bounswe2022group6/issues/163)
+
+        * Contributed isssues by me:
+            * [#231 - Reporting Individual Contribution](https://github.com/bounswe/bounswe2022group6/issues/231)
+
+    **Pull Requests:**
+    * Pull requests opened by me:
+        1. [#229: Add docs for profile details Postman documents ](https://github.com/bounswe/bounswe2022group6/pull/229)
+        2. [#228: Add profile API to get user details ](https://github.com/bounswe/bounswe2022group6/pull/228)
+        3. [#209: Update frontend base image ](https://github.com/bounswe/bounswe2022group6/pull/209)
+        4. [#207: Add dockerfile and docker-compose.yml for containerization ](https://github.com/bounswe/bounswe2022group6/pull/207)
+        5. [#189: Backend/fix/database port enclose ](https://github.com/bounswe/bounswe2022group6/pull/189)
+        6. [#180: Refactor folder structure, update dockerfiles ](https://github.com/bounswe/bounswe2022group6/pull/180)
+
+    * Pull requests reviewed by me:
+        1. [#223: Logout Feature Completion ](https://github.com/bounswe/bounswe2022group6/pull/223)
+        2. [#217: Login Feature Completion ](https://github.com/bounswe/bounswe2022group6/pull/217)
+        3. [#215: Solving the encountered CORS error](https://github.com/bounswe/bounswe2022group6/pull/215)
+        4. [#191: Signup Feature Completion ](https://github.com/bounswe/bounswe2022group6/pull/191)
+  
+  **Additional information:** I have only written the most important issues in this report. Please check my [personal wiki page](https://github.com/bounswe/bounswe2022group6/wiki/Artun-Akdo%C4%9Fan) for more issues and work details as I keep it update with my individual contributions.
+
+</details>
 
 <details><summary>Berfin Şimşek</summary>
 
