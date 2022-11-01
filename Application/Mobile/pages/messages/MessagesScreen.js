@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
 import {
   StyleSheet,
@@ -16,21 +17,21 @@ export default class MessagesScreen extends Component {
     super(props);
     this.state = {
       calls: [
-        {id:1,  name: "Mark Doe",    status:"active", image:"https://bootdey.com/img/Content/avatar/avatar7.png"},
-        {id:2,  name: "Clark Man",   status:"active", image:"https://bootdey.com/img/Content/avatar/avatar6.png"} ,
-        {id:3,  name: "Jaden Boor",  status:"active", image:"https://bootdey.com/img/Content/avatar/avatar5.png"} ,
-        {id:4,  name: "Srick Tree",  status:"active", image:"https://bootdey.com/img/Content/avatar/avatar4.png"} ,
-        {id:5,  name: "Erick Doe",   status:"active", image:"https://bootdey.com/img/Content/avatar/avatar3.png"} ,
-        {id:6,  name: "Francis Doe", status:"active", image:"https://bootdey.com/img/Content/avatar/avatar2.png"} ,
-        {id:8,  name: "Matilde Doe", status:"active", image:"https://bootdey.com/img/Content/avatar/avatar1.png"} ,
-        {id:9,  name: "John Doe",    status:"active", image:"https://bootdey.com/img/Content/avatar/avatar4.png"} ,
-        {id:10, name: "Fermod Doe",  status:"active", image:"https://bootdey.com/img/Content/avatar/avatar7.png"} ,
-        {id:11, name: "Danny Doe",   status:"active", image:"https://bootdey.com/img/Content/avatar/avatar1.png"},
+        { id: 1, name: 'Mark Doe', status: 'active', image: 'https://bootdey.com/img/Content/avatar/avatar7.png' },
+        { id: 2, name: 'Clark Man', status: 'active', image: 'https://bootdey.com/img/Content/avatar/avatar6.png' },
+        { id: 3, name: 'Jaden Boor', status: 'active', image: 'https://bootdey.com/img/Content/avatar/avatar5.png' },
+        { id: 4, name: 'Srick Tree', status: 'active', image: 'https://bootdey.com/img/Content/avatar/avatar4.png' },
+        { id: 5, name: 'Erick Doe', status: 'active', image: 'https://bootdey.com/img/Content/avatar/avatar3.png' },
+        { id: 6, name: 'Francis Doe', status: 'active', image: 'https://bootdey.com/img/Content/avatar/avatar2.png' },
+        { id: 8, name: 'Matilde Doe', status: 'active', image: 'https://bootdey.com/img/Content/avatar/avatar1.png' },
+        { id: 9, name: 'John Doe', status: 'active', image: 'https://bootdey.com/img/Content/avatar/avatar4.png' },
+        { id: 10, name: 'Fermod Doe', status: 'active', image: 'https://bootdey.com/img/Content/avatar/avatar7.png' },
+        { id: 11, name: 'Danny Doe', status: 'active', image: 'https://bootdey.com/img/Content/avatar/avatar1.png' },
       ]
     };
   }
 
-  renderItem = ({item}) => {
+  renderItem = ({ item }) => {
     return (
       <TouchableOpacity>
         <View style={styles.row}>
@@ -50,15 +51,15 @@ export default class MessagesScreen extends Component {
   }
 
   render() {
-    return(
+    return (
       <View style={{ flex: 1 }} >
-        <FlatList 
+        <FlatList
           extraData={this.state}
           data={this.state.calls}
-          keyExtractor = {(item) => {
+          keyExtractor={(item) => {
             return item.id;
           }}
-          renderItem={this.renderItem}/>
+          renderItem={this.renderItem} />
       </View>
     );
   }
@@ -88,7 +89,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#222',
     fontSize: 18,
-    width:170,
+    width: 170,
   },
   mblTxt: {
     fontWeight: '200',

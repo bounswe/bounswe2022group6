@@ -1,25 +1,29 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable no-alert */
+/* eslint-disable prettier/prettier */
 // AUTHOR: BEDIRHAN PAMUKCUOGLU
 
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import { Stack, Button, TextInput, Text, Box, ActivityIndicator } from "@react-native-material/core";
+import { Stack, Button, TextInput, Text, Box, ActivityIndicator } from '@react-native-material/core';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { login } from '../../apis/Authentication';
 
 export const LoginPage = ({ navigation }) => {
 
-  const [mail, setMail] = useState("")
-  const [password, setPassword] = useState("")
-  const [showPass, setShowPass] = useState(false)
+  const [mail, setMail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPass, setShowPass] = useState(false);
 
   const handleClick = () => {
     try {
-      login(mail, password).catch(e => {alert(e)})
+      login(mail, password).catch(e => { alert(e); });
     } catch (error) {
-      alert("ase")
-      alert(error)      
-    }  
-  }
+      alert('ase');
+      alert(error);
+    }
+  };
 
 
 
@@ -27,11 +31,11 @@ export const LoginPage = ({ navigation }) => {
     <Stack spacing={2} style={{ paddingTop: '20%', margin: 16, paddingBottom: 30 }}>
       <Text variant="h1">M</Text>
       <Text variant="subtitle1">Welcome! Medishare</Text>
-      <Box style={{ height: "10%" }}></Box>
+      <Box style={{ height: '10%' }} />
       <TextInput
         label="Mail"
         value={mail}
-        variant='filled'
+        variant="filled"
         onChangeText={(text) => setMail(text)}
         leading={() => (<Icon name="user" size={20} />)}
       />
@@ -43,22 +47,22 @@ export const LoginPage = ({ navigation }) => {
         secureTextEntry={!showPass}
         leading={() => (<Icon name="lock" size={20} />)}
         trailing={() =>
-          showPass ? <Icon onPress={() => { setShowPass(!showPass) }} name="eye" size={20} /> : <Icon onPress={() => { setShowPass(!showPass) }} name="eye-slash" size={20} />
+          showPass ? <Icon onPress={() => { setShowPass(!showPass); }} name="eye" size={20} /> : <Icon onPress={() => { setShowPass(!showPass); }} name="eye-slash" size={20} />
         }
       />
       <Stack spacing={2} direction="row" >
         <Button
-          title='Log In'
+          title="Log In"
           onPress={() => navigation.navigate('Drawer')}
-          style={{ width: "50%" }}
+          style={{ width: '50%' }} cdcd
         />
         <Button
-          title='Sign Up'
+          title="Sign Up"
           onPress={() => navigation.navigate('Sign Up')}
-          style={{ width: "50%" }}
+          style={{ width: '50%' }}
         />
       </Stack>
 
     </Stack>
   );
-}
+};
