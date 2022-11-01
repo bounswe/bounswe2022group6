@@ -140,6 +140,7 @@ You can check our updated project plan from [this link](https://github.com/bouns
             2. [#182 - Updating Meeting Notes 3](https://github.com/bounswe/bounswe2022group6/issues/182)
             3. [#183 - Uploading Frontend Meeting Notes 1](https://github.com/bounswe/bounswe2022group6/issues/183)
             4. [#185 - Determining Project Name and Colors](https://github.com/bounswe/bounswe2022group6/issues/185)
+            5. [#243 - Creating Release and Tag for Milestone 1](https://github.com/bounswe/bounswe2022group6/issues/243)
          * Contributed Issues:
             1. [#160 - Revising the Wiki](https://github.com/bounswe/bounswe2022group6/issues/160)
             2. [#163 - Requirements Review (1.1.1.7-1.1.2.2.4)](https://github.com/bounswe/bounswe2022group6/issues/163)
