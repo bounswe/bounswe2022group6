@@ -5,10 +5,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ProfileScreen from "../profile/ProfileScreen";
 import EditProfileScreen from "../profile/EditProfileScreen";
 
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-
-//const Stack = createMaterialBottomTabNavigator();
-
 const Stack = createNativeStackNavigator();
 
 const ProfileNavigation = () => {
