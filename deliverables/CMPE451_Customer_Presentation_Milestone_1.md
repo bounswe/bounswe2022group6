@@ -580,30 +580,26 @@ I also tended to the wiki very frequently, and fixed numerous things such as typ
     * **Code related significant issues:**
 
         * Issues created by me:
-
+           * [Implementing "Account Delete" function](https://github.com/bounswe/bounswe2022group6/issues/233)
             
         
         * Issues assigned to me:
 
-            
+            * [Creating Backend FrameWork](https://github.com/bounswe/bounswe2022group6/issues/174)
+            * [Implementing "Account Delete" function](https://github.com/bounswe/bounswe2022group6/issues/233)
 
     * **Management related significant issues:**
 
-        * Issues created by me:
-
-            
-
         * Issues assigned to me:
 
-            
+            * [Creating Scenarios and Mockups for Milestone I](https://github.com/bounswe/bounswe2022group6/issues/230)
+            * [Reviewing the requirements for "Voting a Post" and "Interactions Between the Users and the Comments"](https://github.com/bounswe/bounswe2022group6/issues/165)
             
 
     **Pull Requests:**
-    * Pull requests opened by me:
-
 
     * Pull requests reviewed by me:
-
+          [Backend/fix/database port enclose](https://github.com/bounswe/bounswe2022group6/pull/189)
 
 </details>
    
