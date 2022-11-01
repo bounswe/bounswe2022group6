@@ -428,7 +428,7 @@ I also tended to the wiki very frequently, and fixed numerous things such as typ
 
 
 * [Ramazan Bedirhan Pamukçuoğlu](https://github.com/bounswe/bounswe2022group6/wiki/Bedirhan-Pamukcuoglu)
-<details open><summary>Artun Akdoğan</summary>
+<details open><summary>Bedirhan Pamukcuoglu</summary>
 
     **Member:**
     I am Bedirhan, and I am working as a Developer in the "Mobile Team" of Group 6.
@@ -488,20 +488,18 @@ I also tended to the wiki very frequently, and fixed numerous things such as typ
 
     **Pull Requests:**
     * Pull requests opened by me:
-        1. [#229: Add docs for profile details Postman documents ](https://github.com/bounswe/bounswe2022group6/pull/229)
-        2. [#228: Add profile API to get user details ](https://github.com/bounswe/bounswe2022group6/pull/228)
-        3. [#209: Update frontend base image ](https://github.com/bounswe/bounswe2022group6/pull/209)
-        4. [#207: Add dockerfile and docker-compose.yml for containerization ](https://github.com/bounswe/bounswe2022group6/pull/207)
-        5. [#189: Backend/fix/database port enclose ](https://github.com/bounswe/bounswe2022group6/pull/189)
-        6. [#180: Refactor folder structure, update dockerfiles ](https://github.com/bounswe/bounswe2022group6/pull/180)
+        1. [#248: Birth Date static value problem fixed ](https://github.com/bounswe/bounswe2022group6/pull/248)
+        2. [#246: Login SignUp Pages API Problem Fixed! ](https://github.com/bounswe/bounswe2022group6/pull/246)
+        3. [#245: Show Profile Screen implemented  ](https://github.com/bounswe/bounswe2022group6/pull/245)
+        4. [#235: signup page implemented ](https://github.com/bounswe/bounswe2022group6/pull/235)
+        5. [#203: login screen implemented  ](https://github.com/bounswe/bounswe2022group6/pull/203)
+        6. [#187: application can be run on emulator ](https://github.com/bounswe/bounswe2022group6/pull/187)
 
     * Pull requests reviewed by me:
-        1. [#223: Logout Feature Completion ](https://github.com/bounswe/bounswe2022group6/pull/223)
-        2. [#217: Login Feature Completion ](https://github.com/bounswe/bounswe2022group6/pull/217)
-        3. [#215: Solving the encountered CORS error](https://github.com/bounswe/bounswe2022group6/pull/215)
-        4. [#191: Signup Feature Completion ](https://github.com/bounswe/bounswe2022group6/pull/191)
+        1. [#241: Messages Page Initialized ](https://github.com/bounswe/bounswe2022group6/pull/241)
+        2. [#221: Main Navigation Framework Established ](https://github.com/bounswe/bounswe2022group6/pull/221)
   
-  **Additional information:** I have only written the most important issues in this report. Please check my [personal wiki page](https://github.com/bounswe/bounswe2022group6/wiki/Artun-Akdo%C4%9Fan) for more issues and work details as I keep it update with my individual contributions.
+  **Additional information:** I've put most signifact issues and pull requests here. Additional work can be accessed via GitHub Wiki.
 
 </details>
 
@@ -580,26 +578,30 @@ I also tended to the wiki very frequently, and fixed numerous things such as typ
     * **Code related significant issues:**
 
         * Issues created by me:
-           * [Implementing "Account Delete" function](https://github.com/bounswe/bounswe2022group6/issues/233)
+
             
         
         * Issues assigned to me:
 
-            * [Creating Backend FrameWork](https://github.com/bounswe/bounswe2022group6/issues/174)
-            * [Implementing "Account Delete" function](https://github.com/bounswe/bounswe2022group6/issues/233)
+            
 
     * **Management related significant issues:**
 
+        * Issues created by me:
+
+            
+
         * Issues assigned to me:
 
-            * [Creating Scenarios and Mockups for Milestone I](https://github.com/bounswe/bounswe2022group6/issues/230)
-            * [Reviewing the requirements for "Voting a Post" and "Interactions Between the Users and the Comments"](https://github.com/bounswe/bounswe2022group6/issues/165)
+            
             
 
     **Pull Requests:**
+    * Pull requests opened by me:
+
 
     * Pull requests reviewed by me:
-          [Backend/fix/database port enclose](https://github.com/bounswe/bounswe2022group6/pull/189)
+
 
 </details>
    
