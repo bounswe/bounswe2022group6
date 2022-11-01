@@ -16,7 +16,7 @@ const Label = (props) => {
     return (
         <View style={styles.sectionItem}>
             <Text style={styles.label}>{props.label}</Text>
-            <TextInput style={styles.textInput} placeholder={props.placeholder} />
+            <TextInput style={styles.textInput} placeholder={props.placeholder} value={props.value} />
         </View>
     )
 }
@@ -36,33 +36,27 @@ const Buttons = ({ navigation }) => {
         </View>
     )
 }
-const EditProfileScreen = ({ navigation }) => {
+const EditProfileScreen = (props) => {
+    const user = props.route?.params?.user
 
     return (
         <SafeAreaView>
             <ScrollView style={styles.body}>
                 <View style={styles.sectionContainer}>
                     <Section title='Personal Information'>
-                        <Label label='Username:' placeholder='smithjohnxx'></Label>
-                        <Label label='Name:' placeholder='John'></Label>
-                        <Label label='Surname:' placeholder='Smith'></Label>
-                        <Label label='Gender:' placeholder='Male'></Label>
-                        <Label label='Birthdate:' placeholder='XX.XX.XXXX'></Label>
+                        <Label label='Username:' placeholder='smithjohnxx' value={user?.username}></Label>
+                        <Label label='Gender:' placeholder='Male' value={user?.gender == "M" ? "Male" : "Female"} ></Label>
+                        <Label label='Birthdate:' placeholder='XX.XX.XXXX' value={user?.birth_date}></Label>
                     </Section>
                     <Section title='Contact'>
-                        <Label label='Email Address:' placeholder='smithjohn@email.com'></Label>
+                        <Label label='Email Address:' placeholder='smithjohn@email.com' value={user?.email} ></Label>
                         <Label label='Phone Number:' placeholder='+90 (5xx) xxx xx xx'></Label>
                     </Section>
                     <Section title='Other'>
                         <Label label='Location:' placeholder='Istanbul, Turkey'></Label>
                     </Section>
-                    <Section title='Password'>
-                        <Label label='Old Password:' placeholder='old password'></Label>
-                        <Label label='New Password:' placeholder='new password'></Label>
-                        <Label label='New Password (again):' placeholder='new password (again)'></Label>
-                    </Section>
                 </View>
-                <Buttons navigation={navigation} />
+                <Buttons navigation={props.navigation} />
             </ScrollView>
         </SafeAreaView>
 

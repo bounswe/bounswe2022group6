@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Stack, Button, TextInput, Text, Box, ActivityIndicator } from "@react-native-material/core";
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import LoadingDisplay from '../../components/LoadingDisplay';
+import LoadingDisplay from '../components/LoadingDisplay';
 import { HelperText } from 'react-native-paper';
 import { handleLoginRequest } from '../authAPI';
 
