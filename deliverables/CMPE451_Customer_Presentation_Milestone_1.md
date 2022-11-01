@@ -12,7 +12,74 @@
 
 ### Individual Contribution Reports
 
+<details open><summary>Artun Akdoğan</summary>
+
 * [Artun Akdoğan](https://github.com/bounswe/bounswe2022group6/wiki/Artun-Akdo%C4%9Fan)
+
+    **Member:**
+    My name is [Artun Akdoğan](https://github.com/bounswe/bounswe2022group6/wiki/Artun-Akdo%C4%9Fan), and I am working as a Developer in the "Backend Team" of Group 6.
+
+    **Responsibilities:**
+
+    * Researching on technologies to use in Backend development.
+    * Deciding on the roadmap of Backend Development via meetings and requirements review.
+    * Creating Application workspace folders for Backend, Frontend, and Mobile subteams.
+    * Initializing Backend workspace via Django and with MySQL database.
+    * Deploying the application via docker compose on AWS EC2 instance.
+    * Containerizing both Backend and Frontend applications via Docker.
+    * Implementing the Account View function.
+    * Implementing the User Registration feature.
+    * Documenting API's via Postman.
+    * Fixing bugs that are related to Backend or Deployment.
+    * Attending all meetings and taking notes for them.
+   
+    **Main Contributions:** 
+
+    We started this semester by reviewing last semester's already prepared requirements. I suggested and changed parts of account management requirements to make it more precise and correct. Also, I was able to plan Backend subteam's communication plan and initialize cthe communication channel via Discord.
+
+    As a backend developer, I was responsible for initializing the application, and implementing the basic API's for the first milestone described on the requirements. I have taken active role in containerizing both Backend and Frontend via Docker, finding the most suitable database for our project, and unifying them in a relevant, robust and secure manner via Docker Compose. I also took an active role on the Deployment of the pre-release on AWS EC2 instance. Besides, I have created profile view API and user registration API. Apart from those work, I was constantly dealing with bugs that are either caused by backend frameworks, or by Deployment.
+
+    Last but not least, I was able to fix some deployment bugs on Amazon instance and deploy the milestone demo. Also, I updated project plan according to my work.
+
+    * **Code related significant issues:**
+
+        * Created issues by me:
+
+            * [#242: Implementing "Account View" function ](https://github.com/bounswe/bounswe2022group6/issues/242)
+            * [#206: Frontend Containerization ](https://github.com/bounswe/bounswe2022group6/issues/206)
+            * [#174: Initializing Backend Framework ](https://github.com/bounswe/bounswe2022group6/issues/174)
+        
+        * Contributed isssues by me:
+            * [#208: AWS EC2 instance creation and deployment](https://github.com/bounswe/bounswe2022group6/issues/208)
+            * [#181: Implementing User Registration ](https://github.com/bounswe/bounswe2022group6/issues/181)
+
+    * **Management related significant issues:**
+
+        * Created issues by me:
+            * [#169: Uploading the Backend Meeting #1 Notes](https://github.com/bounswe/bounswe2022group6/issues/169)
+            * [#166: Creating a Communication Plan for Frontend, Backend and Mobile Subteams](https://github.com/bounswe/bounswe2022group6/issues/166)
+
+        * Contributed isssues by me:
+            * [#167: Reviewing the Requirement Sections 1.1.1.1 to 1.1.1.6](https://github.com/bounswe/bounswe2022group6/issues/167)
+            * [#231 - Reporting Individual Contribution](https://github.com/bounswe/bounswe2022group6/issues/231)
+
+    **Pull Requests:**
+    * Pull requests opened by me:
+        1. [#229: Add docs for profile details Postman documents ](https://github.com/bounswe/bounswe2022group6/pull/229)
+        2. [#228: Add profile API to get user details ](https://github.com/bounswe/bounswe2022group6/pull/228)
+        3. [#209: Update frontend base image ](https://github.com/bounswe/bounswe2022group6/pull/209)
+        4. [#207: Add dockerfile and docker-compose.yml for containerization ](https://github.com/bounswe/bounswe2022group6/pull/207)
+        5. [#189: Backend/fix/database port enclose ](https://github.com/bounswe/bounswe2022group6/pull/189)
+        6. [#180: Refactor folder structure, update dockerfiles ](https://github.com/bounswe/bounswe2022group6/pull/180)
+
+    * Pull requests reviewed by me:
+        1. [#223: Logout Feature Completion ](https://github.com/bounswe/bounswe2022group6/pull/223)
+        2. [#217: Login Feature Completion ](https://github.com/bounswe/bounswe2022group6/pull/217)
+        3. [#215: Solving the encountered CORS error](https://github.com/bounswe/bounswe2022group6/pull/215)
+        4. [#191: Signup Feature Completion ](https://github.com/bounswe/bounswe2022group6/pull/191)
+   * **Additional information:** I have only written the most important issues in this report. Please check my [personal wiki page](https://github.com/bounswe/bounswe2022group6/wiki/Artun-Akdo%C4%9Fan) for more issues and work details as I keep it update with my individual contributions.
+
+</details>
 
 * [İhsan Mert Atalay](https://github.com/bounswe/bounswe2022group6/wiki/%C4%B0hsan-Mert-Atalay)
 
