@@ -117,6 +117,33 @@ You can check our updated project plan from [this link](https://github.com/bouns
 
 * [İhsan Mert Atalay](https://github.com/bounswe/bounswe2022group6/wiki/%C4%B0hsan-Mert-Atalay)
 
+* **Member:** My name is İhsan Mert Atalay I am at the Front-End Team.We are programing web site which name is MEDSHARE as Group 6.
+   * **Responsibilities:** I attended many of meetings and I work to give my opinions. I designed Home Page and tried to use git tools well.
+  * **Main contributions:**
+      * **Code related significant issues:**
+         * Created Issues:
+            1. [Designing HomePage for Frontend](https://github.com/bounswe/bounswe2022group6/issues/202)
+         
+         * Contributed Issues:
+          
+      * **Management related significant issues:**
+         * Created Issues:
+            1. [Reviewing the System requirements 1.2.2 to 1.2.5](https://github.com/bounswe/bounswe2022group6/issues/164)
+            2. [As a fresh eyes. provide feedback to improve repo](https://github.com/bounswe/bounswe2022group6/issues/161)
+            3. [Creating a personal Wiki page for İhsan Mert Atalay](https://github.com/bounswe/bounswe2022group6/issues/159)
+           
+         * Contributed Issues:
+
+   * **Pull requests:**
+      * Created Pull Requests:
+         1. [Home Page Designed.](https://github.com/bounswe/bounswe2022group6/pull/205) Merged
+         1. [Home Page Designed](https://github.com/bounswe/bounswe2022group6/pull/204) Canceled
+         1. [Home Page Changes ](https://github.com/bounswe/bounswe2022group6/pull/237) Merged
+ 
+      * Reviewed Pull Requests:
+         1. [#192 - Initialized frontend project.](https://github.com/bounswe/bounswe2022group6/pull/192)
+    
+
 * [Hakan Balık](https://github.com/bounswe/bounswe2022group6/wiki/Hakan-Bal%C4%B1k)
 
    * **Member:** My name is Hakan Balık and I am a frontend developer in frontend sub-team of Group 6.
