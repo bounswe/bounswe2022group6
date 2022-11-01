@@ -563,4 +563,49 @@ I also tended to the wiki very frequently, and fixed numerous things such as typ
 
 * [Beyza İrem Urhan](https://github.com/bounswe/bounswe2022group6/wiki/Beyza-%C4%B0rem-Urhan)
 
+     **Member:**
+   [Beyza İrem Urhan](https://github.com/bounswe/bounswe2022group6/wiki/Beyza-%C4%B0rem-Urhan)
+    
+    I am working as a Backend developer in the Backend team of Group 6.
+
+    **Responsibilities:**
+
+   The very first thing we did this semester was revising our wiki page and the requirements. After updating our wiki, we focused on requirements. I reviewed "voting a post" and "Interactions Between the Users and the Comments" requirements together with Berfin Şimşek.
+   
+   In the foloowing times, we divide our team into three subgroups as Mobile Development, Backend Development and Frontend Development. I wanted to be on the backend team. I was responsible for implementing the delete account function and creating user scenarios. During this task, I needed to learn about Postman and Django framework, so I also spent some time on them too. I also reviewed some features.
+  
+   
+    **Main Contributions:** 
+
+    * **Code related significant issues:**
+
+        * Issues created by me:
+
+            
+        
+        * Issues assigned to me:
+
+            
+
+    * **Management related significant issues:**
+
+        * Issues created by me:
+
+            
+
+        * Issues assigned to me:
+
+            
+            
+
+    **Pull Requests:**
+    * Pull requests opened by me:
+
+
+    * Pull requests reviewed by me:
+
+
+</details>
+   
+
 ### Customer Milestone 1 Group Review
