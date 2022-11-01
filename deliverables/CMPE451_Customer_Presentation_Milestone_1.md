@@ -556,8 +556,36 @@ I also tended to the wiki very frequently, and fixed numerous things such as typ
         * [#194: Frontend/feature/base pages](https://github.com/bounswe/bounswe2022group6/pull/194)
 </details>
    
-
 * [Mustafa Berk Turgut](https://github.com/bounswe/bounswe2022group6/wiki/Mustafa-Berk-Turgut)
+    
+    I am a part of the backend sub-team of the Group 6.
+ 
+    **Responsibilities:**
+
+   As a team we reviewed the requirements related to login and creating/editing information on an account, later deciding what portion of the functional requirements to  implement for the demo. Personally I made sure that the decisions made in the meetings are implemented in the related notes and the Wiki pages, as well as the action items stated within the issues.
+     
+    For this milestone, I have mainly acted as an observer to the development process in the back-end codebase as I encountered many installation problems and I had no experience with the framework so I needed many subjects to study. I will do my best to catch up with the rest of the team in order to be ready for making contributions for the following milestones and tasks. 
+   I have actively participated in 87% of the meetings I needed to attend while helping build the project structure and reviewing pull requests.
+    **Main Contributions:** 
+
+    * **Significant issues I was a part of:**
+
+        * Issues created by me:
+            * [#159: Reviewing the System requirements 1.2.2 to 1.2.5](https://github.com/bounswe/bounswe2022group6/issues/164)
+            
+            * [#225: Creating a pull request template](https://github.com/bounswe/bounswe2022group6/issues/225)
+            
+        * Issues assigned to / reviewed by me:
+
+            * [#166: Creating a Communication Plan for Backend Subteam](https://github.com/bounswe/bounswe2022group6/issues/166)
+
+            * [#169: Uploading the Backend Meeting #1 Notes](https://github.com/bounswe/bounswe2022group6/issues/169)
+            
+            * [#186: Removing Phone Number Signup and Login Options from Rquirements](https://github.com/bounswe/bounswe2022group6/issues/186)
+
+    **Pull Requests:**
+    * Pull requests reviewed by me:
+
 * [Beyza İrem Urhan](https://github.com/bounswe/bounswe2022group6/wiki/Beyza-%C4%B0rem-Urhan)
 
      **Member:**
