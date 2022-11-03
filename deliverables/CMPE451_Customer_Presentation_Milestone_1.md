@@ -674,7 +674,9 @@ Summary of the project status and any changes that are planned for moving forwar
 
     ### Mobile
 
-    * React Native
+    * **React Native:**
+    
+        React Native is an open-source UI software framework that is used used to develop cross platform applications. It enables developers to use the React framework along with native platform capabilities. We have chosen React Native for our mobile framework because of its app development speed and cost. Also, the availability of dozens of useful open-source libraries that ease the mobile developing was also an important factor of our choice.
 
     ### Deployment
 
@@ -700,6 +702,24 @@ Summary of the project status and any changes that are planned for moving forwar
     * Yasir Dikbaş:
 
     * Aral Dörtoğul:
+
+        * Reviewing the requirements of the application.
+        * Researching the popular frameworks used in mobile development. 
+        * Initializing the mobile application.
+
+        * Implementing profile page for mobile
+
+        * Implementing profile editing page for mobile
+
+        * Implementing the navigation of the mobile app
+
+        * Creating AWS EC2 instance and deploying the app.
+
+        * Reviewing other mobile developers' codes.
+
+        * Updating the project plan.
+
+        * Presenting [0.1.0-alpha](https://github.com/bounswe/bounswe2022group6/releases/tag/customer-presentation-1) to the customer in Milestone 1
 
     * Alp Eren İnceoğlu:
 
@@ -744,8 +764,9 @@ Summary of the project status and any changes that are planned for moving forwar
 
         |Contribution|Link|
         |------------|----|
-        |||
-        |||
+        |...|...|
+        |...|...|
+        |...|...|
 
     * Yasir Dikbaş
 
@@ -759,9 +780,24 @@ Summary of the project status and any changes that are planned for moving forwar
 
         |Contribution|Link|
         |------------|----|
-        |...|...|
-        |...|...|
-        |...|...|
+        |Attended weekly meetings.||
+        |Reviewed requirements from 1.1.2.4 to 1.2.1 with Ali Kaan Biber.|[#168](https://github.com/bounswe/bounswe2022group6/issues/168)|
+        |Researched about the popular frameworks for mobile application development.||
+        |Decided on which mobile framework to use with the mobile team.|[#173](https://github.com/bounswe/bounswe2022group6/issues/173)|
+        |Researched about React Native for mobile application development.||
+        |Created a communication plan for mobile development with the mobile team.|[#171](https://github.com/bounswe/bounswe2022group6/issues/171)|
+        |Set up my environment for React Native.||
+        |Initialized the mobile application with Bedirhan Pamukçuoğlu.|[#176](https://github.com/bounswe/bounswe2022group6/issues/176) [#187](https://github.com/bounswe/bounswe2022group6/pull/187)|
+        |Implemented the navigation of the mobile app.|[#218](https://github.com/bounswe/bounswe2022group6/issues/218)|
+        |Designed the profile page of the mobile app.|[#210](https://github.com/bounswe/bounswe2022group6/issues/210)|
+        |Designed the profile edit page of the mobile app.|[#210](https://github.com/bounswe/bounswe2022group6/issues/210)|
+        |Initialized the messages page of the mobile app.|[#241](https://github.com/bounswe/bounswe2022group6/pull/241)|
+        |Created AWS EC2 instance and deployed the app.|[#208](https://github.com/bounswe/bounswe2022group6/issues/208)|
+        |Updated the project plan with Berfin Şimşek.|[#201](https://github.com/bounswe/bounswe2022group6/issues/201)|
+        |Reviewed other people in Mobile Team's pull requests.|[#203](https://github.com/bounswe/bounswe2022group6/pull/203) [#236](https://github.com/bounswe/bounswe2022group6/pull/236) [#248](https://github.com/bounswe/bounswe2022group6/pull/248)|
+        |Presented version [0.1.0-alpha](https://github.com/bounswe/bounswe2022group6/releases/tag/customer-presentation-1) to the customer in Milestone 1 with Bedirhan.||
+    
+        
 
     * Alp Eren İnceoğlu
 
