@@ -726,6 +726,31 @@ Summary of the project status and any changes that are planned for moving forwar
     * Yusuf Erdem Nacar:
 
     * Ramazan Bedirhan Pamukçuoğlu:
+        * Reviewing the requirements of the application.
+        
+        * Researching the popular and useful communication platforms.
+        
+        * Researching the popular frameworks used in mobile development. 
+        
+        * Creating a hello world application which can be run on emulator.
+
+        * Deciding and applying folder structure for mobile
+
+        * Implementing login page for mobile
+        
+        * Implementing signup page for mobile
+        
+        * Implementing api requests for mobile
+
+        * Implementing api requests for profile page
+        
+        * Resolving conflicts
+
+        * Creating AWS EC2 instance and deploying the app.
+
+        * Reviewing other mobile developers' codes.
+
+        * Presenting [0.1.0-alpha](https://github.com/bounswe/bounswe2022group6/releases/tag/customer-presentation-1) to the customer in Milestone 1
 
     * Berfin Şimşek:
 
@@ -819,9 +844,20 @@ Summary of the project status and any changes that are planned for moving forwar
 
         |Contribution|Link|
         |------------|----|
-        |...|...|
-        |...|...|
-        |...|...|
+        |Attended weekly meetings.||
+        |Reviewed requirements from 1.1.1.7 to 1.1.2.2.4 with Hakan Balık.|[#163](https://github.com/bounswe/bounswe2022group6/issues/163)|
+        |Researched about the popular frameworks for mobile application development.||
+        |Creating a Communication Plan for Mobile|[#166](https://github.com/bounswe/bounswe2022group6/issues/166)|
+        |Decided on which mobile framework to use with the mobile team.|[#173](https://github.com/bounswe/bounswe2022group6/issues/173)|
+        |Uploading meeting notes|[#172](https://github.com/bounswe/bounswe2022group6/issues/172)|
+        |Researched about React Native for mobile application development.||
+        |Created a communication plan for mobile development with the mobile team.|[#171](https://github.com/bounswe/bounswe2022group6/issues/171)|
+        |Initialized the application with Aral|[#176](https://github.com/bounswe/bounswe2022group6/issues/176) [#187](https://github.com/bounswe/bounswe2022group6/pull/187)|
+        |Designed the login page of the mobile app.|[#210](https://github.com/bounswe/bounswe2022group6/issues/200)|
+        |Designed the signup page of the mobile app.|[#210](https://github.com/bounswe/bounswe2022group6/issues/200)|
+        |Implemented the api requests.|[#197](https://github.com/bounswe/bounswe2022group6/issues/197)|
+        |Created AWS EC2 instance and deployed the app.|[#208](https://github.com/bounswe/bounswe2022group6/issues/208)|
+        |Presented version [0.1.0-alpha](https://github.com/bounswe/bounswe2022group6/releases/tag/customer-presentation-1) to the customer in Milestone 1 with Aral.||
 
     * Berfin Şimşek
 
