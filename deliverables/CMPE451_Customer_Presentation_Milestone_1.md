@@ -46,6 +46,7 @@ You can check our updated project plan from [this link](https://github.com/bouns
 
 ### Individual Contribution Reports
 
+---
 <details open><summary>Artun Akdoğan</summary>
 
 * [Artun Akdoğan](https://github.com/bounswe/bounswe2022group6/wiki/Artun-Akdo%C4%9Fan)
@@ -144,6 +145,7 @@ You can check our updated project plan from [this link](https://github.com/bouns
       * Reviewed Pull Requests:
          1. [#192 - Initialized frontend project.](https://github.com/bounswe/bounswe2022group6/pull/192)
     
+---
 
 * [Hakan Balık](https://github.com/bounswe/bounswe2022group6/wiki/Hakan-Bal%C4%B1k)
 
@@ -190,6 +192,8 @@ You can check our updated project plan from [this link](https://github.com/bouns
          4. [#237 - Home Page Changes](https://github.com/bounswe/bounswe2022group6/pull/237)
    * **Additional information:** You can check my [Weekly Efforts](https://github.com/bounswe/bounswe2022group6/wiki/Hakan-Bal%C4%B1k#weekly-efforts) in my wiki page which is up-to-date to get more information about my individual contributions.
 
+---
+
 * [Ali Kaan Biber](https://github.com/bounswe/bounswe2022group6/wiki/Ali-Kaan-Biber)
 
      **Member:** I am working as a frontend developer in the frontend team of group 6.
@@ -234,19 +238,21 @@ You can check our updated project plan from [this link](https://github.com/bouns
         * [#226: Frontend/feature/log in api integration](https://github.com/bounswe/bounswe2022group6/pull/226)
         * [#207: Add dockerfile and docker-compose.yml for containerization](https://github.com/bounswe/bounswe2022group6/pull/207)
 
+---
+
 * [Yasir Dikbaş](https://github.com/bounswe/bounswe2022group6/wiki/Yasir-Dikba%C5%9F)
-*     **Member:**
+*   **Member:**
     
     I am part of the mobile sub-team of the Group 6.
 
     **Responsibilities:**
 
-   As a team we reviewed whats necessary for new customers point of view and updated necessary stuff. Moreover, decided on the name of the platform. I personally checked some requirements with Alp Eren and we collaborated.
-    
+    As a team we reviewed whats necessary for new customers point of view and updated necessary stuff. Moreover, decided on the name of the platform. I personally checked some requirements with Alp Eren and we collaborated.
+   
     I made research about mobile app development and asked my seniors about advantages and disadvantages of certain frameworks. While choosing our programming language and framework we deeply cared about the reflection of the tools that we use on the sector as we want to make insvestment for after graduation.
-     
-    For this milestone, I have not contributed significantly to the codebase as I was not familiar with both React Native and mobile app development so I had to study 
-    in order to be ready for making contributions for the following milestones and tasks. Despite this I took part in the meetings while developing the app and reviewed pull requests.
+   
+    For this milestone, I have not contributed significantly to the codebase as I was not familiar with both React Native and mobile app development so I had to study in order to be ready for making contributions for the following milestones and tasks. Despite this I took part in the meetings while developing the app and reviewed pull requests.
+
     **Main Contributions:** 
 
     * **Code related significant issues:**
@@ -277,6 +283,7 @@ You can check our updated project plan from [this link](https://github.com/bouns
         * [#234: Profile Page Initialized](https://github.com/bounswe/bounswe2022group6/pull/234)
         * [#236: Conflicts Resolved](https://github.com/bounswe/bounswe2022group6/pull/236)
 
+---
 
 * [Aral Dörtoğul](https://github.com/bounswe/bounswe2022group6/wiki/Aral-D%C3%B6rto%C4%9Ful)
 
@@ -346,7 +353,11 @@ You can check our updated project plan from [this link](https://github.com/bouns
 
         * [#236: Conflicts Resolved](https://github.com/bounswe/bounswe2022group6/pull/236)
 
+---
+
 * [Alp Eren İnceoğlu](https://github.com/bounswe/bounswe2022group6/wiki/Alp-Eren-%C4%B0nceo%C4%9Flu)
+
+---
 
 * [Yusuf Erdem Nacar](https://github.com/bounswe/bounswe2022group6/wiki/Yusuf-Erdem-Nacar)
 
@@ -426,9 +437,11 @@ In general, I tried my best to be consistent about my fingerprint on the managem
 
 I also tended to the wiki very frequently, and fixed numerous things such as typos whenever I found them. 
 
+---
+
+<details open><summary>Bedirhan Pamukcuoglu</summary>
 
 * [Ramazan Bedirhan Pamukçuoğlu](https://github.com/bounswe/bounswe2022group6/wiki/Bedirhan-Pamukcuoglu)
-<details open><summary>Bedirhan Pamukcuoglu</summary>
 
     **Member:**
     I am Bedirhan, and I am working as a Developer in the "Mobile Team" of Group 6.
@@ -436,15 +449,15 @@ I also tended to the wiki very frequently, and fixed numerous things such as typ
     **Responsibilities:**
 
     As one of team members of the mobile team, I did contribute to project up to this point with all my efforts. First of all we had a meeting to decide on which communication plan and platform should be used and then decide to which framework should be used to develop application. We made necessarry searches about those topics as whole team and shared the results. We decide discord as communication platform and react-native as development framework. Since we using discord, anyone who is available is at the room can help each other in minutes. We like being agile as team :)
-  
+    
     After choosing react-native, I've created an hello-world application from scratch and made project structure (where to put interface file, api files etc). I've pushed the so called "hello-world" application and asked to team to be sure that they can run the application on an emulator. We had a little meeting with Aral on Discord to run the application.
 
     After everyone of the team members can run the application we split the work among us and worked seperately most of the time. However, whenever is necesarry we were in touch. I waas responsible for the login/signup pages and API endpoints.
-  
+
     I've also attended a meeting to deploy back-end and front-end applications to the AWS. I've initiated an AWS EC2 instance and deployed the containerized application. Special thanks to Artun for his efforts about dockerization.
-  
+
     I've done some bugfixes along the way and resolved some conflicts.
-  
+
     I've also handled the User Profile API implementation and edited the Profile Page and Edit Profile Page accordingly with the API response. Thanks to Aral for his works on Profile Pages.
   
     Lastly, I've tested application end to end for presentation.
@@ -453,7 +466,7 @@ I also tended to the wiki very frequently, and fixed numerous things such as typ
   
     * **Brief list of responsibilities that are contributed by me:**
       
-      * Researching group communication methods. 
+    * Researching group communication methods. 
       * Researching on technologies to use in Mobile development.
       * Reviewing the requirements.
       * Deciding on the file structure of Mobile Development with respect to requirements and meeting notes.
@@ -503,6 +516,7 @@ I also tended to the wiki very frequently, and fixed numerous things such as typ
 
 </details>
 
+---
 <details><summary>Berfin Şimşek</summary>
 
 * [Berfin Şimşek](https://github.com/bounswe/bounswe2022group6/wiki/Berfin-%C5%9Eim%C5%9Fek)
@@ -555,7 +569,9 @@ I also tended to the wiki very frequently, and fixed numerous things such as typ
 
         * [#194: Frontend/feature/base pages](https://github.com/bounswe/bounswe2022group6/pull/194)
 </details>
-   
+
+---
+
 * [Mustafa Berk Turgut](https://github.com/bounswe/bounswe2022group6/wiki/Mustafa-Berk-Turgut)
     
     I am a part of the backend sub-team of the Group 6.
@@ -585,6 +601,8 @@ I also tended to the wiki very frequently, and fixed numerous things such as typ
 
     **Pull Requests:**
     * Pull requests reviewed by me:
+
+---
 
 * [Beyza İrem Urhan](https://github.com/bounswe/bounswe2022group6/wiki/Beyza-%C4%B0rem-Urhan)
 
@@ -628,5 +646,167 @@ I also tended to the wiki very frequently, and fixed numerous things such as typ
           
 </details>
    
-
+---
 ### Customer Milestone 1 Group Review
+
+1. Executive Summary
+
+
+Summary of the project status and any changes that are planned for moving forward.
+
+2. List and status of deliverables.
+
+3. Evaluation of the status of deliverables and its impact on your project plan.
+
+4. Evaluation of Tools and Processes
+
+
+    * Google Meet
+
+    * GitHub
+
+
+    ### Backend
+
+    * 
+
+    ### Frontend
+
+    ### Mobile
+
+    * React Native
+
+    ### Deployment
+
+    * Docker
+
+    * AWS
+
+    
+
+
+5. The requirements addressed in this milestone.
+
+6. Overall description of responsibilities that are assigned to each member.
+
+    * Artun Akdoğan:
+
+    * İhsan Mert Atalay:
+
+    * Hakan Balık:
+
+    * Ali Kaan Biber:
+
+    * Yasir Dikbaş:
+
+    * Aral Dörtoğul:
+
+    * Alp Eren İnceoğlu:
+
+    * Yusuf Erdem Nacar:
+
+    * Ramazan Bedirhan Pamukçuoğlu:
+
+    * Berfin Şimşek:
+
+    * Mustafa Berk Turgut:
+
+    * Beyza İrem Urhan:
+
+
+7. A Summary of Work Performed by Each Team Member
+
+    * Artun Akdoğan
+
+        |Contribution|Link|
+        |------------|----|
+        |...|...|
+        |...|...|
+        |...|...|
+
+    * İhsan Mert Atalay
+
+        |Contribution|Link|
+        |---|---|
+        |...|...|
+        |...|...|
+        |...|...|
+
+    * Hakan Balık
+
+        |Contribution|Link|
+        |------------|----|
+        |...|...|
+        |...|...|
+        |...|...|
+
+    * Ali Kaan Biber
+
+        |Contribution|Link|
+        |------------|----|
+        |||
+        |||
+
+    * Yasir Dikbaş
+
+        |Contribution|Link|
+        |------------|----|
+        |...|...|
+        |...|...|
+        |...|...|
+
+    * Aral Dörtoğul
+
+        |Contribution|Link|
+        |------------|----|
+        |...|...|
+        |...|...|
+        |...|...|
+
+    * Alp Eren İnceoğlu
+
+        |Contribution|Link|
+        |------------|----|
+        |...|...|
+        |...|...|
+        |...|...|
+
+    * Yusuf Erdem Nacar
+
+        |Contribution|Link|
+        |------------|----|
+        |...|...|
+        |...|...|
+        |...|...|
+
+    * Ramazan Bedirhan Pamukçuoğlu
+
+        |Contribution|Link|
+        |------------|----|
+        |...|...|
+        |...|...|
+        |...|...|
+
+    * Berfin Şimşek
+
+        |Contribution|Link|
+        |------------|----|
+        |...|...|
+        |...|...|
+        |...|...|
+
+    * Mustafa Berk Turgut
+
+        |Contribution|Link|
+        |------------|----|
+        |...|...|
+        |...|...|
+        |...|...|
+
+    * Beyza İrem Urhan
+
+        |Contribution|Link|
+        |------------|----|
+        |...|...|
+        |...|...|
+        |...|...|
