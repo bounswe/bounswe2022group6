@@ -692,7 +692,19 @@ For the project plan of the later stages, please see the updated project plan in
 
 2. List and status of deliverables.
 
-3. Evaluation of the status of deliverables and its impact on your project plan.
+    The deliverables included in this report is as follows:
+    * Software Requirements Specification
+    * Software Design (UML)
+    * Scenarios and Mockups
+    * Project Plan
+    * Individual Contribution Reports
+    * Customer Milestone 1 Group Review
+
+ Status of the delivarables: All deliverables are complete.
+
+3. Evaluation of the Status of Deliverables
+
+    Since we have completed all the deliverables, we can move on with the next tasks on our project plan.
 
 4. Evaluation of Tools and Processes
 
