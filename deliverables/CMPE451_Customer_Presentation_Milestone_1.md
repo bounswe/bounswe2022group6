@@ -983,7 +983,7 @@ For the project plan of the later stages, please see the updated project plan in
         |Updated [Communication Plan](https://github.com/bounswe/bounswe2022group6/wiki/Communication-Plan) page for Backend Group, created Discord server, appointed the first meeting| [#166](https://github.com/bounswe/bounswe2022group6/issues/166)| 
         |Initialized the folder structure of the project Groups | 
         |Initialized Backend Group's workspace with Django, MySQL, and Docker |[#174](https://github.com/bounswe/bounswe2022group6/issues/174)| 
-        |Refactor folder structure of Backend group for better reference | [#178](https://github.com/bounswe/bounswe2022group6/issues/178), [#180](https://github.com/bounswe/bounswe2022group6/pull/180) | 
+        |Refactor folder structure of Backend group for better reference | [#178](https://github.com/bounswe/bounswe2022group6/issues/178) | 
         |Inplemented user registration REST API, and required models| [#181](https://github.com/bounswe/bounswe2022group6/issues/181) | 
         |Enclosed MySQL port on docker to prevent port conflict| [#188](https://github.com/bounswe/bounswe2022group6/issues/188)| 
         |Containerized Frontend workspace and unified Backend API with Frontend application via Docker Compose |[#206](https://github.com/bounswe/bounswe2022group6/issues/206) | 
