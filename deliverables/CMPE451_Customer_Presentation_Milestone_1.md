@@ -574,34 +574,36 @@ I also tended to the wiki very frequently, and fixed numerous things such as typ
 
 * [Mustafa Berk Turgut](https://github.com/bounswe/bounswe2022group6/wiki/Mustafa-Berk-Turgut)
     
-    I am a part of the backend sub-team of the Group 6.
+    **Member:** I am a part of the backend sub-team of the Group 6.
  
     **Responsibilities:**
 
-   As a team we reviewed the requirements related to login and creating/editing information on an account, later deciding what portion of the functional requirements to  implement for the demo. Personally I made sure that the decisions made in the meetings are implemented in the related notes and the Wiki pages, as well as the action items stated within the issues.
+   As a team we reviewed the requirements related to login and creating/editing information on an account, later deciding what portion of the functional requirements to  implement for the demo. Personally I followed through and made sure that the decisions made in the meetings are implemented in the related notes and the Wiki pages, as well as the action items stated within the issues.
      
-    For this milestone, I have mainly acted as an observer to the development process in the back-end codebase as I encountered many installation problems and I had no experience with the framework so I needed many subjects to study. I will do my best to catch up with the rest of the team in order to be ready for making contributions for the following milestones and tasks. 
-   I have actively participated in 87% of the meetings I needed to attend while helping build the project structure and reviewing pull requests.
+    For this milestone, I have mainly acted as an observer to the development process in the back-end codebase as I encountered many installation problems and I had no experience with the framework so I needed many subjects to study. I will do my best to catch up with the rest of the team in order to be ready for making more contributions to the codebase for the following milestones and tasks. 
+   I have actively participated in 87% of the meetings I was scheduled to attend while helping build the project structure and reviewing pull requests.
     **Main Contributions:** 
+As can be seen from my [weekly efforts table](https://github.com/bounswe/bounswe2022group6/wiki/Mustafa-Berk-Turgut#weekly-efforts) I contributed the most to the backbones of our project in terms of constantly updating the requirements and main Wiki pages as necessary, as weel as taking down meeting notes like [Meeting 1](https://github.com/bounswe/bounswe2022group6/wiki/Meeting-%231---04.10.2022) and [Backend Meeting 2](https://github.com/bounswe/bounswe2022group6/wiki/Backend-Meeting-%232---20.10.2022). I have also brought suggestions and critized prior decisions to have our project in the best possible conditions. Some decisions I brought to the backend team meetings and are accepted include removing phone number verification, 
 
-    * **Significant issues I was a part of:**
-
+    * **Code related significant issues:**
         * Issues created by me:
-            * [#159: Reviewing the System requirements 1.2.2 to 1.2.5](https://github.com/bounswe/bounswe2022group6/issues/164)
-            
-            * [#225: Creating a pull request template](https://github.com/bounswe/bounswe2022group6/issues/225)
-            
+            * [#253 Implementing Edit Account](https://github.com/bounswe/bounswe2022group6/issues/253)       
         * Issues assigned to / reviewed by me:
-
+            * [#174: Creating Backend FrameWork](https://github.com/bounswe/bounswe2022group6/issues/174)
+           
+    * **Management related significant issues:**
+        * Issues created by me:
+            * [#159: Reviewing the System requirements 1.2.2 to 1.2.5](https://github.com/bounswe/bounswe2022group6/issues/164) 
+            * [#225: Creating a pull request template](https://github.com/bounswe/bounswe2022group6/issues/225)
+        * Issues assigned to / reviewed by me:
+            * [#159: Reviewing the System requirements 1.2.2 to 1.2.5](https://github.com/bounswe/bounswe2022group6/issues/164)
             * [#166: Creating a Communication Plan for Backend Subteam](https://github.com/bounswe/bounswe2022group6/issues/166)
-
-            * [#169: Uploading the Backend Meeting #1 Notes](https://github.com/bounswe/bounswe2022group6/issues/169)
-            
-            * [#186: Removing Phone Number Signup and Login Options from Rquirements](https://github.com/bounswe/bounswe2022group6/issues/186)
-
+            * [#169: Uploading the Backend Meeting #1 Notes](https://github.com/bounswe/bounswe2022group6/issues/169)          
+            * [#186: Removing Phone Number Signup and Login Options from Requirements](https://github.com/bounswe/bounswe2022group6/issues/186)
+            * [#225: Creating a pull request template](https://github.com/bounswe/bounswe2022group6/issues/225) 
+    
     **Pull Requests:**
     * Pull requests reviewed by me:
-
 ---
 
 * [Beyza İrem Urhan](https://github.com/bounswe/bounswe2022group6/wiki/Beyza-%C4%B0rem-Urhan)
