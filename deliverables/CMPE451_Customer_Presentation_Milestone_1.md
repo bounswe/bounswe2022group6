@@ -715,6 +715,9 @@ For the project plan of the later stages, please see the updated project plan in
         
     ### Frontend
 
+    * **React**
+        React is a free and open-source library based on JavScript for building web pages using components. Since it is easy to learn and commonly used in the industry, we preferred to use it on our project. Also finding solutions to the problems during the development is quite easy thanks to all the resources online. We used and will continue to use its well defined structures such as states and hooks. Team members with no experience with it before quickly adapted to it 
+
     ### Mobile
 
     * **React Native:**
