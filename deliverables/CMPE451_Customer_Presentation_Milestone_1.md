@@ -786,6 +786,23 @@ Summary of the project status and any changes that are planned for moving forwar
         * Creating MediShare logo.
 
     * Ali Kaan Biber:
+        * Reviewing the requirements of the application.
+
+        * Reviewing and updating personal Wiki page.
+
+        * Researching the popular frameworks for frontend development.
+
+        * Uploading meeting notes.
+        
+        * Learning and practicing React
+
+        * Implementing sign-up page api requests.
+
+        * Resolving the Cors issue encountered during api requests.
+
+        * Reviewing other frontend developers' codes.
+
+        * Creating AWS EC2 instance and deploying the app.
 
     * Yasir Dikbaş:
 
@@ -933,11 +950,19 @@ Summary of the project status and any changes that are planned for moving forwar
 
     * Ali Kaan Biber
 
+        
         |Contribution|Link|
         |------------|----|
-        |...|...|
-        |...|...|
-        |...|...|
+        |Attended all weekly meetings.||
+        |Reviewed requirements from 1.1.2.4 to 1.2.1 with Aral Dörtoğul.|[#168](https://github.com/bounswe/bounswe2022group6/issues/168)|
+        |Researched about popular frameworks for frontend development.||
+        |Learning and practicing ReactJS||
+        |Reviewed API documentation for Sign up feature of backend team.|[#213](https://github.com/bounswe/bounswe2022group6/issues/213)|
+        |Implemented the sign up functionality backend integration.|[#198](https://github.com/bounswe/bounswe2022group6/issues/198) [PR](https://github.com/bounswe/bounswe2022group6/pull/216)|
+        |Fixed the cors issue|[#214](https://github.com/bounswe/bounswe2022group6/issues/214) [PR](https://github.com/bounswe/bounswe2022group6/pull/215)|
+        |Reviewed pull request of frontend dockerization|[#207](https://github.com/bounswe/bounswe2022group6/pull/207)|
+        |Created AWS EC2 instance and deployed the app.|[#208](https://github.com/bounswe/bounswe2022group6/issues/208)|
+        |Reviewed pull requests of other front end team members|[#239](https://github.com/bounswe/bounswe2022group6/pull/239)|
 
     * Yasir Dikbaş
 
