@@ -798,9 +798,13 @@ For the project plan of the later stages, please see the updated project plan in
       
       * Fixing bugs that are related to Backend or Deployment.
 
-      * Attending all meetings and taking notes for them.
+      * Attending all meetings.
       
-      * Updating README.md, deliverables and meeting notes.
+      * Updating README.md's to include instructions to run specific applications.
+      
+      * Writing and updating both personal and group milestone report.
+      
+      * Reviewing the requirement subsections: [1.1.1.1](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1111-creating-an-account), [1.1.1.2](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1112-adding-information-to-a-account), [1.1.1.3](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1113-editing-the-information-in-an-account), [1.1.1.4](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1114-removing-information-from-an-account), [1.1.1.5](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1115-deleting-an-account), and [1.1.1.6](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1116-logging-inlogging-out).
 
     * İhsan Mert Atalay:
 
