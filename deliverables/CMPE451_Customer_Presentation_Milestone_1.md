@@ -696,6 +696,27 @@ Summary of the project status and any changes that are planned for moving forwar
     * İhsan Mert Atalay:
 
     * Hakan Balık:
+        * Researching previous years' repositories.
+        * Reviewing and updating requirements which was created last semester.
+        * Reviewing personal Wiki page.
+        * Deciding on which features to be implemented for the Milestone 1.
+        * Introducing new customer to the project.
+        * Deciding on frontend communication plan and which technology to be used.
+        * Researching Reactjs.
+        * Creating the initial version of frontend application.
+        * Assigning frontend jobs to teammates.
+        * Creating a poll and google sheets to decide on the project name.
+        * Deciding on the color palette of the application.
+        * Creating the Landing, Login and Home pages.
+        * Reviewing Homepage design pull request.
+        * Reviewing and merging sign-up api.
+        * Implementing login api.
+        * Creating this document's template.
+        * Implementing log-out api.
+        * Testing the latest version of the application with deployment. 
+        * Creating Release and Tag for Milestone 1. 
+        * Taking notes during the customer demo.
+        * Creating MediShare logo.
 
     * Ali Kaan Biber:
 
@@ -792,9 +813,36 @@ Summary of the project status and any changes that are planned for moving forwar
 
         |Contribution|Link|
         |------------|----|
-        |...|...|
-        |...|...|
-        |...|...|
+        |Reviewed the lecture notes of the previous semester.|-|
+        |Attended all of the meetings except 1.|-|
+        |Reviewed my [personal Wiki page](https://github.com/bounswe/bounswe2022group6/wiki/Hakan-Bal%C4%B1k).|[#160](https://github.com/bounswe/bounswe2022group6/issues/160)|
+        |Checked the previous years' github pages to get an insight.|-|
+        |Introduced the customer to the project.|[#170](https://github.com/bounswe/bounswe2022group6/issues/170)|
+        |Reviewed Requirements between 1.1.1.7-1.1.2.2.4 and made some changes.|[#163](https://github.com/bounswe/bounswe2022group6/issues/163)|
+        |Researched about Reactjs projects and did some practices.|-|
+        |Reviewed the [Meeting Notes](https://github.com/bounswe/bounswe2022group6/wiki/Frontend-Meeting-%232-26.10.2022).|[#195](https://github.com/bounswe/bounswe2022group6/issues/195)|
+        |Created the initial version of frontend.|[#184](https://github.com/bounswe/bounswe2022group6/issues/184) PR: [#192](https://github.com/bounswe/bounswe2022group6/pull/192)|
+        |Created a poll and a google sheet file to determine the project name.|[#185](https://github.com/bounswe/bounswe2022group6/issues/185)|
+        |During the [Meeting 4](https://github.com/bounswe/bounswe2022group6/wiki/Meeting-%234---25.10.2022) decided on the color palette to be used.|[#185](https://github.com/bounswe/bounswe2022group6/issues/185)|
+        |Created the base pages for frontend which are: Landing, Login and Home.|[#193](https://github.com/bounswe/bounswe2022group6/issues/193) PR: [#194](https://github.com/bounswe/bounswe2022group6/pull/194)|
+        |Reviewed and made changes to the pull request for register & profile pages.|[#196](https://github.com/bounswe/bounswe2022group6/issues/196) PR: [#199](https://github.com/bounswe/bounswe2022group6/pull/199)|
+        |Reviewed Homepage design pull request.|[#202](https://github.com/bounswe/bounswe2022group6/issues/202) PR: [#205](https://github.com/bounswe/bounswe2022group6/pull/205)|
+        |Found closed issues with "Status: In Progress" tag and switched them to "Status: Completed".|-|
+        |Reviewed and merged Implementing Sign-Up Functionality Backend Integration which was the first frontend/backend integration.|[#198](https://github.com/bounswe/bounswe2022group6/issues/198) PR: [#216](https://github.com/bounswe/bounswe2022group6/pull/216)|
+        |Reviewed API documentation for Login feature of backend team.|[#213](https://github.com/bounswe/bounswe2022group6/issues/213)|
+        |Implemented login functionality backend integration.|[#224](https://github.com/bounswe/bounswe2022group6/issues/224) PR: [#226](https://github.com/bounswe/bounswe2022group6/pull/226)|
+        |Updated my personal efforts.|-|
+        |Initialized [Milestone 1 Report](https://github.com/bounswe/bounswe2022group6/blob/master/deliverables/CMPE451_Customer_Presentation_Milestone_1.md) document with necessary template. Listed individual contributors as sorted by their surnames.|[#227](https://github.com/bounswe/bounswe2022group6/issues/227)|
+        |Added necessary links to [Milestone 1 Report](https://github.com/bounswe/bounswe2022group6/blob/master/deliverables/CMPE451_Customer_Presentation_Milestone_1.md) for the existing documents.|[#227](https://github.com/bounswe/bounswe2022group6/issues/227)|
+        |Implemented log-out functionality backend integration.|[#238](https://github.com/bounswe/bounswe2022group6/issues/238) PR: [#239](https://github.com/bounswe/bounswe2022group6/pull/239)|
+        |Reviewed Home page changes.|PR: [#237](https://github.com/bounswe/bounswe2022group6/pull/237)|
+        |Listed down my individual contributions on [Milestone 1 Report](https://github.com/bounswe/bounswe2022group6/blob/master/deliverables/CMPE451_Customer_Presentation_Milestone_1.md).|[#231](https://github.com/bounswe/bounswe2022group6/issues/231)|
+        |Demonstrated the latest version of the application to the team. Afterwards we resolved the final issues regarding deployment and uploaded the application to AWS EC2 instance.|[#240](https://github.com/bounswe/bounswe2022group6/issues/240)|
+        |Created Release and Tag for Milestone 1. |[#243](https://github.com/bounswe/bounswe2022group6/issues/243)|
+        |Took notes during the customer demo. |[#249](https://github.com/bounswe/bounswe2022group6/issues/249)|
+        |Created MediShare logo.|[#250](https://github.com/bounswe/bounswe2022group6/issues/250)|
+
+        
 
     * Ali Kaan Biber
 
