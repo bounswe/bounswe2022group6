@@ -367,7 +367,10 @@ You can check our updated project plan from [this link](https://github.com/bouns
 
 * [Alp Eren İnceoğlu](https://github.com/bounswe/bounswe2022group6/wiki/Alp-Eren-%C4%B0nceo%C4%9Flu)
 
----
+**Alp Eren İnceoğlu - Group 6 - Mobile**
+***04.11.2022***
+## Responsibilities
+I am a member of the mobile development group and have participated in multiple parts of the app from the basics to creating spesific parts like homefeed or error page. My individual responsibilities are about creating a sensible and easy to navigate tagging system with the help of the requirements and my group friends. Until now I have been figuring out the basics of a home feed and posts and from now on I'M fully focused on the search system, home feed and profie posts. All the work I have done untill this deadline have been neatly listed under my weekly efforts.
 
 * [Yusuf Erdem Nacar](https://github.com/bounswe/bounswe2022group6/wiki/Yusuf-Erdem-Nacar)
 
