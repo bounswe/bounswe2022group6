@@ -731,51 +731,48 @@ For the project plan of the later stages, please see the updated project plan in
 
 
 5. The requirements addressed in this milestone.
-# 1.1 User Requirements
-## 1.1.1 Account Management
-### 1.1.1.1 Creating an Account
 
-  - 1.1.1.1.1 Unregistered users shall be able to create an account by providing a unique username, a password, a unique email address, gender, and birth date.
+    ### 1.1 User Requirements
 
-### 1.1.1.2 Adding Information to an Account
+     #### 1.1.1 Account Management
 
-  - 1.1.1.2.1 Registered users shall be able to add a phone number to their account.
+     ##### 1.1.1.1 Creating an Account
 
-  - 1.1.1.2.2 Registered users shall be able to add their first name to their account.
+     - 1.1.1.1.1 Unregistered users shall be able to create an account by providing a unique username, a password, a unique email address, gender, and birth date.
 
-  - 1.1.1.2.3 Registered users shall be able to add a last name to their account.
+     ##### 1.1.1.2 Adding Information to an Account
 
-### 1.1.1.3 Editing the Information in an Account
+     - 1.1.1.2.2 Registered users shall be able to add their first name to their account.
 
-  - 1.1.1.3.1 Registered users shall be able to change the email address in their accounts.
+     - 1.1.1.2.3 Registered users shall be able to add a last name to their account.
 
-  - 1.1.1.3.2 Registered users shall be able to change the phone number in their account.
+     ##### 1.1.1.3 Editing the Information in an Account
 
-  - 1.1.1.3.3 Registered users shall be able to change the profile picture in their account.
+     - 1.1.1.3.1 Registered users shall be able to change the email address in their accounts.
 
-  - 1.1.1.3.4 Registered users shall be able to change the first name in their account.
+     - 1.1.1.3.4 Registered users shall be able to change the first name in their account.
 
-  - 1.1.1.3.5 Registered users shall be able to change the last name in their account.
+     - 1.1.1.3.5 Registered users shall be able to change the last name in their account.
 
-  - 1.1.1.3.8 Registered users shall be able to change the password of their accounts.
+     - 1.1.1.3.8 Registered users shall be able to change the password of their accounts.
 
-### 1.1.1.5 Deleting an Account
+     ##### 1.1.1.5 Deleting an Account
 
-  - 1.1.1.5.1 Registered users shall be able to delete their accounts.
+     - 1.1.1.5.1 Registered users shall be able to delete their accounts.
 
-### 1.1.1.6 Logging in/Logging out
+     ##### 1.1.1.6 Logging in/Logging out
 
-  - 1.1.1.6.1 Registered users shall be able to log in by providing their password with either the username, phone number, or email of their account.
+     - 1.1.1.6.1 Registered users shall be able to log in by providing their password with either the username, phone number, or email of their account.
 
-  - 1.1.1.6.3 Registered users shall be able to stay logged in.
+     - 1.1.1.6.3 Registered users shall be able to stay logged in.
 
-  - 1.1.1.6.4 Registered users shall be able to log out from the application.
+     - 1.1.1.6.4 Registered users shall be able to log out from the application.
 
-## 1.2.4 Home Feed
+     #### 1.2.4 Home Feed
 
-  - 1.2.4.1 Every account shall have a home feed.
+     - 1.2.4.1 Every account shall have a home feed.
 
-  - 1.2.4.2 Home feed shall be a list of post previews.
+     - 1.2.4.2 Home feed shall be a list of post previews.
 
 6. Overall description of responsibilities that are assigned to each member.
 
@@ -874,30 +871,6 @@ For the project plan of the later stages, please see the updated project plan in
     * Alp Eren İnceoğlu:
 
     * Yusuf Erdem Nacar:
-
-      * Reviewing the requirement subsections
-        * [1.1.1.1](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1111-creating-an-account)
-        * [1.1.1.2](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1112-adding-information-to-a-account)
-        * [1.1.1.3](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1113-editing-the-information-in-an-account)
-        * [1.1.1.4](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1114-removing-information-from-an-account)
-        * [1.1.1.5](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1115-deleting-an-account)
-        * [1.1.1.6](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1116-logging-inlogging-out)
-      * Creating API documents for the endpoints for the use of frontend and mobile teams
-        * registration
-        * login
-        * logout
-      * Creating and linking issues for the tracking of milestone I deliverables
-      * Taking and uploading notes for
-        * General meeting #2
-        * General meeting #4
-        * Backend meeting #3
-
-      * Code Related Responsibilities
-        * Implementing registration functionality
-        * Implementing login functionality
-        * Implementing logout functionality
-        * Deploying the app to the AWS instance - *shared responsibility*
-
 
     * Ramazan Bedirhan Pamukçuoğlu:
         * Reviewing the requirements of the application.
