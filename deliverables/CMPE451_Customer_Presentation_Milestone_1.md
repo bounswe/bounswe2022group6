@@ -845,6 +845,12 @@ Summary of the project status and any changes that are planned for moving forwar
 
     * Mustafa Berk Turgut:
 
+        * Reviewing the requirements of the application.
+        
+        * Implementing edit account functionality.
+        
+        * Updating communication plan.
+
     * Beyza İrem Urhan:
    
         * Reviewing the requirements of the application.
@@ -1011,11 +1017,7 @@ Summary of the project status and any changes that are planned for moving forwar
 
     * Mustafa Berk Turgut
 
-        |Contribution|Link|
-        |------------|----|
-        |...|...|
-        |...|...|
-        |...|...|
+      You can find the work perfomed by me in my part in individual milestones, and my weekly effort table.
 
     * Beyza İrem Urhan
 
