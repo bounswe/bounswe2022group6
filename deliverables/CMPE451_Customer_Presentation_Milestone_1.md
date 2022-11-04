@@ -696,10 +696,9 @@ For the project plan of the later stages, please see the updated project plan in
 
 4. Evaluation of Tools and Processes
 
+    * **GitHub**
 
-    * Google Meet
-
-    * GitHub
+        GitHub is the most common and most popular Git repository hosting environment. In application project we usually benefitted from issues and wiki pages for documentation. But also, we used branches and pull requests which helped us develop the project in a parallel manner and eased the job of tracking.
 
 
     ### Backend
@@ -730,10 +729,13 @@ For the project plan of the later stages, please see the updated project plan in
 
     ### Deployment
 
-    * Docker
+    * **Docker**
 
-    * AWS
+        Docker is one of the most popular container systems. Some of the advantages of using docker are: consistency, cost-effectiveness, enables fast deployment, the ability to run everywhere, collaborativeness, and easy automation. We used Docker to create an image which is used on the EC2 instance of AWS for deployment.
 
+    * **AWS**
+
+        Amazon Web Services is a platform with various cloud-based products and solutions. It is popular since it is easy to use, as mentioned before it has a lot of diverse tools, it has unlimited server capacity, and last but not least it is very secure. We used the EC2 (Elastic Compute Cloud) container instance to deploy our application using the image that we have generated using Docker.
     
 
 
