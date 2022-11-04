@@ -753,6 +753,17 @@ Summary of the project status and any changes that are planned for moving forwar
         * Presenting [0.1.0-alpha](https://github.com/bounswe/bounswe2022group6/releases/tag/customer-presentation-1) to the customer in Milestone 1
 
     * Berfin Şimşek:
+        * Reviewing the requirements of the application.
+        
+        * Researching the popular and useful communication platforms.
+        
+        * Researching the popular frameworks used in frontend development. 
+        * Updating README.md, deliverables and meeting notes.
+        * Practising React.js
+        * Implementing a profile page.
+        * Implementing a register page.
+        * Reviewing other frontend developers' codes.
+        * Updating the project plan.
 
     * Mustafa Berk Turgut:
 
