@@ -759,6 +759,30 @@ Summary of the project status and any changes that are planned for moving forwar
 6. Overall description of responsibilities that are assigned to each member.
 
     * Artun Akdoğan:
+  
+      * Researching on technologies to use in Backend development.
+      
+      * Deciding on the roadmap of Backend Development via meetings and requirements review.
+      
+      * Creating Application workspace folders for Backend, Frontend, and Mobile subteams.
+      
+      * Initializing Backend workspace via Django and with MySQL database.
+     
+      * Deploying the application via docker compose on AWS EC2 instance.
+      
+      * Containerizing both Backend and Frontend applications via Docker.
+      
+      * Implementing the Account View function.
+      
+      * Implementing the User Registration feature.
+      
+      * Documenting API's via Postman.
+      
+      * Fixing bugs that are related to Backend or Deployment.
+
+      * Attending all meetings and taking notes for them.
+      
+      * Updating README.md, deliverables and meeting notes.
 
     * İhsan Mert Atalay:
 
@@ -903,9 +927,22 @@ Summary of the project status and any changes that are planned for moving forwar
 
         |Contribution|Link|
         |------------|----|
-        |...|...|
-        |...|...|
-        |...|...|
+        |Attended all general and backend meetings| |
+        |Updated personal Wiki page for CmpE451 | [#160](https://github.com/bounswe/bounswe2022group6/issues/160) |
+        |Reviewed requirement items under [1.1.1.1](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1111-creating-an-account), [1.1.1.2](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1112-adding-information-to-a-account), [1.1.1.3](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1113-editing-the-information-in-an-account), [1.1.1.4](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1114-removing-information-from-an-account), [1.1.1.5](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1115-deleting-an-account), and [1.1.1.6](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1116-logging-inlogging-out) sections |[#167](https://github.com/bounswe/bounswe2022group6/issues/167) | 
+        |Created [Backend Meeting #1](https://github.com/bounswe/bounswe2022group6/wiki/Backend-Meeting-%231-17.10.2022) template, updated meeting agenda, reviewed and updated meeting notes, updated Home Wiki page and Sidebar to include this meeting | [#169](https://github.com/bounswe/bounswe2022group6/issues/169) | 
+        |Updated [Communication Plan](https://github.com/bounswe/bounswe2022group6/wiki/Communication-Plan) page for Backend Group, created Discord server, appointed the first meeting| [#166](https://github.com/bounswe/bounswe2022group6/issues/166)| 
+        |Initialized the folder structure of the project Groups | 
+        |Initialized Backend Group's workspace with Django, MySQL, and Docker |[#174](https://github.com/bounswe/bounswe2022group6/issues/174)| 
+        |Refactor folder structure of Backend group for better reference | [#178](https://github.com/bounswe/bounswe2022group6/issues/178), [#180](https://github.com/bounswe/bounswe2022group6/pull/180) | 
+        |Inplemented user registration REST API, and required models| [#181](https://github.com/bounswe/bounswe2022group6/issues/181) | 
+        |Enclosed MySQL port on docker to prevent port conflict| [#188](https://github.com/bounswe/bounswe2022group6/issues/188)| 
+        |Containerized Frontend workspace and unified Backend API with Frontend application via Docker Compose |[#206](https://github.com/bounswe/bounswe2022group6/issues/206) | 
+        |Deployed and modified AWS EC2 instance with required settings |[#208](https://github.com/bounswe/bounswe2022group6/issues/208) | 
+        |Resolved final problems regarding AWS deployment via bugfixes and minor modifications |[#240](https://github.com/bounswe/bounswe2022group6/issues/240) | 
+        |Implemented "Account View" function |[#242](https://github.com/bounswe/bounswe2022group6/issues/242) | 
+        |Wrote Frontend Containerized Execution Notes |[#244](https://github.com/bounswe/bounswe2022group6/issues/244) | 
+        |Wrote Individual Contribution Report |[#231](https://github.com/bounswe/bounswe2022group6/issues/231) | 
 
     * İhsan Mert Atalay
 
