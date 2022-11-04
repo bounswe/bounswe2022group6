@@ -2,6 +2,16 @@
 
 ## Deliverables
 
+The deliverables included in this report is as follows:
+* Software Requirements Specification
+* Software Design (UML)
+* Scenarios and Mockups
+* Project Plan
+* Individual Contribution Reports
+* Customer Milestone 1 Group Review
+
+Status of the delivarables: All deliverables are complete.
+
 ### Software Requirements Specification
 
 You can check our Requirements from the following links:
