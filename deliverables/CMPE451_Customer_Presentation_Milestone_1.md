@@ -957,7 +957,7 @@ Summary of the project status and any changes that are planned for moving forwar
         |Reviewed requirements from 1.1.2.4 to 1.2.1 with Aral Dörtoğul.|[#168](https://github.com/bounswe/bounswe2022group6/issues/168)|
         |Researched about popular frameworks for frontend development.||
         |Learning and practicing ReactJS||
-        |Reviewed API documentation for Sign up feature of backend team.|[#213](https://github.com/bounswe/bounswe2022group6/issues/213)|
+        |Reviewed API documentation for Sign up feature of backend team.||
         |Implemented the sign up functionality backend integration.|[#198](https://github.com/bounswe/bounswe2022group6/issues/198) [PR](https://github.com/bounswe/bounswe2022group6/pull/216)|
         |Fixed the cors issue|[#214](https://github.com/bounswe/bounswe2022group6/issues/214) [PR](https://github.com/bounswe/bounswe2022group6/pull/215)|
         |Reviewed pull request of frontend dockerization|[#207](https://github.com/bounswe/bounswe2022group6/pull/207)|
