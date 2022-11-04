@@ -874,9 +874,15 @@ Summary of the project status and any changes that are planned for moving forwar
 
         |Contribution|Link|
         |------------|----|
-        |...|...|
-        |...|...|
-        |...|...|
+        |Attended weekly meetings||
+        |Reviewed the requirements for "Voting a Post" and "Interactions Between the Users and the Comments|[#165](https://github.com/bounswe/bounswe2022group6/issues/165)|
+        |Updated deliverables, meeting notes and my personal wiki page|[#160](https://github.com/bounswe/bounswe2022group6/issues/160)|
+        |Researched and practiced React.js||
+        |Reviewed home page.|[#205](https://github.com/bounswe/bounswe2022group6/pull/205)|
+        |Reviewed frontend base pages.|[#194](https://github.com/bounswe/bounswe2022group6/pull/194)|
+        |Implementing Register and Profile Pages for Frontend |[#196](https://github.com/bounswe/bounswe2022group6/issues/196)|
+        |Updated the project plan.|[#201](https://github.com/bounswe/bounswe2022group6/issues/201)|
+
 
     * Mustafa Berk Turgut
 
