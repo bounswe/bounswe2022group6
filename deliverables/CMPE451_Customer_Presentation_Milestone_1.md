@@ -668,8 +668,18 @@ Summary of the project status and any changes that are planned for moving forwar
 
     ### Backend
 
-    * 
-
+    * **Discord**
+    
+        We decided to use Discord for communicaiton as Backend team. We decided it on it since it can be used for various things like chatting, document sharing and online meeting. It was useful in chatting and sharing document but screen sharing was almost impossible which was important in terms of checking out each others' issues during especially in setup. Thus we made our meetings on Google Meet and kept using the Discord for other features.
+        
+    * **Python**
+    
+        Python was a very useful tools, all of members has experience with it and it has many useful standard and non-standard libraries. It is easy to read and write. Readability is very significant when coding as a team. It is also an Object Oriented Programming, which is a concept appopriate to our project.
+        
+    * **Django**
+   
+        Django is a free and open-source, Python-based web framework that follows the model–template–views architectural pattern. Modules in Django helped us a lot while developing the first phase of the project. Also, it was relatively easy to find the solutions of the problems we encountered since it a widely used tool.
+        
     ### Frontend
 
     ### Mobile
@@ -688,6 +698,51 @@ Summary of the project status and any changes that are planned for moving forwar
 
 
 5. The requirements addressed in this milestone.
+# 1.1 User Requirements
+## 1.1.1 Account Management
+### 1.1.1.1 Creating an Account
+
+  - 1.1.1.1.1 Unregistered users shall be able to create an account by providing a unique username, a password, a unique email address, gender, and birth date.
+
+### 1.1.1.2 Adding Information to an Account
+
+  - 1.1.1.2.1 Registered users shall be able to add a phone number to their account.
+
+  - 1.1.1.2.2 Registered users shall be able to add their first name to their account.
+
+  - 1.1.1.2.3 Registered users shall be able to add a last name to their account.
+
+### 1.1.1.3 Editing the Information in an Account
+
+  - 1.1.1.3.1 Registered users shall be able to change the email address in their accounts.
+
+  - 1.1.1.3.2 Registered users shall be able to change the phone number in their account.
+
+  - 1.1.1.3.3 Registered users shall be able to change the profile picture in their account.
+
+  - 1.1.1.3.4 Registered users shall be able to change the first name in their account.
+
+  - 1.1.1.3.5 Registered users shall be able to change the last name in their account.
+
+  - 1.1.1.3.8 Registered users shall be able to change the password of their accounts.
+
+### 1.1.1.5 Deleting an Account
+
+  - 1.1.1.5.1 Registered users shall be able to delete their accounts.
+
+### 1.1.1.6 Logging in/Logging out
+
+  - 1.1.1.6.1 Registered users shall be able to log in by providing their password with either the username, phone number, or email of their account.
+
+  - 1.1.1.6.3 Registered users shall be able to stay logged in.
+
+  - 1.1.1.6.4 Registered users shall be able to log out from the application.
+
+## 1.2.4 Home Feed
+
+  - 1.2.4.1 Every account shall have a home feed.
+
+  - 1.2.4.2 Home feed shall be a list of post previews.
 
 6. Overall description of responsibilities that are assigned to each member.
 
@@ -696,27 +751,6 @@ Summary of the project status and any changes that are planned for moving forwar
     * İhsan Mert Atalay:
 
     * Hakan Balık:
-        * Researching previous years' repositories.
-        * Reviewing and updating requirements which was created last semester.
-        * Reviewing personal Wiki page.
-        * Deciding on which features to be implemented for the Milestone 1.
-        * Introducing new customer to the project.
-        * Deciding on frontend communication plan and which technology to be used.
-        * Researching Reactjs.
-        * Creating the initial version of frontend application.
-        * Assigning frontend jobs to teammates.
-        * Creating a poll and google sheets to decide on the project name.
-        * Deciding on the color palette of the application.
-        * Creating the Landing, Login and Home pages.
-        * Reviewing Homepage design pull request.
-        * Reviewing and merging sign-up api.
-        * Implementing login api.
-        * Creating this document's template.
-        * Implementing log-out api.
-        * Testing the latest version of the application with deployment. 
-        * Creating Release and Tag for Milestone 1. 
-        * Taking notes during the customer demo.
-        * Creating MediShare logo.
 
     * Ali Kaan Biber:
 
@@ -789,6 +823,22 @@ Summary of the project status and any changes that are planned for moving forwar
     * Mustafa Berk Turgut:
 
     * Beyza İrem Urhan:
+   
+        * Reviewing the requirements of the application.
+       
+        * Researching the popular frameworks and other tools used in backend development.
+        
+        * Learning and practicing Django. 
+         
+        * Setting up the essential environment to local.
+
+        * Implementing delete account functionality.
+
+        * Reviewing pull requests from other backend developers.
+
+        * Updating the project plan.
+
+        * Updating README.md, deliverables and meeting notes.
 
 
 7. A Summary of Work Performed by Each Team Member
@@ -813,36 +863,9 @@ Summary of the project status and any changes that are planned for moving forwar
 
         |Contribution|Link|
         |------------|----|
-        |Reviewed the lecture notes of the previous semester.|-|
-        |Attended all of the meetings except 1.|-|
-        |Reviewed my [personal Wiki page](https://github.com/bounswe/bounswe2022group6/wiki/Hakan-Bal%C4%B1k).|[#160](https://github.com/bounswe/bounswe2022group6/issues/160)|
-        |Checked the previous years' github pages to get an insight.|-|
-        |Introduced the customer to the project.|[#170](https://github.com/bounswe/bounswe2022group6/issues/170)|
-        |Reviewed Requirements between 1.1.1.7-1.1.2.2.4 and made some changes.|[#163](https://github.com/bounswe/bounswe2022group6/issues/163)|
-        |Researched about Reactjs projects and did some practices.|-|
-        |Reviewed the [Meeting Notes](https://github.com/bounswe/bounswe2022group6/wiki/Frontend-Meeting-%232-26.10.2022).|[#195](https://github.com/bounswe/bounswe2022group6/issues/195)|
-        |Created the initial version of frontend.|[#184](https://github.com/bounswe/bounswe2022group6/issues/184) PR: [#192](https://github.com/bounswe/bounswe2022group6/pull/192)|
-        |Created a poll and a google sheet file to determine the project name.|[#185](https://github.com/bounswe/bounswe2022group6/issues/185)|
-        |During the [Meeting 4](https://github.com/bounswe/bounswe2022group6/wiki/Meeting-%234---25.10.2022) decided on the color palette to be used.|[#185](https://github.com/bounswe/bounswe2022group6/issues/185)|
-        |Created the base pages for frontend which are: Landing, Login and Home.|[#193](https://github.com/bounswe/bounswe2022group6/issues/193) PR: [#194](https://github.com/bounswe/bounswe2022group6/pull/194)|
-        |Reviewed and made changes to the pull request for register & profile pages.|[#196](https://github.com/bounswe/bounswe2022group6/issues/196) PR: [#199](https://github.com/bounswe/bounswe2022group6/pull/199)|
-        |Reviewed Homepage design pull request.|[#202](https://github.com/bounswe/bounswe2022group6/issues/202) PR: [#205](https://github.com/bounswe/bounswe2022group6/pull/205)|
-        |Found closed issues with "Status: In Progress" tag and switched them to "Status: Completed".|-|
-        |Reviewed and merged Implementing Sign-Up Functionality Backend Integration which was the first frontend/backend integration.|[#198](https://github.com/bounswe/bounswe2022group6/issues/198) PR: [#216](https://github.com/bounswe/bounswe2022group6/pull/216)|
-        |Reviewed API documentation for Login feature of backend team.|[#213](https://github.com/bounswe/bounswe2022group6/issues/213)|
-        |Implemented login functionality backend integration.|[#224](https://github.com/bounswe/bounswe2022group6/issues/224) PR: [#226](https://github.com/bounswe/bounswe2022group6/pull/226)|
-        |Updated my personal efforts.|-|
-        |Initialized [Milestone 1 Report](https://github.com/bounswe/bounswe2022group6/blob/master/deliverables/CMPE451_Customer_Presentation_Milestone_1.md) document with necessary template. Listed individual contributors as sorted by their surnames.|[#227](https://github.com/bounswe/bounswe2022group6/issues/227)|
-        |Added necessary links to [Milestone 1 Report](https://github.com/bounswe/bounswe2022group6/blob/master/deliverables/CMPE451_Customer_Presentation_Milestone_1.md) for the existing documents.|[#227](https://github.com/bounswe/bounswe2022group6/issues/227)|
-        |Implemented log-out functionality backend integration.|[#238](https://github.com/bounswe/bounswe2022group6/issues/238) PR: [#239](https://github.com/bounswe/bounswe2022group6/pull/239)|
-        |Reviewed Home page changes.|PR: [#237](https://github.com/bounswe/bounswe2022group6/pull/237)|
-        |Listed down my individual contributions on [Milestone 1 Report](https://github.com/bounswe/bounswe2022group6/blob/master/deliverables/CMPE451_Customer_Presentation_Milestone_1.md).|[#231](https://github.com/bounswe/bounswe2022group6/issues/231)|
-        |Demonstrated the latest version of the application to the team. Afterwards we resolved the final issues regarding deployment and uploaded the application to AWS EC2 instance.|[#240](https://github.com/bounswe/bounswe2022group6/issues/240)|
-        |Created Release and Tag for Milestone 1. |[#243](https://github.com/bounswe/bounswe2022group6/issues/243)|
-        |Took notes during the customer demo. |[#249](https://github.com/bounswe/bounswe2022group6/issues/249)|
-        |Created MediShare logo.|[#250](https://github.com/bounswe/bounswe2022group6/issues/250)|
-
-        
+        |...|...|
+        |...|...|
+        |...|...|
 
     * Ali Kaan Biber
 
@@ -944,6 +967,10 @@ Summary of the project status and any changes that are planned for moving forwar
 
         |Contribution|Link|
         |------------|----|
-        |...|...|
-        |...|...|
-        |...|...|
+        |Attending Weekly Meetings||
+        |Reviewed the requirements for "Voting a Post" and "Interactions Between the Users and the Comments|[#165](https://github.com/bounswe/bounswe2022group6/issues/165)|
+        |Reviewing the pull request|[#189](https://github.com/bounswe/bounswe2022group6/pull/189)|
+        |Research and practicing about the tools and frameworks||
+        |Setting up the development environment|[#174](https://github.com/bounswe/bounswe2022group6/issues/174)|
+        |Implementing account-related functionalities|[#233](https://github.com/bounswe/bounswe2022group6/issues/233)|
+        |Filling the group report|[#251](https://github.com/bounswe/bounswe2022group6/issues/251) [#252](https://github.com/bounswe/bounswe2022group6/issues/252)|
