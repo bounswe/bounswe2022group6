@@ -661,10 +661,31 @@ As can be seen from my [weekly efforts table](https://github.com/bounswe/bounswe
 ---
 ### Customer Milestone 1 Group Review
 
-1. Executive Summary
+**1. Executive Summary**
 
+**1.1. Preparing Development**
 
-Summary of the project status and any changes that are planned for moving forward.
+Before starting the development phase of the project, we had to address the changes made to both how we function as a group and the changes we plan on making to both the management and the structure of the project
+
+For this semester, one of our team members, [Hatice Erk](https://github.com/bounswe/bounswe2022group6/wiki/Hatice-Erk) had to leave the group and a new member [İhsan Mert Atalay](https://github.com/bounswe/bounswe2022group6/wiki/%C4%B0hsan-Mert-Atalay) joined us. To accomodate the change and continue the development without any problems, we introduced him to the project using all the material that we prepared during the last semester. Additionally, having a new pair of eyes gave us the opportunity to reflect back on the work and planning that we have done so far and helped us to identify the issues that we were not able to notice.
+
+Following the introduction, we split into frontend, backend and mobile subteams to better distribute the work and we left the more intricate planning and technical decisions to each subteam's own judgement.
+
+**1.2. Review of Previous Work**
+
+The development phase of the project started with reviewing the material from the design phase. This review is to fix any problem that the artefacts may have that would stagger our development of the app, such as review of the requirements. With reviewing the requirements, we determined the items that were describing the "how" of a concept instead of the "what". After determination of such items, we converted them back to the format that they should have. This helps us track down the qualification that the app must have and things that it can do without the concern of how it should be implemented.
+
+**1.3. Preparing for Milestone I**
+
+After the completion of the review part, we went on to distributing the work and started implementing the functionalities that we chose to display at the demo. These functionalities for us were user registration, login and logout. Beside implementing these features, we prepared a presentation with a scenario that demonstrates these features for the demo session.
+
+We succesfully implemented said functionalities and did a presentation of them to the customers.
+
+**1.4. Near Future**
+
+Following the customer demo, we plan to finalize the "user" implementation of the app without its dependencies on the content part of the app. In the following week, we plan to start the implementation.
+
+For the project plan of the later stages, please see the updated project plan in the project plan section.
 
 2. List and status of deliverables.
 
