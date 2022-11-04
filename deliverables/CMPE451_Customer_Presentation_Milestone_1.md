@@ -872,6 +872,32 @@ For the project plan of the later stages, please see the updated project plan in
 
     * Yusuf Erdem Nacar:
 
+      * Reviewing the requirement subsections
+        * [1.1.1.1](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1111-creating-an-account)
+        * [1.1.1.2](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1112-adding-information-to-a-account)
+        * [1.1.1.3](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1113-editing-the-information-in-an-account)
+        * [1.1.1.4](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1114-removing-information-from-an-account)
+        * [1.1.1.5](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1115-deleting-an-account)
+        * [1.1.1.6](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1116-logging-inlogging-out)
+      * Creating API documents for the endpoints for the use of frontend and mobile teams
+        * registration
+        * login
+        * logout
+      * Creating and linking issues for the tracking of milestone I deliverables
+      * Taking and uploading notes for
+        * General meeting #2
+        * General meeting #4
+        * Backend meeting #3
+
+      * Code Related Responsibilities
+        * Implementing registration functionality
+        * Implementing login functionality
+        * Implementing logout functionality
+        * Deploying the app to the AWS instance - *shared responsibility*
+
+
+
+
     * Ramazan Bedirhan Pamukçuoğlu:
         * Reviewing the requirements of the application.
         
