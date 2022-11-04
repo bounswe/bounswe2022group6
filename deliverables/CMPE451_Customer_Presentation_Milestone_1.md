@@ -734,48 +734,51 @@ For the project plan of the later stages, please see the updated project plan in
 
 
 5. The requirements addressed in this milestone.
+# 1.1 User Requirements
+## 1.1.1 Account Management
+### 1.1.1.1 Creating an Account
 
-    ### 1.1 User Requirements
+  - 1.1.1.1.1 Unregistered users shall be able to create an account by providing a unique username, a password, a unique email address, gender, and birth date.
 
-     #### 1.1.1 Account Management
+### 1.1.1.2 Adding Information to an Account
 
-     ##### 1.1.1.1 Creating an Account
+  - 1.1.1.2.1 Registered users shall be able to add a phone number to their account.
 
-     - 1.1.1.1.1 Unregistered users shall be able to create an account by providing a unique username, a password, a unique email address, gender, and birth date.
+  - 1.1.1.2.2 Registered users shall be able to add their first name to their account.
 
-     ##### 1.1.1.2 Adding Information to an Account
+  - 1.1.1.2.3 Registered users shall be able to add a last name to their account.
 
-     - 1.1.1.2.2 Registered users shall be able to add their first name to their account.
+### 1.1.1.3 Editing the Information in an Account
 
-     - 1.1.1.2.3 Registered users shall be able to add a last name to their account.
+  - 1.1.1.3.1 Registered users shall be able to change the email address in their accounts.
 
-     ##### 1.1.1.3 Editing the Information in an Account
+  - 1.1.1.3.2 Registered users shall be able to change the phone number in their account.
 
-     - 1.1.1.3.1 Registered users shall be able to change the email address in their accounts.
+  - 1.1.1.3.3 Registered users shall be able to change the profile picture in their account.
 
-     - 1.1.1.3.4 Registered users shall be able to change the first name in their account.
+  - 1.1.1.3.4 Registered users shall be able to change the first name in their account.
 
-     - 1.1.1.3.5 Registered users shall be able to change the last name in their account.
+  - 1.1.1.3.5 Registered users shall be able to change the last name in their account.
 
-     - 1.1.1.3.8 Registered users shall be able to change the password of their accounts.
+  - 1.1.1.3.8 Registered users shall be able to change the password of their accounts.
 
-     ##### 1.1.1.5 Deleting an Account
+### 1.1.1.5 Deleting an Account
 
-     - 1.1.1.5.1 Registered users shall be able to delete their accounts.
+  - 1.1.1.5.1 Registered users shall be able to delete their accounts.
 
-     ##### 1.1.1.6 Logging in/Logging out
+### 1.1.1.6 Logging in/Logging out
 
-     - 1.1.1.6.1 Registered users shall be able to log in by providing their password with either the username, phone number, or email of their account.
+  - 1.1.1.6.1 Registered users shall be able to log in by providing their password with either the username, phone number, or email of their account.
 
-     - 1.1.1.6.3 Registered users shall be able to stay logged in.
+  - 1.1.1.6.3 Registered users shall be able to stay logged in.
 
-     - 1.1.1.6.4 Registered users shall be able to log out from the application.
+  - 1.1.1.6.4 Registered users shall be able to log out from the application.
 
-     #### 1.2.4 Home Feed
+## 1.2.4 Home Feed
 
-     - 1.2.4.1 Every account shall have a home feed.
+  - 1.2.4.1 Every account shall have a home feed.
 
-     - 1.2.4.2 Home feed shall be a list of post previews.
+  - 1.2.4.2 Home feed shall be a list of post previews.
 
 6. Overall description of responsibilities that are assigned to each member.
 
@@ -897,8 +900,6 @@ For the project plan of the later stages, please see the updated project plan in
         * Implementing login functionality
         * Implementing logout functionality
         * Deploying the app to the AWS instance - *shared responsibility*
-
-
 
 
     * Ramazan Bedirhan Pamukçuoğlu:
@@ -1097,9 +1098,20 @@ For the project plan of the later stages, please see the updated project plan in
 
         |Contribution|Link|
         |------------|----|
-        |...|...|
-        |...|...|
-        |...|...|
+        |Reviewed requirements from 1.1.1.1 to 1.1.1.1.6 with Artun Akdoğan.|[#167](https://github.com/bounswe/bounswe2022group6/issues/167)|
+        |Helped introducing the new member to the work.|[#170](https://github.com/bounswe/bounswe2022group6/issues/170)|
+        |Initialized backend framework with Artun Akdoğan.|[#174](https://github.com/bounswe/bounswe2022group6/issues/174)|
+        |Created labels for different subteams.|[#177](https://github.com/bounswe/bounswe2022group6/issues/177)|
+        |Refactored backend structure with Artun Akdoğan.|[#178](https://github.com/bounswe/bounswe2022group6/issues/178) [#180](https://github.com/bounswe/bounswe2022group6/pull/180)|
+        |Deleted leftover branches from the last semester.|[#179](https://github.com/bounswe/bounswe2022group6/issues/179)|
+        |Implemented user registration.|[#181](https://github.com/bounswe/bounswe2022group6/issues/181) [#191](https://github.com/bounswe/bounswe2022group6/pull/191)|
+        |Updated some items in requirements.|[#186](https://github.com/bounswe/bounswe2022group6/issues/186)|
+        |Took meeting notes.|[#190](https://github.com/bounswe/bounswe2022group6/issues/190) [#211](https://github.com/bounswe/bounswe2022group6/issues/211)|
+        |Helped deployment of the app to the AWS.|[#208](https://github.com/bounswe/bounswe2022group6/issues/208)|
+        |Implemented login.|[#212](https://github.com/bounswe/bounswe2022group6/issues/) [#217](https://github.com/bounswe/bounswe2022group6/pull/217)|
+        |Created API docs.|[#213](https://github.com/bounswe/bounswe2022group6/issues/213) [#222](https://github.com/bounswe/bounswe2022group6/issues/222)|
+        |Implemented logout|[#220](https://github.com/bounswe/bounswe2022group6/issues/220) [#223](https://github.com/bounswe/bounswe2022group6/pull/223)|
+        
 
     * Ramazan Bedirhan Pamukçuoğlu
 
