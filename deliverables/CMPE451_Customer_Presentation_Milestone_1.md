@@ -879,9 +879,15 @@ Summary of the project status and any changes that are planned for moving forwar
 
         |Contribution|Link|
         |------------|----|
-        |...|...|
-        |...|...|
-        |...|...|
+        |Attended weekly meetings.||
+        |Reviewed requirements from 2.1 to 2.5 with Alp Eren İnceoğlu.|[#175](https://github.com/bounswe/bounswe2022group6/issues/175)|
+        |Researched about the popular frameworks for mobile application development.||
+        |Decided on which mobile framework to use with the mobile team.|[#173](https://github.com/bounswe/bounswe2022group6/issues/173)|
+        |Researched about React Native for mobile application development.||
+        |Created a communication plan for mobile development with the mobile team.|[#171](https://github.com/bounswe/bounswe2022group6/issues/171)|
+        |Set up my environment for React Native.||
+        |Wrote some code according to tutorial I watched.||
+        |Reviewed Pull Request|[#234](https://github.com/bounswe/bounswe2022group6/pull/234)|
 
     * Aral Dörtoğul
 
