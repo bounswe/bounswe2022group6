@@ -1,60 +1,93 @@
-.mypost{
-    background: white;
-    width: 98%;
-    margin: auto;
-    height: 150px;
-    margin-bottom: 20px;
-    display: flex;
-    border-radius: 5px;
-    border: 1px solid lightgray;
-    overflow: hidden;
-
+.mypost {
+  background: white;
+  width: 98%;
+  margin: auto;
+  height: 150px;
+  margin-bottom: 20px;
+  display: flex;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  overflow: hidden;
 }
 
-.mypost:hover{
-    
-    border: 1px solid rgb(132, 130, 130);
+.upvote {
+  font-size: x-large;
+}
+.upvote:hover {
+  color: rgb(153, 185, 231);
+}
 
+.upvoteactive {
+  font-size: x-large;
+  color: rgb(104, 158, 233);
+}
+.upvoteactive:hover {
+  color: rgb(153, 185, 231);
+}
+
+.downvoteactive {
+  font-size: x-large;
+  color: rgb(240, 96, 96);
+}
+
+.downvoteactive:hover {
+  color: rgb(231, 153, 153);
+}
+
+.downvote {
+  font-size: x-large;
+}
+.downvote:hover {
+  color: rgb(231, 153, 153);
+}
+
+.container {
+  width: 100%;
+  background: red;
+}
+.mypost:hover {
+  border: 1px solid rgb(132, 130, 130);
 }
 .mybutton {
-    padding: .6rem;
-    width: 7rem;
-    background: #222;
-    border: none;
-    color: #fff;
-    font-size: 1.2rem;
-    transition: all .5s;
-    cursor: pointer;
-    text-transform: capitalize;
-    position: absolute ; 
-    top: 20px;
-     right: 125px  
-
+  padding: 0.6rem;
+  width: 7rem;
+  background: #222;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  transition: all 0.5s;
+  cursor: pointer;
+  text-transform: capitalize;
+  position: absolute;
+  top: 20px;
+  right: 125px;
 }
 
 .bigblue {
-    color: DodgerBlue;
-    padding: 40px;
-    font-family: Arial;
-    text-align: center;
-  }
-  body{text-align: center;}
+  color: DodgerBlue;
+  padding: 40px;
+  font-family: Arial;
+  text-align: center;
+}
+body {
+  text-align: center;
+}
 
-  p{padding: 5px;
-margin: 5px;}
+p {
+  padding: 5px;
+  margin: 5px;
+}
 ::-webkit-scrollbar {
-    width: 5px;
-    border-radius: 5px;
-  }
-  
- 
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888; 
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgb(130, 127, 127); 
-  }
+  width: 5px;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(130, 127, 127);
+}
