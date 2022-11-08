@@ -22,7 +22,7 @@ class Cities(models.Model):
     wikidataid = models.CharField(db_column='wikiDataId', max_length=255, blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'cities'
 
 
@@ -52,7 +52,7 @@ class Countries(models.Model):
     wikidataid = models.CharField(db_column='wikiDataId', max_length=255, blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'countries'
 
 
@@ -71,6 +71,6 @@ class States(models.Model):
     wikidataid = models.CharField(db_column='wikiDataId', max_length=255, blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'states'
 
