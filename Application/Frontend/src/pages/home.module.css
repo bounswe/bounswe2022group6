@@ -91,3 +91,62 @@ p {
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(130, 127, 127);
 }
+
+.dropbtn {
+  background-color: white;
+  border: 1px solid gray;
+  color: rgb(28, 27, 27);
+  padding: 11px 16px;
+  font-size: 16px;
+  margin-left: 50px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdowncontent {
+  display: none;
+  margin-left: 50px;
+
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdowncontent a {
+  color: black;
+  padding: 12px 0px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdowncontent a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdowncontent {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #afafaf;
+}
+
+.createpost {
+  width: 100%;
+  margin: auto;
+  background: rgb(78, 78, 209);
+  margin-top: 20px;
+  color: white;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: larger;
+}

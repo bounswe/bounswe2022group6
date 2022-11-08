@@ -6,11 +6,11 @@ import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import MessageBox from "../components/MessageBox";
 import { ImArrowUp, ImArrowDown } from "react-icons/im";
+import { BsSearch } from "react-icons/bs";
 
 const posts = [
   {
-    title:
-      "Hi I’m 23F, last night I was drinking parol ",
+    title: "Hi I’m 23F, last night I was drinking parol ",
     date: "5",
     description:
       "Hi I’m 23F, last night I was drinking parol and probably had 4 parol drinks total. This is not out of the ordinary for me. I was feeling good and then all of a sudden I was having muscle...",
@@ -74,6 +74,23 @@ const posts = [
   },
 ];
 
+const labels = [
+  { name: "Medication", backgroundColor: "red", color: "white" },
+  { name: "Other", backgroundColor: "Black", color: "white" },
+  { name: "Article", backgroundColor: "Blue", color: "white" },
+  { name: "Healthy Life", backgroundColor: "Green", color: "yellow" },
+  { name: "Medication", backgroundColor: "red", color: "white" },
+  { name: "Medication", backgroundColor: "red", color: "white" },
+  { name: "Medication", backgroundColor: "red", color: "white" },
+  { name: "Medication", backgroundColor: "red", color: "white" },
+  { name: "Medication", backgroundColor: "red", color: "white" },
+  { name: "Medication", backgroundColor: "red", color: "white" },
+  { name: "Medication", backgroundColor: "red", color: "white" },
+  { name: "Medication", backgroundColor: "red", color: "white" },
+  { name: "Medication", backgroundColor: "red", color: "white" },
+  { name: "Medication", backgroundColor: "red", color: "white" },
+];
+const addedlabels = [];
 export default function Home() {
   let history = useHistory();
 
@@ -91,6 +108,12 @@ export default function Home() {
       }
     });
   }
+
+  const addlabel = (label) => {
+    addedlabels.push(label);
+    setMert(mert + 1);
+  };
+
   const vote = (mypost, direction) => {
     if (mypost.voted === "" && direction === "up") {
       mypost.voted = "up";
@@ -239,10 +262,110 @@ export default function Home() {
             </div>
           ))}
         </div>
-        <div
-          style={{ width: "30%", height: "700px", backgroundColor: "white" }}
-        >
-          <h3>Search + Filters + Create Post </h3>
+        <div className="rightSide" style={{ width: "30%", height: "700px", backgroundColor: "" }}>
+          <div
+            style={{
+              backgroundColor: "white",
+              marginBlockEnd: "20px",
+              padding: "10px",
+              display: "flex",
+              alignItems: "center",
+              borderRadius: "5px",
+            }}
+          >
+            <input
+              type="text"
+              placeholder="Search For Post.."
+              style={{
+                border: "1px solid gray",
+                width: "60%",
+                height: "40px",
+                fontSize: "19px",
+                borderRadius: "0px",
+              }}
+            />
+            <BsSearch
+              style={{
+                border: "1px solid gray",
+                height: "40px",
+                borderLeft: "0px",
+                padding: "0px 3px",
+                width: "25px",
+              }}
+            />
+            <div class={styles.dropdown}>
+              <button class={styles.dropbtn}>Sort By</button>
+              <div class={styles.dropdowncontent}>
+                <a href="#">Time</a>
+                <a href="#">Rating</a>
+                <a href="#">Relevance</a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            style={{
+              display: "inline-block",
+              padding: "10px",
+              backgroundColor: "white",
+              width: "100%",
+            }}
+          >
+            <h1>Labels</h1>
+            <input
+              type="text"
+              placeholder="Search For Label.."
+              style={{ border: "1px solid gray", marginBlockEnd: "5px" }}
+            />
+            <div style={{ height: "200px", overflow: "auto" }}>
+              {labels.map((label) => (
+                <div onClick={() => addlabel(label)}>
+                  <p
+                    style={{
+                      background: label.backgroundColor,
+                      color: label.color,
+                      display: "inline-block",
+                      padding: "2px 10px",
+                      borderRadius: "5px",
+                      margin: "2px",
+                    }}
+                  >
+                    {" "}
+                    {label.name}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <hr />
+            <div style={{ textAlign: "left" }}>
+              {addedlabels.length === 0 && <div style={{fontStyle: "italic",color:"gray"}}> add label to filter</div>}
+              {addedlabels.map((label) => (
+                <div
+                  style={{ display: "flex0,justify-content: space-between;" }}
+                >
+                  <p
+                    style={{
+                      background: label.backgroundColor,
+                      color: label.color,
+                      display: "block",
+                      padding: "2px 10px",
+                      borderRadius: "5px",
+                      margin: "2px",
+                      float: "left",
+                    }}
+                  >
+                    {" "}
+                    {label.name}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className={styles.createpost}>
+            Create Post
+
+            </div>          
+
         </div>
       </div>
     </div>
