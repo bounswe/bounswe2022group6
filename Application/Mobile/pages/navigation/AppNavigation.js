@@ -1,15 +1,15 @@
 /* eslint-disable prettier/prettier */
 import React from "react";
-import { View, Text } from 'react-native';
-import { LoginPage } from "../authantication/Login";
+import LoginPage from "../authentication/Login";
 import DrawerNavigation from "./DrawerNavigation";
 import ErrorScreen from "../error/ErrorScreen";
 import HomeScreen from "../home/HomeScreen";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { SignUpScreen } from "../authantication/SignUpScreen"
+import { SignUpScreen } from "../authentication/SignUpScreen"
 
 const Stack = createNativeStackNavigator();
 
+// Main navigation of the application (stack navigation)
 const AppNavigation = () => {
     return (
         <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }}>
