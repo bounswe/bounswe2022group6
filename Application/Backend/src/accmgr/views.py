@@ -65,7 +65,7 @@ class RegisterUser(APIView):
             birth_date = date(birth_year, birth_month, birth_day)
         except Exception as e:
             return JsonResponse({"info":"user registration failed", "error": "{'birth_date': ['" + str(e) + "']}"}, status=400)
-            
+        
         new_user = RegisteredUser(username=username, email=email, password=password, birth_date=birth_date, gender=gender)
 
         ## This check is about the database constraints
@@ -74,6 +74,8 @@ class RegisterUser(APIView):
 
         try:
             new_user.save()
+            new_account = Account(owner=new_user)
+            new_account.save()
             return JsonResponse({"info": "user registration successful", "userID": new_user.userID}, status=201)
         except Exception as e:
             return JsonResponse({"info":"user registration failed", "error": str(e)}, status=400)

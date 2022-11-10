@@ -3,17 +3,6 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import RegexValidator, MinLengthValidator
 
-class Account(models.Model):
-
-    firstname = models.CharField(max_length=32, blank=True, null=True)
-    lastname = models.CharField(max_length=32, blank=True, null=True)
-    phone_number = models.CharField(max_length=15, blank=True, null=True, validators=[RegexValidator(regex='^\+?1?\d{9,15}$')])
-    verified_as_doctor = models.BooleanField(default=False)
-    profile_picture = models.CharField(max_length=256, blank=True, null=True)
-    profession = models.CharField(max_length=32, blank=True, null=True)
-    location = models.CharField(max_length=128, blank=True, null=True)
-    diplomaID = models.CharField(max_length=32, blank=True, null=True)
-
 class RegisteredUser(AbstractUser):
 
     userID = models.AutoField(primary_key=True)
@@ -32,10 +21,6 @@ class RegisteredUser(AbstractUser):
         )
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, default="D")
 
-    # Account information
-
-    account = models.OneToOneField(Account, on_delete=models.CASCADE, blank=True, null=True, default=None)
-
     # Option fields
 
     is_messaging_allowed = models.BooleanField(default=True)
@@ -50,3 +35,16 @@ class RegisteredUser(AbstractUser):
     def save(self, *args, **kwargs):
         self.full_clean()
         super(RegisteredUser, self).save(*args, **kwargs)
+
+class Account(models.Model):
+
+    owner = models.OneToOneField(RegisteredUser, on_delete=models.CASCADE, blank=True, null=True, default=None)
+
+    firstname = models.CharField(max_length=32, blank=True, null=True, default=None)
+    lastname = models.CharField(max_length=32, blank=True, null=True, default=None)
+    phone_number = models.CharField(max_length=15, blank=True, null=True, validators=[RegexValidator(regex='^\+?1?\d{9,15}$')], default=None)
+    verified_as_doctor = models.BooleanField(default=False)
+    profile_picture = models.CharField(max_length=256, blank=True, null=True, default=None)
+    profession = models.CharField(max_length=32, blank=True, null=True, default=None)
+    location = models.CharField(max_length=128, blank=True, null=True, default=None)
+    diplomaID = models.CharField(max_length=32, blank=True, null=True, default=None)
