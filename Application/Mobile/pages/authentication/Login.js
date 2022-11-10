@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Stack, Button, TextInput, Text, Box, ActivityIndicator } from "@react-native-material/core";
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import LoadingDisplay from '../components/LoadingDisplay';
-import { HelperText } from 'react-native-paper';
+import { Image, ScrollView, StyleSheet, View,KeyboardAvoidingView } from 'react-native';
+import { Button, TextInput, HelperText } from 'react-native-paper';
 import { handleLoginRequest } from '../authAPI';
 
-export const LoginPage = ({ navigation }) => {
+// The login page
+const LoginPage = ({ navigation }) => {
 
   const [mail, setMail] = useState("")
   const [password, setPassword] = useState("")
@@ -45,49 +45,67 @@ export const LoginPage = ({ navigation }) => {
     navigation.navigate('Sign Up', { mail, password })
   }
 
-
-
   return (
-    <>
-      <Stack spacing={2} style={{ paddingTop: '12%', margin: 16, paddingBottom: 30 }}>
-        <Text variant="h1">M</Text>
-        <Text variant="subtitle1">Welcome! Medishare</Text>
-        <Box style={{ height: "10%" }}></Box>
+    <ScrollView contentContainerStyle={styles.body}>
+      <Image style={styles.logo} source={require('../../images/logo_long.png')} />
+      <View style={styles.main}> 
         <TextInput
           label="Mail"
           value={mail}
-          variant='filled'
           onChangeText={(text) => setMail(text)}
-          leading={() => (<Icon name="person" size={20} />)}
+          left={<TextInput.Icon name="email" color='gray'/>}
+          keyboardType="email-address"
         />
         <HelperText type="error" visible={mailError} >{mailError}</HelperText>
+
         <TextInput
           label="Password"
           value={password}
-          variant="filled"
           onChangeText={(text) => setPassword(text)}
           secureTextEntry={!showPass}
-          leading={() => (<Icon name="lock" size={20} />)}
-          trailing={() =>
-            showPass ? <Icon onPress={() => { setShowPass(!showPass) }} name="visibility" size={20} /> : <Icon onPress={() => { setShowPass(!showPass) }} name="visibility-off" size={20} />
-          }
+          keyboardType={showPass ? 'visible-password' : 'default'}
+          left={<TextInput.Icon name="lock" color='gray' />}
+          right={<TextInput.Icon name={showPass? 'eye' : 'eye-off'} color='gray' forceTextInputFocus={false} onPress={() => { setShowPass(!showPass) }} />}
         />
         <HelperText type="error" visible={passwordError}>{passwordError}</HelperText>
-        <Box style={{ height: "6%" }}></Box>
-        <Stack spacing={2} direction="row" >
-          <Button
-            title='Log In'
-            onPress={handleLogin}
-            style={{ width: "50%" }}
-          />
-          <Button
-            title='Sign Up'
-            style={{ width: "50%" }}
-            onPress={handleGoSignUp}
-          />
-        </Stack>
-      </Stack>
+      </View>
+      <View style={styles.buttonContainer} >
+        <Button mode='contained' style={styles.button}
+          onPress={() => navigation.navigate('Drawer')} // Change this back to onPress={handleLogin}
+        >
+          Log In
+        </Button>
+        <Button mode='contained' style={styles.button}
+          onPress={handleGoSignUp}
+        >
+          Sign Up
+        </Button>
+      </View>
       {loading && <LoadingDisplay />}
-    </>
+      </ScrollView>
   );
 }
+
+const styles = StyleSheet.create({
+  body: {
+    flex: 1,
+    //flexGrow: 1,
+    justifyContent: 'center',
+    margin: '5%',
+  },
+  logo: {
+    alignSelf: 'center',
+  },
+  main: {
+    marginVertical: '10%',
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  button: {
+    width: '49%',
+  },
+});
+
+export default LoginPage;

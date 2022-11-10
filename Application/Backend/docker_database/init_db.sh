@@ -1,6 +1,3 @@
 #!/bin/bash
 
-mysql -u root --password="$MYSQL_ROOT_PASSWORD"  << EOF
-USE ${MYSQL_DATABASE};
-GRANT ALL PRIVILEGES ON  test_${MYSQL_DATABASE}.* TO '${MYSQL_USER}';
-EOF
+mysql -u ${MYSQL_USER} --password="$MYSQL_ROOT_PASSWORD" -D $MYSQL_DATABASE < /tools/world.sql
