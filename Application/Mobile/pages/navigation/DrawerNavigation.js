@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import ProfileNavigation from '../navigation/ProfileNavigation';
 import MessagesScreen from '../messages/MessagesScreen';
@@ -14,7 +14,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 
 const Drawer = createDrawerNavigator();
 
-function CustomDrawerContent(props) {
+// The content of the drawer
+const CustomDrawerContent = (props) => {
     return (
         <DrawerContentScrollView{...props} contentContainerStyle={{ flex: 1, flexDirection: 'column', justifyContent: 'space-between' }}>
             <View>
@@ -40,6 +41,7 @@ function CustomDrawerContent(props) {
     );
 }
 
+// The main navigation after after logging in
 const DrawerNavigation = ({ navigation }) => {
     return (
         <Drawer.Navigator initialRouteName='Home' drawerContent={props => <CustomDrawerContent {...props} />}>
