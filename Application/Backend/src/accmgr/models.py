@@ -34,7 +34,7 @@ class RegisteredUser(AbstractUser):
 
     # Account information
 
-    account = models.OneToOneField(Account, on_delete=models.CASCADE, blank=True, null=True)
+    account = models.OneToOneField(Account, on_delete=models.CASCADE, blank=True, null=True, default=None)
 
     # Option fields
 
