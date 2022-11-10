@@ -61,6 +61,8 @@
   position: absolute;
   top: 20px;
   right: 125px;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .bigblue {
@@ -95,6 +97,8 @@ p {
 .dropbtn {
   background-color: white;
   border: 1px solid gray;
+  border-radius: 5px;
+
   color: rgb(28, 27, 27);
   padding: 11px 16px;
   font-size: 16px;
@@ -104,11 +108,13 @@ p {
 .dropdown {
   position: relative;
   display: inline-block;
+  border-radius: 5px;
 }
 
 .dropdowncontent {
   display: none;
   margin-left: 50px;
+  border-radius: 5px;
 
   position: absolute;
   background-color: #f1f1f1;
@@ -117,14 +123,15 @@ p {
   z-index: 1;
 }
 
-.dropdowncontent a {
+.dropdowncontent p {
   color: black;
   padding: 12px 0px;
   text-decoration: none;
   display: block;
+  margin: 0%;
 }
 
-.dropdowncontent a:hover {
+.dropdowncontent p:hover {
   background-color: #ddd;
 }
 
@@ -149,4 +156,24 @@ p {
   border-radius: 20px;
   font-weight: bold;
   font-size: larger;
+}
+.filter:hover {
+  filter: brightness(0.8);
+}
+.filter:active {
+  filter: brightness(1.2);
+}
+
+.createpost:hover {
+  filter: brightness(0.8);
+}
+.createpost:active {
+  filter: brightness(1.2);
+}
+
+.BsSearch:hover {
+  background: #f1f1f1;
+}
+.BsSearch:active {
+  filter: brightness(1.1);
 }
