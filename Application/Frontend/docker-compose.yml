@@ -9,6 +9,7 @@ services:
       file: ../Backend/docker-compose.yml
       service: database
   frontend:
+    image: medishare.frontend
     build:
       context: .
     command: npm start
