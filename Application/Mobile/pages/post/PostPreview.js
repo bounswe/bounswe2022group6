@@ -55,13 +55,14 @@ const PostPreview = (props) => {
             {/* Username, profile photo, post date etc. */}
             <Card.Title subtitle={props.postAuthor + '\n' + 'yesterday'} subtitleNumberOfLines={2} left={(props2) => <LeftContent profile={props.authorProfilePhoto} {...props2} />} right={(props2) => <RightContent {...props2} openSnackBar={props.openSnackBar} author={props.postAuthor} />} />
 
-            {/* Post title */}
-            <Card.Title title={props.postTitle} titleNumberOfLines={2} />
-
             {/* Post Labels */}
             {props.labels && <Card.Content style={styles.labelContainer}>
                 {props.labels.map(label => <Chip key={label.text} style={{ ...styles.label, borderColor: label.color }} textStyle={{ color: label.color }} mode='outlined'>{label.text}</Chip>)}
-            </Card.Content>}
+            </Card.Content>
+            }
+
+            {/* Post title */}
+            <Card.Title title={props.postTitle} titleNumberOfLines={2} />
 
             {/* Post Image */}
             {props.cardCover &&
