@@ -36,6 +36,11 @@ class RegisterUser(APIView):
         birth_month_str = birth_month_str.strip()
         birth_day_str = birth_day_str.strip()
 
+        # check password length
+
+        if len(password_str) < 6 or len(password_str) > 120:
+            return JsonResponse({"info":"user registration failed", "error": "{'password': ['Password length must be between 6 and 120.']}"}, status=400)
+
         # Hassh password
 
         password = sha256(password_str.encode("UTF-8")).hexdigest()
