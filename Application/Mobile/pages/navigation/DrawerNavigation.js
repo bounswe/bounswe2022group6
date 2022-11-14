@@ -5,11 +5,8 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import ProfileNavigation from '../navigation/ProfileNavigation';
 import MessagesScreen from '../messages/MessagesScreen';
 import HomeScreen from '../home/HomeScreen';
-import {
-    DrawerContentScrollView,
-    DrawerItemList,
-    DrawerItem
-} from '@react-navigation/drawer';
+import HomeHeader from '../home/HomeHeader';
+import { DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 const Drawer = createDrawerNavigator();
@@ -42,11 +39,12 @@ const CustomDrawerContent = (props) => {
 }
 
 // The main navigation after after logging in
-const DrawerNavigation = ({ navigation }) => {
+const DrawerNavigation = (props) => {
     return (
         <Drawer.Navigator initialRouteName='Home' drawerContent={props => <CustomDrawerContent {...props} />}>
             <Drawer.Screen name='Home' component={HomeScreen} options={{
                 title: 'Home',
+                header: (props) => <HomeHeader {...props} />,
                 drawerIcon: ({ focused, color, size }) => (
                     <Ionicons
                         name={focused ? 'home' : 'home-outline'}
