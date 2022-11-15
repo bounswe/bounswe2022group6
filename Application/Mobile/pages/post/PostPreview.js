@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Card, Avatar, Button, IconButton, Text, withTheme, Menu, Divider, Chip } from 'react-native-paper';
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Pressable } from 'react-native';
+//import AnimatedNumbers from 'react-native-animated-numbers';
 
 // The content on the left of username
 const LeftContent = (props) => {
@@ -38,23 +39,33 @@ const PostPreview = (props) => {
     const [isNSFW, setIsNSFW] = useState(props.nsfw); // NSFW
 
     // Upvote & Downvote
+    //TODO: the initial states should be taken from backend
     const [downVoted, setDownvoted] = useState(false);
     const [upVoted, setUpvoted] = useState(false);
 
     const handleDownvote = () => {
-        setDownvoted(!downVoted)
-        setUpvoted(false)
+        setDownvoted(!downVoted);
+        setUpvoted(false);
+        //TODO: send request to downvote
     }
     const handleUpvote = () => {
         setUpvoted(!upVoted)
         setDownvoted(false)
+        //TODO: send request to upvote
     }
 
     return (
-        <Card style={styles.card} onPress={() => console.log('clicked post!')}>
+        <Card style={styles.card} onPress={() => props.navigation.navigate('Post Details', {username: props.postAuthor, title: props.postTitle, description: props.cardContent})}>
             {/* Username, profile photo, post date etc. */}
-            <Card.Title subtitle={props.postAuthor + '\n' + 'yesterday'} subtitleNumberOfLines={2} left={(props2) => <LeftContent profile={props.authorProfilePhoto} {...props2} />} right={(props2) => <RightContent {...props2} openSnackBar={props.openSnackBar} author={props.postAuthor} />} />
-
+            <Card.Title
+                title={<Text onPress={() => console.log('clicked username')}>{props.postAuthor}</Text>}
+                titleStyle={{fontSize: 14}}
+                subtitle={<Text onPress={() => console.log('clicked date')}>{'yesterday'}</Text>} //TODO: take date data from props
+                subtitleStyle={{fontSize: 12, color: 'red'}}
+                left={(props2) => <LeftContent profile={props.authorProfilePhoto} {...props2} />}
+                leftStyle={{alignSelf: 'center'}}
+                right={(props2) => <RightContent {...props2} openSnackBar={props.openSnackBar} author={props.postAuthor} />}
+            />
             {/* Post Labels */}
             {props.labels && <Card.Content style={styles.labelContainer}>
                 {props.labels.map(label => <Chip key={label.text} style={{ ...styles.label, borderColor: label.color }} textStyle={{ color: label.color }} mode='outlined'>{label.text}</Chip>)}
@@ -83,7 +94,9 @@ const PostPreview = (props) => {
             <Card.Actions style={styles.cardFooter}>
                 <View style={styles.voteContainer}>
                     <IconButton color={colors.primary} animated={true} icon={upVoted ? 'arrow-up-drop-circle' : 'arrow-up-drop-circle-outline'} onPress={handleUpvote} />
-                    <Text>{props.upvote - props.downvote + upVoted - downVoted}</Text>
+                    <Text>
+                        {props.upvote - props.downvote + upVoted - downVoted}
+                    </Text>
                     <IconButton color={colors.primary} animated={true} icon={downVoted ? 'arrow-down-drop-circle' : 'arrow-down-drop-circle-outline'} onPress={handleDownvote} />
                 </View>
                 <Button labelStyle={{ fontSize: 23 }} contentStyle={styles.comment} icon='comment-outline' onPress={() => console.log('Clicked comment')}><Text style={{ fontSize: 13 }}>{props.comment}</Text></Button>

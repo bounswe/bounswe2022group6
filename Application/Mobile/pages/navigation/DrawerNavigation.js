@@ -42,9 +42,9 @@ const CustomDrawerContent = (props) => {
 const DrawerNavigation = (props) => {
     return (
         <Drawer.Navigator initialRouteName='Home' drawerContent={props => <CustomDrawerContent {...props} />}>
-            <Drawer.Screen name='Home' component={HomeScreen} options={{
+            <Drawer.Screen name='Home' component={HomeScreen} options={{ 
                 title: 'Home',
-                header: (props) => <HomeHeader {...props} />,
+                headerShown: false,
                 drawerIcon: ({ focused, color, size }) => (
                     <Ionicons
                         name={focused ? 'home' : 'home-outline'}

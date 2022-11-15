@@ -3,13 +3,13 @@ import { Appbar, Searchbar } from 'react-native-paper';
 import { StyleSheet } from 'react-native'
 
 // The top navigation bar of home feed
-const HomeHeader = (props) => {
+const HomeHeader = ({navigation}) => {
     const [searchQuery, setSearchQuery] = React.useState('');
     const onChangeSearch = query => setSearchQuery(query);
 
     return (
         <Appbar.Header style={styles.topBar}>
-            <Appbar.Action icon="menu" color="white" onPress={() => props.navigation.toggleDrawer()} />
+            <Appbar.Action icon="menu" color="white" onPress={() => navigation.toggleDrawer()} />
             <Searchbar
                 theme={{roundness: 50}}
                 placeholder="Search posts, users..."
@@ -19,7 +19,7 @@ const HomeHeader = (props) => {
                 inputStyle={styles.searchInput}
                 onSubmitEditing={() => console.log('You are searching: ' + searchQuery)}
             />
-            <Appbar.Action icon="robot-happy" color='white' onPress={() => console.log('Clicked chatbot!')} />
+            <Appbar.Action icon="robot-happy" color='white' onPress={() => navigation.navigate('Chatbot')} />
         </Appbar.Header>
     );
 }
