@@ -147,8 +147,8 @@ class Profile(APIView):
             "is_messaging_allowed": profile.is_messaging_allowed,
             "is_notifications_allowed": profile.is_notification_allowed,
 
-            "firstname": profile.account.firstname,
-            "lastname": profile.account.lastname,
+            "first_name": profile.account.first_name,
+            "last_name": profile.account.last_name,
             "profile_picture": profile.account.profile_picture,
             "phone_number": profile.account.phone_number,
             "verified_as_doctor": profile.account.verified_as_doctor,

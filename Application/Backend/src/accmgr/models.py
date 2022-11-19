@@ -40,8 +40,8 @@ class Account(models.Model):
 
     owner = models.OneToOneField(RegisteredUser, on_delete=models.CASCADE, blank=True, null=True, default=None)
 
-    firstname = models.CharField(max_length=32, blank=True, null=True, default=None)
-    lastname = models.CharField(max_length=32, blank=True, null=True, default=None)
+    first_name = models.CharField(max_length=32, blank=True, null=True, default=None)
+    last_name = models.CharField(max_length=32, blank=True, null=True, default=None)
     phone_number = models.CharField(max_length=15, blank=True, null=True, validators=[RegexValidator(regex='^\+?1?\d{9,15}$')], default=None)
     verified_as_doctor = models.BooleanField(default=False)
     profile_picture = models.CharField(max_length=256, blank=True, null=True, default=None)
