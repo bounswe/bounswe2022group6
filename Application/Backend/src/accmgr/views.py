@@ -1,4 +1,3 @@
-from typing import overload
 from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
 from rest_framework.permissions import IsAuthenticated, AllowAny
@@ -139,7 +138,26 @@ class Profile(APIView):
 
     def get(self, req):
         profile = RegisteredUser.objects.get(username=req.user)
-        return JsonResponse({"username": profile.username, "email": profile.email, "birth_date": profile.birth_date, "gender": profile.gender}, status=200)
+        profile_data = {
+
+            "username": profile.username,
+            "email": profile.email,
+            "birth_date": profile.birth_date,
+            "gender": profile.gender,
+            "is_messaging_allowed": profile.is_messaging_allowed,
+            "is_notifications_allowed": profile.is_notification_allowed,
+
+            "firstname": profile.account.firstname,
+            "lastname": profile.account.lastname,
+            "profile_picture": profile.account.profile_picture,
+            "phone_number": profile.account.phone_number,
+            "verified_as_doctor": profile.account.verified_as_doctor,
+            "profession": profile.account.profession,
+            "location": profile.account.location,
+            "diplomaID": profile.account.diplomaID,
+        }
+
+        return JsonResponse(profile_data, status=200)
 
     def put(self, req):
         # TODO: Can't change username
