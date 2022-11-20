@@ -7,9 +7,14 @@ services:
     env_file:
       - .env
     volumes:
-      - ./_temp_db:/var/lib/mysql
+      - ./_temp_db:/var/lib/postgresql/data/
     networks:
       - db-backend
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -q -U data_yonetici"]
+      interval: 5s
+      timeout: 5s
+      retries: 120
   backend:
     image: medishare.backend
     build:
@@ -23,7 +28,8 @@ services:
     env_file:
         - .env
     depends_on:
-      - database
+      database:
+        condition: service_healthy
     networks:
       - db-backend
 
@@ -36,7 +42,7 @@ services:
     env_file:
       - .env
     volumes:
-      - ./_temp_db:/var/lib/mysql
+      - ./_temp_db:/var/lib/postgresql/data/
     command:
       - ./reset_db.sh
 
