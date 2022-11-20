@@ -137,33 +137,111 @@ class Profile(APIView):
     permission_classes = (IsAuthenticated,)
 
     def get(self, req):
-        profile = RegisteredUser.objects.get(username=req.user)
+        user = RegisteredUser.objects.get(username=req.user)
+        account = Account.objects.get(owner=user)
         profile_data = {
 
-            "username": profile.username,
-            "email": profile.email,
-            "birth_date": profile.birth_date,
-            "gender": profile.gender,
-            "is_messaging_allowed": profile.is_messaging_allowed,
-            "is_notifications_allowed": profile.is_notification_allowed,
+            "username": user.username,
+            "email": user.email,
+            "birth_date": user.birth_date,
+            "gender": user.gender,
+            "is_messaging_allowed": user.is_messaging_allowed,
+            "is_notifications_allowed": user.is_notification_allowed,
 
-            "first_name": profile.account.first_name,
-            "last_name": profile.account.last_name,
-            "profile_picture": profile.account.profile_picture,
-            "phone_number": profile.account.phone_number,
-            "verified_as_doctor": profile.account.verified_as_doctor,
-            "profession": profile.account.profession,
-            "location": profile.account.location,
-            "diplomaID": profile.account.diplomaID,
+            "first_name": account.first_name,
+            "last_name": account.last_name,
+            "profile_picture": account.profile_picture,
+            "phone_number": account.phone_number,
+            "verified_as_doctor": account.verified_as_doctor,
+            "profession": account.profession,
+            "location": account.location,
+            "diplomaID": account.diplomaID,
         }
 
         return JsonResponse(profile_data, status=200)
 
-    def put(self, req):
-        # TODO: Can't change username
-        # TODO: Can change email and others
-        # TODO: Should be able to add Name and Surname
-        return JsonResponse({})
+    def patch(self, req):
+
+        email = req.POST.get("email", None)
+        gender = req.POST.get("gender", None)
+        birth_year_str = req.POST.get("birth_year", None)
+        birth_month_str = req.POST.get("birth_month", None)
+        birth_day_str = req.POST.get("birth_day", None)
+        first_name = req.POST.get("first_name", None)
+        last_name = req.POST.get("last_name", None)
+        phone_number = req.POST.get("phone_number", None)
+        profile_picture = req.POST.get("profile_picture", None)
+        profession = req.POST.get("profession", None)
+        location = req.POST.get("location", None)
+        diplomaID = req.POST.get("diplomaID", None)
+
+        # Remove spaces and format
+
+        email = email.lower().strip() if email is not None else None
+        gender = gender.upper().strip() if gender is not None else None
+        birth_year_str = birth_year_str.strip() if birth_year_str is not None else None
+        birth_month_str = birth_month_str.strip() if birth_month_str is not None else None
+        birth_day_str = birth_day_str.strip() if birth_day_str is not None else None
+        phone_number = phone_number.strip() if phone_number is not None else None
+        profile_picture = profile_picture.strip() if profile_picture is not None else None
+        profession = profession.strip() if profession is not None else None
+        location = location.strip() if location is not None else None
+        diplomaID = diplomaID.strip() if diplomaID is not None else None
+
+        # Check if birth date fields are all integers
+
+        try:
+            birth_day = int(birth_day_str) if birth_day_str is not None and birth_day_str != "" else None
+        except :
+            return JsonResponse({"info":"user profile update failed", "error": "{'birth_day': ['Enter an integer.']}"}, status=400)
+
+        try:
+            birth_month = int(birth_month_str) if birth_month_str is not None and birth_month != "" else None
+        except :
+            return JsonResponse({"info":"user profile update failed", "error": "{'birth_month': ['Enter an integer.']}"}, status=400)
+
+        try:
+            birth_year = int(birth_year_str) if birth_year_str is not None and birth_year != "" else None
+        except :
+            return JsonResponse({"info":"user profile update failed", "error": "{'birth_year': ['Enter an integer.']}"}, status=400)
+
+        # Check if birth date fields comply with real date system
+
+        try:
+            birth_date = date(birth_year, birth_month, birth_day) if (
+                birth_year is not None and birth_day_str != "" and 
+                birth_month is not None and birth_month != "" and 
+                birth_day is not None and birth_year != "") else None
+        except Exception as e:
+            return JsonResponse({"info":"user profile update failed", "error": "{'birth_date': ['" + str(e) + "']}"}, status=400)
+
+        # Assign non-null values to user and account
+
+        user = RegisteredUser.objects.get(username=req.user)
+        account = Account.objects.get(owner=user)
+
+        # Required fields
+
+        user.email = user.email if email is None else email
+        user.gender = user.gender if gender is None else gender
+        user.birth_date = user.birth_date if birth_date is None else birth_date
+
+        # Optional_fields
+
+        account.first_name = account.first_name if first_name is None else first_name if first_name != "" else None
+        account.last_name = account.last_name if last_name is None else last_name if last_name != "" else None
+        account.phone_number = account.phone_number if phone_number is None else phone_number if phone_number != "" else None
+        account.profile_picture = account.profile_picture if profile_picture is None else profile_picture if profile_picture != "" else None
+        account.profession = account.profession if profession is None else profession if profession != "" else None
+        account.location = account.location if location is None else location if location != "" else None
+        account.diplomaID = account.diplomaID if diplomaID is None else diplomaID if diplomaID != "" else None
+
+        try:
+            user.save()
+            account.save()
+            return JsonResponse({"info":"user profile update successful"}, status=200)
+        except Exception as e:
+            return JsonResponse({"info":"user profile update failed", "error": str(e)}, status=400)
 
     def delete(self, req):
         # TODO: Remove account with username
