@@ -7,8 +7,13 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 
+class LocationManager(models.Manager):
+    using = 'location'
+    def get_queryset(self):
+        return super().get_queryset().using(self.using)
 
 class Cities(models.Model):
+    objects = LocationManager()
     name = models.CharField(max_length=255)
     state = models.ForeignKey('States', models.DO_NOTHING)
     state_code = models.CharField(max_length=255)
@@ -16,17 +21,14 @@ class Cities(models.Model):
     country_code = models.CharField(max_length=2)
     latitude = models.DecimalField(max_digits=10, decimal_places=8)
     longitude = models.DecimalField(max_digits=11, decimal_places=8)
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
-    flag = models.IntegerField()
-    wikidataid = models.CharField(db_column='wikiDataId', max_length=255, blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        # managed = False
+        #managed = False
         db_table = 'cities'
 
 
 class Countries(models.Model):
+    objects = LocationManager()
     name = models.CharField(max_length=100)
     iso3 = models.CharField(max_length=3, blank=True, null=True)
     numeric_code = models.CharField(max_length=3, blank=True, null=True)
@@ -46,17 +48,14 @@ class Countries(models.Model):
     longitude = models.DecimalField(max_digits=11, decimal_places=8, blank=True, null=True)
     emoji = models.CharField(max_length=191, blank=True, null=True)
     emojiu = models.CharField(db_column='emojiU', max_length=191, blank=True, null=True)  # Field name made lowercase.
-    created_at = models.DateTimeField(blank=True, null=True)
-    updated_at = models.DateTimeField()
-    flag = models.IntegerField()
-    wikidataid = models.CharField(db_column='wikiDataId', max_length=255, blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        # managed = False
+        #managed = False
         db_table = 'countries'
 
 
 class States(models.Model):
+    objects = LocationManager()
     name = models.CharField(max_length=255)
     country = models.ForeignKey(Countries, models.DO_NOTHING)
     country_code = models.CharField(max_length=2)
@@ -65,12 +64,7 @@ class States(models.Model):
     type = models.CharField(max_length=191, blank=True, null=True)
     latitude = models.DecimalField(max_digits=10, decimal_places=8, blank=True, null=True)
     longitude = models.DecimalField(max_digits=11, decimal_places=8, blank=True, null=True)
-    created_at = models.DateTimeField(blank=True, null=True)
-    updated_at = models.DateTimeField()
-    flag = models.IntegerField()
-    wikidataid = models.CharField(db_column='wikiDataId', max_length=255, blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        # managed = False
+        #managed = False
         db_table = 'states'
-
