@@ -33,19 +33,6 @@ services:
     networks:
       - db-backend
 
-  reset-db:
-    profiles: 
-      - tools
-    image: medishare.database
-    build:
-      context: ./docker_database
-    env_file:
-      - .env
-    volumes:
-      - ./_temp_db:/var/lib/postgresql/data/
-    command:
-      - ./reset_db.sh
-
 networks:
   db-backend:
     name: db-backend
