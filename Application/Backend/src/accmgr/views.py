@@ -36,6 +36,11 @@ class RegisterUser(APIView):
         birth_month_str = birth_month_str.strip()
         birth_day_str = birth_day_str.strip()
 
+        # check password length
+
+        if len(password_str) < 6 or len(password_str) > 120:
+            return JsonResponse({"info":"user registration failed", "error": "{'password': ['Password length must be between 6 and 120.']}"}, status=400)
+
         # Hassh password
 
         password = sha256(password_str.encode("UTF-8")).hexdigest()
@@ -65,7 +70,7 @@ class RegisterUser(APIView):
             birth_date = date(birth_year, birth_month, birth_day)
         except Exception as e:
             return JsonResponse({"info":"user registration failed", "error": "{'birth_date': ['" + str(e) + "']}"}, status=400)
-            
+        
         new_user = RegisteredUser(username=username, email=email, password=password, birth_date=birth_date, gender=gender)
 
         ## This check is about the database constraints
@@ -74,6 +79,8 @@ class RegisterUser(APIView):
 
         try:
             new_user.save()
+            new_account = Account(owner=new_user)
+            new_account.save()
             return JsonResponse({"info": "user registration successful", "userID": new_user.userID}, status=201)
         except Exception as e:
             return JsonResponse({"info":"user registration failed", "error": str(e)}, status=400)

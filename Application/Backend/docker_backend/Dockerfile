@@ -20,5 +20,10 @@ RUN python manage.py makemigrations
 RUN python manage.py migrate
 RUN python manage.py test
 
+# Cleanup and replacement
+RUN rm -r /backend/django/*
+COPY ./manage.py /backend/django/
+COPY ./src /backend/django/src
+
 # ENTRYPOINT ["python", "manage.py"]
 # CMD ["runserver", "0.0.0.0:8000"]
