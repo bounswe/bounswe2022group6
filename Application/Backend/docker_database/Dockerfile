@@ -2,7 +2,7 @@ FROM postgres:15.1-alpine
 RUN apk add bash 
 
 WORKDIR /tools
-#COPY ./world_compatible.sql /docker-entrypoint-initdb.d/world.sql
+COPY ./world.sql /docker-entrypoint-initdb.d/world.sql
 #RUN cat <(echo -e "CREATE DATABASE ${ANNOTATION_DB} OWNER ${POSTGRES_USER};\nCREATE DATABASE ${LOCATION_DB} OWNER ${POSTGRES_USER};\n") /tools/world.sql > /docker-entrypoint-initdb.d/world.sql
 
 COPY ./init_db.sh /docker-entrypoint-initdb.d/

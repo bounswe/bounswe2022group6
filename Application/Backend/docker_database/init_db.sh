@@ -8,7 +8,7 @@ function create_user_and_database() {
     echo "  Creating user and database '$database'"
     psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" <<-EOSQL
         CREATE USER $database;
-        CREATE DATABASE $database;
+        CREATE DATABASE $database WITH encoding = 'utf8' ;
         GRANT ALL PRIVILEGES ON DATABASE $database TO $database;
 EOSQL
 }
