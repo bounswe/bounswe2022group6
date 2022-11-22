@@ -38,6 +38,6 @@ class Location(APIView):
         if req.GET.get("ip"):
             data = self.get_ip(req.GET["ip"])
             if "error" in data:
-                return JsonResponse({"loc": {}})
+                return JsonResponse({"loc": []})
             return JsonResponse({"loc": [data['country'], data['regionName'], data['city']]})
         return JsonResponse({"loc": []})
