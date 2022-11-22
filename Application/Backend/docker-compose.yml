@@ -22,7 +22,7 @@ services:
       dockerfile: ./docker_backend/Dockerfile
     command: ../init_backend.sh
     volumes:
-      - .:/backend/django
+      - ./src:/backend/django/src
     ports:
       - "8000:8000"
     env_file:
