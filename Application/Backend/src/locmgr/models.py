@@ -16,11 +16,11 @@ class Cities(models.Model):
     objects = LocationManager()
     name = models.CharField(max_length=255)
     state = models.ForeignKey('States', models.DO_NOTHING)
-    state_code = models.CharField(max_length=255)
+    state_code = models.CharField(max_length=255, blank=True, null=True)
     country = models.ForeignKey('Countries', models.DO_NOTHING)
-    country_code = models.CharField(max_length=2)
-    latitude = models.DecimalField(max_digits=10, decimal_places=8)
-    longitude = models.DecimalField(max_digits=11, decimal_places=8)
+    country_code = models.CharField(max_length=2, blank=True, null=True)
+    latitude = models.DecimalField(max_digits=10, decimal_places=8, blank=True, null=True)
+    longitude = models.DecimalField(max_digits=11, decimal_places=8, blank=True, null=True)
 
     class Meta:
         #managed = False
@@ -58,7 +58,7 @@ class States(models.Model):
     objects = LocationManager()
     name = models.CharField(max_length=255)
     country = models.ForeignKey(Countries, models.DO_NOTHING)
-    country_code = models.CharField(max_length=2)
+    country_code = models.CharField(max_length=2, blank=True, null=True)
     fips_code = models.CharField(max_length=255, blank=True, null=True)
     iso2 = models.CharField(max_length=255, blank=True, null=True)
     type = models.CharField(max_length=191, blank=True, null=True)
