@@ -36,18 +36,13 @@ class RegisterUser(APIView):
         birth_month_str = birth_month_str.strip()
         birth_day_str = birth_day_str.strip()
 
-        # check password length
-
-        if len(password_str) < 6 or len(password_str) > 120:
-            return JsonResponse({"info":"user registration failed", "error": "{'password': ['Password length must be between 6 and 120.']}"}, status=400)
-
-        # Hassh password
+        # Hash the password
 
         password = sha256(password_str.encode("UTF-8")).hexdigest()
 
         ## These checks are about the validity of the data sent independent of the database constraints
 
-        # Check if birth date fields are all integers
+        # Check if birthdate fields are all integers
 
         try:
             birth_day = int(birth_day_str)
@@ -70,7 +65,7 @@ class RegisterUser(APIView):
             birth_date = date(birth_year, birth_month, birth_day)
         except Exception as e:
             return JsonResponse({"info":"user registration failed", "error": "{'birth_date': ['" + str(e) + "']}"}, status=400)
-        
+            
         new_user = RegisteredUser(username=username, email=email, password=password, birth_date=birth_date, gender=gender)
 
         ## This check is about the database constraints
@@ -79,8 +74,6 @@ class RegisterUser(APIView):
 
         try:
             new_user.save()
-            new_account = Account(owner=new_user)
-            new_account.save()
             return JsonResponse({"info": "user registration successful", "userID": new_user.userID}, status=201)
         except Exception as e:
             return JsonResponse({"info":"user registration failed", "error": str(e)}, status=400)
@@ -122,12 +115,12 @@ class LoginUser(APIView):
 
         return JsonResponse({"info":"user login successful", "token":token}, status=200)
 
+
 class LogoutUser(APIView):
 
     permission_classes = (IsAuthenticated,)
 
     def get(self, req):
-
         req.user.auth_token.delete()
         logout(req)
         return JsonResponse({"detail": "user logout successful"}, status=200)
@@ -148,5 +141,13 @@ class Profile(APIView):
         return JsonResponse({})
 
     def delete(self, req):
-        # TODO: Remove account with username
-        return JsonResponse({})
+
+        try:
+            req.user.auth_token.delete()
+            logout(req)
+            profile = RegisteredUser.objects.get(username=req.user)
+            profile.delete()
+            return JsonResponse({"success": "account is deleted successfully"}, status=200)
+
+        except :
+            return JsonResponse({"error": "account cannot be deleted"}, status=500)
