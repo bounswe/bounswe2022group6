@@ -1,5 +1,5 @@
 FROM python:3.10-alpine
-RUN apk add gcc musl-dev mariadb-connector-c-dev bash
+RUN apk add gcc musl-dev libpq-dev bash
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1

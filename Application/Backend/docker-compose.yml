@@ -7,9 +7,16 @@ services:
     env_file:
       - .env
     volumes:
-      - ./_temp_db:/var/lib/mysql
+      - ./_temp_db:/var/lib/postgresql/data/
     networks:
       - db-backend
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -q -U data_yonetici"]
+      interval: 5s
+      timeout: 5s
+      retries: 120
   backend:
     image: medishare.backend
     build:
@@ -17,28 +24,16 @@ services:
       dockerfile: ./docker_backend/Dockerfile
     command: ../init_backend.sh
     volumes:
-      - .:/backend/django
+      - ./src:/backend/django/src
     ports:
       - "8000:8000"
     env_file:
         - .env
     depends_on:
-      - database
+      database:
+        condition: service_healthy
     networks:
       - db-backend
-
-  reset-db:
-    profiles: 
-      - tools
-    image: medishare.database
-    build:
-      context: ./docker_database
-    env_file:
-      - .env
-    volumes:
-      - ./_temp_db:/var/lib/mysql
-    command:
-      - ./reset_db.sh
 
 networks:
   db-backend:
