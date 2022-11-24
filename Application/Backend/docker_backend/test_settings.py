@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'src.accmgr',
     'src.locmgr',
+    'src.contmgr',
 ]
 
 MIDDLEWARE = [
