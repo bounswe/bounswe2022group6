@@ -190,31 +190,42 @@ class Profile(APIView):
 
         # Check if birth date fields are all integers
 
-        try:
-            birth_day = int(birth_day_str) if birth_day_str is not None and birth_day_str != "" else None
-        except :
-            return JsonResponse({"info":"user profile update failed", "error": "{'birth_day': ['Enter an integer.']}"}, status=400)
+        if ((birth_day_str is not None) and (birth_month_str is not None) and (birth_year_str is not None)):
+            try:
+                birth_day = int(birth_day_str)
+            except :
+                return JsonResponse({"info":"user profile update failed", "error": "{'birth_day': ['Enter an integer.']}"}, status=400)
+            
+            try:
+                birth_month = int(birth_month_str)
+            except :
+                return JsonResponse({"info":"user profile update failed", "error": "{'birth_month': ['Enter an integer.']}"}, status=400)
 
-        try:
-            birth_month = int(birth_month_str) if birth_month_str is not None and birth_month != "" else None
-        except :
-            return JsonResponse({"info":"user profile update failed", "error": "{'birth_month': ['Enter an integer.']}"}, status=400)
+            try:
+                birth_year = int(birth_year_str)
+            except :
+                return JsonResponse({"info":"user profile update failed", "error": "{'birth_year': ['Enter an integer.']}"}, status=400)
 
-        try:
-            birth_year = int(birth_year_str) if birth_year_str is not None and birth_year != "" else None
-        except :
-            return JsonResponse({"info":"user profile update failed", "error": "{'birth_year': ['Enter an integer.']}"}, status=400)
+            # Check if birth date fields comply with real date system
 
+            try:
+                birth_date = date(birth_year, birth_month, birth_day)
+            except Exception as e:
+                return JsonResponse({"info":"user profile update failed", "error": "{'birth_date': ['" + str(e) + "']}"}, status=400)
+
+        elif ((birth_day_str is None) and (birth_month_str is None) and (birth_year_str is None)):
+            pass
+        else:
+            return JsonResponse({"info":"user profile update failed", "error": "{'birth_date': ['Enter all fields together.']}"}, status=400)
         # Check if birth date fields comply with real date system
 
-        try:
-            birth_date = date(birth_year, birth_month, birth_day) if (
-                birth_year is not None and birth_day_str != "" and 
-                birth_month is not None and birth_month != "" and 
-                birth_day is not None and birth_year != "") else None
-        except Exception as e:
-            return JsonResponse({"info":"user profile update failed", "error": "{'birth_date': ['" + str(e) + "']}"}, status=400)
-
+        if ((birth_day_str is None) and (birth_month_str is None) and (birth_year_str is None)):
+            birth_date = None
+        else:
+            try:
+                birth_date = date(birth_year, birth_month, birth_day)
+            except Exception as e:
+                return JsonResponse({"info":"user profile update failed", "error": "{'birth_date': ['" + str(e) + "']}"}, status=400)
         # Assign non-null values to user and account
 
         user = RegisteredUser.objects.get(username=req.user)
