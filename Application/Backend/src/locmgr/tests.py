@@ -3,6 +3,7 @@ from .models import *
 import json
 
 class TestViews(TestCase):
+    databases = ['location']
     @classmethod
     def setUpTestData(self):
         country = Countries.objects.create(name="Turkey")

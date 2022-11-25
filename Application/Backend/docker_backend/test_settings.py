@@ -85,6 +85,14 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': '_temp.sqlite3',
+    },
+    'annotation': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': '_temp_annotation.sqlite3',
+    },
+    'location': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': '_temp_location.sqlite3',
     }
 }
 
