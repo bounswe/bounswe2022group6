@@ -3,7 +3,7 @@
 # Wait for database to respond
 while :
 do
-    (echo -n > /dev/tcp/$MYSQL_DATABASE_HOST/$MYSQL_DATABASE_PORT) >/dev/null 2>&1
+    (echo -n > /dev/tcp/$POSTGRES_HOST/5432) >/dev/null 2>&1
     WAITFORIT_result=$?
     if [[ $WAITFORIT_result -eq 0 ]]; then
         echo "Database responded!"
@@ -15,7 +15,8 @@ done
 
 # Update database and run the server
 python manage.py makemigrations
-python manage.py migrate --run-syncdb
+python manage.py makemigrations accmgr
+python manage.py migrate accmgr --fake-initial
 python manage.py migrate --run-syncdb
 
 # Create debug superuser if username given
