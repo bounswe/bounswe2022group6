@@ -160,7 +160,7 @@ class Profile(APIView):
 
         return JsonResponse(profile_data, status=200)
 
-    def patch(self, req):
+    def post(self, req):
 
         email = req.POST.get("email", None)
         gender = req.POST.get("gender", None)
