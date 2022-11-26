@@ -1,54 +1,75 @@
 {
 	"info": {
-		"_postman_id": "83bb7029-dcfc-42c6-b24f-0c80a0ac3f2f",
+		"_postman_id": "4685815f-5751-4be7-b67d-408f8da9dfa0",
 		"name": "Profile",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24070174"
 	},
 	"item": [
 		{
-			"name": "Get Request Success",
+			"name": "Add Firstname",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 54626e2797bf716dced5aae370b6b1041829fb6e",
-						"description": "A valid token which means the user is logged in.",
-						"type": "default"
+						"value": "Token 2360e343d469e38a0d067d46785ce6e293666094",
+						"type": "text"
 					}
 				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "first_name",
+							"value": "Markine Sun",
+							"type": "text"
+						}
+					]
+				},
 				"url": {
-					"raw": "localhost:8000/profile",
+					"raw": "localhost:8000/profile/",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
-						"profile"
+						"profile",
+						""
 					]
 				}
 			},
 			"response": [
 				{
-					"name": "Get Request Success",
+					"name": "Add Firstname",
 					"originalRequest": {
-						"method": "GET",
+						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token 54626e2797bf716dced5aae370b6b1041829fb6e",
-								"description": "A valid token which means the user is logged in.",
-								"type": "default"
+								"value": "Token 2360e343d469e38a0d067d46785ce6e293666094",
+								"type": "text"
 							}
 						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "first_name",
+									"value": "Markine Sun",
+									"type": "text"
+								}
+							]
+						},
 						"url": {
-							"raw": "localhost:8000/profile",
+							"raw": "localhost:8000/profile/",
 							"host": [
 								"localhost"
 							],
 							"port": "8000",
 							"path": [
-								"profile"
+								"profile",
+								""
 							]
 						}
 					},
@@ -58,7 +79,7 @@
 					"header": [
 						{
 							"key": "Date",
-							"value": "Sun, 30 Oct 2022 17:32:54 GMT"
+							"value": "Sat, 26 Nov 2022 12:50:15 GMT"
 						},
 						{
 							"key": "Server",
@@ -74,7 +95,7 @@
 						},
 						{
 							"key": "Allow",
-							"value": "GET, PUT, DELETE, HEAD, OPTIONS"
+							"value": "GET, POST, DELETE, HEAD, OPTIONS"
 						},
 						{
 							"key": "X-Frame-Options",
@@ -82,7 +103,7 @@
 						},
 						{
 							"key": "Content-Length",
-							"value": "103"
+							"value": "42"
 						},
 						{
 							"key": "X-Content-Type-Options",
@@ -98,7 +119,624 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"username\": \"mark\",\n    \"email\": \"mark.zucky@facadeledger.com\",\n    \"birth_date\": \"1970-10-06\",\n    \"gender\": \"M\"\n}"
+					"body": "{\n    \"info\": \"user profile update successful\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Only Birth Day",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 2360e343d469e38a0d067d46785ce6e293666094",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "birth_day",
+							"value": "7",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/profile/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"profile",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Firstname",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 2360e343d469e38a0d067d46785ce6e293666094",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "first_name",
+									"value": "Markine Sun",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/profile/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"profile",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 26 Nov 2022 12:50:15 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "42"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"user profile update successful\"\n}"
+				},
+				{
+					"name": "Only Birth Day",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 2360e343d469e38a0d067d46785ce6e293666094",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "birth_day",
+									"value": "7",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/profile/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"profile",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 26 Nov 2022 12:53:44 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "97"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"user profile update failed\",\n    \"error\": \"{'birth_date': ['Enter all fields together.']}\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Remove Firstname",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 2360e343d469e38a0d067d46785ce6e293666094",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "first_name",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/profile/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"profile",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Remove Firstname",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 2360e343d469e38a0d067d46785ce6e293666094",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "first_name",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/profile/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"profile",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 26 Nov 2022 12:52:13 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "42"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"user profile update successful\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Success",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 2360e343d469e38a0d067d46785ce6e293666094",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "localhost:8000/profile/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"profile",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 2360e343d469e38a0d067d46785ce6e293666094",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "localhost:8000/profile/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"profile",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 26 Nov 2022 12:49:57 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "339"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"username\": \"markine\",\n    \"email\": \"markine@facadeledger.com\",\n    \"birth_date\": \"1999-02-07\",\n    \"gender\": \"F\",\n    \"is_messaging_allowed\": true,\n    \"is_notifications_allowed\": true,\n    \"first_name\": null,\n    \"last_name\": null,\n    \"profile_picture\": null,\n    \"phone_number\": null,\n    \"verified_as_doctor\": false,\n    \"profession\": null,\n    \"location\": null,\n    \"diplomaID\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Success After Firstname Addition",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 2360e343d469e38a0d067d46785ce6e293666094",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/profile/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"profile",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success After Firstname Addition",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 2360e343d469e38a0d067d46785ce6e293666094",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/profile/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"profile",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 26 Nov 2022 12:51:37 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "348"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"username\": \"markine\",\n    \"email\": \"markine@facadeledger.com\",\n    \"birth_date\": \"1999-02-07\",\n    \"gender\": \"F\",\n    \"is_messaging_allowed\": true,\n    \"is_notifications_allowed\": true,\n    \"first_name\": \"Markine Sun\",\n    \"last_name\": null,\n    \"profile_picture\": null,\n    \"phone_number\": null,\n    \"verified_as_doctor\": false,\n    \"profession\": null,\n    \"location\": null,\n    \"diplomaID\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Success After Firstname Removal",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 2360e343d469e38a0d067d46785ce6e293666094",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/profile/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"profile",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success After Firstname Removal",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 2360e343d469e38a0d067d46785ce6e293666094",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/profile/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"profile",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 26 Nov 2022 12:52:36 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "339"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"username\": \"markine\",\n    \"email\": \"markine@facadeledger.com\",\n    \"birth_date\": \"1999-02-07\",\n    \"gender\": \"F\",\n    \"is_messaging_allowed\": true,\n    \"is_notifications_allowed\": true,\n    \"first_name\": null,\n    \"last_name\": null,\n    \"profile_picture\": null,\n    \"phone_number\": null,\n    \"verified_as_doctor\": false,\n    \"profession\": null,\n    \"location\": null,\n    \"diplomaID\": null\n}"
 				}
 			]
 		}
