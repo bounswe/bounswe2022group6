@@ -181,3 +181,88 @@ class LogoutTest(TestCase):
         response = self.client.get('/logout/', HTTP_AUTHORIZATION="Token " + token)
         response_content = json.loads(response.content)
         self.assertEqual(response_content["detail"], "user logout successful")
+
+class ProfileTest(TestCase):
+    
+        def setUp(self):
+            self.client = Client()
+            self.client.post('/register/', { "username": "markine", "email": "markine@facadeledger.com",
+                "password": "markineworld", "gender":"f", "birth_day":"12", "birth_month":"3", "birth_year":"1988"})
+            self.response_login = self.client.post('/login/', { "useridentifier": "markine", "password": "markineworld"})
+    
+        def test_invalid_token_get(self):
+
+            response = self.client.get('/profile/', HTTP_AUTHORIZATION="Token d5d4aa2aef61b74cecd086970171617a538e3f5a")
+            response_content = json.loads(response.content)
+            self.assertEqual(response_content["detail"], "Invalid token.")
+
+        def test_invalid_token_post(self):
+
+            response = self.client.post('/profile/', {"first_name":"Markine Sun Beach"}, HTTP_AUTHORIZATION="Token d5d4aa2aef61b74cecd086970171617a538e3f5a")
+            response_content = json.loads(response.content)
+            self.assertEqual(response_content["detail"], "Invalid token.")
+
+        def test_success_get(self):
+
+            response_login_content = json.loads(self.response_login.content)
+            token = response_login_content["token"]
+
+            response = self.client.get('/profile/', HTTP_AUTHORIZATION="Token " + token)
+            response_content = json.loads(response.content)
+            self.assertEqual(response_content, {
+                "username": "markine",
+                "email": "markine@facadeledger.com",
+                "birth_date": "1988-03-12",
+                "gender": "F",
+                "is_messaging_allowed": True,
+                "is_notifications_allowed": True,
+                "first_name": None,
+                "last_name": None,
+                "profile_picture": None,
+                "phone_number": None,
+                "verified_as_doctor": False,
+                "profession": None,
+                "location": None,
+                "diplomaID": None
+            })
+
+        def test_success_post(self):
+            
+            response_login_content = json.loads(self.response_login.content)
+            token = response_login_content["token"]
+
+            response = self.client.post('/profile/', {"first_name":"Markine Sun Beach"}, HTTP_AUTHORIZATION="Token " + token)
+            response_content = json.loads(response.content)
+            self.assertEqual(response_content, {"info": "user profile update successful"})
+
+            response_get = self.client.get('/profile/', HTTP_AUTHORIZATION="Token " + token)
+            response_content_get = json.loads(response_get.content)
+            self.assertEqual(response_content_get, {
+                "username": "markine",
+                "email": "markine@facadeledger.com",
+                "birth_date": "1988-03-12",
+                "gender": "F",
+                "is_messaging_allowed": True,
+                "is_notifications_allowed": True,
+                "first_name": "Markine Sun Beach",
+                "last_name": None,
+                "profile_picture": None,
+                "phone_number": None,
+                "verified_as_doctor": False,
+                "profession": None,
+                "location": None,
+                "diplomaID": None
+            })
+
+        def test_invalid_birth_date(self):
+            
+            response_login_content = json.loads(self.response_login.content)
+            token = response_login_content["token"]
+
+            response = self.client.post('/profile/', {"birth_day":"7"}, HTTP_AUTHORIZATION="Token " + token)
+            response_content = json.loads(response.content)
+            print(response_content)
+            self.assertEqual(response_content, {
+                "info": "user profile update failed",
+                "error": "{'birth_date': ['Enter all fields together.']}"
+            })
