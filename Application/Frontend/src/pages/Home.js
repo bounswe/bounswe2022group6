@@ -8,6 +8,7 @@ import MessageBox from "../components/MessageBox";
 import  Posts from "../components/ForumPost";
 import { BsSearch, BsFilter } from "react-icons/bs";
 import { FiDelete } from "react-icons/fi";
+import LogOutButton from "../components/LogOutButton";
 
 //used as mock data get post details from backend
 const posts = [
@@ -119,25 +120,12 @@ const labels = [
 
 
 export default function Home() {
-  let history = useHistory();
 
   const isGuestUser = window.localStorage.getItem("auth_token") ? true : false
 
   const [isLoggedout, setLoggedout] = useState(false);
   const [dummy, setdummy] = useState(0);
   const [addedlabels, setaddedlabels] = useState([]);
-
-  function handleClick(event) {
-    event.preventDefault();
-    logout().then((res) => {
-      if (res === null) {
-        setLoggedout(true);
-        setTimeout(() => {
-          history.push("/");
-        }, "1500");
-      }
-    });
-  }
 
   const addlabel = (label) => {
     if (addedlabels.indexOf(label) < 0) {
@@ -146,11 +134,10 @@ export default function Home() {
     }
   };
 
-
-
   const clearfilters = () => {
     setaddedlabels([]);
   };
+  
   const removeLabel = (mylabel) => {
     const index = addedlabels.indexOf(mylabel);
     if (index > -1) {
@@ -178,15 +165,8 @@ export default function Home() {
         <div><Link to="/profile">
         <button className={styles.mybutton}>Profile</button>
       </Link>
-      <Link to="/">
-        <button
-          className={styles.mybutton}
-          style={{ position: "absolute", top: "20px", right: "5px" }}
-          onClick={handleClick}
-        >
-          Log out
-        </button>
-      </Link></div>
+      <LogOutButton></LogOutButton>
+      </div>
       }
       <h5 className="main-title home-page-title">MEDI SHARE</h5>
       <div>

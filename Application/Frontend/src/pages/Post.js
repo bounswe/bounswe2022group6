@@ -1,6 +1,9 @@
 import React from 'react'
+import { Link } from "react-router-dom";
+import styles from "./home.module.css";
 import { useParams } from 'react-router-dom';
 import '../App.css'
+import LogOutButton from '../components/LogOutButton';
 
 //used as mock data
 const posts = [
@@ -85,20 +88,36 @@ const posts = [
 
 const Post = () => {
     const id = useParams().postId
+    
+    const isGuestUser = window.localStorage.getItem("auth_token") ? true : false
 
     //send request to backend for post details.
-
+    const post = posts[id-1]
 
     return (
-
-            <div class="center">
-                <div class="text-center m-5-auto">
-                    <h2 class="yellow-font">Post Page test</h2>
-                </div>
-                <h2 class="yellow-font">This is post with id {id}</h2>
-            </div>
+        <div>
+            {
+     isGuestUser ? <div>
+        <Link to="/login">
+        <button className={styles.mybutton}>log in</button>
+        </Link>
+        <Link to="/register">
+        <button 
+        className={styles.mybutton}
+        style = {{position: "absolute", top: "20px", right: "5px"}}
+        >register</button>
+        </Link>
+        </div> 
+        : 
+        <div><Link to="/profile">
+        <button className={styles.mybutton}>Profile</button>
+      </Link>
+      <LogOutButton></LogOutButton>
+      </div>
+      }
+      <h5 className="main-title home-page-title">MEDI SHARE</h5>
+        </div>
         
-
     )
 }
 
