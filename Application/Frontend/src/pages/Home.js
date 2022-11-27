@@ -5,7 +5,7 @@ import logout from "../services/Logout_API";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import MessageBox from "../components/MessageBox";
-import { ImArrowUp, ImArrowDown } from "react-icons/im";
+import  Posts from "../components/ForumPost";
 import { BsSearch, BsFilter } from "react-icons/bs";
 import { FiDelete } from "react-icons/fi";
 
@@ -138,35 +138,7 @@ export default function Home() {
     }
   };
 
-  const vote = (mypost, direction) => {
-    if (isGuestUser){
-      alert("You need to be logged in")
-      return
-    }
-    if (mypost.voted === "" && direction === "up") {
-      mypost.voted = "up";
-      mypost.score++;
-    } else if (mypost.voted === "up" && direction === "up") {
-      mypost.voted = "";
-      mypost.score--;
-    } else if (mypost.voted === "down" && direction === "up") {
-      mypost.voted = "up";
-      mypost.score++;
-      mypost.score++;
-    } else if (mypost.voted === "" && direction === "down") {
-      mypost.voted = "down";
-      mypost.score--;
-    } else if (mypost.voted === "up" && direction === "down") {
-      mypost.voted = "down";
-      mypost.score--;
-      mypost.score--;
-    } else if (mypost.voted === "down" && direction === "down") {
-      mypost.voted = "";
-      mypost.score++;
-    }
-    setdummy(dummy + 1);
-    console.log(mypost.voted);
-  };
+
 
   const clearfilters = () => {
     setaddedlabels([]);
@@ -208,8 +180,6 @@ export default function Home() {
         </button>
       </Link></div>
       }
-      
-      
       <h5 className="main-title home-page-title">MEDI SHARE</h5>
       <div>
         {" "}
@@ -228,96 +198,10 @@ export default function Home() {
       </div>
 
       <div style={{ display: "flex" }}>
-        <div
-          className="mypost"
-          style={{
-            width: "40%",
-            marginLeft: "15%",
-            marginRight: "3%",
-            height: "700px",
-            overflow: "auto",
-          }}
-        >
-          {posts.map((post) => (
-            <div className={styles.mypost}>
-              <div
-                style={{
-                  width: "10%",
-                  backgroundColor: "#f0feff",
-                  color: "#bdbfbd",
-                  alignItems: "center",
-                  paddingTop: "25px",
-                }}
-              >
-                <ImArrowUp
-                  className={
-                    post.voted === "up" ? styles.upvoteactive : styles.upvote
-                  }
-                  onClick={() => vote(post, "up")}
-                />
-                <h3
-                  style={{
-                    padding: "7px 0px",
-                  }}
-                >
-                  {post.score}
-                </h3>
-                <ImArrowDown
-                  className={
-                    post.voted === "down"
-                      ? styles.downvoteactive
-                      : styles.downvote
-                  }
-                  onClick={() => vote(post, "down")}
-                />
-              </div>
-
-              <div style={{ width: "80%", margin: "auto" }}>
-                <div>
-                  <div
-                    style={{
-                      width: "100%",
-                      display: "flex",
-                      justifyContent: "flex-end",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                      }}
-                    >
-                      {post.labels.map((label) => (
-                        <p
-                          style={{
-                            borderRadius: "5px",
-                            border: "1px solid lightgray",
-                            padding: "3px 5px",
-                            marginRight: "5px",
-                            backgroundColor: "lightgoldenrodyellow",
-                            fontSize: "x-small",
-                            alignItems: "center",
-                            display: "flex",
-                          }}
-                        >
-                          {label}
-                        </p>
-                      ))}
-
-                      <small style={{ padding: "3px 5px", marginLeft: "15px" }}>
-                        {post.date + " minute before"}
-                      </small>
-                    </div>
-                  </div>
-                </div>
-                <p style={{ textAlign: "left", fontWeight: "bolder" }}>
-                  {post.title}
-                </p>{" "}
-                <p style={{ textAlign: "left" }}>{post.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <Posts
+        posts = {posts}
+        >  
+        </Posts>
         <div
           className="rightSide"
           style={{ width: "30%", height: "700px", backgroundColor: "" }}
