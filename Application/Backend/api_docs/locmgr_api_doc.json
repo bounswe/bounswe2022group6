@@ -1,0 +1,407 @@
+{
+	"info": {
+		"_postman_id": "f7e82f28-df72-4ba3-a62c-939eb4deb04d",
+		"name": "Location API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Country List",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Get Country List",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/locmgr/info",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"locmgr",
+								"info"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Nov 2022 13:15:09 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "3575"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    \"Afghanistan\",\n    \"Aland Islands\",\n    \"Albania\",\n    \"Algeria\",\n    \"American Samoa\",\n    \"Andorra\",\n    \"Angola\",\n    \"Anguilla\",\n    \"Antarctica\",\n    \"Antigua And Barbuda\",\n    \"Argentina\",\n    \"Armenia\",\n    \"Aruba\",\n    \"Australia\",\n    \"Austria\",\n    \"Azerbaijan\",\n    \"Bahrain\",\n    \"Bangladesh\",\n    \"Barbados\",\n    \"Belarus\",\n    \"Belgium\",\n    \"Belize\",\n    \"Benin\",\n    \"Bermuda\",\n    \"Bhutan\",\n    \"Bolivia\",\n    \"Bonaire, Sint Eustatius and Saba\",\n    \"Bosnia and Herzegovina\",\n    \"Botswana\",\n    \"Bouvet Island\",\n    \"Brazil\",\n    \"British Indian Ocean Territory\",\n    \"Brunei\",\n    \"Bulgaria\",\n    \"Burkina Faso\",\n    \"Burundi\",\n    \"Cambodia\",\n    \"Cameroon\",\n    \"Canada\",\n    \"Cape Verde\",\n    \"Cayman Islands\",\n    \"Central African Republic\",\n    \"Chad\",\n    \"Chile\",\n    \"China\",\n    \"Christmas Island\",\n    \"Cocos (Keeling) Islands\",\n    \"Colombia\",\n    \"Comoros\",\n    \"Congo\",\n    \"Cook Islands\",\n    \"Costa Rica\",\n    \"Cote D'Ivoire (Ivory Coast)\",\n    \"Croatia\",\n    \"Cuba\",\n    \"Curaçao\",\n    \"Cyprus\",\n    \"Czech Republic\",\n    \"Democratic Republic of the Congo\",\n    \"Denmark\",\n    \"Djibouti\",\n    \"Dominica\",\n    \"Dominican Republic\",\n    \"East Timor\",\n    \"Ecuador\",\n    \"Egypt\",\n    \"El Salvador\",\n    \"Equatorial Guinea\",\n    \"Eritrea\",\n    \"Estonia\",\n    \"Ethiopia\",\n    \"Falkland Islands\",\n    \"Faroe Islands\",\n    \"Fiji Islands\",\n    \"Finland\",\n    \"France\",\n    \"French Guiana\",\n    \"French Polynesia\",\n    \"French Southern Territories\",\n    \"Gabon\",\n    \"Gambia The\",\n    \"Georgia\",\n    \"Germany\",\n    \"Ghana\",\n    \"Gibraltar\",\n    \"Greece\",\n    \"Greenland\",\n    \"Grenada\",\n    \"Guadeloupe\",\n    \"Guam\",\n    \"Guatemala\",\n    \"Guernsey and Alderney\",\n    \"Guinea\",\n    \"Guinea-Bissau\",\n    \"Guyana\",\n    \"Haiti\",\n    \"Heard Island and McDonald Islands\",\n    \"Honduras\",\n    \"Hong Kong S.A.R.\",\n    \"Hungary\",\n    \"Iceland\",\n    \"India\",\n    \"Indonesia\",\n    \"Iran\",\n    \"Iraq\",\n    \"Ireland\",\n    \"Israel\",\n    \"Italy\",\n    \"Jamaica\",\n    \"Japan\",\n    \"Jersey\",\n    \"Jordan\",\n    \"Kazakhstan\",\n    \"Kenya\",\n    \"Kiribati\",\n    \"Kosovo\",\n    \"Kuwait\",\n    \"Kyrgyzstan\",\n    \"Laos\",\n    \"Latvia\",\n    \"Lebanon\",\n    \"Lesotho\",\n    \"Liberia\",\n    \"Libya\",\n    \"Liechtenstein\",\n    \"Lithuania\",\n    \"Luxembourg\",\n    \"Macau S.A.R.\",\n    \"Macedonia\",\n    \"Madagascar\",\n    \"Malawi\",\n    \"Malaysia\",\n    \"Maldives\",\n    \"Mali\",\n    \"Malta\",\n    \"Man (Isle of)\",\n    \"Marshall Islands\",\n    \"Martinique\",\n    \"Mauritania\",\n    \"Mauritius\",\n    \"Mayotte\",\n    \"Mexico\",\n    \"Micronesia\",\n    \"Moldova\",\n    \"Monaco\",\n    \"Mongolia\",\n    \"Montenegro\",\n    \"Montserrat\",\n    \"Morocco\",\n    \"Mozambique\",\n    \"Myanmar\",\n    \"Namibia\",\n    \"Nauru\",\n    \"Nepal\",\n    \"Netherlands\",\n    \"New Caledonia\",\n    \"New Zealand\",\n    \"Nicaragua\",\n    \"Niger\",\n    \"Nigeria\",\n    \"Niue\",\n    \"Norfolk Island\",\n    \"North Korea\",\n    \"Northern Mariana Islands\",\n    \"Norway\",\n    \"Oman\",\n    \"Pakistan\",\n    \"Palau\",\n    \"Palestinian Territory Occupied\",\n    \"Panama\",\n    \"Papua new Guinea\",\n    \"Paraguay\",\n    \"Peru\",\n    \"Philippines\",\n    \"Pitcairn Island\",\n    \"Poland\",\n    \"Portugal\",\n    \"Puerto Rico\",\n    \"Qatar\",\n    \"Reunion\",\n    \"Romania\",\n    \"Russia\",\n    \"Rwanda\",\n    \"Saint Helena\",\n    \"Saint Kitts And Nevis\",\n    \"Saint Lucia\",\n    \"Saint Pierre and Miquelon\",\n    \"Saint Vincent And The Grenadines\",\n    \"Saint-Barthelemy\",\n    \"Saint-Martin (French part)\",\n    \"Samoa\",\n    \"San Marino\",\n    \"Sao Tome and Principe\",\n    \"Saudi Arabia\",\n    \"Senegal\",\n    \"Serbia\",\n    \"Seychelles\",\n    \"Sierra Leone\",\n    \"Singapore\",\n    \"Sint Maarten (Dutch part)\",\n    \"Slovakia\",\n    \"Slovenia\",\n    \"Solomon Islands\",\n    \"Somalia\",\n    \"South Africa\",\n    \"South Georgia\",\n    \"South Korea\",\n    \"South Sudan\",\n    \"Spain\",\n    \"Sri Lanka\",\n    \"Sudan\",\n    \"Suriname\",\n    \"Svalbard And Jan Mayen Islands\",\n    \"Swaziland\",\n    \"Sweden\",\n    \"Switzerland\",\n    \"Syria\",\n    \"Taiwan\",\n    \"Tajikistan\",\n    \"Tanzania\",\n    \"Thailand\",\n    \"The Bahamas\",\n    \"Togo\",\n    \"Tokelau\",\n    \"Tonga\",\n    \"Trinidad And Tobago\",\n    \"Tunisia\",\n    \"Turkey\",\n    \"Turkmenistan\",\n    \"Turks And Caicos Islands\",\n    \"Tuvalu\",\n    \"Uganda\",\n    \"Ukraine\",\n    \"United Arab Emirates\",\n    \"United Kingdom\",\n    \"United States\",\n    \"United States Minor Outlying Islands\",\n    \"Uruguay\",\n    \"Uzbekistan\",\n    \"Vanuatu\",\n    \"Vatican City State (Holy See)\",\n    \"Venezuela\",\n    \"Vietnam\",\n    \"Virgin Islands (British)\",\n    \"Virgin Islands (US)\",\n    \"Wallis And Futuna Islands\",\n    \"Western Sahara\",\n    \"Yemen\",\n    \"Zambia\",\n    \"Zimbabwe\"\n]"
+				}
+			]
+		},
+		{
+			"name": "Get State(Province) List",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Get State(Province) List",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/locmgr/info?country=Turkey",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"locmgr",
+								"info"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "Turkey"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Nov 2022 13:16:35 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1075"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    \"Adana\",\n    \"Adıyaman\",\n    \"Afyonkarahisar\",\n    \"Aksaray\",\n    \"Amasya\",\n    \"Ankara\",\n    \"Antalya\",\n    \"Ardahan\",\n    \"Artvin\",\n    \"Aydın\",\n    \"Ağrı\",\n    \"Balıkesir\",\n    \"Bartın\",\n    \"Batman\",\n    \"Bayburt\",\n    \"Bilecik\",\n    \"Bingöl\",\n    \"Bitlis\",\n    \"Bolu\",\n    \"Burdur\",\n    \"Bursa\",\n    \"Denizli\",\n    \"Diyarbakır\",\n    \"Düzce\",\n    \"Edirne\",\n    \"Elazığ\",\n    \"Erzincan\",\n    \"Erzurum\",\n    \"Eskişehir\",\n    \"Gaziantep\",\n    \"Giresun\",\n    \"Gümüşhane\",\n    \"Hakkâri\",\n    \"Hatay\",\n    \"Isparta\",\n    \"Iğdır\",\n    \"Kahramanmaraş\",\n    \"Karabük\",\n    \"Karaman\",\n    \"Kars\",\n    \"Kastamonu\",\n    \"Kayseri\",\n    \"Kilis\",\n    \"Kocaeli\",\n    \"Konya\",\n    \"Kütahya\",\n    \"Kırklareli\",\n    \"Kırıkkale\",\n    \"Kırşehir\",\n    \"Malatya\",\n    \"Manisa\",\n    \"Mardin\",\n    \"Mersin\",\n    \"Muğla\",\n    \"Muş\",\n    \"Nevşehir\",\n    \"Niğde\",\n    \"Ordu\",\n    \"Osmaniye\",\n    \"Rize\",\n    \"Sakarya\",\n    \"Samsun\",\n    \"Siirt\",\n    \"Sinop\",\n    \"Sivas\",\n    \"Tekirdağ\",\n    \"Tokat\",\n    \"Trabzon\",\n    \"Tunceli\",\n    \"Uşak\",\n    \"Van\",\n    \"Yalova\",\n    \"Yozgat\",\n    \"Zonguldak\",\n    \"Çanakkale\",\n    \"Çankırı\",\n    \"Çorum\",\n    \"İstanbul\",\n    \"İzmir\",\n    \"Şanlıurfa\",\n    \"Şırnak\"\n]"
+				}
+			]
+		},
+		{
+			"name": "Get City(District) List",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Get City(District) List",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/locmgr/info?country=Turkey&state=İstanbul",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"locmgr",
+								"info"
+							],
+							"query": [
+								{
+									"key": "country",
+									"value": "Turkey"
+								},
+								{
+									"key": "state",
+									"value": "İstanbul"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Nov 2022 13:18:46 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "707"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    \"Adalar\",\n    \"Arnavutköy\",\n    \"Ataşehir\",\n    \"Avcılar\",\n    \"Bahçelievler\",\n    \"Bakırköy\",\n    \"Bayrampaşa\",\n    \"Bağcılar\",\n    \"Başakşehir\",\n    \"Beykoz\",\n    \"Beylikdüzü\",\n    \"Beyoğlu\",\n    \"Beşiktaş\",\n    \"Büyükçekmece\",\n    \"Eminönü\",\n    \"Esenler\",\n    \"Esenyurt\",\n    \"Eyüpsultan\",\n    \"Fatih\",\n    \"Gaziosmanpaşa\",\n    \"Güngören\",\n    \"Kadıköy\",\n    \"Kartal\",\n    \"Kâğıthane\",\n    \"Küçükçekmece\",\n    \"Maltepe\",\n    \"Pendik\",\n    \"Sancaktepe\",\n    \"Sarıyer\",\n    \"Silivri\",\n    \"Sultanbeyli\",\n    \"Sultangazi\",\n    \"Tuzla\",\n    \"Zeytinburnu\",\n    \"Çatalca\",\n    \"Çekmeköy\",\n    \"Ümraniye\",\n    \"Üsküdar\",\n    \"Şile\",\n    \"Şişli\"\n]"
+				}
+			]
+		},
+		{
+			"name": "Get Location of IP",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Get Location of IP",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/locmgr/location?ip=8.8.8.8",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"locmgr",
+								"location"
+							],
+							"query": [
+								{
+									"key": "ip",
+									"value": "8.8.8.8"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Nov 2022 13:19:35 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "49"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"loc\": [\n        \"United States\",\n        \"Virginia\",\n        \"Ashburn\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get IP Location Error",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Get IP Location Error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/locmgr/location?ip=127.0.0.1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"locmgr",
+								"location"
+							],
+							"query": [
+								{
+									"key": "ip",
+									"value": "127.0.0.1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 24 Nov 2022 13:20:06 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "11"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"loc\": []\n}"
+				}
+			]
+		}
+	]
+}
