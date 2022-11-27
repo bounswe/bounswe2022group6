@@ -123,9 +123,15 @@ export default function Home() {
 
   const isGuestUser = window.localStorage.getItem("auth_token") ? true : false
 
+  const [showPostCreateForm, setPostCreate] = useState(false)
   const [isLoggedout, setLoggedout] = useState(false);
   const [dummy, setdummy] = useState(0);
   const [addedlabels, setaddedlabels] = useState([]);
+
+  function handlePostCreate(event) {
+    event.preventDefault()
+    setPostCreate(true)
+  }
 
   function handleClick(event) {
     event.preventDefault();
@@ -208,6 +214,7 @@ export default function Home() {
       <div style={{ display: "flex" }}>
         <Posts
         posts = {posts}
+        showPostCreateForm = {showPostCreateForm}
         >  
         </Posts>
         <div
@@ -398,7 +405,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className={styles.createpost}>Create Post</div>
+          <div className={styles.createpost} onClick = {handlePostCreate}>Create Post</div>
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@ import { ImArrowUp, ImArrowDown } from "react-icons/im";
 import {useState} from "react"
 import {useHistory} from 'react-router-dom'
 import styles from "../pages/home.module.css";
+import CreatePostForm from "./CreatePostForm";
 
 const ForumPost = (props) => {
 
@@ -42,8 +43,6 @@ const ForumPost = (props) => {
       };
 
     const onClick = () => {
-      //redirect to detailed post page using endpoint
-      console.log("Clicked" + props.id)
       setTimeout(() => {
         history.push('/post/'+props.id);
       }, "100")
@@ -144,6 +143,7 @@ const Posts = (props) => {
           overflow: "auto",
         }}
       >
+        {props.showPostCreateForm && <CreatePostForm></CreatePostForm>}
         {props.posts.map((post) => ForumPost(post))}
         
       </div>)
