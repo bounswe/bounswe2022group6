@@ -12,10 +12,10 @@ export default function Landing() {
                 <p class="main-para text-center">Please Register or Login</p>
                 <div class="buttons text-center">
                     <Link to="/login">
-                        <button class="primary-button" id="login_button"> <span>log in </span></button>
+                        <button class="primary-button" id="home_button"> <span>log in </span></button>
                     </Link>
                     <Link to="/register">
-                        <button class="primary-button" id="register_button"><span>register </span></button>
+                        <button class="primary-button" id="home_button"><span>register </span></button>
                     </Link>
                 </div>
                 <div class="buttons text-center">
