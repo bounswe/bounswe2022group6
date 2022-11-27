@@ -1,11 +1,13 @@
 import { ImArrowUp, ImArrowDown } from "react-icons/im";
 import {useState} from "react"
+import {useHistory} from 'react-router-dom'
 import styles from "../pages/home.module.css";
 
 const ForumPost = (props) => {
 
     const isGuestUser = window.localStorage.getItem("auth_token") ? true : false
     const [score, setScore] = useState(props.score);
+    let history = useHistory()
 
     //instead of this use backend endpoint
     const vote = (direction) => {
@@ -39,8 +41,17 @@ const ForumPost = (props) => {
         console.log(props.voted);
       };
 
+    const onClick = () => {
+      //redirect to detailed post page using endpoint
+      console.log("Clicked" + props.id)
+      setTimeout(() => {
+        history.push('/post/'+props.id);
+      }, "100")
+    }
+
       return(
-        <div className={styles.mypost}>
+        <div>
+          <div className={styles.mypost}>
           <div
             style={{
               width: "10%",
@@ -73,7 +84,7 @@ const ForumPost = (props) => {
             />
           </div>
 
-          <div style={{ width: "80%", margin: "auto" }}>
+          <div onClick={onClick} style={{ width: "80%", margin: "auto", cursor: "pointer" }}>
             <div>
               <div
                 style={{
@@ -117,6 +128,7 @@ const ForumPost = (props) => {
             <p style={{ textAlign: "left" }}>{props.description}</p>
           </div>
         </div>
+      </div>
       )
 }
 

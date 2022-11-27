@@ -9,8 +9,10 @@ import  Posts from "../components/ForumPost";
 import { BsSearch, BsFilter } from "react-icons/bs";
 import { FiDelete } from "react-icons/fi";
 
+//used as mock data get post details from backend
 const posts = [
   {
+    id: 1,
     title: "Hi I’m 23F, last night I was drinking parol ",
     date: "5",
     description:
@@ -20,6 +22,7 @@ const posts = [
     voted: "",
   },
   {
+    id: 2,
     title: "Fatih",
     date: "12",
     description:
@@ -29,6 +32,7 @@ const posts = [
     voted: "",
   },
   {
+    id: 3,
     title: "Fatma",
     date: "20",
     description:
@@ -38,6 +42,7 @@ const posts = [
     voted: "",
   },
   {
+    id: 4,
     title: "Mert",
     date: "40",
     description:
@@ -47,6 +52,7 @@ const posts = [
     voted: "",
   },
   {
+    id: 5,
     title: "İhsan ",
     date: "50",
     description:
@@ -56,6 +62,7 @@ const posts = [
     voted: "",
   },
   {
+    id: 6,
     title: "Murat",
     date: "55",
     description:
@@ -65,6 +72,7 @@ const posts = [
     voted: "",
   },
   {
+    id: 7,
     title: "Berk",
     date: "59",
     description:
