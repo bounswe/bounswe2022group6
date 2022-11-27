@@ -108,8 +108,12 @@ const labels = [
   { name: "Help", backgroundColor: "palegreen", color: "white" },
   { name: "Advice", backgroundColor: "PaleTurquoise", color: "white" },
 ];
+
+
 export default function Home() {
   let history = useHistory();
+
+  const isGuestUser = window.localStorage.getItem("auth_token") ? true : false
 
   const [isLoggedout, setLoggedout] = useState(false);
   const [dummy, setdummy] = useState(0);
@@ -135,6 +139,10 @@ export default function Home() {
   };
 
   const vote = (mypost, direction) => {
+    if (isGuestUser){
+      alert("You need to be logged in")
+      return
+    }
     if (mypost.voted === "" && direction === "up") {
       mypost.voted = "up";
       mypost.score++;
@@ -174,7 +182,20 @@ export default function Home() {
 
   return (
     <div className="text-center">
-      <Link to="/profile">
+     {
+     isGuestUser ? <div>
+        <Link to="/login">
+        <button className={styles.mybutton}>log in</button>
+        </Link>
+        <Link to="/register">
+        <button 
+        className={styles.mybutton}
+        style = {{position: "absolute", top: "20px", right: "5px"}}
+        >register</button>
+        </Link>
+        </div> 
+        : 
+        <div><Link to="/profile">
         <button className={styles.mybutton}>Profile</button>
       </Link>
       <Link to="/">
@@ -185,7 +206,10 @@ export default function Home() {
         >
           Log out
         </button>
-      </Link>
+      </Link></div>
+      }
+      
+      
       <h5 className="main-title home-page-title">MEDI SHARE</h5>
       <div>
         {" "}
