@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import styles from "./home.module.css";
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
+import logout from "../services/Logout_API";
 import { useParams } from 'react-router-dom';
 import '../App.css'
-import LogOutButton from '../components/LogOutButton';
 
 //used as mock data
 const posts = [
@@ -89,7 +91,22 @@ const posts = [
 const Post = () => {
     const id = useParams().postId
     
+    let history = useHistory();
     const isGuestUser = window.localStorage.getItem("auth_token") ? true : false
+    const [isLoggedout, setLoggedout] = useState(false);
+
+
+    function handleClick(event) {
+        event.preventDefault();
+        logout().then((res) => {
+          if (res === null) {
+            setLoggedout(true);
+            setTimeout(() => {
+              history.push("/");
+            }, "1500");
+          }
+        });
+      }
 
     //send request to backend for post details.
     const post = posts[id-1]
@@ -112,11 +129,20 @@ const Post = () => {
         <div><Link to="/profile">
         <button className={styles.mybutton}>Profile</button>
       </Link>
-      <LogOutButton></LogOutButton>
+      <Link to="/">
+        <button
+          className={styles.mybutton}
+          style={{ position: "absolute", top: "20px", right: "5px" }}
+          onClick={handleClick}
+        >
+          Log out
+        </button>
+      </Link>
       </div>
       }
       <h5 className="main-title home-page-title">MEDI SHARE</h5>
         </div>
+
         
     )
 }
