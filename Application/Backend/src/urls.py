@@ -15,17 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from src.accmgr.views import LogoutUser, LoginUser, RegisterUser, Profile
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('register', RegisterUser.as_view(), name="register"),
-    path('register/', RegisterUser.as_view(), name="register/"),
-    path('login', LoginUser.as_view(), name="login"),
-    path('login/', LoginUser.as_view(), name="login/"),
-    path('logout', LogoutUser.as_view(), name="logout"),
-    path('logout/', LogoutUser.as_view(), name="logout/"),
-    path('profile', Profile.as_view(), name="profile"),
-    path('profile/', Profile.as_view(), name="profile/"),
+    path('', include('src.accmgr.urls')),
     path('locmgr/', include('src.locmgr.urls')),
+    path('contmgr/', include('src.contmgr.urls')),
 ]
