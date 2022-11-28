@@ -1,6 +1,6 @@
 import {useState} from "react"
 
-const CreatePostForm = () => {
+const CreatePostForm = (props) => {
     
     //create post endpoint
     const handleSubmit = (event) => {
@@ -15,7 +15,6 @@ const CreatePostForm = () => {
 
     const handleChange = (event) => {
         const { name, value } = event.target
-        console.log(value)
         setFormData(prevFormData => {
             return {
                 ...prevFormData,
@@ -25,7 +24,7 @@ const CreatePostForm = () => {
     }
 
     return (
-        <div>
+        <div> 
             <form style = {formStyle} onSubmit={handleSubmit}>
                 <div style={{textAlign: 'left'}}>
                     <label><strong>Title</strong></label>
@@ -34,17 +33,13 @@ const CreatePostForm = () => {
                     <label><strong>Description</strong></label>
                     <textarea style= {{overflow:'hidden', width: '100%' }} name="description" value={formData.description} onChange={handleChange}></textarea>
                 </div>
-                <br />
-                <br />
-                <div>
-                    
+                <div class="buttons text-center">
+                        <button class="primary-button" style={{width: '30%'}} onClick={props.onCancel}> <span>Cancel </span></button>
+                        <button class="primary-button" style={{width: '30%'}}> <span>Create  </span></button>
                 </div>
-                <br />
-                <br />
-                <p>
-                    <button id="submit_btn" type="submit">Create Your Post</button>
-                </p>
+                
             </form>
+            
         </div>
     )
 
@@ -54,10 +49,5 @@ const formStyle = {
     width: "98%",
     heigth: "50%"
 }
-
-const textarea = {
-    width: "90%",
-    margin:"auto"
-  }
 
 export default CreatePostForm

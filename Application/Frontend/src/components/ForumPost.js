@@ -132,6 +132,19 @@ const ForumPost = (props) => {
 }
 
 const Posts = (props) => {
+
+  const [showPostCreate, setPostCreate] = useState(false)
+
+  const isGuestUser = window.localStorage.getItem("auth_token") ? true : false
+
+  const handleClick = () => {
+    if(isGuestUser){
+      alert("you need to be logged in")
+      return
+    }
+    setPostCreate(!showPostCreate)
+  }
+
     return (
     <div
         className="mypost"
@@ -143,7 +156,11 @@ const Posts = (props) => {
           overflow: "auto",
         }}
       >
-        {props.showPostCreateForm && <CreatePostForm></CreatePostForm>}
+        {!showPostCreate && <div className={styles.createpost} onClick = {handleClick}>Create Post</div>}
+        {showPostCreate && <CreatePostForm
+          onCancel = {() => setPostCreate(false) }
+          >
+          </CreatePostForm>}
         {props.posts.map((post) => ForumPost(post))}
         
       </div>)

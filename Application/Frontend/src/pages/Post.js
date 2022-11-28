@@ -111,6 +111,7 @@ const Post = () => {
     //send request to backend for post details.
     const post = posts[id-1]
 
+    //need a good page design
     return (
         <div>
             {

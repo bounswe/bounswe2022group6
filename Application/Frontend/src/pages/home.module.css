@@ -144,12 +144,13 @@ p {
 }
 
 .createpost {
-  width: 100%;
+  width: 50%;
   margin: auto;
-  background: rgb(78, 78, 209);
+  background: #0f7375;
   margin-top: 20px;
+  margin-bottom: 10px;
   color: white;
-  height: 10%;
+  height: 5%;
   display: flex;
   align-items: center;
   justify-content: center;
