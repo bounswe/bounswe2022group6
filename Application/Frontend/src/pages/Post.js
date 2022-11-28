@@ -155,7 +155,7 @@ const Post = () => {
     let post = posts[id-1]
     
     let history = useHistory();
-    const isGuestUser = window.localStorage.getItem("auth_token") ? true : false
+    const isGuestUser = window.localStorage.getItem("auth_token") ? false : true
     const [isLoggedout, setLoggedout] = useState(false);
     const [score, setScore] = useState(post["score"]);
 
@@ -199,14 +199,11 @@ const Post = () => {
             setLoggedout(true);
             setTimeout(() => {
               history.push("/");
-            }, "1500");
+            }, "500");
           }
         });
       }
 
- 
-
-    //need a good page design
     return (
         <div>
             {

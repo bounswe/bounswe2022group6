@@ -49,8 +49,7 @@ const labels = [
 export default function Home() {
   let history = useHistory();
 
-  const isGuestUser = window.localStorage.getItem("auth_token") ? true : false
-
+  let isGuestUser = window.localStorage.getItem("auth_token") ? false : true
   const [isLoggedout, setLoggedout] = useState(false);
   const [dummy, setdummy] = useState(0);
   const [addedlabels, setaddedlabels] = useState([]);

@@ -5,7 +5,7 @@ import { ImArrowUp, ImArrowDown } from "react-icons/im";
 
 const Comment = (props) => {
 
-    const isGuestUser = window.localStorage.getItem("auth_token") ? true : false
+  const isGuestUser = window.localStorage.getItem("auth_token") ? false : true
     const [score, setScore] = useState(props.comment["score"]);
 
     //backend endpoint for vote comment

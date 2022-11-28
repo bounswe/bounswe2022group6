@@ -81,7 +81,7 @@ const mockPosts = [
 
 const ForumPost = (props) => {
 
-    const isGuestUser = window.localStorage.getItem("auth_token") ? true : false
+  const isGuestUser = window.localStorage.getItem("auth_token") ? false : true
     const [score, setScore] = useState(props.score);
     let history = useHistory()
 
@@ -210,9 +210,9 @@ const Posts = () => {
 
   const [showPostCreate, setPostCreate] = useState(false)
 
-  const isGuestUser = window.localStorage.getItem("auth_token") ? true : false
+  const isGuestUser = window.localStorage.getItem("auth_token") ? false : true
   
-  let posts = mockPosts
+  const posts = mockPosts
 
   const handleClick = () => {
     if(isGuestUser){
