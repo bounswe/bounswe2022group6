@@ -4,6 +4,81 @@ import {useHistory} from 'react-router-dom'
 import styles from "../pages/home.module.css";
 import CreatePostForm from "./CreatePostForm";
 
+//used as mock data get post details from backend
+const mockPosts = [
+  {
+    id: 1,
+    title: "Hi I’m 23F, last night I was drinking parol ",
+    date: "5",
+    description:
+      "Hi I’m 23F, last night I was drinking parol and probably had 4 parol drinks total. This is not out of the ordinary for me. I was feeling good and then all of a sudden I was having muscle...",
+    score: "11",
+    labels: ["Bones/Joints/Ligaments", "Question", "Help"],
+    voted: "",
+  },
+  {
+    id: 2,
+    title: "Fatih",
+    date: "12",
+    description:
+      "I am 17 and a week ago I almost passed out because I got up from bed too quickly, 2 days ago I had bright blood in stool, yesterday I had the same but with more blood... ",
+    score: "6",
+    labels: ["Digestion/Stomach/Bowels", "Question", "Help"],
+    voted: "",
+  },
+  {
+    id: 3,
+    title: "Fatma",
+    date: "20",
+    description:
+      "I took parol pills  Hello everyone. I took parol pills at midnight and it’s like 6am. I’m not even tired. Why am I not tired?I’ve just lost touch with reality... ",
+    score: "3",
+    labels: ["Other"],
+    voted: "",
+  },
+  {
+    id: 4,
+    title: "Mert",
+    date: "40",
+    description:
+      "Overtaking 45mg Mirtazapine for 6 months straight So I have been prescribed 1 45mg Mirtazapine a night I am 22 now, for the last 6 months I have been taking 3 of ...      ",
+    score: "3",
+    labels: ["Medication", "Question", "Help"],
+    voted: "",
+  },
+  {
+    id: 5,
+    title: "İhsan ",
+    date: "50",
+    description:
+      "Misdiagnosed tennis elbow?So i've had this lingering elbow ache/soreness/discomort for around 3 months and a few weeks back I finally decided to get it checked out.  ...",
+    score: "2",
+    labels: ["Bones/Joints/Ligaments", "Question", "Help"],
+    voted: "",
+  },
+  {
+    id: 6,
+    title: "Murat",
+    date: "55",
+    description:
+      "Odd eye spasm when trying to sleep  this has been happening to me for years and I don’t think it’s anything serious it’s just odd. I cant find anything g online either! when ...    ",
+    score: "1",
+    labels: ["Eyes", "Question", "Help"],
+    voted: "",
+  },
+  {
+    id: 7,
+    title: "Berk",
+    date: "59",
+    description:
+      "Still have a have a fever 2 weeks after recovering from possible scarlet fever..please help (23M) Hey so on October 15th I woke up with a 105° fever and all symptoms of covid I remember ... ",
+    score: "-1",
+    labels: ["Other"],
+    voted: "",
+  },
+];
+
+
 const ForumPost = (props) => {
 
     const isGuestUser = window.localStorage.getItem("auth_token") ? true : false
@@ -131,11 +206,13 @@ const ForumPost = (props) => {
       )
 }
 
-const Posts = (props) => {
+const Posts = () => {
 
   const [showPostCreate, setPostCreate] = useState(false)
 
   const isGuestUser = window.localStorage.getItem("auth_token") ? true : false
+  
+  let posts = mockPosts
 
   const handleClick = () => {
     if(isGuestUser){
@@ -161,7 +238,7 @@ const Posts = (props) => {
           onCancel = {() => setPostCreate(false) }
           >
           </CreatePostForm>}
-        {props.posts.map((post) => ForumPost(post))}
+        {posts.map((post) => ForumPost(post))}
         
       </div>)
 }
