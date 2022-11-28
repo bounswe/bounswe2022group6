@@ -12,3 +12,10 @@ class Content(models.Model):
 
     class Meta:
         abstract = True
+
+class Comment(Content):
+
+    commentID = models.AutoField(primary_key=True)
+    # only one of the following two fields will be set
+    parent_comment = models.ForeignKey("self", on_delete=models.CASCADE, blank=True, null=True, related_name='children_comments')
+    parent_post = models.ForeignKey("Post", on_delete=models.CASCADE, blank=True, null=True, related_name='children_comments')
