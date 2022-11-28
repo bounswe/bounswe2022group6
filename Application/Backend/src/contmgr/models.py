@@ -19,3 +19,22 @@ class Comment(Content):
     # only one of the following two fields will be set
     parent_comment = models.ForeignKey("self", on_delete=models.CASCADE, blank=True, null=True, related_name='children_comments')
     parent_post = models.ForeignKey("Post", on_delete=models.CASCADE, blank=True, null=True, related_name='children_comments')
+
+class Post(Content):
+
+    postID = models.AutoField(primary_key=True)
+
+    POST_TYPES = (
+        ("i", "information"),
+        ("q", "question"),
+        ("a", "advice"),
+        ("e", "experience")
+    )
+    
+    title = models.CharField(max_length=256, blank=False, null=False)
+    type = models.CharField(max_length=1, choices=POST_TYPES, default="e")
+    location = models.CharField(max_length=128, blank=True, null=True, default=None)
+    imageURL = models.CharField(max_length=256, blank=True, null=True, default=None)
+    is_marked_nsfw = models.BooleanField(default=False)
+    # content_labels = models.ManyToManyField(ContentLabel, related_name='content_labels', blank=True)
+    # field_labels = models.ManyToManyField(FieldLabel, related_name='field_labels', blank=True)
