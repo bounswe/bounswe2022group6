@@ -9,3 +9,6 @@ class Content(models.Model):
     vote_count = models.IntegerField(default=0)
     created_at = models.DateTimeField(default=timezone.now())
     mentioned_users = models.ManyToManyField(RegisteredUser, related_name='mentioned_by_%(class)s', blank=True)
+
+    class Meta:
+        abstract = True
