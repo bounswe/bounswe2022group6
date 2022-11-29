@@ -38,3 +38,6 @@ class Post(Content):
     is_marked_nsfw = models.BooleanField(default=False)
     # content_labels = models.ManyToManyField(ContentLabel, related_name='content_labels', blank=True)
     # field_labels = models.ManyToManyField(FieldLabel, related_name='field_labels', blank=True)
+    
+class Label(Content):
+    pass

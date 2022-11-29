@@ -6,6 +6,7 @@ from django.http import JsonResponse
 from datetime import date
 from hashlib import sha256
 from .models import *
+import datetime
 
 class RegisterUser(APIView):
 
@@ -70,6 +71,26 @@ class RegisterUser(APIView):
         except Exception as e:
             return JsonResponse({"info":"user registration failed", "error": "{'birth_date': ['" + str(e) + "']}"}, status=400)
         
+        today = datetime.date.today()
+        current_year = today.year
+        current_month = today.month
+        current_day = today.day
+        
+        # if(current_month - birth_month) < 0:
+        #     user_age = current_year - birth_year - 1
+        # elif(current_month - birth_month == 0):
+        #     if(current_day - birth_day < 0):
+        #         user_age = current_year - birth_year - 1
+        #     else:
+        #         user_age = current_year - birth_year
+        # else:
+        #     user_age = current_year - birth_year
+        
+        user_age = current_year - birth_year - ((current_month, current_day) < (birth_month, birth_day))
+
+        if(user_age < 18):
+            return JsonResponse({"info":"user registration failed", "error": "{'birth_date': ['You cannot register to the site if you are under 18 years old.']}"}, status=400)
+            
         new_user = RegisteredUser(username=username, email=email, password=password, birth_date=birth_date, gender=gender)
 
         ## This check is about the database constraints
