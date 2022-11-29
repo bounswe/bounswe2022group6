@@ -206,8 +206,12 @@ const Post = () => {
 
     return (
         <div>
+          <Link to="/home">
+        <button className={styles.mybutton} style = {{position: "absolute", top: "20px", right: "245px"}}>home</button>
+        </Link>
             {
-     isGuestUser ? <div>
+     isGuestUser ? 
+        <div>
         <Link to="/login">
         <button className={styles.mybutton}>log in</button>
         </Link>
