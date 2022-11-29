@@ -215,10 +215,6 @@ const Posts = () => {
   const posts = mockPosts
 
   const handleClick = () => {
-    if(isGuestUser){
-      alert("you need to be logged in")
-      return
-    }
     setPostCreate(!showPostCreate)
   }
 
@@ -233,7 +229,7 @@ const Posts = () => {
           overflow: "auto",
         }}
       >
-        {!showPostCreate && <div className={styles.createpost} onClick = {handleClick}>Create Post</div>}
+        {!isGuestUser && !showPostCreate && <div className={styles.createpost} onClick = {handleClick}>Create Post</div>}
         {showPostCreate && <CreatePostForm
           onCancel = {() => setPostCreate(false) }
           >
