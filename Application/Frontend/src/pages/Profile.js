@@ -1,16 +1,75 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import logout from "../services/Logout_API";
 import { useHistory } from 'react-router-dom';
 import { useState } from "react";
 import MessageBox from "../components/MessageBox";
+import edit from "../services/Edit_API";
+import editProfile from '../services/EditProfile_API';
 
 export default function Profile() {
 
     let history = useHistory()
 
     const [isLoggedout, setLoggedout] = useState(false)
-  
+
+    const [profileInfo, setProfileInfo] = useState({
+        username: "",
+        email: "",
+        name: "",
+        surname: "",
+        gender: "",
+        birth: "",
+        password: ""
+      });
+
+    function start() {
+        edit().then(res=> {
+            setProfileInfo({
+                username: res["username"],
+                email: res["email"],
+                name: res["first_name"],
+                surname: res["last_name"],
+                gender: res["gender"],
+                birth: res["birth_date"],
+              });
+            
+        })
+    };
+    start();
+
+    const handleEdit = event => {
+        event.preventDefault();
+        console.log(profileInfo)
+        editProfile(profileInfo).then(
+            res => {
+                if(res===null){
+                    console.log(profileInfo);
+                    console.log("basarili");
+                }
+            }
+        )
+       
+}
+    
+
+    function handleChange(event) {
+        const {name, value} = event.target
+        console.log(name)
+        console.log(value)
+        setProfileInfo(prevFormData => {
+            return {
+                ...prevFormData,
+                [name]: value
+            }
+        })
+        console.log(profileInfo)
+
+    }
+    
+    
+
+
     function handleClick(event) {
       event.preventDefault()
       logout().then(res => {
@@ -32,32 +91,32 @@ export default function Profile() {
             <form >
             <p>
                         <label>Username</label><br/>
-                        <input type="text" name="first_name" />
+                        <input defaultValue={profileInfo.username} onChange={handleChange}  type="text" name="username" />
                     </p>
                     <br/>
                     <p>
                         <label>Name</label><br/>
-                        <input type="text" name="first_name" />
+                        <input defaultValue={profileInfo.name} onChange={handleChange} type="text" name="name" />
                     </p>
                     <br/>
                     <p>
                         <label>Surname</label><br/>
-                        <input type="text" name="first_name" />
+                        <input defaultValue={profileInfo.surname} onChange={handleChange}  type="text" name="surname" />
                     </p>
                     <br/>
                     <p>
                         <label>Email address</label><br/>
-                        <input type="email" name="email" />
+                        <input defaultValue={profileInfo.email} onChange={handleChange} type="email" name="email"  />
                     </p>
                     <br/>
                     <p>
                         <label>Password</label><br/>
-                        <input type="password" name="password" />
+                        <input defaultValue={profileInfo.password} onChange={handleChange}  type="password" name="password" />
                     </p>
                     <br/>
                     <p>
                         <label>Date of Birth</label><br/>
-                        <input type="date" name="date" />
+                        <input defaultValue={profileInfo.birth} onChange={handleChange}  type="date" name="date" />
                     </p>
                     <br/>
                     <label htmlFor="genderSelect">Gender</label><br/>
@@ -68,7 +127,7 @@ export default function Profile() {
                     <option value="female">Female</option>
                     <option value="other">Other</option>
                     </select><br/><br/>
-                    <button  id="submit_btn" type="submit" >
+                    <button  id="submit_btn" type="submit" onClick={handleEdit}>
                         Edit
                     </button>
                 </form>
