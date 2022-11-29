@@ -12,6 +12,10 @@ services:
     image: medishare.frontend
     build:
       context: .
+    environment:
+      - CHOKIDAR_USEPOLLING=true # create-ui-app <= 5.x
+      - WATCHPACK_POLLING=true # create-ui-app >= 5.x
+      - FAST_REFRESH=false
     command: npm start
     volumes:
       - ./src:/frontend/src

@@ -4,7 +4,7 @@ ENV CI=true
 
 WORKDIR /frontend/
 
-COPY ./package.json /frontend/
+COPY ./package.json /frontend/package.json
 RUN npm install
 
 COPY ./src /frontend/src
