@@ -10,6 +10,16 @@
   overflow: hidden;
 }
 
+.mypostpage{
+  background: white;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 20px;
+  display: flex;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+}
+
 .upvote {
   font-size: x-large;
 }
@@ -144,12 +154,13 @@ p {
 }
 
 .createpost {
-  width: 100%;
+  width: 50%;
   margin: auto;
-  background: rgb(78, 78, 209);
+  background: #0f7375;
   margin-top: 20px;
+  margin-bottom: 10px;
   color: white;
-  height: 10%;
+  height: 5%;
   display: flex;
   align-items: center;
   justify-content: center;
