@@ -1,5 +1,4 @@
 /* Landing Page css*/
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -18,16 +17,12 @@ body {
 }
 
 .main-title,
-.main-para {
-    color: #f1f1f1
-}
 
 .main-title {
-    color: #95c3b3;
-    padding-top: 10rem;
-    font-size: 5rem;
+    color: #5af288;
+    padding-top: 3rem;
+    font-size: 4rem;
     font-family: 'Fascinate', cursive;
-    text-transform: uppercase
 }
 .profile-title {
   padding-top: 1rem;
@@ -36,19 +31,24 @@ body {
   text-transform: uppercase
 }
 
-.main-para {
-    color: #0f7375;
-    font-size: 2.5rem;
-    text-Transform: capitalize
+.btn-primary {
+  color: #212529;
+  background-color: #7cc;
+  border-color: #5bc2c2
 }
 
-#home_button span {
+.main-para {
+    color: #17ead9;
+    font-size: 2.5rem;
+}
+
+#landing_button span {
     display: inline-block;
     position: relative;
     transition: 0.5s;
 }
 
-#home_button span:after {
+#landing_button span:after {
     content: '\00bb';
     position: absolute;
     opacity: 0;
@@ -57,11 +57,11 @@ body {
     transition: 0.5s;
 }
 
-#home_button:hover span {
+#landing_button:hover span {
   padding-right: 25px;
 }
 
-#home_button:hover span:after {
+#landing_button:hover span:after {
   opacity: 1;
   right: 0;
 }
@@ -96,6 +96,31 @@ body {
 
 .center {
   text-align: center;
+}
+
+.wrap {
+width: 100%;
+overflow:auo;
+}
+
+.fleft {
+  float:left;
+  text-align:center;
+  width: 30%;
+  height: 100vh;
+}
+
+.fmid { 
+  float:left; 
+  width: 40%;
+  height: 100vh;
+}
+
+.fright {
+  float: right;
+  text-align:center;
+  width: 30%;
+  height: 100vh;
 }
 
 /* Login Page css*/
