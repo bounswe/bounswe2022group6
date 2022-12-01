@@ -14,7 +14,7 @@ export default function Profile() {
     const [isLoggedout, setLoggedout] = useState(false)
     const [active, setActive] = useState(false);
 
-    const [profileInfo, setProfileInfo] = useState({
+    const [profileInformation, setprofileInformation] = useState({
         username: "",
         email: "",
         name: "",
@@ -28,14 +28,14 @@ export default function Profile() {
 
       });
 
-    const [profileInput, setProfileInput] = useReducer(
+    const [profileData, setprofileData] = useReducer(
         (state, newState) => ({ ...state, ...newState }),
         []
     );
 
      useEffect( ()=>   {
         edit().then(res=> {
-            setProfileInfo({
+            setprofileInformation({
                 username: res["username"],
                 email: res["email"],
                 name: res["first_name"],
@@ -53,10 +53,10 @@ export default function Profile() {
 
     const handleEdit = event => {
         event.preventDefault();
-        editProfile(profileInput).then(
+        editProfile(profileData).then(
             res => {
                 if(res===null){
-                    console.log(profileInput)
+                    console.log(profileData)
                     console.log("basarili");
                 }
             }
@@ -68,8 +68,8 @@ export default function Profile() {
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
-        setProfileInput({ [name]: value });
-        //console.log(profileInput)
+        setprofileData({ [name]: value });
+        //console.log(profileData)
     };
     
     
@@ -96,28 +96,28 @@ export default function Profile() {
             <form >
             <p>
                         <label>Username</label><br/>
-                        <input defaultValue={profileInfo.username} onChange={handleChange}  type="text" name="username" />
+                        <input defaultValue={profileInformation.username} onChange={handleChange}  type="text" name="username" />
                     </p>
                     <br/>
                     <p>
                         <label>Name</label><br/>
-                        <input defaultValue={profileInfo.name} onChange={handleChange} type="text" name="first_name" />
+                        <input defaultValue={profileInformation.name} onChange={handleChange} type="text" name="first_name" />
                     </p>
                     <br/>
                     <p>
                         <label>Surname</label><br/>
-                        <input defaultValue={profileInfo.surname} onChange={handleChange}  type="text" name="last_name" />
+                        <input defaultValue={profileInformation.surname} onChange={handleChange}  type="text" name="last_name" />
                     </p>
                     <br/>
                     <p>
                         <label>Email address</label><br/>
-                        <input defaultValue={profileInfo.email} onChange={handleChange} type="email" name="email"  />
+                        <input defaultValue={profileInformation.email} onChange={handleChange} type="email" name="email"  />
                     </p>
                     <br/>
                    
                     <p>
                         <label>Phone Number</label><br/>
-                        <input defaultValue={profileInfo.phone} onChange={handleChange}  type="" name="phone_number" />
+                        <input defaultValue={profileInformation.phone} onChange={handleChange}  type="" name="phone_number" />
                     </p>
                     <br/>
                     <p> 
@@ -132,7 +132,7 @@ export default function Profile() {
 
                     <p>
                         <label>Diploma ID</label><br/>
-                        <input defaultValue={profileInfo.diploma} onChange={handleChange}  type="text" name="diploma" />
+                        <input defaultValue={profileInformation.diploma} onChange={handleChange}  type="text" name="diploma" />
                     </p>
                     <br/>
 
@@ -144,7 +144,7 @@ export default function Profile() {
                     
                     <p>
                         <label>Birthday</label><br/>
-                        <input defaultValue={profileInfo.birth} onChange={handleChange}  type="date" name="birthday" />
+                        <input defaultValue={profileInformation.birth} onChange={handleChange}  type="date" name="birthday" />
                     </p>
                     <br/>
                     <label htmlFor="genderSelect">Gender</label><br/>
