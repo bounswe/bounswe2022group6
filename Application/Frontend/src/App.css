@@ -80,6 +80,20 @@ body {
     text-transform: capitalize
 }
 
+.secondary-button {
+  margin-top: 2rem;
+  margin-right: 1rem;
+  padding: .6rem;
+  width: 20rem;
+  background: #222;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  transition: all .5s;
+  cursor: pointer;
+  text-transform: capitalize
+}
+
 .center {
   text-align: center;
 }

@@ -18,6 +18,11 @@ export default function Landing() {
                         <button class="primary-button" id="home_button"><span>register </span></button>
                     </Link>
                 </div>
+                <div class="buttons text-center">
+                    <Link to="/home">
+                        <button class="secondary-button" id="home_button"> <span>Continue as a guest</span></button>
+                    </Link>
+                </div>
             </div>
         </header>
     )
