@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useReducer } from 'react'
 import { Link } from 'react-router-dom'
 import logout from "../services/Logout_API";
 import { useHistory } from 'react-router-dom';
@@ -6,12 +6,13 @@ import { useState } from "react";
 import MessageBox from "../components/MessageBox";
 import edit from "../services/Edit_API";
 import editProfile from '../services/EditProfile_API';
-
+import { ToggleSlider }  from "react-toggle-slider";
 export default function Profile() {
 
     let history = useHistory()
 
     const [isLoggedout, setLoggedout] = useState(false)
+    const [active, setActive] = useState(false);
 
     const [profileInfo, setProfileInfo] = useState({
         username: "",
@@ -20,10 +21,19 @@ export default function Profile() {
         surname: "",
         gender: "",
         birth: "",
-        password: ""
+        phone:"",
+        diploma:"",
+        doctor:"",
+        profession:"",
+
       });
 
-    function start() {
+    const [profileInput, setProfileInput] = useReducer(
+        (state, newState) => ({ ...state, ...newState }),
+        []
+    );
+
+     useEffect( ()=>   {
         edit().then(res=> {
             setProfileInfo({
                 username: res["username"],
@@ -32,19 +42,21 @@ export default function Profile() {
                 surname: res["last_name"],
                 gender: res["gender"],
                 birth: res["birth_date"],
+                phone: res["phone_number"],
+                diploma:res["diplomaID"],
+                doctor: res[ "verified_as_doctor"],
+                profession: res["profession"],
               });
             
         })
-    };
-    start();
+    });
 
     const handleEdit = event => {
         event.preventDefault();
-        console.log(profileInfo)
-        editProfile(profileInfo).then(
+        editProfile(profileInput).then(
             res => {
                 if(res===null){
-                    console.log(profileInfo);
+                    console.log(profileInput)
                     console.log("basarili");
                 }
             }
@@ -53,19 +65,12 @@ export default function Profile() {
 }
     
 
-    function handleChange(event) {
-        const {name, value} = event.target
-        console.log(name)
-        console.log(value)
-        setProfileInfo(prevFormData => {
-            return {
-                ...prevFormData,
-                [name]: value
-            }
-        })
-        console.log(profileInfo)
-
-    }
+    const handleChange = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
+        setProfileInput({ [name]: value });
+        //console.log(profileInput)
+    };
     
     
 
@@ -96,12 +101,12 @@ export default function Profile() {
                     <br/>
                     <p>
                         <label>Name</label><br/>
-                        <input defaultValue={profileInfo.name} onChange={handleChange} type="text" name="name" />
+                        <input defaultValue={profileInfo.name} onChange={handleChange} type="text" name="first_name" />
                     </p>
                     <br/>
                     <p>
                         <label>Surname</label><br/>
-                        <input defaultValue={profileInfo.surname} onChange={handleChange}  type="text" name="surname" />
+                        <input defaultValue={profileInfo.surname} onChange={handleChange}  type="text" name="last_name" />
                     </p>
                     <br/>
                     <p>
@@ -109,14 +114,37 @@ export default function Profile() {
                         <input defaultValue={profileInfo.email} onChange={handleChange} type="email" name="email"  />
                     </p>
                     <br/>
+                   
                     <p>
-                        <label>Password</label><br/>
-                        <input defaultValue={profileInfo.password} onChange={handleChange}  type="password" name="password" />
+                        <label>Phone Number</label><br/>
+                        <input defaultValue={profileInfo.phone} onChange={handleChange}  type="" name="phone_number" />
                     </p>
                     <br/>
+                    <p> 
+                        <div>
+                        <label>Verified as Doctor</label>
+                        <ToggleSlider onToggle={state => setActive(state)}/> 
+                        <br/>
+                        </div>
+                    </p>
+                    
+                    <br/>
+
                     <p>
-                        <label>Date of Birth</label><br/>
-                        <input defaultValue={profileInfo.birth} onChange={handleChange}  type="date" name="date" />
+                        <label>Diploma ID</label><br/>
+                        <input defaultValue={profileInfo.diploma} onChange={handleChange}  type="text" name="diploma" />
+                    </p>
+                    <br/>
+
+                    <p>
+                        <label>Profession</label><br/>
+                        <input  onChange={handleChange}  type="text" name="password" />
+                    </p>
+                    <br/>
+                    
+                    <p>
+                        <label>Birthday</label><br/>
+                        <input defaultValue={profileInfo.birth} onChange={handleChange}  type="date" name="birthday" />
                     </p>
                     <br/>
                     <label htmlFor="genderSelect">Gender</label><br/>
