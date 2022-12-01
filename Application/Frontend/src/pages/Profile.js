@@ -64,10 +64,9 @@ export default function Profile() {
                 profession: res["profession"],
                 doctor: res[ "verified_as_doctor"],
                 
-              });
-            
+              })
         })
-    });
+    }, []);
 
     const handleEdit = event => {
         event.preventDefault();
@@ -173,7 +172,7 @@ export default function Profile() {
 
                     <div>
                         <label>Profession</label><br/>
-                        <input  onChange={handleChange}  type="text" name="profession" />
+                        <input  defaultValue={profileInformation.profession} onChange={handleChange}  type="text" name="profession" />
                     </div>
                     <br/>
                     
@@ -185,11 +184,11 @@ export default function Profile() {
                     <div>
                     <label htmlFor="genderSelect">Gender</label><br/>
                     
-                    <select id="genderSelect" defaultValue={profileInformation.gender} >
-                    <option value="do not want to specify">Do not want to specify</option>
-                    <option value="male">Male</option> 
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
+                    <select id="genderSelect"  onChange = {handleChange} name ="gender">
+                    <option value="do not want to specify" selected = {profileInformation.gender === 'D'}>Do not want to specify</option>
+                    <option value="male" selected = {profileInformation.gender === 'M'}>Male</option> 
+                    <option value="female" selected = {profileInformation.gender === 'F'}>Female</option>
+                    <option value="other" selected = {profileInformation.gender === 'O'}>Other</option>
                     </select>
 
                     <br/><br/>
