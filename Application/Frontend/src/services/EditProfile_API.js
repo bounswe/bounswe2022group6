@@ -30,9 +30,10 @@ async function editProfile(data) {
     const response = await fetch( window.location.href.replace(":3000", ":8000"), requestOptions)
     const resMessage = await response.json()
     if (response.status === 400) {
-        console.log(resMessage)
+        console.log("basarısız")
         return resMessage["error"]
     } else {
+        console.log("basarılııı")
         return null
     }
 }

@@ -7,13 +7,30 @@ import MessageBox from "../components/MessageBox";
 import edit from "../services/Edit_API";
 import editProfile from '../services/EditProfile_API';
 import { ToggleSlider }  from "react-toggle-slider";
+import Select from 'react-select';
+
 export default function Profile() {
 
     let history = useHistory()
 
     const [isLoggedout, setLoggedout] = useState(false)
     const [active, setActive] = useState(false);
+    const initialErrorState = {
+        username: "", 
+        email: "", 
+        password: "", 
+        date: ""
+    }
 
+
+    const [errors, setErrors] = useState(initialErrorState)
+    const [isSuccessfull, setSuccessfull] = useState(false)
+
+    const clearErrorState = () => {
+        setErrors({...initialErrorState})
+    }
+
+    
     const [profileInformation, setprofileInformation] = useState({
         username: "",
         email: "",
@@ -44,8 +61,9 @@ export default function Profile() {
                 birth: res["birth_date"],
                 phone: res["phone_number"],
                 diploma:res["diplomaID"],
-                doctor: res[ "verified_as_doctor"],
                 profession: res["profession"],
+                doctor: res[ "verified_as_doctor"],
+                
               });
             
         })
@@ -55,9 +73,17 @@ export default function Profile() {
         event.preventDefault();
         editProfile(profileData).then(
             res => {
+                clearErrorState()
                 if(res===null){
+                    setSuccessfull(true)
                     console.log(profileData)
-                    console.log("basarili");
+                }else {
+                    const jsonString = JSON.parse(res.replaceAll("'", "\""))
+                    var newErrors = {}
+                    for (const key of Object.keys(jsonString)){
+                        newErrors[key] = jsonString[key][0]
+                    }
+                    setErrors({...newErrors})
                 }
             }
         )
@@ -72,9 +98,6 @@ export default function Profile() {
         //console.log(profileData)
     };
     
-    
-
-
     function handleClick(event) {
       event.preventDefault()
       logout().then(res => {
@@ -89,86 +112,94 @@ export default function Profile() {
     }
     
     return (
+        
         <div className="center" >
+            <Link to="/home">
+            <button className="primary-button" style = {{position: "absolute", top: "5px", right: "200px"}}>Homepage</button>
+            </Link>
+
+            <Link to="/">
+                <button className="primary-button"style = {{position: "absolute", top: "5px", right: "5px"}} onClick={handleClick}>Log out</button>
+            </Link>
             <h1 className="profile-title home-page-title">Your Profile</h1>
+            
             <div> {isLoggedout && <MessageBox data="Logout Successful!" style={{ color: "#222", fontSize: "2.5rem", textTransform: "capitalize" }}> </MessageBox>}
             </div>
+            <div> {isSuccessfull && <MessageBox data = "Your changes have been successfully saved." style = {{color: "#222", fontSize: "2.5rem", textTransform: "capitalize"}}> </MessageBox>}
+              </div>
             <form >
-            <p>
+            <div>
                         <label>Username</label><br/>
                         <input defaultValue={profileInformation.username} onChange={handleChange}  type="text" name="username" />
-                    </p>
+                    </div>
+                    <div> {errors.username && <label style = {{paddingLeft : "15%"}} >{errors.username}</label>} </div>
                     <br/>
-                    <p>
+                    <div>
                         <label>Name</label><br/>
                         <input defaultValue={profileInformation.name} onChange={handleChange} type="text" name="first_name" />
-                    </p>
+                    </div>
                     <br/>
-                    <p>
+                    <div>
                         <label>Surname</label><br/>
                         <input defaultValue={profileInformation.surname} onChange={handleChange}  type="text" name="last_name" />
-                    </p>
+                    </div>
                     <br/>
-                    <p>
+                    <div>
                         <label>Email address</label><br/>
                         <input defaultValue={profileInformation.email} onChange={handleChange} type="email" name="email"  />
-                    </p>
+                    </div>
                     <br/>
                    
-                    <p>
+                    <div>
                         <label>Phone Number</label><br/>
                         <input defaultValue={profileInformation.phone} onChange={handleChange}  type="" name="phone_number" />
-                    </p>
+                    </div>
                     <br/>
-                    <p> 
+                    <div> 
                         <div>
                         <label>Verified as Doctor</label>
-                        <ToggleSlider onToggle={state => setActive(state)}/> 
-                        <br/>
+                        <ToggleSlider onToggle={state => setActive(state)} name="verified_as_doctor"/> 
+                        
                         </div>
-                    </p>
+                    </div>
                     
                     <br/>
 
-                    <p>
+                    <div>
                         <label>Diploma ID</label><br/>
-                        <input defaultValue={profileInformation.diploma} onChange={handleChange}  type="text" name="diploma" />
-                    </p>
+                        <input defaultValue={profileInformation.diploma} onChange={handleChange}  type="text" name="diplomaID" />
+                    </div>
                     <br/>
 
-                    <p>
+                    <div>
                         <label>Profession</label><br/>
-                        <input  onChange={handleChange}  type="text" name="password" />
-                    </p>
+                        <input  onChange={handleChange}  type="text" name="profession" />
+                    </div>
                     <br/>
                     
-                    <p>
+                    <div>
                         <label>Birthday</label><br/>
-                        <input defaultValue={profileInformation.birth} onChange={handleChange}  type="date" name="birthday" />
-                    </p>
+                        <input defaultValue={profileInformation.birth} onChange={handleChange}  type="date" name="date" />
+                    </div>
                     <br/>
+                    <div>
                     <label htmlFor="genderSelect">Gender</label><br/>
                     
-                    <select id="genderSelect" >
+                    <select id="genderSelect" defaultValue={profileInformation.gender} >
                     <option value="do not want to specify">Do not want to specify</option>
                     <option value="male">Male</option> 
                     <option value="female">Female</option>
                     <option value="other">Other</option>
-                    </select><br/><br/>
+                    </select>
+
+                    <br/><br/>
+                    </div>
+                    
                     <button  id="submit_btn" type="submit" onClick={handleEdit}>
                         Edit
                     </button>
                 </form>
-                <div> 
-            <Link to="/home">
-            <button className="primary-button">Homepage</button>
-            </Link>
-
-            <Link to="/">
-                <button className="primary-button" onClick={handleClick}>Log out</button>
-            </Link>
-
-                </div>
+               
         </div>
     )
 }
