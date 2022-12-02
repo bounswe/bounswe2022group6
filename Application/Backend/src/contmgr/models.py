@@ -45,4 +45,13 @@ class Label(models.Model):
     labelName = models.CharField(max_length=32, blank=False, null=False)
     labelType = models.CharField(max_length=1, blank=False, null=False, choices=(("c", "content"), ("f", "field")))
     labelColor = models.CharField(max_length=16, blank=False, null=False, validators=[RegexValidator(r'^#(?:[0-9a-fA-F]{3}){1,2}$')])
-    parentLabel = models.ForeignKey("self", on_delete=models.CASCADE, blank=True, null=True, related_name='children_labels')
+    parentLabel = models.ForeignKey("self", on_delete=models.SET_NULL, blank=True, null=True, related_name='children_labels')
+
+    def as_dict(self):
+        return {
+            "labelID": self.labelID,
+            "labelName": self.labelName,
+            "labelType": self.labelType,
+            "labelColor": self.labelColor,
+            "parentLabel": self.parentLabel.labelID if self.parentLabel else None
+        }
