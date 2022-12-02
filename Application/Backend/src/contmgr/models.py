@@ -36,8 +36,7 @@ class Post(Content):
     location = models.CharField(max_length=128, blank=True, null=True, default=None)
     imageURL = models.CharField(max_length=256, blank=True, null=True, default=None)
     is_marked_nsfw = models.BooleanField(default=False)
-    # content_labels = models.ManyToManyField(ContentLabel, related_name='content_labels', blank=True)
-    # field_labels = models.ManyToManyField(FieldLabel, related_name='field_labels', blank=True)
+    labels = models.ManyToManyField("Label", related_name='labelled_posts', blank=True)
 
 class Label(models.Model):
 
