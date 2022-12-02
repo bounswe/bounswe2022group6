@@ -38,3 +38,11 @@ class Post(Content):
     is_marked_nsfw = models.BooleanField(default=False)
     # content_labels = models.ManyToManyField(ContentLabel, related_name='content_labels', blank=True)
     # field_labels = models.ManyToManyField(FieldLabel, related_name='field_labels', blank=True)
+
+class Label(models.Model):
+
+    labelID = models.AutoField(primary_key=True)
+    labelName = models.CharField(max_length=32, blank=False, null=False)
+    labelType = models.CharField(max_length=1, blank=False, null=False, choices=(("c", "content"), ("f", "field")))
+    labelColor = models.CharField(max_length=16, blank=False, null=False, validators=[RegexValidator(r'^#(?:[0-9a-fA-F]{3}){1,2}$')])
+    parentLabel = models.ForeignKey("self", on_delete=models.CASCADE, blank=True, null=True, related_name='children_labels')
