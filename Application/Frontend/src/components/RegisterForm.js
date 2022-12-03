@@ -1,10 +1,10 @@
 import React from 'react'
-import {useHistory} from 'react-router-dom'
 import {useState} from "react"
-import { Link } from 'react-router-dom'
 
 import MessageBox from './MessageBox'
 import register from '../services/Register_API'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 const initialErrorState = {
     username: "", 
@@ -15,7 +15,6 @@ const initialErrorState = {
 
 function RegisterForm() {
 
-    let history = useHistory()
 
     const [isSuccessfull, setSuccessfull] = useState(false)
 
@@ -45,12 +44,13 @@ function RegisterForm() {
 
     const handleSubmit = event => {
             event.preventDefault()
+            console.log("handled.")
             register(formData).then(res => {
                 clearErrorState()
                 if (res === null){
                     setSuccessfull(true)
                     setTimeout(() => {
-                        history.push('/login');
+                        window.location.reload();;
                       }, "1500")
                    
                 } else {
@@ -67,61 +67,84 @@ function RegisterForm() {
 
     return (
     <div>
-    <div> {isSuccessfull && <MessageBox data = "Successful Registration" style = {{color: "#222", fontSize: "2.5rem", textTransform: "capitalize"}}> </MessageBox>}
-    </div>
-    <form style = {formStyle} onSubmit = {handleSubmit}>
-        <div>
-            <label style = {{paddingLeft : "40%"}} >Username</label><br/>
-            <input type="text" name="username" value={formData.username} onChange={handleChange} style={{ border: errors.username ? '1px solid red' : '' }} required />
+        <div> 
+            {isSuccessfull && <MessageBox data = "Successful Registration" style = {{color: "#c2cd23", fontSize: "2rem"}}> </MessageBox>}
         </div>
-        <div> {errors.username && <label style = {{paddingLeft : "15%"}} >{errors.username}</label>} </div>
-        <br/> 
-        <br/>
-        <div>
-            <label style = {{paddingLeft : "40%"}} >Email address</label><br/>
-            <input type="email" name="email" value={formData.email} onChange={handleChange} style={{ border: errors.email ? '1px solid red' : '' }} required />
-        </div>
-        <div> {errors.email && <label style = {{paddingLeft : "27%"}} >{errors.email}</label>} </div>
-        <br/>
-        <br/>
-        <div>
-            <label style = {{paddingLeft : "40%"}} >Password</label><br/>
-            <input type="password" name="password" value={formData.password} onChange={handleChange} style={{ border: errors.password ? '1px solid red' : '' }} required />
-        </div>
-        <div> {errors.password && <label>{errors.password}</label>} </div>
-        <br/>
-        <div>
-            <label style = {{paddingLeft : "40%"}} >Date of Birth</label><br/> 
-            <input type="date" name="date" value={formData.date} onChange={handleChange} style={{ border: errors.date ? '1px solid red' : '' }} required />
-        </div>
-        <div> {errors.date && <label>{errors.date}</label>} </div>
+        <Form style = {formStyle} onSubmit = {handleSubmit}>
+            <div>
+                <label style = {labelStyle} >Username</label>
+                <input type="text" name="username" value={formData.username} onChange={handleChange} style={{backgroundColor:"#c2cb43", border: errors.username ? '1px solid red' : '' }} required />
+            </div>
+            <br/>
+            <div> {errors.username && <label style = {errorStyle} >{errors.username}</label>} </div>
+            <br/>
+            <div>
+                <label style = {labelStyle} >Email address</label>
+                <input type="email" name="email" value={formData.email} onChange={handleChange} style={{backgroundColor:"#c2cb43", border: errors.email ? '1px solid red' : '' }} required />
+            </div>
+            <br/>
+            <div> {errors.email && <label style = {errorStyle} >{errors.email}</label>} </div>
+            <br/>
+            <div>
+                <label style = {labelStyle} >Password</label>
+                <input type="password" name="password" value={formData.password} onChange={handleChange} style={{backgroundColor:"#c2cb43", border: errors.password ? '1px solid red' : '' }} required />
+            </div>
+            <br/>
+            <div> {errors.password && <label style = {errorStyle}>{errors.password}</label>} </div>
+            <br/>
+            <div>
+                <label style = {labelStyle} >Date of Birth</label>
+                <input type="date" name="date" value={formData.date} onChange={handleChange} style={{backgroundColor:"#c2cb43", border: errors.date ? '1px solid red' : '' }} required />
+            </div>
+            <br/>
+            <div> {errors.date && <label style = {errorStyle}>{errors.date}</label>} </div>
 
-        <br/>
+            <br/>
+            <div>
+                <label style = {labelStyle} htmlFor="genderSelect">Gender</label>
+            </div>
+            <select name='gender' value = {formData.gender} onChange = {handleChange} id="genderSelect" style={{backgroundColor:"#c2cb43", marginLeft:-100}}>
+            <option value="do not want to specify" >Do not want to specify</option>
+            <option value="male">Male</option> 
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+            </select><br/>
 
-        <label style = {{paddingLeft : "40%"}} htmlFor="genderSelect">Gender</label><br/>
-        <select name='gender' value = {formData.gender} onChange = {handleChange} id="genderSelect" >
-        <option value="do not want to specify" >Do not want to specify</option>
-        <option value="male">Male</option> 
-        <option value="female">Female</option>
-        <option value="other">Other</option>
-        </select><br/><br/>
 
-        <div>
-            <input type="checkbox" name="checkbox" id="checkbox" required /> <span>I agree all statements in <a href="https://google.com" target="_blank" rel="noopener noreferrer">terms of service</a></span>.
-        </div>
-        <p>
-            <button id="submit_btn" type="submit">Register</button>
-        </p>
-        <br/>
-        <p><Link to="/">Back to Homepage</Link>.</p>
-    </form>
+
+            <div>
+                <input type="checkbox" name="checkbox" id="checkbox" style={{backgroundColor:"#c2cb43", marginLeft: 15, marginTop:10}} required/> <span>I agree all statements in <a href="https://google.com" target="_blank" rel="noopener noreferrer">terms of service</a></span>.
+            </div>
+            <br/>
+            <Button variant="warning" class="primary-button" id="custom_button" type="submit" style={{fontWeight:"bold"}}>Register</Button>
+        </Form>
     </div>
     )
 }
 
 const formStyle = {
-    width: "30%",
-    heigth: "50%"
+    marginTop: -5,
+    backgroundColor: "#dde296",
+    width: "18%",
+    heigth: "50%",
+    border: "orange",
+    borderWidth:"2px", 
+    borderStyle: "solid"
+}
+
+const labelStyle = {
+    marginTop: -25,
+    fontWeight:"bold", 
+    fontSize: 20,
+    paddingLeft : "6%",
+}
+
+const errorStyle = {
+    marginTop: -25,
+    fontWeight:"bold", 
+    fontSize: 11,
+    marginLeft: 15,
+    color: "red"
 }
 
 export default RegisterForm

@@ -1,30 +1,34 @@
 import React from 'react'
-
 import '../App.css'
-import BackgroundImage from '../assets/boun_2.png'
+import { useHistory } from 'react-router-dom'
 import LoginForm from '../components/LoginForm'
+import Logo from '../assets/MediShare.png'
+import Image from 'react-bootstrap/Image'
+import Button from 'react-bootstrap/Button'
 
 export default function Login() {
+
+    let history = useHistory()
+
     return (
         <header style={ HeaderStyle }>
             <div class="center">
-                <div class="text-center m-5-auto">
-                    <h2 class="yellow-font">Log in to MediShare</h2>
+                <h1 class="main-title text-center">Login to MediShare</h1>
+                <p class="main-para text-center">Please provide your credentials</p>
                     <LoginForm>
                     </LoginForm>
-                </div>
+                    <Button variant="success" style={{marginTop:-5}} class="primary-button" id="custom_button" size="lg" onClick={() => {history.push("/")}}> <span> Back to Landing Page </span> </Button>
+                    <br/>
+                    <Image src={Logo} style={{marginTop:-1}}></Image>
             </div>
         </header>
-
     )
 }
 
 const HeaderStyle = {
-    background: `url(${BackgroundImage})`,
+    backgroundColor: "#011e36",
     width: "100%",
     height: "100vh",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    "overflow-y": "hidden",
+    "overflowY": "hidden",
+    "overflowX": "hidden",
 }

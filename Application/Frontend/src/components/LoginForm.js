@@ -1,9 +1,10 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { useState } from "react"
-import { Link } from 'react-router-dom'
 import login from '../services/Login_API'
 import MessageBox from './MessageBox'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 const initialErrorState = {
     useridentifier: "",
@@ -66,36 +67,53 @@ function LoginForm() {
     }
     return (
         <div>
-            <div> {isSuccessfull && <MessageBox data="Login Successful!" style={{ color: "#222", fontSize: "2.5rem", textTransform: "capitalize" }}> </MessageBox>}
+            <div> 
+                {isSuccessfull && <MessageBox data="Login Successful!" style={{color: "#c2cd23", fontSize: "2rem"}}> </MessageBox>}
             </div>
-            <form style={formStyle} onSubmit={handleSubmit}>
+            <Form style={formStyle} onSubmit={handleSubmit}>
                 <div>
-                    <label style={{ paddingLeft: "20%" }} >Username or email address</label><br />
-                    <input type="text" name="useridentifier" value={formData.useridentifier} onChange={handleChange} style={{ border: errors.useridentifier ? '1px solid red' : '' }} required />
+                    <label style = {labelStyle} >Username or email address</label>
+                    <input type="text" name="useridentifier" value={formData.useridentifier} onChange={handleChange} style={{backgroundColor:"#c2cb43", marginLeft:-40, border: errors.useridentifier ? '1px solid red' : '' }} required />
                 </div>
                 <br />
-                <div> {errors.useridentifier && <label style={{ paddingLeft: "10%" }} >{errors.useridentifier}</label>} </div>
+                <div> {errors.useridentifier && <label style={errorStyle} >{errors.useridentifier}</label>} </div>
                 <br />
                 <div>
-                    <label style={{ paddingLeft: "40%" }} >Password</label><br />
-                    <input type="password" name="password" value={formData.password} onChange={handleChange} style={{ border: errors.password ? '1px solid red' : '' }} required />
+                    <label style = {labelStyle} >Password</label>
+                    <input type="password" name="password" value={formData.password} onChange={handleChange} style={{backgroundColor:"#c2cb43", marginLeft:-40, border: errors.password ? '1px solid red' : '' }} required />
                 </div>
                 <br />
-                <div>  {errors.password && <label style={{ paddingLeft: "10%" }}>{errors.password}</label>} </div>
-                <br />
-                <p>
-                    <button id="submit_btn" type="submit">Login</button>
-                </p>
-                <p>First time? <Link to="/register">Create an account</Link>.</p>
-                <p><Link to="/">Back to Homepage</Link>.</p>
-            </form>
+                <div>  {errors.password && <label style={errorStyle}>{errors.password}</label>} </div>
+                <br/>
+                <Button variant="warning" class="primary-button" id="custom_button" type="submit" style={{fontWeight:"bold"}}>Login</Button>
+            </Form>
         </div>
     )
 }
 
 const formStyle = {
-    width: "20%",
-    heigth: "50%"
+    marginTop: -5,
+    backgroundColor: "#dde296",
+    width: "18%",
+    heigth: "50%",
+    border: "orange",
+    borderWidth:"2px", 
+    borderStyle: "solid"
+}
+
+const labelStyle = {
+    marginTop: -10,
+    fontWeight:"bold", 
+    fontSize: 20,
+    marginLeft: -5,
+}
+
+const errorStyle = {
+    marginTop: -20,
+    fontWeight:"bold", 
+    fontSize: 15,
+    marginLeft: -5,
+    color: "red"
 }
 
 export default LoginForm;
