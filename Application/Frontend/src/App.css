@@ -20,9 +20,9 @@ body {
 
 .main-title {
     color: #5af288;
-    padding-top: 3rem;
+    padding-top: 1.5rem;
     font-size: 4rem;
-    font-family: 'Fascinate', cursive;
+    font-family: 'Lucida Sans';
 }
 .profile-title {
   padding-top: 1rem;
@@ -40,15 +40,16 @@ body {
 .main-para {
     color: #17ead9;
     font-size: 2.5rem;
+    font-family: 'Lucida Sans';
 }
 
-#landing_button span {
+#custom_button span {
     display: inline-block;
     position: relative;
     transition: 0.5s;
 }
 
-#landing_button span:after {
+#custom_button span:after {
     content: '\00bb';
     position: absolute;
     opacity: 0;
@@ -57,11 +58,11 @@ body {
     transition: 0.5s;
 }
 
-#landing_button:hover span {
+#custom_button:hover span {
   padding-right: 25px;
 }
 
-#landing_button:hover span:after {
+#custom_button:hover span:after {
   opacity: 1;
   right: 0;
 }
