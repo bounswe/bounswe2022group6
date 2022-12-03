@@ -65,7 +65,7 @@ export default function Landing() {
                                 </Link>
                             </div>
                             
-                            <Image src={Logo} style={{marginTop:100}}></Image>
+                            <Image src={Logo}></Image>
                         </div>
                         
                     </div>
@@ -102,7 +102,7 @@ export default function Landing() {
 const HeaderStyle = {
     backgroundColor: "#011e36",
     width: "100%",
-    height: "100vh",
+    height: "100%",
     "overflowY": "hidden",
     "overflowX": "hidden",
 }
