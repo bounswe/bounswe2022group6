@@ -73,28 +73,28 @@ function RegisterForm() {
         <Form style = {formStyle} onSubmit = {handleSubmit}>
             <div>
                 <label style = {labelStyle} >Username</label>
-                <input type="text" name="username" value={formData.username} onChange={handleChange} style={{backgroundColor:"#c2cb43", margin:"auto", width:"100%", border: errors.username ? '1px solid red' : '' }} required />
+                <input type="text" name="username" value={formData.username} onChange={handleChange} style={{backgroundColor:"#c2cb43", border: errors.username ? '1px solid red' : '' }} required />
             </div>
             <br/>
             <div> {errors.username && <label style = {errorStyle} >{errors.username}</label>} </div>
             <br/>
             <div>
                 <label style = {labelStyle} >Email address</label>
-                <input type="email" name="email" value={formData.email} onChange={handleChange} style={{backgroundColor:"#c2cb43", margin:"auto", width:"100%", border: errors.email ? '1px solid red' : '' }} required />
+                <input type="email" name="email" value={formData.email} onChange={handleChange} style={{backgroundColor:"#c2cb43", border: errors.email ? '1px solid red' : '' }} required />
             </div>
             <br/>
             <div> {errors.email && <label style = {errorStyle} >{errors.email}</label>} </div>
             <br/>
             <div>
                 <label style = {labelStyle} >Password</label>
-                <input type="password" name="password" value={formData.password} onChange={handleChange} style={{backgroundColor:"#c2cb43", margin:"auto", width:"100%", border: errors.password ? '1px solid red' : '' }} required />
+                <input type="password" name="password" value={formData.password} onChange={handleChange} style={{backgroundColor:"#c2cb43", border: errors.password ? '1px solid red' : '' }} required />
             </div>
             <br/>
             <div> {errors.password && <label style = {errorStyle}>{errors.password}</label>} </div>
             <br/>
             <div>
                 <label style = {labelStyle} >Date of Birth</label>
-                <input type="date" name="date" value={formData.date} onChange={handleChange} style={{backgroundColor:"#c2cb43", margin:"auto", width:"100%", border: errors.date ? '1px solid red' : '' }} required />
+                <input type="date" name="date" value={formData.date} onChange={handleChange} style={{backgroundColor:"#c2cb43", border: errors.date ? '1px solid red' : '' }} required />
             </div>
             <br/>
             <div> {errors.date && <label style = {errorStyle}>{errors.date}</label>} </div>
@@ -103,7 +103,7 @@ function RegisterForm() {
             <div>
                 <label style = {labelStyle} htmlFor="genderSelect">Gender</label>
             </div>
-            <select name='gender' value = {formData.gender} onChange = {handleChange} id="genderSelect" style={{backgroundColor:"#c2cb43", margin:"auto", width:"100%"}}>
+            <select name='gender' value = {formData.gender} onChange = {handleChange} id="genderSelect" style={{backgroundColor:"#c2cb43", marginLeft:-100}}>
             <option value="do not want to specify" >Do not want to specify</option>
             <option value="male">Male</option> 
             <option value="female">Female</option>

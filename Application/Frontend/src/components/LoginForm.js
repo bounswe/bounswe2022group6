@@ -73,14 +73,14 @@ function LoginForm() {
             <Form style={formStyle} onSubmit={handleSubmit}>
                 <div>
                     <label style = {labelStyle} >Username or email address</label>
-                    <input type="text" name="useridentifier" value={formData.useridentifier} onChange={handleChange} style={{backgroundColor:"#c2cb43", margin:"auto", width:"100%", border: errors.useridentifier ? '1px solid red' : '' }} required />
+                    <input type="text" name="useridentifier" value={formData.useridentifier} onChange={handleChange} style={{backgroundColor:"#c2cb43", marginLeft:-40, border: errors.useridentifier ? '1px solid red' : '' }} required />
                 </div>
                 <br />
                 <div> {errors.useridentifier && <label style={errorStyle} >{errors.useridentifier}</label>} </div>
                 <br />
                 <div>
                     <label style = {labelStyle} >Password</label>
-                    <input type="password" name="password" value={formData.password} onChange={handleChange} style={{backgroundColor:"#c2cb43", margin:"auto", width:"100%", border: errors.password ? '1px solid red' : '' }} required />
+                    <input type="password" name="password" value={formData.password} onChange={handleChange} style={{backgroundColor:"#c2cb43", marginLeft:-40, border: errors.password ? '1px solid red' : '' }} required />
                 </div>
                 <br />
                 <div>  {errors.password && <label style={errorStyle}>{errors.password}</label>} </div>
