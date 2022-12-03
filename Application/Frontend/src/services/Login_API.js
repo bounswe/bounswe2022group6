@@ -11,7 +11,7 @@ async function login(data) {
         body: formData
     }
     
-    const response = await fetch(window.location.href.replace(":3000", ":8000"), requestOptions)
+    const response = await fetch(window.location.origin.replace(":3000", ":8000") + "/login", requestOptions)
     const resMessage = await response.json()
     console.log(resMessage)
     if (response.status === 400 || response.status === 401) {

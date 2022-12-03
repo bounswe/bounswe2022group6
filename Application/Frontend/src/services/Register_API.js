@@ -24,7 +24,7 @@ async function register(data) {
     }
     console.log("Sending Request")
     
-    const response = await fetch( window.location.href.replace(":3000", ":8000"), requestOptions)
+    const response = await fetch(window.location.origin.replace(":3000", ":8000") + "/register", requestOptions)
     const resMessage = await response.json()
     if (response.status === 400) {
         console.log(resMessage["error"])
