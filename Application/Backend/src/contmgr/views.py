@@ -22,8 +22,8 @@ def insertComments(target_data, rcomments):
             "mentioned_users": list(comment.mentioned_users.all().values_list('username', flat=True)),
             "comments": []
         })
-        ncomments = Comment.objects.get(parent_comment= comment).order_by('created_at')
-        insertComments(target_data["comments"][-1], ncomments)
+        ncomments = Comment.objects.filter(parent_comment= comment).order_by('created_at')
+        insertComments(target_data[-1]["comments"], ncomments)
 
 
 class PostView(APIView):
