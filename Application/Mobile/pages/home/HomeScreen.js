@@ -5,6 +5,8 @@ import HomeHeader from "./HomeHeader";
 import PostDetails from "../post/PostDetails";
 import CreatePost from "../post/CreatePost";
 import Chatbot from "./Chatbot";
+import SearchScreenHeader from "./SearchScreenHeader";
+import SearchScreen from "./SearchScreen";
 
 const HomeFeedStack = createNativeStackNavigator();
 
@@ -40,6 +42,20 @@ const HomeScreen = () => {
         options={{
           headerTitle: 'Chatbot',
           animation: 'slide_from_right',
+        }}
+      />
+      <HomeFeedStack.Screen
+        name='Search'
+        component={SearchScreen}
+        options={{
+          headerTitle: 'Search',
+          animation: 'fade',
+          header: (props) => <SearchScreenHeader {...props} />
+        }}
+        initialParams={{
+          searchQuery: null,
+          filtersVisible: false,
+          filters: null
         }}
       />
     </HomeFeedStack.Navigator>
