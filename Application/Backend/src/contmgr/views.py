@@ -25,6 +25,43 @@ def insertComments(target_data, rcomments):
         ncomments = Comment.objects.get(parent_comment= comment).order_by('created_at')
         insertComments(target_data["comments"][-1], ncomments)
 
+class CommentView(APIView):
+    permission_classes = (IsGetOrIsAuthenticated,)
+
+    # Return comment with all of its child comments
+    def get(self, req):
+        commentID = int(req.GET.get("id", None))
+        # Only one comment as a query (Didn't used get for compability with function)
+        comment = Comment.objects.filter(commentID=commentID)
+        data = []
+        insertComments(data, comment)
+        # Return first one (Only one element will return)
+        return JsonResponse(data[0])
+
+    # Create a comment
+    def post(self, req):
+        user = RegisteredUser.objects.get(username=req.user)
+
+        # Check if all fields are present
+        _parent_comment_id = req.POST.get("parent_comment_id", None)
+        _parent_post_id = req.POST.get("parent_post_id", None)
+        try:
+            _description = req.POST["description"]
+            # Only one of them should be set.
+            if (_parent_comment_id is None) == (_parent_post_id is None):
+                raise
+        except:
+            return JsonResponse({"info":"post creation failed", "error": "{'form_data': ['Missing or wrong form data.']}"}, status=400)
+
+        _parent_post = Post.objects.get(postID=_parent_post_id) if _parent_post_id is not None else None
+        _parent_comment = Comment.objects.get(commentID=_parent_comment_id) if _parent_comment_id is not None else None
+        new_coment = Comment(description=_description, owner=user, parent_post=_parent_post, parent_comment=_parent_comment)
+        try:
+            new_coment.save()
+            return JsonResponse({"info": "comment creation successful", "commentID": new_coment.commentID}, status=201)
+        except Exception as e:
+            return JsonResponse({"info":"user registration failed", "error": str(e)}, status=400)
+
 
 class PostView(APIView):
     permission_classes = (IsGetOrIsAuthenticated,)
