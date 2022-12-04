@@ -270,10 +270,11 @@ class Profile(APIView):
         permission_classes = (IsAuthenticated,)
         
         try:
-            profile = RegisteredUser.objects.get(username=req.user)
+            user = RegisteredUser.objects.get(username=req.user)
+            account = Account.objects.get(owner=user)
             
-            RegisteredUser.objects.get(username=username).delete()
-            req.user.auth_token.delete()
+            account.delete()
+            user.auth_token.delete()
             logout(req)
             return JsonResponse({"success": "account is deleted successfully"}, status=200)
 
