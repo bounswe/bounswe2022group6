@@ -76,16 +76,6 @@ class RegisterUser(APIView):
         current_month = today.month
         current_day = today.day
         
-        # if(current_month - birth_month) < 0:
-        #     user_age = current_year - birth_year - 1
-        # elif(current_month - birth_month == 0):
-        #     if(current_day - birth_day < 0):
-        #         user_age = current_year - birth_year - 1
-        #     else:
-        #         user_age = current_year - birth_year
-        # else:
-        #     user_age = current_year - birth_year
-        
         user_age = current_year - birth_year - ((current_month, current_day) < (birth_month, birth_day))
 
         if(user_age < 18):
@@ -276,5 +266,17 @@ class Profile(APIView):
             return JsonResponse({"info":"user profile update failed", "error": str(e)}, status=400)
 
     def delete(self, req):
-        # TODO: Remove account with username
-        return JsonResponse({})
+        
+        permission_classes = (IsAuthenticated,)
+        
+        try:
+            profile = RegisteredUser.objects.get(username=req.user)
+            
+            RegisteredUser.objects.get(username=username).delete()
+            req.user.auth_token.delete()
+            logout(req)
+            return JsonResponse({"success": "account is deleted successfully"}, status=200)
+
+        except :
+            return JsonResponse({"error": "account cannot be deleted"}, status=500)
+

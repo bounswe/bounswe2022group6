@@ -40,4 +40,5 @@ class Post(Content):
     # field_labels = models.ManyToManyField(FieldLabel, related_name='field_labels', blank=True)
     
 class Label(Content):
+    
     pass
