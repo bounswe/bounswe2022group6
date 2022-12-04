@@ -1,8 +1,22 @@
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+
+.body{
+  background: #7ab3b7;
+  text-align: center;
+  min-height: 100%;
+}
+
 .mypost {
-  background: white;
+  background: #dde296;
+  color: #0f7375;
   width: 98%;
   margin: auto;
-  height: 150px;
+  height: 160px;
   margin-bottom: 20px;
   display: flex;
   border-radius: 5px;
@@ -10,15 +24,31 @@
   overflow: hidden;
 }
 
+.mypostright {
+  width: 10%;
+  background: #95c3b3;
+  color: #0f7375;
+  align-items: center;
+  padding-top: 25px;
+}
+
 .mypostpage{
-  background: white;
   width: 80%;
   margin: auto;
-  margin-bottom: 20px;
   display: flex;
   border-radius: 5px;
   border: 1px solid lightgray;
 }
+.labelsSide{
+  display: inline-block;
+  padding: 10px;
+  background: #dde296;
+  width: 100%;
+  border-radius: 5px;
+  color: #0f7375;
+}
+
+
 
 .upvote {
   font-size: x-large;
@@ -61,9 +91,9 @@
 .mybutton {
   padding: 0.6rem;
   width: 7rem;
-  background: #222;
+  background: #0f7375;
   border: none;
-  color: #fff;
+  color: #dde296;
   font-size: 1.2rem;
   transition: all 0.5s;
   cursor: pointer;
@@ -105,11 +135,11 @@ p {
 }
 
 .dropbtn {
-  background-color: white;
+  background-color: lightgoldenrodyellow;
   border: 1px solid gray;
   border-radius: 5px;
 
-  color: rgb(28, 27, 27);
+  color: #0f7375;
   padding: 11px 16px;
   font-size: 16px;
   margin-left: 50px;
@@ -127,14 +157,14 @@ p {
   border-radius: 5px;
 
   position: absolute;
-  background-color: #f1f1f1;
+  background-color: lightgoldenrodyellow;
   min-width: 100px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
 .dropdowncontent p {
-  color: black;
+  color: #0f7375;
   padding: 12px 0px;
   text-decoration: none;
   display: block;
@@ -142,7 +172,7 @@ p {
 }
 
 .dropdowncontent p:hover {
-  background-color: #ddd;
+  background-color: rgb(228, 228, 191);
 }
 
 .dropdown:hover .dropdowncontent {
@@ -150,7 +180,7 @@ p {
 }
 
 .dropdown:hover .dropbtn {
-  background-color: #afafaf;
+  background-color: rgb(226, 226, 191);
 }
 
 .createpost {
@@ -188,3 +218,4 @@ p {
 .BsSearch:active {
   filter: brightness(1.1);
 }
+
