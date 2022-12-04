@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from django.http import JsonResponse
 from ..accmgr.models import *
 from .models import *
-from rest_framework.permissions import BasePermission, IsAuthenticated
+from rest_framework.permissions import BasePermission
 
 class IsGetOrIsAuthenticated(BasePermission):
     def has_permission(self, request, view):
@@ -25,44 +25,63 @@ def insertComments(target_data, rcomments):
         ncomments = Comment.objects.filter(parent_comment= comment).order_by('created_at')
         insertComments(target_data[-1]["comments"], ncomments)
 
-
-class CommentVote(APIView):
-    permission_classes = (IsAuthenticated,)
-    def get(self, req):
+# Inherited class for both comment and post voting systems
+class Vote(APIView):
+    permission_classes = (IsGetOrIsAuthenticated,)
+    def get(self, req, _type):
         user = RegisteredUser.objects.get(username=req.user)
-        commentID = int(req.GET.get("id", None))
-        comment = Comment.objects.get(commentID=commentID)
-        if comment.voted_users.filter(owner__username=user.username).exists():
+        modelID = int(req.POST.get("id", None))
+        try:
+            if _type=="comment":
+                model = Comment.objects.get(commentID=modelID)
+            elif _type=="post":
+                model = Post.objects.get(postID=modelID)
+            else: raise
+        except Exception as e:
+            return JsonResponse({"info":"Fetch data failed", "error": str(e)}, status=400)
+
+        if model.voted_users.filter(owner__username=user.username).exists():
+            return JsonResponse({"voted":True}, status=200)
+        else:
+            return JsonResponse({"voted":False}, status=200)
+
+    def post(self, req, _type):
+        user = RegisteredUser.objects.get(username=req.user)
+        modelID = int(req.POST.get("id", None))
+        try:
+            if _type=="comment":
+                model = Comment.objects.get(commentID=modelID)
+            elif _type=="post":
+                model = Post.objects.get(postID=modelID)
+            else: raise
+        except Exception as e:
+            return JsonResponse({"info":"Fetch data failed", "error": str(e)}, status=400)
+
+        if model.voted_users.filter(owner__username=user.username).exists():
             try:
-                comment.voted_users.remove(user)
-                return JsonResponse({"info":"Vote removed from comment for user"}, status=201)
+                model.voted_users.remove(user)
+                return JsonResponse({"info":f"Vote removed from {_type} for user"}, status=201)
             except Exception as e:
-                return JsonResponse({"info":"Vote remove from comment failed", "error": str(e)}, status=400)
+                return JsonResponse({"info":f"Vote remove from {_type} failed", "error": str(e)}, status=400)
         else:
             try:
-                comment.voted_users.add(user)
+                model.voted_users.add(user)
                 return JsonResponse({"info":"Vote added from comment for user"}, status=201)
             except Exception as e:
                 return JsonResponse({"info":"Vote add from comment failed", "error": str(e)}, status=400)
 
-class PostVote(APIView):
-    permission_classes = (IsAuthenticated,)
+
+class CommentVote(Vote):
     def get(self, req):
-        user = RegisteredUser.objects.get(username=req.user)
-        postID = int(req.GET.get("id", None))
-        post = Post.objects.get(postID=postID)
-        if post.voted_users.filter(owner__username=user.username).exists():
-            try:
-                post.voted_users.remove(user)
-                return JsonResponse({"info":"Vote removed from post for user"}, status=201)
-            except Exception as e:
-                return JsonResponse({"info":"Vote remove from post failed", "error": str(e)}, status=400)
-        else:
-            try:
-                post.voted_users.add(user)
-                return JsonResponse({"info":"Vote added from post for user"}, status=201)
-            except Exception as e:
-                return JsonResponse({"info":"Vote add from post failed", "error": str(e)}, status=400)
+        return super().get(req, "comment")
+    def post(self, req):
+        return super().post(req, "comment")
+
+class PostVote(Vote):
+    def get(self, req):
+        return super().get(req, "post")
+    def post(self, req):
+        return super().post(req, "post")
 
 
 class CommentView(APIView):
@@ -76,7 +95,7 @@ class CommentView(APIView):
         data = []
         insertComments(data, comment)
         # Return first one (Only one element will return)
-        return JsonResponse(data[0])
+        return JsonResponse(data[0], status=200)
 
     # Create a comment
     def post(self, req):
@@ -126,7 +145,7 @@ class PostView(APIView):
         
         comments = Comment.objects.filter(parent_post= tpost).order_by('created_at')
         insertComments(data["comments"], comments)
-        return JsonResponse(data)
+        return JsonResponse(data, status=200)
 
     # Create a post
     def post(self, req):
