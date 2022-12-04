@@ -14,6 +14,7 @@ class LabelsTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response_content, {"labels": [{"labelID": 1, "labelName": "test", "labelType": "c", "labelColor": "#000000", "parentLabel": None}]})
 
+
 class SearchPostTest(TestCase):
 
     def setUp(self):
@@ -75,3 +76,4 @@ class SearchPostTest(TestCase):
         posts = response_content["posts"]
         postIDs = [post["postID"] for post in posts]
         self.assertEqual(postIDs, [3, 4])
+
