@@ -15,23 +15,22 @@ class SearchPost(APIView):
 
     def get(self, req):
 
-        keywords = req.GET.get("keyword", None)
+        keywords = req.GET.getlist("keyword", None)
         labels = req.GET.getlist("label", None)
+
+        print(keywords)
+        print(labels)
         
-        if keywords is None and labels is None:
+        if not keywords and not labels:
             return JsonResponse({"info":"search failed", "error": "no keyword or label provided"}, status=400)
 
         posts = Post.objects.all()
 
-        if keywords is not None:
-            if type(keywords) is not list:
-                keywords = [keywords]
+        if keywords:
             for keyword in keywords:
                 posts = Post.objects.filter(description__icontains=keyword) | Post.objects.filter(title__icontains=keyword)
         
-        if labels is not None:
-            if type(labels) is not list:
-                labels = [labels]
+        if labels:
             for label in labels:
                 posts = posts.filter(labels__labelName=label)
 
