@@ -1,4 +1,4 @@
-async function register(data) {
+async function editProfile(data) {
 
     var formData = new FormData()
 
@@ -19,19 +19,23 @@ async function register(data) {
 
     const requestOptions = {
         method: "POST",
-        header: "Content-Type: multipart/form-data",
-        body: formData
+        body: formData,
+        headers: {
+            //'Content-Type':  "multipart/form-data",
+            'Authorization': 'Token ' + window.localStorage.getItem("auth_token") 
+         }
     }
-    console.log("Sending Request")
+   // console.log("Sending Request")
     
-    const response = await fetch(window.location.origin.replace(":3000", ":8000") + "/register", requestOptions)
+    const response = await fetch( window.location.href.replace(":3000", ":8000"), requestOptions)
     const resMessage = await response.json()
     if (response.status === 400) {
-        console.log(resMessage["error"])
+       
         return resMessage["error"]
     } else {
+        
         return null
     }
 }
 
-export default register;
+export default editProfile;
