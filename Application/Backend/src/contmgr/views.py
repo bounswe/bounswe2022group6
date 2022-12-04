@@ -12,26 +12,26 @@ class IsGetOrIsAuthenticated(BasePermission):
         # Else is same as IsAuthenticated
         return request.user and request.user.is_authenticated
 
+def insertComments(target_data, rcomments):
+    for comment in rcomments:
+        target_data.append({
+            "owner":comment.owner.username,
+            "description":comment.description,
+            "vote_count":comment.vote_count,
+            "created_at":comment.created_at,
+            "mentioned_users": list(comment.mentioned_users.all().values_list('username', flat=True)),
+            "comments": []
+        })
+        ncomments = Comment.objects.get(parent_comment= comment).order_by('created_at')
+        insertComments(target_data["comments"][-1], ncomments)
+
 
 class PostView(APIView):
     permission_classes = (IsGetOrIsAuthenticated,)
 
     # Return post with all of its comments
     def get(self, req):
-        def insertComments(target_data, rcomments):
-            for comment in rcomments:
-                target_data["comments"].append({
-                    "owner":comment.owner.username,
-                    "description":comment.description,
-                    "vote_count":comment.vote_count,
-                    "created_at":comment.created_at,
-                    "mentioned_users": list(comment.mentioned_users.all().values_list('username', flat=True)),
-                    "comments": []
-                })
-                ncomments = Comment.objects.filter(parent_comment= comment).order_by('created_at')
-                insertComments(target_data["comments"][-1], ncomments)
-
-        postID = int(req.GET.get("postid", None))
+        postID = int(req.GET.get("id", None))
         tpost = Post.objects.get(postID= postID)
         data = {
             "owner":tpost.owner.username,
@@ -48,7 +48,7 @@ class PostView(APIView):
         }
         
         comments = Comment.objects.filter(parent_post= tpost).order_by('created_at')
-        insertComments(data, comments)
+        insertComments(data["comments"], comments)
         return JsonResponse(data)
 
     # Create a post
@@ -67,6 +67,7 @@ class PostView(APIView):
         _imageURL = req.POST.get("imageURL", None)
         _is_marked_nsfw = req.POST.get("is_marked_nsfw", None)
 
+        # Parse all fields
         _title = _title.title().strip()
         _type = _type.strip().lower()
         _description = _description.strip()
@@ -79,7 +80,7 @@ class PostView(APIView):
         
         try:
             new_post.save()
-            return JsonResponse({"info": "post creation successful", "PostID": new_post.postID}, status=201)
+            return JsonResponse({"info": "post creation successful", "postID": new_post.postID}, status=201)
         except Exception as e:
             return JsonResponse({"info":"user registration failed", "error": str(e)}, status=400)
 
