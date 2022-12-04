@@ -36,5 +36,21 @@ class Post(Content):
     location = models.CharField(max_length=128, blank=True, null=True, default=None)
     imageURL = models.CharField(max_length=256, blank=True, null=True, default=None)
     is_marked_nsfw = models.BooleanField(default=False)
-    # content_labels = models.ManyToManyField(ContentLabel, related_name='content_labels', blank=True)
-    # field_labels = models.ManyToManyField(FieldLabel, related_name='field_labels', blank=True)
+    labels = models.ManyToManyField("Label", related_name='labelled_posts', blank=True)
+
+class Label(models.Model):
+
+    labelID = models.AutoField(primary_key=True)
+    labelName = models.CharField(max_length=32, blank=False, null=False)
+    labelType = models.CharField(max_length=1, blank=False, null=False, choices=(("c", "content"), ("f", "field")))
+    labelColor = models.CharField(max_length=16, blank=False, null=False, validators=[RegexValidator(r'^#(?:[0-9a-fA-F]{3}){1,2}$')])
+    parentLabel = models.ForeignKey("self", on_delete=models.SET_NULL, blank=True, null=True, related_name='children_labels')
+
+    def as_dict(self):
+        return {
+            "labelID": self.labelID,
+            "labelName": self.labelName,
+            "labelType": self.labelType,
+            "labelColor": self.labelColor,
+            "parentLabel": self.parentLabel.labelID if self.parentLabel else None
+        }

@@ -1,0 +1,107 @@
+{
+	"info": {
+		"_postman_id": "527a2859-fe62-4780-a493-2719eee15b8b",
+		"name": "Labels",
+		"description": "# Introduction\n\nThis endpoint is used for the retrieval of the labels in the system.\n\nThe endpoints\n\n- labels\n- labels/\n    \n\nhave exactly the same functionality\n\n# Authentication\n\nNo authentication needed for this endpoint.\n\n# Error Codes\n\n200: Labels are returned.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24070174"
+	},
+	"item": [
+		{
+			"name": "Get Labels",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8000/contmgr/labels",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"contmgr",
+						"labels"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Labels",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8000/contmgr/labels",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"contmgr",
+								"labels"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 02 Dec 2022 13:37:58 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "219"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"labels\": [\n        {\n            \"labelID\": 1,\n            \"labelName\": \"Orthopedy\",\n            \"labelType\": \"f\",\n            \"labelColor\": \"#abcdef\",\n            \"parentLabel\": null\n        },\n        {\n            \"labelID\": 2,\n            \"labelName\": \"Cardiology\",\n            \"labelType\": \"f\",\n            \"labelColor\": \"#123\",\n            \"parentLabel\": 1\n        }\n    ]\n}"
+				}
+			]
+		}
+	]
+}

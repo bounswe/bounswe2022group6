@@ -25,6 +25,18 @@ def insertComments(target_data, rcomments):
         ncomments = Comment.objects.filter(parent_comment= comment).order_by('created_at')
         insertComments(target_data[-1]["comments"], ncomments)
 
+
+class Labels(APIView):
+
+    def get(self, req):
+
+        labels = Label.objects.all()
+        data = {"labels" : []}
+        for label in labels:
+            data["labels"].append(label.as_dict())
+        return JsonResponse(data, status=200, safe=False)
+
+
 # Inherited class for both comment and post voting systems
 class Vote(APIView):
     permission_classes = (IsAuthenticated,)
@@ -192,4 +204,3 @@ class PostView(APIView):
             return JsonResponse({"info": "post creation successful", "postID": new_post.postID}, status=201)
         except Exception as e:
             return JsonResponse({"info":"post creation failed", "error": str(e)}, status=400)
-
