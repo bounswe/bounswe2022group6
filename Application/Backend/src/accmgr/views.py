@@ -6,6 +6,8 @@ from django.http import JsonResponse
 from datetime import date
 from hashlib import sha256
 from .models import *
+import datetime
+
 
 class RegisterUser(APIView):
 
@@ -24,7 +26,7 @@ class RegisterUser(APIView):
             birth_day_str = req.POST["birth_day"]
             password_str = req.POST["password"]
         except:
-            return JsonResponse({"info":"user registration failed", "error": "{'form_data': ['Missing form data.']}"}, status=400)
+            return JsonResponse({"info": "user registration failed", "error": "{'form_data': ['Missing form data.']}"}, status=400)
 
         # Remove spaces and format
 
@@ -38,41 +40,53 @@ class RegisterUser(APIView):
         # check password length
 
         if len(password_str) < 6 or len(password_str) > 120:
-            return JsonResponse({"info":"user registration failed", "error": "{'password': ['Password length must be between 6 and 120.']}"}, status=400)
+            return JsonResponse({"info": "user registration failed", "error": "{'password': ['Password length must be between 6 and 120.']}"}, status=400)
 
         # Hassh password
 
         password = sha256(password_str.encode("UTF-8")).hexdigest()
 
-        ## These checks are about the validity of the data sent independent of the database constraints
+        # These checks are about the validity of the data sent independent of the database constraints
 
         # Check if birth date fields are all integers
 
         try:
             birth_day = int(birth_day_str)
-        except :
-            return JsonResponse({"info":"user registration failed", "error": "{'birth_day': ['Enter an integer.']}"}, status=400)
-        
+        except:
+            return JsonResponse({"info": "user registration failed", "error": "{'birth_day': ['Enter an integer.']}"}, status=400)
+
         try:
             birth_month = int(birth_month_str)
-        except :
-            return JsonResponse({"info":"user registration failed", "error": "{'birth_month': ['Enter an integer.']}"}, status=400)
+        except:
+            return JsonResponse({"info": "user registration failed", "error": "{'birth_month': ['Enter an integer.']}"}, status=400)
 
         try:
             birth_year = int(birth_year_str)
-        except :
-            return JsonResponse({"info":"user registration failed", "error": "{'birth_year': ['Enter an integer.']}"}, status=400)
+        except:
+            return JsonResponse({"info": "user registration failed", "error": "{'birth_year': ['Enter an integer.']}"}, status=400)
 
         # Check if birth date fields comply with real date system
 
         try:
             birth_date = date(birth_year, birth_month, birth_day)
         except Exception as e:
-            return JsonResponse({"info":"user registration failed", "error": "{'birth_date': ['" + str(e) + "']}"}, status=400)
-        
-        new_user = RegisteredUser(username=username, email=email, password=password, birth_date=birth_date, gender=gender)
+            return JsonResponse({"info": "user registration failed", "error": "{'birth_date': ['" + str(e) + "']}"}, status=400)
 
-        ## This check is about the database constraints
+        today = datetime.date.today()
+        current_year = today.year
+        current_month = today.month
+        current_day = today.day
+
+        user_age = current_year - birth_year - \
+            ((current_month, current_day) < (birth_month, birth_day))
+
+        if (user_age < 18):
+            return JsonResponse({"info": "user registration failed", "error": "{'birth_date': ['You cannot register to the site if you are under 18 years old.']}"}, status=400)
+
+        new_user = RegisteredUser(username=username, email=email,
+                                  password=password, birth_date=birth_date, gender=gender)
+
+        # This check is about the database constraints
 
         # Check if the fields comply with the database constraints
 
@@ -82,7 +96,8 @@ class RegisterUser(APIView):
             new_account.save()
             return JsonResponse({"info": "user registration successful", "userID": new_user.userID}, status=201)
         except Exception as e:
-            return JsonResponse({"info":"user registration failed", "error": str(e)}, status=400)
+            return JsonResponse({"info": "user registration failed", "error": str(e)}, status=400)
+
 
 class LoginUser(APIView):
 
@@ -94,7 +109,7 @@ class LoginUser(APIView):
             useridentifier = req.POST["useridentifier"]
             password_str = req.POST["password"]
         except:
-            return JsonResponse({"info":"user login failed", "error": "{'form_data': ['Missing form data.']}"}, status=400)
+            return JsonResponse({"info": "user login failed", "error": "{'form_data': ['Missing form data.']}"}, status=400)
 
         user = None
 
@@ -102,24 +117,25 @@ class LoginUser(APIView):
             try:
                 user = RegisteredUser.objects.get(email=useridentifier)
             except:
-                return JsonResponse({"info":"user login failed", "error": "{'email': ['No user with such email.']}"}, status=400)
+                return JsonResponse({"info": "user login failed", "error": "{'email': ['No user with such email.']}"}, status=400)
 
         else:
             try:
                 user = RegisteredUser.objects.get(username=useridentifier)
             except:
-                return JsonResponse({"info":"user login failed", "error": "{'username': ['No user with such username.']}"}, status=400)
+                return JsonResponse({"info": "user login failed", "error": "{'username': ['No user with such username.']}"}, status=400)
 
         password = sha256(password_str.encode("UTF-8")).hexdigest()
 
         if password != user.password:
-            return JsonResponse({"info":"user login failed", "error": "{'password': ['Password incorrect']}"}, status=401)
+            return JsonResponse({"info": "user login failed", "error": "{'password': ['Password incorrect']}"}, status=401)
 
         token = Token.objects.get_or_create(user=user)[0].key
 
         login(req, user)
 
-        return JsonResponse({"info":"user login successful", "token":token}, status=200)
+        return JsonResponse({"info": "user login successful", "token": token}, status=200)
+
 
 class LogoutUser(APIView):
 
@@ -133,7 +149,7 @@ class LogoutUser(APIView):
 
 
 class Profile(APIView):
-    
+
     permission_classes = (IsAuthenticated,)
 
     def get(self, req):
@@ -193,30 +209,30 @@ class Profile(APIView):
         if ((birth_day_str is not None) and (birth_month_str is not None) and (birth_year_str is not None)):
             try:
                 birth_day = int(birth_day_str)
-            except :
-                return JsonResponse({"info":"user profile update failed", "error": "{'birth_day': ['Enter an integer.']}"}, status=400)
-            
+            except:
+                return JsonResponse({"info": "user profile update failed", "error": "{'birth_day': ['Enter an integer.']}"}, status=400)
+
             try:
                 birth_month = int(birth_month_str)
-            except :
-                return JsonResponse({"info":"user profile update failed", "error": "{'birth_month': ['Enter an integer.']}"}, status=400)
+            except:
+                return JsonResponse({"info": "user profile update failed", "error": "{'birth_month': ['Enter an integer.']}"}, status=400)
 
             try:
                 birth_year = int(birth_year_str)
-            except :
-                return JsonResponse({"info":"user profile update failed", "error": "{'birth_year': ['Enter an integer.']}"}, status=400)
+            except:
+                return JsonResponse({"info": "user profile update failed", "error": "{'birth_year': ['Enter an integer.']}"}, status=400)
 
             # Check if birth date fields comply with real date system
 
             try:
                 birth_date = date(birth_year, birth_month, birth_day)
             except Exception as e:
-                return JsonResponse({"info":"user profile update failed", "error": "{'birth_date': ['" + str(e) + "']}"}, status=400)
+                return JsonResponse({"info": "user profile update failed", "error": "{'birth_date': ['" + str(e) + "']}"}, status=400)
 
         elif ((birth_day_str is None) and (birth_month_str is None) and (birth_year_str is None)):
             pass
         else:
-            return JsonResponse({"info":"user profile update failed", "error": "{'birth_date': ['Enter all fields together.']}"}, status=400)
+            return JsonResponse({"info": "user profile update failed", "error": "{'birth_date': ['Enter all fields together.']}"}, status=400)
         # Check if birth date fields comply with real date system
 
         if ((birth_day_str is None) and (birth_month_str is None) and (birth_year_str is None)):
@@ -225,7 +241,7 @@ class Profile(APIView):
             try:
                 birth_date = date(birth_year, birth_month, birth_day)
             except Exception as e:
-                return JsonResponse({"info":"user profile update failed", "error": "{'birth_date': ['" + str(e) + "']}"}, status=400)
+                return JsonResponse({"info": "user profile update failed", "error": "{'birth_date': ['" + str(e) + "']}"}, status=400)
         # Assign non-null values to user and account
 
         user = RegisteredUser.objects.get(username=req.user)
@@ -250,10 +266,22 @@ class Profile(APIView):
         try:
             user.save()
             account.save()
-            return JsonResponse({"info":"user profile update successful"}, status=200)
+            return JsonResponse({"info": "user profile update successful"}, status=200)
         except Exception as e:
-            return JsonResponse({"info":"user profile update failed", "error": str(e)}, status=400)
+            return JsonResponse({"info": "user profile update failed", "error": str(e)}, status=400)
 
     def delete(self, req):
-        # TODO: Remove account with username
-        return JsonResponse({})
+
+        permission_classes = (IsAuthenticated,)
+
+        try:
+            user = RegisteredUser.objects.get(username=req.user)
+            account = Account.objects.get(owner=user)
+            user.auth_token.delete()
+            logout(req)
+            account.delete()
+            user.delete()
+            return JsonResponse({"success": "account is deleted successfully"}, status=200)
+
+        except:
+            return JsonResponse({"error": "account cannot be deleted"}, status=400)
