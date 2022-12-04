@@ -1,8 +1,11 @@
+import React, { useEffect,useReducer } from 'react'
 import { ImArrowUp, ImArrowDown } from "react-icons/im";
 import {useState} from "react"
-import {useHistory} from 'react-router-dom'
+import {useHistory, Link} from 'react-router-dom'
 import styles from "../pages/home.module.css";
 import CreatePostForm from "./CreatePostForm";
+import getPost from "../services/Post_API";
+
 
 //used as mock data get post details from backend
 const mockPosts = [
@@ -80,9 +83,9 @@ const mockPosts = [
 
 
 const ForumPost = (props) => {
+  console.log(props)
 
   const isGuestUser = window.localStorage.getItem("auth_token") ? false : true
-    const [score, setScore] = useState(props.score);
     let history = useHistory()
 
     //instead of this use backend endpoint
@@ -113,7 +116,7 @@ const ForumPost = (props) => {
             props.voted = "";
             props.score++;
         }
-        setScore(props.score);
+        //setScore(props.score);
         console.log(props.voted);
       };
 
@@ -124,9 +127,10 @@ const ForumPost = (props) => {
     }
 
       return(
+        
         <div>
           <div className={styles.mypost}>
-          <div
+          {/* <div
             style={{
               width: "10%",
               backgroundColor: "#f0feff",
@@ -156,8 +160,7 @@ const ForumPost = (props) => {
               }
               onClick={() => vote("down")}
             />
-          </div>
-
+          </div> */}
           <div onClick={onClick} style={{ width: "80%", margin: "auto", cursor: "pointer" }}>
             <div>
               <div
@@ -173,7 +176,7 @@ const ForumPost = (props) => {
                     justifyContent: "space-between",
                   }}
                 >
-                  {props.labels.map((label) => (
+                  {/* {props.labels.map((label) => (
                     <p
                       style={{
                         borderRadius: "5px",
@@ -188,10 +191,9 @@ const ForumPost = (props) => {
                     >
                       {label}
                     </p>
-                  ))}
-
+                  ))} */}
                   <small style={{ padding: "3px 5px", marginLeft: "15px" }}>
-                    {props.date + " minute before"}
+                    {props.created_at}
                   </small>
                 </div>
               </div>
@@ -211,8 +213,18 @@ const Posts = () => {
   const [showPostCreate, setPostCreate] = useState(false)
 
   const isGuestUser = window.localStorage.getItem("auth_token") ? false : true
+
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    getPost(1).then(res => {
+      console.log(res)
+      setPosts([res]);
+
+    });
+  console.log(posts)
+  }, []);
   
-  const posts = mockPosts
 
   const handleClick = () => {
     setPostCreate(!showPostCreate)
@@ -235,10 +247,20 @@ const Posts = () => {
           onCancel = {() => setPostCreate(false) }
           >
           </CreatePostForm>}
-        {posts.map((post) => ForumPost(post))}
+          {renderPosts(posts)}
         
       </div>)
 }
 
+
+const renderPosts = (mockPosts) => {
+console.log(mockPosts)
+  return (
+    <div>
+      { mockPosts.map((post) => ForumPost(post))}
+    </div>
+  )
+
+}
 
 export default  Posts
