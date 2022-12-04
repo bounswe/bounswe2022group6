@@ -13,7 +13,7 @@ class IsGetOrIsAuthenticated(BasePermission):
         return request.user and request.user.is_authenticated
 
 
-class Post(APIView):
+class PostView(APIView):
     permission_classes = (IsGetOrIsAuthenticated,)
 
     # Return post with all of its comments
@@ -25,7 +25,7 @@ class Post(APIView):
                     "description":comment.description,
                     "vote_count":comment.vote_count,
                     "created_at":comment.created_at,
-                    "mentioned_users": comment.mentioned_users.all().values_list('username', flat=True),
+                    "mentioned_users": list(comment.mentioned_users.all().values_list('username', flat=True)),
                     "comments": []
                 })
                 ncomments = Comment.objects.filter(parent_comment= comment).order_by('created_at')
@@ -38,7 +38,7 @@ class Post(APIView):
             "description":tpost.description,
             "vote_count":tpost.vote_count,
             "created_at":tpost.created_at,
-            "mentioned_users": tpost.mentioned_users.all().values_list('username', flat=True),
+            "mentioned_users": list(tpost.mentioned_users.all().values_list('username', flat=True)),
             "title":tpost.title,
             "type":tpost.type,
             "location":tpost.location,
@@ -72,15 +72,13 @@ class Post(APIView):
         _description = _description.strip()
         _location = _location.strip().lower() if _location is not None else None
         _imageURL = _imageURL.strip().lower() if _imageURL is not None else None
-        _is_marked_nsfw = True if _is_marked_nsfw.strip().lower()=="true" else False
+        _is_marked_nsfw = _is_marked_nsfw.strip().lower()=="true" if _is_marked_nsfw is not None else False
 
         new_post = Post(title=_title, type=_type, location=_location, imageURL = _imageURL,
                         is_marked_nsfw=_is_marked_nsfw, owner=user, description=_description)
         
         try:
             new_post.save()
-            new_account = Account(owner=new_post)
-            new_account.save()
             return JsonResponse({"info": "post creation successful", "PostID": new_post.postID}, status=201)
         except Exception as e:
             return JsonResponse({"info":"user registration failed", "error": str(e)}, status=400)
