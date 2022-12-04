@@ -3,15 +3,29 @@ from django.http import JsonResponse
 from .models import *
 from ..accmgr.models import *
 from rest_framework.permissions import BasePermission, IsAuthenticated
-class Labels(APIView):
 
-    def get(self, req):
 
-        labels = Label.objects.all()
-        data = {"labels" : []}
-        for label in labels:
-            data["labels"].append(label.as_dict())
-        return JsonResponse(data, status=200, safe=False)
+class IsGetOrIsAuthenticated(BasePermission):
+    def has_permission(self, request, view):
+        # allow all GET requests
+        if request.method == 'GET':
+            return True
+        # Else is same as IsAuthenticated
+        return request.user and request.user.is_authenticated
+
+def insertComments(target_data, rcomments):
+    for comment in rcomments:
+        target_data.append({
+            "owner":comment.owner.username,
+            "description":comment.description,
+            "vote_count":comment.voted_users.all().count(),
+            "created_at":comment.created_at,
+            "mentioned_users": list(comment.mentioned_users.all().values_list('username', flat=True)),
+            "comments": []
+        })
+        ncomments = Comment.objects.filter(parent_comment= comment).order_by('created_at')
+        insertComments(target_data[-1]["comments"], ncomments)
+
 
 class SearchPost(APIView):
 
@@ -41,26 +55,6 @@ class SearchPost(APIView):
             data["posts"].append(post.as_dict())
         
         return JsonResponse(data, status=200)
-class IsGetOrIsAuthenticated(BasePermission):
-    def has_permission(self, request, view):
-        # allow all GET requests
-        if request.method == 'GET':
-            return True
-        # Else is same as IsAuthenticated
-        return request.user and request.user.is_authenticated
-
-def insertComments(target_data, rcomments):
-    for comment in rcomments:
-        target_data.append({
-            "owner":comment.owner.username,
-            "description":comment.description,
-            "vote_count":comment.voted_users.all().count(),
-            "created_at":comment.created_at,
-            "mentioned_users": list(comment.mentioned_users.all().values_list('username', flat=True)),
-            "comments": []
-        })
-        ncomments = Comment.objects.filter(parent_comment= comment).order_by('created_at')
-        insertComments(target_data[-1]["comments"], ncomments)
 
 
 class Labels(APIView):
