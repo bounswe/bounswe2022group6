@@ -38,6 +38,24 @@ class Post(Content):
     is_marked_nsfw = models.BooleanField(default=False)
     labels = models.ManyToManyField("Label", related_name='labelled_posts', blank=True)
 
+    def as_dict(self):
+        return {
+            "postID" : self.postID,
+            "owner" : {"userID": self.owner.userID, "username": self.owner.username},
+            "description" : self.description,
+            "vote_count" : len(self.voted_users.all()),
+            "voted_users" : [{"userID": user.userID, "username": user.username} for user in self.voted_users.all()],
+            "created_at_date" : self.created_at.strftime("%d.%m.%Y"),
+            "created_at_time" : self.created_at.strftime("%H.%M.%S"),
+            "title" : self.title,
+            "type" : self.type,
+            "location" : self.location,
+            "imageURL" : self.imageURL,
+            "is_marked_nsfw" : self.is_marked_nsfw,
+            "labels" : [{"labelID": label.labelID, "labelName": label.labelName} for label in self.labels.all()],
+            "mentioned_users" : [{"userID": user.userID, "username": user.username} for user in self.mentioned_users.all()]
+        }
+
 class Label(models.Model):
 
     labelID = models.AutoField(primary_key=True)
