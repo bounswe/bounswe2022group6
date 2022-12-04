@@ -119,7 +119,7 @@ export default function Home() {
       
       <h5 className="main-title home-page-title" style={{textShadow: "1px 1px #000000 "}}>
       <Image src={Logo} style={{width:"70px"}}></Image>
-        <span style={{color:"#dde296"}}>Medi</span><span style={{color:"#95c3b3"}}>Share</span></h5>
+        <span style={{color:"#dde296"}}>Medi</span><span style={{color:"#9FcFb0"}}>Share</span></h5>
       
       <div>
         {" "}
