@@ -222,9 +222,10 @@ const Posts = () => {
     <div
         className="mypost"
         style={{
-          width: "40%",
-          marginLeft: "15%",
+          width: "60%",
+          marginLeft: "5%",
           marginRight: "3%",
+          marginTop: "1%",
           height: "700px",
           overflow: "auto",
         }}
