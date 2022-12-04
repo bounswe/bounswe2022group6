@@ -14,7 +14,7 @@ export default function Profile() {
     let history = useHistory()
 
     const [isLoggedout, setLoggedout] = useState(false)
-    const [active, setActive] = useState(false);
+    const [isDoctor, setIsDoctor] = useState(false);
     const initialErrorState = {
         username: "", 
         email: "", 
@@ -40,8 +40,8 @@ export default function Profile() {
         birth: "",
         phone:"",
         diploma:"",
-        doctor:"",
         profession:"",
+        doctor:""
 
       });
 
@@ -50,8 +50,9 @@ export default function Profile() {
         []
     );
 
-     useEffect( ()=>   {
+    useEffect( ()=>   {
         edit().then(res=> {
+           
             setprofileInformation({
                 username: res["username"],
                 email: res["email"],
@@ -62,11 +63,15 @@ export default function Profile() {
                 phone: res["phone_number"],
                 diploma:res["diplomaID"],
                 profession: res["profession"],
-                doctor: res[ "verified_as_doctor"],
+                doctor: res[ "verified_as_doctor"]
                 
               })
+              setIsDoctor(res[ "verified_as_doctor"]);
+
         })
     }, []);
+
+
     const handleEdit = event => {
         event.preventDefault();
         editProfile(profileData).then(
@@ -124,7 +129,11 @@ export default function Profile() {
             </div>
             <div> {isSuccessfull && <MessageBox data = "Your changes have been successfully saved." style = {{color: "#222", fontSize: "2.5rem", textTransform: "capitalize"}}> </MessageBox>}
               </div>
-            <form >
+              
+
+              <div > 
+
+              <form >
             <div>
                         <label>Username</label><br/>
                         <input defaultValue={profileInformation.username}  type="text" name="username" readOnly={true} />
@@ -151,27 +160,8 @@ export default function Profile() {
                         <input defaultValue={profileInformation.phone} onChange={handleChange}  type="" name="phone_number" />
                     </div>
                     <br/>
-                    <div> 
-                        <div>
-                        <label>Verified as Doctor</label>
-                        <ToggleSlider  name="verified_as_doctor"/> 
-                        
-                        </div>
-                    </div>
                     
-                    <br/>
-
-                    <div>
-                        <label>Diploma ID</label><br/>
-                        <input defaultValue={profileInformation.diploma} onChange={handleChange}  type="text" name="diplomaID" />
-                    </div>
-                    <br/>
-
-                    <div>
-                        <label>Profession</label><br/>
-                        <input  defaultValue={profileInformation.profession} onChange={handleChange}  type="text" name="profession" />
-                    </div>
-                    <br/>
+                   
                     
                     <div>
                         <label>Birthday</label><br/>
@@ -195,6 +185,51 @@ export default function Profile() {
                         Edit
                     </button>
                 </form>
+                
+               
+
+                <form>
+
+                <div>
+                    <h4>Are you a doctor?</h4>
+                    <h6>
+                    Please provide your diploma ID and profession, 
+
+                    </h6>
+                    <h6>after checking your data your verification will be completed.</h6>
+                    <br/>
+                        <label>Diploma ID</label>
+                        <input defaultValue={profileInformation.diploma} onChange={handleChange}  type="text" name="diplomaID" />
+                    </div>
+                    <br/>
+
+                    <div>
+                        <label>Profession</label>
+                        <input  defaultValue={profileInformation.profession} onChange={handleChange}  type="text" name="profession" />
+                    </div>
+                    <br/>
+                    <div>
+                    {
+                        isDoctor ? <div>
+                                 <h6 >Your verification is completed.</h6>
+                            
+                            </div> 
+                            : 
+                            <div>
+                                <h6>Your verification is not completed.</h6>
+                        </div>
+                        }
+
+
+
+                    </div>
+
+
+                </form>
+
+
+              </div>
+           
                
         </div>
     )
