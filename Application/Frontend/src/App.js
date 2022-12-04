@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Profile from './pages/Profile'
 import Register from './pages/Register'
 import Post from './pages/Post'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
