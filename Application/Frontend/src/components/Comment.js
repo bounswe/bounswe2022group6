@@ -2,11 +2,12 @@ import React from 'react'
 import styles from "../pages/home.module.css";
 import { useState } from "react";
 import { ImArrowUp, ImArrowDown } from "react-icons/im";
+import contentvote from '../services/Vote_API';
+
 
 const Comment = (props) => {
 
   const isGuestUser = window.localStorage.getItem("auth_token") ? false : true
-    const [score, setScore] = useState(props.comment["score"]);
 
     //backend endpoint for vote comment
     const vote = (direction) => {
@@ -15,30 +16,9 @@ const Comment = (props) => {
             alert("You need to be logged in")
             return
         }
-
-        if (props.comment["voted"] === "" && direction === "up") {
-            props.comment["voted"] = "up";
-            props.comment["score"]++;
-        } else if (props.comment["voted"] === "up" && direction === "up") {
-            props.comment["voted"] = "";
-            props.comment["score"]--;
-        } else if (props.comment["voted"] === "down" && direction === "up") {
-            props.comment["voted"] = "up";
-            props.comment["score"]++;
-            props.comment["score"]++;
-        } else if (props.comment["voted"] === "" && direction === "down") {
-            props.comment["voted"] = "down";
-            props.comment["score"]--;
-        } else if (props.comment["voted"] === "up" && direction === "down") {
-            props.comment["voted"] = "down";
-            props.comment["score"]--;
-            props.comment["score"]--;
-        } else if (props.comment["voted"] === "down" && direction === "down") {
-            props.comment["voted"] = "";
-            props.comment["score"]++;
-        }
-        setScore(props.comment["score"]);
-        console.log(props.comment["voted"]);
+        console.log("voting comment")
+        //change hardcoded 1
+        contentvote(1, direction, false).then(() => props.onVote())
     };
 
     return (
@@ -64,7 +44,7 @@ const Comment = (props) => {
             padding: "7px 0px",
           }}
         >
-          {props.comment["score"]}
+          {props.comment["vote_count"]}
         </h3>
         <ImArrowDown
           className={

@@ -174,7 +174,7 @@ const Post = () => {
           alert("You need to be logged in")
           return
       }
-      console.log("tst")
+      console.log("voting post")
       contentvote(id, direction, true).then(() => setVoted(!voted))
     };
 
@@ -311,6 +311,7 @@ const Post = () => {
   {post.comments && post["comments"].map((comment) =>
   <Comment
   comment = {comment}
+  onVote = {() => setVoted(!voted)}
   ></Comment>
   )}
   </div>
