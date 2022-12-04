@@ -25,15 +25,15 @@ async function editProfile(data) {
             'Authorization': 'Token ' + window.localStorage.getItem("auth_token") 
          }
     }
-    console.log("Sending Request")
+   // console.log("Sending Request")
     
     const response = await fetch( window.location.href.replace(":3000", ":8000"), requestOptions)
     const resMessage = await response.json()
     if (response.status === 400) {
-        console.log("basarısız")
+       
         return resMessage["error"]
     } else {
-        console.log("basarılııı")
+        
         return null
     }
 }

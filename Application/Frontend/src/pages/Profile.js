@@ -67,7 +67,6 @@ export default function Profile() {
               })
         })
     }, []);
-
     const handleEdit = event => {
         event.preventDefault();
         editProfile(profileData).then(
@@ -75,7 +74,6 @@ export default function Profile() {
                 clearErrorState()
                 if(res===null){
                     setSuccessfull(true)
-                    console.log(profileData)
                 }else {
                     const jsonString = JSON.parse(res.replaceAll("'", "\""))
                     var newErrors = {}
@@ -129,9 +127,8 @@ export default function Profile() {
             <form >
             <div>
                         <label>Username</label><br/>
-                        <input defaultValue={profileInformation.username} onChange={handleChange}  type="text" name="username" />
+                        <input defaultValue={profileInformation.username}  type="text" name="username" readOnly={true} />
                     </div>
-                    <div> {errors.username && <label style = {{paddingLeft : "15%"}} >{errors.username}</label>} </div>
                     <br/>
                     <div>
                         <label>Name</label><br/>
@@ -157,7 +154,7 @@ export default function Profile() {
                     <div> 
                         <div>
                         <label>Verified as Doctor</label>
-                        <ToggleSlider onToggle={state => setActive(state)} name="verified_as_doctor"/> 
+                        <ToggleSlider  name="verified_as_doctor"/> 
                         
                         </div>
                     </div>
