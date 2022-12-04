@@ -6,7 +6,7 @@ class Content(models.Model):
 
     owner = models.ForeignKey(RegisteredUser, on_delete=models.CASCADE, blank=False, null=False)
     description = models.CharField(max_length=10000, blank=False, null=False)
-    vote_count = models.IntegerField(default=0)
+    voted_users = models.ManyToManyField(RegisteredUser, blank=True)
     created_at = models.DateTimeField(default=timezone.now())
     mentioned_users = models.ManyToManyField(RegisteredUser, related_name='mentioned_by_%(class)s', blank=True)
 

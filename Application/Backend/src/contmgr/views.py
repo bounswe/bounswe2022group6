@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from django.http import JsonResponse
 from ..accmgr.models import *
 from .models import *
-from rest_framework.permissions import BasePermission
+from rest_framework.permissions import BasePermission, IsAuthenticated
 
 class IsGetOrIsAuthenticated(BasePermission):
     def has_permission(self, request, view):
@@ -17,13 +17,53 @@ def insertComments(target_data, rcomments):
         target_data.append({
             "owner":comment.owner.username,
             "description":comment.description,
-            "vote_count":comment.vote_count,
+            "vote_count":comment.voted_users.all().count(),
             "created_at":comment.created_at,
             "mentioned_users": list(comment.mentioned_users.all().values_list('username', flat=True)),
             "comments": []
         })
         ncomments = Comment.objects.filter(parent_comment= comment).order_by('created_at')
         insertComments(target_data[-1]["comments"], ncomments)
+
+
+class CommentVote(APIView):
+    permission_classes = (IsAuthenticated,)
+    def get(self, req):
+        user = RegisteredUser.objects.get(username=req.user)
+        commentID = int(req.GET.get("id", None))
+        comment = Comment.objects.get(commentID=commentID)
+        if comment.voted_users.filter(owner__username=user.username).exists():
+            try:
+                comment.voted_users.remove(user)
+                return JsonResponse({"info":"Vote removed from comment for user"}, status=201)
+            except Exception as e:
+                return JsonResponse({"info":"Vote remove from comment failed", "error": str(e)}, status=400)
+        else:
+            try:
+                comment.voted_users.add(user)
+                return JsonResponse({"info":"Vote added from comment for user"}, status=201)
+            except Exception as e:
+                return JsonResponse({"info":"Vote add from comment failed", "error": str(e)}, status=400)
+
+class PostVote(APIView):
+    permission_classes = (IsAuthenticated,)
+    def get(self, req):
+        user = RegisteredUser.objects.get(username=req.user)
+        postID = int(req.GET.get("id", None))
+        post = Post.objects.get(postID=postID)
+        if post.voted_users.filter(owner__username=user.username).exists():
+            try:
+                post.voted_users.remove(user)
+                return JsonResponse({"info":"Vote removed from post for user"}, status=201)
+            except Exception as e:
+                return JsonResponse({"info":"Vote remove from post failed", "error": str(e)}, status=400)
+        else:
+            try:
+                post.voted_users.add(user)
+                return JsonResponse({"info":"Vote added from post for user"}, status=201)
+            except Exception as e:
+                return JsonResponse({"info":"Vote add from post failed", "error": str(e)}, status=400)
+
 
 class CommentView(APIView):
     permission_classes = (IsGetOrIsAuthenticated,)
@@ -73,7 +113,7 @@ class PostView(APIView):
         data = {
             "owner":tpost.owner.username,
             "description":tpost.description,
-            "vote_count":tpost.vote_count,
+            "vote_count":tpost.voted_users.all().count(),
             "created_at":tpost.created_at,
             "mentioned_users": list(tpost.mentioned_users.all().values_list('username', flat=True)),
             "title":tpost.title,
