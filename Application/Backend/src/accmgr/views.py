@@ -277,11 +277,11 @@ class Profile(APIView):
         try:
             user = RegisteredUser.objects.get(username=req.user)
             account = Account.objects.get(owner=user)
-
-            account.delete()
             user.auth_token.delete()
             logout(req)
+            account.delete()
+            user.delete()
             return JsonResponse({"success": "account is deleted successfully"}, status=200)
 
         except:
-            return JsonResponse({"error": "account cannot be deleted"}, status=500)
+            return JsonResponse({"error": "account cannot be deleted"}, status=400)
