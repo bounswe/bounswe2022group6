@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from django.http import JsonResponse
 from ..accmgr.models import *
 from .models import *
-from rest_framework.permissions import BasePermission
+from rest_framework.permissions import BasePermission, IsAuthenticated
 
 class IsGetOrIsAuthenticated(BasePermission):
     def has_permission(self, request, view):
@@ -27,10 +27,14 @@ def insertComments(target_data, rcomments):
 
 # Inherited class for both comment and post voting systems
 class Vote(APIView):
-    permission_classes = (IsGetOrIsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
     def get(self, req, _type):
         user = RegisteredUser.objects.get(username=req.user)
-        modelID = int(req.POST.get("id", None))
+        try:
+            modelID = int(req.GET.get("id", None))
+        except:
+            return JsonResponse({"info":f"{_type} vote failed", "error": "id is either not given or not an integer"}, status=400)
+
         try:
             if _type=="comment":
                 model = Comment.objects.get(commentID=modelID)
@@ -40,14 +44,17 @@ class Vote(APIView):
         except Exception as e:
             return JsonResponse({"info":"Fetch data failed", "error": str(e)}, status=400)
 
-        if model.voted_users.filter(owner__username=user.username).exists():
+        if model.voted_users.filter(username=user.username).exists():
             return JsonResponse({"voted":True}, status=200)
         else:
             return JsonResponse({"voted":False}, status=200)
 
     def post(self, req, _type):
         user = RegisteredUser.objects.get(username=req.user)
-        modelID = int(req.POST.get("id", None))
+        try:
+            modelID = int(req.POST.get("id", None))
+        except:
+            return JsonResponse({"info":f"{_type} vote failed", "error": "id is either not given or not an integer"}, status=400)
         try:
             if _type=="comment":
                 model = Comment.objects.get(commentID=modelID)
@@ -57,7 +64,7 @@ class Vote(APIView):
         except Exception as e:
             return JsonResponse({"info":"Fetch data failed", "error": str(e)}, status=400)
 
-        if model.voted_users.filter(owner__username=user.username).exists():
+        if model.voted_users.filter(username=user.username).exists():
             try:
                 model.voted_users.remove(user)
                 return JsonResponse({"info":f"Vote removed from {_type} for user"}, status=201)
@@ -66,9 +73,9 @@ class Vote(APIView):
         else:
             try:
                 model.voted_users.add(user)
-                return JsonResponse({"info":"Vote added from comment for user"}, status=201)
+                return JsonResponse({"info":f"Vote added to {_type} for user"}, status=201)
             except Exception as e:
-                return JsonResponse({"info":"Vote add from comment failed", "error": str(e)}, status=400)
+                return JsonResponse({"info":f"Vote add to {_type} failed", "error": str(e)}, status=400)
 
 
 class CommentVote(Vote):
@@ -89,7 +96,10 @@ class CommentView(APIView):
 
     # Return comment with all of its child comments
     def get(self, req):
-        commentID = int(req.GET.get("id", None))
+        try:
+            commentID = int(req.GET.get("id", None))
+        except:
+            return JsonResponse({"info":f"comment get failed", "error": "id is either not given or not an integer"}, status=400)
         # Only one comment as a query (Didn't used get for compability with function)
         comment = Comment.objects.filter(commentID=commentID)
         data = []
@@ -110,7 +120,7 @@ class CommentView(APIView):
             if (_parent_comment_id is None) == (_parent_post_id is None):
                 raise
         except:
-            return JsonResponse({"info":"post creation failed", "error": "{'form_data': ['Missing or wrong form data.']}"}, status=400)
+            return JsonResponse({"info":"comment creation failed", "error": "{'form_data': ['Missing or wrong form data.']}"}, status=400)
 
         _parent_post = Post.objects.get(postID=_parent_post_id) if _parent_post_id is not None else None
         _parent_comment = Comment.objects.get(commentID=_parent_comment_id) if _parent_comment_id is not None else None
@@ -119,7 +129,7 @@ class CommentView(APIView):
             new_coment.save()
             return JsonResponse({"info": "comment creation successful", "commentID": new_coment.commentID}, status=201)
         except Exception as e:
-            return JsonResponse({"info":"user registration failed", "error": str(e)}, status=400)
+            return JsonResponse({"info":"comment creation failed", "error": str(e)}, status=400)
 
 
 class PostView(APIView):
@@ -127,7 +137,10 @@ class PostView(APIView):
 
     # Return post with all of its comments
     def get(self, req):
-        postID = int(req.GET.get("id", None))
+        try:
+            postID = int(req.GET.get("id", None))
+        except:
+            return JsonResponse({"info":f"post get failed", "error": "id is either not given or not an integer"}, status=400)
         tpost = Post.objects.get(postID= postID)
         data = {
             "owner":tpost.owner.username,
@@ -178,5 +191,5 @@ class PostView(APIView):
             new_post.save()
             return JsonResponse({"info": "post creation successful", "postID": new_post.postID}, status=201)
         except Exception as e:
-            return JsonResponse({"info":"user registration failed", "error": str(e)}, status=400)
+            return JsonResponse({"info":"post creation failed", "error": str(e)}, status=400)
 
