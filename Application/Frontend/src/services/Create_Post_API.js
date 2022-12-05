@@ -12,6 +12,7 @@ async function create_post(data) {
     for (let index = 0; index < data["labels"].length; index++) {
         formData.append("label", data["labels"][index]["value"])
     }
+    formData.append("is_marked_nsfw", data["isNSFW"])
     
     const requestOptions = {
         method: "POST",

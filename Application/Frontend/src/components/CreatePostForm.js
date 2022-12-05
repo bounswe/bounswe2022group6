@@ -7,6 +7,7 @@ import get_labels from "../services/Label_API"
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 import MessageBox from './MessageBox'
+import Form from "react-bootstrap/Form"
 
 const bucket_name = process.env.REACT_APP_S3_BUCKET_NAME
 const aws_region = process.env.REACT_APP_AWS_REGION
@@ -24,7 +25,8 @@ const CreatePostForm = (props) => {
         description: "",
         type: "",
         imageURL: "",
-        labels: []
+        labels: [],
+        isNSFW: false
     })
 
     const [postCreated, setPostCreated] = useState(false);
@@ -51,15 +53,23 @@ const CreatePostForm = (props) => {
                 }
             })
         } else {
-            const { name, value } = event.target
-            setFormData(prevFormData => {
-                return {
-                    ...prevFormData,
-                    [name]: value
-                }
-            })
+            if (event.target.name === "isNSFW"){
+                setFormData(prevFormData => {
+                    return {
+                        ...prevFormData,
+                        ["isNSFW"]: !prevFormData["isNSFW"]
+                    }
+                })
+            } else {
+                const { name, value } = event.target
+                setFormData(prevFormData => {
+                    return {
+                        ...prevFormData,
+                        [name]: value
+                    }
+                })
+            }
         }
-
     }
 
     const photoUpload = (result) => {
@@ -82,9 +92,11 @@ const CreatePostForm = (props) => {
         })
     }, []);
 
+
+
     return (
         <div> 
-            <form style = {formStyle} onSubmit={handleSubmit}>
+            <Form style = {formStyle} onSubmit={handleSubmit}>
                 <div style={{textAlign: 'left'}}>
                     <h3 style={{color:"#0f7375", marginTop:-15}}><strong>Title</strong></h3>
                     <input style={{width: '100%', background:"lightgoldenrodyellow"}} type="text" name="title" value={formData.title} onChange={handleChange} required />
@@ -115,16 +127,23 @@ const CreatePostForm = (props) => {
                     <MessageBox data = "Post Created Successfully" style = {{color: "#0f7375", fontSize: "2.5rem"}}> </MessageBox>
                     </div>}
                     <br/>
-                    <h3 style={{color:"#0f7375"}}><strong>Attach Image</strong></h3>
-                    <UploadToS3 
-                        bucket={bucket_name}
-                        awsRegion={aws_region}
-                        awsKey={aws_key}
-                        awsSecret={aws_secret}
-                        type="image"
-                        mediaConvertRole="mediaconvert_role"
-                        showNewUpload={false}
-                        onResult={photoUpload} />
+                    <h3 style={{color:"#0f7375"}}><strong>Attach Image <a style={{ marginLeft: '30rem' }}>Is NSFW?</a></strong></h3>
+                    <div style={{display: "inline-flex"}}>
+                        <div>
+                            <UploadToS3 
+                            bucket={bucket_name}
+                            awsRegion={aws_region}
+                            awsKey={aws_key}
+                            awsSecret={aws_secret}
+                            type="image"
+                            mediaConvertRole="mediaconvert_role"
+                            showNewUpload={false}
+                            onResult={photoUpload} />
+                        </div>
+                        <div style={{marginLeft:"22.5rem"}}>
+                            <input style={{transform:"scale(2.5)"}} type="checkbox" name="isNSFW" checked={formData.isNSFW} onChange={handleChange}/>
+                        </div>
+                    </div>
                 </div>
                 <br/>
                 <div class="buttons text-center">
@@ -132,7 +151,7 @@ const CreatePostForm = (props) => {
                         <button className={styles.createpostbutton} type="submit"> Create </button>
                 </div>
                 
-            </form>
+            </Form>
             
         </div>
     )
