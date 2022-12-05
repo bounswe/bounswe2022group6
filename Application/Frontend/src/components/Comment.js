@@ -3,7 +3,7 @@ import styles from "../pages/home.module.css";
 import { useState } from "react";
 import { ImArrowUp, ImArrowDown } from "react-icons/im";
 import contentvote from '../services/Vote_API';
-
+import moment from 'moment'
 
 const Comment = (props) => {
 
@@ -23,15 +23,8 @@ const Comment = (props) => {
 
     return (
       <div>
-      <div className={styles.mypostpage}>
-      <div
-        style={{
-          width: "10%",
-          backgroundColor: "#f0feff",
-          color: "#bdbfbd",
-          alignItems: "center",
-          paddingTop: "25px",
-        }}
+      <div className={styles.mycomment}>
+      <div className={styles.mypostright}
       >
         <ImArrowUp
           className={
@@ -65,15 +58,16 @@ const Comment = (props) => {
               justifyContent: "flex-end",
             }}
           >
+              <p style={{textAlign:'left', marginRight:'auto'}}>{props.comment.owner}</p>
             <div
               style={{
                 display: "flex",
                 justifyContent: "space-between",
               }}
             >
-              <small style={{ padding: "3px 5px", marginLeft: "15px" }}>
-                {props.comment["date"] + " minute before"}
-              </small>
+            <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
+                    {moment(props.comment.created_at).format('MMM DD YYYY')}
+                  </medium>
             </div>
           </div>
         </div>

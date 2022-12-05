@@ -6,7 +6,7 @@ import styles from "../pages/home.module.css";
 import CreatePostForm from "./CreatePostForm";
 import getPost from "../services/Post_API";
 import contentvote from '../services/Vote_API';
-
+import moment from 'moment'
 
 const ForumPost = (props) => {
   console.log(props.post)
@@ -63,6 +63,7 @@ const ForumPost = (props) => {
                   justifyContent: "flex-end",
                 }}
               >
+                  <p style={{textAlign:'left', marginRight:'auto'}}>{props.post.owner}</p>
                 <div
                   style={{
                     display: "flex",
@@ -77,7 +78,7 @@ const ForumPost = (props) => {
                         padding: "3px 5px",
                         marginRight: "5px",
                         backgroundColor: "lightgoldenrodyellow",
-                        fontSize: "x-small",
+                        fontSize: "small",
                         alignItems: "center",
                         display: "flex",
                       }}
@@ -85,9 +86,9 @@ const ForumPost = (props) => {
                       {label}
                     </p>
                   ))}
-                  <small style={{ padding: "3px 5px", marginLeft: "15px" }}>
-                    {props.post.created_at}
-                  </small>
+                  <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
+                    {moment(props.post.created_at).format('MMM DD YYYY')}
+                  </medium>
                 </div>
               </div>
             </div>
@@ -96,6 +97,7 @@ const ForumPost = (props) => {
             </p>{" "}
             <p style={{ textAlign: "left" }}>{props.post.description}</p>
           </div>
+          <p style={{ textAlign: "right", position:'absolute', bottom:'0', right:'0' }}>{ props.post.comments.length + (props.post.comments.length > 1 ? ' comments'  : ' comment')}</p>
         </div>
       </div>
       )}

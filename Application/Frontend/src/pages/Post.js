@@ -10,6 +10,10 @@ import Comment from '../components/Comment';
 import '../App.css'
 import getPost from "../services/Post_API";
 import contentvote from '../services/Vote_API';
+import Logo from '../assets/fav.png'
+import Image from 'react-bootstrap/Image'
+import moment from 'moment'
+
 
 
 const Post = () => {
@@ -20,6 +24,7 @@ const Post = () => {
     const isGuestUser = window.localStorage.getItem("auth_token") ? false : true
     const [isLoggedout, setLoggedout] = useState(false);
     const [voted, setVoted] = useState(false)
+    const [flag, setFlag] = useState(false)
 
     //send request to backend for post details.
     useEffect(() => {
@@ -28,6 +33,16 @@ const Post = () => {
         setPost(res);
       });
     }, [voted]);
+
+    useEffect(() => {
+      window.localStorage.removeItem('show_nsfw')
+    },[])
+
+    const handleNSFW = () => {
+      window.localStorage.setItem("show_nsfw", true)
+      setFlag(!flag)
+    }
+
 
     //backend endpoint
     const vote = (direction) => {
@@ -53,7 +68,7 @@ const Post = () => {
       }
 
     return (
-      <div>
+      <div className= {styles.body}>
       <Link to="/home">
     <button className={styles.mybutton} style = {{position: "absolute", top: "20px", right: "245px"}}>home</button>
     </Link>
@@ -85,17 +100,12 @@ const Post = () => {
   </Link>
   </div>
   }
-  <h5 className="main-title home-page-title">MEDI SHARE</h5>
-  {post && <div>
+      <h5 className="main-title home-page-title" style={{textShadow: "1px 1px #000000 "}}>
+      <Image src={Logo} style={{width:"70px"}}></Image>
+        <span style={{color:"#dde296"}}>Medi</span><span style={{color:"#9FcFb0"}}>Share</span></h5>  
+        {post && <div>
       <div className={styles.mypostpage}>
-      <div
-        style={{
-          width: "10%",
-          backgroundColor: "#f0feff",
-          color: "#bdbfbd",
-          alignItems: "center",
-          paddingTop: "25px",
-        }}
+      <div className={styles.mypostright}
       >
         <ImArrowUp
           className={
@@ -129,6 +139,7 @@ const Post = () => {
               justifyContent: "flex-end",
             }}
           >
+            <p style={{textAlign:'left', marginRight:'auto'}}>{post.owner}</p>
             <div
               style={{
                 display: "flex",
@@ -143,7 +154,7 @@ const Post = () => {
                     padding: "3px 5px",
                     marginRight: "5px",
                     backgroundColor: "lightgoldenrodyellow",
-                    fontSize: "x-small",
+                    fontSize: "medium",
                     alignItems: "center",
                     display: "flex",
                   }}
@@ -151,10 +162,9 @@ const Post = () => {
                   {label}
                 </p>
               ))}
-
-              <small style={{ padding: "3px 5px", marginLeft: "15px" }}>
-                {post["created_at"] + " minute before"}
-              </small>
+                <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
+                    {moment(post.created_at).format('MMM DD YYYY')}
+                  </medium>
             </div>
           </div>
         </div>
@@ -163,6 +173,12 @@ const Post = () => {
             {post["title"]}
           </p>{" "}
           <p style={{ textAlign: "left" }}>{post["description"]}</p>
+        </div>
+        <div style={{ position:'relative' }}>
+          <Image src={post.imageURL} style={{ maxWidth:"50%", maxHeight:'50%', filter: !window.localStorage.getItem("show_nsfw") ? 'blur(25px)' : '' }}></Image>
+          { !window.localStorage.getItem("show_nsfw")  &&  <button className={styles.mybutton} onClick = {handleNSFW} style={{position:'absolute', top: '50%', left:'50%', transform:'translate(-50%, -50%)'}}> 
+          See NSFW content
+          </button>}
         </div>
       </div>
     </div>
