@@ -198,6 +198,22 @@ p {
   background-color: rgb(226, 226, 191);
 }
 
+.createcomment {
+  width: 20%;
+  margin: auto;
+  background: #0f7375;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: white;
+  height: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: larger;
+}
+
 .createpost {
   width: 50%;
   margin: auto;

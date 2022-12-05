@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import logout from "../services/Logout_API";
 import { useParams } from 'react-router-dom';
 import { ImArrowUp, ImArrowDown } from "react-icons/im";
+import Button from 'react-bootstrap/Button'
 import Comment from '../components/Comment';
 import '../App.css'
 import getPost from "../services/Post_API";
@@ -13,7 +14,7 @@ import contentvote from '../services/Vote_API';
 import Logo from '../assets/fav.png'
 import Image from 'react-bootstrap/Image'
 import moment from 'moment'
-
+import createComment from '../services/Create_Comment_API';
 
 
 const Post = () => {
@@ -25,14 +26,19 @@ const Post = () => {
     const [isLoggedout, setLoggedout] = useState(false);
     const [voted, setVoted] = useState(false)
     const [flag, setFlag] = useState(false)
+    const [submitted, setSubmitted] = useState(false)
+    const [formData, setFormData] = useState(
+      { 
+        description: "",
+      }
+    )
 
     //send request to backend for post details.
     useEffect(() => {
       getPost(id).then(res => {
-        console.log(res)
         setPost(res);
       });
-    }, [voted]);
+    }, [voted, submitted]);
 
     useEffect(() => {
       window.localStorage.removeItem('show_nsfw')
@@ -43,6 +49,26 @@ const Post = () => {
       setFlag(!flag)
     }
 
+    const handleSubmit = event => {
+      console.log('creating comment')
+      if(formData.description !== '') {
+        createComment(formData, id).then(() => {
+          setSubmitted(!submitted)
+          setFormData({description:''})
+        }
+        )
+      }
+    }
+
+    const handleChange = (event) => {
+      const { name, value } = event.target
+      setFormData(prevFormData => {
+          return {
+              ...prevFormData,
+              [name]: value
+          }
+      })
+  }
 
     //backend endpoint
     const vote = (direction) => {
@@ -191,8 +217,17 @@ const Post = () => {
   onVote = {() => setVoted(!voted)}
   ></Comment>
   )}
+    <br/>
   </div>
 }
+  {!isGuestUser &&
+  <div className={styles.mypostpage} style= {{width:'72%', marginLeft:'18%'}}>
+   <input type='text' style= {{overflow:'hidden', width: '100%' }} name="description" placeholder= 'Type your comment' value={formData.description} onChange={handleChange}></input>
+
+  <Button className={styles.createcomment} type = 'button' onClick={handleSubmit}>Comment</Button>
+  </div>
+}
+<br/><br/><br/>
 </div>         
     )
 }

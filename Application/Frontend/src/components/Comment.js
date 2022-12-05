@@ -22,7 +22,7 @@ const Comment = (props) => {
     };
 
     return (
-      <div>
+      <div style = {{marginTop: '8px'}}>
       <div className={styles.mycomment}>
       <div className={styles.mypostright}
       >
