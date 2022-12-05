@@ -6,7 +6,19 @@ async function create_post(data) {
     formData.append("description", data["description"])
     formData.append("type", data["type"])
     const tmp = data["imageURL"]
-    formData.append("imageURL", tmp.substring(0,tmp.indexOf("/")) + ".s3.amazonaws.com" + tmp.substring(tmp.indexOf("/")))
+    if(tmp){
+        formData.append("imageURL", tmp.substring(0,tmp.indexOf("/")) + ".s3.amazonaws.com" + tmp.substring(tmp.indexOf("/")))
+    }
+    var labels = []
+    for (let index = 0; index < data["labels"].length; index++) {
+        labels[index] = {
+            labelID: data["labels"][index]["value"],
+            labelName: data["labels"][index]["label"]
+        }
+        
+    }
+    
+    formData.append("labels", labels)
 
     const requestOptions = {
         method: "POST",
@@ -18,9 +30,11 @@ async function create_post(data) {
     
     const response = await fetch(window.location.origin.replace(":3000", ":8000") + "/contmgr/post", requestOptions)
     const resMessage = await response.json()
-    console.log(resMessage)
+
     if (response.status === 200 || response.status === 201) {
-        console.log("post created successfully.")
+        return null
+    } else {
+        return resMessage["error"]
     }
 }
 

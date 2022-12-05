@@ -13,7 +13,6 @@ async function get_labels() {
     if (response.status === 401) {
         return resMessage["error"]
     } else {
-        console.log(resMessage)
         return resMessage
     }
 }
