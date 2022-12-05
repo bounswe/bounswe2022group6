@@ -16,7 +16,6 @@ services:
       - CHOKIDAR_USEPOLLING=true # create-ui-app <= 5.x
       - WATCHPACK_POLLING=true # create-ui-app >= 5.x
       - FAST_REFRESH=false
-      - GENERATE_SOURCEMAP=false
     env_file:
         - .env
     command: npm start
