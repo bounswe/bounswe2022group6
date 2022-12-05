@@ -9,17 +9,10 @@ async function create_post(data) {
     if(tmp){
         formData.append("imageURL", tmp.substring(0,tmp.indexOf("/")) + ".s3.amazonaws.com" + tmp.substring(tmp.indexOf("/")))
     }
-    var labels = []
     for (let index = 0; index < data["labels"].length; index++) {
-        labels[index] = {
-            labelID: data["labels"][index]["value"],
-            labelName: data["labels"][index]["label"]
-        }
-        
+        formData.append("label", data["labels"][index]["value"])
     }
     
-    formData.append("labels", labels)
-
     const requestOptions = {
         method: "POST",
         body: formData,
