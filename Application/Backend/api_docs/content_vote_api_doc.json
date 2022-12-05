@@ -12,7 +12,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 12bdfed4cbd82a34e74633ba392f5eb91689068a",
+						"value": "Token 4c543fd855d8084ba9b2a439421a46d2fef99022",
 						"type": "default"
 					}
 				],
@@ -21,7 +21,12 @@
 					"formdata": [
 						{
 							"key": "id",
-							"value": "3",
+							"value": "2",
+							"type": "default"
+						},
+						{
+							"key": "vote",
+							"value": "up",
 							"type": "default"
 						}
 					]
@@ -46,7 +51,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token 12bdfed4cbd82a34e74633ba392f5eb91689068a",
+								"value": "Token 4c543fd855d8084ba9b2a439421a46d2fef99022",
 								"type": "default"
 							}
 						],
@@ -55,7 +60,12 @@
 							"formdata": [
 								{
 									"key": "id",
-									"value": "3",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "vote",
+									"value": "up",
 									"type": "default"
 								}
 							]
@@ -78,7 +88,7 @@
 					"header": [
 						{
 							"key": "Date",
-							"value": "Sun, 04 Dec 2022 09:34:21 GMT"
+							"value": "Mon, 05 Dec 2022 18:21:12 GMT"
 						},
 						{
 							"key": "Server",
@@ -102,7 +112,7 @@
 						},
 						{
 							"key": "Content-Length",
-							"value": "44"
+							"value": "41"
 						},
 						{
 							"key": "X-Content-Type-Options",
@@ -118,7 +128,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"info\": \"Vote added to post for user\"\n}"
+					"body": "{\n    \"info\": \"Upvote added to post for user\"\n}"
 				},
 				{
 					"name": "Vote Removed",
@@ -127,7 +137,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token 12bdfed4cbd82a34e74633ba392f5eb91689068a",
+								"value": "Token 4c543fd855d8084ba9b2a439421a46d2fef99022",
 								"type": "default"
 							}
 						],
@@ -136,7 +146,12 @@
 							"formdata": [
 								{
 									"key": "id",
-									"value": "3",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "vote",
+									"value": "up",
 									"type": "default"
 								}
 							]
@@ -159,7 +174,7 @@
 					"header": [
 						{
 							"key": "Date",
-							"value": "Sun, 04 Dec 2022 09:34:47 GMT"
+							"value": "Mon, 05 Dec 2022 18:25:24 GMT"
 						},
 						{
 							"key": "Server",
@@ -183,7 +198,7 @@
 						},
 						{
 							"key": "Content-Length",
-							"value": "43"
+							"value": "45"
 						},
 						{
 							"key": "X-Content-Type-Options",
@@ -199,7 +214,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"info\": \"Vote removed from post for user\"\n}"
+					"body": "{\n    \"info\": \"Upvote removed from post for user\"\n}"
 				}
 			]
 		},
@@ -210,7 +225,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 12bdfed4cbd82a34e74633ba392f5eb91689068a",
+						"value": "Token 4c543fd855d8084ba9b2a439421a46d2fef99022",
 						"type": "default"
 					}
 				],
@@ -219,7 +234,12 @@
 					"formdata": [
 						{
 							"key": "id",
-							"value": "1",
+							"value": "2",
+							"type": "default"
+						},
+						{
+							"key": "vote",
+							"value": "down",
 							"type": "default"
 						}
 					]
@@ -244,7 +264,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token 12bdfed4cbd82a34e74633ba392f5eb91689068a",
+								"value": "Token 4c543fd855d8084ba9b2a439421a46d2fef99022",
 								"type": "default"
 							}
 						],
@@ -253,20 +273,25 @@
 							"formdata": [
 								{
 									"key": "id",
-									"value": "3",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "vote",
+									"value": "down",
 									"type": "default"
 								}
 							]
 						},
 						"url": {
-							"raw": "localhost:8000/contmgr/postvote",
+							"raw": "localhost:8000/contmgr/commentvote",
 							"host": [
 								"localhost"
 							],
 							"port": "8000",
 							"path": [
 								"contmgr",
-								"postvote"
+								"commentvote"
 							]
 						}
 					},
@@ -276,7 +301,7 @@
 					"header": [
 						{
 							"key": "Date",
-							"value": "Sun, 04 Dec 2022 09:34:21 GMT"
+							"value": "Mon, 05 Dec 2022 18:21:49 GMT"
 						},
 						{
 							"key": "Server",
@@ -300,7 +325,7 @@
 						},
 						{
 							"key": "Content-Length",
-							"value": "44"
+							"value": "46"
 						},
 						{
 							"key": "X-Content-Type-Options",
@@ -316,7 +341,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"info\": \"Vote added to comment for user\"\n}"
+					"body": "{\n    \"info\": \"Downvote added to comment for user\"\n}"
 				},
 				{
 					"name": "Vote Removed",
@@ -325,7 +350,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token 12bdfed4cbd82a34e74633ba392f5eb91689068a",
+								"value": "Token 4c543fd855d8084ba9b2a439421a46d2fef99022",
 								"type": "default"
 							}
 						],
@@ -334,20 +359,25 @@
 							"formdata": [
 								{
 									"key": "id",
-									"value": "3",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "vote",
+									"value": "down",
 									"type": "default"
 								}
 							]
 						},
 						"url": {
-							"raw": "localhost:8000/contmgr/postvote",
+							"raw": "localhost:8000/contmgr/commentvote",
 							"host": [
 								"localhost"
 							],
 							"port": "8000",
 							"path": [
 								"contmgr",
-								"postvote"
+								"commentvote"
 							]
 						}
 					},
@@ -357,7 +387,7 @@
 					"header": [
 						{
 							"key": "Date",
-							"value": "Sun, 04 Dec 2022 09:34:47 GMT"
+							"value": "Mon, 05 Dec 2022 18:24:35 GMT"
 						},
 						{
 							"key": "Server",
@@ -381,7 +411,7 @@
 						},
 						{
 							"key": "Content-Length",
-							"value": "43"
+							"value": "50"
 						},
 						{
 							"key": "X-Content-Type-Options",
@@ -397,7 +427,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"info\": \"Vote removed to comment for user\"\n}"
+					"body": "{\n    \"info\": \"Downvote removed from comment for user\"\n}"
 				}
 			]
 		},
@@ -408,12 +438,12 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 12bdfed4cbd82a34e74633ba392f5eb91689068a",
+						"value": "Token 4c543fd855d8084ba9b2a439421a46d2fef99022",
 						"type": "default"
 					}
 				],
 				"url": {
-					"raw": "localhost:8000/contmgr/postvote?id=3",
+					"raw": "localhost:8000/contmgr/postvote?id=2",
 					"host": [
 						"localhost"
 					],
@@ -425,25 +455,25 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "3"
+							"value": "2"
 						}
 					]
 				}
 			},
 			"response": [
 				{
-					"name": "If Post Voted",
+					"name": "If Post Upvoted",
 					"originalRequest": {
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token 12bdfed4cbd82a34e74633ba392f5eb91689068a",
+								"value": "Token 4c543fd855d8084ba9b2a439421a46d2fef99022",
 								"type": "default"
 							}
 						],
 						"url": {
-							"raw": "localhost:8000/contmgr/postvote?id=3",
+							"raw": "localhost:8000/contmgr/postvote?id=1",
 							"host": [
 								"localhost"
 							],
@@ -455,7 +485,7 @@
 							"query": [
 								{
 									"key": "id",
-									"value": "3"
+									"value": "1"
 								}
 							]
 						}
@@ -466,7 +496,7 @@
 					"header": [
 						{
 							"key": "Date",
-							"value": "Sun, 04 Dec 2022 09:39:45 GMT"
+							"value": "Mon, 05 Dec 2022 18:22:24 GMT"
 						},
 						{
 							"key": "Server",
@@ -506,65 +536,33 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"voted\": true\n}"
-				}
-			]
-		},
-		{
-			"name": "If Comment Voted",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Token 12bdfed4cbd82a34e74633ba392f5eb91689068a",
-						"type": "default"
-					}
-				],
-				"url": {
-					"raw": "localhost:8000/contmgr/commentvote?id=1",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"contmgr",
-						"commentvote"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "1"
-						}
-					]
-				}
-			},
-			"response": [
+					"body": "{\n    \"voted\": \"up\"\n}"
+				},
 				{
-					"name": "If Comment Voted",
+					"name": "If Post Not Voted",
 					"originalRequest": {
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token 12bdfed4cbd82a34e74633ba392f5eb91689068a",
+								"value": "Token 4c543fd855d8084ba9b2a439421a46d2fef99022",
 								"type": "default"
 							}
 						],
 						"url": {
-							"raw": "localhost:8000/contmgr/commentvote?id=1",
+							"raw": "localhost:8000/contmgr/postvote?id=2",
 							"host": [
 								"localhost"
 							],
 							"port": "8000",
 							"path": [
 								"contmgr",
-								"commentvote"
+								"postvote"
 							],
 							"query": [
 								{
 									"key": "id",
-									"value": "1"
+									"value": "2"
 								}
 							]
 						}
@@ -575,7 +573,7 @@
 					"header": [
 						{
 							"key": "Date",
-							"value": "Sun, 04 Dec 2022 09:41:45 GMT"
+							"value": "Mon, 05 Dec 2022 18:23:12 GMT"
 						},
 						{
 							"key": "Server",
@@ -599,7 +597,7 @@
 						},
 						{
 							"key": "Content-Length",
-							"value": "16"
+							"value": "18"
 						},
 						{
 							"key": "X-Content-Type-Options",
@@ -615,7 +613,116 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"voted\": false\n}"
+					"body": "{\n    \"voted\": \"false\"\n}"
+				}
+			]
+		},
+		{
+			"name": "If Comment Voted",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 4c543fd855d8084ba9b2a439421a46d2fef99022",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/contmgr/commentvote?id=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"contmgr",
+						"commentvote"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "If Comment Downvoted",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 4c543fd855d8084ba9b2a439421a46d2fef99022",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/contmgr/commentvote?id=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"contmgr",
+								"commentvote"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 05 Dec 2022 18:22:19 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "17"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"voted\": \"down\"\n}"
 				}
 			]
 		}
