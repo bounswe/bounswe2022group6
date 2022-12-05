@@ -32,7 +32,8 @@ export const SignUpScreen = (props) => {
 
     const [loading, setLoading] = useState(false)
     const [mail, setMail] = useState(props.route.params.mail || "")
-    const [password, setPassword] = useState(props.route.params.password || "")
+    const [password, setPassword] = useState("")
+    const [passwordAgain, setPasswordAgain] = useState("")
     const [userName, setUserName] = useState("")
     const [birthDate, setBirthDate] = useState(new Date())
     const [gender, setGender] = useState("")
@@ -48,15 +49,17 @@ export const SignUpScreen = (props) => {
         try {
             let error = false
             let copyErrors = errors
-            if (mail == "" || !mail.includes('@') || !mail.includes('.')) { error = true; copyErrors.mail = "Please write valid mail address!" }
+            if (mail == "" || !mail.includes('@') || !mail.includes('.')) { error = true; copyErrors.mail = "Please write a valid mail address!" }
             else { copyErrors.mail = "" }
-            if (userName == "") { error = true; copyErrors.userName = "Please write username!" }
+            if (userName == "") { error = true; copyErrors.userName = "Please write a username!" }
             else { copyErrors.userName = "" }
-            if (password == "") { error = true; copyErrors.password = "Please write password!" }
+            if (password == "") { error = true; copyErrors.password = "Please write a password!" }
             else { copyErrors.password = "" }
-            if (birthDate == "" || birthDate.toDateString() == new Date().toDateString()) { error = true; copyErrors.birthDate = "Please write birthdate!" }
+            if (password !== passwordAgain ) { error = true; copyErrors.password = "Passwords do not match!" }
+            else { copyErrors.password = "" }
+            if (birthDate == "" || birthDate.toDateString() == new Date().toDateString()) { error = true; copyErrors.birthDate = "Please choose your birthdate!" }
             else { copyErrors.birthDate = "" }
-            if (gender == "") { error = true; copyErrors.gender = "Please write gender!" }
+            if (gender == "") { error = true; copyErrors.gender = "Please choose a gender!" }
             else { copyErrors.gender = "" }
 
             setErrors(copyErrors)
@@ -95,6 +98,7 @@ export const SignUpScreen = (props) => {
                         value={mail}
                         onChangeText={(text) => setMail(text)}
                         left={<TextInput.Icon name="email" color='gray' />}
+                        keyboardType="email-address"
                     />
                     <HelperText type="error" visible={errors.mail != ""} >{errors.mail}</HelperText>
                     <TextInput
@@ -105,15 +109,17 @@ export const SignUpScreen = (props) => {
                         secureTextEntry={!showPass}
                         left={<TextInput.Icon name="lock" color='gray' />}
                         right={<TextInput.Icon name={showPass ? 'eye' : 'eye-off'} color='gray' forceTextInputFocus={false} onPress={() => { setShowPass(!showPass) }} />}
+                        keyboardType={showPass ? 'visible-password' : 'default'}
                     />
                     <HelperText type="error" visible={errors.password != ""} >{errors.password}</HelperText>
                     <TextInput
                         label="Password (Again)"
-                        value={password}
-                        onChangeText={(text) => setPassword(text)}
+                        value={passwordAgain}
+                        onChangeText={(text) => setPasswordAgain(text)}
                         secureTextEntry={!showPassAgain}
                         left={<TextInput.Icon name="lock" color='gray' />}
                         right={<TextInput.Icon name={showPassAgain ? 'eye' : 'eye-off'} color='gray' forceTextInputFocus={false} onPress={() => { setShowPassAgain(!showPassAgain) }} />}
+                        keyboardType={showPass ? 'visible-password' : 'default'}
                     />
                     <HelperText type="error" visible={errors.password != ""} >{errors.password}</HelperText>
                     <TextInput

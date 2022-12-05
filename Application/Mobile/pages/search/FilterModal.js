@@ -1,74 +1,28 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { FlatList } from "react-native";
-import { Portal, Dialog, Button, List } from "react-native-paper";
+import { Portal, Dialog, Button, List, ActivityIndicator } from "react-native-paper";
 import { getLabels } from "../labelAPI";
 import LabelFilter from "./LabelFilter";
+import { BACKEND_URL } from '@env'
 
 const FilterModal = (props) => {
-    //const [allLabels, setAllLabels] = useState(getLabels())
-    // All labels
-    const dummyLabels = [
-        {
-            "labelID": 1,
-            "labelName": "Orthopedy",
-            "labelType": "f",
-            "labelColor": "#ad901a",
-            "parentLabel": null
-        },
-        {
-            "labelID": 2,
-            "labelName": "Cardiology",
-            "labelType": "f",
-            "labelColor": "#1aad1c",
-            "parentLabel": 1
-        },
-        {
-            "labelID": 3,
-            "labelName": "Question",
-            "labelType": "f",
-            "labelColor": "#1a4ead",
-            "parentLabel": 1
-        },
-        {
-            "labelID": 4,
-            "labelName": "Dermatology",
-            "labelType": "f",
-            "labelColor": "#ad1a46",
-            "parentLabel": 1
-        },
-        {
-            "labelID": 5,
-            "labelName": "Pharmacology",
-            "labelType": "f",
-            "labelColor": "#501aad",
-            "parentLabel": 1
-        }
-    ];
+    const [isLoading, setIsLoading] = useState(true);
+
     // All filters
-    //const [allFilters, setAllFilters] = useState([])
-    const dummyFilters = [
-        {
-            ID: "1",
-            name: 'Labels',
-            content: dummyLabels,
-            type: 'list',
-            icon: 'label'
-        },
-    ]
+    const [allFilters, setAllFilters] = useState([])
     const hideDialog = () => props.navigation.setParams({ ...props.route.params, filtersVisible: false });
     const [chosenFilters, setChosenFilters] = useState(props.filters)
     const renderFilter = ({ item }) => <LabelFilter label={item} {...props} isChosen={chosenFilters && chosenFilters.labels && chosenFilters.labels.filter(e => e.labelID === item.labelID).length > 0 ? true : false} setChosenFilters={setChosenFilters} />;
 
-    const renderFilters = ({ item }) => {
+    const renderFilters = ({ item, index }) => {
         return (
-            <List.Accordion title={item.name} id={item.ID} left={(props2) => <List.Icon {...props2} icon={item.icon}></List.Icon>}>
+            <List.Accordion title={item.name} id={toString(index)} left={(props2) => <List.Icon {...props2} icon={item.icon}></List.Icon>}>
                 {item.type === 'list' &&
                     <FlatList
                         data={item.content}
                         renderItem={renderFilter}
                     />
                 }
-
             </List.Accordion>
         );
     }
@@ -80,19 +34,32 @@ const FilterModal = (props) => {
         props.setFilters(null);
         hideDialog();
     }
+    // HTTP request for all the labels in the server:
+    const getLabels = async () => {
+        try {
+            const response = await fetch(BACKEND_URL + 'contmgr/labels/');
+            const json = await response.json();
+            return {name: 'Labels', icon: 'label', content: json.labels, type: 'list'}
+          } catch (error) {
+            console.error(error);
+          }
+    }
+
+    useEffect(() => {
+        getLabels().then((labels) => {setAllFilters([labels])})
+    }, [])
 
     return (
         <Portal>
             <Dialog visible={props.route.params.filtersVisible} onDismiss={hideDialog} style={{ height: '70%' }}>
                 <Dialog.Title>Filters</Dialog.Title>
                 <Dialog.ScrollArea>
-                    <List.AccordionGroup>
-                        <FlatList
-                            data={dummyFilters}
-                            // data={allFilters}
-                            renderItem={renderFilters}
-                        />
-                    </List.AccordionGroup>
+                        <List.AccordionGroup>
+                            <FlatList
+                            data={allFilters}
+                                renderItem={renderFilters}
+                            />
+                        </List.AccordionGroup>
                 </Dialog.ScrollArea>
                 <Dialog.Actions>
                     <Button onPress={resetFilters}>Reset</Button>
