@@ -11,7 +11,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8000/contmgr/comment?id=1",
+					"raw": "localhost:8000/contmgr/comment?id=2",
 					"host": [
 						"localhost"
 					],
@@ -23,7 +23,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "1"
+							"value": "2"
 						}
 					]
 				}
@@ -35,7 +35,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8000/contmgr/comment?id=1",
+							"raw": "localhost:8000/contmgr/comment?id=2",
 							"host": [
 								"localhost"
 							],
@@ -47,7 +47,7 @@
 							"query": [
 								{
 									"key": "id",
-									"value": "1"
+									"value": "2"
 								}
 							]
 						}
@@ -58,7 +58,7 @@
 					"header": [
 						{
 							"key": "Date",
-							"value": "Sun, 04 Dec 2022 08:30:24 GMT"
+							"value": "Mon, 05 Dec 2022 18:25:53 GMT"
 						},
 						{
 							"key": "Server",
@@ -82,7 +82,7 @@
 						},
 						{
 							"key": "Content-Length",
-							"value": "317"
+							"value": "238"
 						},
 						{
 							"key": "X-Content-Type-Options",
@@ -98,7 +98,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"owner\": \"mark\",\n    \"description\": \"Sorry for your headache\",\n    \"vote_count\": 0,\n    \"created_at\": \"2022-12-04T08:12:41.075Z\",\n    \"mentioned_users\": [],\n    \"comments\": [\n        {\n            \"owner\": \"mark\",\n            \"description\": \"Thank you for your comment\",\n            \"vote_count\": 0,\n            \"created_at\": \"2022-12-04T08:12:41.075Z\",\n            \"mentioned_users\": [],\n            \"comments\": []\n        }\n    ]\n}"
+					"body": "{\n    \"commentID\": 2,\n    \"owner\": \"markzucky\",\n    \"description\": \"Thank you for your comment\",\n    \"result_vote\": -1,\n    \"upvoted_users\": [],\n    \"downvoted_users\": [\n        \"markzucky\"\n    ],\n    \"created_at\": \"2022-12-05T18:17:33.220Z\",\n    \"mentioned_users\": [],\n    \"comments\": []\n}"
 				}
 			]
 		},
@@ -109,7 +109,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 12bdfed4cbd82a34e74633ba392f5eb91689068a",
+						"value": "Token 4c543fd855d8084ba9b2a439421a46d2fef99022",
 						"type": "default"
 					}
 				],
@@ -123,7 +123,7 @@
 						},
 						{
 							"key": "parent_post_id",
-							"value": "3",
+							"value": "2",
 							"type": "default"
 						}
 					]
@@ -236,7 +236,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 12bdfed4cbd82a34e74633ba392f5eb91689068a",
+						"value": "Token 4c543fd855d8084ba9b2a439421a46d2fef99022",
 						"type": "default"
 					}
 				],

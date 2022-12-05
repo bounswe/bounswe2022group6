@@ -16,9 +16,12 @@ class IsGetOrIsAuthenticated(BasePermission):
 def insertComments(target_data, rcomments):
     for comment in rcomments:
         target_data.append({
+            "commentID": comment.commentID,
             "owner":comment.owner.username,
             "description":comment.description,
-            "vote_count":comment.voted_users.all().count(),
+            "result_vote":comment.upvoted_users.all().count()-comment.downvoted_users.all().count(),
+            "upvoted_users":list(comment.upvoted_users.all().values_list('username', flat=True)),
+            "downvoted_users":list(comment.downvoted_users.all().values_list('username', flat=True)),
             "created_at":comment.created_at,
             "mentioned_users": list(comment.mentioned_users.all().values_list('username', flat=True)),
             "comments": []
@@ -87,17 +90,21 @@ class Vote(APIView):
         except Exception as e:
             return JsonResponse({"info":"Fetch data failed", "error": str(e)}, status=400)
 
-        if model.voted_users.filter(username=user.username).exists():
-            return JsonResponse({"voted":True}, status=200)
+        if model.upvoted_users.filter(username=user.username).exists():
+            return JsonResponse({"voted":"up"}, status=200)
+        elif model.downvoted_users.filter(username=user.username).exists():
+            return JsonResponse({"voted":"down"}, status=200)
         else:
-            return JsonResponse({"voted":False}, status=200)
+            return JsonResponse({"voted":"false"}, status=200)
 
     def post(self, req, _type):
         user = RegisteredUser.objects.get(username=req.user)
         try:
             modelID = int(req.POST.get("id", None))
+            vote = req.POST["vote"].strip().lower()
+            if vote != "up" and vote != "down": raise
         except:
-            return JsonResponse({"info":f"{_type} vote failed", "error": "id is either not given or not an integer"}, status=400)
+            return JsonResponse({"info":f"{_type} vote failed", "error": "Arguments are not correct or not given"}, status=400)
         try:
             if _type=="comment":
                 model = Comment.objects.get(commentID=modelID)
@@ -107,18 +114,26 @@ class Vote(APIView):
         except Exception as e:
             return JsonResponse({"info":"Fetch data failed", "error": str(e)}, status=400)
 
-        if model.voted_users.filter(username=user.username).exists():
-            try:
-                model.voted_users.remove(user)
-                return JsonResponse({"info":f"Vote removed from {_type} for user"}, status=201)
-            except Exception as e:
-                return JsonResponse({"info":f"Vote remove from {_type} failed", "error": str(e)}, status=400)
+        def vote_func(main_vote, side_vote, op_name, user, _type):
+            if main_vote.filter(username=user.username).exists():
+                try:
+                    main_vote.remove(user)
+                    return JsonResponse({"info":f"{op_name} removed from {_type} for user"}, status=201)
+                except Exception as e:
+                    return JsonResponse({"info":f"{op_name} remove from {_type} failed", "error": str(e)}, status=400)
+            else:
+                try:
+                    if side_vote.filter(username=user.username).exists():
+                        side_vote.remove(user)
+                    main_vote.add(user)
+                    return JsonResponse({"info":f"{op_name} added to {_type} for user"}, status=201)
+                except Exception as e:
+                    return JsonResponse({"info":f"{op_name} add to {_type} failed", "error": str(e)}, status=400)
+
+        if vote=="up":
+            return vote_func(model.upvoted_users, model.downvoted_users, "Upvote", user, _type)
         else:
-            try:
-                model.voted_users.add(user)
-                return JsonResponse({"info":f"Vote added to {_type} for user"}, status=201)
-            except Exception as e:
-                return JsonResponse({"info":f"Vote add to {_type} failed", "error": str(e)}, status=400)
+            return vote_func(model.downvoted_users, model.upvoted_users, "Downvote", user, _type)
 
 
 class CommentVote(Vote):
@@ -186,9 +201,12 @@ class PostView(APIView):
             return JsonResponse({"info":f"post get failed", "error": "id is either not given or not an integer"}, status=400)
         tpost = Post.objects.get(postID= postID)
         data = {
+            "postID": postID,
             "owner":tpost.owner.username,
             "description":tpost.description,
-            "vote_count":tpost.voted_users.all().count(),
+            "result_vote":tpost.upvoted_users.all().count()-tpost.downvoted_users.all().count(),
+            "upvoted_users":list(tpost.upvoted_users.all().values_list('username', flat=True)),
+            "downvoted_users":list(tpost.downvoted_users.all().values_list('username', flat=True)),
             "created_at":tpost.created_at,
             "mentioned_users": list(tpost.mentioned_users.all().values_list('username', flat=True)),
             "title":tpost.title,

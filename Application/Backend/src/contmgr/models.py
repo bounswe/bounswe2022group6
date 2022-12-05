@@ -6,8 +6,9 @@ class Content(models.Model):
 
     owner = models.ForeignKey(RegisteredUser, on_delete=models.CASCADE, blank=False, null=False)
     description = models.CharField(max_length=10000, blank=False, null=False)
-    voted_users = models.ManyToManyField(RegisteredUser, blank=True, related_name='vote_%(class)s')
-    created_at = models.DateTimeField(default=timezone.now())
+    upvoted_users = models.ManyToManyField(RegisteredUser, blank=True, related_name='upvote_%(class)s')
+    downvoted_users = models.ManyToManyField(RegisteredUser, blank=True, related_name='downvote_%(class)s')
+    created_at = models.DateTimeField(default=timezone.now)
     mentioned_users = models.ManyToManyField(RegisteredUser, related_name='mentioned_by_%(class)s', blank=True)
 
     class Meta:
