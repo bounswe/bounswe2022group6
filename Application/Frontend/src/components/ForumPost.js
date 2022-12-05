@@ -4,13 +4,11 @@ import {useState} from "react"
 import {useHistory, Link} from 'react-router-dom'
 import styles from "../pages/home.module.css";
 import CreatePostForm from "./CreatePostForm";
-import getPost from "../services/Post_API";
+import getPostById, {getAllPosts} from "../services/Post_API";
 import contentvote from '../services/Vote_API';
 import moment from 'moment'
 
 const ForumPost = (props) => {
-  console.log(props.post)
-
   const isGuestUser = window.localStorage.getItem("auth_token") ? false : true
   let history = useHistory()
 
@@ -20,12 +18,12 @@ const ForumPost = (props) => {
             return
         }
         console.log("voting post")
-        contentvote(props.post.id, direction, true).then(() => props.onVote())
+        contentvote(props.post.postID, direction, true).then(() => props.onVote())
       };
 
     const onClick = () => {
       setTimeout(() => {
-        history.push('/post/'+props.post.id);
+        history.push('/post/'+props.post.postID);
       }, "100")
     }
 
@@ -63,7 +61,7 @@ const ForumPost = (props) => {
                   justifyContent: "flex-end",
                 }}
               >
-                  <p style={{textAlign:'left', marginRight:'auto'}}>{props.post.owner}</p>
+                  <p style={{textAlign:'left', marginRight:'auto'}}>{props.post.owner.username}</p>
                 <div
                   style={{
                     display: "flex",
@@ -87,7 +85,7 @@ const ForumPost = (props) => {
                     </p>
                   ))}
                   <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
-                    {moment(props.post.created_at).format('MMM DD YYYY')}
+                    {moment(props.post.created_at).format('MMM DD YYYY HH:MM')}
                   </medium>
                 </div>
               </div>
@@ -97,7 +95,7 @@ const ForumPost = (props) => {
             </p>{" "}
             <p style={{ textAlign: "left" }}>{props.post.description}</p>
           </div>
-          <p style={{ textAlign: "right", position:'absolute', bottom:'0', right:'0' }}>{ props.post.comments.length + (props.post.comments.length > 1 ? ' comments'  : ' comment')}</p>
+          <p style={{ textAlign: "right", position:'absolute', bottom:'0', right:'0' }}>{ props.post.comments && props.post.comments.length + (props.post.comments.length > 1 ? ' comments'  : ' comment')}</p>
         </div>
       </div>
       )}
@@ -112,8 +110,8 @@ const Posts = () => {
   const [voted, setVoted] = useState(false)
 
   useEffect(() => {
-    getPost(1).then(res => {
-      setPosts([res]);
+    getAllPosts().then(res => {
+      setPosts(res);
     });
   }, [voted]);
   

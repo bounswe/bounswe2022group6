@@ -66,7 +66,7 @@ const Comment = (props) => {
               }}
             >
             <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
-                    {moment(props.comment.created_at).format('MMM DD YYYY')}
+                    {moment(props.comment.created_at).format('MMM DD YYYY h:mm')}
                   </medium>
             </div>
           </div>

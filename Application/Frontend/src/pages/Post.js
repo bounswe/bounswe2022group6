@@ -9,7 +9,7 @@ import { ImArrowUp, ImArrowDown } from "react-icons/im";
 import Button from 'react-bootstrap/Button'
 import Comment from '../components/Comment';
 import '../App.css'
-import getPost from "../services/Post_API";
+import getPostById from "../services/Post_API";
 import contentvote from '../services/Vote_API';
 import Logo from '../assets/fav.png'
 import Image from 'react-bootstrap/Image'
@@ -35,7 +35,7 @@ const Post = () => {
 
     //send request to backend for post details.
     useEffect(() => {
-      getPost(id).then(res => {
+      getPostById(id).then(res => {
         setPost(res);
       });
     }, [voted, submitted]);
@@ -165,7 +165,7 @@ const Post = () => {
               justifyContent: "flex-end",
             }}
           >
-            <p style={{textAlign:'left', marginRight:'auto'}}>{post.owner}</p>
+            <p style={{textAlign:'left', marginRight:'auto'}}>{post.owner.username}</p>
             <div
               style={{
                 display: "flex",
@@ -189,7 +189,7 @@ const Post = () => {
                 </p>
               ))}
                 <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
-                    {moment(post.created_at).format('MMM DD YYYY')}
+                    {moment(post.created_at).format('MMM DD YYYY HH:MM')}
                   </medium>
             </div>
           </div>
@@ -200,12 +200,16 @@ const Post = () => {
           </p>{" "}
           <p style={{ textAlign: "left" }}>{post["description"]}</p>
         </div>
-        <div style={{ position:'relative' }}>
-          <Image src={post.imageURL} style={{ maxWidth:"50%", maxHeight:'50%', filter: !window.localStorage.getItem("show_nsfw") ? 'blur(25px)' : '' }}></Image>
-          { !window.localStorage.getItem("show_nsfw")  &&  <button className={styles.mybutton} onClick = {handleNSFW} style={{position:'absolute', top: '50%', left:'50%', transform:'translate(-50%, -50%)'}}> 
+        { post.imageURL && 
+          <div style={{ position:'relative' }}>
+          <Image src={post.imageURL} style={{ maxWidth:"50%", maxHeight:'50%', filter: !window.localStorage.getItem("show_nsfw") && post.is_marked_nsfw ? 'blur(25px)' : '' }}></Image>
+          { !window.localStorage.getItem("show_nsfw")  && post.is_marked_nsfw &&
+          <button className={styles.mybutton} onClick = {handleNSFW} style={{position:'absolute', top: '50%', left:'50%', transform:'translate(-50%, -50%)'}}> 
           See NSFW content
           </button>}
         </div>
+        }
+        
       </div>
     </div>
   </div> }
