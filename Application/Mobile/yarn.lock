@@ -2977,6 +2977,11 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
+dotenv@^16.0.3:
+  version "16.0.3"
+  resolved "https://registry.npmjs.org/dotenv/-/dotenv-16.0.3.tgz"
+  integrity sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==
+
 ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz"
@@ -5946,6 +5951,13 @@ react-native-date-picker@^4.2.5:
   integrity sha512-YjwiMpZEnVVS+ymLvmJDicVZ3pSR+nJHgtAhctMl6fO8f7iRNcYhY427gemlTBf2Ji+XIAK0Agyl255DhaemFw==
   dependencies:
     prop-types "^15.8.1"
+
+react-native-dotenv@^3.4.2:
+  version "3.4.2"
+  resolved "https://registry.npmjs.org/react-native-dotenv/-/react-native-dotenv-3.4.2.tgz"
+  integrity sha512-O3ta0vSUmOp2hRG1uSiSz+mpagTMKzQ9LAzBDKDO0Zbd0BCBsE+p3PLTkVBzl0XGqExdCGyh/VwQeSsxpTiITA==
+  dependencies:
+    dotenv "^16.0.3"
 
 react-native-flex-layout@^0.1.5:
   version "0.1.5"
