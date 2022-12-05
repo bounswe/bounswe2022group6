@@ -6,8 +6,9 @@ class Content(models.Model):
 
     owner = models.ForeignKey(RegisteredUser, on_delete=models.CASCADE, blank=False, null=False)
     description = models.CharField(max_length=10000, blank=False, null=False)
-    voted_users = models.ManyToManyField(RegisteredUser, blank=True, related_name='vote_%(class)s')
-    created_at = models.DateTimeField(default=timezone.now())
+    upvoted_users = models.ManyToManyField(RegisteredUser, blank=True, related_name='upvote_%(class)s')
+    downvoted_users = models.ManyToManyField(RegisteredUser, blank=True, related_name='downvote_%(class)s')
+    created_at = models.DateTimeField(default=timezone.now)
     mentioned_users = models.ManyToManyField(RegisteredUser, related_name='mentioned_by_%(class)s', blank=True)
 
     class Meta:
@@ -43,8 +44,9 @@ class Post(Content):
             "postID" : self.postID,
             "owner" : {"userID": self.owner.userID, "username": self.owner.username},
             "description" : self.description,
-            "vote_count" : len(self.voted_users.all()),
-            "voted_users" : [{"userID": user.userID, "username": user.username} for user in self.voted_users.all()],
+            "vote_count" : len(self.upvoted_users.all()) - len(self.downvoted_users.all()),
+            "upvoted_users" : [{"userID": user.userID, "username": user.username} for user in self.upvoted_users.all()],
+            "downvoted_users" : [{"userID": user.userID, "username": user.username} for user in self.downvoted_users.all()],
             "created_at_date" : self.created_at.strftime("%d.%m.%Y"),
             "created_at_time" : self.created_at.strftime("%H.%M.%S"),
             "title" : self.title,
