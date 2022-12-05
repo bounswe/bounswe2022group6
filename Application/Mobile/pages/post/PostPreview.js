@@ -7,7 +7,8 @@ import { View, StyleSheet, TouchableOpacity, Pressable } from 'react-native';
 const LeftContent = (props) => {
     return (
         <TouchableOpacity onPress={() => console.log('Clicked profile photo')}>
-            <Avatar.Image {...props} source={{ uri: props.profile }} />
+            <Avatar.Icon {...props} icon='account' /* source={{ uri: props.profile }} */ />
+            {/* <Avatar.Image {...props} source={{ uri: props.profile }} /> */}
         </TouchableOpacity>
     );
 }
@@ -34,10 +35,25 @@ const RightContent = (props) => {
     );
 }
 
-// fields: theme, navigation, openSnackBar, nsfw, postAuthor, postTitle, cardContent, authorProfilePhoto, labels, cardCover, upvote, downvote
+/*
+postID: number
+owner: {userID: ..., username: }
+description: 
+vote_count?
+voted_users:
+created_at_date: "xx.xx.xxxx"
+created_at_time: "xx.xx.xx"
+title: string
+type: string
+location: string
+imageurl: null/string
+is_marked_nsfw: boolean
+labels: [{labelID, labelName, }]
+mentioned_users
+*/
 const PostPreview = (props) => {
     const { colors } = props.theme; // colors of the theme
-    const [isNSFW, setIsNSFW] = useState(props.nsfw); // NSFW
+    const [isNSFW, setIsNSFW] = useState(props.is_marked_nsfw); // NSFW
 
     // Upvote & Downvote
     //TODO: the initial states should be taken from backend
@@ -56,51 +72,53 @@ const PostPreview = (props) => {
     }
 
     return (
-        <Card style={styles.card} onPress={() => props.navigation.navigate('Post Details', {username: props.postAuthor, title: props.postTitle, description: props.cardContent})}>
+        <Card
+        style={styles.card} onPress={() => props.navigation.navigate('Post Details', {owner: props.owner, title: props.title, description: props.description})}>
             {/* Username, profile photo, post date etc. */}
             <Card.Title
-                title={<Text onPress={() => console.log('clicked username')}>{props.postAuthor}</Text>}
+                title={<Text onPress={() => console.log('clicked username')}>{props.owner.username}</Text>}
                 titleStyle={{fontSize: 14}}
-                subtitle={<Text onPress={() => console.log('clicked date')}>{'yesterday'}</Text>} //TODO: take date data from props
+                subtitle={<Text onPress={() => console.log('clicked date')}>{props.created_at_date}, {props.created_at_time}</Text>} //TODO: take date data from props
                 subtitleStyle={{fontSize: 12, color: 'red'}}
-                left={(props2) => <LeftContent profile={props.authorProfilePhoto} {...props2} />}
+                left={(props2) => <LeftContent /* profile={props.authorProfilePhoto */ {...props2} />}
                 leftStyle={{alignSelf: 'center'}}
-                right={(props2) => <RightContent {...props2} openSnackBar={props.openSnackBar} author={props.postAuthor} />}
+                right={(props2) => <RightContent {...props2} openSnackBar={props.openSnackBar} author={props.owner.username} />}
             />
             {/* Post Labels */}
             {props.labels && <Card.Content style={styles.labelContainer}>
-                {props.labels.map(label => <Chip key={label.text} style={{ ...styles.label, borderColor: label.color }} textStyle={{ color: label.color }} mode='outlined'>{label.text}</Chip>)}
+                {props.labels.map(label => <Chip key={label.labelID} style={{ ...styles.label, borderColor: label.labelColor }} textStyle={{ color: label.labelColor }} mode='outlined'>{label.labelName}</Chip>)}
             </Card.Content>
             }
 
             {/* Post title */}
-            <Card.Title title={props.postTitle} titleNumberOfLines={2} />
+            <Card.Title title={props.title} titleNumberOfLines={2} />
 
             {/* Post Image */}
-            {props.cardCover &&
+            {props.imageURL &&
                 <Card.Content style={styles.cardCoverContainer}>
-                    <Card.Cover style={styles.cardCover} blurRadius={isNSFW ? 20 : 0} source={{ uri: props.cardCover }} />
+                    <Card.Cover style={styles.cardCover} blurRadius={isNSFW ? 20 : 0} source={{ uri: props.imageURL }} />
                     {isNSFW && <Button mode='contained' style={styles.nsfwButton} onPress={() => { setIsNSFW(false) }}>NSFW Content</Button>}
                 </Card.Content>
             }
 
             {/* Post Description */}
-            {props.cardContent &&
+            {props.description &&
                 <Card.Content>
-                    <Text numberOfLines={2}>{props.cardContent}</Text>
+                    <Text numberOfLines={2}>{props.description}</Text>
                 </Card.Content>
             }
+
 
             {/* Buttons */}
             <Card.Actions style={styles.cardFooter}>
                 <View style={styles.voteContainer}>
                     <IconButton color={colors.primary} animated={true} icon={upVoted ? 'arrow-up-drop-circle' : 'arrow-up-drop-circle-outline'} onPress={handleUpvote} />
                     <Text>
-                        {props.upvote - props.downvote + upVoted - downVoted}
+                        0{/*props.upvote - props.downvote + upVoted - downVoted*/}
                     </Text>
                     <IconButton color={colors.primary} animated={true} icon={downVoted ? 'arrow-down-drop-circle' : 'arrow-down-drop-circle-outline'} onPress={handleDownvote} />
                 </View>
-                <Button labelStyle={{ fontSize: 23 }} contentStyle={styles.comment} icon='comment-outline' onPress={() => console.log('Clicked comment')}><Text style={{ fontSize: 13 }}>{props.comment}</Text></Button>
+                <Button labelStyle={{ fontSize: 23 }} contentStyle={styles.comment} icon='comment-outline' onPress={() => console.log('Clicked comment')}><Text style={{ fontSize: 13 }}>0</Text></Button>
             </Card.Actions>
         </Card>
     );
