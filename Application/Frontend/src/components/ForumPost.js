@@ -154,7 +154,7 @@ const ForumPost = (props) => {
                     justifyContent: "space-between",
                   }}
                 >
-                  {/* {props.post.labels && props.post.labels.map((label) => (
+                  {props.post.labels && props.post.labels.map((label) => (
                     <p
                       style={{
                         borderRadius: "5px",
@@ -169,7 +169,7 @@ const ForumPost = (props) => {
                     >
                       {label}
                     </p>
-                  ))} */}
+                  ))}
                   <small style={{ padding: "3px 5px", marginLeft: "15px" }}>
                     {props.post.created_at}
                   </small>
@@ -187,23 +187,6 @@ const ForumPost = (props) => {
 }
 
 
-const getAllPosts = () => {
-
-  let allPosts = [1,2]
-  let post;
-  getPost(1).then(res => {
-      console.log(res)
-      post = res
-      allPosts.push(3)
-    });
-
-    console.log(post)
-}
-
-
-
-
-
 const Posts = () => {
 
   const [showPostCreate, setPostCreate] = useState(false)
@@ -214,8 +197,7 @@ const Posts = () => {
   const [voted, setVoted] = useState(false)
 
   useEffect(() => {
-    getPost(2).then(res => {
-      console.log(res)
+    getPost(1).then(res => {
       setPosts([res]);
     });
   }, [voted]);
