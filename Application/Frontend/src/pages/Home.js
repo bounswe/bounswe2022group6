@@ -5,12 +5,11 @@ import logout from "../services/Logout_API";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import MessageBox from "../components/MessageBox";
-import  Posts from "../components/ForumPost";
+import Posts from "../components/ForumPost";
 import { BsSearch, BsFilter } from "react-icons/bs";
 import { FiDelete } from "react-icons/fi";
-import Logo from '../assets/fav.png'
-import Image from 'react-bootstrap/Image'
-
+import Logo from "../assets/fav.png";
+import Image from "react-bootstrap/Image";
 
 const labels = [
   { name: "Medication", backgroundColor: "red", color: "white" },
@@ -47,10 +46,11 @@ const labels = [
 ];
 
 
+
 export default function Home() {
   let history = useHistory();
 
-  let isGuestUser = window.localStorage.getItem("auth_token") ? false : true
+  let isGuestUser = window.localStorage.getItem("auth_token") ? false : true;
   const [isLoggedout, setLoggedout] = useState(false);
   const [dummy, setdummy] = useState(0);
   const [addedlabels, setaddedlabels] = useState([]);
@@ -74,8 +74,6 @@ export default function Home() {
     }
   };
 
-
-
   const clearfilters = () => {
     setaddedlabels([]);
   };
@@ -87,46 +85,64 @@ export default function Home() {
       setdummy(dummy + 1);
     }
   };
+  const [labelfiltered, setlabelfiltered] = useState(labels);
+  const handleChange = (e) => {
 
+    const results = labels.filter(label => {
+    if (e.target.value === "") return labels
+    return label.name.toLowerCase().includes(e.target.value.toLowerCase())
+    })
+    setlabelfiltered(results)
+    
+    }
   return (
-    <div className={styles.body} >
-     {
-     isGuestUser ? <div>
-        <Link to="/login">
-        <button className={styles.mybutton}>log in</button>
-        </Link>
-        <Link to="/register">
-        <button 
-        className={styles.mybutton}
-        style = {{position: "absolute", top: "20px", right: "5px"}}
-        >register</button>
-        </Link>
-        </div> 
-        : 
-        <div><Link to="/profile">
-        <button className={styles.mybutton}>Profile</button>
-      </Link>
-      <Link to="/">
-        <button
-          className={styles.mybutton}
-          style={{ position: "absolute", top: "20px", right: "5px" }}
-          onClick={handleClick}
-        >
-          Log out
-        </button>
-      </Link></div>
-      }
-      
-      <h5 className="main-title home-page-title" style={{textShadow: "1px 1px #000000 "}}>
-      <Image src={Logo} style={{width:"70px"}}></Image>
-        <span style={{color:"#dde296"}}>Medi</span><span style={{color:"#9FcFb0"}}>Share</span></h5>
-      
+    <div className={styles.body}>
+      {isGuestUser ? (
+        <div>
+          <Link to="/login">
+            <button className={styles.mybutton}>log in</button>
+          </Link>
+          <Link to="/register">
+            <button
+              className={styles.mybutton}
+              style={{ position: "absolute", top: "20px", right: "5px" }}
+            >
+              register
+            </button>
+          </Link>
+        </div>
+      ) : (
+        <div>
+          <Link to="/profile">
+            <button className={styles.mybutton}>Profile</button>
+          </Link>
+          <Link to="/">
+            <button
+              className={styles.mybutton}
+              style={{ position: "absolute", top: "20px", right: "5px" }}
+              onClick={handleClick}
+            >
+              Log out
+            </button>
+          </Link>
+        </div>
+      )}
+
+      <h5
+        className="main-title home-page-title"
+        style={{ textShadow: "1px 1px #000000 " }}
+      >
+        <Image src={Logo} style={{ width: "70px" }}></Image>
+        <span style={{ color: "#dde296" }}>Medi</span>
+        <span style={{ color: "#9FcFb0" }}>Share</span>
+      </h5>
+
       <div>
         {" "}
         {isLoggedout && (
           <MessageBox
             data="Logout Successful!"
-            style={{color: "#c2cd23", fontSize: "2rem"}}
+            style={{ color: "#c2cd23", fontSize: "2rem" }}
           >
             {" "}
           </MessageBox>
@@ -134,8 +150,7 @@ export default function Home() {
       </div>
 
       <div style={{ display: "flex" }}>
-        <Posts>
-        </Posts>
+        <Posts></Posts>
         <div
           className="rightSide"
           style={{ width: "30%", height: "700px", backgroundColor: "" }}
@@ -144,13 +159,12 @@ export default function Home() {
             className="searchBar"
             style={{
               backgroundColor: "#dde296",
-              marginTop:"15px",
+              marginTop: "15px",
               marginBlockEnd: "20px",
               padding: "10px",
               display: "flex",
               alignItems: "center",
               borderRadius: "5px",
-
             }}
           >
             <input
@@ -162,7 +176,7 @@ export default function Home() {
                 height: "40px",
                 fontSize: "19px",
                 borderRadius: "5px 0px 0px 5px",
-                background:"lightgoldenrodyellow"
+                background: "lightgoldenrodyellow",
               }}
             />
             <BsSearch
@@ -186,9 +200,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div
-            className={styles.labelsSide}
-          >
+          <div className={styles.labelsSide}>
             <h3
               style={{
                 display: "flex",
@@ -200,12 +212,12 @@ export default function Home() {
             <input
               type="text"
               placeholder="Search For Label.."
+              onChange={handleChange}
               style={{
                 border: "1px solid gray",
                 marginBlockEnd: "5px",
                 width: "100%",
-                background:"lightgoldenrodyellow"
-
+                background: "lightgoldenrodyellow",
               }}
             />
             <div
@@ -216,7 +228,7 @@ export default function Home() {
                 flexWrap: "wrap",
               }}
             >
-              {labels.map((label) => (
+              {labelfiltered.map((label) => (
                 <div onClick={() => addlabel(label)}>
                   <p
                     className={styles.filter}
@@ -238,14 +250,12 @@ export default function Home() {
             <hr style={{ margin: "5px" }} />
             <div style={{ textAlign: "left" }}>
               {addedlabels.length === 0 && (
-                <div style={{ fontStyle: "italic",opacity:"0.5"  }}>
+                <div style={{ fontStyle: "italic", opacity: "0.5" }}>
                   {" "}
                   add label to filter
                 </div>
               )}
-              {addedlabels.length > 0 && (
-                <div style={{ }}>Added Labels</div>
-              )}
+              {addedlabels.length > 0 && <div style={{}}>Added Labels</div>}
 
               {addedlabels.map((label) => (
                 <div
