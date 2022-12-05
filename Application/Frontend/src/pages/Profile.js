@@ -9,12 +9,14 @@ import editProfile from '../services/EditProfile_API';
 import '../App.css'
 import Form from 'react-bootstrap/Form'
 import styles from "./home.module.css";
+import delete_account from '../services/Delete_User_API';
 
 export default function Profile() {
 
     let history = useHistory()
 
     const [isLoggedout, setLoggedout] = useState(false)
+    const [isDeleted, setDeleted] = useState(false)
     const [isDoctor, setIsDoctor] = useState(false);
     const initialErrorState = {
         username: "", 
@@ -108,6 +110,21 @@ export default function Profile() {
           }
       })
     }
+
+    function handleDelete(event) {
+        event.preventDefault()
+        if(window.confirm("Are you sure you want to delete your account?")){
+            delete_account().then(res => {
+                if (res === null) {
+                    setDeleted(true)
+                    setTimeout(() => {
+                        history.push('/');
+                    }, "1500")
+                }
+            })
+        }
+
+      }
     
     return (
         
@@ -130,7 +147,7 @@ export default function Profile() {
             
                 <div> {isLoggedout && <MessageBox data="Logout Successful!" style={{ color: "#c2cd23", fontSize: "2.5rem", textTransform: "capitalize" }}> </MessageBox>}</div>
                 <div> {isSuccessfull && <MessageBox data = "Your changes have been successfully saved." style={{color: "#c2cd23", fontSize: "2rem"}}> </MessageBox>}</div>
-              
+                <div> {isDeleted && <MessageBox data = "Your account has been successfully deleted." style={{color: "#c2cd23", fontSize: "2rem"}}> </MessageBox>}</div>
                 <div  style={{ display: "flex" }}>
 
                     <Form  style = {formStyle} >
@@ -177,7 +194,7 @@ export default function Profile() {
                             <br/><br/>
                         </div>
                     
-                        <button variant="success" style={editButton}  id="custom_button" size="lg"   type="submit" onClick={handleEdit}> Edit </button>
+                        <button variant="success" style={editButton} id="custom_button" size="lg"   type="submit" onClick={handleEdit}> Edit </button>
                     </Form>
                 
                     <Form  style = {doctorFormStyle}>
@@ -205,9 +222,11 @@ export default function Profile() {
                                 <div><h6 style={{color:"red"}}>Your verification is not completed.</h6></div>
                             }
                         </div>
-
+                        <button variant="success" style={deleteButtonStyle} id="custom_button" size="lg" onClick={handleDelete}> Delete Account </button>
                     </Form>
+                    <br/>
                 </div>
+                
             </header>
         </div>
     )
@@ -268,5 +287,17 @@ const editButton ={
     color: "#dde296",
     fontSize: "1.2rem",
     borderRadius: "5px",
-      
+}
+
+const deleteButtonStyle = {
+    width: "20rem",
+    height: "10%",
+    background: "#e72323",
+    border: "none",
+    color: "#dde296",
+    fontSize: "1.2rem",
+    borderRadius: "5px",
+    position: "absolute",
+    marginLeft: "-10rem",
+    marginTop: "8rem"
 }
