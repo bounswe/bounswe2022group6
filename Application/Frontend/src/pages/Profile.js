@@ -138,7 +138,7 @@ export default function Profile() {
             <h1 class="main-title text-center"  style={{ color: "#0f7375", fontSize: "3rem", textTransform: "capitalize" }}>Your Profile</h1>
             
             
-            <div> {isLoggedout && <MessageBox data="Logout Successful!" style={{ color: "#222", fontSize: "2.5rem", textTransform: "capitalize" }}> </MessageBox>}
+            <div> {isLoggedout && <MessageBox data="Logout Successful!" style={{ color: "#c2cd23", fontSize: "2.5rem", textTransform: "capitalize" }}> </MessageBox>}
             </div>
             <div> {isSuccessfull && <MessageBox data = "Your changes have been successfully saved." style={{color: "#c2cd23", fontSize: "2rem"}}> </MessageBox>}
               </div>

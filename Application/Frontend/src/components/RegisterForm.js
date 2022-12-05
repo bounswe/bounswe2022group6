@@ -44,13 +44,12 @@ function RegisterForm() {
 
     const handleSubmit = event => {
             event.preventDefault()
-            console.log("handled.")
             register(formData).then(res => {
                 clearErrorState()
                 if (res === null){
                     setSuccessfull(true)
                     setTimeout(() => {
-                        window.location.reload();;
+                        window.location.reload();
                       }, "1500")
                    
                 } else {
