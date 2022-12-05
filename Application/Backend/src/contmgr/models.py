@@ -52,7 +52,7 @@ class Post(Content):
             "location" : self.location,
             "imageURL" : self.imageURL,
             "is_marked_nsfw" : self.is_marked_nsfw,
-            "labels" : [{"labelID": label.labelID, "labelName": label.labelName} for label in self.labels.all()],
+            "labels" : [label.as_dict() for label in self.labels.all()],
             "mentioned_users" : [{"userID": user.userID, "username": user.username} for user in self.mentioned_users.all()]
         }
 

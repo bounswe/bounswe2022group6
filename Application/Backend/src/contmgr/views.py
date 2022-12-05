@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from django.http import JsonResponse
 from .models import *
 from ..accmgr.models import *
-from rest_framework.permissions import BasePermission, IsAuthenticated
+from rest_framework.permissions import BasePermission, IsAuthenticated, AllowAny
 
 
 class IsGetOrIsAuthenticated(BasePermission):
@@ -218,6 +218,7 @@ class PostView(APIView):
         _location = req.POST.get("location", None)
         _imageURL = req.POST.get("imageURL", None)
         _is_marked_nsfw = req.POST.get("is_marked_nsfw", None)
+        _labels = req.POST.getlist("label", None)
 
         # Parse all fields
         _title = _title.title().strip()
@@ -232,6 +233,25 @@ class PostView(APIView):
         
         try:
             new_post.save()
+            labels = []
+            for _label in _labels:
+                labels.append(Label.objects.get(labelID=_label))
+            for label in labels:
+                new_post.labels.add(label)
+            new_post.save()
             return JsonResponse({"info": "post creation successful", "postID": new_post.postID}, status=201)
         except Exception as e:
             return JsonResponse({"info":"post creation failed", "error": str(e)}, status=400)
+
+class AllPostsView(APIView):
+
+    permission_classes = (AllowAny,)
+
+    def get(self, req):
+        
+        posts = Post.objects.all().order_by('-created_at')
+        data = {"posts":[]}
+        for post in posts:
+            data["posts"].append(post.as_dict())
+
+        return JsonResponse(data, status=200)
