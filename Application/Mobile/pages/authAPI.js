@@ -11,7 +11,7 @@ export const handleLoginRequest = async (mail, password) => {
     formdata.append("useridentifier", mail);
     formdata.append("password", password);
 
-    await fetch("http://18.206.229.240:8000/login", {
+    await fetch("http://ec2-44-207-0-111.compute-1.amazonaws.com:8000/login", {
         method: 'POST',
         headers: myHeaders,
         body: formdata,
@@ -50,7 +50,7 @@ export const handleSignUpRequest = async (mail, password, username, gender, birt
         redirect: 'follow'
     };
 
-    await fetch("http://18.206.229.240:8000/register/", requestOptions)
+    await fetch("http://ec2-44-207-0-111.compute-1.amazonaws.com:8000/register/", requestOptions)
     .then(function (response) {
         return response.json();
     })
@@ -74,7 +74,7 @@ export const handleLogoutRequest = async () => {
         redirect: 'follow'
     };
 
-    await fetch("http://18.206.229.240:8000/logout/", requestOptions)
+    await fetch("http://ec2-44-207-0-111.compute-1.amazonaws.com:8000/logout/", requestOptions)
         .then(function (response) {
             return response.json();
         })

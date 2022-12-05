@@ -12,7 +12,7 @@ const Stack = createNativeStackNavigator();
 // Main navigation of the application (stack navigation)
 const AppNavigation = () => {
     return (
-        <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }}>
+        <Stack.Navigator initialRouteName="Home Screen" screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Login" component={LoginPage} />
             <Stack.Screen name="Sign Up" component={SignUpScreen} />
             <Stack.Screen name="Drawer" component={DrawerNavigation} />

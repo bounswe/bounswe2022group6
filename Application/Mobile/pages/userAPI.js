@@ -13,7 +13,7 @@ export const handleGetUserData = async () => {
         redirect: 'follow'
     };
 
-    return await fetch("http://18.206.229.240:8000/profile/", requestOptions)
+    return await fetch("http://ec2-44-207-0-111.compute-1.amazonaws.com:8000/profile/", requestOptions)
         .then(function (response) {
             return response.json();
         })
