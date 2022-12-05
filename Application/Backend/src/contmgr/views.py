@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from django.http import JsonResponse
 from .models import *
 from ..accmgr.models import *
-from rest_framework.permissions import BasePermission, IsAuthenticated
+from rest_framework.permissions import BasePermission, IsAuthenticated, AllowAny
 
 
 class IsGetOrIsAuthenticated(BasePermission):
@@ -235,3 +235,16 @@ class PostView(APIView):
             return JsonResponse({"info": "post creation successful", "postID": new_post.postID}, status=201)
         except Exception as e:
             return JsonResponse({"info":"post creation failed", "error": str(e)}, status=400)
+
+class AllPostsView(APIView):
+
+    permission_classes = (AllowAny,)
+
+    def get(self, req):
+        
+        posts = Post.objects.all().order_by('-created_at')
+        data = {"posts":[]}
+        for post in posts:
+            data["posts"].append(post.as_dict())
+
+        return JsonResponse(data, status=200)
