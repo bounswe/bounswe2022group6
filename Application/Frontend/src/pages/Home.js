@@ -8,7 +8,8 @@ import MessageBox from "../components/MessageBox";
 import  Posts from "../components/ForumPost";
 import { BsSearch, BsFilter } from "react-icons/bs";
 import { FiDelete } from "react-icons/fi";
-
+import Logo from '../assets/fav.png'
+import Image from 'react-bootstrap/Image'
 
 
 const labels = [
@@ -88,7 +89,7 @@ export default function Home() {
   };
 
   return (
-    <div className="text-center">
+    <div className={styles.body} >
      {
      isGuestUser ? <div>
         <Link to="/login">
@@ -115,17 +116,17 @@ export default function Home() {
         </button>
       </Link></div>
       }
-      <h5 className="main-title home-page-title">MEDI SHARE</h5>
+      
+      <h5 className="main-title home-page-title" style={{textShadow: "1px 1px #000000 "}}>
+      <Image src={Logo} style={{width:"70px"}}></Image>
+        <span style={{color:"#dde296"}}>Medi</span><span style={{color:"#9FcFb0"}}>Share</span></h5>
+      
       <div>
         {" "}
         {isLoggedout && (
           <MessageBox
             data="Logout Successful!"
-            style={{
-              color: "#222",
-              fontSize: "2.5rem",
-              textTransform: "capitalize",
-            }}
+            style={{color: "#c2cd23", fontSize: "2rem"}}
           >
             {" "}
           </MessageBox>
@@ -142,12 +143,14 @@ export default function Home() {
           <div
             className="searchBar"
             style={{
-              backgroundColor: "white",
+              backgroundColor: "#dde296",
+              marginTop:"15px",
               marginBlockEnd: "20px",
               padding: "10px",
               display: "flex",
               alignItems: "center",
               borderRadius: "5px",
+
             }}
           >
             <input
@@ -159,6 +162,7 @@ export default function Home() {
                 height: "40px",
                 fontSize: "19px",
                 borderRadius: "5px 0px 0px 5px",
+                background:"lightgoldenrodyellow"
               }}
             />
             <BsSearch
@@ -183,20 +187,12 @@ export default function Home() {
           </div>
 
           <div
-            className="labelsSide"
-            style={{
-              display: "inline-block",
-              padding: "10px",
-              backgroundColor: "white",
-              width: "100%",
-              borderRadius: "5px",
-            }}
+            className={styles.labelsSide}
           >
             <h3
               style={{
                 display: "flex",
                 alignContent: "left",
-                color: "#383838",
               }}
             >
               Labels
@@ -208,6 +204,8 @@ export default function Home() {
                 border: "1px solid gray",
                 marginBlockEnd: "5px",
                 width: "100%",
+                background:"lightgoldenrodyellow"
+
               }}
             />
             <div
@@ -240,13 +238,13 @@ export default function Home() {
             <hr style={{ margin: "5px" }} />
             <div style={{ textAlign: "left" }}>
               {addedlabels.length === 0 && (
-                <div style={{ fontStyle: "italic", color: "gray" }}>
+                <div style={{ fontStyle: "italic",opacity:"0.5"  }}>
                   {" "}
                   add label to filter
                 </div>
               )}
               {addedlabels.length > 0 && (
-                <div style={{ color: "gray" }}>Added Labels</div>
+                <div style={{ }}>Added Labels</div>
               )}
 
               {addedlabels.map((label) => (
@@ -289,8 +287,8 @@ export default function Home() {
                 <div
                   className={styles.filter}
                   style={{
-                    background: "palegreen",
-                    color: "#333333",
+                    background: "#95c3b3",
+                    color: "#0f7375",
                     border: "1px solid gray",
                     padding: "2px 10px",
                     borderRadius: "5px",
@@ -305,9 +303,9 @@ export default function Home() {
                 <div
                   className={styles.filter}
                   style={{
-                    background: "PaleTurquoise",
+                    background: "#95c3b3",
                     border: "1px solid gray",
-                    color: "#333333",
+                    color: "#0f7375",
                     padding: "2px 10px",
                     borderRadius: "5px",
                     margin: " 3px",
