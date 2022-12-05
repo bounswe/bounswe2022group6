@@ -34,6 +34,7 @@ const RightContent = (props) => {
     );
 }
 
+// fields: theme, navigation, openSnackBar, nsfw, postAuthor, postTitle, cardContent, authorProfilePhoto, labels, cardCover, upvote, downvote
 const PostPreview = (props) => {
     const { colors } = props.theme; // colors of the theme
     const [isNSFW, setIsNSFW] = useState(props.nsfw); // NSFW
