@@ -218,6 +218,7 @@ class PostView(APIView):
         _location = req.POST.get("location", None)
         _imageURL = req.POST.get("imageURL", None)
         _is_marked_nsfw = req.POST.get("is_marked_nsfw", None)
+        _labels = req.POST.getlist("label", None)
 
         # Parse all fields
         _title = _title.title().strip()
@@ -231,6 +232,12 @@ class PostView(APIView):
                         is_marked_nsfw=_is_marked_nsfw, owner=user, description=_description)
         
         try:
+            new_post.save()
+            labels = []
+            for _label in _labels:
+                labels.append(Label.objects.get(labelID=_label))
+            for label in labels:
+                new_post.labels.add(label)
             new_post.save()
             return JsonResponse({"info": "post creation successful", "postID": new_post.postID}, status=201)
         except Exception as e:
