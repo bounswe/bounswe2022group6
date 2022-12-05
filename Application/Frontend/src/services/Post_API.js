@@ -10,8 +10,7 @@ export default async function getPostById(postId) {
 
     const response = await fetch(url, requestOptions)
     const resMessage = await response.json()
-    //since id is missing in the response
-    resMessage.id = postId
+
     if (response.status !== 200) {
         console.log(resMessage["error"])
         return resMessage["error"]

@@ -201,7 +201,7 @@ const Post = () => {
         </div>
         { post.imageURL && 
           <div style={{ position:'relative' }}>
-          <Image src={post.imageURL} style={{ maxWidth:"50%", maxHeight:'50%', filter: !window.localStorage.getItem("show_nsfw") && post.is_marked_nsfw ? 'blur(25px)' : '' }}></Image>
+          <Image src={'https://' + post.imageURL} style={{ maxWidth:"50%", maxHeight:'50%', filter: !window.localStorage.getItem("show_nsfw") && post.is_marked_nsfw ? 'blur(25px)' : '' }}></Image>
           { !window.localStorage.getItem("show_nsfw")  && post.is_marked_nsfw &&
           <button className={styles.mybutton} onClick = {handleNSFW} style={{position:'absolute', top: '50%', left:'50%', transform:'translate(-50%, -50%)'}}> 
           See NSFW content
