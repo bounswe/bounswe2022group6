@@ -5,8 +5,8 @@ import HomeHeader from "./HomeHeader";
 import PostDetails from "../post/PostDetails";
 import CreatePost from "../post/CreatePost";
 import Chatbot from "./Chatbot";
-import SearchScreenHeader from "./SearchScreenHeader";
-import SearchScreen from "./SearchScreen";
+import SearchScreenHeader from "../search/SearchScreenHeader";
+import SearchScreen from "../search/SearchScreen";
 
 const HomeFeedStack = createNativeStackNavigator();
 

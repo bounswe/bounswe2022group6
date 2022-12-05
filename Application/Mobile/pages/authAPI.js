@@ -1,5 +1,5 @@
 import { AsyncStorage } from 'react-native';
-
+import {BACKEND_URL} from '@env'
 
 export const handleLoginRequest = async (mail, password) => {
     console.log(mail, password)
@@ -11,7 +11,7 @@ export const handleLoginRequest = async (mail, password) => {
     formdata.append("useridentifier", mail);
     formdata.append("password", password);
 
-    await fetch("http://18.206.229.240:8000/login", {
+    await fetch(BACKEND_URL + "login/", {
         method: 'POST',
         headers: myHeaders,
         body: formdata,
@@ -50,7 +50,7 @@ export const handleSignUpRequest = async (mail, password, username, gender, birt
         redirect: 'follow'
     };
 
-    await fetch("http://18.206.229.240:8000/register/", requestOptions)
+    await fetch(BACKEND_URL + "register/", requestOptions)
     .then(function (response) {
         return response.json();
     })
@@ -74,7 +74,7 @@ export const handleLogoutRequest = async () => {
         redirect: 'follow'
     };
 
-    await fetch("http://18.206.229.240:8000/logout/", requestOptions)
+    await fetch(BACKEND_URL + "logout/", requestOptions)
         .then(function (response) {
             return response.json();
         })

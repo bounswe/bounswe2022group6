@@ -71,7 +71,7 @@ const LoginPage = ({ navigation }) => {
       </View>
       <View style={styles.buttonContainer} >
         <Button mode='contained' style={styles.button}
-          onPress={() => navigation.navigate('Drawer')} // Change this back to onPress={handleLogin}
+          onPress={handleLogin}
         >
           Log In
         </Button>
