@@ -95,7 +95,7 @@ const ForumPost = (props) => {
             return
         }
         console.log("voting post")
-        contentvote(1, direction, true).then(() => props.onVote())
+        contentvote(props.post.id, direction, true).then(() => props.onVote())
       };
 
     const onClick = () => {
@@ -186,6 +186,24 @@ const ForumPost = (props) => {
       )
 }
 
+
+const getAllPosts = () => {
+
+  let allPosts = [1,2]
+  let post;
+  getPost(1).then(res => {
+      console.log(res)
+      post = res
+      allPosts.push(3)
+    });
+
+    console.log(post)
+}
+
+
+
+
+
 const Posts = () => {
 
   const [showPostCreate, setPostCreate] = useState(false)
@@ -196,12 +214,10 @@ const Posts = () => {
   const [voted, setVoted] = useState(false)
 
   useEffect(() => {
-    getPost(1).then(res => {
+    getPost(2).then(res => {
       console.log(res)
       setPosts([res]);
-
     });
-  console.log(posts)
   }, [voted]);
   
 
