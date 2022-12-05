@@ -126,11 +126,7 @@ export default function Home() {
         {isLoggedout && (
           <MessageBox
             data="Logout Successful!"
-            style={{
-              color: "#222",
-              fontSize: "2.5rem",
-              textTransform: "capitalize",
-            }}
+            style={{color: "#c2cd23", fontSize: "2rem"}}
           >
             {" "}
           </MessageBox>

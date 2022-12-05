@@ -1,0 +1,456 @@
+{
+	"info": {
+		"_postman_id": "32c174f9-6d51-4dc0-9c63-44d294aa33cc",
+		"name": "Post",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Post",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/contmgr/post?id=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"contmgr",
+						"post"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Post",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/contmgr/post?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"contmgr",
+								"post"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 04 Dec 2022 07:40:28 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "261"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"owner\": \"mark\",\n    \"description\": \"Constant headache while sleeping\",\n    \"vote_count\": 0,\n    \"created_at\": \"2022-12-04T07:13:23.153Z\",\n    \"mentioned_users\": [],\n    \"title\": \"Headache\",\n    \"type\": \"q\",\n    \"location\": null,\n    \"imageURL\": null,\n    \"is_marked_nsfw\": false,\n    \"comments\": []\n}"
+				},
+				{
+					"name": "Get Post with Comments",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/contmgr/post?id=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"contmgr",
+								"post"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 04 Dec 2022 08:32:05 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "578"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"owner\": \"mark\",\n    \"description\": \"Constant headache while sleeping\",\n    \"vote_count\": 0,\n    \"created_at\": \"2022-12-04T07:16:03.935Z\",\n    \"mentioned_users\": [],\n    \"title\": \"Headache\",\n    \"type\": \"q\",\n    \"location\": null,\n    \"imageURL\": null,\n    \"is_marked_nsfw\": false,\n    \"comments\": [\n        {\n            \"owner\": \"mark\",\n            \"description\": \"Sorry for your headache\",\n            \"vote_count\": 0,\n            \"created_at\": \"2022-12-04T08:12:41.075Z\",\n            \"mentioned_users\": [],\n            \"comments\": [\n                {\n                    \"owner\": \"mark\",\n                    \"description\": \"Thank you for your comment\",\n                    \"vote_count\": 0,\n                    \"created_at\": \"2022-12-04T08:12:41.075Z\",\n                    \"mentioned_users\": [],\n                    \"comments\": []\n                }\n            ]\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Post (Required Fields)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 12bdfed4cbd82a34e74633ba392f5eb91689068a",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Headache",
+							"type": "default"
+						},
+						{
+							"key": "type",
+							"value": "q",
+							"type": "default"
+						},
+						{
+							"key": "description",
+							"value": "Constant headache while sleeping",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/contmgr/post",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"contmgr",
+						"post"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Post (Required Fields)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token e19d5289b309e461c9b12dbf10d5ff8053c72c45",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Headache",
+									"type": "default"
+								},
+								{
+									"key": "type",
+									"value": "q",
+									"type": "default"
+								},
+								{
+									"key": "description",
+									"value": "Constant headache while sleeping",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/contmgr/post",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"contmgr",
+								"post"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 04 Dec 2022 07:16:05 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "49"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"post creation successful\",\n    \"PostID\": 2\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Post (All Arguments)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 12bdfed4cbd82a34e74633ba392f5eb91689068a",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "NSFW Content Title",
+							"type": "default"
+						},
+						{
+							"key": "type",
+							"value": "i",
+							"type": "default"
+						},
+						{
+							"key": "description",
+							"value": "Long content that is NSFW. Note that is_marked_nsfw field default is false.",
+							"type": "default"
+						},
+						{
+							"key": "location",
+							"value": "Not parsed or checked, only text",
+							"type": "default"
+						},
+						{
+							"key": "imageURL",
+							"value": "Not parsed or checked, only text",
+							"type": "default"
+						},
+						{
+							"key": "is_marked_nsfw",
+							"value": "true",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/contmgr/post",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"contmgr",
+						"post"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Post (All Arguments)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token e19d5289b309e461c9b12dbf10d5ff8053c72c45",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "description",
+									"value": "Long content that is NSFW",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/contmgr/post",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"contmgr",
+								"post"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 04 Dec 2022 07:45:45 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.8"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "49"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"post creation successful\",\n    \"PostID\": 3\n}"
+				}
+			]
+		}
+	]
+}
