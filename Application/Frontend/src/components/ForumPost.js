@@ -34,7 +34,7 @@ const ForumPost = (props) => {
           <div className={styles.mypostright}>
             <ImArrowUp
               className={
-                props.post.voted === "up" ? styles.upvoteactive : styles.upvote
+                props.post.upvoted_users.some((user) => user.username === window.localStorage.getItem("username")) ? styles.upvoteactive : styles.upvote
               }
               onClick={() => vote("up")}
             />
@@ -47,7 +47,7 @@ const ForumPost = (props) => {
             </h3>
             <ImArrowDown
               className={
-                props.post.voted === "down" ? styles.downvoteactive : styles.downvote
+                props.post.downvoted_users.some((user) => user.username === window.localStorage.getItem("username")) ? styles.downvoteactive : styles.downvote
               }
               onClick={() => vote("down")}
             />
@@ -85,7 +85,7 @@ const ForumPost = (props) => {
                     </p>
                   ))}
                   <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
-                    {moment(props.post.created_at_date).format('DD MMM YYYY')}
+                    {DateFormatter(props.post.created_at_date, props.post.created_at_time)}
                   </medium>
                 </div>
               </div>
@@ -99,6 +99,13 @@ const ForumPost = (props) => {
         </div>
       </div>
       )}
+
+
+const DateFormatter = (date, time) => {
+  let x = date.split(".").reverse().join("-") + "T" + time.replaceAll(".", ":")
+  return moment.utc(x).utcOffset(180).format("MMM DD YYYY hh:mm")
+  
+}
 
 const Posts = () => {
 

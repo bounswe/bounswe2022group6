@@ -15,6 +15,8 @@ async function logout() {
         return resMessage["error"]
     } else {
         window.localStorage.removeItem("auth_token")
+        window.localStorage.removeItem("username")
+
         return null
     }
 }

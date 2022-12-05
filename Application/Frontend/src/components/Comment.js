@@ -28,7 +28,7 @@ const Comment = (props) => {
       >
         <ImArrowUp
           className={
-            props.comment["voted"] === "up" ? styles.upvoteactive : styles.upvote
+            props.comment.upvoted_users.includes(window.localStorage.getItem("username")) ? styles.upvoteactive : styles.upvote
           }
           onClick={() => vote("up")}
         />
@@ -41,9 +41,7 @@ const Comment = (props) => {
         </h3>
         <ImArrowDown
           className={
-            props.comment["voted"] === "down"
-              ? styles.downvoteactive
-              : styles.downvote
+            props.comment.downvoted_users.includes(window.localStorage.getItem("username")) ? styles.downvoteactive : styles.downvote
           }
           onClick={() => vote("down")}
         />
@@ -66,7 +64,7 @@ const Comment = (props) => {
               }}
             >
             <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
-                    {moment(props.comment.created_at).format('MMM DD YYYY h:mm')}
+                    {moment(props.comment.created_at).format('MMM DD YYYY hh:mm')}
                   </medium>
             </div>
           </div>
