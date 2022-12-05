@@ -5,6 +5,7 @@ import {useHistory, Link} from 'react-router-dom'
 import styles from "../pages/home.module.css";
 import CreatePostForm from "./CreatePostForm";
 import getPost from "../services/Post_API";
+import contentvote from '../services/Vote_API';
 
 
 //used as mock data get post details from backend
@@ -83,46 +84,23 @@ const mockPosts = [
 
 
 const ForumPost = (props) => {
-  console.log(props)
+  console.log(props.post)
 
   const isGuestUser = window.localStorage.getItem("auth_token") ? false : true
-    let history = useHistory()
+  let history = useHistory()
 
-    //instead of this use backend endpoint
     const vote = (direction) => {
         if(isGuestUser){
             alert("You need to be logged in")
             return
         }
-
-        if (props.voted === "" && direction === "up") {
-            props.voted = "up";
-            props.score++;
-        } else if (props.voted === "up" && direction === "up") {
-            props.voted = "";
-            props.score--;
-        } else if (props.voted === "down" && direction === "up") {
-            props.voted = "up";
-            props.score++;
-            props.score++;
-        } else if (props.voted === "" && direction === "down") {
-            props.voted = "down";
-            props.score--;
-        } else if (props.voted === "up" && direction === "down") {
-            props.voted = "down";
-            props.score--;
-            props.score--;
-        } else if (props.voted === "down" && direction === "down") {
-            props.voted = "";
-            props.score++;
-        }
-        //setScore(props.score);
-        console.log(props.voted);
+        console.log("voting post")
+        contentvote(1, direction, true).then(() => props.onVote())
       };
 
     const onClick = () => {
       setTimeout(() => {
-        history.push('/post/'+props.id);
+        history.push('/post/'+props.post.id);
       }, "100")
     }
 
@@ -130,7 +108,7 @@ const ForumPost = (props) => {
         
         <div>
           <div className={styles.mypost}>
-          {/* <div
+          <div
             style={{
               width: "10%",
               backgroundColor: "#f0feff",
@@ -141,7 +119,7 @@ const ForumPost = (props) => {
           >
             <ImArrowUp
               className={
-                props.voted === "up" ? styles.upvoteactive : styles.upvote
+                props.post.voted === "up" ? styles.upvoteactive : styles.upvote
               }
               onClick={() => vote("up")}
             />
@@ -150,17 +128,17 @@ const ForumPost = (props) => {
                 padding: "7px 0px",
               }}
             >
-              {props.score}
+              {props.post.vote_count}
             </h3>
             <ImArrowDown
               className={
-                props.voted === "down"
+                props.post.voted === "down"
                   ? styles.downvoteactive
                   : styles.downvote
               }
               onClick={() => vote("down")}
             />
-          </div> */}
+          </div>
           <div onClick={onClick} style={{ width: "80%", margin: "auto", cursor: "pointer" }}>
             <div>
               <div
@@ -176,7 +154,7 @@ const ForumPost = (props) => {
                     justifyContent: "space-between",
                   }}
                 >
-                  {/* {props.labels.map((label) => (
+                  {/* {props.post.labels && props.post.labels.map((label) => (
                     <p
                       style={{
                         borderRadius: "5px",
@@ -193,15 +171,15 @@ const ForumPost = (props) => {
                     </p>
                   ))} */}
                   <small style={{ padding: "3px 5px", marginLeft: "15px" }}>
-                    {props.created_at}
+                    {props.post.created_at}
                   </small>
                 </div>
               </div>
             </div>
             <p style={{ textAlign: "left", fontWeight: "bolder" }}>
-              {props.title}
+              {props.post.title}
             </p>{" "}
-            <p style={{ textAlign: "left" }}>{props.description}</p>
+            <p style={{ textAlign: "left" }}>{props.post.description}</p>
           </div>
         </div>
       </div>
@@ -215,6 +193,7 @@ const Posts = () => {
   const isGuestUser = window.localStorage.getItem("auth_token") ? false : true
 
   const [posts, setPosts] = useState([]);
+  const [voted, setVoted] = useState(false)
 
   useEffect(() => {
     getPost(1).then(res => {
@@ -223,7 +202,7 @@ const Posts = () => {
 
     });
   console.log(posts)
-  }, []);
+  }, [voted]);
   
 
   const handleClick = () => {
@@ -247,20 +226,13 @@ const Posts = () => {
           onCancel = {() => setPostCreate(false) }
           >
           </CreatePostForm>}
-          {renderPosts(posts)}
+          {posts && posts.map((post) => 
+          <ForumPost
+          post= {post}
+          onVote = {() => setVoted(!voted)}
+          ></ForumPost> )}
         
       </div>)
-}
-
-
-const renderPosts = (mockPosts) => {
-console.log(mockPosts)
-  return (
-    <div>
-      { mockPosts.map((post) => ForumPost(post))}
-    </div>
-  )
-
 }
 
 export default  Posts
