@@ -11,7 +11,7 @@ import moment from 'moment'
 const ForumPost = (props) => {
   const isGuestUser = window.localStorage.getItem("auth_token") ? false : true
   let history = useHistory()
-
+  console.log(props)
     const vote = (direction) => {
         if(isGuestUser){
             alert("You need to be logged in")
@@ -81,11 +81,11 @@ const ForumPost = (props) => {
                         display: "flex",
                       }}
                     >
-                      {label}
+                      {label.labelName}
                     </p>
                   ))}
                   <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
-                    {moment(props.post.created_at).format('MMM DD YYYY HH:MM')}
+                    {moment(props.post.created_at_date).format('DD MMM YYYY')}
                   </medium>
                 </div>
               </div>

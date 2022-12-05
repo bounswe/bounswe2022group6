@@ -17,6 +17,7 @@
     "react-scripts": "5.0.1",
     "react-select": "5.7.0",
     "react-toggle-slider": "0.4.0",
+    "react-upload-to-s3": "^1.0.16",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

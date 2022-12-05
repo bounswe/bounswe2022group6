@@ -2,7 +2,7 @@ async function contentvote(id, direction, isPost) {
 
     var formData = new FormData()
     formData.append('id', id)
-
+    formData.append('vote', direction)
 
     const requestOptions = {
         method: "POST",
@@ -16,17 +16,11 @@ async function contentvote(id, direction, isPost) {
 
     
     if(isPost){
-        url = url + "/post"
+        url = url + "/postvote"
     } else {    // change to comment downvote
-        url = url + "/comment"
+        url = url + "/commentvote"
     }
-
-    if (direction === 'up') {
-        url = url + "vote"
-    }
-    else {   // change to post downvote
-        url = url + "vote"
-    }
+    
     const response = await fetch(url, requestOptions)
     const resMessage = await response.json()
 

@@ -18,7 +18,7 @@ const Comment = (props) => {
         }
         console.log("voting comment")
         //change hardcoded 1
-        contentvote(1, direction, false).then(() => props.onVote())
+        contentvote(props.comment.commentID, direction, false).then(() => props.onVote())
     };
 
     return (
@@ -37,7 +37,7 @@ const Comment = (props) => {
             padding: "7px 0px",
           }}
         >
-          {props.comment["vote_count"]}
+          {props.comment["result_vote"]}
         </h3>
         <ImArrowDown
           className={

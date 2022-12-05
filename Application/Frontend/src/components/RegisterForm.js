@@ -10,7 +10,7 @@ const initialErrorState = {
     username: "", 
     email: "", 
     password: "", 
-    date: ""
+    birth_date: "",
 }
 
 function RegisterForm() {
@@ -93,10 +93,12 @@ function RegisterForm() {
             <br/>
             <div>
                 <label style = {labelStyle} >Date of Birth</label>
-                <input type="date" name="date" value={formData.date} onChange={handleChange} style={{backgroundColor:"#c2cb43", border: errors.date ? '1px solid red' : '' }} required />
+                <input type="date" name="date" value={formData.date} onChange={handleChange} style={{backgroundColor:"#c2cb43", border: errors.birth_date ? '1px solid red' : '' }} required />
             </div>
             <br/>
-            <div> {errors.date && <label style = {errorStyle}>{errors.date}</label>} </div>
+            <div> {errors.password && <label style = {errorStyle}>{errors.password}</label>} </div>
+            <br/>
+            <div> {errors.birth_date && <label style = {errorStyle}>{errors.birth_date}</label>} </div>
 
             <br/>
             <div>

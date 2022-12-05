@@ -36,6 +36,7 @@ const Post = () => {
     //send request to backend for post details.
     useEffect(() => {
       getPostById(id).then(res => {
+        console.log(res)
         setPost(res);
       });
     }, [voted, submitted]);
@@ -144,7 +145,7 @@ const Post = () => {
             padding: "7px 0px",
           }}
         >
-          {post.vote_count}
+          {post.result_vote}
         </h3>
         <ImArrowDown
           className={
@@ -165,7 +166,7 @@ const Post = () => {
               justifyContent: "flex-end",
             }}
           >
-            <p style={{textAlign:'left', marginRight:'auto'}}>{post.owner.username}</p>
+            <p style={{textAlign:'left', marginRight:'auto'}}>{post.owner}</p>
             <div
               style={{
                 display: "flex",
