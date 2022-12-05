@@ -2,8 +2,6 @@ import { AsyncStorage } from 'react-native';
 import {BACKEND_URL} from '@env'
 
 export const handleLoginRequest = async (mail, password) => {
-    console.log(mail, password)
-
     var myHeaders = new Headers();
     myHeaders.append("Cookie", "csrftoken=6dxfJjSizpYVyqWGFHvGGLbHCsLrT99U; sessionid=5fbwt9emt2umx4ntcejaav7ltvzhg11g");
 

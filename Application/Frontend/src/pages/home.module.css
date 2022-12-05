@@ -120,6 +120,19 @@ body {
   overflow: hidden;
 }
 
+.createpostbutton {
+  width: 10rem;
+  height: 3rem;
+  background: #0f7375;
+  border: none;
+  color: #dde296;
+  font-size: 1.5rem;
+  transition: all 0.5s;
+  cursor: pointer;
+  text-transform: capitalize;
+  border-radius: 5px;
+}
+
 .bigblue {
   color: DodgerBlue;
   padding: 40px;
