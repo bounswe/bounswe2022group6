@@ -55,6 +55,7 @@ class Post(Content):
             "imageURL" : self.imageURL,
             "is_marked_nsfw" : self.is_marked_nsfw,
             "labels" : [label.as_dict() for label in self.labels.all()],
+            "comment_count" : len(Comment.objects.filter(parent_post=self)),
             "mentioned_users" : [{"userID": user.userID, "username": user.username} for user in self.mentioned_users.all()]
         }
 

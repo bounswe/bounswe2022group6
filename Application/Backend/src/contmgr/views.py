@@ -214,6 +214,7 @@ class PostView(APIView):
             "location":tpost.location,
             "imageURL":tpost.imageURL,
             "is_marked_nsfw":tpost.is_marked_nsfw,
+            "labels" : [label.as_dict() for label in tpost.labels.all()],
             "comments": []
         }
         
