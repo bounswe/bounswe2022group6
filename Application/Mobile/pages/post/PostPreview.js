@@ -73,7 +73,7 @@ const PostPreview = (props) => {
 
     return (
         <Card
-        style={styles.card} onPress={() => props.navigation.navigate('Post Details', {owner: props.owner, title: props.title, description: props.description})}>
+        style={styles.card} onPress={() => props.navigation.navigate('Post Details', {owner: props.owner, title: props.title, description: props.description, imageURL: props.imageURL, createdAt: props.created_at_date, createdAtTime: props.created_at_time, labels: props.labels, colors: props.theme})}>
             {/* Username, profile photo, post date etc. */}
             <Card.Title
                 title={<Text onPress={() => console.log('clicked username')}>{props.owner.username}</Text>}
