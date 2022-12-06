@@ -7,7 +7,7 @@ import { handleCreatePost } from "../postAPI";
 const dummyLabels = [{ text: 'Skin Issues', color: '#e64a19' }, { text: 'Rashes', color: '#e64a19' }, { text: 'Freckles', color: '#e64a19' }]
 
 // The page to create a new post
-const CreatePost = ({ }) => {
+const CreatePost = ({  }) => {
 
     const [loading, setLoading] = useState(true)
     const [title, setTitle] = useState("");
@@ -37,19 +37,26 @@ const CreatePost = ({ }) => {
     }, [searchLabels, predictedLabels, fileUrl])
 
 
+
+    const asyncAlert = () => { 
+        return new Promise((resolve, reject) => {
+            Alert.alert("NSFW", "Is photo NSFW ?", [{ text: "NSFW", onPress: () => { resolve(true) } }, { text: "Not NSFW", onPress: () => { resolve(false) } }])
+        })
+    }
+
     const handleCreatePostSubmit = async () => {
         let NSFW = false;
         if (fileUrl) {
-            Alert.alert("NSFW", "Is photo NSFW ?", [{ text: "NSFW", onPress: () => { NSFW = true } }, { text: "Not NSFW", onPress: () => { NSFW = false } }])
-            console.log(title, type, descript, fileUrl, NSFW)
+            // Alert.alert("NSFW", "Is photo NSFW ?", [{ text: "NSFW", onPress: () => { NSFW = true } }, { text: "Not NSFW", onPress: () => { NSFW = false } }])
+            NSFW = await asyncAlert();
             let response = await handleCreatePost(title, type, descript, "", fileUrl.replace("https://", ""), NSFW)
-            alert("Post Created Successfully!")
+            if (response)
+                alert("Post Created Successfully!")
+                
         }
         else {
             let response = await handleCreatePost(title, type, descript, "", fileUrl, NSFW)
             alert("Post Created Successfully!")
-            console.log("sea")
-            console.log(title, type, descript, fileUrl, NSFW)
         }
     }
 

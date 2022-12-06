@@ -1,16 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, Avatar, Button, IconButton, Text, withTheme, Menu, Divider, Chip, Paragraph } from 'react-native-paper';
 import { View, StyleSheet, TouchableOpacity, Pressable } from 'react-native';
 import { ScrollView } from "react-native-gesture-handler";
+import { BACKEND_URL } from "@env"
 
 // The details screen of a post
 const PostDetails = ({ route, navigation }) => {
-    const { owner, title, description, createdAt, createdAtTime, imageURL, labels, colors } = route.params
+    const { owner, title, description, createdAt, createdAtTime, imageURL, labels, colors, postId } = route.params
     const upVoted = false
     const downVoted = false
 
     const handleUpvote = () => { }
     const handleDownvote = () => { }
+
+    const [comments, setComments] = useState([]);
+
+
+    const getComments = async () => {
+        try {
+            console.log(postId)
+            const response = await fetch(BACKEND_URL + '/contmgr/post?id=' + postId);
+            const json = await response.json();
+            console.log("--", json.comments)
+            return json.comments
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    useEffect(async () => {
+        let resp = await getComments()
+        console.log("****", resp)
+        setComments(resp)
+    }, [])
 
     return (
         <>
@@ -55,20 +77,22 @@ const PostDetails = ({ route, navigation }) => {
                         </Text>
                         <IconButton color={colors.primary} animated={true} icon={downVoted ? 'arrow-down-drop-circle' : 'arrow-down-drop-circle-outline'} onPress={handleDownvote} />
                     </View>
-                    <Button labelStyle={{ fontSize: 23 }} contentStyle={styles.comment} icon='comment-outline' onPress={() => console.log('Clicked comment')}><Text style={{ fontSize: 13 }}>3</Text></Button>
+                    {/* <Button labelStyle={{ fontSize: 23 }} contentStyle={styles.comment} icon='comment-outline' onPress={() => console.log('Clicked comment')}><Text style={{ fontSize: 13 }}>3</Text></Button> */}
                 </Card.Actions>
             </Card>
-            <ScrollView>
-                {[1, 2, 3, 4, 5, 6].map(i => (
-                    <Card>
-                        <Card.Title title={"Comment Owner " + i} />
-                        <Card.Content>
-                            {/* <Title>Card title</Title> */}
-                            <Paragraph>Waow, that looks so painful, don't know what should I say :( sorry for you m8</Paragraph>
-                        </Card.Content>
-                    </Card>
-                ))}
-            </ScrollView>
+            {comments?.length ?
+                <ScrollView>
+                    {comments.map(comment => (
+                        <Card>
+                            <Card.Title title={comment.owner} />
+                            <Card.Content>
+                                {/* <Title>Card title</Title> */}
+                                <Paragraph>{comment.description}</Paragraph>
+                            </Card.Content>
+                        </Card>
+                    ))}
+                </ScrollView>
+            : <></> }
         </>
     );
 }

@@ -73,7 +73,7 @@ const PostPreview = (props) => {
 
     return (
         <Card
-        style={styles.card} onPress={() => props.navigation.navigate('Post Details', {owner: props.owner, title: props.title, description: props.description, imageURL: props.imageURL, createdAt: props.created_at_date, createdAtTime: props.created_at_time, labels: props.labels, colors: props.theme})}>
+        style={styles.card} onPress={() => props.navigation.navigate('Post Details', {owner: props.owner, title: props.title, description: props.description, imageURL: props.imageURL, createdAt: props.created_at_date, createdAtTime: props.created_at_time, labels: props.labels, colors: props.theme, postId: props.postID})}>
             {/* Username, profile photo, post date etc. */}
             <Card.Title
                 title={<Text onPress={() => console.log('clicked username')}>{props.owner.username}</Text>}
@@ -118,7 +118,7 @@ const PostPreview = (props) => {
                     </Text>
                     <IconButton color={colors.primary} animated={true} icon={downVoted ? 'arrow-down-drop-circle' : 'arrow-down-drop-circle-outline'} onPress={handleDownvote} />
                 </View>
-                <Button labelStyle={{ fontSize: 23 }} contentStyle={styles.comment} icon='comment-outline' onPress={() => console.log('Clicked comment')}><Text style={{ fontSize: 13 }}>0</Text></Button>
+                <Button labelStyle={{ fontSize: 23 }} contentStyle={styles.comment} icon='comment-outline' onPress={() => console.log('Clicked comment')}><Text style={{ fontSize: 13 }}>{props.comment_count}</Text></Button>
             </Card.Actions>
         </Card>
     );
