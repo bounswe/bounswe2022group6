@@ -15,7 +15,7 @@ const FilterModal = (props) => {
 
     const renderFilters = ({ item, index }) => {
         return (
-            <List.Accordion title={item.name} id={toString(index)} left={(props2) => <List.Icon {...props2} icon={item.icon}></List.Icon>}>
+            <List.Accordion title={item?.name} id={toString(index)} left={(props2) => <List.Icon {...props2} icon={item.icon}></List.Icon>}>
                 {item.type === 'list' &&
                     <FlatList
                         data={item.content}

@@ -96,7 +96,7 @@ const PostPreview = (props) => {
             {/* Post Image */}
             {props.imageURL &&
                 <Card.Content style={styles.cardCoverContainer}>
-                    <Card.Cover style={styles.cardCover} blurRadius={isNSFW ? 20 : 0} source={{ uri: props.imageURL }} />
+                    <Card.Cover style={styles.cardCover} blurRadius={isNSFW ? 20 : 0} source={{ uri: props.imageURL?.includes("https://") ? props.imageURL : "https://" + props.imageURL }} />
                     {isNSFW && <Button mode='contained' style={styles.nsfwButton} onPress={() => { setIsNSFW(false) }}>NSFW Content</Button>}
                 </Card.Content>
             }

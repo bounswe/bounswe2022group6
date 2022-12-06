@@ -18,8 +18,6 @@ const LoginPage = ({ navigation }) => {
   const handleLogin = () => {
     try {
       let error = false
-      if (mail == "" || !mail.includes("@") || !mail.includes('.')) { error = true; setMailError("Please write a valid mail address!") }
-      else { setMailError("") }
       if (password == "") { error = true; setPasswordError("Please write your password.") }
       else { setPasswordError("") }
       if (!error) {
