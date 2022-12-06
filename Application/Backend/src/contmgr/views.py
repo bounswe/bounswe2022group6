@@ -243,7 +243,7 @@ class PostView(APIView):
         _type = _type.strip().lower()
         _description = _description.strip()
         _location = _location.strip().lower() if _location is not None else None
-        _imageURL = _imageURL.strip().lower() if _imageURL is not None else None
+        _imageURL = _imageURL.strip() if _imageURL is not None else None
         _is_marked_nsfw = _is_marked_nsfw.strip().lower()=="true" if _is_marked_nsfw is not None else False
 
         new_post = Post(title=_title, type=_type, location=_location, imageURL = _imageURL,
