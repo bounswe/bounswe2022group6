@@ -1,5 +1,5 @@
 import { AsyncStorage } from 'react-native';
-import {BACKEND_URL} from '@env'
+import { BACKEND_URL } from '@env'
 
 export const handleLoginRequest = async (mail, password) => {
     var myHeaders = new Headers();
@@ -29,6 +29,7 @@ export const handleLoginRequest = async (mail, password) => {
                 );
             }
         })
+
 }
 
 
@@ -50,15 +51,15 @@ export const handleSignUpRequest = async (mail, password, username, gender, birt
     };
 
     await fetch(BACKEND_URL + "register/", requestOptions)
-    .then(function (response) {
-        return response.json();
-    })
+        .then(function (response) {
+            return response.json();
+        })
         .then(async (responseJson) => {
             if (responseJson.error && responseJson.error.length > 0) {
                 console.log(responseJson.error)
                 let errs = JSON.parse(responseJson.error.replaceAll("'", "\""))
                 throw new Error(errs[Object.keys(errs)[0]])
-            } 
+            }
         })
 }
 

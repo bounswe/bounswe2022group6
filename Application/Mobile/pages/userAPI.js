@@ -18,7 +18,6 @@ export const handleGetUserData = async () => {
             return response.json();
         })
         .then(async (responseJson) => {
-            console.log(responseJson)
             if (responseJson.detail) {
                 throw new Error(responseJson.detail)
                 handleLogoutRequest()
