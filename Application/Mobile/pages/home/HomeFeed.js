@@ -4,27 +4,7 @@ import { View, ScrollView, StyleSheet, RefreshControl, FlatList } from 'react-na
 import { AnimatedFAB, Button, Snackbar, Title, Menu } from 'react-native-paper';
 import PostPreview from '../post/PostPreview';
 import { BACKEND_URL } from '@env'
-
-// Dummy data (need to delete this later)
-const dummyData = [
-    {
-        postID: 1,
-        owner: {userID: 1, username: 'nevermindever42'},
-        description: 'It is not as bad as it seems.',
-        vote_count: 22,
-        voted_users: [],
-        created_at_date: "04.12.2022",
-        created_at_time: "18.03.54",
-        title: 'I pulled shoulder. This is a day after bowling',
-        authorProfilePhoto: 'https://randomuser.me/api/portraits/men/60.jpg',
-        type: 'e',
-        imageURL: 'https://preview.redd.it/qenk7995rwn41.jpg?width=640&crop=smart&auto=webp&s=c98f07f965ca5b304dfa59c02baf6133a0f4a17e',
-        comment: 7,
-        labels: [{ labelID: 1, labelName: 'Pain Lvl 4-6', labelColor: '#d32f2f' }],
-        is_marked_nsfw: true,
-        
-    },
-];
+import { handleGetUserData } from '../userAPI';
 
 const wait = (timeout) => {
     return new Promise(resolve => setTimeout(resolve, timeout));
@@ -76,6 +56,8 @@ const getAllPosts = async () => {
 // The home feed
 const HomeFeed = (props) => {
     const [allPosts, setAllPosts] = useState([]);
+    const [userName, setUserName] = useState(null);
+
     const handleAllPosts = () => {
         getAllPosts().then((response) => {
             setAllPosts(response)
@@ -114,15 +96,21 @@ const HomeFeed = (props) => {
     const fabStyle = { [props.animateFrom]: 16 };
 
     useEffect(() => {
-        handleAllPosts()
+        handleGetUserData().then((response) => {
+            setUserName(response.username)
+        })
     }, [])
+
+    useEffect(() => {
+        handleAllPosts()
+    }, [userName])
 
     return (
         <View style={{height: '100%'}}>
             {/* Home feed */}
             <FlatList
                 data={allPosts}
-                renderItem={({item}) => <PostPreview {...item} navigation={props.navigation} openSnackBar={openSnackBar} />}
+                renderItem={({item}) => <PostPreview {...item} navigation={props.navigation} openSnackBar={openSnackBar} userName={userName}/>}
                 ListHeaderComponent={<HomeTitle />}
                 onRefresh={onRefresh}
                 refreshing={refreshing}
@@ -134,18 +122,6 @@ const HomeFeed = (props) => {
                     />
                 }
             />
-{/* 
-            <ScrollView onScroll={handleOnScroll}
-                refreshControl={
-                    <RefreshControl
-                        refreshing={refreshing}
-                        onRefresh={onRefresh}
-                        colors={['#0f7375', '#c2cd23']} // android only
-                    />}>
-                <HomeTitle />
-                {dummyData.map(post => )}
-
-            </ScrollView> */}
 
             {/* Create new post button */}
             <AnimatedFAB

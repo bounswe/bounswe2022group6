@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Card, Avatar, Button, IconButton, Text, withTheme, Menu, Divider, Chip } from 'react-native-paper';
 import { View, StyleSheet, TouchableOpacity, Pressable } from 'react-native';
-//import AnimatedNumbers from 'react-native-animated-numbers';
+import { BACKEND_URL } from '@env'
 
 // The content on the left of username
 const LeftContent = (props) => {
@@ -57,9 +57,19 @@ const PostPreview = (props) => {
     console.log(props)
     // Upvote & Downvote
     //TODO: the initial states should be taken from backend
-    const [downVoted, setDownvoted] = useState(false);
-    const [upVoted, setUpvoted] = useState(false);
+    const [downVoted, setDownvoted] = useState(props.downvoted_users.filter((item) => item.username === props.userName).length > 0 ? true : false);
+    const [upVoted, setUpvoted] = useState(props.upvoted_users.filter((item) => item.username === props.userName).length > 0 ? true : false);
 
+/*     const handleVoteRequest = async () => {
+        try {
+            const response = await fetch(BACKEND_URL + '/contmgr/postvote/', {method: 'POST'});
+            const json = await response.json();
+            return json.posts
+        } catch (error) {
+            console.error(error);
+        }
+    }
+ */
     const handleDownvote = () => {
         setDownvoted(!downVoted);
         setUpvoted(false);
@@ -114,7 +124,7 @@ const PostPreview = (props) => {
                 <View style={styles.voteContainer}>
                     <IconButton color={colors.primary} animated={true} icon={upVoted ? 'arrow-up-drop-circle' : 'arrow-up-drop-circle-outline'} onPress={handleUpvote} />
                     <Text>
-                        0{/*props.upvote - props.downvote + upVoted - downVoted*/}
+                        {props.upvoted_users.length - props.downvoted_users.length}
                     </Text>
                     <IconButton color={colors.primary} animated={true} icon={downVoted ? 'arrow-down-drop-circle' : 'arrow-down-drop-circle-outline'} onPress={handleDownvote} />
                 </View>
