@@ -178,13 +178,14 @@ const Post = () => {
                     border: "1px solid lightgray",
                     padding: "3px 5px",
                     marginRight: "5px",
-                    backgroundColor: "lightgoldenrodyellow",
+                    backgroundColor: label.labelColor,
+                    color: 'white',
                     fontSize: "medium",
                     alignItems: "center",
                     display: "flex",
                   }}
                 >
-                  {label}
+                  {label.labelName}
                 </p>
               ))}
                 <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>

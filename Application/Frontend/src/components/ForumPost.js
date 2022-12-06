@@ -97,7 +97,7 @@ const ForumPost = (props) => {
             </p>{" "}
             <p style={{ textAlign: "left" }}>{props.post.description}</p>
           </div>
-          <p style={{ textAlign: "right", position:'absolute', bottom:'0', right:'0' }}>{ props.post.comments && props.post.comments.length + (props.post.comments.length > 1 ? ' comments'  : ' comment')}</p>
+          <p style={{ textAlign: "right", position:'absolute', bottom:'0', right:'0' }}>{ props.post.comment_count >= 0 && props.post.comment_count + ' comment' + (props.post.comment_count > 1 ? 's' : '')}</p>
         </div>
       </div>
       )}
