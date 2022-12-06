@@ -79,6 +79,8 @@ const ForumPost = (props) => {
                         fontSize: "small",
                         alignItems: "center",
                         display: "flex",
+                        backgroundColor: label.labelColor,
+                        color: 'white'
                       }}
                     >
                       {label.labelName}
