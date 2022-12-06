@@ -21,8 +21,8 @@ export const handleCreatePost = async ( title, type, description, location, imag
       redirect: 'follow'
     };
     
-    fetch(BACKEND_URL +"/contmgr/post", requestOptions)
+    return fetch(BACKEND_URL +"/contmgr/post", requestOptions)
       .then(response => response.text())
-      .then(result => console.log(result))
+      .then(result => result)
       .catch(error => console.log('error', error));
 }
