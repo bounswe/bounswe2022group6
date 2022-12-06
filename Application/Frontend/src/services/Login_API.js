@@ -19,6 +19,7 @@ async function login(data) {
         return resMessage["error"]
     } else {
         window.localStorage.setItem("auth_token",resMessage["token"])
+        window.localStorage.setItem("username", data["useridentifier"]) //for checking post vote info hope not login with email. 
         return null
     }
 }

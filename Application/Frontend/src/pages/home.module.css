@@ -22,6 +22,7 @@ body {
   border-radius: 5px;
   border: 1px solid lightgray;
   overflow: hidden;
+  position: relative;
 }
 
 .mypostright {
@@ -33,12 +34,26 @@ body {
 }
 
 .mypostpage{
+  background: #dde296;
+  color: #0f7375;
   width: 80%;
   margin: auto;
   display: flex;
   border-radius: 5px;
   border: 1px solid lightgray;
 }
+
+.mycomment{
+  background: #4b697b;
+  color: #000000;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+
+}
+
 .labelsSide{
   display: inline-block;
   padding: 10px;
@@ -194,6 +209,22 @@ p {
 
 .dropdown:hover .dropbtn {
   background-color: rgb(226, 226, 191);
+}
+
+.createcomment {
+  width: 20%;
+  margin: auto;
+  background: #0f7375;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: white;
+  height: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: larger;
 }
 
 .createpost {
