@@ -33,7 +33,7 @@ const PostDetails = ({ route, navigation }) => {
                 {/* Post Image */}
                 {imageURL &&
                     <Card.Content style={styles.cardCoverContainer}>
-                        <Card.Cover style={styles.cardCover} blurRadius={false ? 20 : 0} source={{ uri: imageURL }} />
+                        <Card.Cover style={styles.cardCover} blurRadius={false ? 20 : 0} source={{ uri: imageURL?.includes("https://") ? imageURL : "https://" + imageURL }} />
                         {false && <Button mode='contained' style={styles.nsfwButton}>NSFW Content</Button>}
                     </Card.Content>
                 }
@@ -59,7 +59,7 @@ const PostDetails = ({ route, navigation }) => {
                 </Card.Actions>
             </Card>
             <ScrollView>
-                {[1, 2, 3].map(i => (
+                {[1, 2, 3, 4, 5, 6].map(i => (
                     <Card>
                         <Card.Title title={"Comment Owner " + i} />
                         <Card.Content>

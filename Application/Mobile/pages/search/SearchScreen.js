@@ -24,7 +24,7 @@ const SearchScreen = (props) => {
                 }
             }
             const query = out.join('&')
-            const response = await fetch(BACKEND_URL + 'contmgr/searchpost?' + query);
+            const response = await fetch(BACKEND_URL + '/contmgr/searchpost?' + query);
             const json = await response.json();
             return json.posts
         } catch (error) {

@@ -42,7 +42,7 @@ const CreatePost = ({ }) => {
         if (fileUrl) {
             Alert.alert("NSFW", "Is photo NSFW ?", [{ text: "NSFW", onPress: () => { NSFW = true } }, { text: "Not NSFW", onPress: () => { NSFW = false } }])
             console.log(title, type, descript, fileUrl, NSFW)
-            let response = await handleCreatePost(title, type, descript, "", fileUrl, NSFW)
+            let response = await handleCreatePost(title, type, descript, "", fileUrl.replace("https://", ""), NSFW)
             alert("Post Created Successfully!")
         }
         else {
