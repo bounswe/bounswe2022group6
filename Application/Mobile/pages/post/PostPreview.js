@@ -54,7 +54,7 @@ mentioned_users
 const PostPreview = (props) => {
     const { colors } = props.theme; // colors of the theme
     const [isNSFW, setIsNSFW] = useState(props.is_marked_nsfw); // NSFW
-
+    console.log(props)
     // Upvote & Downvote
     //TODO: the initial states should be taken from backend
     const [downVoted, setDownvoted] = useState(false);

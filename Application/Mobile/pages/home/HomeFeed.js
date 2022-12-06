@@ -65,7 +65,7 @@ const HomeTitle = () => {
 
 const getAllPosts = async () => {
     try {
-        const response = await fetch(BACKEND_URL + 'contmgr/allposts/');
+        const response = await fetch(BACKEND_URL + '/contmgr/allposts/');
         const json = await response.json();
         return json.posts
     } catch (error) {

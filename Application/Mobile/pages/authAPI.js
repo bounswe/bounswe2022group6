@@ -33,6 +33,7 @@ export const handleLoginRequest = async (mail, password) => {
 
 
 export const handleSignUpRequest = async (mail, password, username, gender, birth_date, birth_month, birth_year) => {
+    console.log(BACKEND_URL)
     var formdata = new FormData();
     formdata.append("username", username);
     formdata.append("email", mail);

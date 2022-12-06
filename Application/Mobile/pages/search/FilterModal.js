@@ -1,7 +1,6 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { FlatList } from "react-native";
 import { Portal, Dialog, Button, List, ActivityIndicator } from "react-native-paper";
-import { getLabels } from "../labelAPI";
 import LabelFilter from "./LabelFilter";
 import { BACKEND_URL } from '@env'
 
