@@ -133,6 +133,42 @@
 
 * [Ali Kaan Biber](https://github.com/bounswe/bounswe2022group6/wiki/Ali-Kaan-Biber)
 
+## **Member:** Ali Kaan Biber, Group 6 - Frontend.
+
+### **Responsibilities:**
+
+Implementing the initial templates for the post related operations including post page with details, post creation form.
+Implementing the backend integration of post and comment operations such as getting and displaying post details, adding a comment to a post, upvote/downvote endpoint.
+Adjusted the code to allow for unregistered users to browse and see the posts but not do unauthorized operations such as voting and creating a post.
+
+Apart from the above main responsibilities, fixed some minor bugs from previous developments and made some enhancements.
+  
+
+## **Main contributions:**
+
+- Implemented post detail page with its design.
+- Integrated backend endpoints for getting a post details and all post details.
+- Integrated backend endpoints for for voting posts and comments.
+- Integrated backend endpoint for creating comment to a post.
+- Used integrated label endpoint to replace the mock labels on the homepage.
+- Implemented the functionality for guest users to browse the webpage.
+
+ ### **Code related significant issues:**
+
+* [Issue #284](https://github.com/bounswe/bounswe2022group6/issues/284): Creating templates for post operations
+* [Issue #316](https://github.com/bounswe/bounswe2022group6/issues/316): Integrating get posts and post vote endpoints.
+* [Issue #337](https://github.com/bounswe/bounswe2022group6/issues/337): Implementing create comment API.
+
+ ### **Management related significant issues:**
+
+* [Issue #322](https://github.com/bounswe/bounswe2022group6/issues/322): The issue is not opened by me but I contributed to it by letting the backend team know what we need for frontend development
+
+### **Pull requests:**
+
+- [Pull Request #289](https://github.com/bounswe/bounswe2022group6/pull/289): Creating templates for post operations.
+- [Pull Request #352](https://github.com/bounswe/bounswe2022group6/pull/352): Integrating post and comment related endpoints except for post creation.
+- [Pull Request #361](https://github.com/bounswe/bounswe2022group6/pull/361): Bug Fix: Labels and comment count of the posts are corrected.
+
 
 * [Yasir Dikbaş](https://github.com/bounswe/bounswe2022group6/wiki/Yasir-Dikba%C5%9F)
 
