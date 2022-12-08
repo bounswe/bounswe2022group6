@@ -1,17 +1,13 @@
 /* eslint-disable prettier/prettier */
 import React, { useState, useCallback, useEffect } from 'react';
 import { View, ScrollView, StyleSheet, RefreshControl, FlatList } from 'react-native';
-import { AnimatedFAB, Button, Snackbar, Title, Menu } from 'react-native-paper';
+import { AnimatedFAB, Button, Snackbar, Title, Menu, List } from 'react-native-paper';
 import PostPreview from '../post/PostPreview';
 import { BACKEND_URL } from '@env'
 import { handleGetUserData } from '../userAPI';
 
-const wait = (timeout) => {
-    return new Promise(resolve => setTimeout(resolve, timeout));
-}
-
 // Header after the top navigation bar
-const HomeTitle = () => {
+const HomeTitle = (props) => {
     const [menuVisible, setMenuVisible] = useState(false);
     const [menuAnchor, setMenuAnchor] = useState({ icon: 'sort-clock-ascending', label: 'New Posts' });
     const closeMenu = () => setMenuVisible(false);
@@ -19,6 +15,11 @@ const HomeTitle = () => {
 
     const switchToPopularPosts = () => {
         setMenuAnchor({ icon: 'fire', label: 'Popular Posts' });
+         props.setHomeFeedPosts((oldList) => {
+            newList = JSON.parse(JSON.stringify(oldList))
+            newList.sort((a, b) => b.vote_count - a.vote_count)
+            return newList
+        })
         closeMenu();
     }
 
@@ -29,6 +30,15 @@ const HomeTitle = () => {
 
     const switchToNewPosts = () => {
         setMenuAnchor({ icon: 'sort-clock-ascending', label: 'New Posts' });
+        props.setHomeFeedPosts((oldList) => {
+            newList = JSON.parse(JSON.stringify(oldList))
+            newList.sort((a,b) => {
+                const a_datetime = new Date(a.created_at_date.split('.').reverse().join('-') + 'T' + a.created_at_time.split('.').join(':'))
+                const b_datetime = new Date(b.created_at_date.split('.').reverse().join('-') + 'T' + b.created_at_time.split('.').join(':'))
+                return b_datetime - a_datetime
+            })
+            return newList
+        })
         closeMenu();
     }
 
@@ -47,7 +57,6 @@ const getAllPosts = async () => {
     try {
         const response = await fetch(BACKEND_URL + '/contmgr/allposts/');
         const json = await response.json();
-        console.log(json.posts)
         return json.posts
     } catch (error) {
         console.error(error);
@@ -56,24 +65,22 @@ const getAllPosts = async () => {
 
 // The home feed
 const HomeFeed = (props) => {
-    const [allPosts, setAllPosts] = useState([]);
+    const [homeFeedPosts, setHomeFeedPosts] = useState([]);
     const [userName, setUserName] = useState(null);
 
     const handleAllPosts = () => {
         getAllPosts().then((response) => {
-            setAllPosts(response)
+            setHomeFeedPosts(response)
+            setRefreshing(false)
         })
     }
 
     // Refresh
     const [refreshing, setRefreshing] = useState(false);
-    
-
-    const onRefresh = useCallback(() => {
-        setRefreshing(true);
+    const handleRefresh = useCallback(() => {
+        setRefreshing(true)
         handleAllPosts()
-        setRefreshing(false);
-    }, []);
+    }, [])
 
     const [isExtended, setIsExtended] = useState(true);
 
@@ -97,28 +104,27 @@ const HomeFeed = (props) => {
     const fabStyle = { [props.animateFrom]: 16 };
 
     useEffect(() => {
-        handleGetUserData().then((response) => {
-            setUserName(response.username)
-        })
-    }, [])
-
-    useEffect(() => {
-        handleAllPosts()
+        if (userName === null) {
+            handleGetUserData().then((response) => {
+                setUserName(response.username)
+            })
+        } else {
+            handleAllPosts();
+        }
     }, [userName])
 
     return (
-        <View style={{height: '100%'}}>
+        <View style={{ height: '100%' }}>
             {/* Home feed */}
             <FlatList
-                data={allPosts}
-                renderItem={({item}) => <PostPreview {...item} navigation={props.navigation} openSnackBar={openSnackBar} userName={userName}/>}
-                ListHeaderComponent={<HomeTitle />}
-                onRefresh={onRefresh}
-                refreshing={refreshing}
+                data={homeFeedPosts}
+                renderItem={({ item }) => <PostPreview {...item} navigation={props.navigation} openSnackBar={openSnackBar} userName={userName} />}
+                ListHeaderComponent={<HomeTitle setHomeFeedPosts={setHomeFeedPosts} />}
+                onScroll={handleOnScroll}
                 refreshControl={
                     <RefreshControl
                         refreshing={refreshing}
-                        onRefresh={onRefresh}
+                        onRefresh={handleRefresh}
                         colors={['#0f7375', '#c2cd23']} // android only
                     />
                 }

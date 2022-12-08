@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import LoadingDisplay from '../components/LoadingDisplay';
-import { Image, ScrollView, StyleSheet, View,KeyboardAvoidingView } from 'react-native';
-import { Button, TextInput, HelperText } from 'react-native-paper';
+import { Image, ScrollView, StyleSheet, View } from 'react-native';
+import { Button, TextInput, HelperText, Text } from 'react-native-paper';
 import { handleLoginRequest } from '../authAPI';
 
 // The login page
@@ -45,14 +45,14 @@ const LoginPage = ({ navigation }) => {
 
   return (
     <ScrollView contentContainerStyle={styles.body}>
-      <Image style={styles.logo} source={require('../../images/logo_long.png')} />
+        <Image style={styles.logo} source={require('../../images/logo_long.png')} />
       <View style={styles.main}> 
         <TextInput
-          label="Mail"
+          label="Username/Mail"
           value={mail}
           onChangeText={(text) => setMail(text)}
-          left={<TextInput.Icon name="email" color='gray'/>}
-          keyboardType="email-address"
+          left={<TextInput.Icon name="account" color='gray'/>}
+          keyboardType="account"
         />
         <HelperText type="error" visible={mailError} >{mailError}</HelperText>
 
@@ -67,7 +67,8 @@ const LoginPage = ({ navigation }) => {
         />
         <HelperText type="error" visible={passwordError}>{passwordError}</HelperText>
       </View>
-      <View style={styles.buttonContainer} >
+      <View style={styles.buttonContainer}>
+      <View style={styles.loginSignupButtons} >
         <Button mode='contained' style={styles.button}
           onPress={handleLogin}
         >
@@ -79,30 +80,43 @@ const LoginPage = ({ navigation }) => {
           Sign Up
         </Button>
       </View>
+      </View>
       {loading && <LoadingDisplay />}
+      <Text style={styles.guest} onPress={() => {console.log('login as guest!')}}>Login as Guest</Text>
+      <Text style={styles.guest} onPress={() => {console.log('Forgot password!')}}>Forgot password?</Text>
       </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   body: {
-    flex: 1,
-    //flexGrow: 1,
+    flexGrow: 1,
     justifyContent: 'center',
     margin: '5%',
   },
   logo: {
+    width: '90%',
+    height: undefined,
+    aspectRatio: 11/3,
     alignSelf: 'center',
   },
   main: {
     marginVertical: '10%',
   },
   buttonContainer: {
+  },
+  loginSignupButtons: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
   button: {
     width: '49%',
+  },
+  guest: {
+    alignSelf: 'center',
+    marginVertical: 1,
+    color: 'gray',
+    marginTop: 20,
   },
 });
 

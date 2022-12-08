@@ -92,7 +92,16 @@ With the features above, the project will be in a status where it satisfies ever
 
     |Contribution|Link|
     |---|---|
-    |...|...|
+    |Designing a logo for the app|[#250](https://github.com/bounswe/bounswe2022group6/issues/250)|
+    |Implementing home feed for mobile|[#270](https://github.com/bounswe/bounswe2022group6/pull/270)|
+    |Implementing themes for consistency in UI|[#265](https://github.com/bounswe/bounswe2022group6/pull/265)|
+    |Implementing post searching|[#328](https://github.com/bounswe/bounswe2022group6/pull/328)|
+    |Adding .env support for mobile|[#328](https://github.com/bounswe/bounswe2022group6/pull/328)|
+    |Connecting post search and home feed to backend|[#341](https://github.com/bounswe/bounswe2022group6/pull/341)|
+    |Updating project plan|[#367](https://github.com/bounswe/bounswe2022group6/issues/367)|
+    |Reviewing some mobile team's pull requests|[#319](https://github.com/bounswe/bounswe2022group6/pull/319) [#355](https://github.com/bounswe/bounswe2022group6/pull/355) [#357](https://github.com/bounswe/bounswe2022group6/pull/357) [#358](https://github.com/bounswe/bounswe2022group6/pull/358) [#360](https://github.com/bounswe/bounswe2022group6/pull/360)|
+    |Presenting Milestone 2||
+    
 
 
 
@@ -227,6 +236,59 @@ Apart from the above main responsibilities, fixed some minor bugs from previous 
 
 * [Aral Dörtoğul](https://github.com/bounswe/bounswe2022group6/wiki/Aral-Dörtoğul)
 
+## **Member:** Aral Dörtoğul, Group 6 - Mobile.
+
+### **Responsibilities:**
+
+As a member of the mobile team, I was mainly responsible for developing the mobile app to meet the goals that we have set until Milestone 2.
+
+In the general group meetings and the mobile team's meetings, we have tried to divide our total work evenly and I was assigned to implement the home feed and post/user searching mechanism of MediShare. Moreover, I have added the logo of MediShare and a feature to theme our components to create a consistent look in our mobile app. To comply with the coding conventions, I have added .env (dotenv) support for the app, which stores the hardcoded API URL's and other secret keys in a private file. Before Milestone 2, I have connected the app to backend following the standards of RESTful API.
+
+Last but not least, I have updated the project plan with Berfin.
+
+## **Main contributions:**
+
+- Designing a logo for the app with Hakan.
+- Implementing home feed for mobile that shows post previews.
+- Implementing post preview component.
+- Expanding the navigation structure of the app and connecting post details, chatbot, search, create new post pages to home feed.
+- Implementing themes for consistency in UI (for mobile)
+- Implementing post searching with keywords and/or filters (labels only)
+- Adding .env support for mobile
+- Connecting post search and home feed to backend
+- Updating project plan
+- Presenting Milestone 2 to the customer (with Bedirhan).
+
+### **Code related significant issues:**
+
+- [#250](https://github.com/bounswe/bounswe2022group6/issues/250): Designing a Logo for Medishare
+- [#259](https://github.com/bounswe/bounswe2022group6/issues/259): Designing/Implementing the Home Feed for Mobile
+- [#264](https://github.com/bounswe/bounswe2022group6/issues/264): Implementing Theming Functionality for Mobile
+- [#285](https://github.com/bounswe/bounswe2022group6/issues/285): Implementing Searching Functionality
+- [#326](https://github.com/bounswe/bounswe2022group6/issues/326): Initializing .env for Mobile
+- [#339](https://github.com/bounswe/bounswe2022group6/issues/339): Connecting Mobile's Post Search to Backend
+- [#340](https://github.com/bounswe/bounswe2022group6/issues/340): Connecting Mobile's Home Feed to Backend
+
+### **Management related significant issues:**
+
+- [#367](https://github.com/bounswe/bounswe2022group6/issues/367): Project Plan should be updated
+
+### **Pull requests:**
+
+Pull requests opened by me: 
+- [#265](https://github.com/bounswe/bounswe2022group6/pull/265): Added Light & Dark Theme Objects
+- [#270](https://github.com/bounswe/bounswe2022group6/pull/270): Added Home Feed
+- [#328](https://github.com/bounswe/bounswe2022group6/pull/328): Searching Page Initialized, .env Support Added
+- [#341](https://github.com/bounswe/bounswe2022group6/pull/341): Post Search & Home Feed Backend Connection Established 
+- [#362](https://github.com/bounswe/bounswe2022group6/pull/362): Vote Buttons Initialized
+
+Pull requests reviewed by me: 
+
+- [#319](https://github.com/bounswe/bounswe2022group6/pull/319): file upload is done
+- [#355](https://github.com/bounswe/bounswe2022group6/pull/355): Mobile/chat bot
+- [#357](https://github.com/bounswe/bounswe2022group6/pull/357): Mobile/post details
+- [#358](https://github.com/bounswe/bounswe2022group6/pull/358): Mobile/hot fixes
+- [#360](https://github.com/bounswe/bounswe2022group6/pull/360): post details comments added
 
 * [Alp Eren İnceoğlu](https://github.com/bounswe/bounswe2022group6/wiki/Alp-Eren-%C4%B0nceo%C4%9Flu)
 
