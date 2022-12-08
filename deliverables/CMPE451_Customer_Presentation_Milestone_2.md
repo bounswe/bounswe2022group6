@@ -217,6 +217,40 @@ Apart from the above main responsibilities, fixed some minor bugs from previous 
 
 * [Berfin Şimşek](https://github.com/bounswe/bounswe2022group6/wiki/Berfin-%C5%9Eim%C5%9Fek)
 
+## **Member:** Berfin Şimşek, Group 6 - Frontend.
+
+### **Responsibilities:**
+
+My main responsibility was implementing the necessary functions and integrating backend endpoints to the profile page of the user. I integrated GET and POST methods of the profile page so that user can see her account information and edit them if necessary. Also I changed the design of the page so that if the user is a doctor, she should form another form for vericifation by giving diploma ID and profession. I added a message to indicate the user whether verification process is completed or not. 
+
+Additionally, I was responsible of the page's general design and compatilibity with other pages in terms of styling.
+
+I modified the messages that appear after an operation such as "Login successful" so that they disappear 3 seconds after showing the message.
+
+I also updated the project plan with Aral according to work done by each member.
+
+## **Main contributions:**
+
+- Integrated backend endpoints for getting a user's account information
+- Integrated backend endpoints for editting a user's account information
+- Designed the profile page
+- Updated project plan
+
+### **Code related significant issues:**
+
+* [Issue #281](https://github.com/bounswe/bounswe2022group6/issues/281):Implementing Edit Account Functionality Backend Integration
+* [Issue #300](https://github.com/bounswe/bounswe2022group6/issues/300):Doctor Verification for Profile page
+* [Issue #325](https://github.com/bounswe/bounswe2022group6/issues/325):Profile page design
+
+ ### **Management related significant issues:**
+
+* [Issue #367](https://github.com/bounswe/bounswe2022group6/issues/367): Project plan should be updated
+
+### **Pull requests:**
+
+- [Pull Request #294](https://github.com/bounswe/bounswe2022group6/pull/294): Editting profile page
+- [Pull Request #311](https://github.com/bounswe/bounswe2022group6/pull/311): Doctor verification
+- [Pull Request #327](https://github.com/bounswe/bounswe2022group6/pull/327): Profile page design
 
 * [Mustafa Berk Turgut](https://github.com/bounswe/bounswe2022group6/wiki/Mustafa-Berk-Turgut)
 
