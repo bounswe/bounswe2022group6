@@ -62,7 +62,25 @@ With the features above, the project will be in a status where it satisfies ever
 
     |Contribution|Link|
     |---|---|
-    |...|...|
+    |Attended all general and frontend meetings.| - |
+    |Implemented a template for post creation page | [#284](https://github.com/bounswe/bounswe2022group6/issues/284) PR:[#289](https://github.com/bounswe/bounswe2022group6/pull/289)|
+    |Implemented a template for post detail page | [#284](https://github.com/bounswe/bounswe2022group6/issues/284) PR:[#289](https://github.com/bounswe/bounswe2022group6/pull/289) |
+    |Reviewed home page design. | [#202](https://github.com/bounswe/bounswe2022group6/issues/202) PR:[#268](https://github.com/bounswe/bounswe2022group6/pull/268)|
+    |Reviewed the frontend UI design | [#293](https://github.com/bounswe/bounswe2022group6/issues/293) PR:[#298](https://github.com/bounswe/bounswe2022group6/pull/298) |
+    |Reviewed and make changes to edit profile page functionality | [#281](https://github.com/bounswe/bounswe2022group6/issues/281) PR:[#294](https://github.com/bounswe/bounswe2022group6/pull/294) |
+    |Reviewed API document of backend team for post and comment related operations| [API docs](https://github.com/bounswe/bounswe2022group6/tree/master/Application/Backend/api_docs)|
+    |Reported what is needed from backend |[#322](https://github.com/bounswe/bounswe2022group6/issues/322)|
+    |Integrated get all posts endpoint | [#316](https://github.com/bounswe/bounswe2022group6/issues/316) PR:[#352](https://github.com/bounswe/bounswe2022group6/pull/352)|
+    |Integrated get post by id endpoint| [#316](https://github.com/bounswe/bounswe2022group6/issues/316) PR:[#352](https://github.com/bounswe/bounswe2022group6/pull/352)|
+    |Integrated post upvote/downvote endpoint | [#316](https://github.com/bounswe/bounswe2022group6/issues/316) PR:[#352](https://github.com/bounswe/bounswe2022group6/pull/352)|
+    |Integrated comment creation endpoint |[#337](https://github.com/bounswe/bounswe2022group6/issues/337) PR:[#352](https://github.com/bounswe/bounswe2022group6/pull/352) |
+    |Integrated comment upvote/downvote endpoint |[#337](https://github.com/bounswe/bounswe2022group6/issues/352) PR:[#352](https://github.com/bounswe/bounswe2022group6/pull/352) |
+    |Reviewed post creation functionality | [#315](https://github.com/bounswe/bounswe2022group6/issues/315) PR:[#338](https://github.com/bounswe/bounswe2022group6/pull/338)|
+    |Reviewed delete user functionality | [#342](https://github.com/bounswe/bounswe2022group6/issues/342) PR:[#350](https://github.com/bounswe/bounswe2022group6/pull/350) |
+    |Reviewed code updates| [#359](https://github.com/bounswe/bounswe2022group6/pull/359) |
+    |Fixed some namings in the frontend due to backend changes| [#361](https://github.com/bounswe/bounswe2022group6/pull/361)|
+
+
 
 * Yasir Dikbaş
 
