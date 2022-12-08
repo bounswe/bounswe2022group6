@@ -101,8 +101,12 @@ With the features above, the project will be in a status where it satisfies ever
 
     |Contribution|Link|
     |---|---|
-    |...|...|
-
+    |Integrated backend endpoints for getting a user's account information|[Pull Request #294](https://github.com/bounswe/bounswe2022group6/pull/294)|
+    |Integrated backend endpoints for editing a user's account information|[Pull Request #294](https://github.com/bounswe/bounswe2022group6/pull/294)|
+    |Designed the profile page|[Pull Request #327](https://github.com/bounswe/bounswe2022group6/pull/327)|
+    |Added a form to profile page for doctor verification|[Pull Request #311](https://github.com/bounswe/bounswe2022group6/pull/311)|
+    |Designed the profile page|[Pull Request #327](https://github.com/bounswe/bounswe2022group6/pull/327)|
+    
 
 * Mustafa Berk Turgut
 
@@ -234,6 +238,7 @@ I also updated the project plan with Aral according to work done by each member.
 - Integrated backend endpoints for getting a user's account information
 - Integrated backend endpoints for editting a user's account information
 - Designed the profile page
+- Added a form to profile page for doctor verification
 - Updated project plan
 
 ### **Code related significant issues:**
