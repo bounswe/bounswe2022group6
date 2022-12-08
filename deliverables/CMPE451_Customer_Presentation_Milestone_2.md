@@ -137,6 +137,15 @@ With the features above, the project will be in a status where it satisfies ever
 
 ### Annotations
 
+Unfortunately, in our current status, our application does not support annotations yet. However, we have made plans and laid the groundwork for implementing the support for annotations. These include the following:
+
+* Creating a seperate database to store the annotations.
+* Making design decisions of when should annotations be returned as a reponse.
+* Researching on what technologies we can use to implement annotation support. (like recoginto, annotorius, etc.)
+* Having a deeper, more concrete understanding of what annotations are and why they are used.
+* Examining the W3C standard.
+
+Even though we have not implemented a support for annotations, we are ready to do it quickly. It is one of the first features that we planned to implement after the Customer Milestone 2.
 
 ### Standards
 
