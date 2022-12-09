@@ -341,11 +341,73 @@ With the features above, the project will be in a status where it satisfies ever
 
    ![image](https://user-images.githubusercontent.com/56560206/206657357-6ec48cfe-45e5-41ab-b230-fb8cbcb8c7c0.png)
 
-
-
-
-
 * Mobile
+
+    For each UI design, hyperlinks are provided in bullet points:
+
+    * [Login Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/authentication/Login.js)
+    
+    <img src = "https://user-images.githubusercontent.com/73420291/206706024-4fc14fc2-9dad-4994-b0b6-16deb3b36e6d.png" width=400 />
+
+    * [Signup Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/authentication/SignUpScreen.js)
+    
+    <img src = "https://user-images.githubusercontent.com/73420291/206706063-9a4dc1f2-a2e0-42fc-bc06-9318381db395.png" width=400 />
+    
+    * [Home Feed](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/home/HomeFeed.js) (Related Code: [HomeHeader.js](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/home/HomeHeader.js))
+
+    <img src = "https://user-images.githubusercontent.com/73420291/206711167-78e90d69-79e7-4b86-b61a-97da6f58b437.png" width=400 />
+    <img src = "https://user-images.githubusercontent.com/73420291/206706135-abe741c1-8e66-45d8-ab97-46e732ec0101.png" width=400 />
+    
+    * [NSFW Button Click](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/post/PostPreview.js)
+
+    <img src = "https://user-images.githubusercontent.com/73420291/206706266-ac023c98-78a9-45d0-8d7e-61a25b574b4a.png" width=400 />
+    
+    * [Post Details (with Comments)](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/post/PostDetails.js)
+    
+    <img src = "https://user-images.githubusercontent.com/73420291/206707364-9add5ab9-662a-4a61-8bb8-90879cef9d4c.png" width=400 />
+
+    * [Search Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/search/SearchScreen.js) (Related code: [SearchScreenHeader.js](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/search/SearchScreenHeader.js), [SearchListHeader.js](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/search/SearchListHeader.js))
+
+    <img src = "https://user-images.githubusercontent.com/73420291/206707412-9fc7c3b6-6f2e-4d78-beca-b55697a59e19.png" width=400 />
+
+    * [Search Filters](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/search/FilterModal.js) (Related code: [FilterModal.js](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/search/FilterModal.js))
+    
+    <img src = "https://user-images.githubusercontent.com/73420291/206707483-079db9e9-dc5f-40d8-9b43-7f54f628dd0b.png" width=400 />
+
+    * [Search Results](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/search/SearchScreen.js)(first two images: only label search, third image: only keyword search, fourth image: both keyword and label search)
+    
+    1. Only label search
+    
+    <img src = "https://user-images.githubusercontent.com/73420291/206707542-dca21402-8c5d-4f52-8830-cbbbe1f48c28.png" width=400 />
+    
+    <img src = "https://user-images.githubusercontent.com/73420291/206707813-9c0f05fa-71d8-45e5-bd73-494816b9239f.png" width=400 />
+    
+    2. Only keyword search
+    
+    <img src = "https://user-images.githubusercontent.com/73420291/206707831-86244e15-2e07-4d07-b3ce-fbc5f7a04d42.png" width=400 />
+    
+    3. Both keyword and label search
+    
+    <img src = "https://user-images.githubusercontent.com/73420291/206707843-b42c9342-40fa-4a78-9a10-327b7d1cdc83.png" width=400 />
+
+    * [ChatBot Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/home/Chatbot.js)
+    <img src = "https://user-images.githubusercontent.com/73420291/206708378-e5dfd2cd-c7a9-44d5-81b9-f84bae6d62aa.png" width=400 />
+
+    * [Create New Post Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/post/CreatePost.js)
+    <img src = "https://user-images.githubusercontent.com/73420291/206708389-fa2886b7-fdb4-4536-8197-ffb8551de3b7.png" width=400 />
+
+    * [Drawer](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/home/HomeScreen.js)
+    <img src = "https://user-images.githubusercontent.com/73420291/206708402-774c25fa-83e2-4f48-a882-98665f0ed021.png" width=400 />
+
+    * [Messages Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/messages/MessagesScreen.js)
+    <img src = "https://user-images.githubusercontent.com/73420291/206708413-9d17af5c-d231-42d0-9f9d-ca0ce435f0bb.png" width=400 />
+
+    * [Profile Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/profile/ProfileScreen.js)
+    <img src = "https://user-images.githubusercontent.com/73420291/206708422-9cbeafe5-a4b6-4191-b829-b37d930d64e5.png" width=400 />
+
+    * [Profile Edit Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/profile/EditProfileScreen.js)
+    <img src = "https://user-images.githubusercontent.com/73420291/206708440-4b5ab735-9498-4f19-baa7-09f110d4099d.png" width=400 />
+
 
 
 ### Annotations
