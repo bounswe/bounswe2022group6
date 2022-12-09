@@ -57,6 +57,7 @@ With the features above, the project will be in a status where it satisfies ever
     |Implemented Comment View API|[#301](https://github.com/bounswe/bounswe2022group6/issues/301)|
     |Implemented Content Voting System|[#302](https://github.com/bounswe/bounswe2022group6/issues/302)|
     |Added documents for content manager to showcase endpoint API|[#310](https://github.com/bounswe/bounswe2022group6/pull/310)|
+    |Updating Running Manuals of Backend and Frontend|[#371](https://github.com/bounswe/bounswe2022group6/issues/371)|
     |Backend Bug Fix for Post|[#322](https://github.com/bounswe/bounswe2022group6/issues/322)|
     |Reviewed PR: RegisteredUser Model Updated and Account Model Created|[PR: 269](https://github.com/bounswe/bounswe2022group6/pull/269)|
     |Reviewed PR: Profile View/Edit Functionalities Implemented|[PR: 273](https://github.com/bounswe/bounswe2022group6/pull/273)|
