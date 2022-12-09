@@ -55,8 +55,35 @@ With the features above, the project will be in a status where it satisfies ever
 
     |Contribution|Link|
     |---|---|
-    |...|...|
+    |Introduced a new UI structure for landing page.|[#293](https://github.com/bounswe/bounswe2022group6/issues/293), PR: [#298](https://github.com/bounswe/bounswe2022group6/pull/298)|
+    |Researched and implemented S3 Server on Amazon for image upload.|[#277](https://github.com/bounswe/bounswe2022group6/issues/277), PR: [#338](https://github.com/bounswe/bounswe2022group6/pull/338)|
+    |Implemented create post and integrated to backend with image.|[#315](https://github.com/bounswe/bounswe2022group6/issues/277), PR: [#338](https://github.com/bounswe/bounswe2022group6/pull/338)|
+    |Reported bugs on backend about post and labels.|[#322](https://github.com/bounswe/bounswe2022group6/issues/322)|
+    |Designed the project logo.|[#250](https://github.com/bounswe/bounswe2022group6/issues/250)|
+    |Implemented get label API.|[#329](https://github.com/bounswe/bounswe2022group6/issues/329), , PR: [#338](https://github.com/bounswe/bounswe2022group6/pull/338)|
+    |Implemented delete user API.|[#342](https://github.com/bounswe/bounswe2022group6/issues/342), PR:[#350](https://github.com/bounswe/bounswe2022group6/pull/350)|
+    |Created data for Milestone 2 demo.|[#363](https://github.com/bounswe/bounswe2022group6/issues/363)|
+    |Created an outline for the Milestone 2 demo.|[#312](https://github.com/bounswe/bounswe2022group6/issues/312)|
+    |Created Milestone Report 2 page.|[#313](https://github.com/bounswe/bounswe2022group6/issues/313)|
+    |Uploaded Meeting Notes 9.|[#314](https://github.com/bounswe/bounswe2022group6/issues/314)|
+    |Created tag and release for Milestone 2.|[#317](https://github.com/bounswe/bounswe2022group6/issues/317)|
+    |Established the communication throughout the progress and determined on which features to be implemented.|[#318](https://github.com/bounswe/bounswe2022group6/issues/318)|
+    |Corrected the completed issues' labels.|[#349](https://github.com/bounswe/bounswe2022group6/issues/349)|
+    |Uploaded all of the UI images of frontend for Milestone Report 2.|[#368](https://github.com/bounswe/bounswe2022group6/issues/368)|
+    |Reviewed frontend homepage.|PRs: [#268](https://github.com/bounswe/bounswe2022group6/pull/268), [#321](https://github.com/bounswe/bounswe2022group6/pull/321), [#345](https://github.com/bounswe/bounswe2022group6/pull/345) |
+    |Reviewed templates for post related operations.|PR: [#289](https://github.com/bounswe/bounswe2022group6/pull/289)|
+    |Reviewed doctor verification.|PR: [#311](https://github.com/bounswe/bounswe2022group6/pull/311)|
+    |Reviewed profile page APIs.|PR: [#323](https://github.com/bounswe/bounswe2022group6/pull/323)|
+    |Reviewed profile page design.|PR: [#327](https://github.com/bounswe/bounswe2022group6/pull/327)|
+    |Reviewed post API integration.|PR: [#352](https://github.com/bounswe/bounswe2022group6/pull/352)|
+    |Reviewed mobile hot fixes.|PR: [#358](https://github.com/bounswe/bounswe2022group6/pull/358)|
+    |Reviewed post views update.|PR: [#359](https://github.com/bounswe/bounswe2022group6/pull/359)|
+    |Reviewed the addition of comments under post details in mobile.|PR: [#360](https://github.com/bounswe/bounswe2022group6/pull/360)|
+    |Reviewed upvote count changes on mobile.|PR: [#361](https://github.com/bounswe/bounswe2022group6/pull/361)|
+    |Reviewed Milestone Report 2 related pull requests.|PRs: [#365](https://github.com/bounswe/bounswe2022group6/pull/365), [#366](https://github.com/bounswe/bounswe2022group6/pull/366)|
+    |You can find the missing ones (if any) with their links in this document under Individual reports section.|[Link](https://github.com/bounswe/bounswe2022group6/blob/master/deliverables/CMPE451_Customer_Presentation_Milestone_2.md#member-hakan-bal%C4%B1k-group-6---frontend)|
 
+    
 * Ali Kaan Biber
 
 
