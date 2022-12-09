@@ -164,7 +164,18 @@ With the features above, the project will be in a status where it satisfies ever
 
     |Contribution|Link|
     |---|---|
-    |...|...|
+    |Attending both team and group meetings||
+    |Implementing photo upload button as a generic component|[#307](https://github.com/bounswe/bounswe2022group6/issues/307)|
+    |Implementing create post page|[#308](https://github.com/bounswe/bounswe2022group6/issues/308)|
+    |Implementing post previews|[#356](https://github.com/bounswe/bounswe2022group6/issues/356)|
+    |Implementing basic chatbot|[#353](https://github.com/bounswe/bounswe2022group6/pull/353)|
+    |Bugfixing for demo|[#358](https://github.com/bounswe/bounswe2022group6/pull/358)|
+    |Deploying app to physical device||
+    |Creating scenario for demo with Hakan, Aral and Yusuf.||
+    |Presenting Milestone 2||
+    |Initiating a S3 server for image uploads with Hakan|[#277](https://github.com/bounswe/bounswe2022group6/issues/277)|
+    |Reviewing pull requests|[#361](https://github.com/bounswe/bounswe2022group6/pull/361) [#354](https://github.com/bounswe/bounswe2022group6/pull/354) [#341](https://github.com/bounswe/bounswe2022group6/pull/341) [#328](https://github.com/bounswe/bounswe2022group6/pull/328) [#270](https://github.com/bounswe/bounswe2022group6/pull/270)
+    [#265](https://github.com/bounswe/bounswe2022group6/pull/270)|
 
 * Berfin Şimşek
 
