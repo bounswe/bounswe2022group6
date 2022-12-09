@@ -255,6 +255,9 @@ Even though we have not implemented a support for annotations, we are ready to d
 
 ### Standards
 
+For the W3C standard, we have laid out the groundwork to support annotations and are planning on implementing the support for it right after the customer milestone 2.
+
+For the ontology, we have implemented the label structure in a way that the relational structure in a medical ontology (we are considering National Library of Medicine) can be transferred to the application. This means that the support for ontologies is ready, and we are planning on improving our search endpoint to include semantic search.
 
 ## Individual reports
 
