@@ -42,7 +42,22 @@ With the features above, the project will be in a status where it satisfies ever
 
     |Contribution|Link|
     |---|---|
-    |...|...|
+    |Researched Location API Implementation|[#255](https://github.com/bounswe/bounswe2022group6/issues/255)|
+    |Fixed image replication issue and updated Docker with new service|[#261](https://github.com/bounswe/bounswe2022group6/issues/261)|
+    |Implemented locmgr APIs for IP location retrieval and country/state/city list retrieval|[#257](https://github.com/bounswe/bounswe2022group6/issues/257)|
+    |Fixed image replication issue on docker, and implemented reset-db command on docker compose|[#261](https://github.com/bounswe/bounswe2022group6/issues/261)|
+    |Uploaded the Group Meeting #5 Notes|[#263](https://github.com/bounswe/bounswe2022group6/issues/263)|
+    |Restructured locmgr API's location data script by updating SQL file|[#272](https://github.com/bounswe/bounswe2022group6/issues/272)|
+    |Migrated the database from MySQL to PostgreSQL|[#271](https://github.com/bounswe/bounswe2022group6/issues/261)|
+    |Wrote testcases and documentation for locmgr|[#275](https://github.com/bounswe/bounswe2022group6/issues/275)|
+    |Fixed error that causes frontend to not compile|[#282](https://github.com/bounswe/bounswe2022group6/issues/282)|
+    |Initialized contmgr Django Application|[#287](https://github.com/bounswe/bounswe2022group6/issues/286)|
+    |Fixed hot reload bug on Frontend|[#290](https://github.com/bounswe/bounswe2022group6/issues/290)|
+    |Implemented Post View API|[#299](https://github.com/bounswe/bounswe2022group6/issues/299)|
+    |Implemented Comment View API|[#301](https://github.com/bounswe/bounswe2022group6/issues/301)|
+    |Implemented Content Voting System|[#302](https://github.com/bounswe/bounswe2022group6/issues/302)|
+    |Added documents for content manager to showcase endpoint API|[#310](https://github.com/bounswe/bounswe2022group6/pull/310)|
+    |Backend Bug Fix for Post|[#322](https://github.com/bounswe/bounswe2022group6/issues/322)|
 
 * İhsan Mert Atalay
 
