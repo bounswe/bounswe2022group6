@@ -88,6 +88,10 @@
     |18|Reviewing and testing the addition of downvoted users list to the post model class and to its related functionalities||[#346](https://github.com/bounswe/bounswe2022group6/pull/346)|
     |19|Fixing a bug where the case sensitive image URLs were being kept as all lowercase in the database|[#351](https://github.com/bounswe/bounswe2022group6/issues/351)|[#354](https://github.com/bounswe/bounswe2022group6/pull/354)|
     |20|Fixing a bug where the labels and comment count of a post were not returned in the get post functionality response body||[#359](https://github.com/bounswe/bounswe2022group6/pull/359)|
+    |21|Writing executive summary section for customer milestone 2 report|[#330](https://github.com/bounswe/bounswe2022group6/issues/330)|[#365](https://github.com/bounswe/bounswe2022group6/pull/365)|
+    |22|Writing annotation section for customer milestone 2 report|[#364](https://github.com/bounswe/bounswe2022group6/issues/364)|[#366](https://github.com/bounswe/bounswe2022group6/pull/366)|
+    |23|Writing standards section for customer milestone 2 report|[#369](https://github.com/bounswe/bounswe2022group6/issues/369)|[#370](https://github.com/bounswe/bounswe2022group6/pull/370)|
+
 
 
 
