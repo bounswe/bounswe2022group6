@@ -224,6 +224,77 @@ Even though we have not implemented a support for annotations, we are ready to d
 
 * [Hakan Balık](https://github.com/bounswe/bounswe2022group6/wiki/Hakan-Bal%C4%B1k)
 
+## **Member:** Hakan Balık, Group 6 - Frontend
+
+### **Responsibilities:**
+
+Similar to the previous Milestone, on the frontend side I either created or reviewed almost **all of the functionalies**. I was highly involved with establishing the communication with the customer and between the subteams throughout the project. With consulting the team members I decided on which features to be implemented for Milestone 2. Apart from those I can say that my biggest impact for this Milestone was to create an extraordinary structure from scratch for landing page which also included the register and login pages on a carousel structure, on top of that I created the Medishare logo. I also created the Milestone 2 presentation outline with Bedirhan and contributed by triggering some functionalities during the presentation. Except frontend, I also gave some small ideas, reviewed the code and tracked the progresses of both mobile and backend teams. You can view the rest of my responsibilities from below.
+
+### **Main contributions:**
+
+As I have created or commented on issues, you can easily find my contribution via visitting the links provided in the next two sections.
+
+#### **Code related significant issues:**
+
+- Created Issues:
+   1. [#293 - Improving UI of Frontend](https://github.com/bounswe/bounswe2022group6/issues/293)
+   2. [#315 - Integrating Create Post to Backend with Image](https://github.com/bounswe/bounswe2022group6/issues/315)
+   3. [#322 - Backend Bug Fix for Post and Label](https://github.com/bounswe/bounswe2022group6/issues/322)
+   4. [#329 - Implementing Get Label API](https://github.com/bounswe/bounswe2022group6/issues/329)
+   5. [#342 - Delete User Backend Integration](https://github.com/bounswe/bounswe2022group6/issues/342)
+   6. [#363 - Creating data for Demo](https://github.com/bounswe/bounswe2022group6/issues/363)
+ 
+- Contributes Issues:
+   - [#277 - Creating S3 Server on AWS for Image Uploads](https://github.com/bounswe/bounswe2022group6/issues/277)
+   - Rest of the code related contributed issues are related to the pull requests that I reviewed. 
+
+#### **Management related significant issues:**
+
+- Created Issues:
+   1. [#312 - Demo 2 Planning](https://github.com/bounswe/bounswe2022group6/issues/312)
+   2. [#313 - Creating Milestone 2 Page](https://github.com/bounswe/bounswe2022group6/issues/313)
+   3. [#314 - Uploading Meeting Notes 9](https://github.com/bounswe/bounswe2022group6/issues/314)
+   4. [#317 - Creating Release and Tag for Milestone 2](https://github.com/bounswe/bounswe2022group6/issues/317)
+   5. [#318 - Project Management](https://github.com/bounswe/bounswe2022group6/issues/318)
+   6. [#320 - Milestone Report 2 Individual Reports](https://github.com/bounswe/bounswe2022group6/issues/320)
+   7. [#349 - Changing the Status of Completed Issues](https://github.com/bounswe/bounswe2022group6/issues/349)
+   8. [#368 - Uploading Images of Frontend for Milestone Report 2](https://github.com/bounswe/bounswe2022group6/issues/368)
+
+- Contributes Issues:
+   1. [#250 - Designing a Logo for Medishare](https://github.com/bounswe/bounswe2022group6/issues/250)
+
+### **Pull requests:**
+
+Pull requests I created
+
+- [#298 - Frontend UI design](https://github.com/bounswe/bounswe2022group6/pull/298)
+- [#338 - Frontend/feature/create post api integration](https://github.com/bounswe/bounswe2022group6/pull/338)
+- [#350 - Frontend/feature/delete user](https://github.com/bounswe/bounswe2022group6/pull/350)
+
+Pull requests I reviewed
+
+- [#268 - Frontend/homepage](https://github.com/bounswe/bounswe2022group6/pull/268)
+- [#289 - Templates for post related operations are implemened](https://github.com/bounswe/bounswe2022group6/pull/289)
+- [#311 - Doctor verification is added.](https://github.com/bounswe/bounswe2022group6/pull/311)
+- [#321 - Frontend/homepage](https://github.com/bounswe/bounswe2022group6/pull/321)
+- [#323 - Backend/feature/profile](https://github.com/bounswe/bounswe2022group6/pull/323)
+- [#327 - Frontend/feature/profile page design](https://github.com/bounswe/bounswe2022group6/pull/327)
+- [#345 - Frontend/homepage](https://github.com/bounswe/bounswe2022group6/pull/345)
+- [#352 - Frontend/feature/post api integration](https://github.com/bounswe/bounswe2022group6/pull/352)
+- [#358 - Mobile/hot fixes](https://github.com/bounswe/bounswe2022group6/pull/358) (Reviewed face to face)
+- [#359 - Post Views Updated](https://github.com/bounswe/bounswe2022group6/pull/359) (Reviewed face to face)
+- [#360 - post details comments added](https://github.com/bounswe/bounswe2022group6/pull/360) (Reviewed face to face)
+- [#361 - hotfix for labels and comment count changes from backend](https://github.com/bounswe/bounswe2022group6/pull/361) (Reviewed face to face)
+- [#365 - Executive Summary Section Added to Milestone 2 Report](https://github.com/bounswe/bounswe2022group6/pull/365)
+- [#366 - Added Annotation Section to the Customer Presentation Milestone 2](https://github.com/bounswe/bounswe2022group6/pull/366)
+
+### Unit Tests
+
+I have spent like 6 to 8 hours just to create simple unit tests but non of the libraries I tried (Jest, React-testing-library and react-dom/test-utils) responded well for our project. That's why even though I spared a considerable amount of time, there is currently no unit tests that I created in the project.
+
+### Additional Information
+
+I think I have contributed to management part excessively, so it would be great to consider this aspect while reviewing individual efforts as well.
 
 * [Ali Kaan Biber](https://github.com/bounswe/bounswe2022group6/wiki/Ali-Kaan-Biber)
 
