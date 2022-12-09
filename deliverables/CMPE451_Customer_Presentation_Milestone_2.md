@@ -58,6 +58,14 @@ With the features above, the project will be in a status where it satisfies ever
     |Implemented Content Voting System|[#302](https://github.com/bounswe/bounswe2022group6/issues/302)|
     |Added documents for content manager to showcase endpoint API|[#310](https://github.com/bounswe/bounswe2022group6/pull/310)|
     |Backend Bug Fix for Post|[#322](https://github.com/bounswe/bounswe2022group6/issues/322)|
+    |Reviewed PR: RegisteredUser Model Updated and Account Model Created|[PR: 269](https://github.com/bounswe/bounswe2022group6/pull/269)|
+    |Reviewed PR: Profile View/Edit Functionalities Implemented|[PR: 273](https://github.com/bounswe/bounswe2022group6/pull/273)|
+    |Reviewed PR: Content Models Added|[PR: 288](https://github.com/bounswe/bounswe2022group6/pull/288)|
+    |Reviewed PR: Label Structure Implemented|[PR: 297](https://github.com/bounswe/bounswe2022group6/pull/297)|
+    |Reviewed PR: Search Feature Implemented|[PR: 306](https://github.com/bounswe/bounswe2022group6/pull/306)|
+    |Reviewed PR: Added Label Addition to Post Creation View|[PR: 332](https://github.com/bounswe/bounswe2022group6/pull/332)|
+    |Reviewed PR: Post Model Class as_dict() Method Updated|[PR: 335](https://github.com/bounswe/bounswe2022group6/pull/335)|
+    |Reviewed PR: Get All Posts Endpoint Added|[PR: 336](https://github.com/bounswe/bounswe2022group6/pull/336)|
 
 * İhsan Mert Atalay
 
@@ -457,17 +465,17 @@ For annotation feature and better management of location data for Location Manag
 
 #### **Code related significant issues:**
 
-   1. Implementing locmgr APIs for IP location retrieval and country/state/city list retrieval - [#257](https://github.com/bounswe/bounswe2022group6/issues/257)|
-   2. Restructuring locmgr API's location data script by updating SQL file - [#272](https://github.com/bounswe/bounswe2022group6/issues/272)|
-   3. Migrating the database from MySQL to PostgreSQL - [#271](https://github.com/bounswe/bounswe2022group6/issues/261)|
-   4. Implementing Post View API - [#299](https://github.com/bounswe/bounswe2022group6/issues/299)|
-   5. Implementing Comment View API - [#301](https://github.com/bounswe/bounswe2022group6/issues/301)|
-   6. Implementing Content Voting System - [#302](https://github.com/bounswe/bounswe2022group6/issues/302)|
+   1. Implementing locmgr APIs for IP location retrieval and country/state/city list retrieval - [#257](https://github.com/bounswe/bounswe2022group6/issues/257)
+   2. Restructuring locmgr API's location data script by updating SQL file - [#272](https://github.com/bounswe/bounswe2022group6/issues/272)
+   3. Migrating the database from MySQL to PostgreSQL - [#271](https://github.com/bounswe/bounswe2022group6/issues/261)
+   4. Implementing Post View API - [#299](https://github.com/bounswe/bounswe2022group6/issues/299)
+   5. Implementing Comment View API - [#301](https://github.com/bounswe/bounswe2022group6/issues/301)
+   6. Implementing Content Voting System - [#302](https://github.com/bounswe/bounswe2022group6/issues/302)
 
 #### **Management related significant issues:**
 
-   1. Uploading the Group Meeting #5 Notes - [#263](https://github.com/bounswe/bounswe2022group6/issues/263)|
-   2. Updating Running Manuals of Backend and Frontend - [#371](https://github.com/bounswe/bounswe2022group6/issues/371)|
+   1. Uploading the Group Meeting #5 Notes - [#263](https://github.com/bounswe/bounswe2022group6/issues/263)
+   2. Updating Running Manuals of Backend and Frontend - [#371](https://github.com/bounswe/bounswe2022group6/issues/371)
 
 ### **Pull requests:**
 
