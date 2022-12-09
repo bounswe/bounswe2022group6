@@ -726,6 +726,67 @@ Pull requests reviewed by me:
 
 
 * [Ramazan Bedirhan Pamukçuoğlu](https://github.com/bounswe/bounswe2022group6/wiki/Bedirhan-Pamukcuoglu)
+## **Member:** Bedirhan PAMUKCUOGLU, Group 6 - Mobile
+
+### **Responsibilities:**
+
+I've worked at mobile team to develop some new features and fixing some problems from the previous milestone. I've implemented create post page, post preview page, viewing comments on posts, upload photo feature. I've also prepared progress according to requirements part of the report. Addition to those, me and Hakan worked on creating a S3 server to upload and store image files. Lastly I've worked with teammates to create demo scenario and presented demo. 
+
+### **Main contributions:**
+
+In addition to preparing progress according to requirements, preparing for presentation and presenting I've also done some code related work. Which are listed below. 
+
+#### **Code related significant issues:**
+
+- Created Issues:
+   1. [#356](https://github.com/bounswe/bounswe2022group6/issues/356)
+   2. [#353](https://github.com/bounswe/bounswe2022group6/issues/353)
+   3. [#351](https://github.com/bounswe/bounswe2022group6/issues/351)
+   4. [#308](https://github.com/bounswe/bounswe2022group6/issues/308)
+   5. [#307](https://github.com/bounswe/bounswe2022group6/issues/307)
+   6. [#277](https://github.com/bounswe/bounswe2022group6/issues/277)
+ 
+- Contributes Issues:
+   - [#324](https://github.com/bounswe/bounswe2022group6/issues/324)
+   - Rest of the code related contributed issues are related to the pull requests that I reviewed. 
+
+#### **Management related significant issues:**
+
+- Created Issues:
+
+ 
+- Contributes Issues:
+    1. [#312](https://github.com/bounswe/bounswe2022group6/issues/312)
+    2. [#320](https://github.com/bounswe/bounswe2022group6/issues/320)
+
+### **Pull requests:**
+
+Pull requests I created
+
+- [#360](https://github.com/bounswe/bounswe2022group6/pull/360)
+- [#358](https://github.com/bounswe/bounswe2022group6/pull/358)
+- [#357](https://github.com/bounswe/bounswe2022group6/pull/357)
+- [#355](https://github.com/bounswe/bounswe2022group6/pull/355)
+- [#348](https://github.com/bounswe/bounswe2022group6/pull/348)
+- [#347](https://github.com/bounswe/bounswe2022group6/pull/347)
+- [#319](https://github.com/bounswe/bounswe2022group6/pull/319)
+
+Pull requests I reviewed
+
+- [#361](https://github.com/bounswe/bounswe2022group6/pull/361)
+- [#354](https://github.com/bounswe/bounswe2022group6/pull/354)
+- [#341](https://github.com/bounswe/bounswe2022group6/pull/341)
+- [#328](https://github.com/bounswe/bounswe2022group6/pull/328)
+- [#270](https://github.com/bounswe/bounswe2022group6/pull/270)
+
+### Unit Tests
+
+I didn't work on unit test, planning to create tests before final milestone.
+
+### Additional Information
+
+I've also helped mobile team mates in some problems that they faced.
+
 
 
 * [Berfin Şimşek](https://github.com/bounswe/bounswe2022group6/wiki/Berfin-%C5%9Eim%C5%9Fek)
