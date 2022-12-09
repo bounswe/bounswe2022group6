@@ -42,13 +42,33 @@ With the features above, the project will be in a status where it satisfies ever
 
     |Contribution|Link|
     |---|---|
-    |...|...|
+    |Researched Location API Implementation|[#255](https://github.com/bounswe/bounswe2022group6/issues/255)|
+    |Fixed image replication issue and updated Docker with new service|[#261](https://github.com/bounswe/bounswe2022group6/issues/261)|
+    |Implemented locmgr APIs for IP location retrieval and country/state/city list retrieval|[#257](https://github.com/bounswe/bounswe2022group6/issues/257)|
+    |Fixed image replication issue on docker, and implemented reset-db command on docker compose|[#261](https://github.com/bounswe/bounswe2022group6/issues/261)|
+    |Uploaded the Group Meeting #5 Notes|[#263](https://github.com/bounswe/bounswe2022group6/issues/263)|
+    |Restructured locmgr API's location data script by updating SQL file|[#272](https://github.com/bounswe/bounswe2022group6/issues/272)|
+    |Migrated the database from MySQL to PostgreSQL|[#271](https://github.com/bounswe/bounswe2022group6/issues/261)|
+    |Wrote testcases and documentation for locmgr|[#275](https://github.com/bounswe/bounswe2022group6/issues/275)|
+    |Fixed error that causes frontend to not compile|[#282](https://github.com/bounswe/bounswe2022group6/issues/282)|
+    |Initialized contmgr Django Application|[#287](https://github.com/bounswe/bounswe2022group6/issues/286)|
+    |Fixed hot reload bug on Frontend|[#290](https://github.com/bounswe/bounswe2022group6/issues/290)|
+    |Implemented Post View API|[#299](https://github.com/bounswe/bounswe2022group6/issues/299)|
+    |Implemented Comment View API|[#301](https://github.com/bounswe/bounswe2022group6/issues/301)|
+    |Implemented Content Voting System|[#302](https://github.com/bounswe/bounswe2022group6/issues/302)|
+    |Added documents for content manager to showcase endpoint API|[#310](https://github.com/bounswe/bounswe2022group6/pull/310)|
+    |Backend Bug Fix for Post|[#322](https://github.com/bounswe/bounswe2022group6/issues/322)|
 
 * İhsan Mert Atalay
 
     |Contribution|Link|
     |---|---|
-    |...|...|
+    | Designing and colorizing homepage |[#343](https://github.com/bounswe/bounswe2022group6/issues/343), PR: [#321](https://github.com/bounswe/bounswe2022group6/pull/321)|
+    |Making and placing logo for homepage |[#343](https://github.com/bounswe/bounswe2022group6/issues/343), PR: [#321](https://github.com/bounswe/bounswe2022group6/pull/321)|
+    |Adding fav icon|[#343](https://github.com/bounswe/bounswe2022group6/issues/343), PR: [#321](https://github.com/bounswe/bounswe2022group6/pull/321)|
+    |Label filter search input maked functional|[#344](https://github.com/bounswe/bounswe2022group6/issues/344), PR: [#345](https://github.com/bounswe/bounswe2022group6/pull/345)|
+    |Voting system at home page  designed dynamically|[#266](https://github.com/bounswe/bounswe2022group6/issues/266), PR: [#321](https://github.com/bounswe/bounswe2022group6/pull/321)|
+    |Label and search styles at home page designed dynamically|[#267](https://github.com/bounswe/bounswe2022group6/issues/267), PR: [#321](https://github.com/bounswe/bounswe2022group6/pull/321)|
 
 
 * Hakan Balık
@@ -149,7 +169,18 @@ With the features above, the project will be in a status where it satisfies ever
 
     |Contribution|Link|
     |---|---|
-    |...|...|
+    |Attending both team and group meetings||
+    |Implementing photo upload button as a generic component|[#307](https://github.com/bounswe/bounswe2022group6/issues/307)|
+    |Implementing create post page|[#308](https://github.com/bounswe/bounswe2022group6/issues/308)|
+    |Implementing post previews|[#356](https://github.com/bounswe/bounswe2022group6/issues/356)|
+    |Implementing basic chatbot|[#353](https://github.com/bounswe/bounswe2022group6/pull/353)|
+    |Bugfixing for demo|[#358](https://github.com/bounswe/bounswe2022group6/pull/358)|
+    |Deploying app to physical device||
+    |Creating scenario for demo with Hakan, Aral and Yusuf.||
+    |Presenting Milestone 2||
+    |Initiating a S3 server for image uploads with Hakan|[#277](https://github.com/bounswe/bounswe2022group6/issues/277)|
+    |Reviewing pull requests|[#361](https://github.com/bounswe/bounswe2022group6/pull/361) [#354](https://github.com/bounswe/bounswe2022group6/pull/354) [#341](https://github.com/bounswe/bounswe2022group6/pull/341) [#328](https://github.com/bounswe/bounswe2022group6/pull/328) [#270](https://github.com/bounswe/bounswe2022group6/pull/270)
+    [#265](https://github.com/bounswe/bounswe2022group6/pull/270)|
 
 * Berfin Şimşek
 
@@ -240,6 +271,9 @@ Even though we have not implemented a support for annotations, we are ready to d
 
 ### Standards
 
+For the W3C standard, we have laid out the groundwork to support annotations and are planning on implementing the support for it right after the customer milestone 2.
+
+For the ontology, we have implemented the label structure in a way that the relational structure in a medical ontology (we are considering National Library of Medicine) can be transferred to the application. This means that the support for ontologies is ready, and we are planning on improving our search endpoint to include semantic search.
 
 ## Individual reports
 
@@ -248,6 +282,34 @@ Even though we have not implemented a support for annotations, we are ready to d
 
 * [İhsan Mert Atalay](https://github.com/bounswe/bounswe2022group6/wiki/%C4%B0hsan-Mert-Atalay)
 
+## **Member:** İhsan Mert Atalay, Group 6 - Frontend
+
+### **Responsibilities:**
+
+I took part in the design side of the front end. While I was designing, I wrote the code in a way that could be object-based and dynamic on the frontend and prepared to connect it to the background.
+
+### **Main contributions:**
+
+- Designing and colorizing homepage 
+- Making and placing logo for homepage
+- Adding fav icon
+- Label filter search input maked functional
+- Voting system at home page designed dynamically
+
+#### **Code related significant issues:**
+
+- Created Issues:
+   1. [#344 - label filter search input should be functional](https://github.com/bounswe/bounswe2022group6/issues/344)
+   2. [#343 - colorize homopage,adding logo at home page and addin fav icon ](https://github.com/bounswe/bounswe2022group6/issues/343)
+   3. [#267 - Label and search styles at home page should be designed dynamically](https://github.com/bounswe/bounswe2022group6/issues/267)
+   4. [#266 - Voting system at home page should be designed dynamically](https://github.com/bounswe/bounswe2022group6/issues/266)
+
+### **Pull requests:**
+
+Pull requests I created
+
+- [#345 - label filter search input maked functional](https://github.com/bounswe/bounswe2022group6/pull/345)
+- [#321 - home page colorized and designed, logo placed , fav icon added](https://github.com/bounswe/bounswe2022group6/pull/321)
 
 * [Hakan Balık](https://github.com/bounswe/bounswe2022group6/wiki/Hakan-Bal%C4%B1k)
 
