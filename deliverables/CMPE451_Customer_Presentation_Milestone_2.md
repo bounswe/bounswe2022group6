@@ -653,6 +653,29 @@ Apart from the above main responsibilities, fixed some minor bugs from previous 
 
 
 * [Yasir Dikbaş](https://github.com/bounswe/bounswe2022group6/wiki/Yasir-Dikba%C5%9F)
+* ## **Member:** Yasir Dikbaş, Group 6 - Mobile.
+
+### **Responsibilities:**
+
+As a member of the mobile team, I was mainly responsible for testing the mobile app to meet the goals that we have set until Milestone 2.
+
+In the group meetings we shared total workload between the group members to complete everything as expected until the deadline of milestone 2. I personally attended some of those meetings in person and some of them via my phone. I took part in editing project plan for our team and setting deadlines accordin to our groups needs and
+availability of the group members.
+
+## **Main contributions:**
+
+- Checking the logo and improving it for the final milestone professionally.
+- Implementing Edit Profile functionality.
+- Running the mobile app and checking for both code related and unrelated errors if any.
+- Researching react native libraries.
+- Testing the mobile app on emulator.
+
+### **Code related significant issues:**
+-I checked the codebase and tested the app to detect any errors present to let developers know and fix.
+### **Management related significant issues:**
+
+### **Pull requests:**
+
 
 
 * [Aral Dörtoğul](https://github.com/bounswe/bounswe2022group6/wiki/Aral-Dörtoğul)
