@@ -507,9 +507,9 @@ Pull requests I reviewed
 I have written test cases for User Registration feature, and Location Manager Application. I will write test cases for Content Manager application for Final Milestone (But for now, I have written only the documentation for it).
 
 Please find related information in issues:
-   1. Implementing User Registration - [#181](https://github.com/bounswe/bounswe2022group6/issues/181)|
-   1. Writing testcases and documentation for locmgr - [#275](https://github.com/bounswe/bounswe2022group6/issues/275)|
-   1. Adding documents for content manager to showcase endpoint API - [#310](https://github.com/bounswe/bounswe2022group6/pull/310)|
+   1. Implementing User Registration - [#181](https://github.com/bounswe/bounswe2022group6/issues/181)
+   1. Writing testcases and documentation for locmgr - [#275](https://github.com/bounswe/bounswe2022group6/issues/275)
+   1. Adding documents for content manager to showcase endpoint API - [#310](https://github.com/bounswe/bounswe2022group6/pull/310)
 
 ### Additional Information
 Please view my [Home Wiki](https://github.com/bounswe/bounswe2022group6/wiki/Artun-Akdo%C4%9Fan) for details and for any missing information.
