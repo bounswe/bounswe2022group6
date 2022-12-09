@@ -431,6 +431,81 @@ For the ontology, we have implemented the label structure in a way that the rela
 ## Individual reports
 
 * [Artun Akdoğan](https://github.com/bounswe/bounswe2022group6/wiki/Artun-Akdo%C4%9Fan)
+## **Member:** Artun Akdoğan, Group 6 - Backend
+
+### **Responsibilities:**
+
+As a member of Backend subteam, I was mainly responsible for developing required features on the backend that both Frontend and Mobile subteams can use. I wrote required code and made related changes on Backend and Database environments for this task. I also fixed lots of code on Backend and Frontend. Besides, I was responsible for containerization and deployment of the application.
+
+My main responsibility was developing appropriate Location manager and Content manager classes, and writing related code within it. For location manager, I have researched large amounts of existing API's, but I decided that it was best to keep world data in our database. So, I wrote relevant code and models to implement it. I wrote documentations and testcases for my work. I also implemented comment, post, and vote endpoints, for both GET and POST methods, on Content Manager app. I fixed related issues that raised afterwards, and wrote documentation for it.
+
+For annotation feature and better management of location data for Location Manager, I had to migrate our database from MySQL to PostgreSQL, and I created 3 different databases to store general data, annotation data, and location-based large data. For this mission, I have researched huge amounts of materials, and fixed already implemented code. Unfortunately, I required to remove reset-db feaute that mainly used for development purposes, as it wasn't compatible with PostgreSQL. Fortunately, I was able to connect our Django Backend with the new database successfully.
+
+
+### **Main contributions:**
+
+* Deployment of Backend and Frontend on Amazon AWS
+* Various bug fixes on backend and frontend
+* Reviewing pull requests
+* Implementing locmgr APIs for IP location retrieval and country/state/city list retrieval
+* Restructuring locmgr API's location data script by updating SQL file
+* Migrating the database from MySQL to PostgreSQL
+* Implementing Post View API
+* Implementing Comment View API
+* Implementing Content Voting System
+* Uploading the Group Meeting #5 Notes
+
+#### **Code related significant issues:**
+
+   1. Implementing locmgr APIs for IP location retrieval and country/state/city list retrieval - [#257](https://github.com/bounswe/bounswe2022group6/issues/257)|
+   2. Restructuring locmgr API's location data script by updating SQL file - [#272](https://github.com/bounswe/bounswe2022group6/issues/272)|
+   3. Migrating the database from MySQL to PostgreSQL - [#271](https://github.com/bounswe/bounswe2022group6/issues/261)|
+   4. Implementing Post View API - [#299](https://github.com/bounswe/bounswe2022group6/issues/299)|
+   5. Implementing Comment View API - [#301](https://github.com/bounswe/bounswe2022group6/issues/301)|
+   6. Implementing Content Voting System - [#302](https://github.com/bounswe/bounswe2022group6/issues/302)|
+
+#### **Management related significant issues:**
+
+   1. Uploading the Group Meeting #5 Notes - [#263](https://github.com/bounswe/bounswe2022group6/issues/263)|
+   2. Updating Running Manuals of Backend and Frontend - [#371](https://github.com/bounswe/bounswe2022group6/issues/371)|
+
+### **Pull requests:**
+
+Pull requests I created
+- [#260 - Backend/feature/locmgr](https://github.com/bounswe/bounswe2022group6/pull/260)
+- [#262 - Fix dockerization image dublication issue, add reset_db](https://github.com/bounswe/bounswe2022group6/pull/262)
+- [#274 - Backend/update/database migration](https://github.com/bounswe/bounswe2022group6/pull/274)
+- [#276 - Backend/feature/locmgr tests](https://github.com/bounswe/bounswe2022group6/pull/276)
+- [#283 - Fix react-icons bug](https://github.com/bounswe/bounswe2022group6/pull/283)
+- [#287 - Add contmgr app, refactor code](https://github.com/bounswe/bounswe2022group6/pull/287)
+- [#291 - Frontend/fix/reload bug](https://github.com/bounswe/bounswe2022group6/pull/291)
+- [#303 - Backend/feature/post view](https://github.com/bounswe/bounswe2022group6/pull/303)
+- [#304 - Backend/feature/comment view](https://github.com/bounswe/bounswe2022group6/pull/304)
+- [#305 - Backend/feature/content voting system](https://github.com/bounswe/bounswe2022group6/pull/305)
+- [#310 - Add documents for content manager](https://github.com/bounswe/bounswe2022group6/pull/310)
+- [#346 - Fix required items requested](https://github.com/bounswe/bounswe2022group6/pull/346)
+
+Pull requests I reviewed
+- [#269 - RegisteredUser Model Updated and Account Model Created](https://github.com/bounswe/bounswe2022group6/pull/269)
+- [#273 - Profile View/Edit Functionalities Implemented](https://github.com/bounswe/bounswe2022group6/pull/273)
+- [#288 - Content Models Added](https://github.com/bounswe/bounswe2022group6/pull/288)
+- [#297 - Label Structure Implemented](https://github.com/bounswe/bounswe2022group6/pull/297)
+- [#306 - Search Feature Implemented](https://github.com/bounswe/bounswe2022group6/pull/306)
+- [#332 - Added Label Addition to Post Creation View](https://github.com/bounswe/bounswe2022group6/pull/332)
+- [#335 - Post Model Class as_dict() Method Updated](https://github.com/bounswe/bounswe2022group6/pull/335)
+- [#336 - Get All Posts Endpoint Added](https://github.com/bounswe/bounswe2022group6/pull/336)
+
+### Unit Tests
+I have written test cases for User Registration feature, and Location Manager Application. I will write test cases for Content Manager application for Final Milestone (But for now, I have written only the documentation for it).
+
+Please find related information in issues:
+   1. Implementing User Registration - [#181](https://github.com/bounswe/bounswe2022group6/issues/181)|
+   1. Writing testcases and documentation for locmgr - [#275](https://github.com/bounswe/bounswe2022group6/issues/275)|
+   1. Adding documents for content manager to showcase endpoint API - [#310](https://github.com/bounswe/bounswe2022group6/pull/310)|
+
+### Additional Information
+Please view my [Home Wiki](https://github.com/bounswe/bounswe2022group6/wiki/Artun-Akdo%C4%9Fan) for details and for any missing information.
+
 
 
 * [İhsan Mert Atalay](https://github.com/bounswe/bounswe2022group6/wiki/%C4%B0hsan-Mert-Atalay)
