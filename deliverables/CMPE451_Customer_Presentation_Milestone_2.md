@@ -57,7 +57,16 @@ With the features above, the project will be in a status where it satisfies ever
     |Implemented Comment View API|[#301](https://github.com/bounswe/bounswe2022group6/issues/301)|
     |Implemented Content Voting System|[#302](https://github.com/bounswe/bounswe2022group6/issues/302)|
     |Added documents for content manager to showcase endpoint API|[#310](https://github.com/bounswe/bounswe2022group6/pull/310)|
+    |Updating Running Manuals of Backend and Frontend|[#371](https://github.com/bounswe/bounswe2022group6/issues/371)|
     |Backend Bug Fix for Post|[#322](https://github.com/bounswe/bounswe2022group6/issues/322)|
+    |Reviewed PR: RegisteredUser Model Updated and Account Model Created|[PR: 269](https://github.com/bounswe/bounswe2022group6/pull/269)|
+    |Reviewed PR: Profile View/Edit Functionalities Implemented|[PR: 273](https://github.com/bounswe/bounswe2022group6/pull/273)|
+    |Reviewed PR: Content Models Added|[PR: 288](https://github.com/bounswe/bounswe2022group6/pull/288)|
+    |Reviewed PR: Label Structure Implemented|[PR: 297](https://github.com/bounswe/bounswe2022group6/pull/297)|
+    |Reviewed PR: Search Feature Implemented|[PR: 306](https://github.com/bounswe/bounswe2022group6/pull/306)|
+    |Reviewed PR: Added Label Addition to Post Creation View|[PR: 332](https://github.com/bounswe/bounswe2022group6/pull/332)|
+    |Reviewed PR: Post Model Class as_dict() Method Updated|[PR: 335](https://github.com/bounswe/bounswe2022group6/pull/335)|
+    |Reviewed PR: Get All Posts Endpoint Added|[PR: 336](https://github.com/bounswe/bounswe2022group6/pull/336)|
 
 * İhsan Mert Atalay
 
@@ -342,6 +351,72 @@ With the features above, the project will be in a status where it satisfies ever
 
    ![image](https://user-images.githubusercontent.com/56560206/206657357-6ec48cfe-45e5-41ab-b230-fb8cbcb8c7c0.png)
 
+* Mobile
+
+    For each UI design, hyperlinks are provided in bullet points:
+
+    * [Login Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/authentication/Login.js)
+
+    <img src = "https://user-images.githubusercontent.com/73420291/206706024-4fc14fc2-9dad-4994-b0b6-16deb3b36e6d.png" width=400 />
+
+    * [Signup Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/authentication/SignUpScreen.js)
+
+    <img src = "https://user-images.githubusercontent.com/73420291/206706063-9a4dc1f2-a2e0-42fc-bc06-9318381db395.png" width=400 />
+
+    * [Home Feed](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/home/HomeFeed.js) (Related Code: [HomeHeader.js](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/home/HomeHeader.js))
+
+    <img src = "https://user-images.githubusercontent.com/73420291/206711167-78e90d69-79e7-4b86-b61a-97da6f58b437.png" width=400 />
+    <img src = "https://user-images.githubusercontent.com/73420291/206706135-abe741c1-8e66-45d8-ab97-46e732ec0101.png" width=400 />
+
+    * [NSFW Button Click](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/post/PostPreview.js)
+
+    <img src = "https://user-images.githubusercontent.com/73420291/206706266-ac023c98-78a9-45d0-8d7e-61a25b574b4a.png" width=400 />
+
+    * [Post Details (with Comments)](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/post/PostDetails.js)
+
+    <img src = "https://user-images.githubusercontent.com/73420291/206707364-9add5ab9-662a-4a61-8bb8-90879cef9d4c.png" width=400 />
+
+    * [Search Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/search/SearchScreen.js) (Related code: [SearchScreenHeader.js](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/search/SearchScreenHeader.js), [SearchListHeader.js](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/search/SearchListHeader.js))
+
+    <img src = "https://user-images.githubusercontent.com/73420291/206707412-9fc7c3b6-6f2e-4d78-beca-b55697a59e19.png" width=400 />
+
+    * [Search Filters](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/search/FilterModal.js) (Related code: [FilterModal.js](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/search/FilterModal.js))
+
+    <img src = "https://user-images.githubusercontent.com/73420291/206707483-079db9e9-dc5f-40d8-9b43-7f54f628dd0b.png" width=400 />
+
+    * [Search Results](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/search/SearchScreen.js)(first two images: only label search, third image: only keyword search, fourth image: both keyword and label search)
+
+    1. Only label search
+
+    <img src = "https://user-images.githubusercontent.com/73420291/206707542-dca21402-8c5d-4f52-8830-cbbbe1f48c28.png" width=400 />
+
+    <img src = "https://user-images.githubusercontent.com/73420291/206707813-9c0f05fa-71d8-45e5-bd73-494816b9239f.png" width=400 />
+
+    2. Only keyword search
+
+    <img src = "https://user-images.githubusercontent.com/73420291/206707831-86244e15-2e07-4d07-b3ce-fbc5f7a04d42.png" width=400 />
+
+    3. Both keyword and label search
+
+    <img src = "https://user-images.githubusercontent.com/73420291/206707843-b42c9342-40fa-4a78-9a10-327b7d1cdc83.png" width=400 />
+
+    * [ChatBot Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/home/Chatbot.js)
+    <img src = "https://user-images.githubusercontent.com/73420291/206708378-e5dfd2cd-c7a9-44d5-81b9-f84bae6d62aa.png" width=400 />
+
+    * [Create New Post Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/post/CreatePost.js)
+    <img src = "https://user-images.githubusercontent.com/73420291/206708389-fa2886b7-fdb4-4536-8197-ffb8551de3b7.png" width=400 />
+
+    * [Drawer](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/home/HomeScreen.js)
+    <img src = "https://user-images.githubusercontent.com/73420291/206708402-774c25fa-83e2-4f48-a882-98665f0ed021.png" width=400 />
+
+    * [Messages Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/messages/MessagesScreen.js)
+    <img src = "https://user-images.githubusercontent.com/73420291/206708413-9d17af5c-d231-42d0-9f9d-ca0ce435f0bb.png" width=400 />
+
+    * [Profile Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/profile/ProfileScreen.js)
+    <img src = "https://user-images.githubusercontent.com/73420291/206708422-9cbeafe5-a4b6-4191-b829-b37d930d64e5.png" width=400 />
+
+    * [Profile Edit Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/profile/EditProfileScreen.js)
+    <img src = "https://user-images.githubusercontent.com/73420291/206708440-4b5ab735-9498-4f19-baa7-09f110d4099d.png" width=400 />
 
 
 
@@ -370,6 +445,81 @@ For the ontology, we have implemented the label structure in a way that the rela
 ## Individual reports
 
 * [Artun Akdoğan](https://github.com/bounswe/bounswe2022group6/wiki/Artun-Akdo%C4%9Fan)
+## **Member:** Artun Akdoğan, Group 6 - Backend
+
+### **Responsibilities:**
+
+As a member of Backend subteam, I was mainly responsible for developing required features on the backend that both Frontend and Mobile subteams can use. I wrote required code and made related changes on Backend and Database environments for this task. I also fixed lots of code on Backend and Frontend. Besides, I was responsible for containerization and deployment of the application.
+
+My main responsibility was developing appropriate Location manager and Content manager classes, and writing related code within it. For location manager, I have researched large amounts of existing API's, but I decided that it was best to keep world data in our database. So, I wrote relevant code and models to implement it. I wrote documentations and testcases for my work. I also implemented comment, post, and vote endpoints, for both GET and POST methods, on Content Manager app. I fixed related issues that raised afterwards, and wrote documentation for it.
+
+For annotation feature and better management of location data for Location Manager, I had to migrate our database from MySQL to PostgreSQL, and I created 3 different databases to store general data, annotation data, and location-based large data. For this mission, I have researched huge amounts of materials, and fixed already implemented code. Unfortunately, I required to remove reset-db feaute that mainly used for development purposes, as it wasn't compatible with PostgreSQL. Fortunately, I was able to connect our Django Backend with the new database successfully.
+
+
+### **Main contributions:**
+
+* Deployment of Backend and Frontend on Amazon AWS
+* Various bug fixes on backend and frontend
+* Reviewing pull requests
+* Implementing locmgr APIs for IP location retrieval and country/state/city list retrieval
+* Restructuring locmgr API's location data script by updating SQL file
+* Migrating the database from MySQL to PostgreSQL
+* Implementing Post View API
+* Implementing Comment View API
+* Implementing Content Voting System
+* Uploading the Group Meeting #5 Notes
+
+#### **Code related significant issues:**
+
+   1. Implementing locmgr APIs for IP location retrieval and country/state/city list retrieval - [#257](https://github.com/bounswe/bounswe2022group6/issues/257)
+   2. Restructuring locmgr API's location data script by updating SQL file - [#272](https://github.com/bounswe/bounswe2022group6/issues/272)
+   3. Migrating the database from MySQL to PostgreSQL - [#271](https://github.com/bounswe/bounswe2022group6/issues/261)
+   4. Implementing Post View API - [#299](https://github.com/bounswe/bounswe2022group6/issues/299)
+   5. Implementing Comment View API - [#301](https://github.com/bounswe/bounswe2022group6/issues/301)
+   6. Implementing Content Voting System - [#302](https://github.com/bounswe/bounswe2022group6/issues/302)
+
+#### **Management related significant issues:**
+
+   1. Uploading the Group Meeting #5 Notes - [#263](https://github.com/bounswe/bounswe2022group6/issues/263)
+   2. Updating Running Manuals of Backend and Frontend - [#371](https://github.com/bounswe/bounswe2022group6/issues/371)
+
+### **Pull requests:**
+
+Pull requests I created
+- [#260 - Backend/feature/locmgr](https://github.com/bounswe/bounswe2022group6/pull/260)
+- [#262 - Fix dockerization image dublication issue, add reset_db](https://github.com/bounswe/bounswe2022group6/pull/262)
+- [#274 - Backend/update/database migration](https://github.com/bounswe/bounswe2022group6/pull/274)
+- [#276 - Backend/feature/locmgr tests](https://github.com/bounswe/bounswe2022group6/pull/276)
+- [#283 - Fix react-icons bug](https://github.com/bounswe/bounswe2022group6/pull/283)
+- [#287 - Add contmgr app, refactor code](https://github.com/bounswe/bounswe2022group6/pull/287)
+- [#291 - Frontend/fix/reload bug](https://github.com/bounswe/bounswe2022group6/pull/291)
+- [#303 - Backend/feature/post view](https://github.com/bounswe/bounswe2022group6/pull/303)
+- [#304 - Backend/feature/comment view](https://github.com/bounswe/bounswe2022group6/pull/304)
+- [#305 - Backend/feature/content voting system](https://github.com/bounswe/bounswe2022group6/pull/305)
+- [#310 - Add documents for content manager](https://github.com/bounswe/bounswe2022group6/pull/310)
+- [#346 - Fix required items requested](https://github.com/bounswe/bounswe2022group6/pull/346)
+
+Pull requests I reviewed
+- [#269 - RegisteredUser Model Updated and Account Model Created](https://github.com/bounswe/bounswe2022group6/pull/269)
+- [#273 - Profile View/Edit Functionalities Implemented](https://github.com/bounswe/bounswe2022group6/pull/273)
+- [#288 - Content Models Added](https://github.com/bounswe/bounswe2022group6/pull/288)
+- [#297 - Label Structure Implemented](https://github.com/bounswe/bounswe2022group6/pull/297)
+- [#306 - Search Feature Implemented](https://github.com/bounswe/bounswe2022group6/pull/306)
+- [#332 - Added Label Addition to Post Creation View](https://github.com/bounswe/bounswe2022group6/pull/332)
+- [#335 - Post Model Class as_dict() Method Updated](https://github.com/bounswe/bounswe2022group6/pull/335)
+- [#336 - Get All Posts Endpoint Added](https://github.com/bounswe/bounswe2022group6/pull/336)
+
+### Unit Tests
+I have written test cases for User Registration feature, and Location Manager Application. I will write test cases for Content Manager application for Final Milestone (But for now, I have written only the documentation for it).
+
+Please find related information in issues:
+   1. Implementing User Registration - [#181](https://github.com/bounswe/bounswe2022group6/issues/181)
+   1. Writing testcases and documentation for locmgr - [#275](https://github.com/bounswe/bounswe2022group6/issues/275)
+   1. Adding documents for content manager to showcase endpoint API - [#310](https://github.com/bounswe/bounswe2022group6/pull/310)
+
+### Additional Information
+Please view my [Home Wiki](https://github.com/bounswe/bounswe2022group6/wiki/Artun-Akdo%C4%9Fan) for details and for any missing information.
+
 
 
 * [İhsan Mert Atalay](https://github.com/bounswe/bounswe2022group6/wiki/%C4%B0hsan-Mert-Atalay)
@@ -557,6 +707,30 @@ Apart from the above main responsibilities, fixed some minor bugs from previous 
 
 
 * [Yasir Dikbaş](https://github.com/bounswe/bounswe2022group6/wiki/Yasir-Dikba%C5%9F)
+* ## **Member:** Yasir Dikbaş, Group 6 - Mobile.
+
+### **Responsibilities:**
+
+As a member of the mobile team, I was mainly responsible for testing the mobile app to meet the goals that we have set until Milestone 2.
+
+In the group meetings we shared total workload between the group members to complete everything as expected until the deadline of milestone 2. I personally attended some of those meetings in person and some of them via my phone. I took part in editing project plan for our team and setting deadlines accordin to our groups needs and
+availability of the group members.
+
+## **Main contributions:**
+
+- Checking the logo and improving it for the final milestone professionally.
+- Implementing Edit Profile functionality.
+- Running the mobile app and checking for both code related and unrelated errors if any.
+- Researching react native libraries.
+- Testing the mobile app on emulator.
+
+### **Code related significant issues:**
+-I checked the codebase and tested the app to detect any errors present to let developers know and fix.
+### **Management related significant issues:**
+
+### **Pull requests:**
+
+
 
 
 * [Aral Dörtoğul](https://github.com/bounswe/bounswe2022group6/wiki/Aral-Dörtoğul)
@@ -705,6 +879,66 @@ Pull requests reviewed by me:
 
 
 * [Ramazan Bedirhan Pamukçuoğlu](https://github.com/bounswe/bounswe2022group6/wiki/Bedirhan-Pamukcuoglu)
+## **Member:** Bedirhan PAMUKCUOGLU, Group 6 - Mobile
+
+### **Responsibilities:**
+
+I've worked at mobile team to develop some new features and fixing some problems from the previous milestone. I've implemented create post page, post preview page, viewing comments on posts, upload photo feature. I've also prepared progress according to requirements part of the report. Addition to those, me and Hakan worked on creating a S3 server to upload and store image files. Lastly I've worked with teammates to create demo scenario and presented demo. 
+
+### **Main contributions:**
+
+In addition to preparing progress according to requirements, preparing for presentation and presenting I've also done some code related work. Which are listed below. 
+
+#### **Code related significant issues:**
+
+- Created Issues:
+   1. [#356](https://github.com/bounswe/bounswe2022group6/issues/356)
+   2. [#353](https://github.com/bounswe/bounswe2022group6/issues/353)
+   3. [#351](https://github.com/bounswe/bounswe2022group6/issues/351)
+   4. [#308](https://github.com/bounswe/bounswe2022group6/issues/308)
+   5. [#307](https://github.com/bounswe/bounswe2022group6/issues/307)
+   6. [#277](https://github.com/bounswe/bounswe2022group6/issues/277)
+
+- Contributes Issues:
+   - [#324](https://github.com/bounswe/bounswe2022group6/issues/324)
+   - Rest of the code related contributed issues are related to the pull requests that I reviewed. 
+
+#### **Management related significant issues:**
+
+- Created Issues:
+
+
+- Contributes Issues:
+    1. [#312](https://github.com/bounswe/bounswe2022group6/issues/312)
+    2. [#320](https://github.com/bounswe/bounswe2022group6/issues/320)
+
+### **Pull requests:**
+
+Pull requests I created
+
+- [#360](https://github.com/bounswe/bounswe2022group6/pull/360)
+- [#358](https://github.com/bounswe/bounswe2022group6/pull/358)
+- [#357](https://github.com/bounswe/bounswe2022group6/pull/357)
+- [#355](https://github.com/bounswe/bounswe2022group6/pull/355)
+- [#348](https://github.com/bounswe/bounswe2022group6/pull/348)
+- [#347](https://github.com/bounswe/bounswe2022group6/pull/347)
+- [#319](https://github.com/bounswe/bounswe2022group6/pull/319)
+
+Pull requests I reviewed
+
+- [#361](https://github.com/bounswe/bounswe2022group6/pull/361)
+- [#354](https://github.com/bounswe/bounswe2022group6/pull/354)
+- [#341](https://github.com/bounswe/bounswe2022group6/pull/341)
+- [#328](https://github.com/bounswe/bounswe2022group6/pull/328)
+- [#270](https://github.com/bounswe/bounswe2022group6/pull/270)
+
+### Unit Tests
+
+I didn't work on unit test, planning to create tests before final milestone.
+
+### Additional Information
+
+I've also helped mobile team mates in some problems that they faced.
 
 
 * [Berfin Şimşek](https://github.com/bounswe/bounswe2022group6/wiki/Berfin-%C5%9Eim%C5%9Fek)
