@@ -524,8 +524,6 @@ Please view my [Home Wiki](https://github.com/bounswe/bounswe2022group6/wiki/Art
 
 * [İhsan Mert Atalay](https://github.com/bounswe/bounswe2022group6/wiki/%C4%B0hsan-Mert-Atalay)
 
-* [Alp Eren İnceoğlu](https://github.com/bounswe/bounswe2022group6/wiki/Alp-Eren-%C4%B0nceo%C4%9Flu)
-## **Member:** İhsan Mert Atalay, Group 6 - Frontend
 
 ### **Responsibilities:**
 
@@ -632,7 +630,8 @@ I think I have contributed to management part excessively, so it would be great 
 
 
 
-
+* [Alp Eren İnceoğlu](https://github.com/bounswe/bounswe2022group6/wiki/Alp-Eren-%C4%B0nceo%C4%9Flu)
+## **Member:** İhsan Mert Atalay, Group 6 - Frontend
 
 ## **Member:** Alp Eren İnceoğlu, Group 6 - Mobile
 
