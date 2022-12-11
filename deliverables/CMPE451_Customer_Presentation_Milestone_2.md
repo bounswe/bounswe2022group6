@@ -626,8 +626,6 @@ I have spent like 6 to 8 hours just to create simple unit tests but non of the l
 
 I think I have contributed to management part excessively, so it would be great to consider this aspect while reviewing individual efforts as well.
 
-* [Ali Kaan Biber](https://github.com/bounswe/bounswe2022group6/wiki/Ali-Kaan-Biber)
-
 
 
 * [Alp Eren İnceoğlu](https://github.com/bounswe/bounswe2022group6/wiki/Alp-Eren-%C4%B0nceo%C4%9Flu)
@@ -666,7 +664,7 @@ Pull requests I created
 ### **Further Informations:**
 While I might look like I haven't done enough work, my actual working hours were quite long, albeit not ver fruitful. However, those long hours will be great help before the final milestone.
 
-
+* [Ali Kaan Biber](https://github.com/bounswe/bounswe2022group6/wiki/Ali-Kaan-Biber)
 
 ## **Member:** Ali Kaan Biber, Group 6 - Frontend.
 
