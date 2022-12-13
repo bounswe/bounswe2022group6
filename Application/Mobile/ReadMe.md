@@ -308,6 +308,10 @@ Click "Next" then "Finish" to create your AVD. At this point you should be able 
 
 ## Running MediShare App
 
+### Put the .env file inside this folder
+
+MediShare cannot be built without the .env file, which should be inside `bounswe2022group6/Application/Mobile`. .env stores important environment variables.
+
 ### Start Metro
 
 First, you will need to start Metro, the JavaScript bundler that ships with React Native. Metro "takes in an entry file and various options, and returns a single JavaScript file that includes all your code and its dependencies."—[Metro Docs](https://facebook.github.io/metro/docs/concepts)
@@ -331,6 +335,14 @@ npx react-native run-android
 ```
 
 If everything is set up correctly, you should see your new app running in your Android emulator shortly.
+
+*Note: If you encounter an error due to the .env file after changing the contents of .env, please go to the previous step ([Start Metro](https://github.com/bounswe/bounswe2022group6/tree/master/Application/Mobile#start-metro)) and type*
+
+``` bash
+npx react-native start --reset-cache
+```
+
+*instead.*
 
 `npx react-native run-android` is one way to run your app - you can also run it directly from within Android Studio.
 
