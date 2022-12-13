@@ -356,24 +356,24 @@ With the features above, the project will be in a status where it satisfies ever
     For each UI design, hyperlinks are provided in bullet points:
 
     * [Login Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/authentication/Login.js)
-
+    
     <img src = "https://user-images.githubusercontent.com/73420291/206706024-4fc14fc2-9dad-4994-b0b6-16deb3b36e6d.png" width=400 />
 
     * [Signup Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/authentication/SignUpScreen.js)
-
+    
     <img src = "https://user-images.githubusercontent.com/73420291/206706063-9a4dc1f2-a2e0-42fc-bc06-9318381db395.png" width=400 />
-
+    
     * [Home Feed](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/home/HomeFeed.js) (Related Code: [HomeHeader.js](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/home/HomeHeader.js))
 
     <img src = "https://user-images.githubusercontent.com/73420291/206711167-78e90d69-79e7-4b86-b61a-97da6f58b437.png" width=400 />
     <img src = "https://user-images.githubusercontent.com/73420291/206706135-abe741c1-8e66-45d8-ab97-46e732ec0101.png" width=400 />
-
+    
     * [NSFW Button Click](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/post/PostPreview.js)
 
     <img src = "https://user-images.githubusercontent.com/73420291/206706266-ac023c98-78a9-45d0-8d7e-61a25b574b4a.png" width=400 />
-
+    
     * [Post Details (with Comments)](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/post/PostDetails.js)
-
+    
     <img src = "https://user-images.githubusercontent.com/73420291/206707364-9add5ab9-662a-4a61-8bb8-90879cef9d4c.png" width=400 />
 
     * [Search Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/search/SearchScreen.js) (Related code: [SearchScreenHeader.js](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/search/SearchScreenHeader.js), [SearchListHeader.js](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/search/SearchListHeader.js))
@@ -381,23 +381,23 @@ With the features above, the project will be in a status where it satisfies ever
     <img src = "https://user-images.githubusercontent.com/73420291/206707412-9fc7c3b6-6f2e-4d78-beca-b55697a59e19.png" width=400 />
 
     * [Search Filters](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/search/FilterModal.js) (Related code: [FilterModal.js](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/search/FilterModal.js))
-
+    
     <img src = "https://user-images.githubusercontent.com/73420291/206707483-079db9e9-dc5f-40d8-9b43-7f54f628dd0b.png" width=400 />
 
     * [Search Results](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/search/SearchScreen.js)(first two images: only label search, third image: only keyword search, fourth image: both keyword and label search)
-
+    
     1. Only label search
-
+    
     <img src = "https://user-images.githubusercontent.com/73420291/206707542-dca21402-8c5d-4f52-8830-cbbbe1f48c28.png" width=400 />
-
+    
     <img src = "https://user-images.githubusercontent.com/73420291/206707813-9c0f05fa-71d8-45e5-bd73-494816b9239f.png" width=400 />
-
+    
     2. Only keyword search
-
+    
     <img src = "https://user-images.githubusercontent.com/73420291/206707831-86244e15-2e07-4d07-b3ce-fbc5f7a04d42.png" width=400 />
-
+    
     3. Both keyword and label search
-
+    
     <img src = "https://user-images.githubusercontent.com/73420291/206707843-b42c9342-40fa-4a78-9a10-327b7d1cdc83.png" width=400 />
 
     * [ChatBot Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/home/Chatbot.js)
@@ -418,10 +418,6 @@ With the features above, the project will be in a status where it satisfies ever
     * [Profile Edit Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/profile/EditProfileScreen.js)
     <img src = "https://user-images.githubusercontent.com/73420291/206708440-4b5ab735-9498-4f19-baa7-09f110d4099d.png" width=400 />
 
-
-
-
-* Mobile
 
 
 ### Annotations
@@ -524,6 +520,7 @@ Please view my [Home Wiki](https://github.com/bounswe/bounswe2022group6/wiki/Art
 
 * [İhsan Mert Atalay](https://github.com/bounswe/bounswe2022group6/wiki/%C4%B0hsan-Mert-Atalay)
 
+## **Member:** İhsan Mert Atalay, Group 6 - Frontend
 
 ### **Responsibilities:**
 
@@ -626,44 +623,6 @@ I have spent like 6 to 8 hours just to create simple unit tests but non of the l
 
 I think I have contributed to management part excessively, so it would be great to consider this aspect while reviewing individual efforts as well.
 
-
-
-* [Alp Eren İnceoğlu](https://github.com/bounswe/bounswe2022group6/wiki/Alp-Eren-%C4%B0nceo%C4%9Flu)
-## **Member:** İhsan Mert Atalay, Group 6 - Frontend
-
-## **Member:** Alp Eren İnceoğlu, Group 6 - Mobile
-
-### **Responsibilities:**
-
-I took part in the research and additional features parts of the mobile. I have searched different approaches and contributed to the comment section, which is one of the main focuses of our app.
-
-### **Main contributions:**
-
-- Contributing to the comment section
-- Researching threaded comments
-- Creating post preview with scaling images for posts
-- Learning normal React in order to translate helpful parts from other React projects if necessary
-
-#### **Code related significant issues:**
-
-- Created Issues:
-   1. [#373- Researching similar projects ](https://github.com/bounswe/bounswe2022group6/issues/373)
-   2. [#374 - Researching similar projects  ](https://github.com/bounswe/bounswe2022group6/issues/374)
-   3. [#375 - Create post preview](https://github.com/bounswe/bounswe2022group6/issues/375)
-
-### **Pull requests:**
-
-Pull requests I created
-
-- Due to different complications, I couldn't create a pull request. However, the changes I have made are stored locally and will be pushed after certain complications have been resolved.
-
-### **Unit Tests:**
-
-- Wrote unit tests about threaded comments, which gave error which were one of the main reasons this pull request couldn't be made in time.
-
-### **Further Informations:**
-While I might look like I haven't done enough work, my actual working hours were quite long, albeit not ver fruitful. However, those long hours will be great help before the final milestone.
-
 * [Ali Kaan Biber](https://github.com/bounswe/bounswe2022group6/wiki/Ali-Kaan-Biber)
 
 ## **Member:** Ali Kaan Biber, Group 6 - Frontend.
@@ -729,7 +688,6 @@ availability of the group members.
 
 
 
-
 * [Aral Dörtoğul](https://github.com/bounswe/bounswe2022group6/wiki/Aral-Dörtoğul)
 
 ## **Member:** Aral Dörtoğul, Group 6 - Mobile.
@@ -787,6 +745,39 @@ Pull requests reviewed by me:
 - [#360](https://github.com/bounswe/bounswe2022group6/pull/360): post details comments added
 
 * [Alp Eren İnceoğlu](https://github.com/bounswe/bounswe2022group6/wiki/Alp-Eren-%C4%B0nceo%C4%9Flu)
+
+## **Member:** Alp Eren İnceoğlu, Group 6 - Mobile
+
+### **Responsibilities:**
+
+I took part in the research and additional features parts of the mobile. I have searched different approaches and contributed to the comment section, which is one of the main focuses of our app.
+
+### **Main contributions:**
+
+- Contributing to the comment section
+- Researching threaded comments
+- Creating post preview with scaling images for posts
+- Learning normal React in order to translate helpful parts from other React projects if necessary
+
+#### **Code related significant issues:**
+
+- Created Issues:
+   1. [#373- Researching similar projects ](https://github.com/bounswe/bounswe2022group6/issues/373)
+   2. [#374 - Researching similar projects  ](https://github.com/bounswe/bounswe2022group6/issues/374)
+   3. [#375 - Create post preview](https://github.com/bounswe/bounswe2022group6/issues/375)
+
+### **Pull requests:**
+
+Pull requests I created
+
+- Due to different complications, I couldn't create a pull request. However, the changes I have made are stored locally and will be pushed after certain complications have been resolved.
+
+### **Unit Tests:**
+
+- Wrote unit tests about threaded comments, which gave error which were one of the main reasons this pull request couldn't be made in time.
+
+### **Further Informations:**
+While I might look like I haven't done enough work, my actual working hours were quite long, albeit not ver fruitful. However, those long hours will be great help before the final milestone.
 
 ## **Member:** [Yusuf Erdem Nacar](https://github.com/bounswe/bounswe2022group6/wiki/Yusuf-Erdem-Nacar), Group 6 - Backend.
 
@@ -895,7 +886,7 @@ In addition to preparing progress according to requirements, preparing for prese
    4. [#308](https://github.com/bounswe/bounswe2022group6/issues/308)
    5. [#307](https://github.com/bounswe/bounswe2022group6/issues/307)
    6. [#277](https://github.com/bounswe/bounswe2022group6/issues/277)
-
+ 
 - Contributes Issues:
    - [#324](https://github.com/bounswe/bounswe2022group6/issues/324)
    - Rest of the code related contributed issues are related to the pull requests that I reviewed. 
@@ -904,7 +895,7 @@ In addition to preparing progress according to requirements, preparing for prese
 
 - Created Issues:
 
-
+ 
 - Contributes Issues:
     1. [#312](https://github.com/bounswe/bounswe2022group6/issues/312)
     2. [#320](https://github.com/bounswe/bounswe2022group6/issues/320)
@@ -936,6 +927,7 @@ I didn't work on unit test, planning to create tests before final milestone.
 ### Additional Information
 
 I've also helped mobile team mates in some problems that they faced.
+
 
 
 * [Berfin Şimşek](https://github.com/bounswe/bounswe2022group6/wiki/Berfin-%C5%9Eim%C5%9Fek)
@@ -980,7 +972,3 @@ I also updated the project plan with Aral according to work done by each member.
 
 
 * [Beyza İrem Urhan](https://github.com/bounswe/bounswe2022group6/wiki/Beyza-%C4%B0rem-Urhan)
- 
-
-
-
