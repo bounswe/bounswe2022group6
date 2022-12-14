@@ -312,6 +312,20 @@ Click "Next" then "Finish" to create your AVD. At this point you should be able 
 
 MediShare cannot be built without the .env file, which should be inside `bounswe2022group6/Application/Mobile`. .env stores important environment variables.
 
+### Install Required Node Packages
+
+All the packages used in MediShare's mobile app are written in `package.json`. In order to install these packages, open a terminal at this folder and type:
+
+``` bash
+npm install
+```
+
+This command will install all the requirements one by one. This should work, but if you encounter an error message saying that the packages have conflicting dependencies, install the packages by running:
+
+``` bash
+npm install --force
+```
+
 ### Start Metro
 
 First, you will need to start Metro, the JavaScript bundler that ships with React Native. Metro "takes in an entry file and various options, and returns a single JavaScript file that includes all your code and its dependencies."—[Metro Docs](https://facebook.github.io/metro/docs/concepts)
