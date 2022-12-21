@@ -2,6 +2,69 @@ from django.test import TestCase, Client
 from .models import *
 import json
 
+# This function helps to login and acquire token of specific user
+def login_helper(client, user, passwd):
+    response_login = client.post('/login/', { "useridentifier": user, "password": passwd})
+    response_login_content = json.loads(response_login.content)
+    return response_login_content["token"]
+
+# This function is here to set up some test classes.
+# This function registers some users, and returns tokens of them.
+def registerUsers(client):
+    client.post('/register/', { "username": "markine", "email": "markine@facadeledger.com",
+            "password": "passpass", "gender":"f", "birth_day":"06", "birth_month":"10", "birth_year":"1970"})
+    client.post('/register/', { "username": "john", "email": "john@facadeledger.com",
+            "password": "passpass", "gender":"m", "birth_day":"06", "birth_month":"10", "birth_year":"1970"})
+    client.post('/register/', { "username": "nancy", "email": "nancy@facadeledger.com",
+            "password": "passpass", "gender":"o", "birth_day":"06", "birth_month":"10", "birth_year":"1970"})
+    return [login_helper(client, _user, "passpass") for _user in ["markine", "john", "nancy"]]
+
+class CommentsTest(TestCase):
+
+    def setUp(self):
+        self.client = Client()
+        self.tokens = registerUsers(self.client)
+        Comment.objects.create()
+    
+class PostsTest(TestCase):
+
+    def setUp(self):
+        self.client = Client()
+        self.tokens = registerUsers(self.client)
+
+    def test_posts(self):
+        # Create post
+        response = self.client.post('/contmgr/post/', { "title": "Headache", "type": "q",
+                "description": "Constant headache while sleeping"}, HTTP_AUTHORIZATION=f"Token {self.tokens[0]}")
+        content_post = json.loads(response.content)
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(content_post["info"], "post creation successful")
+
+        # Other users should not be able to update this post
+        response = self.client.put(f'/contmgr/post?id={content_post["postID"]}', json.dumps({"description": "I should remove this section!"}),
+                content_type='application/json', HTTP_AUTHORIZATION=f"Token {self.tokens[1]}")
+        content = json.loads(response.content)
+        self.assertEqual(response.status_code, 403)
+        self.assertEqual(content, {"info": "post update failed", "error": "not post owner"})
+
+        # Update post
+        response = self.client.put(f'/contmgr/post?id={content_post["postID"]}', json.dumps({"mentioned_users": ["nancy", "john"]}),
+                content_type='application/json', HTTP_AUTHORIZATION=f"Token {self.tokens[0]}")
+        content = json.loads(response.content)
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(content["info"], "post update successful")
+
+        # Test GET method and check if resulting data is valid
+        response = self.client.get(f'/contmgr/post?id={content_post["postID"]}')
+        content = json.loads(response.content)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(content["description"], 'Constant headache while sleeping')
+        self.assertEqual(content["owner"], 'markine')
+        self.assertEqual(content["result_vote"], 0)
+        self.assertCountEqual(content["mentioned_users"], ["nancy", "john"])
+        self.assertEqual(content["title"], 'Headache')
+        self.assertEqual(content["type"], 'q')
+
 class LabelsTest(TestCase):
 
     def setUp(self):
