@@ -24,7 +24,7 @@ def insertComments(target_data, rcomments):
             "upvoted_users":list(comment.upvoted_users.all().values_list('username', flat=True)),
             "downvoted_users":list(comment.downvoted_users.all().values_list('username', flat=True)),
             "created_at":comment.created_at,
-            "last_updated_at":comment.last_updated_at,
+            "last_update_at":comment.last_update_at,
             "mentioned_users": list(comment.mentioned_users.all().values_list('username', flat=True)),
             "comments": []
         })
@@ -181,20 +181,14 @@ class CommentView(APIView):
         if comment.owner != user:
             return JsonResponse({"info":f"comment update failed", "error": "not comment owner"}, status=403)
 
-        # Check if all fields are present
-        try:
-            _description = req.POST["description"]
-        except:
-            return JsonResponse({"info":"post update failed", "error": "{'form_data': ['Missing form data.']}"}, status=400)
-
+        _description = req.POST.get("description", None)
         _mentioned_users = req.POST.getlist("mentioned_users", None)
 
         # Parse all fields
-        _description = _description.strip()
         _mentioned_users = list(map(str.strip, _mentioned_users))
-
-        comment.description = _description
-        comment.last_updated_at = timezone.now()
+        comment.description = _description.strip() if _description is not None else comment.description
+        comment.last_update_at = timezone.now()
+        
         try:
             mentioned_users = [RegisteredUser.objects.get(username=_user) for _user in _mentioned_users]
             comment.mentioned_users.set(mentioned_users, clear=True)
@@ -226,14 +220,23 @@ class CommentView(APIView):
 
         _parent_post = Post.objects.get(postID=_parent_post_id) if _parent_post_id is not None else None
         _parent_comment = Comment.objects.get(commentID=_parent_comment_id) if _parent_comment_id is not None else None
-        new_coment = Comment(description=_description, owner=user, parent_post=_parent_post, parent_comment=_parent_comment)
+        new_comment = Comment(description=_description, owner=user, parent_post=_parent_post, parent_comment=_parent_comment)
+
+        try:
+            new_comment.save()
+        except Exception as e:
+            return JsonResponse({"info":"comment creation failed", "error": str(e)}, status=500)
         try:
             mentioned_users = [RegisteredUser.objects.get(username=_user) for _user in _mentioned_users]
-            new_coment.mentioned_users.set(mentioned_users, clear=True)
-            new_coment.save()
-            return JsonResponse({"info": "comment creation successful", "commentID": new_coment.commentID}, status=201)
+        except:
+            return JsonResponse({"info":"comment creation failed", "error": f"mentioned_users does not exists on database"}, status=400)
+
+        try:
+            new_comment.mentioned_users.set(mentioned_users, clear=True)
+            new_comment.save()
+            return JsonResponse({"info": "comment creation successful", "commentID": new_comment.commentID}, status=201)
         except Exception as e:
-            return JsonResponse({"info":"comment creation failed", "error": str(e)}, status=400)
+            return JsonResponse({"info":"users_mentioned initialization failed!", "error": str(e)}, status=500)
 
 
 class PostView(APIView):
@@ -257,7 +260,7 @@ class PostView(APIView):
             "upvoted_users":list(tpost.upvoted_users.all().values_list('username', flat=True)),
             "downvoted_users":list(tpost.downvoted_users.all().values_list('username', flat=True)),
             "created_at":tpost.created_at,
-            "last_updated_at":tpost.last_updated_at,
+            "last_update_at":tpost.last_update_at,
             "mentioned_users": list(tpost.mentioned_users.all().values_list('username', flat=True)),
             "title":tpost.title,
             "type":tpost.type,
@@ -283,14 +286,9 @@ class PostView(APIView):
         if tpost.owner != user:
             return JsonResponse({"info":f"post update failed", "error": "not post owner"}, status=403)
 
-        # Check if all fields are present
-        try:
-            _title = req.POST["title"]
-            _type = req.POST["type"]
-            _description = req.POST["description"]
-        except:
-            return JsonResponse({"info":"post update failed", "error": "{'form_data': ['Missing form data.']}"}, status=400)
-
+        _title = req.POST.get("title", None)
+        _type = req.POST.get("type", None)
+        _description = req.POST.get("description", None)
         _location = req.POST.get("location", None)
         _imageURL = req.POST.get("imageURL", None)
         _is_marked_nsfw = req.POST.get("is_marked_nsfw", None)
@@ -298,22 +296,16 @@ class PostView(APIView):
         _mentioned_users = req.POST.getlist("mentioned_users", None)
 
         # Parse all fields
-        _title = _title.title().strip()
-        _type = _type.strip().lower()
-        _description = _description.strip()
-        _location = _location.strip().lower() if _location is not None else None
-        _imageURL = _imageURL.strip() if _imageURL is not None else None
-        _is_marked_nsfw = _is_marked_nsfw.strip().lower()=="true" if _is_marked_nsfw is not None else False
         _labels = list(map(str.strip, _labels))
         _mentioned_users = list(map(str.strip, _mentioned_users))
+        tpost.description = _description.strip() if _description is not None else tpost.description
+        tpost.last_update_at = timezone.now()
+        tpost.title = _title.title().strip() if _title is not None else tpost.title
+        tpost.type = _type.strip().lower() if _type is not None else tpost.type
+        tpost.location = _location.strip().lower() if _location is not None else tpost.location
+        tpost.imageURL = _imageURL.strip() if _imageURL is not None else tpost.imageURL
+        tpost.is_marked_nsfw = _is_marked_nsfw.strip().lower()=="true" if _is_marked_nsfw is not None else tpost.is_marked_nsfw
 
-        tpost.description = _description
-        tpost.last_updated_at = timezone.now()
-        tpost.title = _title
-        tpost.type = _type
-        tpost.location = _location
-        tpost.imageURL = _imageURL
-        tpost.is_marked_nsfw = _is_marked_nsfw
         try:
             labels = [Label.objects.get(labelID=_label) for _label in _labels]
             mentioned_users = [RegisteredUser.objects.get(username=_user) for _user in _mentioned_users]
@@ -352,18 +344,26 @@ class PostView(APIView):
         _labels = list(map(str.strip, _labels))
         _mentioned_users = list(map(str.strip, _mentioned_users))
 
-        new_post = Post(title=_title, type=_type, location=_location, imageURL = _imageURL,
-                        is_marked_nsfw=_is_marked_nsfw, owner=user, description=_description)
-        
         try:
             labels = [Label.objects.get(labelID=_label) for _label in _labels]
             mentioned_users = [RegisteredUser.objects.get(username=_user) for _user in _mentioned_users]
+        except:
+            return JsonResponse({"info":"post creation failed", "error": f"labels or mentioned_users does not exists on database"}, status=400)
+
+        new_post = Post(title=_title, type=_type, location=_location, imageURL = _imageURL,
+                        is_marked_nsfw=_is_marked_nsfw, owner=user, description=_description)
+        try:
+            new_post.save()
+        except Exception as e:
+            return JsonResponse({"info":"post creation failed", "error": str(e)}, status=500)
+        
+        try:
             new_post.mentioned_users.set(mentioned_users, clear=True)
             new_post.labels.set(labels, clear=True)
             new_post.save()
             return JsonResponse({"info": "post creation successful", "postID": new_post.postID}, status=201)
         except Exception as e:
-            return JsonResponse({"info":"post creation failed", "error": str(e)}, status=400)
+            return JsonResponse({"info":"label or users_mentioned initialization failed!", "error": str(e)}, status=500)
 
 class AllPostsView(APIView):
 
