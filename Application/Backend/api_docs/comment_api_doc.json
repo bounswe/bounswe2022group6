@@ -11,7 +11,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8000/contmgr/comment?id=1",
+					"raw": "localhost:8000/contmgr/comment?id=3",
 					"host": [
 						"localhost"
 					],
@@ -23,7 +23,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "1"
+							"value": "3"
 						}
 					]
 				}
@@ -35,7 +35,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8000/contmgr/comment?id=1",
+							"raw": "localhost:8000/contmgr/comment?id=3",
 							"host": [
 								"localhost"
 							],
@@ -47,7 +47,7 @@
 							"query": [
 								{
 									"key": "id",
-									"value": "1"
+									"value": "3"
 								}
 							]
 						}
@@ -58,11 +58,108 @@
 					"header": [
 						{
 							"key": "Date",
-							"value": "Sun, 04 Dec 2022 08:30:24 GMT"
+							"value": "Wed, 21 Dec 2022 17:58:59 GMT"
 						},
 						{
 							"key": "Server",
-							"value": "WSGIServer/0.2 CPython/3.10.8"
+							"value": "WSGIServer/0.2 CPython/3.10.9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "270"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"commentID\": 3,\n    \"owner\": \"mark\",\n    \"description\": \"Sorry for your headache\",\n    \"result_vote\": 0,\n    \"upvoted_users\": [],\n    \"downvoted_users\": [],\n    \"created_at\": \"2022-12-21T17:58:20.133Z\",\n    \"last_update_at\": \"2022-12-21T17:58:20.133Z\",\n    \"mentioned_users\": [\n        \"mark\"\n    ],\n    \"comments\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Non-Existing Comment",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/contmgr/comment?id=10",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"contmgr",
+						"comment"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Non-Existing Comment",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/contmgr/comment?id=10",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"contmgr",
+								"comment"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 21 Dec 2022 16:26:47 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.9"
 						},
 						{
 							"key": "Content-Type",
@@ -82,7 +179,7 @@
 						},
 						{
 							"key": "Content-Length",
-							"value": "317"
+							"value": "80"
 						},
 						{
 							"key": "X-Content-Type-Options",
@@ -98,7 +195,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"owner\": \"mark\",\n    \"description\": \"Sorry for your headache\",\n    \"vote_count\": 0,\n    \"created_at\": \"2022-12-04T08:12:41.075Z\",\n    \"mentioned_users\": [],\n    \"comments\": [\n        {\n            \"owner\": \"mark\",\n            \"description\": \"Thank you for your comment\",\n            \"vote_count\": 0,\n            \"created_at\": \"2022-12-04T08:12:41.075Z\",\n            \"mentioned_users\": [],\n            \"comments\": []\n        }\n    ]\n}"
+					"body": "{\n    \"info\": \"comment get failed\",\n    \"error\": \"Comment does not exists with given id\"\n}"
 				}
 			]
 		},
@@ -109,7 +206,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 12bdfed4cbd82a34e74633ba392f5eb91689068a",
+						"value": "Token 1c1ccd931b702d2115249c73f14ba3aa8da027a5",
 						"type": "default"
 					}
 				],
@@ -123,7 +220,12 @@
 						},
 						{
 							"key": "parent_post_id",
-							"value": "3",
+							"value": "2",
+							"type": "default"
+						},
+						{
+							"key": "mentioned_users",
+							"value": "mark",
 							"type": "default"
 						}
 					]
@@ -148,7 +250,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token e19d5289b309e461c9b12dbf10d5ff8053c72c45",
+								"value": "Token 1c1ccd931b702d2115249c73f14ba3aa8da027a5",
 								"type": "default"
 							}
 						],
@@ -163,6 +265,11 @@
 								{
 									"key": "parent_post_id",
 									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "mentioned_users",
+									"value": "mark",
 									"type": "default"
 								}
 							]
@@ -185,11 +292,11 @@
 					"header": [
 						{
 							"key": "Date",
-							"value": "Sun, 04 Dec 2022 08:26:34 GMT"
+							"value": "Wed, 21 Dec 2022 17:58:20 GMT"
 						},
 						{
 							"key": "Server",
-							"value": "WSGIServer/0.2 CPython/3.10.8"
+							"value": "WSGIServer/0.2 CPython/3.10.9"
 						},
 						{
 							"key": "Content-Type",
@@ -201,7 +308,7 @@
 						},
 						{
 							"key": "Allow",
-							"value": "GET, POST, HEAD, OPTIONS"
+							"value": "GET, POST, PUT, HEAD, OPTIONS"
 						},
 						{
 							"key": "X-Frame-Options",
@@ -225,7 +332,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"info\": \"comment creation successful\",\n    \"commentID\": 1\n}"
+					"body": "{\n    \"info\": \"comment creation successful\",\n    \"commentID\": 3\n}"
 				}
 			]
 		},
@@ -236,7 +343,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 12bdfed4cbd82a34e74633ba392f5eb91689068a",
+						"value": "Token 1c1ccd931b702d2115249c73f14ba3aa8da027a5",
 						"type": "default"
 					}
 				],
@@ -251,6 +358,11 @@
 						{
 							"key": "parent_comment_id",
 							"value": "1",
+							"type": "default"
+						},
+						{
+							"key": "mentioned_users",
+							"value": "nancy",
 							"type": "default"
 						}
 					]
@@ -275,7 +387,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token e19d5289b309e461c9b12dbf10d5ff8053c72c45",
+								"value": "Token 1c1ccd931b702d2115249c73f14ba3aa8da027a5",
 								"type": "default"
 							}
 						],
@@ -290,6 +402,11 @@
 								{
 									"key": "parent_comment_id",
 									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "mentioned_users",
+									"value": "nancy",
 									"type": "default"
 								}
 							]
@@ -312,11 +429,11 @@
 					"header": [
 						{
 							"key": "Date",
-							"value": "Sun, 04 Dec 2022 08:28:22 GMT"
+							"value": "Wed, 21 Dec 2022 17:56:58 GMT"
 						},
 						{
 							"key": "Server",
-							"value": "WSGIServer/0.2 CPython/3.10.8"
+							"value": "WSGIServer/0.2 CPython/3.10.9"
 						},
 						{
 							"key": "Content-Type",
@@ -328,7 +445,7 @@
 						},
 						{
 							"key": "Allow",
-							"value": "GET, POST, HEAD, OPTIONS"
+							"value": "GET, POST, PUT, HEAD, OPTIONS"
 						},
 						{
 							"key": "X-Frame-Options",
@@ -352,7 +469,275 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"info\": \"comment creation successful\",\n    \"commentID\": 2\n}"
+					"body": "{\n    \"info\": \"comment creation successful\",\n    \"commentID\": 4\n}"
+				}
+			]
+		},
+		{
+			"name": "Edit Comment",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 1c1ccd931b702d2115249c73f14ba3aa8da027a5",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "description",
+							"value": "Thank You!!!!",
+							"type": "default"
+						},
+						{
+							"key": "_mentioned_users",
+							"value": "elizabeth",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/contmgr/comment?id=4",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"contmgr",
+						"comment"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Edit Comment",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 1c1ccd931b702d2115249c73f14ba3aa8da027a5",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "description",
+									"value": "Thank You!!!!",
+									"type": "default"
+								},
+								{
+									"key": "_mentioned_users",
+									"value": "elizabeth",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/contmgr/comment?id=4",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"contmgr",
+								"comment"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 21 Dec 2022 18:14:57 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "50"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"comment update successful\",\n    \"postID\": 4\n}"
+				}
+			]
+		},
+		{
+			"name": "Edit Comment With Different User",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 112a669118591b91eeee80690372b9dcf3a32e56",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "description",
+							"value": "I'll remove all data",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/contmgr/comment?id=4",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"contmgr",
+						"comment"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Edit Comment With Different User",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 112a669118591b91eeee80690372b9dcf3a32e56",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "description",
+									"value": "I'll remove all data",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/contmgr/comment?id=4",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"contmgr",
+								"comment"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 21 Dec 2022 18:17:15 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "63"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"comment update failed\",\n    \"error\": \"not comment owner\"\n}"
 				}
 			]
 		}
