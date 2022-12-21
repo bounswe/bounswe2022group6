@@ -4,7 +4,7 @@ from django.utils import timezone
 from .models import *
 from ..accmgr.models import *
 from rest_framework.permissions import BasePermission, IsAuthenticated, AllowAny
-
+import json
 
 class IsGetOrIsAuthenticated(BasePermission):
     def has_permission(self, request, view):
@@ -39,9 +39,6 @@ class SearchPost(APIView):
         keywords = req.GET.getlist("keyword", None)
         labels = req.GET.getlist("label", None)
 
-        print(keywords)
-        print(labels)
-        
         if not keywords and not labels:
             return JsonResponse({"info":"search failed", "error": "no keyword or label provided"}, status=400)
 
@@ -181,8 +178,13 @@ class CommentView(APIView):
         if comment.owner != user:
             return JsonResponse({"info":f"comment update failed", "error": "not comment owner"}, status=403)
 
-        _description = req.POST.get("description", None)
-        _mentioned_users = req.POST.getlist("mentioned_users", None)
+        try:
+            req_put = json.loads(req.body)
+            _mentioned_users = req_put.get("mentioned_users", [])
+        except:
+            req_put = req.POST
+            _mentioned_users = req_put.getlist("mentioned_users", None)
+        _description = req_put.get("description", None)
 
         # Parse all fields
         _mentioned_users = list(map(str.strip, _mentioned_users))
@@ -285,15 +287,20 @@ class PostView(APIView):
 
         if tpost.owner != user:
             return JsonResponse({"info":f"post update failed", "error": "not post owner"}, status=403)
-
-        _title = req.POST.get("title", None)
-        _type = req.POST.get("type", None)
-        _description = req.POST.get("description", None)
-        _location = req.POST.get("location", None)
-        _imageURL = req.POST.get("imageURL", None)
-        _is_marked_nsfw = req.POST.get("is_marked_nsfw", None)
-        _labels = req.POST.getlist("label", None)
-        _mentioned_users = req.POST.getlist("mentioned_users", None)
+        try:
+            req_put = json.loads(req.body)
+            _labels = req_put.get("label", [])
+            _mentioned_users = req_put.get("mentioned_users", [])
+        except:
+            req_put = req.POST
+            _labels = req_put.getlist("label", None)
+            _mentioned_users = req_put.getlist("mentioned_users", None)
+        _title = req_put.get("title", None)
+        _type = req_put.get("type", None)
+        _description = req_put.get("description", None)
+        _location = req_put.get("location", None)
+        _imageURL = req_put.get("imageURL", None)
+        _is_marked_nsfw = req_put.get("is_marked_nsfw", None)
 
         # Parse all fields
         _labels = list(map(str.strip, _labels))
