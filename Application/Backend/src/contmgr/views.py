@@ -1,5 +1,6 @@
 from rest_framework.views import APIView
 from django.http import JsonResponse
+from django.utils import timezone
 from .models import *
 from ..accmgr.models import *
 from rest_framework.permissions import BasePermission, IsAuthenticated, AllowAny
@@ -23,6 +24,7 @@ def insertComments(target_data, rcomments):
             "upvoted_users":list(comment.upvoted_users.all().values_list('username', flat=True)),
             "downvoted_users":list(comment.downvoted_users.all().values_list('username', flat=True)),
             "created_at":comment.created_at,
+            "last_updated_at":comment.last_updated_at,
             "mentioned_users": list(comment.mentioned_users.all().values_list('username', flat=True)),
             "comments": []
         })
@@ -159,9 +161,12 @@ class CommentView(APIView):
         except:
             return JsonResponse({"info":f"comment get failed", "error": "id is either not given or not an integer"}, status=400)
         # Only one comment as a query (Didn't used get for compability with function)
-        comment = Comment.objects.filter(commentID=commentID)
+        try:
+            comment = Comment.objects.get(commentID=commentID)
+        except:
+            return JsonResponse({"info":f"comment get failed", "error": "Comment does not exists with given id"}, status=404)
         data = []
-        insertComments(data, comment)
+        insertComments(data, [comment])
         # Return first one (Only one element will return)
         return JsonResponse(data[0], status=200)
 
@@ -172,6 +177,8 @@ class CommentView(APIView):
         # Check if all fields are present
         _parent_comment_id = req.POST.get("parent_comment_id", None)
         _parent_post_id = req.POST.get("parent_post_id", None)
+        _mentioned_users = req.POST.getlist("mentioned_users", None)
+
         try:
             _description = req.POST["description"]
             # Only one of them should be set.
@@ -179,11 +186,16 @@ class CommentView(APIView):
                 raise
         except:
             return JsonResponse({"info":"comment creation failed", "error": "{'form_data': ['Missing or wrong form data.']}"}, status=400)
+        
+        # Parse fields
+        _mentioned_users = list(map(str.strip, _mentioned_users))
 
         _parent_post = Post.objects.get(postID=_parent_post_id) if _parent_post_id is not None else None
         _parent_comment = Comment.objects.get(commentID=_parent_comment_id) if _parent_comment_id is not None else None
         new_coment = Comment(description=_description, owner=user, parent_post=_parent_post, parent_comment=_parent_comment)
         try:
+            mentioned_users = [RegisteredUser.objects.get(username=_user) for _user in _mentioned_users]
+            new_coment.mentioned_users.set(mentioned_users, clear=True)
             new_coment.save()
             return JsonResponse({"info": "comment creation successful", "commentID": new_coment.commentID}, status=201)
         except Exception as e:
@@ -199,7 +211,10 @@ class PostView(APIView):
             postID = int(req.GET.get("id", None))
         except:
             return JsonResponse({"info":f"post get failed", "error": "id is either not given or not an integer"}, status=400)
-        tpost = Post.objects.get(postID= postID)
+        try:
+            tpost = Post.objects.get(postID= postID)
+        except:
+            return JsonResponse({"info":f"post get failed", "error": "Post does not exists with given id"}, status=404)
         data = {
             "postID": postID,
             "owner":tpost.owner.username,
@@ -208,6 +223,7 @@ class PostView(APIView):
             "upvoted_users":list(tpost.upvoted_users.all().values_list('username', flat=True)),
             "downvoted_users":list(tpost.downvoted_users.all().values_list('username', flat=True)),
             "created_at":tpost.created_at,
+            "last_updated_at":tpost.last_updated_at,
             "mentioned_users": list(tpost.mentioned_users.all().values_list('username', flat=True)),
             "title":tpost.title,
             "type":tpost.type,
@@ -238,6 +254,7 @@ class PostView(APIView):
         _imageURL = req.POST.get("imageURL", None)
         _is_marked_nsfw = req.POST.get("is_marked_nsfw", None)
         _labels = req.POST.getlist("label", None)
+        _mentioned_users = req.POST.getlist("mentioned_users", None)
 
         # Parse all fields
         _title = _title.title().strip()
@@ -246,17 +263,17 @@ class PostView(APIView):
         _location = _location.strip().lower() if _location is not None else None
         _imageURL = _imageURL.strip() if _imageURL is not None else None
         _is_marked_nsfw = _is_marked_nsfw.strip().lower()=="true" if _is_marked_nsfw is not None else False
+        _labels = list(map(str.strip, _labels))
+        _mentioned_users = list(map(str.strip, _mentioned_users))
 
         new_post = Post(title=_title, type=_type, location=_location, imageURL = _imageURL,
                         is_marked_nsfw=_is_marked_nsfw, owner=user, description=_description)
         
         try:
-            new_post.save()
-            labels = []
-            for _label in _labels:
-                labels.append(Label.objects.get(labelID=_label))
-            for label in labels:
-                new_post.labels.add(label)
+            labels = [Label.objects.get(labelID=_label) for _label in _labels]
+            mentioned_users = [RegisteredUser.objects.get(username=_user) for _user in _mentioned_users]
+            new_post.mentioned_users.set(mentioned_users, clear=True)
+            new_post.labels.set(labels, clear=True)
             new_post.save()
             return JsonResponse({"info": "post creation successful", "postID": new_post.postID}, status=201)
         except Exception as e:
