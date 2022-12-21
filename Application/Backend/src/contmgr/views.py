@@ -238,6 +238,58 @@ class PostView(APIView):
         insertComments(data["comments"], comments)
         return JsonResponse(data, status=200)
 
+    def put(self, req):
+        user = RegisteredUser.objects.get(username=req.user)
+        try:
+            postID = int(req.GET.get("id", None))
+        except:
+            return JsonResponse({"info":f"post update failed", "error": "id is either not given or not an integer"}, status=400)
+        tpost = Post.objects.get(postID= postID)
+
+        if tpost.owner != user:
+            return JsonResponse({"info":f"post update failed", "error": "not post owner"}, status=403)
+
+        # Check if all fields are present
+        try:
+            _title = req.POST["title"]
+            _type = req.POST["type"]
+            _description = req.POST["description"]
+        except:
+            return JsonResponse({"info":"post update failed", "error": "{'form_data': ['Missing form data.']}"}, status=400)
+
+        _location = req.POST.get("location", None)
+        _imageURL = req.POST.get("imageURL", None)
+        _is_marked_nsfw = req.POST.get("is_marked_nsfw", None)
+        _labels = req.POST.getlist("label", None)
+        _mentioned_users = req.POST.getlist("mentioned_users", None)
+
+        # Parse all fields
+        _title = _title.title().strip()
+        _type = _type.strip().lower()
+        _description = _description.strip()
+        _location = _location.strip().lower() if _location is not None else None
+        _imageURL = _imageURL.strip() if _imageURL is not None else None
+        _is_marked_nsfw = _is_marked_nsfw.strip().lower()=="true" if _is_marked_nsfw is not None else False
+        _labels = list(map(str.strip, _labels))
+        _mentioned_users = list(map(str.strip, _mentioned_users))
+
+        tpost.description = _description
+        tpost.last_updated_at = timezone.now()
+        tpost.title = _title
+        tpost.type = _type
+        tpost.location = _location
+        tpost.imageURL = _imageURL
+        tpost.is_marked_nsfw = _is_marked_nsfw
+        try:
+            labels = [Label.objects.get(labelID=_label) for _label in _labels]
+            mentioned_users = [RegisteredUser.objects.get(username=_user) for _user in _mentioned_users]
+            tpost.mentioned_users.set(mentioned_users, clear=True)
+            tpost.labels.set(labels, clear=True)
+            tpost.save()
+            return JsonResponse({"info": "post update successful", "postID": tpost.postID}, status=201)
+        except Exception as e:
+            return JsonResponse({"info":"post update failed", "error": str(e)}, status=400)
+
     # Create a post
     def post(self, req):
         user = RegisteredUser.objects.get(username=req.user)
