@@ -170,6 +170,39 @@ class CommentView(APIView):
         # Return first one (Only one element will return)
         return JsonResponse(data[0], status=200)
 
+    def put(self, req):
+        user = RegisteredUser.objects.get(username=req.user)
+        try:
+            commentID = int(req.GET.get("id", None))
+        except:
+            return JsonResponse({"info":f"comment update failed", "error": "id is either not given or not an integer"}, status=400)
+        comment = Comment.objects.get(commentID= commentID)
+
+        if comment.owner != user:
+            return JsonResponse({"info":f"comment update failed", "error": "not comment owner"}, status=403)
+
+        # Check if all fields are present
+        try:
+            _description = req.POST["description"]
+        except:
+            return JsonResponse({"info":"post update failed", "error": "{'form_data': ['Missing form data.']}"}, status=400)
+
+        _mentioned_users = req.POST.getlist("mentioned_users", None)
+
+        # Parse all fields
+        _description = _description.strip()
+        _mentioned_users = list(map(str.strip, _mentioned_users))
+
+        comment.description = _description
+        comment.last_updated_at = timezone.now()
+        try:
+            mentioned_users = [RegisteredUser.objects.get(username=_user) for _user in _mentioned_users]
+            comment.mentioned_users.set(mentioned_users, clear=True)
+            comment.save()
+            return JsonResponse({"info": "comment update successful", "postID": comment.commentID}, status=201)
+        except Exception as e:
+            return JsonResponse({"info":"comment update failed", "error": str(e)}, status=400)
+
     # Create a comment
     def post(self, req):
         user = RegisteredUser.objects.get(username=req.user)
@@ -188,6 +221,7 @@ class CommentView(APIView):
             return JsonResponse({"info":"comment creation failed", "error": "{'form_data': ['Missing or wrong form data.']}"}, status=400)
         
         # Parse fields
+        _description = _description.strip()
         _mentioned_users = list(map(str.strip, _mentioned_users))
 
         _parent_post = Post.objects.get(postID=_parent_post_id) if _parent_post_id is not None else None
