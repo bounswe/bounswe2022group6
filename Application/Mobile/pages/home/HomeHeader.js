@@ -1,25 +1,21 @@
 import React from 'react';
-import { Appbar, Searchbar } from 'react-native-paper';
-import { StyleSheet } from 'react-native'
+import { Appbar } from 'react-native-paper';
+import { View, StyleSheet } from 'react-native'
 
 // The top navigation bar of home feed
-const HomeHeader = ({navigation}) => {
-    const [searchQuery, setSearchQuery] = React.useState('');
-    const onChangeSearch = query => setSearchQuery(query);
+const HomeHeader = ({ navigation }) => {
 
     return (
         <Appbar.Header style={styles.topBar}>
             <Appbar.Action icon="menu" color="white" onPress={() => navigation.toggleDrawer()} />
-            <Searchbar
-                theme={{roundness: 50}}
-                placeholder="Search posts, users..."
-                onChangeText={onChangeSearch}
-                value={searchQuery}
-                style={styles.searchBar}
-                inputStyle={styles.searchInput}
-                onSubmitEditing={() => console.log('You are searching: ' + searchQuery)}
-            />
-            <Appbar.Action icon="robot-happy" color='white' onPress={() => navigation.navigate('Chatbot')} />
+            <View style={styles.logoContainer}>
+                <Appbar.Action style={styles.logo} color ='white' icon={require('../../images/logo.png')}
+                />
+            </View>
+            <View style={styles.rightContent}>
+                <Appbar.Action icon="magnify" color='white' onPress={() => navigation.navigate('Search')} />
+                <Appbar.Action icon="robot-happy" color='white' onPress={() => navigation.navigate('Chatbot')} />
+            </View>
         </Appbar.Header>
     );
 }
@@ -32,7 +28,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
     },
-    searchBar:  {
+    searchBar: {
         width: '65%',
         height: '70%',
         borderWidth: 1,
@@ -40,7 +36,13 @@ const styles = StyleSheet.create({
         elevation: 5,
         backgroundColor: '#f7fafa',
     },
+    rightContent: {
+        flexDirection: 'row',
+    },
     searchInput: {
         fontSize: 13,
+    },
+    logoContainer: {
+        position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'
     },
 });

@@ -1,9 +1,7 @@
 import { AsyncStorage } from 'react-native';
-
+import { BACKEND_URL } from '@env'
 
 export const handleLoginRequest = async (mail, password) => {
-    console.log(mail, password)
-
     var myHeaders = new Headers();
     myHeaders.append("Cookie", "csrftoken=6dxfJjSizpYVyqWGFHvGGLbHCsLrT99U; sessionid=5fbwt9emt2umx4ntcejaav7ltvzhg11g");
 
@@ -11,7 +9,7 @@ export const handleLoginRequest = async (mail, password) => {
     formdata.append("useridentifier", mail);
     formdata.append("password", password);
 
-    await fetch("http://18.206.229.240:8000/login", {
+    await fetch(BACKEND_URL + "login/", {
         method: 'POST',
         headers: myHeaders,
         body: formdata,
@@ -31,10 +29,12 @@ export const handleLoginRequest = async (mail, password) => {
                 );
             }
         })
+
 }
 
 
 export const handleSignUpRequest = async (mail, password, username, gender, birth_date, birth_month, birth_year) => {
+    console.log(BACKEND_URL)
     var formdata = new FormData();
     formdata.append("username", username);
     formdata.append("email", mail);
@@ -50,16 +50,16 @@ export const handleSignUpRequest = async (mail, password, username, gender, birt
         redirect: 'follow'
     };
 
-    await fetch("http://18.206.229.240:8000/register/", requestOptions)
-    .then(function (response) {
-        return response.json();
-    })
+    await fetch(BACKEND_URL + "register/", requestOptions)
+        .then(function (response) {
+            return response.json();
+        })
         .then(async (responseJson) => {
             if (responseJson.error && responseJson.error.length > 0) {
                 console.log(responseJson.error)
                 let errs = JSON.parse(responseJson.error.replaceAll("'", "\""))
                 throw new Error(errs[Object.keys(errs)[0]])
-            } 
+            }
         })
 }
 
@@ -74,7 +74,7 @@ export const handleLogoutRequest = async () => {
         redirect: 'follow'
     };
 
-    await fetch("http://18.206.229.240:8000/logout/", requestOptions)
+    await fetch(BACKEND_URL + "logout/", requestOptions)
         .then(function (response) {
             return response.json();
         })

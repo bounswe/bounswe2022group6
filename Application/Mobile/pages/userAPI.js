@@ -1,6 +1,6 @@
 import { AsyncStorage } from 'react-native';
 import { handleLogoutRequest } from './authAPI';
-
+import {BACKEND_URL} from '@env'
 
 export const handleGetUserData = async () => {
     const token = await AsyncStorage.getItem("token")
@@ -13,12 +13,11 @@ export const handleGetUserData = async () => {
         redirect: 'follow'
     };
 
-    return await fetch("http://18.206.229.240:8000/profile/", requestOptions)
+    return await fetch(BACKEND_URL + "profile/", requestOptions)
         .then(function (response) {
             return response.json();
         })
         .then(async (responseJson) => {
-            console.log(responseJson)
             if (responseJson.detail) {
                 throw new Error(responseJson.detail)
                 handleLogoutRequest()

@@ -2,11 +2,12 @@ import React from 'react'
 import styles from "../pages/home.module.css";
 import { useState } from "react";
 import { ImArrowUp, ImArrowDown } from "react-icons/im";
+import contentvote from '../services/Vote_API';
+import moment from 'moment'
 
 const Comment = (props) => {
 
   const isGuestUser = window.localStorage.getItem("auth_token") ? false : true
-    const [score, setScore] = useState(props.comment["score"]);
 
     //backend endpoint for vote comment
     const vote = (direction) => {
@@ -15,47 +16,19 @@ const Comment = (props) => {
             alert("You need to be logged in")
             return
         }
-
-        if (props.comment["voted"] === "" && direction === "up") {
-            props.comment["voted"] = "up";
-            props.comment["score"]++;
-        } else if (props.comment["voted"] === "up" && direction === "up") {
-            props.comment["voted"] = "";
-            props.comment["score"]--;
-        } else if (props.comment["voted"] === "down" && direction === "up") {
-            props.comment["voted"] = "up";
-            props.comment["score"]++;
-            props.comment["score"]++;
-        } else if (props.comment["voted"] === "" && direction === "down") {
-            props.comment["voted"] = "down";
-            props.comment["score"]--;
-        } else if (props.comment["voted"] === "up" && direction === "down") {
-            props.comment["voted"] = "down";
-            props.comment["score"]--;
-            props.comment["score"]--;
-        } else if (props.comment["voted"] === "down" && direction === "down") {
-            props.comment["voted"] = "";
-            props.comment["score"]++;
-        }
-        setScore(props.comment["score"]);
-        console.log(props.comment["voted"]);
+        console.log("voting comment")
+        //change hardcoded 1
+        contentvote(props.comment.commentID, direction, false).then(() => props.onVote())
     };
 
     return (
-      <div>
-      <div className={styles.mypostpage}>
-      <div
-        style={{
-          width: "10%",
-          backgroundColor: "#f0feff",
-          color: "#bdbfbd",
-          alignItems: "center",
-          paddingTop: "25px",
-        }}
+      <div style = {{marginTop: '8px'}}>
+      <div className={styles.mycomment}>
+      <div className={styles.mypostright}
       >
         <ImArrowUp
           className={
-            props.comment["voted"] === "up" ? styles.upvoteactive : styles.upvote
+            props.comment.upvoted_users.includes(window.localStorage.getItem("username")) ? styles.upvoteactive : styles.upvote
           }
           onClick={() => vote("up")}
         />
@@ -64,13 +37,11 @@ const Comment = (props) => {
             padding: "7px 0px",
           }}
         >
-          {props.comment["score"]}
+          {props.comment["result_vote"]}
         </h3>
         <ImArrowDown
           className={
-            props.comment["voted"] === "down"
-              ? styles.downvoteactive
-              : styles.downvote
+            props.comment.downvoted_users.includes(window.localStorage.getItem("username")) ? styles.downvoteactive : styles.downvote
           }
           onClick={() => vote("down")}
         />
@@ -85,15 +56,16 @@ const Comment = (props) => {
               justifyContent: "flex-end",
             }}
           >
+              <p style={{textAlign:'left', marginRight:'auto'}}>{props.comment.owner}</p>
             <div
               style={{
                 display: "flex",
                 justifyContent: "space-between",
               }}
             >
-              <small style={{ padding: "3px 5px", marginLeft: "15px" }}>
-                {props.comment["date"] + " minute before"}
-              </small>
+            <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
+                    {moment(props.comment.created_at).format('MMM DD YYYY hh:mm')}
+                  </medium>
             </div>
           </div>
         </div>

@@ -3,47 +3,48 @@ import { Link } from "react-router-dom";
 import styles from "./home.module.css";
 import logout from "../services/Logout_API";
 import { useHistory } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MessageBox from "../components/MessageBox";
 import  Posts from "../components/ForumPost";
 import { BsSearch, BsFilter } from "react-icons/bs";
 import { FiDelete } from "react-icons/fi";
+import Logo from '../assets/fav.png'
+import Image from 'react-bootstrap/Image'
+import get_labels from "../services/Label_API";
 
-
-
-const labels = [
-  { name: "Medication", backgroundColor: "red", color: "white" },
-  { name: "Other", backgroundColor: "Black", color: "white" },
-  { name: "Article", backgroundColor: "Blue", color: "white" },
-  { name: "Healthy Life", backgroundColor: "Green", color: "yellow" },
-  { name: "Wound Care", backgroundColor: "yellow", color: "black" },
-  { name: "Injury", backgroundColor: "lightblue", color: "black" },
-  { name: "Mental Health", backgroundColor: "gray", color: "white" },
-  { name: "Parasite Concern", backgroundColor: "orange", color: "white" },
-  { name: "Rabies Concern", backgroundColor: "purple", color: "white" },
-  { name: "Pregnancy", backgroundColor: "lightgreen", color: "white" },
-  {
-    name: "Skin issues/Rashes/Freckles/Moles",
-    backgroundColor: "darkgray",
-    color: "white",
-  },
-  { name: "Cardiac", backgroundColor: "darkgreen", color: "white" },
-  {
-    name: "Mouth/Gums/Throat/Cheeks",
-    backgroundColor: "Salmon",
-    color: "white",
-  },
-  { name: "Eyes", backgroundColor: "Lime", color: "white" },
-  { name: "Illness", backgroundColor: "pink", color: "indigo" },
-  { name: "Digestion/Stomach/Bowels", backgroundColor: "teal", color: "white" },
-  {
-    name: "Bones/Joints/Ligaments",
-    backgroundColor: "SkyBlue",
-    color: "white",
-  },
-  { name: "Help", backgroundColor: "palegreen", color: "white" },
-  { name: "Advice", backgroundColor: "PaleTurquoise", color: "white" },
-];
+// const labels = [
+//   { name: "Medication", backgroundColor: "red", color: "white" },
+//   { name: "Other", backgroundColor: "Black", color: "white" },
+//   { name: "Article", backgroundColor: "Blue", color: "white" },
+//   { name: "Healthy Life", backgroundColor: "Green", color: "yellow" },
+//   { name: "Wound Care", backgroundColor: "yellow", color: "black" },
+//   { name: "Injury", backgroundColor: "lightblue", color: "black" },
+//   { name: "Mental Health", backgroundColor: "gray", color: "white" },
+//   { name: "Parasite Concern", backgroundColor: "orange", color: "white" },
+//   { name: "Rabies Concern", backgroundColor: "purple", color: "white" },
+//   { name: "Pregnancy", backgroundColor: "lightgreen", color: "white" },
+//   {
+//     name: "Skin issues/Rashes/Freckles/Moles",
+//     backgroundColor: "darkgray",
+//     color: "white",
+//   },
+//   { name: "Cardiac", backgroundColor: "darkgreen", color: "white" },
+//   {
+//     name: "Mouth/Gums/Throat/Cheeks",
+//     backgroundColor: "Salmon",
+//     color: "white",
+//   },
+//   { name: "Eyes", backgroundColor: "Lime", color: "white" },
+//   { name: "Illness", backgroundColor: "pink", color: "indigo" },
+//   { name: "Digestion/Stomach/Bowels", backgroundColor: "teal", color: "white" },
+//   {
+//     name: "Bones/Joints/Ligaments",
+//     backgroundColor: "SkyBlue",
+//     color: "white",
+//   },
+//   { name: "Help", backgroundColor: "palegreen", color: "white" },
+//   { name: "Advice", backgroundColor: "PaleTurquoise", color: "white" },
+// ];
 
 
 export default function Home() {
@@ -53,6 +54,8 @@ export default function Home() {
   const [isLoggedout, setLoggedout] = useState(false);
   const [dummy, setdummy] = useState(0);
   const [addedlabels, setaddedlabels] = useState([]);
+  const [labels, setLabels] = useState([])
+
 
   function handleClick(event) {
     event.preventDefault();
@@ -65,6 +68,14 @@ export default function Home() {
       }
     });
   }
+
+  useEffect(() => {
+    get_labels().then(res => {
+      console.log(res.labels)
+      setLabels(res.labels);
+    });
+  }, []);
+
 
   const addlabel = (label) => {
     if (addedlabels.indexOf(label) < 0) {
@@ -88,7 +99,7 @@ export default function Home() {
   };
 
   return (
-    <div className="text-center">
+    <div className={styles.body} >
      {
      isGuestUser ? <div>
         <Link to="/login">
@@ -115,17 +126,17 @@ export default function Home() {
         </button>
       </Link></div>
       }
-      <h5 className="main-title home-page-title">MEDI SHARE</h5>
+      
+      <h5 className="main-title home-page-title" style={{textShadow: "1px 1px #000000 "}}>
+      <Image src={Logo} style={{width:"70px"}}></Image>
+        <span style={{color:"#dde296"}}>Medi</span><span style={{color:"#9FcFb0"}}>Share</span></h5>
+      
       <div>
         {" "}
         {isLoggedout && (
           <MessageBox
             data="Logout Successful!"
-            style={{
-              color: "#222",
-              fontSize: "2.5rem",
-              textTransform: "capitalize",
-            }}
+            style={{color: "#c2cd23", fontSize: "2rem"}}
           >
             {" "}
           </MessageBox>
@@ -142,12 +153,14 @@ export default function Home() {
           <div
             className="searchBar"
             style={{
-              backgroundColor: "white",
+              backgroundColor: "#dde296",
+              marginTop:"15px",
               marginBlockEnd: "20px",
               padding: "10px",
               display: "flex",
               alignItems: "center",
               borderRadius: "5px",
+
             }}
           >
             <input
@@ -159,6 +172,7 @@ export default function Home() {
                 height: "40px",
                 fontSize: "19px",
                 borderRadius: "5px 0px 0px 5px",
+                background:"lightgoldenrodyellow"
               }}
             />
             <BsSearch
@@ -183,20 +197,12 @@ export default function Home() {
           </div>
 
           <div
-            className="labelsSide"
-            style={{
-              display: "inline-block",
-              padding: "10px",
-              backgroundColor: "white",
-              width: "100%",
-              borderRadius: "5px",
-            }}
+            className={styles.labelsSide}
           >
             <h3
               style={{
                 display: "flex",
                 alignContent: "left",
-                color: "#383838",
               }}
             >
               Labels
@@ -208,6 +214,8 @@ export default function Home() {
                 border: "1px solid gray",
                 marginBlockEnd: "5px",
                 width: "100%",
+                background:"lightgoldenrodyellow"
+
               }}
             />
             <div
@@ -223,8 +231,8 @@ export default function Home() {
                   <p
                     className={styles.filter}
                     style={{
-                      background: label.backgroundColor,
-                      color: label.color,
+                      background: label.labelColor,
+                      color: 'white',
                       display: "inline-block",
                       padding: "2px 10px",
                       borderRadius: "5px",
@@ -232,7 +240,7 @@ export default function Home() {
                     }}
                   >
                     {" "}
-                    {label.name}
+                    {label.labelName}
                   </p>
                 </div>
               ))}
@@ -240,13 +248,13 @@ export default function Home() {
             <hr style={{ margin: "5px" }} />
             <div style={{ textAlign: "left" }}>
               {addedlabels.length === 0 && (
-                <div style={{ fontStyle: "italic", color: "gray" }}>
+                <div style={{ fontStyle: "italic",opacity:"0.5"  }}>
                   {" "}
                   add label to filter
                 </div>
               )}
               {addedlabels.length > 0 && (
-                <div style={{ color: "gray" }}>Added Labels</div>
+                <div style={{ }}>Added Labels</div>
               )}
 
               {addedlabels.map((label) => (
@@ -257,8 +265,8 @@ export default function Home() {
                 >
                   <p
                     style={{
-                      background: label.backgroundColor,
-                      color: label.color,
+                      background: label.labelColor,
+                      color: 'white',
                       display: "block",
                       padding: "2px 10px",
                       borderRadius: "5px",
@@ -266,13 +274,13 @@ export default function Home() {
                       float: "left",
                     }}
                   >
-                    {label.name}
+                    {label.labelName}
                     <small
                       style={{
                         fontSize: "11px",
                         alignItems: "center",
                         filter: "brightness(1.3)",
-                        background: label.backgroundColor,
+                        background: label.labelColor,
                         borderRadius: "10px",
                         padding: "0px 3px",
                         position: "relative",
@@ -289,8 +297,8 @@ export default function Home() {
                 <div
                   className={styles.filter}
                   style={{
-                    background: "palegreen",
-                    color: "#333333",
+                    background: "#95c3b3",
+                    color: "#0f7375",
                     border: "1px solid gray",
                     padding: "2px 10px",
                     borderRadius: "5px",
@@ -305,9 +313,9 @@ export default function Home() {
                 <div
                   className={styles.filter}
                   style={{
-                    background: "PaleTurquoise",
+                    background: "#95c3b3",
                     border: "1px solid gray",
-                    color: "#333333",
+                    color: "#0f7375",
                     padding: "2px 10px",
                     borderRadius: "5px",
                     margin: " 3px",

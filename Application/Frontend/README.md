@@ -2,6 +2,7 @@
 ## Instructions For Containerized Execution
 <b>Note:</b> To run this application, you need to have docker and docker-compose installed on your computer. (Docker Desktop installs them both)
 * Add .env file to Backend folder. (Without it, system will not work)
+* Add .env file to Frontend folder. (Without it, system will not work)
 * Change directory (cd) to this folder via terminal.
 * Run "docker-compose up".
 
