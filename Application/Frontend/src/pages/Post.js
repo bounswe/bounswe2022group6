@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef} from 'react'
 import { Link } from "react-router-dom";
 import styles from "./home.module.css";
 import { useState } from "react";
@@ -15,6 +15,43 @@ import Logo from '../assets/fav.png'
 import Image from 'react-bootstrap/Image'
 import moment from 'moment'
 import createComment from '../services/Create_Comment_API';
+import { Recogito } from '@recogito/recogito-js';
+import '@recogito/recogito-js/dist/recogito.min.css';
+
+
+function Annotation(props){
+  const text = useRef()
+  const [textState, setTextState] = useState(false)
+
+  if(text.current){
+    console.log(text)
+    const recogito = new Recogito({ content: text.current})
+
+    //Event handlers
+    recogito.on('createAnnotation', annotation => {
+      console.log('annotation created', JSON.stringify(annotation))
+    })
+
+    recogito.on('deleteAnnotation', annotation => {
+      console.log("annotation deleted", annotation)
+    })
+
+    recogito.setAuthInfo({
+      id: '1',
+      displayName: 'Test'
+    })
+  }
+
+  return (
+    <div dangerouslySetInnerHTML={{__html: props.text}} ref = {el => {
+      text.current = el
+      if(!textState) setTextState(true)
+    }}/>
+    )
+}
+
+
+
 
 
 const Post = () => {
@@ -194,11 +231,14 @@ const Post = () => {
             </div>
           </div>
         </div>
-        <div style={{heigth: "fit-content"}}>
-          <p style={{ textAlign: "left", fontWeight: "bolder" }}>
+        <div style={{heigth: "fit-content", textAlign:"left"}}>
+          <p style={{ fontWeight: "bolder" }}>
             {post["title"]}
           </p>{" "}
-          <p style={{ textAlign: "left" }}>{post["description"]}</p>
+          <Annotation
+          text = {post.description}
+          />
+
         </div>
         { post.imageURL && 
           <div style={{ position:'relative' }}>
