@@ -173,7 +173,11 @@ class CommentView(APIView):
             commentID = int(req.GET.get("id", None))
         except:
             return JsonResponse({"info":f"comment update failed", "error": "id is either not given or not an integer"}, status=400)
-        comment = Comment.objects.get(commentID= commentID)
+        
+        try:
+            comment = Comment.objects.get(commentID= commentID)
+        except:
+            return JsonResponse({"info":f"comment update failed", "error": "Comment does not exists with given id"}, status=404)
 
         if comment.owner != user:
             return JsonResponse({"info":f"comment update failed", "error": "not comment owner"}, status=403)
@@ -283,7 +287,11 @@ class PostView(APIView):
             postID = int(req.GET.get("id", None))
         except:
             return JsonResponse({"info":f"post update failed", "error": "id is either not given or not an integer"}, status=400)
-        tpost = Post.objects.get(postID= postID)
+        
+        try:
+            tpost = Post.objects.get(postID= postID)
+        except:
+            return JsonResponse({"info":f"post update failed", "error": "Post does not exists with given id"}, status=404)
 
         if tpost.owner != user:
             return JsonResponse({"info":f"post update failed", "error": "not post owner"}, status=403)
