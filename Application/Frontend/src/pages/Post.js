@@ -1,4 +1,4 @@
-import React, { useEffect, useRef} from 'react'
+import React, { useEffect} from 'react'
 import { Link } from "react-router-dom";
 import styles from "./home.module.css";
 import { useState } from "react";
@@ -15,40 +15,28 @@ import Logo from '../assets/fav.png'
 import Image from 'react-bootstrap/Image'
 import moment from 'moment'
 import createComment from '../services/Create_Comment_API';
-import { Recogito } from '@recogito/recogito-js';
-import '@recogito/recogito-js/dist/recogito.min.css';
+import TextAnnotation from '../components/TextAnnotation';
+import {Annotorious} from '@recogito/annotorious'
+import '@recogito/annotorious/dist/annotorious.min.css';
 
 
-function Annotation(props){
-  const text = useRef()
-  const [textState, setTextState] = useState(false)
 
-  if(text.current){
-    console.log(text)
-    const recogito = new Recogito({ content: text.current})
+const test = [
+  {"@context":"http://www.w3.org/ns/anno.jsonld",
+  "type":"Annotation",
+  "body":[
+    {"type":"TextualBody",
+    "value":"test",
+    "purpose":"commenting",
+    "creator":{"id":"1","name":"tollen"},
+    "created":"2022-12-23T09:27:12.487Z",
+    "modified":"2022-12-23T09:27:12.983Z"}],
+    "target":{"selector":[{"type":"TextQuoteSelector","exact":"annotations"},{"type":"TextPositionSelector","start":21,"end":32}]},
+    "id":"#2840aa75-ed96-45f8-bcad-ccf0d8757024"}]
 
-    //Event handlers
-    recogito.on('createAnnotation', annotation => {
-      console.log('annotation created', JSON.stringify(annotation))
-    })
 
-    recogito.on('deleteAnnotation', annotation => {
-      console.log("annotation deleted", annotation)
-    })
 
-    recogito.setAuthInfo({
-      id: '1',
-      displayName: 'Test'
-    })
-  }
 
-  return (
-    <div dangerouslySetInnerHTML={{__html: props.text}} ref = {el => {
-      text.current = el
-      if(!textState) setTextState(true)
-    }}/>
-    )
-}
 
 
 
@@ -235,14 +223,16 @@ const Post = () => {
           <p style={{ fontWeight: "bolder" }}>
             {post["title"]}
           </p>{" "}
-          <Annotation
+          <TextAnnotation
           text = {post.description}
           />
 
         </div>
         { post.imageURL && 
           <div style={{ position:'relative' }}>
-          <Image src={'https://' + post.imageURL} style={{ maxWidth:"50%", maxHeight:'50%', filter: !window.localStorage.getItem("show_nsfw") && post.is_marked_nsfw ? 'blur(25px)' : '' }}></Image>
+            <div style={{ filter: !window.localStorage.getItem("show_nsfw") && post.is_marked_nsfw ? 'blur(25px)' : '' }}>
+              <Image src={'https://' + post.imageURL} ></Image>
+            </div>
           { !window.localStorage.getItem("show_nsfw")  && post.is_marked_nsfw &&
           <button className={styles.mybutton} onClick = {handleNSFW} style={{position:'absolute', top: '50%', left:'50%', transform:'translate(-50%, -50%)'}}> 
           See NSFW content
