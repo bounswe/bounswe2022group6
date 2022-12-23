@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ImArrowUp, ImArrowDown } from "react-icons/im";
 import contentvote from '../services/Vote_API';
 import moment from 'moment'
+import TextAnnotation from './TextAnnotation';
 
 const Comment = (props) => {
 
@@ -69,11 +70,14 @@ const Comment = (props) => {
             </div>
           </div>
         </div>
-        <div style={{heigth: "fit-content"}}>
+        <div style={{heigth: "fit-content", textAlign:'left'}}>
           <p style={{ textAlign: "left", fontWeight: "bolder" }}>
             {props.comment["author"]}
           </p>{" "}
-          <p style={{ textAlign: "left" }}>{props.comment["description"]}</p>
+          <TextAnnotation
+          text = {props.comment.description}
+          //commentin annotationlarını ver
+          />
         </div>
       </div>
     </div>
