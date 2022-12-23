@@ -16,30 +16,7 @@ import Image from 'react-bootstrap/Image'
 import moment from 'moment'
 import createComment from '../services/Create_Comment_API';
 import TextAnnotation from '../components/TextAnnotation';
-import {Annotorious} from '@recogito/annotorious'
-import '@recogito/annotorious/dist/annotorious.min.css';
-
-
-
-const test = [
-  {"@context":"http://www.w3.org/ns/anno.jsonld",
-  "type":"Annotation",
-  "body":[
-    {"type":"TextualBody",
-    "value":"test",
-    "purpose":"commenting",
-    "creator":{"id":"1","name":"tollen"},
-    "created":"2022-12-23T09:27:12.487Z",
-    "modified":"2022-12-23T09:27:12.983Z"}],
-    "target":{"selector":[{"type":"TextQuoteSelector","exact":"annotations"},{"type":"TextPositionSelector","start":21,"end":32}]},
-    "id":"#2840aa75-ed96-45f8-bcad-ccf0d8757024"}]
-
-
-
-
-
-
-
+import ImageAnnotation from '../components/ImageAnnotation';
 
 
 const Post = () => {
@@ -231,7 +208,7 @@ const Post = () => {
         { post.imageURL && 
           <div style={{ position:'relative' }}>
             <div style={{ filter: !window.localStorage.getItem("show_nsfw") && post.is_marked_nsfw ? 'blur(25px)' : '' }}>
-              <Image src={'https://' + post.imageURL} ></Image>
+              <ImageAnnotation source = {"https://" + post.imageURL} ></ImageAnnotation>
             </div>
           { !window.localStorage.getItem("show_nsfw")  && post.is_marked_nsfw &&
           <button className={styles.mybutton} onClick = {handleNSFW} style={{position:'absolute', top: '50%', left:'50%', transform:'translate(-50%, -50%)'}}> 

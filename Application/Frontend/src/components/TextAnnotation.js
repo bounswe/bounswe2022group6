@@ -2,8 +2,6 @@ import React, { useEffect, useRef } from 'react'
 import { Recogito } from '@recogito/recogito-js';
 import '@recogito/recogito-js/dist/recogito.min.css';
 
-//new component
-//delete and update displacement problems
 function TextAnnotation(props){
     const textRef = useRef()
   
