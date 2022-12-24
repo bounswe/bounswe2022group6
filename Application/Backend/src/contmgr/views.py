@@ -165,6 +165,10 @@ class CommentView(APIView):
         data = []
         insertComments(data, [comment])
         # Return first one (Only one element will return)
+
+        text_annotations = TextAnnotation.objects.filter(content_id = commentID, content_type = "comment")
+        data[0]["text_annotations"] = [text_annotation.jsonld for text_annotation in text_annotations]
+
         return JsonResponse(data[0], status=200)
 
     def put(self, req):
