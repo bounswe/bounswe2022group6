@@ -11,7 +11,7 @@ const steps = [
         id: '2',
         options: [
           { value: 1, label: "I don't feel good", trigger: '3' },
-          { value: 2, label: "I want to search a medicine", trigger: '4' }
+          { value: 2, label: "I want to search a medicine", trigger: '8' }
         ],
       },
       {
@@ -24,7 +24,7 @@ const steps = [
         options: [
             { value: 1, label: "Headache", trigger: '5' },
             { value: 2, label: "Stress", trigger: '5' },
-            { value: 3, label: "Cancer", trigger: '5' }
+            { value: 3, label: "Cancer", trigger: '11' }
           ],
       },{
         id: '5',
@@ -36,8 +36,32 @@ const steps = [
         options: [
             { value: 1, label: "Thank You"},
             { value: 2, label: "Thanks a Lot"},
-            { value: 3, label:  "You are perfect!" }
+            { value: 3, label:  "You are perfect!", trigger: 7 }
           ],
+      },{
+        id: '7',
+        message: "No you are perfect!",
+        end: true
+      },
+      {
+        id: '8',
+        message: "What is the name of the medicine?",
+        trigger: '9'
+      },
+      {
+        id: '9',
+        user: true,
+        trigger: '10'
+      },
+      {
+        id: '10',
+        message: "I'll search {previousValue} for you.",
+        trigger: '6'
+      },
+      {
+        id: '11',
+        message: "Sorry to hear that. Please see a doctor.",
+        end: true
       },
 ];
 
