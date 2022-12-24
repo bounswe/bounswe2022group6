@@ -56,8 +56,8 @@ const PostPreview = (props) => {
     const [isNSFW, setIsNSFW] = useState(props.is_marked_nsfw); // NSFW
     // Upvote & Downvote
     //TODO: the initial states should be taken from backend
-    const [downVoted, setDownvoted] = useState(props.downvoted_users.filter((item) => item.username === props.userName).length > 0 ? true : false);
-    const [upVoted, setUpvoted] = useState(props.upvoted_users.filter((item) => item.username === props.userName).length > 0 ? true : false);
+    const [downVoted, setDownvoted] = useState(props.userName != null && props.downvoted_users.filter((item) => item.username === props.userName).length > 0 ? true : false);
+    const [upVoted, setUpvoted] = useState(props.userName != null && props.upvoted_users.filter((item) => item.username === props.userName).length > 0 ? true : false);
     const [dateClicked, setDateClicked] = useState(false); 
 
     /*     const handleVoteRequest = async () => {
@@ -154,11 +154,11 @@ const PostPreview = (props) => {
             {/* Buttons */}
             <Card.Actions style={styles.cardFooter}>
                 <View style={styles.voteContainer}>
-                    <IconButton color={colors.primary} animated={true} icon={upVoted ? 'arrow-up-drop-circle' : 'arrow-up-drop-circle-outline'} onPress={handleUpvote} />
+                    <IconButton disabled={props.userName == null} color={colors.primary} animated={true} icon={upVoted ? 'arrow-up-drop-circle' : 'arrow-up-drop-circle-outline'} onPress={handleUpvote} />
                     <Text>
                         {props.vote_count}
                     </Text>
-                    <IconButton color={colors.primary} animated={true} icon={downVoted ? 'arrow-down-drop-circle' : 'arrow-down-drop-circle-outline'} onPress={handleDownvote} />
+                    <IconButton disabled={props.userName == null} color={colors.primary} animated={true} icon={downVoted ? 'arrow-down-drop-circle' : 'arrow-down-drop-circle-outline'} onPress={handleDownvote} />
                 </View>
                 <Button labelStyle={{ fontSize: 23 }} contentStyle={styles.comment} icon='comment-outline' onPress={() => console.log('Clicked comment')}><Text style={{ fontSize: 13 }}>{props.comment_count}</Text></Button>
             </Card.Actions>

@@ -106,7 +106,7 @@ const HomeFeed = (props) => {
     const fabStyle = { [props.animateFrom]: 16 };
 
     useEffect(() => {
-        if (userName === null) {
+        if (props.route.params.isRegistered && userName === null) {
             handleGetUserData().then((response) => {
                 setUserName(response.username)
             })
