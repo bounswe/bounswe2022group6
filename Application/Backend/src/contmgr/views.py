@@ -426,13 +426,19 @@ class AnnotationView(APIView):
             if content_type is None:
                 return JsonResponse({"info":"annotation creation failed", "error": "content_type is missing"}, status=400)
 
+            if content_type not in ["post", "comment"]:
+                return JsonResponse({"info":"annotation creation failed", "error": "content_type is invalid"}, status=400)
+
             if content_id is None:
                 return JsonResponse({"info":"annotation creation failed", "error": "content_id is missing"}, status=400)
 
             if jsonld is None:
                 return JsonResponse({"info":"annotation creation failed", "error": "jsonld is missing"}, status=400)
 
-            jsonld_dict = json.loads(jsonld)
+            try:
+                jsonld_dict = json.loads(jsonld)
+            except:
+                return JsonResponse({"info":"annotation creation failed", "error": "jsonld is invalid"}, status=400)
 
             annotation_id = jsonld_dict.get("id", None)
 
@@ -446,8 +452,13 @@ class AnnotationView(APIView):
                 if post is None:
                     return JsonResponse({"info":"annotation creation failed", "error": "post does not exists"}, status=404)
 
+                annotation = TextAnnotation.objects.using("annotation").filter(id=annotation_id).first()
+
+                if annotation is not None:
+                    return JsonResponse({"info":"annotation creation failed", "error": "annotation_id already exists"}, status=400)
+
                 annotation = TextAnnotation(id=annotation_id, author_id=user.userID, content_type=content_type[0], content_id=content_id, jsonld=jsonld_dict)
-                
+
                 try:
                     annotation.save(using="annotation")
                     return JsonResponse({"info": "annotation creation successful", "annotation_id": annotation_id}, status=200)
@@ -460,6 +471,11 @@ class AnnotationView(APIView):
                 
                 if comment is None:
                     return JsonResponse({"info":"annotation creation failed", "error": "comment does not exists"}, status=404)
+
+                annotation = TextAnnotation.objects.using("annotation").filter(id=annotation_id).first()
+
+                if annotation is not None:
+                    return JsonResponse({"info":"annotation creation failed", "error": "annotation_id already exists"}, status=400)
 
                 annotation = TextAnnotation(id=annotation_id, author_id=user.userID, content_type=content_type[0], content_id=content_id, jsonld=jsonld_dict)
                 
@@ -480,12 +496,25 @@ class AnnotationView(APIView):
             if jsonld is None:
                 return JsonResponse({"info":"annotation creation failed", "error": "jsonld is missing"}, status=400)
 
-            jsonld_dict = json.loads(jsonld)
+            post = Post.objects.filter(postID=content_id).first()
+
+            if post is None:
+                return JsonResponse({"info":"annotation creation failed", "error": "post does not exists"}, status=404)
+
+            try:
+                jsonld_dict = json.loads(jsonld)
+            except:
+                return JsonResponse({"info":"annotation creation failed", "error": "jsonld is invalid"}, status=400)
 
             annotation_id = jsonld_dict.get("id", None)
 
             if annotation_id is None:
                 return JsonResponse({"info":"annotation creation failed", "error": "annotation_id is missing"}, status=400)
+
+            annotation = ImageAnnotation.objects.using("annotation").filter(id=annotation_id).first()
+
+            if annotation is not None:
+                return JsonResponse({"info":"annotation creation failed", "error": "annotation_id already exists"}, status=400)
 
             annotation = ImageAnnotation(id=annotation_id, author_id=user.userID, content_id=content_id, jsonld=jsonld_dict)
 
@@ -504,12 +533,17 @@ class AnnotationView(APIView):
 
         annotation_type = req.POST.get("annotation_type", None)
 
+        annotation_id = req.POST.get("annotation_id", None)
+
+        if annotation_id is None:
+            return JsonResponse({"info":"annotation deletion failed", "error": "annotation_id is missing"}, status=400)
+
         if annotation_type is None:
             return JsonResponse({"info":"annotation deletion failed", "error": "annotation_type is missing"}, status=400)
 
         if annotation_type == "text":
 
-            annotation = TextAnnotation.objects.using("annotation").filter(id=req.POST.get("annotation_id", None)).first()
+            annotation = TextAnnotation.objects.using("annotation").filter(id=annotation_id).first()
 
             if annotation is None:
                 return JsonResponse({"info":"annotation deletion failed", "error": "annotation does not exists"}, status=404)
@@ -526,7 +560,7 @@ class AnnotationView(APIView):
 
         elif annotation_type == "image":
 
-            annotation = ImageAnnotation.objects.using("annotation").filter(id=req.POST.get("annotation_id", None)).first()
+            annotation = ImageAnnotation.objects.using("annotation").filter(id=annotation_id).first()
 
             if annotation is None:
                 return JsonResponse({"info":"annotation deletion failed", "error": "annotation does not exists"}, status=404)
@@ -540,3 +574,6 @@ class AnnotationView(APIView):
 
             except Exception as e:
                 return JsonResponse({"info":"annotation deletion failed", "error": str(e)}, status=500)
+
+        else:
+            return JsonResponse({"info":"annotation deletion failed", "error": "annotation_type is invalid"}, status=400)
