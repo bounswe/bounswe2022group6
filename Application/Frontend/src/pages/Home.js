@@ -203,7 +203,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div
+          {!showChatbot &&    <div
             className={styles.labelsSide}
           >
             <h3
@@ -337,9 +337,9 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </div>}
           {showChatbot && <ChatBotForm></ChatBotForm>}
-          <Image src={ChatbotIcon} onClick = {openChatbot} style={{width:"70px", marginTop:"200px",marginLeft:"300px"}}></Image>
+          <Image src={ChatbotIcon} onClick = {openChatbot} style={{width:"70px", marginTop:"10px",marginLeft:"300px"}}></Image>
           
         </div>
       </div>

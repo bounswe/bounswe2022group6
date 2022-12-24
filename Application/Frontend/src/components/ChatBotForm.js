@@ -67,10 +67,10 @@ const steps = [
 
 // Creating our own theme
 const theme = {
-	background: '#C9FF8F',
-	headerBgColor: '#197B22',
+	background: '#dde296',
+	headerBgColor: '#0f7375',
 	headerFontSize: '20px',
-	botBubbleColor: '#0F3789',
+	botBubbleColor: '#95c3b3',
 	headerFontColor: 'white',
 	botFontColor: 'white',
 	userBubbleColor: '#FF5733',
