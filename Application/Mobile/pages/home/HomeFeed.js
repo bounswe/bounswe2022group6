@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, { useState, useCallback, useEffect } from 'react';
-import { View, ScrollView, StyleSheet, RefreshControl, FlatList } from 'react-native';
-import { AnimatedFAB, Button, Snackbar, Title, Menu, List } from 'react-native-paper';
+import { View, StyleSheet, RefreshControl, FlatList } from 'react-native';
+import { AnimatedFAB, Button, Snackbar, Menu, ActivityIndicator, Text } from 'react-native-paper';
 import PostPreview from '../post/PostPreview';
 import { BACKEND_URL } from '@env'
 import { handleGetUserData } from '../userAPI';
@@ -55,7 +55,7 @@ const HomeTitle = (props) => {
 
 const getAllPosts = async () => {
     try {
-        const response = await fetch(BACKEND_URL + '/contmgr/allposts/');
+        const response = await fetch(BACKEND_URL + 'contmgr/allposts/');
         const json = await response.json();
         return json.posts
     } catch (error) {
@@ -67,16 +67,17 @@ const getAllPosts = async () => {
 const HomeFeed = (props) => {
     const [homeFeedPosts, setHomeFeedPosts] = useState([]);
     const [userName, setUserName] = useState(null);
-
+    // Loading
+    const [isFetchingData, setIsFetchingData] = useState(true);
+    // Refresh
+    const [refreshing, setRefreshing] = useState(false);
     const handleAllPosts = () => {
         getAllPosts().then((response) => {
             setHomeFeedPosts(response)
             setRefreshing(false)
+            setIsFetchingData(false)
         })
     }
-
-    // Refresh
-    const [refreshing, setRefreshing] = useState(false);
     const handleRefresh = useCallback(() => {
         setRefreshing(true)
         handleAllPosts()
@@ -120,6 +121,8 @@ const HomeFeed = (props) => {
                 data={homeFeedPosts}
                 renderItem={({ item }) => <PostPreview {...item} navigation={props.navigation} openSnackBar={openSnackBar} userName={userName} />}
                 ListHeaderComponent={<HomeTitle setHomeFeedPosts={setHomeFeedPosts} />}
+                ListEmptyComponent={isFetchingData ? <ActivityIndicator/> : <View style={styles.emptyFeed}><Text>Your feed is empty!</Text></View>}
+                contentContainerStyle={{flexGrow: 1}}
                 onScroll={handleOnScroll}
                 refreshControl={
                     <RefreshControl
@@ -174,4 +177,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginHorizontal: '2%',
     },
+    emptyFeed: {
+        height: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+    }
 });
