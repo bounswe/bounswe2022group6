@@ -83,6 +83,7 @@ const DrawerNavigation = (props) => {
                                 size={size} color={color}
                             />
                         ),
+                        headerShown: false
                     }} />
                     <Drawer.Screen name='Messages' component={MessagesScreen} options={{
                         title: 'Messages',

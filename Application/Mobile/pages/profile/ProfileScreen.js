@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import LoadingDisplay from "../components/LoadingDisplay";
 
-const ProfileScreen = () => {
+const ProfileScreen = (props) => {
     const [user, setUser] = useState("")
 
     useEffect(() => {
@@ -25,6 +25,7 @@ const ProfileScreen = () => {
     }, [])
 
     const navigator = useNavigation();
+
     return (
         <SafeAreaView>
             <ScrollView contentContainerStyle={styles.container}>
@@ -33,7 +34,7 @@ const ProfileScreen = () => {
                     <Image style={styles.avatar} source={{ uri: 'https://bootdey.com/img/Content/avatar/avatar6.png' }} />
                     <View style={styles.body}>
                         <View style={styles.bodyContent}>
-                            <Text style={styles.name}>{user?.username}</Text>
+                            <Text onPress={() => {console.log(props)}} style={styles.name}>{user?.username}</Text>
                             <Text style={styles.info}>User</Text>
                             <Text style={styles.description}> This is the place where you tell people about you.</Text>
                             <TouchableOpacity style={styles.buttonContainer} onPress={() => navigator.navigate('EditProfile', { user })}>
