@@ -11,6 +11,8 @@ import { FiDelete } from "react-icons/fi";
 import Logo from '../assets/fav.png'
 import Image from 'react-bootstrap/Image'
 import get_labels from "../services/Label_API";
+import ChatbotIcon from '../assets/chatbot.jpg';
+import ChatBotForm from '../components/ChatBotForm';
 
 // const labels = [
 //   { name: "Medication", backgroundColor: "red", color: "white" },
@@ -55,6 +57,7 @@ export default function Home() {
   const [dummy, setdummy] = useState(0);
   const [addedlabels, setaddedlabels] = useState([]);
   const [labels, setLabels] = useState([])
+  const [showChatbot, setShowChatbot] = useState(false)
 
 
   function handleClick(event) {
@@ -97,6 +100,10 @@ export default function Home() {
       setdummy(dummy + 1);
     }
   };
+
+  const openChatbot = () => {
+    setShowChatbot(!showChatbot)
+  }
 
   return (
     <div className={styles.body} >
@@ -331,6 +338,9 @@ export default function Home() {
               </div>
             </div>
           </div>
+          {showChatbot && <ChatBotForm></ChatBotForm>}
+          <Image src={ChatbotIcon} onClick = {openChatbot} style={{width:"70px", marginTop:"200px",marginLeft:"300px"}}></Image>
+          
         </div>
       </div>
     </div>
