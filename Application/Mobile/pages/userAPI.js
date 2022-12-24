@@ -1,4 +1,4 @@
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { handleLogoutRequest } from './authAPI';
 import {BACKEND_URL} from '@env'
 

@@ -27,7 +27,7 @@ const LoginPage = ({ navigation }) => {
           setLoading(false)
           setMail("")
           setPassword("")
-          navigation.navigate("Drawer")
+          navigation.navigate("Drawer", {isRegistered: true})
         }).catch(err => {
           setLoading(false)
           alert(err)
@@ -39,8 +39,11 @@ const LoginPage = ({ navigation }) => {
     }
   }
 
+  const handleGuestLogin = () => {
+    navigation.navigate('Drawer', {isRegistered: false})
+  }
   const handleGoSignUp = () => {
-    navigation.navigate('Sign Up', { mail, password })
+    navigation.navigate('Sign Up')
   }
 
   return (
@@ -82,7 +85,7 @@ const LoginPage = ({ navigation }) => {
       </View>
       </View>
       {loading && <LoadingDisplay />}
-      <Text style={styles.guest} onPress={() => {console.log('login as guest!')}}>Login as Guest</Text>
+      <Text style={styles.guest} onPress={handleGuestLogin}>Login as Guest</Text>
       <Text style={styles.guest} onPress={() => {console.log('Forgot password!')}}>Forgot password?</Text>
       </ScrollView>
   );

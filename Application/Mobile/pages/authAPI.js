@@ -1,4 +1,4 @@
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { BACKEND_URL } from '@env'
 
 export const handleLoginRequest = async (mail, password) => {
@@ -83,8 +83,8 @@ export const handleLogoutRequest = async () => {
                 let errs = JSON.parse(responseJson.error.replaceAll("'", "\""))
                 throw new Error(errs[Object.keys(errs)[0]])
             } else {
-                await AsyncStorage.setItem("token", "")
-                return alert(responseJson.info)
+                await AsyncStorage.removeItem("token")
+                return alert(responseJson.detail)
             }
         })
 }
