@@ -446,7 +446,7 @@ class AnnotationView(APIView):
                 if post is None:
                     return JsonResponse({"info":"annotation creation failed", "error": "post does not exists"}, status=404)
 
-                annotation = TextAnnotation(id=annotation_id, author=user, content_type=content_type[0], content_id=content_id, jsonld=jsonld_dict)
+                annotation = TextAnnotation(id=annotation_id, author_id=user.userID, content_type=content_type[0], content_id=content_id, jsonld=jsonld_dict)
                 
                 try:
                     annotation.save(using="annotation")
@@ -461,7 +461,7 @@ class AnnotationView(APIView):
                 if comment is None:
                     return JsonResponse({"info":"annotation creation failed", "error": "comment does not exists"}, status=404)
 
-                annotation = TextAnnotation(id=annotation_id, author=user, content_type=content_type[0], content_id=content_id, jsonld=jsonld_dict)
+                annotation = TextAnnotation(id=annotation_id, author_id=user.userID, content_type=content_type[0], content_id=content_id, jsonld=jsonld_dict)
                 
                 try:
                     annotation.save(using="annotation")
@@ -487,7 +487,7 @@ class AnnotationView(APIView):
             if annotation_id is None:
                 return JsonResponse({"info":"annotation creation failed", "error": "annotation_id is missing"}, status=400)
 
-            annotation = ImageAnnotation(id=annotation_id, author=user, content_id=content_id, jsonld=jsonld_dict)
+            annotation = ImageAnnotation(id=annotation_id, author_id=user.userID, content_id=content_id, jsonld=jsonld_dict)
 
             try:
                 annotation.save(using="annotation")
