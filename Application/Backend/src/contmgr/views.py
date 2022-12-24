@@ -497,3 +497,46 @@ class AnnotationView(APIView):
 
         else:
             return JsonResponse({"info":"annotation creation failed", "error": "annotation_type is invalid"}, status=400)
+
+    def delete(self, req):
+
+        user = req.user
+
+        annotation_type = req.POST.get("annotation_type", None)
+
+        if annotation_type is None:
+            return JsonResponse({"info":"annotation deletion failed", "error": "annotation_type is missing"}, status=400)
+
+        if annotation_type == "text":
+
+            annotation = TextAnnotation.objects.using("annotation").filter(id=req.POST.get("annotation_id", None)).first()
+
+            if annotation is None:
+                return JsonResponse({"info":"annotation deletion failed", "error": "annotation does not exists"}, status=404)
+
+            if annotation.author_id != user.userID:
+                return JsonResponse({"info":"annotation deletion failed", "error": "annotation does not belongs to you"}, status=403)
+
+            try:
+                annotation.delete(using="annotation")
+                return JsonResponse({"info": "annotation deletion successful"}, status=200)
+
+            except Exception as e:
+                return JsonResponse({"info":"annotation deletion failed", "error": str(e)}, status=500)
+
+        elif annotation_type == "image":
+
+            annotation = ImageAnnotation.objects.using("annotation").filter(id=req.POST.get("annotation_id", None)).first()
+
+            if annotation is None:
+                return JsonResponse({"info":"annotation deletion failed", "error": "annotation does not exists"}, status=404)
+
+            if annotation.author_id != user.userID:
+                return JsonResponse({"info":"annotation deletion failed", "error": "annotation does not belongs to you"}, status=403)
+
+            try:
+                annotation.delete(using="annotation")
+                return JsonResponse({"info": "annotation deletion successful"}, status=200)
+
+            except Exception as e:
+                return JsonResponse({"info":"annotation deletion failed", "error": str(e)}, status=500)
