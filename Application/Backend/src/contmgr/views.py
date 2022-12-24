@@ -239,7 +239,7 @@ class CommentView(APIView):
         try:
             mentioned_users = [RegisteredUser.objects.get(username=_user) for _user in _mentioned_users]
         except:
-            return JsonResponse({"info":"comment creation failed", "error": f"mentioned_users does not exists on database"}, status=400)
+            return JsonResponse({"info":"comment creation failed", "error": f"mentioned_users does not exists on database"}, status=404)
 
         try:
             new_comment.mentioned_users.set(mentioned_users, clear=True)
@@ -374,7 +374,7 @@ class PostView(APIView):
             labels = [Label.objects.get(labelID=_label) for _label in _labels]
             mentioned_users = [RegisteredUser.objects.get(username=_user) for _user in _mentioned_users]
         except:
-            return JsonResponse({"info":"post creation failed", "error": f"labels or mentioned_users does not exists on database"}, status=400)
+            return JsonResponse({"info":"post creation failed", "error": f"labels or mentioned_users does not exists on database"}, status=404)
 
         new_post = Post(title=_title, type=_type, location=_location, imageURL = _imageURL,
                         is_marked_nsfw=_is_marked_nsfw, owner=user, description=_description)
@@ -444,7 +444,7 @@ class AnnotationView(APIView):
                 post = Post.objects.filter(postID=content_id).first()
                 
                 if post is None:
-                    return JsonResponse({"info":"annotation creation failed", "error": "post does not exists"}, status=400)
+                    return JsonResponse({"info":"annotation creation failed", "error": "post does not exists"}, status=404)
 
                 annotation = TextAnnotation(id=annotation_id, author=user, content_type=content_type[0], content_id=content_id, jsonld=jsonld)
                 
@@ -459,7 +459,7 @@ class AnnotationView(APIView):
                 comment = Comment.objects.filter(commentID=content_id).first()
                 
                 if comment is None:
-                    return JsonResponse({"info":"annotation creation failed", "error": "comment does not exists"}, status=400)
+                    return JsonResponse({"info":"annotation creation failed", "error": "comment does not exists"}, status=404)
 
                 annotation = TextAnnotation(id=annotation_id, author=user, content_type=content_type[0], content_id=content_id, jsonld=jsonld)
                 
