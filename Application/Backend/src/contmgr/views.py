@@ -278,6 +278,13 @@ class PostView(APIView):
         }
         
         comments = Comment.objects.filter(parent_post= tpost).order_by('created_at')
+
+        text_annotations = TextAnnotation.objects.filter(content_id= tpost.postID, content_type= "post")
+        data["text_annotations"] = [text_annotation.jsonld for text_annotation in text_annotations]
+
+        image_annotations = ImageAnnotation.objects.filter(content_id= tpost.postID, content_type= "post")
+        data["image_annotations"] = [image_annotation.jsonld for image_annotation in image_annotations]
+
         insertComments(data["comments"], comments)
         return JsonResponse(data, status=200)
 
