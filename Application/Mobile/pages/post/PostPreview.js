@@ -82,7 +82,7 @@ const PostPreview = (props) => {
     }
 
     const calculateDate = (date, time) => {
-        const dateString = date.split('.').reverse().join('-') + 'T' + time.split('.').join(':')
+        const dateString = date.split('.').reverse().join('-') + 'T' + time.split('.').join(':') + "Z"
         const _date = new Date(dateString)
         const differenceMS = new Date() - _date;
 
@@ -93,7 +93,6 @@ const PostPreview = (props) => {
         const diffDays = Math.floor(differenceMS / 86400000); // days
         const diffHrs = Math.floor((differenceMS % 86400000) / 3600000); // hours
         const diffMins = Math.floor(((differenceMS % 86400000) % 3600000) / 60000); // minutes
-
 
         if (diffDays > 2) {
             return date
@@ -110,6 +109,10 @@ const PostPreview = (props) => {
         }
     }
 
+    const showFullTime = (date, time) => {
+        const _date = new Date (date.split('.').reverse().join('-') + 'T' + time.split('.').join(':') + "Z")
+        return _date.toLocaleString()
+    }
     return (
         <Card
             style={styles.card} onPress={() => props.navigation.navigate('Post Details', { owner: props.owner, title: props.title, description: props.description, imageURL: props.imageURL, createdAt: props.created_at_date, createdAtTime: props.created_at_time, labels: props.labels, colors: props.theme, postId: props.postID })}>
@@ -117,7 +120,7 @@ const PostPreview = (props) => {
             <Card.Title
                 title={<Text onPress={() => console.log('clicked username')}>{props.owner.username}</Text>}
                 titleStyle={{ fontSize: 14 }}
-                subtitle={<Text onPress={() => setDateClicked((clicked) => !clicked)}>{dateClicked ? (props.created_at_date + ', ' + props.created_at_time) : calculateDate(props.created_at_date, props.created_at_time)}</Text>} //TODO: take date data from props
+                subtitle={<Text onPress={() => setDateClicked((clicked) => !clicked)}>{dateClicked ? (showFullTime(props.created_at_date, props.created_at_time)) : calculateDate(props.created_at_date, props.created_at_time)}</Text>}
                 subtitleStyle={{ fontSize: 12, color: 'red' }}
                 left={(props2) => <LeftContent /* profile={props.authorProfilePhoto */ {...props2} />}
                 leftStyle={{ alignSelf: 'center' }}
