@@ -31,7 +31,7 @@ const GenderOption = (props) => {
 export const SignUpScreen = (props) => {
 
     const [loading, setLoading] = useState(false)
-    const [mail, setMail] = useState(props.route.params.mail || "")
+    const [mail, setMail] = useState("")
     const [password, setPassword] = useState("")
     const [passwordAgain, setPasswordAgain] = useState("")
     const [userName, setUserName] = useState("")

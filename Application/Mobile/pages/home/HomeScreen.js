@@ -10,7 +10,8 @@ import SearchScreen from "../search/SearchScreen";
 
 const HomeFeedStack = createNativeStackNavigator();
 
-const HomeScreen = () => {
+const HomeScreen = (props) => {
+  console.log(props.route)
   return (
     <HomeFeedStack.Navigator initialRouteName='Home Feed'>
       <HomeFeedStack.Screen
@@ -19,6 +20,7 @@ const HomeScreen = () => {
         options={{
           header: (props) => <HomeHeader {...props} />
         }}
+        initialParams={{...props.route.params}}
       />
       <HomeFeedStack.Screen
         name='Post Details'
@@ -28,14 +30,16 @@ const HomeScreen = () => {
           animation: 'slide_from_right',
         }}
       />
-      <HomeFeedStack.Screen
-        name='Create Post'
-        component={CreatePost}
-        options={{
-          headerTitle: 'Create New Post',
-          animation: 'fade_from_bottom',
-        }}
-      />
+      {props.route.params.isRegistered &&
+        <HomeFeedStack.Screen
+          name='Create Post'
+          component={CreatePost}
+          options={{
+            headerTitle: 'Create New Post',
+            animation: 'fade_from_bottom',
+          }}
+        />
+      }
       <HomeFeedStack.Screen
         name='Chatbot'
         component={Chatbot}

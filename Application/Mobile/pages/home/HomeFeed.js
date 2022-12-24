@@ -5,6 +5,7 @@ import { AnimatedFAB, Button, Snackbar, Menu, ActivityIndicator, Text } from 're
 import PostPreview from '../post/PostPreview';
 import { BACKEND_URL } from '@env'
 import { handleGetUserData } from '../userAPI';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Header after the top navigation bar
 const HomeTitle = (props) => {
@@ -15,7 +16,7 @@ const HomeTitle = (props) => {
 
     const switchToPopularPosts = () => {
         setMenuAnchor({ icon: 'fire', label: 'Popular Posts' });
-         props.setHomeFeedPosts((oldList) => {
+        props.setHomeFeedPosts((oldList) => {
             newList = JSON.parse(JSON.stringify(oldList))
             newList.sort((a, b) => b.vote_count - a.vote_count)
             return newList
@@ -32,7 +33,7 @@ const HomeTitle = (props) => {
         setMenuAnchor({ icon: 'sort-clock-ascending', label: 'New Posts' });
         props.setHomeFeedPosts((oldList) => {
             newList = JSON.parse(JSON.stringify(oldList))
-            newList.sort((a,b) => {
+            newList.sort((a, b) => {
                 const a_datetime = new Date(a.created_at_date.split('.').reverse().join('-') + 'T' + a.created_at_time.split('.').join(':'))
                 const b_datetime = new Date(b.created_at_date.split('.').reverse().join('-') + 'T' + b.created_at_time.split('.').join(':'))
                 return b_datetime - a_datetime
@@ -121,8 +122,8 @@ const HomeFeed = (props) => {
                 data={homeFeedPosts}
                 renderItem={({ item }) => <PostPreview {...item} navigation={props.navigation} openSnackBar={openSnackBar} userName={userName} />}
                 ListHeaderComponent={<HomeTitle setHomeFeedPosts={setHomeFeedPosts} />}
-                ListEmptyComponent={isFetchingData ? <ActivityIndicator/> : <View style={styles.emptyFeed}><Text>Your feed is empty!</Text></View>}
-                contentContainerStyle={{flexGrow: 1}}
+                ListEmptyComponent={isFetchingData ? <ActivityIndicator /> : <View style={styles.emptyFeed}><Text>Your feed is empty!</Text></View>}
+                contentContainerStyle={{ flexGrow: 1 }}
                 onScroll={handleOnScroll}
                 refreshControl={
                     <RefreshControl
@@ -134,16 +135,18 @@ const HomeFeed = (props) => {
             />
 
             {/* Create new post button */}
-            <AnimatedFAB
-                icon={'plus'}
-                label={'New Post'}
-                extended={isExtended}
-                onPress={() => props.navigation.navigate('Create Post')}
-                visible={true}
-                animateFrom={'right'}
-                iconMode={'static'}
-                style={[styles.fabStyle, props.style, fabStyle]}
-            />
+            {props.route.params.isRegistered &&
+                <AnimatedFAB
+                    icon={'plus'}
+                    label={'New Post'}
+                    extended={isExtended}
+                    onPress={() => props.navigation.navigate('Create Post')}
+                    visible={true}
+                    animateFrom={'right'}
+                    iconMode={'static'}
+                    style={[styles.fabStyle, props.style, fabStyle]}
+                />
+            }
             {/* Snackbar to inform about some events such as (un)blocking a user */}
             <Snackbar
                 visible={snackbarVisible}
