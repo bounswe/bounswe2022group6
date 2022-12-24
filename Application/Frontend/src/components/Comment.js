@@ -76,7 +76,8 @@ const Comment = (props) => {
           </p>{" "}
           <TextAnnotation
           text = {props.comment.description}
-          //commentin annotationlarını ver
+          //annotations = {textAnnotations}
+          isGuestUser = {isGuestUser}
           />
         </div>
       </div>
