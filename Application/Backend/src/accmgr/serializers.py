@@ -1,12 +1,18 @@
 from rest_framework import serializers
 from .models import *
-
-class AccountSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Account
-        fields = ('first_name', 'last_name', 'phone_number', 'verified_as_doctor', 'profile_picture', 'profession', 'location', 'diplomaID')
-
 class RegisteredUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = RegisteredUser
-        fields = ('userID', 'username', 'email', 'is_active', 'is_admin', 'is_staff', 'is_superuser', 'last_login', 'date_joined', 'birth_date', 'gender', 'is_messaging_allowed', 'is_notification_allowed')
+        exclude = ('password', )
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        data['first_name'] = instance.account.first_name
+        data['last_name'] = instance.account.last_name
+        data['phone_number'] = instance.account.phone_number
+        data['verified_as_doctor'] = instance.account.verified_as_doctor
+        data['profile_picture'] = instance.account.profile_picture
+        data['profession'] = instance.account.profession
+        data['location'] = instance.account.location
+        data['diplomaID'] = instance.account.diplomaID
+        return data
