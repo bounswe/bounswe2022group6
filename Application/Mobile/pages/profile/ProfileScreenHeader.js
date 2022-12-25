@@ -1,20 +1,48 @@
 import React from "react";
-import { Appbar, Button, Text  } from 'react-native-paper';
+import { Appbar, Button, Text } from 'react-native-paper';
 import { StyleSheet } from 'react-native'
+import { editProfileRequest } from "../profileAPI";
 
 
 const ProfileScreenHeader = (props) => {
 
-    return(
+    const handleEditProfile = () => {
+        let changedData = JSON.stringify(props.info)
+        changedData = JSON.parse(changedData)
+        changedData.birth_date = changedData.birth_date.substring(0,10)
+        console.log("Changed data", changedData)
+
+        Object.keys(changedData).forEach((key) => {
+            console.log(typeof key, key)
+            if (changedData[key] === "")
+                changedData[key] = null
+            if (changedData[key] === null && (key === "email" || key === "username")) {
+                alert(key + " can not be empty!")
+                return
+            }
+            if(changedData[key] === props.route.params.user[key])
+                delete changedData[key]
+        });
+
+        if((changedData.diplomaID && !changedData.profession) || (!changedData.diplomaID && !changedData.profession)) {
+            alert('Please provide both diploma ID and profession at the same time.')
+        }
+
+        editProfileRequest(changedData).then((response) => {
+            alert(response.info)
+
+        })
+    }
+    return (
         <Appbar.Header style={styles.topBar}>
-            {props.options.title == 'Edit Profile' && 
-            <Appbar.BackAction color="white" onPress={() => props.navigation.navigate('Profile')} />}
-            {props.options.title == 'Profile' && 
-            <Appbar.Action icon='menu' color="white" onPress={() => props.navigation.toggleDrawer()} />
+            {props.options.title == 'Edit Profile' &&
+                <Appbar.BackAction color="white" onPress={() => props.navigation.navigate('Profile')} />}
+            {props.options.title == 'Profile' &&
+                <Appbar.Action icon='menu' color="white" onPress={() => props.navigation.toggleDrawer()} />
             }
             <Appbar.Content title={props.options.title} />
             {props.options.title == 'Edit Profile' &&
-            <Appbar.Action icon='content-save-outline' color="white" onPress={() => props.navigation.toggleDrawer()} />
+                <Appbar.Action icon='content-save-outline' color="white" onPress={handleEditProfile} />
             }
         </Appbar.Header>
     );
