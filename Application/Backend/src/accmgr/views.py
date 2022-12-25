@@ -286,6 +286,17 @@ class UploadProfPic(APIView):
 
         except:
             return JsonResponse({"error": "profile picture upload failed"}, status=400)
+    
+    def delete(self, req):
+        user = RegisteredUser.objects.get(username=req.user)
+        account = Account.objects.get(owner=user)
+        try:
+            account.image.delete()
+            account.save()
+            return JsonResponse({"success": "profile picture deleted successfully"}, status=200)
+
+        except:
+            return JsonResponse({"error": "profile picture delete failed"}, status=400)
             
 
 class ViewProfile(APIView):

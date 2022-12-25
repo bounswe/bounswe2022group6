@@ -2,15 +2,10 @@ from datetime import date
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import RegexValidator, MinLengthValidator
-from django.core.files.storage import FileSystemStorage
+from ..common import OverwriteStorage
 
 def img_path(instance, filename):
     return f"profpics/{instance.owner.username}.{filename.split('.')[-1]}"
-
-class OverwriteStorage(FileSystemStorage):
-    def get_available_name(self, name, max_length=None):
-        self.delete(name)
-        return name
 
 class RegisteredUser(AbstractUser):
 

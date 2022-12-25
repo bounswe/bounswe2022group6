@@ -282,6 +282,7 @@ class PostView(APIView):
         _location = req_put.get("location", None)
         _image = req.FILES.get("image", None)
         _is_marked_nsfw = req_put.get("is_marked_nsfw", None)
+        _delete_picture = req_put.get("delete_picture", None)
 
         # Parse all fields
         _labels = list(map(str.strip, _labels))
@@ -293,6 +294,7 @@ class PostView(APIView):
         tpost.location = _location.strip().lower() if _location is not None else tpost.location
         tpost.image = _image if _image is not None else tpost.image
         tpost.is_marked_nsfw = _is_marked_nsfw.strip().lower()=="true" if _is_marked_nsfw is not None else tpost.is_marked_nsfw
+        _delete_picture = _delete_picture.strip().lower()=="true"
 
         try:
             labels = [Label.objects.get(labelID=_label) for _label in _labels]
@@ -300,6 +302,9 @@ class PostView(APIView):
             tpost.mentioned_users.set(mentioned_users, clear=True)
             tpost.labels.set(labels, clear=True)
             tpost.save()
+            if _delete_picture:
+                tpost.image.delete()
+                tpost.save()
             return JsonResponse({"info": "post update successful", "postID": tpost.postID}, status=201)
         except Exception as e:
             return JsonResponse({"info":"post update failed", "error": str(e)}, status=400)

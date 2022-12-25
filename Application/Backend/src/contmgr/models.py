@@ -1,15 +1,10 @@
 from django.db import models
 from django.utils import timezone
 from src.accmgr.models import *
-from django.core.files.storage import FileSystemStorage
+from ..common import OverwriteStorage
 
 def img_path_post(instance, filename):
     return f"postpics/{instance.postID}.{filename.split('.')[-1]}"
-
-class OverwriteStorage(FileSystemStorage):
-    def get_available_name(self, name, max_length=None):
-        self.delete(name)
-        return name
 
 class Content(models.Model):
 
