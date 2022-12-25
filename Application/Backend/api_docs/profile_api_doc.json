@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "4685815f-5751-4be7-b67d-408f8da9dfa0",
+		"_postman_id": "06a6b8e0-f969-43db-951b-0f5c72bf0c05",
 		"name": "Profile",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "24070174"
@@ -470,7 +470,7 @@
 			},
 			"response": [
 				{
-					"name": "Success",
+					"name": "Success Old",
 					"originalRequest": {
 						"method": "GET",
 						"header": [
@@ -480,10 +480,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
 						"url": {
 							"raw": "localhost:8000/profile/",
 							"host": [
@@ -543,6 +539,81 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"username\": \"markine\",\n    \"email\": \"markine@facadeledger.com\",\n    \"birth_date\": \"1999-02-07\",\n    \"gender\": \"F\",\n    \"is_messaging_allowed\": true,\n    \"is_notifications_allowed\": true,\n    \"first_name\": null,\n    \"last_name\": null,\n    \"profile_picture\": null,\n    \"phone_number\": null,\n    \"verified_as_doctor\": false,\n    \"profession\": null,\n    \"location\": null,\n    \"diplomaID\": null\n}"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 60ce1bfd6d070ccf9118f512ed6ac4e46ff9637f",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "localhost:8000/profile/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"profile",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 25 Dec 2022 13:33:50 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "527"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"userID\": 2,\n    \"last_login\": \"2022-12-24T15:44:20.618642Z\",\n    \"is_superuser\": false,\n    \"is_staff\": false,\n    \"is_active\": true,\n    \"date_joined\": \"2022-12-24T15:44:19.276485Z\",\n    \"username\": \"mark\",\n    \"email\": \"mark.zucky@facadeledger.com\",\n    \"birth_date\": \"1970-10-06\",\n    \"gender\": \"M\",\n    \"is_messaging_allowed\": true,\n    \"is_notification_allowed\": true,\n    \"user_permissions\": [],\n    \"first_name\": null,\n    \"last_name\": null,\n    \"phone_number\": null,\n    \"verified_as_doctor\": false,\n    \"profile_picture\": null,\n    \"profession\": null,\n    \"location\": null,\n    \"diplomaID\": null\n}"
 				}
 			]
 		},
