@@ -242,7 +242,6 @@ class ProfileTest(TestCase):
 
             response = self.client.post('/profile/', {"birth_day":"7"}, HTTP_AUTHORIZATION="Token " + token)
             response_content = json.loads(response.content)
-            print(response_content)
             self.assertEqual(response_content, {
                 "info": "user profile update failed",
                 "error": "{'birth_date': ['Enter all fields together.']}"
