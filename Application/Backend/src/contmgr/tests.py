@@ -55,9 +55,9 @@ class PostsTest(TestCase):
         content = json.loads(response.content)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(content["description"], 'Constant headache while sleeping')
-        self.assertEqual(content["owner"], 'markine')
+        self.assertEqual(content["owner"]["username"], 'markine')
         self.assertEqual(content["result_vote"], 0)
-        self.assertCountEqual(content["mentioned_users"], ["nancy", "john"])
+        self.assertCountEqual([ment_user["username"] for ment_user in content["mentioned_users"]], ["nancy", "john"])
         self.assertEqual(content["title"], 'Headache')
         self.assertEqual(content["type"], 'q')
 
@@ -112,9 +112,9 @@ class CommentsTest(TestCase):
         self.assertEqual(post_content["comments"][0]["commentID"], comment_content["commentID"])
 
         self.assertEqual(post_content["description"], 'Constant headache while sleeping')
-        self.assertEqual(post_content["owner"], 'markine')
+        self.assertEqual(post_content["owner"]["username"], 'markine')
         self.assertEqual(post_content["result_vote"], 0)
-        self.assertCountEqual(comment_content["mentioned_users"], ["nancy", "john"])
+        self.assertCountEqual([ment_user["username"] for ment_user in comment_content["mentioned_users"]], ["nancy", "john"])
         self.assertEqual(post_content["title"], 'Headache')
         self.assertEqual(post_content["type"], 'q')
         self.assertEqual(comment_content["description"], "Sorry mate!")
@@ -174,6 +174,8 @@ class LabelsTest(TestCase):
 
 
 class SearchPostTest(TestCase):
+
+    databases = ['default', 'annotation']
 
     def setUp(self):
         self.client = Client()
