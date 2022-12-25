@@ -12,4 +12,6 @@ urlpatterns = [
     path('profile/', views.Profile.as_view(), name="profile/"),
     path('uploadprofpic', views.UploadProfPic.as_view(), name="uploadprofpic"),
     path('uploadprofpic/', views.UploadProfPic.as_view(), name="uploadprofpic/"),
+    path('viewprofile', views.ViewProfile.as_view(), name="viewprofile"),
+    path('viewprofile/', views.ViewProfile.as_view(), name="viewprofile/"),
 ]

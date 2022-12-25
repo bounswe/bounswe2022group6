@@ -96,10 +96,15 @@ class Vote(APIView):
         except Exception as e:
             return JsonResponse({"info":"Fetch data failed", "error": str(e)}, status=400)
 
+        # Set reputation point increase or decrease
+        rep_point = 1 if vote=="up" else -1
+
         def vote_func(main_vote, side_vote, op_name, user, _type):
             if main_vote.filter(username=user.username).exists():
                 try:
                     main_vote.remove(user)
+                    model.owner.reputation-= rep_point
+                    model.owner.save()
                     return JsonResponse({"info":f"{op_name} removed from {_type} for user"}, status=201)
                 except Exception as e:
                     return JsonResponse({"info":f"{op_name} remove from {_type} failed", "error": str(e)}, status=400)
@@ -107,7 +112,10 @@ class Vote(APIView):
                 try:
                     if side_vote.filter(username=user.username).exists():
                         side_vote.remove(user)
+                        model.owner.reputation+= rep_point
                     main_vote.add(user)
+                    model.owner.reputation+= rep_point
+                    model.owner.save()
                     return JsonResponse({"info":f"{op_name} added to {_type} for user"}, status=201)
                 except Exception as e:
                     return JsonResponse({"info":f"{op_name} add to {_type} failed", "error": str(e)}, status=400)
@@ -147,10 +155,6 @@ class CommentView(APIView):
             return JsonResponse({"info":f"comment get failed", "error": "Comment does not exists with given id"}, status=404)
 
         data = CommentSerializer(comment).data
-        # Return first one (Only one element will return)
-
-        text_annotations = TextAnnotation.objects.using("annotation").filter(content_id = commentID, content_type = "c")
-        data["text_annotations"] = [text_annotation.jsonld for text_annotation in text_annotations]
 
         return JsonResponse(data, status=200)
 
@@ -247,12 +251,6 @@ class PostView(APIView):
             return JsonResponse({"info":f"post get failed", "error": "Post does not exists with given id"}, status=404)
 
         data = PostSerializer(tpost).data
-
-        text_annotations = TextAnnotation.objects.using("annotation").filter(content_id= tpost.postID, content_type= "p")
-        data["text_annotations"] = [text_annotation.jsonld for text_annotation in text_annotations]
-
-        image_annotations = ImageAnnotation.objects.using("annotation").filter(content_id= tpost.postID)
-        data["image_annotations"] = [image_annotation.jsonld for image_annotation in image_annotations]
 
         return JsonResponse(data, status=200)
 
