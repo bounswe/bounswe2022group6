@@ -1,0 +1,42 @@
+{
+	"info": {
+		"_postman_id": "4c66b236-e69b-420d-8d22-54092a9e80f9",
+		"name": "Upload Profile Picture",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token cce39c5de75ff8199fb096592e3c2ad869e3308e",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/uploadprofpic/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"uploadprofpic",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -281,8 +281,8 @@ class PostView(APIView):
         _description = req_put.get("description", None)
         _location = req_put.get("location", None)
         _image = req.FILES.get("image", None)
-        _is_marked_nsfw = req_put.get("is_marked_nsfw", None)
-        _delete_picture = req_put.get("delete_picture", None)
+        _is_marked_nsfw = req_put.get("is_marked_nsfw", "")
+        _delete_picture = req_put.get("delete_picture", "")
 
         # Parse all fields
         _labels = list(map(str.strip, _labels))
