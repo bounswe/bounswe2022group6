@@ -215,6 +215,7 @@ class ProfileTest(TestCase):
             self.assertEqual(response_content["gender"], "F")
             self.assertEqual(response_content["is_messaging_allowed"], True)
             self.assertEqual(response_content["is_notification_allowed"], True)
+            self.assertEqual(response_content["reputation"], 0)
 
         def test_success_post(self):
             
@@ -234,6 +235,7 @@ class ProfileTest(TestCase):
             self.assertEqual(response_content_get["is_messaging_allowed"], True)
             self.assertEqual(response_content_get["is_notification_allowed"], True)
             self.assertEqual(response_content_get["first_name"], "Markine Sun Beach")
+            self.assertEqual(response_content_get["reputation"], 0)
 
         def test_invalid_birth_date(self):
             

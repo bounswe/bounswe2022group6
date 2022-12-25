@@ -1,0 +1,197 @@
+{
+	"info": {
+		"_postman_id": "f604be0e-974b-43c5-991f-47f19ee84079",
+		"name": "ViewProfile",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Success",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/viewprofile/?username=nancy",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"viewprofile",
+						""
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "nancy"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/viewprofile/?username=nancy",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"viewprofile",
+								""
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "nancy"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 25 Dec 2022 12:32:01 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "352"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"username\": \"nancy\",\n    \"email\": \"nancy@facadeledger.com\",\n    \"birth_date\": \"1970-10-06\",\n    \"gender\": \"M\",\n    \"is_messaging_allowed\": true,\n    \"is_notifications_allowed\": true,\n    \"reputation\": 0,\n    \"first_name\": null,\n    \"last_name\": null,\n    \"profile_picture\": null,\n    \"phone_number\": null,\n    \"verified_as_doctor\": false,\n    \"profession\": null,\n    \"location\": null,\n    \"diplomaID\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Username Missing",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/viewprofile/?username=nancy",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"viewprofile",
+						""
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "nancy"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Copy",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/viewprofile/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"viewprofile",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 25 Dec 2022 12:32:57 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "61"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"ViewProfile failed\",\n    \"error\": \"Username not given\"\n}"
+				}
+			]
+		}
+	]
+}

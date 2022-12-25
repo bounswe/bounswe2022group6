@@ -4,6 +4,7 @@ import json
 
 # This function is here to set up some test classes.
 # This function registers some users, and returns tokens of them.
+mock_usernames = ["markine", "john", "nancy", "mary"]
 def registerUsers(client):
 # This function helps to login and acquire token of specific user
     def login_helper(user, passwd):
@@ -18,7 +19,7 @@ def registerUsers(client):
             "password": "passpass", "gender":"o", "birth_day":"26", "birth_month":"11", "birth_year":"1980"})
     client.post('/register/', { "username": "mary", "email": "mary@facadeledger.com",
             "password": "passpass", "gender":"o", "birth_day":"26", "birth_month":"11", "birth_year":"1980"})
-    return [login_helper(_user, "passpass") for _user in ["markine", "john", "nancy", "mary"]]
+    return [login_helper(_user, "passpass") for _user in mock_usernames]
     
 class PostsTest(TestCase):
 
@@ -133,28 +134,46 @@ class VoteTest(TestCase):
     
     def test_votes(self):
         # Test vote
-        response = self.client.post('/contmgr/postvote/', { "id": self.postID[0], "vote": "up"}, 
+        response = self.client.post('/contmgr/postvote/', { "id": self.postID[1], "vote": "up"}, 
                 HTTP_AUTHORIZATION=f"Token {self.tokens[0]}")
         content = json.loads(response.content)
         self.assertEqual(response.status_code, 201)
         self.assertEqual(content["info"], "Upvote added to post for user")
 
+        # Check user reputation after vote
+        response = self.client.get(f'/viewprofile?username={mock_usernames[1]}')
+        content = json.loads(response.content)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(content["reputation"], 1)
+
+        response = self.client.post('/contmgr/postvote/', { "id": self.postID[1], "vote": "down"}, 
+                HTTP_AUTHORIZATION=f"Token {self.tokens[2]}")
+        content = json.loads(response.content)
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(content["info"], "Downvote added to post for user")
+
         # Test vote change
-        response = self.client.post('/contmgr/postvote/', { "id": self.postID[0], "vote": "down"}, 
+        response = self.client.post('/contmgr/postvote/', { "id": self.postID[1], "vote": "down"}, 
                 HTTP_AUTHORIZATION=f"Token {self.tokens[0]}")
         content = json.loads(response.content)
         self.assertEqual(response.status_code, 201)
         self.assertEqual(content["info"], "Downvote added to post for user")
 
         # Check vote
-        response = self.client.get(f'/contmgr/postvote?id={self.postID[0]}', 
+        response = self.client.get(f'/contmgr/postvote?id={self.postID[1]}', 
                 HTTP_AUTHORIZATION=f"Token {self.tokens[0]}")
         content = json.loads(response.content)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(content["voted"], "down")
+
+        # Check user reputation after votes
+        response = self.client.get(f'/viewprofile?username={mock_usernames[1]}')
+        content = json.loads(response.content)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(content["reputation"], -2)
         
         # Remove vote
-        response = self.client.post('/contmgr/postvote/', { "id": self.postID[0], "vote": "down"}, 
+        response = self.client.post('/contmgr/postvote/', { "id": self.postID[1], "vote": "down"}, 
                 HTTP_AUTHORIZATION=f"Token {self.tokens[0]}")
         content = json.loads(response.content)
         self.assertEqual(response.status_code, 201)
