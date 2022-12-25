@@ -40,6 +40,7 @@ class Account(models.Model):
 
     owner = models.OneToOneField(RegisteredUser, on_delete=models.CASCADE, blank=True, null=True, default=None)
 
+    image = models.ImageField(upload_to="images/", blank=True, null=True, default=None)
     first_name = models.CharField(max_length=32, blank=True, null=True, default=None)
     last_name = models.CharField(max_length=32, blank=True, null=True, default=None)
     phone_number = models.CharField(max_length=15, blank=True, null=True, validators=[RegexValidator(regex='^\+?1?\d{9,15}$')], default=None)

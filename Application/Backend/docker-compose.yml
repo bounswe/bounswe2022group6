@@ -25,6 +25,7 @@ services:
     command: ../init_backend.sh
     volumes:
       - ./src:/backend/django/src
+      - ./media:/backend/media
     ports:
       - "8000:8000"
     env_file:

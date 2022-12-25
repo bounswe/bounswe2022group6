@@ -10,4 +10,6 @@ urlpatterns = [
     path('logout/', views.LogoutUser.as_view(), name="logout/"),
     path('profile', views.Profile.as_view(), name="profile"),
     path('profile/', views.Profile.as_view(), name="profile/"),
+    path('uploadprofpic', views.UploadProfPic.as_view(), name="uploadprofpic"),
+    path('uploadprofpic/', views.UploadProfPic.as_view(), name="uploadprofpic/"),
 ]

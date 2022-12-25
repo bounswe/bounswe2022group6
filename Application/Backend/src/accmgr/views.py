@@ -164,6 +164,7 @@ class Profile(APIView):
             "is_messaging_allowed": user.is_messaging_allowed,
             "is_notifications_allowed": user.is_notification_allowed,
 
+            "image": str(account.image),
             "first_name": account.first_name,
             "last_name": account.last_name,
             "profile_picture": account.profile_picture,
@@ -285,3 +286,19 @@ class Profile(APIView):
 
         except:
             return JsonResponse({"error": "account cannot be deleted"}, status=400)
+
+class UploadProfPic(APIView):
+
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, req):
+        user = RegisteredUser.objects.get(username=req.user)
+        account = Account.objects.get(owner=user)
+
+        try:
+            account.image = req.FILES["image"]
+            account.save()
+            return JsonResponse({"success": "profile picture uploaded successfully"}, status=200)
+
+        except:
+            return JsonResponse({"error": "profile picture upload failed"}, status=400)
