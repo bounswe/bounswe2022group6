@@ -270,3 +270,23 @@ class Profile(APIView):
 
         except:
             return JsonResponse({"error": "account cannot be deleted"}, status=400)
+
+
+class ViewProfile(APIView):
+
+    permission_classes = (AllowAny,)
+
+    def get(self, req):
+        try:
+            _username = req.GET["username"]
+        except:
+            return JsonResponse({"info":f"ViewProfile failed", "error": "Username not given"}, status=400)
+            
+        # Parse all fields
+        _username = _username.strip().lower()
+
+        user = RegisteredUser.objects.get(username=_username)
+        
+        data = RegisteredUserSerializer(user).data
+
+        return JsonResponse(data, status=200)

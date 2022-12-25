@@ -137,8 +137,7 @@ const Post = () => {
       >
         <ImArrowUp
           className={
-            styles.upvote
-            //post.upvoted_users.includes(window.localStorage.getItem("username")) ? styles.upvoteactive : styles.upvote
+            post.upvoted_users.some((user) => user.username === window.localStorage.getItem("username")) ? styles.upvoteactive : styles.upvote
           }
           onClick={() => vote('up')}
         />
@@ -151,8 +150,7 @@ const Post = () => {
         </h3>
         <ImArrowDown
           className={
-            styles.downvote
-            //post.downvoted_users.includes(window.localStorage.getItem("username")) ? styles.downvoteactive : styles.downvote
+            post.downvoted_users.some((user) => user.username === window.localStorage.getItem("username")) ? styles.downvoteactive : styles.downvote
           }
           onClick={() => vote('down')}
         />
