@@ -190,7 +190,7 @@ const Post = () => {
                 </p>
               ))}
                 <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
-                    {moment(post.created_at).format('MMM DD YYYY hh:mm')}
+                    {moment(post.created_at).format('MMM DD YYYY h:mm a')}
                   </medium>
             </div>
           </div>

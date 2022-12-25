@@ -87,7 +87,7 @@ const ForumPost = (props) => {
                     </p>
                   ))}
                   <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
-                  {moment(props.post.created_at).format('MMM DD YYYY hh:mm')}
+                  {moment(props.post.created_at).format('MMM DD YYYY h:mm a')}
                   </medium>
                 </div>
               </div>
