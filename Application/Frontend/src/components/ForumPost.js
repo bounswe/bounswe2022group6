@@ -62,7 +62,7 @@ const ForumPost = (props) => {
                   justifyContent: "flex-end",
                 }}
               >
-                  <p style={{textAlign:'left', marginRight:'auto'}}>{isDoctor ? props.post.owner.username +"🩺" : props.post.owner.username}</p>
+                  <p style={{textAlign:'left', marginRight:'auto'}}>{isDoctor ? props.post.owner.username +" 🩺" : props.post.owner.username}</p>
                 <div
                   style={{
                     display: "flex",
