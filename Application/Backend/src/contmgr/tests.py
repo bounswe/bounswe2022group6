@@ -22,6 +22,8 @@ def registerUsers(client):
     
 class PostsTest(TestCase):
 
+    databases = ['default', 'annotation']
+
     def setUp(self):
         self.client = Client()
         self.tokens = registerUsers(self.client)
@@ -53,13 +55,15 @@ class PostsTest(TestCase):
         content = json.loads(response.content)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(content["description"], 'Constant headache while sleeping')
-        self.assertEqual(content["owner"], 'markine')
+        self.assertEqual(content["owner"]["username"], 'markine')
         self.assertEqual(content["result_vote"], 0)
-        self.assertCountEqual(content["mentioned_users"], ["nancy", "john"])
+        self.assertCountEqual([ment_user["username"] for ment_user in content["mentioned_users"]], ["nancy", "john"])
         self.assertEqual(content["title"], 'Headache')
         self.assertEqual(content["type"], 'q')
 
 class CommentsTest(TestCase):
+
+    databases = ['default', 'annotation']
 
     def setUp(self):
         self.client = Client()
@@ -108,9 +112,9 @@ class CommentsTest(TestCase):
         self.assertEqual(post_content["comments"][0]["commentID"], comment_content["commentID"])
 
         self.assertEqual(post_content["description"], 'Constant headache while sleeping')
-        self.assertEqual(post_content["owner"], 'markine')
+        self.assertEqual(post_content["owner"]["username"], 'markine')
         self.assertEqual(post_content["result_vote"], 0)
-        self.assertCountEqual(comment_content["mentioned_users"], ["nancy", "john"])
+        self.assertCountEqual([ment_user["username"] for ment_user in comment_content["mentioned_users"]], ["nancy", "john"])
         self.assertEqual(post_content["title"], 'Headache')
         self.assertEqual(post_content["type"], 'q')
         self.assertEqual(comment_content["description"], "Sorry mate!")
@@ -231,3 +235,53 @@ class SearchPostTest(TestCase):
         postIDs = [post["postID"] for post in posts]
         self.assertEqual(postIDs, [3, 4])
 
+class AnnotationTest(TestCase):
+
+    databases = ["default", "annotation"]
+
+    def setUp(self):
+        def postCreate(number):
+            response = self.client.post('/contmgr/post/', { "title": f"title {number}", "type": "q",
+                    "description": "Constant headache while sleeping"}, HTTP_AUTHORIZATION=f"Token {self.tokens[number]}")
+            return json.loads(response.content)["postID"]
+        self.client = Client()
+        self.tokens = registerUsers(self.client)
+        self.postID = [postCreate(_num) for _num in range(3)]
+
+    def test_text_annotation(self):
+        response = self.client.post('/contmgr/annotations/', { "annotation_type": "text",
+                                                                "content_type": "post",
+                                                                "content_id": 1,
+                                                                "jsonld": '{"@context":"http://www.w3.org/ns/anno.jsonld","type":"Annotation","body":[{"type":"TextualBody","value":"text annotation","purpose":"commenting","creator":{"id":"1","name":"tollen"},"created":"2022-12-23T14:48:30.744Z","modified":"2022-12-23T14:48:38.590Z"}],"target":{"selector":[{"type":"TextQuoteSelector","exact":"Annotations"},{"type":"TextPositionSelector","start":14,"end":25}]},"id":"#5519fef0-7376-4630-96f8-4b6407419c13"}'}, HTTP_AUTHORIZATION=f"Token {self.tokens[0]}")
+        
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(json.loads(response.content), {
+            "info": "annotation creation successful",
+            "annotation_id": "#5519fef0-7376-4630-96f8-4b6407419c13"
+        })
+
+    def test_image_annotation(self):
+        response = self.client.post('/contmgr/annotations/', { "annotation_type": "image",
+                                                                "content_type": "post",
+                                                                "content_id": 1,
+                                                                "jsonld": '{"@context":"http://www.w3.org/ns/anno.jsonld","type":"Annotation","body":[{"type":"TextualBody","value":"image annotation","purpose":"commenting","creator":{"id":1,"name":"tollen"},"created":"2022-12-23T14:55:40.253Z","modified":"2022-12-23T14:55:41.743Z"}],"target":{"source":"https://myuploads-medishare38.s3.amazonaws.com/image_1671788232333.png","selector":{"type":"FragmentSelector","conformsTo":"http://www.w3.org/TR/media-frags/","value":"xywh=pixel:68,76,194,196"}},"id":"#48d7b458-fead-45af-b317-db2d9ddf4c38"}'
+        }, HTTP_AUTHORIZATION=f"Token {self.tokens[0]}")
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(json.loads(response.content), {
+            "info": "annotation creation successful",
+            "annotation_id": "#48d7b458-fead-45af-b317-db2d9ddf4c38"
+        })
+
+    def test_bad_request(self):
+        response = self.client.post('/contmgr/annotations/', { "annotation_type": "video",
+                                                                "content_type": "post",
+                                                                "content_id": 1,
+                                                                "jsonld": '{"@context":"http://www.w3.org/ns/anno.jsonld","type":"Annotation","body":[{"type":"TextualBody","value":"image annotation","purpose":"commenting","creator":{"id":1,"name":"tollen"},"created":"2022-12-23T14:55:40.253Z","modified":"2022-12-23T14:55:41.743Z"}],"target":{"source":"https://myuploads-medishare38.s3.amazonaws.com/image_1671788232333.png","selector":{"type":"FragmentSelector","conformsTo":"http://www.w3.org/TR/media-frags/","value":"xywh=pixel:68,76,194,196"}},"id":"#48d7b458-fead-45af-b317-db2d9ddf4c38"}'
+        }, HTTP_AUTHORIZATION=f"Token {self.tokens[0]}")
+
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(json.loads(response.content), {
+            "info": "annotation creation failed",
+            "error": "annotation_type is invalid"
+        })

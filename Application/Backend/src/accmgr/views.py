@@ -6,6 +6,7 @@ from django.http import JsonResponse
 from datetime import date
 from hashlib import sha256
 from .models import *
+from .serializers import *
 import datetime
 
 
@@ -155,27 +156,10 @@ class Profile(APIView):
     def get(self, req):
         user = RegisteredUser.objects.get(username=req.user)
         account = Account.objects.get(owner=user)
-        profile_data = {
 
-            "username": user.username,
-            "email": user.email,
-            "birth_date": user.birth_date,
-            "gender": user.gender,
-            "is_messaging_allowed": user.is_messaging_allowed,
-            "is_notifications_allowed": user.is_notification_allowed,
+        data = RegisteredUserSerializer(user).data
 
-            "image": str(account.image),
-            "first_name": account.first_name,
-            "last_name": account.last_name,
-            "profile_picture": account.profile_picture,
-            "phone_number": account.phone_number,
-            "verified_as_doctor": account.verified_as_doctor,
-            "profession": account.profession,
-            "location": account.location,
-            "diplomaID": account.diplomaID,
-        }
-
-        return JsonResponse(profile_data, status=200)
+        return JsonResponse(data, status=200)
 
     def post(self, req):
 

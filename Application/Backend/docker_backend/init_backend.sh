@@ -18,6 +18,8 @@ python manage.py makemigrations
 python manage.py makemigrations accmgr
 python manage.py migrate accmgr --fake-initial
 python manage.py migrate --run-syncdb
+python manage.py migrate --database=annotation
+python manage.py migrate --database=annotation --run-syncdb
 
 # Create debug superuser if username given
 if [ "$DJANGO_SUPERUSER_USERNAME" ]
