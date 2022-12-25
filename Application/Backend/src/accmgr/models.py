@@ -31,6 +31,7 @@ class RegisteredUser(AbstractUser):
     first_name = None
     last_name = None
     groups = None
+    reputation = models.IntegerField()
 
     def save(self, *args, **kwargs):
         self.full_clean()

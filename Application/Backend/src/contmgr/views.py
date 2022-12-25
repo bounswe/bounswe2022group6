@@ -98,6 +98,7 @@ class Vote(APIView):
 
     def post(self, req, _type):
         user = RegisteredUser.objects.get(username=req.user)
+        rep_point = 1 if vote=="up" else -1
         try:
             modelID = int(req.POST.get("id", None))
             vote = req.POST["vote"].strip().lower()
@@ -117,6 +118,7 @@ class Vote(APIView):
             if main_vote.filter(username=user.username).exists():
                 try:
                     main_vote.remove(user)
+                    user.reputation-= rep_point
                     return JsonResponse({"info":f"{op_name} removed from {_type} for user"}, status=201)
                 except Exception as e:
                     return JsonResponse({"info":f"{op_name} remove from {_type} failed", "error": str(e)}, status=400)
@@ -124,7 +126,9 @@ class Vote(APIView):
                 try:
                     if side_vote.filter(username=user.username).exists():
                         side_vote.remove(user)
+                        user.reputation+= rep_point
                     main_vote.add(user)
+                    user.reputation+= rep_point
                     return JsonResponse({"info":f"{op_name} added to {_type} for user"}, status=201)
                 except Exception as e:
                     return JsonResponse({"info":f"{op_name} add to {_type} failed", "error": str(e)}, status=400)
