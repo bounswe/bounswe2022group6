@@ -30,12 +30,10 @@ function ImageAnnotation(props) {
 
       // Attach event handlers here
       annotorious.on('createAnnotation', annotation => {
-        console.log('created', JSON.stringify(annotation))
         createAnnotation('image', props.contentType, props.contentId, JSON.stringify(annotation))
       });
 
       annotorious.on('deleteAnnotation', annotation => {
-        console.log('deleted', annotation);
         deleteAnnotation(annotation.id, "image")
       });
 

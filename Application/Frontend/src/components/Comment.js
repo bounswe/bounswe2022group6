@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from "../pages/home.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ImArrowUp, ImArrowDown } from "react-icons/im";
 import contentvote from '../services/Vote_API';
 import moment from 'moment'
@@ -18,7 +18,6 @@ const Comment = (props) => {
             return
         }
         console.log("voting comment")
-        //change hardcoded 1
         contentvote(props.comment.commentID, direction, false).then(() => props.onVote())
     };
 
@@ -76,8 +75,10 @@ const Comment = (props) => {
           </p>{" "}
           <TextAnnotation
           text = {props.comment.description}
-          //annotations = {textAnnotations}
+          annotations = {props.comment.text_annotations}
           isGuestUser = {isGuestUser}
+          contentType = "comment"
+          contentId = {props.comment.commentID}
           />
         </div>
       </div>

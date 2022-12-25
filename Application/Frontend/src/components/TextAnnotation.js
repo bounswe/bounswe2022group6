@@ -9,17 +9,17 @@ function TextAnnotation(props){
     useEffect(() => {
       if(textRef.current){
         const recogito = new Recogito({ content: textRef.current, readOnly: props.isGuestUser})
-        console.log(props)
+        if(props.contentType === "comment") {
+            console.log(props)
+        }
         recogito.setAnnotations(props.annotations)
 
         //Event handlers
         recogito.on('createAnnotation', annotation => {
-          //console.log('annotation created', JSON.stringify(annotation))
           createAnnotation('text', props.contentType, props.contentId, JSON.stringify(annotation))
         })
     
         recogito.on('deleteAnnotation', annotation => {
-          console.log("annotation deleted", annotation)
           deleteAnnotation(annotation.id, "text")
         })
     
