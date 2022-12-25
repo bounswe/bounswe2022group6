@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Annotorious } from '@recogito/annotorious';
-
 import '@recogito/annotorious/dist/annotorious.min.css';
+import {createAnnotation, deleteAnnotation} from '../services/Annotation_API';
 
 
 
@@ -30,11 +30,13 @@ function ImageAnnotation(props) {
 
       // Attach event handlers here
       annotorious.on('createAnnotation', annotation => {
-        console.log('created', JSON.stringify(annotation));
+        console.log('created', JSON.stringify(annotation))
+        createAnnotation('image', props.contentType, props.contentId, JSON.stringify(annotation))
       });
 
       annotorious.on('deleteAnnotation', annotation => {
         console.log('deleted', annotation);
+        deleteAnnotation(annotation.id, "image")
       });
 
       annotorious.setAuthInfo({
