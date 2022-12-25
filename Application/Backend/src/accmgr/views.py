@@ -294,7 +294,7 @@ class ViewProfile(APIView):
 
     def get(self, req):
         try:
-            _username = req.GET["username", None]
+            _username = req.GET["username"]
         except:
             return JsonResponse({"info":f"ViewProfile failed", "error": "Username not given"}, status=400)
             

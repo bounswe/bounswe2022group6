@@ -209,7 +209,7 @@ class ProfileTest(TestCase):
 
             response = self.client.get('/profile/', HTTP_AUTHORIZATION="Token " + token)
             response_content = json.loads(response.content)
-            self.assertEqual(response_content, {
+            self.assertDictEqual(response_content, {
                 "username": "markine",
                 "email": "markine@facadeledger.com",
                 "birth_date": "1988-03-12",
@@ -223,7 +223,8 @@ class ProfileTest(TestCase):
                 "verified_as_doctor": False,
                 "profession": None,
                 "location": None,
-                "diplomaID": None
+                "diplomaID": None,
+                "reputation": 0
             })
 
         def test_success_post(self):
@@ -237,7 +238,7 @@ class ProfileTest(TestCase):
 
             response_get = self.client.get('/profile/', HTTP_AUTHORIZATION="Token " + token)
             response_content_get = json.loads(response_get.content)
-            self.assertEqual(response_content_get, {
+            self.assertDictEqual(response_content_get, {
                 "username": "markine",
                 "email": "markine@facadeledger.com",
                 "birth_date": "1988-03-12",
@@ -251,7 +252,8 @@ class ProfileTest(TestCase):
                 "verified_as_doctor": False,
                 "profession": None,
                 "location": None,
-                "diplomaID": None
+                "diplomaID": None,
+                "reputation": 0
             })
 
         def test_invalid_birth_date(self):
