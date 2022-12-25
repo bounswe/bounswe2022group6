@@ -11,7 +11,6 @@ import SearchScreen from "../search/SearchScreen";
 const HomeFeedStack = createNativeStackNavigator();
 
 const HomeScreen = (props) => {
-  console.log(props.route)
   return (
     <HomeFeedStack.Navigator initialRouteName='Home Feed'>
       <HomeFeedStack.Screen

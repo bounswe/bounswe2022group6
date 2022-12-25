@@ -54,7 +54,7 @@ const ProfileScreen = (props) => {
                         {(user.first_name || user.last_name) &&
                         <Title style={{ color: 'white' }}>{user.first_name && user.last_name ? (user.first_name + " " + user.last_name) : (user.first_name ? user.first_name : user.last_name)}</Title>}
                         <Subheading style={{ color: 'white' }}>{user.username}</Subheading>
-                        <Paragraph style={{ color: 'white' }}>rep score</Paragraph>
+                        <Paragraph style={{ color: 'white' }}>Reputation: {user.reputation}</Paragraph>
                     </View>
                 </View>
                 <View style={{ marginTop: 40 }}>
@@ -86,6 +86,12 @@ const ProfileScreen = (props) => {
                         <List.Item
                             title={genders[user.gender]}
                             left={props2 => <List.Icon {...props2} icon="gender-transgender" />}
+                        />
+                    }
+                    {user.date_joined &&
+                        <List.Item
+                            title={"Joined on " + new Date(user.date_joined).toLocaleDateString()}
+                            left={props2 => <List.Icon {...props2} icon="handshake" />}
                         />
                     }
                 </View>
