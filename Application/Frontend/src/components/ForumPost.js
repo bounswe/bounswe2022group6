@@ -10,6 +10,7 @@ import moment from 'moment'
 
 const ForumPost = (props) => {
   const isGuestUser = window.localStorage.getItem("auth_token") ? false : true
+  const isDoctor = props.post.owner.verified_as_doctor ? true : false
   let history = useHistory()
   console.log(props)
     const vote = (direction) => {
@@ -43,7 +44,7 @@ const ForumPost = (props) => {
                 padding: "7px 0px",
               }}
             >
-              {props.post.vote_count}
+              {props.post.result_vote}
             </h3>
             <ImArrowDown
               className={
@@ -61,7 +62,7 @@ const ForumPost = (props) => {
                   justifyContent: "flex-end",
                 }}
               >
-                  <p style={{textAlign:'left', marginRight:'auto'}}>{props.post.owner.username}</p>
+                  <p style={{textAlign:'left', marginRight:'auto'}}>{isDoctor ? props.post.owner.username +" 🩺" : props.post.owner.username}</p>
                 <div
                   style={{
                     display: "flex",
@@ -87,7 +88,7 @@ const ForumPost = (props) => {
                     </p>
                   ))}
                   <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
-                    {DateFormatter(props.post.created_at_date, props.post.created_at_time)}
+                  {moment(props.post.created_at).format('MMM DD YYYY hh:mm')}
                   </medium>
                 </div>
               </div>
@@ -101,13 +102,6 @@ const ForumPost = (props) => {
         </div>
       </div>
       )}
-
-
-const DateFormatter = (date, time) => {
-  let x = date.split(".").reverse().join("-") + "T" + time.replaceAll(".", ":")
-  return moment.utc(x).utcOffset(180).format("MMM DD YYYY hh:mm")
-  
-}
 
 const Posts = () => {
 

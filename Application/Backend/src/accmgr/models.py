@@ -31,6 +31,7 @@ class RegisteredUser(AbstractUser):
     first_name = None
     last_name = None
     groups = None
+    reputation = models.IntegerField(default=0)
 
     def save(self, *args, **kwargs):
         self.full_clean()
@@ -38,7 +39,7 @@ class RegisteredUser(AbstractUser):
 
 class Account(models.Model):
 
-    owner = models.OneToOneField(RegisteredUser, on_delete=models.CASCADE, blank=True, null=True, default=None)
+    owner = models.OneToOneField(RegisteredUser, on_delete=models.CASCADE, blank=True, null=True, default=None, related_name='account')
 
     first_name = models.CharField(max_length=32, blank=True, null=True, default=None)
     last_name = models.CharField(max_length=32, blank=True, null=True, default=None)

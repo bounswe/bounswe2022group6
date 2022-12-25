@@ -2,6 +2,7 @@ from rest_framework.views import APIView
 from django.http import JsonResponse
 from django.utils import timezone
 from .models import *
+from .serializers import *
 from ..accmgr.models import *
 from rest_framework.permissions import BasePermission, IsAuthenticated, AllowAny
 import json
@@ -13,24 +14,6 @@ class IsGetOrIsAuthenticated(BasePermission):
             return True
         # Else is same as IsAuthenticated
         return request.user and request.user.is_authenticated
-
-def insertComments(target_data, rcomments):
-    for comment in rcomments:
-        target_data.append({
-            "commentID": comment.commentID,
-            "owner":comment.owner.username,
-            "description":comment.description,
-            "result_vote":comment.upvoted_users.all().count()-comment.downvoted_users.all().count(),
-            "upvoted_users":list(comment.upvoted_users.all().values_list('username', flat=True)),
-            "downvoted_users":list(comment.downvoted_users.all().values_list('username', flat=True)),
-            "created_at":comment.created_at,
-            "last_update_at":comment.last_update_at,
-            "mentioned_users": list(comment.mentioned_users.all().values_list('username', flat=True)),
-            "comments": []
-        })
-        ncomments = Comment.objects.filter(parent_comment= comment).order_by('created_at')
-        insertComments(target_data[-1]["comments"], ncomments)
-
 
 class SearchPost(APIView):
 
@@ -54,7 +37,7 @@ class SearchPost(APIView):
 
         data = {"posts" : []}
         for post in posts:
-            data["posts"].append(post.as_dict())
+            data["posts"].append(PostSerializer(post).data)
         
         return JsonResponse(data, status=200)
 
@@ -66,7 +49,7 @@ class Labels(APIView):
         labels = Label.objects.all()
         data = {"labels" : []}
         for label in labels:
-            data["labels"].append(label.as_dict())
+            data["labels"].append(LabelSerializer(label).data)
         return JsonResponse(data, status=200, safe=False)
 
 
@@ -113,10 +96,15 @@ class Vote(APIView):
         except Exception as e:
             return JsonResponse({"info":"Fetch data failed", "error": str(e)}, status=400)
 
+        # Set reputation point increase or decrease
+        rep_point = 1 if vote=="up" else -1
+
         def vote_func(main_vote, side_vote, op_name, user, _type):
             if main_vote.filter(username=user.username).exists():
                 try:
                     main_vote.remove(user)
+                    model.owner.reputation-= rep_point
+                    model.owner.save()
                     return JsonResponse({"info":f"{op_name} removed from {_type} for user"}, status=201)
                 except Exception as e:
                     return JsonResponse({"info":f"{op_name} remove from {_type} failed", "error": str(e)}, status=400)
@@ -124,7 +112,10 @@ class Vote(APIView):
                 try:
                     if side_vote.filter(username=user.username).exists():
                         side_vote.remove(user)
+                        model.owner.reputation+= rep_point
                     main_vote.add(user)
+                    model.owner.reputation+= rep_point
+                    model.owner.save()
                     return JsonResponse({"info":f"{op_name} added to {_type} for user"}, status=201)
                 except Exception as e:
                     return JsonResponse({"info":f"{op_name} add to {_type} failed", "error": str(e)}, status=400)
@@ -162,10 +153,10 @@ class CommentView(APIView):
             comment = Comment.objects.get(commentID=commentID)
         except:
             return JsonResponse({"info":f"comment get failed", "error": "Comment does not exists with given id"}, status=404)
-        data = []
-        insertComments(data, [comment])
-        # Return first one (Only one element will return)
-        return JsonResponse(data[0], status=200)
+
+        data = CommentSerializer(comment).data
+
+        return JsonResponse(data, status=200)
 
     def put(self, req):
         user = RegisteredUser.objects.get(username=req.user)
@@ -235,7 +226,7 @@ class CommentView(APIView):
         try:
             mentioned_users = [RegisteredUser.objects.get(username=_user) for _user in _mentioned_users]
         except:
-            return JsonResponse({"info":"comment creation failed", "error": f"mentioned_users does not exists on database"}, status=400)
+            return JsonResponse({"info":"comment creation failed", "error": f"mentioned_users does not exists on database"}, status=404)
 
         try:
             new_comment.mentioned_users.set(mentioned_users, clear=True)
@@ -258,27 +249,9 @@ class PostView(APIView):
             tpost = Post.objects.get(postID= postID)
         except:
             return JsonResponse({"info":f"post get failed", "error": "Post does not exists with given id"}, status=404)
-        data = {
-            "postID": postID,
-            "owner":tpost.owner.username,
-            "description":tpost.description,
-            "result_vote":tpost.upvoted_users.all().count()-tpost.downvoted_users.all().count(),
-            "upvoted_users":list(tpost.upvoted_users.all().values_list('username', flat=True)),
-            "downvoted_users":list(tpost.downvoted_users.all().values_list('username', flat=True)),
-            "created_at":tpost.created_at,
-            "last_update_at":tpost.last_update_at,
-            "mentioned_users": list(tpost.mentioned_users.all().values_list('username', flat=True)),
-            "title":tpost.title,
-            "type":tpost.type,
-            "location":tpost.location,
-            "imageURL":tpost.imageURL,
-            "is_marked_nsfw":tpost.is_marked_nsfw,
-            "labels" : [label.as_dict() for label in tpost.labels.all()],
-            "comments": []
-        }
-        
-        comments = Comment.objects.filter(parent_post= tpost).order_by('created_at')
-        insertComments(data["comments"], comments)
+
+        data = PostSerializer(tpost).data
+
         return JsonResponse(data, status=200)
 
     def put(self, req):
@@ -363,7 +336,7 @@ class PostView(APIView):
             labels = [Label.objects.get(labelID=_label) for _label in _labels]
             mentioned_users = [RegisteredUser.objects.get(username=_user) for _user in _mentioned_users]
         except:
-            return JsonResponse({"info":"post creation failed", "error": f"labels or mentioned_users does not exists on database"}, status=400)
+            return JsonResponse({"info":"post creation failed", "error": f"labels or mentioned_users does not exists on database"}, status=404)
 
         new_post = Post(title=_title, type=_type, location=_location, imageURL = _imageURL,
                         is_marked_nsfw=_is_marked_nsfw, owner=user, description=_description)
@@ -389,6 +362,180 @@ class AllPostsView(APIView):
         posts = Post.objects.all().order_by('-created_at')
         data = {"posts":[]}
         for post in posts:
-            data["posts"].append(post.as_dict())
+            data["posts"].append(PostSerializer(post).data)
 
         return JsonResponse(data, status=200)
+
+class AnnotationView(APIView):
+
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, req):
+
+        user = req.user
+
+        annotation_type = req.POST.get("annotation_type", None)
+
+        if annotation_type is None:
+            return JsonResponse({"info":"annotation creation failed", "error": "annotation_type is missing"}, status=400)
+
+        if annotation_type == "text":
+
+            content_type = req.POST.get("content_type", None)
+            content_id = req.POST.get("content_id", None)
+            jsonld = req.POST.get("jsonld", None)
+
+            if content_type is None:
+                return JsonResponse({"info":"annotation creation failed", "error": "content_type is missing"}, status=400)
+
+            if content_type not in ["post", "comment"]:
+                return JsonResponse({"info":"annotation creation failed", "error": "content_type is invalid"}, status=400)
+
+            if content_id is None:
+                return JsonResponse({"info":"annotation creation failed", "error": "content_id is missing"}, status=400)
+
+            if jsonld is None:
+                return JsonResponse({"info":"annotation creation failed", "error": "jsonld is missing"}, status=400)
+
+            try:
+                jsonld_dict = json.loads(jsonld)
+            except:
+                return JsonResponse({"info":"annotation creation failed", "error": "jsonld is invalid"}, status=400)
+
+            annotation_id = jsonld_dict.get("id", None)
+
+            if annotation_id is None:
+                return JsonResponse({"info":"annotation creation failed", "error": "annotation_id is missing"}, status=400)
+            
+            if content_type == "post":
+
+                post = Post.objects.filter(postID=content_id).first()
+                
+                if post is None:
+                    return JsonResponse({"info":"annotation creation failed", "error": "post does not exists"}, status=404)
+
+                annotation = TextAnnotation.objects.using("annotation").filter(id=annotation_id).first()
+
+                if annotation is not None:
+                    return JsonResponse({"info":"annotation creation failed", "error": "annotation_id already exists"}, status=400)
+
+                annotation = TextAnnotation(id=annotation_id, author_id=user.userID, content_type=content_type[0], content_id=content_id, jsonld=jsonld_dict)
+
+                try:
+                    annotation.save(using="annotation")
+                    return JsonResponse({"info": "annotation creation successful", "annotation_id": annotation_id}, status=200)
+                except Exception as e:
+                    return JsonResponse({"info":"annotation creation failed", "error": str(e)}, status=500)
+
+            elif content_type == "comment":
+
+                comment = Comment.objects.filter(commentID=content_id).first()
+                
+                if comment is None:
+                    return JsonResponse({"info":"annotation creation failed", "error": "comment does not exists"}, status=404)
+
+                annotation = TextAnnotation.objects.using("annotation").filter(id=annotation_id).first()
+
+                if annotation is not None:
+                    return JsonResponse({"info":"annotation creation failed", "error": "annotation_id already exists"}, status=400)
+
+                annotation = TextAnnotation(id=annotation_id, author_id=user.userID, content_type=content_type[0], content_id=content_id, jsonld=jsonld_dict)
+                
+                try:
+                    annotation.save(using="annotation")
+                    return JsonResponse({"info": "annotation creation successful", "annotation_id": annotation_id}, status=200)
+                except Exception as e:
+                    return JsonResponse({"info":"annotation creation failed", "error": str(e)}, status=500)
+
+        elif annotation_type == "image":
+
+            content_id = req.POST.get("content_id", None)
+            jsonld = req.POST.get("jsonld", None)
+
+            if content_id is None:
+                return JsonResponse({"info":"annotation creation failed", "error": "content_id is missing"}, status=400)
+
+            if jsonld is None:
+                return JsonResponse({"info":"annotation creation failed", "error": "jsonld is missing"}, status=400)
+
+            post = Post.objects.filter(postID=content_id).first()
+
+            if post is None:
+                return JsonResponse({"info":"annotation creation failed", "error": "post does not exists"}, status=404)
+
+            try:
+                jsonld_dict = json.loads(jsonld)
+            except:
+                return JsonResponse({"info":"annotation creation failed", "error": "jsonld is invalid"}, status=400)
+
+            annotation_id = jsonld_dict.get("id", None)
+
+            if annotation_id is None:
+                return JsonResponse({"info":"annotation creation failed", "error": "annotation_id is missing"}, status=400)
+
+            annotation = ImageAnnotation.objects.using("annotation").filter(id=annotation_id).first()
+
+            if annotation is not None:
+                return JsonResponse({"info":"annotation creation failed", "error": "annotation_id already exists"}, status=400)
+
+            annotation = ImageAnnotation(id=annotation_id, author_id=user.userID, content_id=content_id, jsonld=jsonld_dict)
+
+            try:
+                annotation.save(using="annotation")
+                return JsonResponse({"info": "annotation creation successful", "annotation_id": annotation_id}, status=200)
+            except Exception as e:
+                return JsonResponse({"info":"annotation creation failed", "error": str(e)}, status=500)
+
+        else:
+            return JsonResponse({"info":"annotation creation failed", "error": "annotation_type is invalid"}, status=400)
+
+    def delete(self, req):
+
+        user = req.user
+
+        annotation_type = req.POST.get("annotation_type", None)
+
+        annotation_id = req.POST.get("annotation_id", None)
+
+        if annotation_id is None:
+            return JsonResponse({"info":"annotation deletion failed", "error": "annotation_id is missing"}, status=400)
+
+        if annotation_type is None:
+            return JsonResponse({"info":"annotation deletion failed", "error": "annotation_type is missing"}, status=400)
+
+        if annotation_type == "text":
+
+            annotation = TextAnnotation.objects.using("annotation").filter(id=annotation_id).first()
+
+            if annotation is None:
+                return JsonResponse({"info":"annotation deletion failed", "error": "annotation does not exists"}, status=404)
+
+            if annotation.author_id != user.userID:
+                return JsonResponse({"info":"annotation deletion failed", "error": "annotation does not belongs to you"}, status=403)
+
+            try:
+                annotation.delete(using="annotation")
+                return JsonResponse({"info": "annotation deletion successful"}, status=200)
+
+            except Exception as e:
+                return JsonResponse({"info":"annotation deletion failed", "error": str(e)}, status=500)
+
+        elif annotation_type == "image":
+
+            annotation = ImageAnnotation.objects.using("annotation").filter(id=annotation_id).first()
+
+            if annotation is None:
+                return JsonResponse({"info":"annotation deletion failed", "error": "annotation does not exists"}, status=404)
+
+            if annotation.author_id != user.userID:
+                return JsonResponse({"info":"annotation deletion failed", "error": "annotation does not belongs to you"}, status=403)
+
+            try:
+                annotation.delete(using="annotation")
+                return JsonResponse({"info": "annotation deletion successful"}, status=200)
+
+            except Exception as e:
+                return JsonResponse({"info":"annotation deletion failed", "error": str(e)}, status=500)
+
+        else:
+            return JsonResponse({"info":"annotation deletion failed", "error": "annotation_type is invalid"}, status=400)
