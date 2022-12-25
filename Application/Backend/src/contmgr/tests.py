@@ -175,6 +175,8 @@ class LabelsTest(TestCase):
 
 class SearchPostTest(TestCase):
 
+    databases = ['default', 'annotation']
+
     def setUp(self):
         self.client = Client()
         self.client.post('/register/', { "username": "markine", "email": "markine@facadeledger.com",
