@@ -2,6 +2,7 @@ from rest_framework.views import APIView
 from django.http import JsonResponse
 from django.utils import timezone
 from .models import *
+from .serializers import *
 from ..accmgr.models import *
 from rest_framework.permissions import BasePermission, IsAuthenticated, AllowAny
 import json
@@ -13,24 +14,6 @@ class IsGetOrIsAuthenticated(BasePermission):
             return True
         # Else is same as IsAuthenticated
         return request.user and request.user.is_authenticated
-
-def insertComments(target_data, rcomments):
-    for comment in rcomments:
-        target_data.append({
-            "commentID": comment.commentID,
-            "owner":comment.owner.username,
-            "description":comment.description,
-            "result_vote":comment.upvoted_users.all().count()-comment.downvoted_users.all().count(),
-            "upvoted_users":list(comment.upvoted_users.all().values_list('username', flat=True)),
-            "downvoted_users":list(comment.downvoted_users.all().values_list('username', flat=True)),
-            "created_at":comment.created_at,
-            "last_update_at":comment.last_update_at,
-            "mentioned_users": list(comment.mentioned_users.all().values_list('username', flat=True)),
-            "comments": []
-        })
-        ncomments = Comment.objects.filter(parent_comment= comment).order_by('created_at')
-        insertComments(target_data[-1]["comments"], ncomments)
-
 
 class SearchPost(APIView):
 
@@ -54,7 +37,7 @@ class SearchPost(APIView):
 
         data = {"posts" : []}
         for post in posts:
-            data["posts"].append(post.as_dict())
+            data["posts"].append(PostSerializer(post).data)
         
         return JsonResponse(data, status=200)
 
@@ -66,7 +49,7 @@ class Labels(APIView):
         labels = Label.objects.all()
         data = {"labels" : []}
         for label in labels:
-            data["labels"].append(label.as_dict())
+            data["labels"].append(LabelSerializer(label).data)
         return JsonResponse(data, status=200, safe=False)
 
 
@@ -162,14 +145,14 @@ class CommentView(APIView):
             comment = Comment.objects.get(commentID=commentID)
         except:
             return JsonResponse({"info":f"comment get failed", "error": "Comment does not exists with given id"}, status=404)
-        data = []
-        insertComments(data, [comment])
+
+        data = CommentSerializer(comment).data
         # Return first one (Only one element will return)
 
         text_annotations = TextAnnotation.objects.using("annotation").filter(content_id = commentID, content_type = "c")
-        data[0]["text_annotations"] = [text_annotation.jsonld for text_annotation in text_annotations]
+        data["text_annotations"] = [text_annotation.jsonld for text_annotation in text_annotations]
 
-        return JsonResponse(data[0], status=200)
+        return JsonResponse(data, status=200)
 
     def put(self, req):
         user = RegisteredUser.objects.get(username=req.user)
@@ -262,26 +245,8 @@ class PostView(APIView):
             tpost = Post.objects.get(postID= postID)
         except:
             return JsonResponse({"info":f"post get failed", "error": "Post does not exists with given id"}, status=404)
-        data = {
-            "postID": postID,
-            "owner":tpost.owner.username,
-            "description":tpost.description,
-            "result_vote":tpost.upvoted_users.all().count()-tpost.downvoted_users.all().count(),
-            "upvoted_users":list(tpost.upvoted_users.all().values_list('username', flat=True)),
-            "downvoted_users":list(tpost.downvoted_users.all().values_list('username', flat=True)),
-            "created_at":tpost.created_at,
-            "last_update_at":tpost.last_update_at,
-            "mentioned_users": list(tpost.mentioned_users.all().values_list('username', flat=True)),
-            "title":tpost.title,
-            "type":tpost.type,
-            "location":tpost.location,
-            "imageURL":tpost.imageURL,
-            "is_marked_nsfw":tpost.is_marked_nsfw,
-            "labels" : [label.as_dict() for label in tpost.labels.all()],
-            "comments": []
-        }
-        
-        comments = Comment.objects.filter(parent_post= tpost).order_by('created_at')
+
+        data = PostSerializer(tpost).data
 
         text_annotations = TextAnnotation.objects.using("annotation").filter(content_id= tpost.postID, content_type= "p")
         data["text_annotations"] = [text_annotation.jsonld for text_annotation in text_annotations]
@@ -289,7 +254,6 @@ class PostView(APIView):
         image_annotations = ImageAnnotation.objects.using("annotation").filter(content_id= tpost.postID)
         data["image_annotations"] = [image_annotation.jsonld for image_annotation in image_annotations]
 
-        insertComments(data["comments"], comments)
         return JsonResponse(data, status=200)
 
     def put(self, req):
@@ -400,7 +364,7 @@ class AllPostsView(APIView):
         posts = Post.objects.all().order_by('-created_at')
         data = {"posts":[]}
         for post in posts:
-            data["posts"].append(post.as_dict())
+            data["posts"].append(PostSerializer(post).data)
 
         return JsonResponse(data, status=200)
 

@@ -38,7 +38,7 @@ class RegisteredUser(AbstractUser):
 
 class Account(models.Model):
 
-    owner = models.OneToOneField(RegisteredUser, on_delete=models.CASCADE, blank=True, null=True, default=None)
+    owner = models.OneToOneField(RegisteredUser, on_delete=models.CASCADE, blank=True, null=True, default=None, related_name='account')
 
     first_name = models.CharField(max_length=32, blank=True, null=True, default=None)
     last_name = models.CharField(max_length=32, blank=True, null=True, default=None)

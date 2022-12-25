@@ -40,26 +40,6 @@ class Post(Content):
     is_marked_nsfw = models.BooleanField(default=False)
     labels = models.ManyToManyField("Label", related_name='labelled_posts', blank=True)
 
-    def as_dict(self):
-        return {
-            "postID" : self.postID,
-            "owner" : {"userID": self.owner.userID, "username": self.owner.username},
-            "description" : self.description,
-            "vote_count" : len(self.upvoted_users.all()) - len(self.downvoted_users.all()),
-            "upvoted_users" : [{"userID": user.userID, "username": user.username} for user in self.upvoted_users.all()],
-            "downvoted_users" : [{"userID": user.userID, "username": user.username} for user in self.downvoted_users.all()],
-            "created_at_date" : self.created_at.strftime("%d.%m.%Y"),
-            "created_at_time" : self.created_at.strftime("%H.%M.%S"),
-            "title" : self.title,
-            "type" : self.type,
-            "location" : self.location,
-            "imageURL" : self.imageURL,
-            "is_marked_nsfw" : self.is_marked_nsfw,
-            "labels" : [label.as_dict() for label in self.labels.all()],
-            "comment_count" : len(Comment.objects.filter(parent_post=self)),
-            "mentioned_users" : [{"userID": user.userID, "username": user.username} for user in self.mentioned_users.all()]
-        }
-
 class Label(models.Model):
 
     labelID = models.AutoField(primary_key=True)
@@ -67,16 +47,7 @@ class Label(models.Model):
     labelType = models.CharField(max_length=1, blank=False, null=False, choices=(("c", "content"), ("f", "field")))
     labelColor = models.CharField(max_length=16, blank=False, null=False, validators=[RegexValidator(r'^#(?:[0-9a-fA-F]{3}){1,2}$')])
     parentLabel = models.ForeignKey("self", on_delete=models.SET_NULL, blank=True, null=True, related_name='children_labels')
-
-    def as_dict(self):
-        return {
-            "labelID": self.labelID,
-            "labelName": self.labelName,
-            "labelType": self.labelType,
-            "labelColor": self.labelColor,
-            "parentLabel": self.parentLabel.labelID if self.parentLabel else None
-        }
-
+    
 class TextAnnotation(models.Model):
 
     id = models.CharField(max_length=64, primary_key=True)
