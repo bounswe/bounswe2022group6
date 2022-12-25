@@ -87,7 +87,7 @@ const ForumPost = (props) => {
                     </p>
                   ))}
                   <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
-                    {DateFormatter(props.post.created_at_date, props.post.created_at_time)}
+                    {moment(props.post.created_at).format('MMM DD YYYY hh:mm')}
                   </medium>
                 </div>
               </div>
@@ -121,6 +121,7 @@ const Posts = () => {
   useEffect(() => {
     getAllPosts().then(res => {
       setPosts(res);
+      console.log(res)
     });
   }, [voted]);
   

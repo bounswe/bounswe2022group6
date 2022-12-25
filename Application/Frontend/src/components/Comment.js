@@ -56,7 +56,7 @@ const Comment = (props) => {
               justifyContent: "flex-end",
             }}
           >
-              <p style={{textAlign:'left', marginRight:'auto'}}>{props.comment.owner}</p>
+              <p style={{textAlign:'left', marginRight:'auto'}}>{props.comment.owner.username}</p>
             <div
               style={{
                 display: "flex",
@@ -71,7 +71,7 @@ const Comment = (props) => {
         </div>
         <div style={{heigth: "fit-content", textAlign:'left'}}>
           <p style={{ textAlign: "left", fontWeight: "bolder" }}>
-            {props.comment["author"]}
+            
           </p>{" "}
           <TextAnnotation
           text = {props.comment.description}
