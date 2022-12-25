@@ -209,23 +209,13 @@ class ProfileTest(TestCase):
 
             response = self.client.get('/profile/', HTTP_AUTHORIZATION="Token " + token)
             response_content = json.loads(response.content)
-            self.assertDictEqual(response_content, {
-                "username": "markine",
-                "email": "markine@facadeledger.com",
-                "birth_date": "1988-03-12",
-                "gender": "F",
-                "is_messaging_allowed": True,
-                "is_notifications_allowed": True,
-                "first_name": None,
-                "last_name": None,
-                "profile_picture": None,
-                "phone_number": None,
-                "verified_as_doctor": False,
-                "profession": None,
-                "location": None,
-                "diplomaID": None,
-                "reputation": 0
-            })
+            self.assertEqual(response_content["username"], "markine")
+            self.assertEqual(response_content["email"], "markine@facadeledger.com")
+            self.assertEqual(response_content["birth_date"], "1988-03-12")
+            self.assertEqual(response_content["gender"], "F")
+            self.assertEqual(response_content["is_messaging_allowed"], True)
+            self.assertEqual(response_content["is_notification_allowed"], True)
+            self.assertEqual(response_content["reputation"], 0)
 
         def test_success_post(self):
             
@@ -238,23 +228,14 @@ class ProfileTest(TestCase):
 
             response_get = self.client.get('/profile/', HTTP_AUTHORIZATION="Token " + token)
             response_content_get = json.loads(response_get.content)
-            self.assertDictEqual(response_content_get, {
-                "username": "markine",
-                "email": "markine@facadeledger.com",
-                "birth_date": "1988-03-12",
-                "gender": "F",
-                "is_messaging_allowed": True,
-                "is_notifications_allowed": True,
-                "first_name": "Markine Sun Beach",
-                "last_name": None,
-                "profile_picture": None,
-                "phone_number": None,
-                "verified_as_doctor": False,
-                "profession": None,
-                "location": None,
-                "diplomaID": None,
-                "reputation": 0
-            })
+            self.assertEqual(response_content_get["username"], "markine")
+            self.assertEqual(response_content_get["email"], "markine@facadeledger.com")
+            self.assertEqual(response_content_get["birth_date"], "1988-03-12")
+            self.assertEqual(response_content_get["gender"], "F")
+            self.assertEqual(response_content_get["is_messaging_allowed"], True)
+            self.assertEqual(response_content_get["is_notification_allowed"], True)
+            self.assertEqual(response_content_get["first_name"], "Markine Sun Beach")
+            self.assertEqual(response_content["reputation"], 0)
 
         def test_invalid_birth_date(self):
             
@@ -263,7 +244,6 @@ class ProfileTest(TestCase):
 
             response = self.client.post('/profile/', {"birth_day":"7"}, HTTP_AUTHORIZATION="Token " + token)
             response_content = json.loads(response.content)
-            print(response_content)
             self.assertEqual(response_content, {
                 "info": "user profile update failed",
                 "error": "{'birth_date': ['Enter all fields together.']}"

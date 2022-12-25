@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "81656572-5fa8-417e-845d-7f9181370cdf",
+		"_postman_id": "e063ade9-247f-4ef9-b23a-8d8663267cbb",
 		"name": "Search",
 		"description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests a user can send?",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -40,14 +40,10 @@
 			},
 			"response": [
 				{
-					"name": "Search by Keyword",
+					"name": "Search by Keyword Old",
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "http://localhost:8000/contmgr/searchpost?keyword=dizziness",
 							"protocol": "http",
@@ -114,6 +110,82 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"posts\": [\n        {\n            \"postID\": 3,\n            \"owner\": {\n                \"userID\": 1,\n                \"username\": \"yonetici\"\n            },\n            \"description\": \"I have been feeing dizziness for around 2 months now, and it had recently been extremely bad the moment I wake up. Everything will be spinning and I’m extremely tired and after I get out of bed it lingers but to a much lesser extent. Anyone know what this might be? I went to an ENT doctor last month and she didn’t think it was vertigo, but I have a test on the 19th to rule out if it’s a vestibular issue. Was wondering if anyone has had similar issues and if there are any ways of getting some relief. Thanks.\",\n            \"vote_count\": 0,\n            \"voted_users\": [],\n            \"created_at_date\": \"02.12.2022\",\n            \"created_at_time\": \"19.32.41\",\n            \"title\": \"Constant dizziness\",\n            \"type\": \"e\",\n            \"location\": \"Outside\",\n            \"imageURL\": null,\n            \"is_marked_nsfw\": false,\n            \"labels\": [\n                {\n                    \"labelID\": 4,\n                    \"labelName\": \"Neurology\"\n                }\n            ],\n            \"mentioned_users\": []\n        },\n        {\n            \"postID\": 5,\n            \"owner\": {\n                \"userID\": 1,\n                \"username\": \"yonetici\"\n            },\n            \"description\": \"yesterday at around 5 I had this weird spot on my lower cheek and it burned abs stung really bad but it went away in like 10 mins. But then at around 12 I had really bad neck pain behind and under my ear. And when I woke up this morning I now have a sore throat and really sore armpits. Is this something bad?? I have super bad health anxiety and freak abt everything\",\n            \"vote_count\": 0,\n            \"voted_users\": [],\n            \"created_at_date\": \"02.12.2022\",\n            \"created_at_time\": \"23.48.46\",\n            \"title\": \"Armpit pain and dizziness and neck pain all of the sudden\",\n            \"type\": \"e\",\n            \"location\": \"Outside\",\n            \"imageURL\": null,\n            \"is_marked_nsfw\": true,\n            \"labels\": [\n                {\n                    \"labelID\": 4,\n                    \"labelName\": \"Neurology\"\n                }\n            ],\n            \"mentioned_users\": []\n        },\n        {\n            \"postID\": 6,\n            \"owner\": {\n                \"userID\": 1,\n                \"username\": \"yonetici\"\n            },\n            \"description\": \"For a few years now whenever I get up from the couch after watching TV I feel really dizzy, I just thought this was normal. But just recently I got up and my eyesight git really bad (almost blind) and I heard this ringing for about 30-40 seconds. Should I be concerned?\",\n            \"vote_count\": 0,\n            \"voted_users\": [],\n            \"created_at_date\": \"04.12.2022\",\n            \"created_at_time\": \"10.14.11\",\n            \"title\": \"partial blindness and dizziness\",\n            \"type\": \"e\",\n            \"location\": \"Home\",\n            \"imageURL\": null,\n            \"is_marked_nsfw\": true,\n            \"labels\": [\n                {\n                    \"labelID\": 6,\n                    \"labelName\": \"Ophthalmology\"\n                }\n            ],\n            \"mentioned_users\": []\n        }\n    ]\n}"
+				},
+				{
+					"name": "Search by Keyword",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8000/contmgr/searchpost?keyword=dizziness",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"contmgr",
+								"searchpost"
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "dizziness"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 25 Dec 2022 13:39:39 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "4589"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"posts\": [\n        {\n            \"postID\": 1,\n            \"owner\": {\n                \"userID\": 2,\n                \"last_login\": \"2022-12-25T13:37:37.469214Z\",\n                \"is_superuser\": false,\n                \"is_staff\": false,\n                \"is_active\": true,\n                \"date_joined\": \"2022-12-25T13:37:19.156120Z\",\n                \"username\": \"mark\",\n                \"email\": \"mark.zucky@facadeledger.com\",\n                \"birth_date\": \"1970-10-06\",\n                \"gender\": \"M\",\n                \"is_messaging_allowed\": true,\n                \"is_notification_allowed\": true,\n                \"user_permissions\": [],\n                \"first_name\": null,\n                \"last_name\": null,\n                \"phone_number\": null,\n                \"verified_as_doctor\": false,\n                \"profile_picture\": null,\n                \"profession\": null,\n                \"location\": null,\n                \"diplomaID\": null\n            },\n            \"mentioned_users\": [\n                {\n                    \"userID\": 2,\n                    \"last_login\": \"2022-12-25T13:37:37.469214Z\",\n                    \"is_superuser\": false,\n                    \"is_staff\": false,\n                    \"is_active\": true,\n                    \"date_joined\": \"2022-12-25T13:37:19.156120Z\",\n                    \"username\": \"mark\",\n                    \"email\": \"mark.zucky@facadeledger.com\",\n                    \"birth_date\": \"1970-10-06\",\n                    \"gender\": \"M\",\n                    \"is_messaging_allowed\": true,\n                    \"is_notification_allowed\": true,\n                    \"user_permissions\": [],\n                    \"first_name\": null,\n                    \"last_name\": null,\n                    \"phone_number\": null,\n                    \"verified_as_doctor\": false,\n                    \"profile_picture\": null,\n                    \"profession\": null,\n                    \"location\": null,\n                    \"diplomaID\": null\n                }\n            ],\n            \"description\": \"I have been feeing dizziness for around 2 months now, and it had recently been extremely bad the moment I wake up. Everything will be spinning and I’m extremely tired and after I get out of bed it lingers but to a much lesser extent. Anyone know what this might be? I went to an ENT doctor last month and she didn’t think it was vertigo, but I have a test on the 19th to rule out if it’s a vestibular issue. Was wondering if anyone has had similar issues and if there are any ways of getting some relief. Thanks.\",\n            \"created_at\": \"2022-12-25T13:37:53Z\",\n            \"last_update_at\": \"2022-12-25T13:37:53Z\",\n            \"title\": \"Dizziness\",\n            \"type\": \"e\",\n            \"location\": null,\n            \"imageURL\": null,\n            \"is_marked_nsfw\": true,\n            \"upvoted_users\": [\n                2\n            ],\n            \"downvoted_users\": [\n                1\n            ],\n            \"labels\": [],\n            \"comments\": [\n                {\n                    \"commentID\": 1,\n                    \"owner\": {\n                        \"userID\": 2,\n                        \"last_login\": \"2022-12-25T13:37:37.469214Z\",\n                        \"is_superuser\": false,\n                        \"is_staff\": false,\n                        \"is_active\": true,\n                        \"date_joined\": \"2022-12-25T13:37:19.156120Z\",\n                        \"username\": \"mark\",\n                        \"email\": \"mark.zucky@facadeledger.com\",\n                        \"birth_date\": \"1970-10-06\",\n                        \"gender\": \"M\",\n                        \"is_messaging_allowed\": true,\n                        \"is_notification_allowed\": true,\n                        \"user_permissions\": [],\n                        \"first_name\": null,\n                        \"last_name\": null,\n                        \"phone_number\": null,\n                        \"verified_as_doctor\": false,\n                        \"profile_picture\": null,\n                        \"profession\": null,\n                        \"location\": null,\n                        \"diplomaID\": null\n                    },\n                    \"mentioned_users\": [\n                        {\n                            \"userID\": 2,\n                            \"last_login\": \"2022-12-25T13:37:37.469214Z\",\n                            \"is_superuser\": false,\n                            \"is_staff\": false,\n                            \"is_active\": true,\n                            \"date_joined\": \"2022-12-25T13:37:19.156120Z\",\n                            \"username\": \"mark\",\n                            \"email\": \"mark.zucky@facadeledger.com\",\n                            \"birth_date\": \"1970-10-06\",\n                            \"gender\": \"M\",\n                            \"is_messaging_allowed\": true,\n                            \"is_notification_allowed\": true,\n                            \"user_permissions\": [],\n                            \"first_name\": null,\n                            \"last_name\": null,\n                            \"phone_number\": null,\n                            \"verified_as_doctor\": false,\n                            \"profile_picture\": null,\n                            \"profession\": null,\n                            \"location\": null,\n                            \"diplomaID\": null\n                        }\n                    ],\n                    \"description\": \"take a pill\",\n                    \"created_at\": \"2022-12-25T13:38:26Z\",\n                    \"last_update_at\": \"2022-12-25T13:38:26Z\",\n                    \"parent_comment\": null,\n                    \"parent_post\": 1,\n                    \"upvoted_users\": [],\n                    \"downvoted_users\": [],\n                    \"comments\": [\n                        {\n                            \"commentID\": 2,\n                            \"owner\": {\n                                \"userID\": 2,\n                                \"last_login\": \"2022-12-25T13:37:37.469214Z\",\n                                \"is_superuser\": false,\n                                \"is_staff\": false,\n                                \"is_active\": true,\n                                \"date_joined\": \"2022-12-25T13:37:19.156120Z\",\n                                \"username\": \"mark\",\n                                \"email\": \"mark.zucky@facadeledger.com\",\n                                \"birth_date\": \"1970-10-06\",\n                                \"gender\": \"M\",\n                                \"is_messaging_allowed\": true,\n                                \"is_notification_allowed\": true,\n                                \"user_permissions\": [],\n                                \"first_name\": null,\n                                \"last_name\": null,\n                                \"phone_number\": null,\n                                \"verified_as_doctor\": false,\n                                \"profile_picture\": null,\n                                \"profession\": null,\n                                \"location\": null,\n                                \"diplomaID\": null\n                            },\n                            \"mentioned_users\": [\n                                {\n                                    \"userID\": 2,\n                                    \"last_login\": \"2022-12-25T13:37:37.469214Z\",\n                                    \"is_superuser\": false,\n                                    \"is_staff\": false,\n                                    \"is_active\": true,\n                                    \"date_joined\": \"2022-12-25T13:37:19.156120Z\",\n                                    \"username\": \"mark\",\n                                    \"email\": \"mark.zucky@facadeledger.com\",\n                                    \"birth_date\": \"1970-10-06\",\n                                    \"gender\": \"M\",\n                                    \"is_messaging_allowed\": true,\n                                    \"is_notification_allowed\": true,\n                                    \"user_permissions\": [],\n                                    \"first_name\": null,\n                                    \"last_name\": null,\n                                    \"phone_number\": null,\n                                    \"verified_as_doctor\": false,\n                                    \"profile_picture\": null,\n                                    \"profession\": null,\n                                    \"location\": null,\n                                    \"diplomaID\": null\n                                }\n                            ],\n                            \"description\": \"ok\",\n                            \"created_at\": \"2022-12-25T13:38:41Z\",\n                            \"last_update_at\": \"2022-12-25T13:38:41Z\",\n                            \"parent_comment\": 1,\n                            \"parent_post\": null,\n                            \"upvoted_users\": [\n                                2\n                            ],\n                            \"downvoted_users\": [],\n                            \"comments\": [],\n                            \"result_vote\": 1\n                        }\n                    ],\n                    \"result_vote\": 0\n                }\n            ],\n            \"result_vote\": 0\n        }\n    ]\n}"
 				}
 			]
 		},
