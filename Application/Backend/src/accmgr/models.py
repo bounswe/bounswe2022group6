@@ -2,9 +2,15 @@ from datetime import date
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import RegexValidator, MinLengthValidator
+from django.core.files.storage import FileSystemStorage
 
 def img_path(instance, filename):
     return f"profpics/{instance.owner.username}.{filename.split('.')[-1]}"
+
+class OverwriteStorage(FileSystemStorage):
+    def get_available_name(self, name, max_length=None):
+        self.delete(name)
+        return name
 
 class RegisteredUser(AbstractUser):
 
@@ -43,7 +49,7 @@ class Account(models.Model):
 
     owner = models.OneToOneField(RegisteredUser, on_delete=models.CASCADE, blank=True, null=True, default=None, related_name='account')
 
-    image = models.ImageField(upload_to=img_path, blank=True, null=True, default=None)
+    image = models.ImageField(upload_to=img_path, storage=OverwriteStorage(), blank=True, null=True, default=None)
     first_name = models.CharField(max_length=32, blank=True, null=True, default=None)
     last_name = models.CharField(max_length=32, blank=True, null=True, default=None)
     phone_number = models.CharField(max_length=15, blank=True, null=True, validators=[RegexValidator(regex='^\+?1?\d{9,15}$')], default=None)

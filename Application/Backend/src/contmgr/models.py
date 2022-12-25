@@ -1,9 +1,15 @@
 from django.db import models
 from django.utils import timezone
 from src.accmgr.models import *
+from django.core.files.storage import FileSystemStorage
 
 def img_path_post(instance, filename):
     return f"postpics/{instance.postID}.{filename.split('.')[-1]}"
+
+class OverwriteStorage(FileSystemStorage):
+    def get_available_name(self, name, max_length=None):
+        self.delete(name)
+        return name
 
 class Content(models.Model):
 
@@ -39,7 +45,7 @@ class Post(Content):
     title = models.CharField(max_length=256, blank=False, null=False)
     type = models.CharField(max_length=1, choices=POST_TYPES, default="e")
     location = models.CharField(max_length=128, blank=True, null=True, default=None)
-    image = models.ImageField(upload_to=img_path_post, blank=True, null=True, default=None)
+    image = models.ImageField(upload_to=img_path_post, storage=OverwriteStorage(), blank=True, null=True, default=None)
     is_marked_nsfw = models.BooleanField(default=False)
     labels = models.ManyToManyField("Label", related_name='labelled_posts', blank=True)
 

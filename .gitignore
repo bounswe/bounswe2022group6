@@ -179,6 +179,7 @@ cython_debug/
 
 # Temporary folders/files
 _temp_db
+_temp_media
 
 # MacOS files
 .DS_Store
