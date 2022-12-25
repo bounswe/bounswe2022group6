@@ -15,5 +15,5 @@ class RegisteredUserSerializer(serializers.ModelSerializer):
         data['profession'] = instance.account.profession
         data['location'] = instance.account.location
         data['diplomaID'] = instance.account.diplomaID
-        data['profile_picture'] = instance.account.image.url
+        data['profile_picture'] = instance.account.image.url if instance.account.image else None
         return data
