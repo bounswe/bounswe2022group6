@@ -1,6 +1,6 @@
 import React from "react";
-import { Appbar } from 'react-native-paper';
-import { View, StyleSheet } from 'react-native'
+import { Appbar, Button, Text  } from 'react-native-paper';
+import { StyleSheet } from 'react-native'
 
 
 const ProfileScreenHeader = (props) => {
@@ -13,6 +13,9 @@ const ProfileScreenHeader = (props) => {
             <Appbar.Action icon='menu' color="white" onPress={() => props.navigation.toggleDrawer()} />
             }
             <Appbar.Content title={props.options.title} />
+            {props.options.title == 'Edit Profile' &&
+            <Appbar.Action icon='content-save-outline' color="white" onPress={() => props.navigation.toggleDrawer()} />
+            }
         </Appbar.Header>
     );
 }

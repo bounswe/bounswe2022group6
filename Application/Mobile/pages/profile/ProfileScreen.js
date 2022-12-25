@@ -16,8 +16,9 @@ const ProfileScreen = (props) => {
     const [user, setUser] = useState("")
 
     useEffect(() => {
+        console.log('fetching user data.');
         handleGetUserData().then(data => {
-            console.log(typeof data)
+            console.log(data);
             setUser(data)
         }).catch(err => {
             alert(err)

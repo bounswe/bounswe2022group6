@@ -10,7 +10,7 @@ const Stack = createNativeStackNavigator();
 
 const ProfileNavigation = () => {
     return (
-        <Stack.Navigator initialRouteName='Profile' screenOptions={{header: (props) => <ProfileScreenHeader {...props} />, animation: 'fade'}}>
+        <Stack.Navigator initialRouteName='Profile' screenOptions={{header: (props) => <ProfileScreenHeader {...props} />, animation: 'slide_from_right', unmountOnBlur: true}}>
             <Stack.Screen name='Profile' component={ProfileScreen} options={{title: 'Profile'}}/>
             <Stack.Screen name='EditProfile' component={EditProfileScreen} options={{ title: 'Edit Profile' }} />
         </Stack.Navigator>
