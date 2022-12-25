@@ -56,7 +56,7 @@ const Comment = (props) => {
               justifyContent: "flex-end",
             }}
           >
-              <p style={{textAlign:'left', marginRight:'auto'}}>{props.comment.owner.username}</p>
+              <p style={{textAlign:'left', marginRight:'auto'}}>{props.comment.owner.verified_as_doctor ? props.comment.owner.username +" 🩺" :props.comment.owner.username}</p>
             <div
               style={{
                 display: "flex",

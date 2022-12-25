@@ -10,6 +10,7 @@ import moment from 'moment'
 
 const ForumPost = (props) => {
   const isGuestUser = window.localStorage.getItem("auth_token") ? false : true
+  const isDoctor = props.post.owner.verified_as_doctor ? true : false
   let history = useHistory()
   console.log(props)
     const vote = (direction) => {
@@ -61,7 +62,7 @@ const ForumPost = (props) => {
                   justifyContent: "flex-end",
                 }}
               >
-                  <p style={{textAlign:'left', marginRight:'auto'}}>{props.post.owner.username}</p>
+                  <p style={{textAlign:'left', marginRight:'auto'}}>{isDoctor ? props.post.owner.username +" 🩺" : props.post.owner.username}</p>
                 <div
                   style={{
                     display: "flex",
