@@ -18,6 +18,7 @@ COPY ./src /backend/django/src
 COPY ./docker_backend/test_settings.py /backend/django/src/settings.py
 RUN python manage.py makemigrations
 RUN python manage.py migrate
+RUN python manage.py migrate --database=annotation
 RUN python manage.py test
 
 # Cleanup and replacement
