@@ -282,7 +282,7 @@ class PostView(APIView):
         _type = req_put.get("type", None)
         _description = req_put.get("description", None)
         _location = req_put.get("location", None)
-        _imageURL = req_put.get("imageURL", None)
+        _image = req.FILES.get("image", None)
         _is_marked_nsfw = req_put.get("is_marked_nsfw", None)
 
         # Parse all fields
@@ -293,7 +293,7 @@ class PostView(APIView):
         tpost.title = _title.title().strip() if _title is not None else tpost.title
         tpost.type = _type.strip().lower() if _type is not None else tpost.type
         tpost.location = _location.strip().lower() if _location is not None else tpost.location
-        tpost.imageURL = _imageURL.strip() if _imageURL is not None else tpost.imageURL
+        tpost.image = _image if _image is not None else tpost.image
         tpost.is_marked_nsfw = _is_marked_nsfw.strip().lower()=="true" if _is_marked_nsfw is not None else tpost.is_marked_nsfw
 
         try:
@@ -319,7 +319,7 @@ class PostView(APIView):
             return JsonResponse({"info":"post creation failed", "error": "{'form_data': ['Missing form data.']}"}, status=400)
 
         _location = req.POST.get("location", None)
-        _imageURL = req.POST.get("imageURL", None)
+        _image = req.FILES.get("image", None)
         _is_marked_nsfw = req.POST.get("is_marked_nsfw", None)
         _labels = req.POST.getlist("label", None)
         _mentioned_users = req.POST.getlist("mentioned_users", None)
@@ -329,7 +329,6 @@ class PostView(APIView):
         _type = _type.strip().lower()
         _description = _description.strip()
         _location = _location.strip().lower() if _location is not None else None
-        _imageURL = _imageURL.strip() if _imageURL is not None else None
         _is_marked_nsfw = _is_marked_nsfw.strip().lower()=="true" if _is_marked_nsfw is not None else False
         _labels = list(map(str.strip, _labels))
         _mentioned_users = list(map(str.strip, _mentioned_users))
@@ -340,12 +339,18 @@ class PostView(APIView):
         except:
             return JsonResponse({"info":"post creation failed", "error": f"labels or mentioned_users does not exists on database"}, status=404)
 
-        new_post = Post(title=_title, type=_type, location=_location, imageURL = _imageURL,
+        new_post = Post(title=_title, type=_type, location=_location,
                         is_marked_nsfw=_is_marked_nsfw, owner=user, description=_description)
         try:
             new_post.save()
         except Exception as e:
             return JsonResponse({"info":"post creation failed", "error": str(e)}, status=500)
+
+        try:
+            new_post.image = _image if _image is not None else new_post.image
+            new_post.save()
+        except Exception as e:
+            return JsonResponse({"info":"post image upload failed", "error": str(e)}, status=500)
         
         try:
             new_post.mentioned_users.set(mentioned_users, clear=True)

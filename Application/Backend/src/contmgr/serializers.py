@@ -14,6 +14,7 @@ class PostSerializer(serializers.ModelSerializer):
         data = super().to_representation(instance)
         data['comments'] = [CommentSerializer(comment).data for comment in instance.children_comments.all()]
         data['result_vote'] = len(instance.upvoted_users.all()) - len(instance.downvoted_users.all())
+        data['imageURL'] = instance.image.url if instance.image else None
         return data
 
 class CommentSerializer(serializers.ModelSerializer):
