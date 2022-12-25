@@ -11,7 +11,7 @@ import { FiDelete } from "react-icons/fi";
 import Logo from '../assets/fav.png'
 import Image from 'react-bootstrap/Image'
 import get_labels from "../services/Label_API";
-import ChatbotIcon from '../assets/chatbot.jpg';
+import ChatbotIcon from '../assets/chatbot-icon.png';
 import ChatBotForm from '../components/ChatBotForm';
 
 // const labels = [
@@ -339,7 +339,10 @@ export default function Home() {
             </div>
           </div>}
           {showChatbot && <ChatBotForm></ChatBotForm>}
-          <Image src={ChatbotIcon} onClick = {openChatbot} style={{width:"70px", marginTop:"10px",marginLeft:"300px"}}></Image>
+          <div style={{display:'flex', alignItems:'center', background:'#dde296', marginTop:"10px", borderRadius: '5px', color:"#0f7375" , fontSize:'0.8vw'}}>
+            <p>Have a question? Ask our ChatBot</p>
+            <Image src={ChatbotIcon} onClick = {openChatbot} style={{width:"70px", marginLeft:'150px' }}></Image>
+          </div>
           
         </div>
       </div>
