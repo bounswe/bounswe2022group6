@@ -147,10 +147,6 @@ class CommentView(APIView):
             return JsonResponse({"info":f"comment get failed", "error": "Comment does not exists with given id"}, status=404)
 
         data = CommentSerializer(comment).data
-        # Return first one (Only one element will return)
-
-        text_annotations = TextAnnotation.objects.using("annotation").filter(content_id = commentID, content_type = "c")
-        data["text_annotations"] = [text_annotation.jsonld for text_annotation in text_annotations]
 
         return JsonResponse(data, status=200)
 
@@ -247,12 +243,6 @@ class PostView(APIView):
             return JsonResponse({"info":f"post get failed", "error": "Post does not exists with given id"}, status=404)
 
         data = PostSerializer(tpost).data
-
-        text_annotations = TextAnnotation.objects.using("annotation").filter(content_id= tpost.postID, content_type= "p")
-        data["text_annotations"] = [text_annotation.jsonld for text_annotation in text_annotations]
-
-        image_annotations = ImageAnnotation.objects.using("annotation").filter(content_id= tpost.postID)
-        data["image_annotations"] = [image_annotation.jsonld for image_annotation in image_annotations]
 
         return JsonResponse(data, status=200)
 
