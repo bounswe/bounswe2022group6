@@ -5,6 +5,7 @@ from ..accmgr.serializers import RegisteredUserSerializer
 class PostSerializer(serializers.ModelSerializer):
 
     owner = RegisteredUserSerializer(read_only=True)
+    mentioned_users = RegisteredUserSerializer(read_only=True, many=True)
     class Meta:
         model = Post
         fields = '__all__'
@@ -16,6 +17,9 @@ class PostSerializer(serializers.ModelSerializer):
         return data
 
 class CommentSerializer(serializers.ModelSerializer):
+
+    owner = RegisteredUserSerializer(read_only=True)
+    mentioned_users = RegisteredUserSerializer(read_only=True, many=True)
     class Meta:
         model = Comment
         fields = '__all__'
