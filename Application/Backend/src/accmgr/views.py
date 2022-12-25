@@ -286,25 +286,7 @@ class ViewProfile(APIView):
         _username = _username.strip().lower()
 
         user = RegisteredUser.objects.get(username=_username)
-        account = Account.objects.get(owner=user)
-        profile_data = {
+        
+        data = RegisteredUserSerializer(user).data
 
-            "username": user.username,
-            "email": user.email,
-            "birth_date": user.birth_date,
-            "gender": user.gender,
-            "is_messaging_allowed": user.is_messaging_allowed,
-            "is_notifications_allowed": user.is_notification_allowed,
-            "reputation": user.reputation,
-
-            "first_name": account.first_name,
-            "last_name": account.last_name,
-            "profile_picture": account.profile_picture,
-            "phone_number": account.phone_number,
-            "verified_as_doctor": account.verified_as_doctor,
-            "profession": account.profession,
-            "location": account.location,
-            "diplomaID": account.diplomaID,
-        }
-
-        return JsonResponse(profile_data, status=200)
+        return JsonResponse(data, status=200)
