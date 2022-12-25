@@ -1,0 +1,1767 @@
+{
+	"info": {
+		"_postman_id": "98192e63-288f-4e90-a0fd-14633e4dee54",
+		"name": "Annotations",
+		"description": "# Introduction\n\nThis endpoint is used for creating and deleting text and image annotations on posts and comments\n\nThe endpoints\n\n- annotations/\n- annotations\n    \n\nhave exactly the same functionality\n\n# Overview\n\nThe .jsonld given should be valid.\n\n# Authentication\n\nAuthentication is needed to use this endpoint\n\n# Error Codes\n\n200: Annotation creation or deletion is successful.\n\n400: Annotation creation or deletion failed because of bad request.\n\n404: Annotation target does not exist.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24070174"
+	},
+	"item": [
+		{
+			"name": "Text Create Success",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 60ce1bfd6d070ccf9118f512ed6ac4e46ff9637f",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "annotation_type",
+							"value": "text",
+							"type": "text"
+						},
+						{
+							"key": "content_type",
+							"value": "post",
+							"type": "text"
+						},
+						{
+							"key": "content_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "jsonld",
+							"value": "{\"@context\":\"http://www.w3.org/ns/anno.jsonld\",\"type\":\"Annotation\",\"body\":[{\"type\":\"TextualBody\",\"value\":\"text annotation\",\"purpose\":\"commenting\",\"creator\":{\"id\":\"1\",\"name\":\"tollen\"},\"created\":\"2022-12-23T14:48:30.744Z\",\"modified\":\"2022-12-23T14:48:38.590Z\"}],\"target\":{\"selector\":[{\"type\":\"TextQuoteSelector\",\"exact\":\"Annotations\"},{\"type\":\"TextPositionSelector\",\"start\":14,\"end\":25}]},\"id\":\"#5519fef0-7376-4630-96f8-4b6407419c13\"}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/contmgr/annotations/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"contmgr",
+						"annotations",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 60ce1bfd6d070ccf9118f512ed6ac4e46ff9637f",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "annotation_type",
+									"value": "text",
+									"type": "text"
+								},
+								{
+									"key": "content_type",
+									"value": "post",
+									"type": "text"
+								},
+								{
+									"key": "content_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "jsonld",
+									"value": "{\"@context\":\"http://www.w3.org/ns/anno.jsonld\",\"type\":\"Annotation\",\"body\":[{\"type\":\"TextualBody\",\"value\":\"text annotation\",\"purpose\":\"commenting\",\"creator\":{\"id\":\"1\",\"name\":\"tollen\"},\"created\":\"2022-12-23T14:48:30.744Z\",\"modified\":\"2022-12-23T14:48:38.590Z\"}],\"target\":{\"selector\":[{\"type\":\"TextQuoteSelector\",\"exact\":\"Annotations\"},{\"type\":\"TextPositionSelector\",\"start\":14,\"end\":25}]},\"id\":\"#5519fef0-7376-4630-96f8-4b6407419c13\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/contmgr/annotations/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"contmgr",
+								"annotations",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 24 Dec 2022 18:59:14 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, DELETE, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "100"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"annotation creation successful\",\n    \"annotation_id\": \"#5519fef0-7376-4630-96f8-4b6407419c13\"\n}"
+				},
+				{
+					"name": "Create Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 60ce1bfd6d070ccf9118f512ed6ac4e46ff9637f",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "annotation_type",
+									"value": "text",
+									"type": "text"
+								},
+								{
+									"key": "content_type",
+									"value": "post",
+									"type": "text"
+								},
+								{
+									"key": "content_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "jsonld",
+									"value": "{\"@context\":\"http://www.w3.org/ns/anno.jsonld\",\"type\":\"Annotation\",\"body\":[{\"type\":\"TextualBody\",\"value\":\"text annotation\",\"purpose\":\"commenting\",\"creator\":{\"id\":\"1\",\"name\":\"tollen\"},\"created\":\"2022-12-23T14:48:30.744Z\",\"modified\":\"2022-12-23T14:48:38.590Z\"}],\"target\":{\"selector\":[{\"type\":\"TextQuoteSelector\",\"exact\":\"Annotations\"},{\"type\":\"TextPositionSelector\",\"start\":14,\"end\":25}]},\"id\":\"#5519fef0-7376-4630-96f8-4b6407419c13\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/contmgr/annotations/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"contmgr",
+								"annotations",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 24 Dec 2022 19:04:27 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, DELETE, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "79"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"annotation creation failed\",\n    \"error\": \"annotation_id already exists\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Image Create Success",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 60ce1bfd6d070ccf9118f512ed6ac4e46ff9637f",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "annotation_type",
+							"value": "image",
+							"type": "text"
+						},
+						{
+							"key": "content_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "jsonld",
+							"value": "{\"@context\":\"http://www.w3.org/ns/anno.jsonld\",\"type\":\"Annotation\",\"body\":[{\"type\":\"TextualBody\",\"value\":\"image annotation\",\"purpose\":\"commenting\",\"creator\":{\"id\":1,\"name\":\"tollen\"},\"created\":\"2022-12-23T14:55:40.253Z\",\"modified\":\"2022-12-23T14:55:41.743Z\"}],\"target\":{\"source\":\"https://myuploads-medishare38.s3.amazonaws.com/image_1671788232333.png\",\"selector\":{\"type\":\"FragmentSelector\",\"conformsTo\":\"http://www.w3.org/TR/media-frags/\",\"value\":\"xywh=pixel:68,76,194,196\"}},\"id\":\"#48d7b458-fead-45af-b317-db2d9ddf4c38\"}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/contmgr/annotations/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"contmgr",
+						"annotations",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Image Create Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 60ce1bfd6d070ccf9118f512ed6ac4e46ff9637f",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "annotation_type",
+									"value": "image",
+									"type": "text"
+								},
+								{
+									"key": "content_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "jsonld",
+									"value": "{\"@context\":\"http://www.w3.org/ns/anno.jsonld\",\"type\":\"Annotation\",\"body\":[{\"type\":\"TextualBody\",\"value\":\"image annotation\",\"purpose\":\"commenting\",\"creator\":{\"id\":1,\"name\":\"tollen\"},\"created\":\"2022-12-23T14:55:40.253Z\",\"modified\":\"2022-12-23T14:55:41.743Z\"}],\"target\":{\"source\":\"https://myuploads-medishare38.s3.amazonaws.com/image_1671788232333.png\",\"selector\":{\"type\":\"FragmentSelector\",\"conformsTo\":\"http://www.w3.org/TR/media-frags/\",\"value\":\"xywh=pixel:68,76,194,196\"}},\"id\":\"#48d7b458-fead-45af-b317-db2d9ddf4c38\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/contmgr/annotations/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"contmgr",
+								"annotations",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 24 Dec 2022 19:10:11 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, DELETE, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "100"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"annotation creation successful\",\n    \"annotation_id\": \"#48d7b458-fead-45af-b317-db2d9ddf4c38\"\n}"
+				},
+				{
+					"name": "Image Create Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 60ce1bfd6d070ccf9118f512ed6ac4e46ff9637f",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "annotation_type",
+									"value": "image",
+									"type": "text"
+								},
+								{
+									"key": "content_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "jsonld",
+									"value": "{\"@context\":\"http://www.w3.org/ns/anno.jsonld\",\"type\":\"Annotation\",\"body\":[{\"type\":\"TextualBody\",\"value\":\"image annotation\",\"purpose\":\"commenting\",\"creator\":{\"id\":1,\"name\":\"tollen\"},\"created\":\"2022-12-23T14:55:40.253Z\",\"modified\":\"2022-12-23T14:55:41.743Z\"}],\"target\":{\"source\":\"https://myuploads-medishare38.s3.amazonaws.com/image_1671788232333.png\",\"selector\":{\"type\":\"FragmentSelector\",\"conformsTo\":\"http://www.w3.org/TR/media-frags/\",\"value\":\"xywh=pixel:68,76,194,196\"}},\"id\":\"#48d7b458-fead-45af-b317-db2d9ddf4c38\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/contmgr/annotations/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"contmgr",
+								"annotations",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 24 Dec 2022 19:10:52 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, DELETE, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "79"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"annotation creation failed\",\n    \"error\": \"annotation_id already exists\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Image Create Bad Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 60ce1bfd6d070ccf9118f512ed6ac4e46ff9637f",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "annotation_type",
+							"value": "image",
+							"type": "text"
+						},
+						{
+							"key": "content_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "jsonld",
+							"value": "{\"@context\"",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/contmgr/annotations/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"contmgr",
+						"annotations",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Image Create Bad Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 60ce1bfd6d070ccf9118f512ed6ac4e46ff9637f",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "annotation_type",
+									"value": "imagey",
+									"type": "text"
+								},
+								{
+									"key": "content_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "jsonld",
+									"value": "{\"@context\":\"http://www.w3.org/ns/anno.jsonld\",\"type\":\"Annotation\",\"body\":[{\"type\":\"TextualBody\",\"value\":\"text annotation\",\"purpose\":\"commenting\",\"creator\":{\"id\":\"1\",\"name\":\"tollen\"},\"created\":\"2022-12-23T14:48:30.744Z\",\"modified\":\"2022-12-23T14:48:38.590Z\"}],\"target\":{\"selector\":[{\"type\":\"TextQuoteSelector\",\"exact\":\"Annotations\"},{\"type\":\"TextPositionSelector\",\"start\":14,\"end\":25}]},\"id\":\"#5519fef0-7376-4630-96f8-4b6407419c13\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/contmgr/annotations/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"contmgr",
+								"annotations",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 24 Dec 2022 19:12:33 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, DELETE, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "77"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"annotation creation failed\",\n    \"error\": \"annotation_type is invalid\"\n}"
+				},
+				{
+					"name": "Image Create Bad Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 60ce1bfd6d070ccf9118f512ed6ac4e46ff9637f",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "annotation_type",
+									"value": "image",
+									"type": "text"
+								},
+								{
+									"key": "content_id",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "jsonld",
+									"value": "{\"@context\":\"http://www.w3.org/ns/anno.jsonld\",\"type\":\"Annotation\",\"body\":[{\"type\":\"TextualBody\",\"value\":\"text annotation\",\"purpose\":\"commenting\",\"creator\":{\"id\":\"1\",\"name\":\"tollen\"},\"created\":\"2022-12-23T14:48:30.744Z\",\"modified\":\"2022-12-23T14:48:38.590Z\"}],\"target\":{\"selector\":[{\"type\":\"TextQuoteSelector\",\"exact\":\"Annotations\"},{\"type\":\"TextPositionSelector\",\"start\":14,\"end\":25}]},\"id\":\"#5519fef0-7376-4630-96f8-4b6407419c13\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/contmgr/annotations/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"contmgr",
+								"annotations",
+								""
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 24 Dec 2022 19:12:46 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, DELETE, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"annotation creation failed\",\n    \"error\": \"post does not exists\"\n}"
+				},
+				{
+					"name": "Image Create Bad Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 60ce1bfd6d070ccf9118f512ed6ac4e46ff9637f",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "annotation_type",
+									"value": "image",
+									"type": "text"
+								},
+								{
+									"key": "content_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "jsonld",
+									"value": "{\"@context\"",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/contmgr/annotations/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"contmgr",
+								"annotations",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 24 Dec 2022 19:13:03 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, DELETE, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "68"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"annotation creation failed\",\n    \"error\": \"jsonld is invalid\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Text Create Bad Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 60ce1bfd6d070ccf9118f512ed6ac4e46ff9637f",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "annotation_type",
+							"value": "text",
+							"type": "text"
+						},
+						{
+							"key": "content_type",
+							"value": "post",
+							"type": "text"
+						},
+						{
+							"key": "content_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "jsonld",
+							"value": "{\"test\"",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/contmgr/annotations/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"contmgr",
+						"annotations",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Bad Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 60ce1bfd6d070ccf9118f512ed6ac4e46ff9637f",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "annotation_type",
+									"value": "texty",
+									"type": "text"
+								},
+								{
+									"key": "content_type",
+									"value": "post",
+									"type": "text"
+								},
+								{
+									"key": "content_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "jsonld",
+									"value": "{\"@context\":\"http://www.w3.org/ns/anno.jsonld\",\"type\":\"Annotation\",\"body\":[{\"type\":\"TextualBody\",\"value\":\"text annotation\",\"purpose\":\"commenting\",\"creator\":{\"id\":\"1\",\"name\":\"tollen\"},\"created\":\"2022-12-23T14:48:30.744Z\",\"modified\":\"2022-12-23T14:48:38.590Z\"}],\"target\":{\"selector\":[{\"type\":\"TextQuoteSelector\",\"exact\":\"Annotations\"},{\"type\":\"TextPositionSelector\",\"start\":14,\"end\":25}]},\"id\":\"#5519fef0-7376-4630-96f8-4b6407419c13\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/contmgr/annotations/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"contmgr",
+								"annotations",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 24 Dec 2022 19:00:01 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, DELETE, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "77"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"annotation creation failed\",\n    \"error\": \"annotation_type is invalid\"\n}"
+				},
+				{
+					"name": "Create Bad Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 60ce1bfd6d070ccf9118f512ed6ac4e46ff9637f",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "annotation_type",
+									"value": "text",
+									"type": "text"
+								},
+								{
+									"key": "content_type",
+									"value": "posty",
+									"type": "text"
+								},
+								{
+									"key": "content_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "jsonld",
+									"value": "{\"@context\":\"http://www.w3.org/ns/anno.jsonld\",\"type\":\"Annotation\",\"body\":[{\"type\":\"TextualBody\",\"value\":\"text annotation\",\"purpose\":\"commenting\",\"creator\":{\"id\":\"1\",\"name\":\"tollen\"},\"created\":\"2022-12-23T14:48:30.744Z\",\"modified\":\"2022-12-23T14:48:38.590Z\"}],\"target\":{\"selector\":[{\"type\":\"TextQuoteSelector\",\"exact\":\"Annotations\"},{\"type\":\"TextPositionSelector\",\"start\":14,\"end\":25}]},\"id\":\"#5519fef0-7376-4630-96f8-4b6407419c13\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/contmgr/annotations/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"contmgr",
+								"annotations",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 24 Dec 2022 19:00:57 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, DELETE, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "74"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"annotation creation failed\",\n    \"error\": \"content_type is invalid\"\n}"
+				},
+				{
+					"name": "Create Bad Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 60ce1bfd6d070ccf9118f512ed6ac4e46ff9637f",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "annotation_type",
+									"value": "text",
+									"type": "text"
+								},
+								{
+									"key": "content_type",
+									"value": "post",
+									"type": "text"
+								},
+								{
+									"key": "content_id",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "jsonld",
+									"value": "{\"@context\":\"http://www.w3.org/ns/anno.jsonld\",\"type\":\"Annotation\",\"body\":[{\"type\":\"TextualBody\",\"value\":\"text annotation\",\"purpose\":\"commenting\",\"creator\":{\"id\":\"1\",\"name\":\"tollen\"},\"created\":\"2022-12-23T14:48:30.744Z\",\"modified\":\"2022-12-23T14:48:38.590Z\"}],\"target\":{\"selector\":[{\"type\":\"TextQuoteSelector\",\"exact\":\"Annotations\"},{\"type\":\"TextPositionSelector\",\"start\":14,\"end\":25}]},\"id\":\"#5519fef0-7376-4630-96f8-4b6407419c13\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/contmgr/annotations/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"contmgr",
+								"annotations",
+								""
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 24 Dec 2022 19:01:13 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, DELETE, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"annotation creation failed\",\n    \"error\": \"post does not exists\"\n}"
+				},
+				{
+					"name": "Create Bad Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 60ce1bfd6d070ccf9118f512ed6ac4e46ff9637f",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "annotation_type",
+									"value": "text",
+									"type": "text"
+								},
+								{
+									"key": "content_type",
+									"value": "post",
+									"type": "text"
+								},
+								{
+									"key": "content_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "jsonld",
+									"value": "{\"test\"",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/contmgr/annotations/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"contmgr",
+								"annotations",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 24 Dec 2022 19:01:59 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, DELETE, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "68"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"annotation creation failed\",\n    \"error\": \"jsonld is invalid\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Bad request",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 60ce1bfd6d070ccf9118f512ed6ac4e46ff9637f",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "annotation_id",
+							"value": "#5519fef0-7376-4630-96f8-4b6407419c13",
+							"type": "text"
+						},
+						{
+							"key": "annotation_type",
+							"value": "text",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/contmgr/annotations/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"contmgr",
+						"annotations",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Bad request",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 60ce1bfd6d070ccf9118f512ed6ac4e46ff9637f",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "annotation_id",
+									"value": "#5519fef0-7376-4630-96f8-4b6407419c13",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/contmgr/annotations/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"contmgr",
+								"annotations",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 24 Dec 2022 18:55:08 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, DELETE, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "77"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"annotation deletion failed\",\n    \"error\": \"annotation_type is missing\"\n}"
+				},
+				{
+					"name": "Delete Bad request",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 60ce1bfd6d070ccf9118f512ed6ac4e46ff9637f",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "annotation_id",
+									"value": "#5519fef0-7376-4630-96f8-4b6407419c13",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "annotation_type",
+									"value": "text",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/contmgr/annotations/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"contmgr",
+								"annotations",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 24 Dec 2022 19:05:59 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, DELETE, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "75"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"annotation deletion failed\",\n    \"error\": \"annotation_id is missing\"\n}"
+				},
+				{
+					"name": "Delete Bad request",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 60ce1bfd6d070ccf9118f512ed6ac4e46ff9637f",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "annotation_id",
+									"value": "#5519fef0-7376-4630-96f8-4b6407419c134",
+									"type": "text"
+								},
+								{
+									"key": "annotation_type",
+									"value": "text",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/contmgr/annotations/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"contmgr",
+								"annotations",
+								""
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 24 Dec 2022 19:06:09 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, DELETE, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "77"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"annotation deletion failed\",\n    \"error\": \"annotation does not exists\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Success",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 60ce1bfd6d070ccf9118f512ed6ac4e46ff9637f",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "annotation_id",
+							"value": "#5519fef0-7376-4630-96f8-4b6407419c13",
+							"type": "text"
+						},
+						{
+							"key": "annotation_type",
+							"value": "text",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/contmgr/annotations/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"contmgr",
+						"annotations",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Success",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 60ce1bfd6d070ccf9118f512ed6ac4e46ff9637f",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "annotation_id",
+									"value": "#5519fef0-7376-4630-96f8-4b6407419c13",
+									"type": "text"
+								},
+								{
+									"key": "annotation_type",
+									"value": "text",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/contmgr/annotations/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"contmgr",
+								"annotations",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 24 Dec 2022 18:56:16 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, DELETE, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "42"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"annotation deletion successful\"\n}"
+				},
+				{
+					"name": "Delete Success",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 60ce1bfd6d070ccf9118f512ed6ac4e46ff9637f",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "annotation_id",
+									"value": "#48d7b458-fead-45af-b317-db2d9ddf4c38",
+									"type": "text"
+								},
+								{
+									"key": "annotation_type",
+									"value": "image",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/contmgr/annotations/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"contmgr",
+								"annotations",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 24 Dec 2022 19:15:31 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, DELETE, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "42"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"annotation deletion successful\"\n}"
+				}
+			]
+		}
+	]
+}

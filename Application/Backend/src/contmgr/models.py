@@ -76,3 +76,18 @@ class Label(models.Model):
             "labelColor": self.labelColor,
             "parentLabel": self.parentLabel.labelID if self.parentLabel else None
         }
+
+class TextAnnotation(models.Model):
+
+    id = models.CharField(max_length=64, primary_key=True)
+    author_id = models.IntegerField(blank=False, null=False)
+    content_type = models.CharField(max_length=1, choices=(("p", "post"), ("c", "comment")), blank=False, null=False)
+    content_id = models.IntegerField(blank=False, null=False)
+    jsonld = models.JSONField(blank=False, null=False)
+
+class ImageAnnotation(models.Model):
+
+    id = models.CharField(max_length=64, primary_key=True)
+    author_id = models.IntegerField(blank=False, null=False)
+    content_id = models.IntegerField(blank=False, null=False)
+    jsonld = models.JSONField(blank=False, null=False)

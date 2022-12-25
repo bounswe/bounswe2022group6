@@ -16,4 +16,6 @@ urlpatterns = [
     path('commentvote/', views.CommentVote.as_view(), name='comment'),
     path('allposts', views.AllPostsView.as_view(), name='allposts'),
     path('allposts/', views.AllPostsView.as_view(), name='allposts/'),
+    path('annotations', views.AnnotationView.as_view(), name='annotations'),
+    path('annotations/', views.AnnotationView.as_view(), name='annotations/'),
 ]
