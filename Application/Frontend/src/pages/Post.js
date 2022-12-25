@@ -18,65 +18,6 @@ import createComment from '../services/Create_Comment_API';
 import TextAnnotation from '../components/TextAnnotation';
 import ImageAnnotation from '../components/ImageAnnotation';
 
-const imageAnnotations = [{
-  "@context": "http://www.w3.org/ns/anno.jsonld",
-  "type": "Annotation",
-  "body": [
-      {
-          "type": "TextualBody",
-          "value": "image annotation",
-          "purpose": "commenting",
-          "creator": {
-              "id": 1,
-              "name": "tollen"
-          },
-          "created": "2022-12-23T14:55:40.253Z",
-          "modified": "2022-12-23T14:55:41.743Z"
-      }
-  ],
-  "target": {
-      "source": "https://myuploads-medishare38.s3.amazonaws.com/image_1671788232333.png",
-      "selector": {
-          "type": "FragmentSelector",
-          "conformsTo": "http://www.w3.org/TR/media-frags/",
-          "value": "xywh=pixel:68,76,194,196"
-      }
-  },
-  "id": "#48d7b458-fead-45af-b317-db2d9ddf4c38"
-}]
-
-const textAnnotations = [{
-  "@context": "http://www.w3.org/ns/anno.jsonld",
-  "type": "Annotation",
-  "body": [
-      {
-          "type": "TextualBody",
-          "value": "text annotation",
-          "purpose": "commenting",
-          "creator": {
-              "id": "1",
-              "name": "tollen"
-          },
-          "created": "2022-12-23T14:48:30.744Z",
-          "modified": "2022-12-23T14:48:38.590Z"
-      }
-  ],
-  "target": {
-      "selector": [
-          {
-              "type": "TextQuoteSelector",
-              "exact": "Annotations"
-          },
-          {
-              "type": "TextPositionSelector",
-              "start": 14,
-              "end": 25
-          }
-      ]
-  },
-  "id": "#5519fef0-7376-4630-96f8-4b6407419c13"
-}]
-
 const Post = () => {
     const id = useParams()?.postId
 
@@ -260,8 +201,10 @@ const Post = () => {
           </p>{" "}
           <TextAnnotation
           text = {post.description}
-          annotations = {textAnnotations}
+          annotations = {post.text_annotations}
           isGuestUser = {isGuestUser}
+          contentType = "post"
+          contentId = {post.postID}
           />
 
         </div>
@@ -270,8 +213,10 @@ const Post = () => {
             <div style={{ filter: !window.localStorage.getItem("show_nsfw") && post.is_marked_nsfw ? 'blur(25px)' : '' }}>
               <ImageAnnotation 
               source = {"https://" + post.imageURL} 
-              annotations = {imageAnnotations}
+              annotations = {post.image_annotations}
               isGuestUser = {isGuestUser}
+              contentType = "post"
+              contentId = {post.postID}
               ></ImageAnnotation>
             </div>
           { !window.localStorage.getItem("show_nsfw")  && post.is_marked_nsfw &&
