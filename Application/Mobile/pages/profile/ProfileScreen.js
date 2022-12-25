@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useNavigation } from '@react-navigation/native';
+import React, { useCallback, useEffect, useState } from "react";
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { handleGetUserData } from '../userAPI';
 import {
     StyleSheet,
@@ -15,16 +15,22 @@ import LoadingDisplay from "../components/LoadingDisplay";
 const ProfileScreen = (props) => {
     const [user, setUser] = useState("")
 
-    useEffect(() => {
-        console.log('fetching user data.');
-        handleGetUserData().then(data => {
-            console.log(data);
-            setUser(data)
-        }).catch(err => {
-            alert(err)
-        })
-    }, [])
-
+    useFocusEffect(
+        useCallback(() => {
+            let isActive = true;
+            const fetchUserData = async () => {
+                try {
+                    userData = await handleGetUserData()
+                    if (isActive)
+                        setUser(userData);
+                } catch (e) {
+                    console.log("Error: ", e)
+                }
+            };
+            fetchUserData();
+            return () => {isActive = false}
+        }, [])
+    );
     const navigator = useNavigation();
 
     return (
@@ -35,7 +41,7 @@ const ProfileScreen = (props) => {
                     <Image style={styles.avatar} source={{ uri: 'https://bootdey.com/img/Content/avatar/avatar6.png' }} />
                     <View style={styles.body}>
                         <View style={styles.bodyContent}>
-                            <Text onPress={() => {console.log(props)}} style={styles.name}>{user?.username}</Text>
+                            <Text onPress={() => { console.log(props) }} style={styles.name}>{user?.username}</Text>
                             <Text style={styles.info}>User</Text>
                             <Text style={styles.description}> This is the place where you tell people about you.</Text>
                             <TouchableOpacity style={styles.buttonContainer} onPress={() => navigator.navigate('EditProfile', { user })}>

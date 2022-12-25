@@ -6,14 +6,13 @@ import { editProfileRequest } from "../profileAPI";
 
 const ProfileScreenHeader = (props) => {
 
-    const handleEditProfile = () => {
+    const handleEditProfile = async () => {
         let changedData = JSON.stringify(props.info)
         changedData = JSON.parse(changedData)
         changedData.birth_date = changedData.birth_date.substring(0,10)
         console.log("Changed data", changedData)
 
         Object.keys(changedData).forEach((key) => {
-            console.log(typeof key, key)
             if (changedData[key] === "")
                 changedData[key] = null
             if (changedData[key] === null && (key === "email" || key === "username")) {
@@ -24,15 +23,16 @@ const ProfileScreenHeader = (props) => {
                 delete changedData[key]
         });
 
-        if((changedData.diplomaID && !changedData.profession) || (!changedData.diplomaID && !changedData.profession)) {
+        if((("diplomaID" in changedData) && !("profession" in changedData)) || (!("diplomaID" in changedData) && ("profession" in changedData))) {
             alert('Please provide both diploma ID and profession at the same time.')
+            return
         }
 
-        editProfileRequest(changedData).then((response) => {
-            alert(response.info)
-
-        })
+        const response = await editProfileRequest(changedData)
+        alert(response.info)
+        props.navigation.pop()
     }
+    
     return (
         <Appbar.Header style={styles.topBar}>
             {props.options.title == 'Edit Profile' &&
