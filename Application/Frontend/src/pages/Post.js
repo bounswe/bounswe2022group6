@@ -136,7 +136,7 @@ const Post = () => {
       >
         <ImArrowUp
           className={
-            post.upvoted_users.includes(window.localStorage.getItem("username")) ? styles.upvoteactive : styles.upvote
+            post.upvoted_users.some((user) => user.username === window.localStorage.getItem("username")) ? styles.upvoteactive : styles.upvote
           }
           onClick={() => vote('up')}
         />
@@ -149,7 +149,7 @@ const Post = () => {
         </h3>
         <ImArrowDown
           className={
-            post.downvoted_users.includes(window.localStorage.getItem("username")) ? styles.downvoteactive : styles.downvote
+            post.downvoted_users.some((user) => user.username === window.localStorage.getItem("username")) ? styles.downvoteactive : styles.downvote
           }
           onClick={() => vote('down')}
         />
@@ -164,7 +164,7 @@ const Post = () => {
               justifyContent: "flex-end",
             }}
           >
-            <p style={{textAlign:'left', marginRight:'auto'}}>{post.owner}</p>
+            <p style={{textAlign:'left', marginRight:'auto'}}>{post.owner.username}</p>
             <div
               style={{
                 display: "flex",

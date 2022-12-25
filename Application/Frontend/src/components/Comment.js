@@ -28,7 +28,7 @@ const Comment = (props) => {
       >
         <ImArrowUp
           className={
-            props.comment.upvoted_users.includes(window.localStorage.getItem("username")) ? styles.upvoteactive : styles.upvote
+            props.comment.upvoted_users.some((user) => user.username === window.localStorage.getItem("username")) ? styles.upvoteactive : styles.upvote
           }
           onClick={() => vote("up")}
         />
@@ -41,7 +41,7 @@ const Comment = (props) => {
         </h3>
         <ImArrowDown
           className={
-            props.comment.downvoted_users.includes(window.localStorage.getItem("username")) ? styles.downvoteactive : styles.downvote
+            props.comment.downvoted_users.some((user) => user.username === window.localStorage.getItem("username")) ? styles.downvoteactive : styles.downvote
           }
           onClick={() => vote("down")}
         />
@@ -56,7 +56,7 @@ const Comment = (props) => {
               justifyContent: "flex-end",
             }}
           >
-              <p style={{textAlign:'left', marginRight:'auto'}}>{props.comment.owner}</p>
+              <p style={{textAlign:'left', marginRight:'auto'}}>{props.comment.owner.username}</p>
             <div
               style={{
                 display: "flex",
@@ -71,7 +71,6 @@ const Comment = (props) => {
         </div>
         <div style={{heigth: "fit-content"}}>
           <p style={{ textAlign: "left", fontWeight: "bolder" }}>
-            {props.comment["author"]}
           </p>{" "}
           <p style={{ textAlign: "left" }}>{props.comment["description"]}</p>
         </div>

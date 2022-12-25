@@ -43,7 +43,7 @@ const ForumPost = (props) => {
                 padding: "7px 0px",
               }}
             >
-              {props.post.vote_count}
+              {props.post.result_vote}
             </h3>
             <ImArrowDown
               className={
@@ -87,7 +87,7 @@ const ForumPost = (props) => {
                     </p>
                   ))}
                   <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
-                    {DateFormatter(props.post.created_at_date, props.post.created_at_time)}
+                  {moment(props.post.created_at).format('MMM DD YYYY hh:mm')}
                   </medium>
                 </div>
               </div>
@@ -101,13 +101,6 @@ const ForumPost = (props) => {
         </div>
       </div>
       )}
-
-
-const DateFormatter = (date, time) => {
-  let x = date.split(".").reverse().join("-") + "T" + time.replaceAll(".", ":")
-  return moment.utc(x).utcOffset(180).format("MMM DD YYYY hh:mm")
-  
-}
 
 const Posts = () => {
 
