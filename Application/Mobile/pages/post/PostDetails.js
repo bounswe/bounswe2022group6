@@ -1,25 +1,29 @@
 import React, { useEffect, useState } from "react";
-import { Card, Avatar, Button, IconButton, Text, withTheme, Menu, Divider, Chip, Paragraph } from 'react-native-paper';
-import { View, StyleSheet, TouchableOpacity, Pressable } from 'react-native';
+import { Card, Button, IconButton, Text, Chip, Paragraph, useTheme } from 'react-native-paper';
+import { View, StyleSheet } from 'react-native';
 import { ScrollView } from "react-native-gesture-handler";
 import { BACKEND_URL } from "@env"
+import { calculateDate, getFullDate } from "../components/DateFunctions";
+import PostLeftContent from "./PostLeftContent";
+import PostRightContent from "./PostRightContent";
 
 // The details screen of a post
-const PostDetails = ({ route, navigation }) => {
-    const { owner, title, description, createdAt, createdAtTime, imageURL, labels, colors, postId } = route.params
+const PostDetails = (props) => {
     const upVoted = false
     const downVoted = false
+    const [dateClicked, setDateClicked] = useState(false)
 
     const handleUpvote = () => { }
     const handleDownvote = () => { }
 
     const [comments, setComments] = useState([]);
+    const {colors} = useTheme()
 
 
     const getComments = async () => {
         try {
-            console.log(postId)
-            const response = await fetch(BACKEND_URL + '/contmgr/post?id=' + postId);
+            console.log(props.route.params.postID)
+            const response = await fetch(BACKEND_URL + '/contmgr/post?id=' + props.route.params.postID);
             const json = await response.json();
             console.log("--", json.comments)
             return json.comments
@@ -39,31 +43,34 @@ const PostDetails = ({ route, navigation }) => {
             <Card
                 style={styles.card}>
                 <Card.Title
-                    title={<Text>{owner.username}</Text>}
+                    title={<Text>{props.route.params.post.owner.username}</Text>}
                     titleStyle={{ fontSize: 14 }}
-                    subtitle={<Text onPress={() => console.log('clicked date')}>{createdAt}, {createdAtTime}</Text>} //TODO: take date data from props
+                    subtitle={<Text onPress={() => setDateClicked((clicked) => !clicked)}>{dateClicked ? (getFullDate(props.route.params.post.created_at)) : calculateDate(props.route.params.post.created_at)}</Text>}
                     subtitleStyle={{ fontSize: 12, color: 'red' }}
+                    left={(props2) => <PostLeftContent /* profile={props.authorProfilePhoto */ {...props2} {...props}/>}
+                    leftStyle={{ alignSelf: 'center' }}
+                    right={(props2) => <PostRightContent {...props2} {...props} openSnackBar={props.openSnackBar} />}
                 />
-                {labels && <Card.Content style={styles.labelContainer}>
-                    {labels.map(label => <Chip key={label.labelID} style={{ ...styles.label, borderColor: label.labelColor }} textStyle={{ color: label.labelColor }} mode='outlined'>{label.labelName}</Chip>)}
+                {props.route.params.post.labels && <Card.Content style={styles.labelContainer}>
+                    {props.route.params.post.labels.map(label => <Chip key={label.labelID} style={{ ...styles.label, borderColor: label.labelColor }} textStyle={{ color: label.labelColor }} mode='outlined'>{label.labelName}</Chip>)}
                 </Card.Content>
                 }
 
                 {/* Post title */}
-                <Card.Title title={title} titleNumberOfLines={2} />
+                <Card.Title title={props.route.params.post.title} titleNumberOfLines={2} />
 
                 {/* Post Image */}
-                {imageURL &&
+                {props.route.params.post.imageURL &&
                     <Card.Content style={styles.cardCoverContainer}>
-                        <Card.Cover style={styles.cardCover} blurRadius={false ? 20 : 0} source={{ uri: imageURL?.includes("https://") ? imageURL : "https://" + imageURL }} />
-                        {false && <Button mode='contained' style={styles.nsfwButton}>NSFW Content</Button>}
+                        <Card.Cover style={styles.cardCover} blurRadius={false ? 20 : 0} source={{ uri: props.route.params.post.imageURL?.includes("https://") ? props.route.params.post.imageURL : "https://" + props.route.params.post.imageURL }} />
+                        {isNSFW && <Button mode='contained' style={styles.nsfwButton}>NSFW Content</Button>}
                     </Card.Content>
                 }
 
                 {/* Post Description */}
-                {description &&
+                {props.route.params.post.description &&
                     <Card.Content>
-                        <Text numberOfLines={2}>{description}</Text>
+                        <Text numberOfLines={2}>{props.route.params.post.description}</Text>
                     </Card.Content>
                 }
 
@@ -71,11 +78,11 @@ const PostDetails = ({ route, navigation }) => {
                 {/* Buttons */}
                 <Card.Actions style={styles.cardFooter}>
                     <View style={styles.voteContainer}>
-                        <IconButton color={colors.primary} animated={true} icon={upVoted ? 'arrow-up-drop-circle' : 'arrow-up-drop-circle-outline'} onPress={handleUpvote} />
+                        <IconButton disabled={props.route.params.username === null} color={colors.primary} animated={true} icon={upVoted ? 'arrow-up-drop-circle' : 'arrow-up-drop-circle-outline'} onPress={handleUpvote} />
                         <Text>
-                            0{/*props.upvote - props.downvote + upVoted - downVoted*/}
+                            {props.route.params.post.result_vote}
                         </Text>
-                        <IconButton color={colors.primary} animated={true} icon={downVoted ? 'arrow-down-drop-circle' : 'arrow-down-drop-circle-outline'} onPress={handleDownvote} />
+                        <IconButton disabled={props.route.params.username === null} color={colors.primary} animated={true} icon={downVoted ? 'arrow-down-drop-circle' : 'arrow-down-drop-circle-outline'} onPress={handleDownvote} />
                     </View>
                     {/* <Button labelStyle={{ fontSize: 23 }} contentStyle={styles.comment} icon='comment-outline' onPress={() => console.log('Clicked comment')}><Text style={{ fontSize: 13 }}>3</Text></Button> */}
                 </Card.Actions>

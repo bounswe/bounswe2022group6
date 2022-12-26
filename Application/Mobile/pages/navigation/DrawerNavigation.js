@@ -24,7 +24,7 @@ const CustomDrawerContent = (props) => {
             <View>
                 <DrawerItemList {...props} />
             </View>
-            {props.isRegistered ?
+            {props.username ?
                 <DrawerItem
                     label="Log Out"
                     onPress={handleLogout}
@@ -73,7 +73,7 @@ const DrawerNavigation = (props) => {
                     />
                 ),
             }} />
-            {props.route.params.isRegistered &&
+            {props.route.params.username &&
                 <Drawer.Group>
                     <Drawer.Screen name='ProfileNavigation' component={ProfileNavigation} options={{
                         title: 'Profile',

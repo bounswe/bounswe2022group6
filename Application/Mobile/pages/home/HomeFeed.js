@@ -67,7 +67,6 @@ const getAllPosts = async () => {
 // The home feed
 const HomeFeed = (props) => {
     const [homeFeedPosts, setHomeFeedPosts] = useState([]);
-    const [userName, setUserName] = useState(null);
     // Loading
     const [isFetchingData, setIsFetchingData] = useState(true);
     // Refresh
@@ -106,61 +105,55 @@ const HomeFeed = (props) => {
     const fabStyle = { [props.animateFrom]: 16 };
 
     useEffect(() => {
-        if (props.route.params.isRegistered && userName === null) {
-            handleGetUserData().then((response) => {
-                setUserName(response.username)
-            })
-        } else {
-            handleAllPosts();
-        }
-    }, [userName])
+        handleAllPosts();
+    }, [])
 
-    return (
-        <View style={{ height: '100%' }}>
-            {/* Home feed */}
-            <FlatList
-                data={homeFeedPosts}
-                renderItem={({ item }) => <PostPreview {...item} navigation={props.navigation} openSnackBar={openSnackBar} userName={userName} />}
-                ListHeaderComponent={<HomeTitle setHomeFeedPosts={setHomeFeedPosts} />}
-                ListEmptyComponent={isFetchingData ? <ActivityIndicator /> : <View style={styles.emptyFeed}><Text>Your feed is empty!</Text></View>}
-                contentContainerStyle={{ flexGrow: 1 }}
-                onScroll={handleOnScroll}
-                refreshControl={
-                    <RefreshControl
-                        refreshing={refreshing}
-                        onRefresh={handleRefresh}
-                        colors={['#0f7375', '#c2cd23']} // android only
-                    />
-                }
-            />
-
-            {/* Create new post button */}
-            {props.route.params.isRegistered &&
-                <AnimatedFAB
-                    icon={'plus'}
-                    label={'New Post'}
-                    extended={isExtended}
-                    onPress={() => props.navigation.navigate('Create Post')}
-                    visible={true}
-                    animateFrom={'right'}
-                    iconMode={'static'}
-                    style={[styles.fabStyle, props.style, fabStyle]}
+return (
+    <View style={{ height: '100%' }}>
+        {/* Home feed */}
+        <FlatList
+            data={homeFeedPosts}
+            renderItem={({ item }) => <PostPreview {...props} post={item} openSnackBar={openSnackBar} />}
+            ListHeaderComponent={<HomeTitle setHomeFeedPosts={setHomeFeedPosts} />}
+            ListEmptyComponent={isFetchingData ? <ActivityIndicator /> : <View style={styles.emptyFeed}><Text>Your feed is empty!</Text></View>}
+            contentContainerStyle={{ flexGrow: 1 }}
+            onScroll={handleOnScroll}
+            refreshControl={
+                <RefreshControl
+                    refreshing={refreshing}
+                    onRefresh={handleRefresh}
+                    colors={['#0f7375', '#c2cd23']} // android only
                 />
             }
-            {/* Snackbar to inform about some events such as (un)blocking a user */}
-            <Snackbar
-                visible={snackbarVisible}
-                onDismiss={onDismissSnackBar}
-                action={{
-                    label: 'Dismiss',
-                    onPress: () => {
-                        onDismissSnackBar()
-                    },
-                }}>
-                {snackbarMessage}
-            </Snackbar>
-        </View>
-    )
+        />
+
+        {/* Create new post button */}
+        {props.route.params.username &&
+            <AnimatedFAB
+                icon={'plus'}
+                label={'New Post'}
+                extended={isExtended}
+                onPress={() => props.navigation.navigate('Create Post')}
+                visible={true}
+                animateFrom={'right'}
+                iconMode={'static'}
+                style={[styles.fabStyle, props.style, fabStyle]}
+            />
+        }
+        {/* Snackbar to inform about some events such as (un)blocking a user */}
+        <Snackbar
+            visible={snackbarVisible}
+            onDismiss={onDismissSnackBar}
+            action={{
+                label: 'Dismiss',
+                onPress: () => {
+                    onDismissSnackBar()
+                },
+            }}>
+            {snackbarMessage}
+        </Snackbar>
+    </View>
+)
 }
 
 export default HomeFeed;

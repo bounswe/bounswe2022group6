@@ -3,18 +3,18 @@ import { Appbar } from 'react-native-paper';
 import { View, StyleSheet } from 'react-native'
 
 // The top navigation bar of home feed
-const HomeHeader = ({ navigation }) => {
+const HomeHeader = (props) => {
 
     return (
         <Appbar.Header style={styles.topBar}>
-            <Appbar.Action icon="menu" color="white" onPress={() => navigation.toggleDrawer()} />
+            <Appbar.Action icon="menu" color="white" onPress={() => props.navigation.toggleDrawer()} />
             <View style={styles.logoContainer}>
                 <Appbar.Action style={styles.logo} color ='white' icon={require('../../images/logo.png')}
                 />
             </View>
             <View style={styles.rightContent}>
-                <Appbar.Action icon="magnify" color='white' onPress={() => navigation.navigate('Search')} />
-                <Appbar.Action icon="robot-happy" color='white' onPress={() => navigation.navigate('Chatbot')} />
+                <Appbar.Action icon="magnify" color='white' onPress={() => props.navigation.navigate('Search', {username: props.route.params.username})} />
+                <Appbar.Action icon="robot-happy" color='white' onPress={() => props.navigation.navigate('Chatbot')} />
             </View>
         </Appbar.Header>
     );

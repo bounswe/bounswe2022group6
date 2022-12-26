@@ -7,6 +7,7 @@ import CreatePost from "../post/CreatePost";
 import Chatbot from "./Chatbot";
 import SearchScreenHeader from "../search/SearchScreenHeader";
 import SearchScreen from "../search/SearchScreen";
+import EditPost from "../post/EditPost";
 
 const HomeFeedStack = createNativeStackNavigator();
 
@@ -59,6 +60,14 @@ const HomeScreen = (props) => {
           searchQuery: null,
           filtersVisible: false,
           filters: null
+        }}
+      />
+      <HomeFeedStack.Screen
+        name='Edit Post'
+        component={EditPost}
+        options={{
+          headerTitle: 'Edit Post',
+          animation: 'slide_from_right',
         }}
       />
     </HomeFeedStack.Navigator>
