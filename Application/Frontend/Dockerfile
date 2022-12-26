@@ -5,8 +5,12 @@ ENV CI=true
 WORKDIR /frontend/
 
 COPY ./package.json /frontend/package.json
-RUN npm install
-
 COPY ./src /frontend/src
 COPY ./public /frontend/public
-RUN npm run test
+
+# Install all packages, and run tests.
+# After tests have been ran, delete development dependencies
+# This type of run is important to reclaim freed space
+RUN npm install \
+    && npm run test \
+    && npm prune --production

@@ -15,6 +15,8 @@ import Logo from '../assets/fav.png'
 import Image from 'react-bootstrap/Image'
 import moment from 'moment'
 import createComment from '../services/Create_Comment_API';
+import editPost from '../services/EditProfile_API';
+import CreatePostEditForm from "../components/CreatePostEditForm";
 import TextAnnotation from '../components/TextAnnotation';
 import ImageAnnotation from '../components/ImageAnnotation';
 
@@ -33,6 +35,7 @@ const Post = () => {
         description: "",
       }
     )
+    const [showPostEdit, setPostEdit] = useState(false)
 
     //send request to backend for post details.
     useEffect(() => {
@@ -40,7 +43,7 @@ const Post = () => {
         console.log(res)
         setPost(res);
       });
-    }, [voted, submitted]);
+    }, [voted, submitted, showPostEdit]);
 
     useEffect(() => {
       window.localStorage.removeItem('show_nsfw')
@@ -94,67 +97,65 @@ const Post = () => {
           }
         });
       }
-
+    const handleEdit = () => {
+        setPostEdit(!showPostEdit)
+    }
     return (
       <div className= {styles.body}>
-      <Link to="/home">
-    <button className={styles.mybutton} style = {{position: "absolute", top: "20px", right: "245px"}}>home</button>
-    </Link>
-        {
- isGuestUser ? 
-    <div>
-    <Link to="/login">
-    <button className={styles.mybutton}>log in</button>
-    </Link>
-    <Link to="/register">
-    <button 
-    className={styles.mybutton}
-    style = {{position: "absolute", top: "20px", right: "5px"}}
-    >register</button>
-    </Link>
-    </div> 
-    : 
-    <div><Link to="/profile">
-    <button className={styles.mybutton}>Profile</button>
-  </Link>
-  <Link to="/">
-    <button
-      className={styles.mybutton}
-      style={{ position: "absolute", top: "20px", right: "5px" }}
-      onClick={handleClick}
-    >
-      Log out
-    </button>
-  </Link>
-  </div>
-  }
-      <h5 className="main-title home-page-title" style={{textShadow: "1px 1px #000000 "}}>
-      <Image src={Logo} style={{width:"70px"}}></Image>
+          <Link to="/home">
+        <button className={styles.mybutton} style = {{position: "absolute", top: "20px", right: "245px"}}>home</button>
+        </Link>
+          {isGuestUser ?  <div>
+          <Link to="/login">
+          <button className={styles.mybutton}>log in</button>
+          </Link>
+          <Link to="/register">
+          <button 
+          className={styles.mybutton}
+          style = {{position: "absolute", top: "20px", right: "5px"}}
+          >register</button>
+          </Link></div> 
+          : 
+          <div>
+            <Link to="/profile">
+          <button className={styles.mybutton}>Profile</button>
+            </Link>
+            <Link to="/">
+          <button
+            className={styles.mybutton}
+            style={{ position: "absolute", top: "20px", right: "5px" }}
+            onClick={handleClick}
+            >
+            Log out
+          </button>
+          </Link>
+          </div>}
+        <h5 className="main-title home-page-title" style={{textShadow: "1px 1px #000000 "}}>
+        <Image src={Logo} style={{width:"70px"}}></Image>
         <span style={{color:"#dde296"}}>Medi</span><span style={{color:"#9FcFb0"}}>Share</span></h5>  
         {post && <div>
-      <div className={styles.mypostpage}>
-      <div className={styles.mypostright}
-      >
-        <ImArrowUp
-          className={
-            post.upvoted_users.some((user) => user.username === window.localStorage.getItem("username")) ? styles.upvoteactive : styles.upvote
-          }
-          onClick={() => vote('up')}
-        />
-        <h3
-          style={{
-            padding: "7px 0px",
-          }}
-        >
-          {post.result_vote}
-        </h3>
-        <ImArrowDown
-          className={
-            post.downvoted_users.some((user) => user.username === window.localStorage.getItem("username")) ? styles.downvoteactive : styles.downvote
-          }
-          onClick={() => vote('down')}
-        />
-      </div>
+      <div className={styles.mypostpage} style={{position:'relative'}}>
+          <div className={styles.mypostright} >
+            <ImArrowUp
+              className={
+                post.upvoted_users.some((user) => user.username === window.localStorage.getItem("username")) ? styles.upvoteactive : styles.upvote
+              }
+              onClick={() => vote('up')}
+            />
+            <h3
+              style={{
+                padding: "7px 0px",
+              }}
+            >
+              {post.result_vote}
+            </h3>
+            <ImArrowDown
+              className={
+                post.downvoted_users.some((user) => user.username === window.localStorage.getItem("username")) ? styles.downvoteactive : styles.downvote
+              }
+              onClick={() => vote('down')}
+            />
+          </div>
 
       <div style={{ width: "80%", margin: "auto" }}>
         <div>
@@ -192,14 +193,20 @@ const Post = () => {
                 <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
                     {moment(post.created_at).format('MMM DD YYYY h:mm a')}
                   </medium>
+                 
+
             </div>
           </div>
         </div>
+
+
+
         <div style={{display: "flex", justifyContent: "flex-end", marginTop:"-1.4rem"}}>
             <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
               {post["location"] ? post["location"].replaceAll("/","  -  ") : <br/>}
             </medium>
           </div>
+
         <div style={{heigth: "fit-content", textAlign:"left"}}>
           <div>
             <p style={{ fontWeight: "bolder", display:"inline"}}>
@@ -235,8 +242,12 @@ const Post = () => {
         }
         
       </div>
+      {post.owner.username === window.localStorage.getItem("username") && <Button onClick={handleEdit}style={{width:"50px", marginLeft:'10px', position:'absolute', top:'0', right:'0' }}>Edit</Button>}
     </div>
+   
   </div> }
+   
+  {showPostEdit && post.owner.username === window.localStorage.getItem("username") && <CreatePostEditForm id={post["postID"]}  description={post["description"]} title={post["title"]} onCancel = {() => setPostEdit(false)}> </CreatePostEditForm>}
   {post &&
   <div>
   {post.comments && post["comments"].map((comment) =>
@@ -248,6 +259,8 @@ const Post = () => {
     <br/>
   </div>
 }
+
+
   {!isGuestUser &&
   <div className={styles.mypostpage} style= {{width:'72%', marginLeft:'18%'}}>
    <input type='text' style= {{overflow:'hidden', width: '100%' }} name="description" placeholder= 'Type your comment' value={formData.description} onChange={handleChange}></input>

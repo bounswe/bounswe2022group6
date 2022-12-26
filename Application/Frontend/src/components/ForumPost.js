@@ -6,10 +6,18 @@ import styles from "../pages/home.module.css";
 import CreatePostForm from "./CreatePostForm";
 import contentvote from '../services/Vote_API';
 import moment from 'moment'
+import Image from 'react-bootstrap/Image'
+import EditIcon from '../assets/edit-icon.png';
 
 const ForumPost = (props) => {
   const isGuestUser = window.localStorage.getItem("auth_token") ? false : true
   const isDoctor = props.post.owner.verified_as_doctor ? true : false
+  const [showPostEdit, setPostEdit] = useState(false)
+
+  const handleClick = () => {
+    setPostEdit(!showPostEdit)
+  }
+
   let history = useHistory()
   console.log(props)
     const vote = (direction) => {
@@ -89,6 +97,7 @@ const ForumPost = (props) => {
                   <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
                   {moment(props.post.created_at).format('MMM DD YYYY h:mm a')}
                   </medium>
+                 
                 </div>
               </div>
             </div>
@@ -100,7 +109,9 @@ const ForumPost = (props) => {
             <p style={{ textAlign: "left", fontWeight: "bolder" ,marginTop:"-1rem"}}>
               {props.post.title}
             </p>{" "}
-            <p style={{ textAlign: "left" }}>{props.post.description}</p>
+            <div style={{overflow:'hidden'}}>
+              <p style={{ textAlign: "left" }}>{props.post.description}</p>
+            </div>
           </div>
           <p style={{ textAlign: "right", position:'absolute', bottom:'0', right:'0' }}>{ props.post.comment_count >= 0 && props.post.comment_count + ' comment' + (props.post.comment_count > 1 ? 's' : '')}</p>
         </div>

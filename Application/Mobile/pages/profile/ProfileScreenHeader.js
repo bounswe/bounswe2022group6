@@ -3,7 +3,7 @@ import { Appbar, Button, Text } from 'react-native-paper';
 import { StyleSheet } from 'react-native'
 import { editProfileRequest } from "../profileAPI";
 
-
+// Header for Profile and Profile Edit pages
 const ProfileScreenHeader = (props) => {
 
     const handleEditProfile = async () => {
@@ -11,6 +11,7 @@ const ProfileScreenHeader = (props) => {
         changedData = JSON.parse(changedData)
         changedData.birth_date = changedData.birth_date.substring(0, 10)
 
+        // Determine the differences
         Object.keys(changedData).forEach((key) => {
             if (changedData[key] === "")
                 changedData[key] = null
@@ -23,6 +24,16 @@ const ProfileScreenHeader = (props) => {
         });
         delete changedData.user_permissions
 
+        // Divide birthdate into three parts (day, month, year)
+        if ("birth_date" in changedData) {
+            dateObject = new Date(changedData.birth_date)
+            changedData.birth_year = dateObject.getFullYear()
+            changedData.birth_month = dateObject.getMonth() + 1
+            changedData.birth_day = dateObject.getDate()
+            delete changedData.birth_date
+        }
+
+        // If there is at least one changed field
         if (Object.keys(changedData).length !== 0) {
             if ((("diplomaID" in changedData) && !("profession" in changedData)) || (!("diplomaID" in changedData) && ("profession" in changedData))) {
                 alert('Please provide both diploma ID and profession at the same time.')
@@ -30,10 +41,11 @@ const ProfileScreenHeader = (props) => {
             }
             const response = await editProfileRequest(changedData)
             alert(response.info)
-            props.navigation.pop()
+            props.navigation.pop() // Pop back to profile page
         }
     }
 
+    // Render an appbar
     return (
         <Appbar.Header style={styles.topBar}>
             {props.options.title == 'Edit Profile' &&
@@ -54,6 +66,7 @@ const ProfileScreenHeader = (props) => {
 
 export default ProfileScreenHeader;
 
+// Styles
 const styles = StyleSheet.create({
     topBar: {
         flexDirection: 'row',
