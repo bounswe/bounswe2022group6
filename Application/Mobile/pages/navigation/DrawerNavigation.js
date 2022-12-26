@@ -60,7 +60,7 @@ const CustomDrawerContent = (props) => {
 // The main navigation after after logging in
 const DrawerNavigation = (props) => {
     return (
-        <Drawer.Navigator initialRouteName='Home Screen' drawerContent={props2 => <CustomDrawerContent {...props2} {...props.route.params} />}>
+        <Drawer.Navigator initialRouteName='Home Screen' drawerContent={props2 => <CustomDrawerContent {...props2} {...props.route.params} />} screenOptions={{unmountOnBlur: true}} >
             <Drawer.Screen name='Home Screen' component={HomeScreen} 
             initialParams={{...props.route.params}}
             options={{
@@ -83,6 +83,7 @@ const DrawerNavigation = (props) => {
                                 size={size} color={color}
                             />
                         ),
+                        headerShown: false
                     }} />
                     <Drawer.Screen name='Messages' component={MessagesScreen} options={{
                         title: 'Messages',
