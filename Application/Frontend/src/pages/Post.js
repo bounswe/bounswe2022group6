@@ -32,6 +32,7 @@ const Post = () => {
     const [voted, setVoted] = useState(false)
     const [flag, setFlag] = useState(false)
     const [submitted, setSubmitted] = useState(false)
+    const [commentDeleted, setCommentDeleted] = useState(false)
     const [formData, setFormData] = useState(
       { 
         description: "",
@@ -46,7 +47,7 @@ const Post = () => {
         console.log(res)
         setPost(res);
       });
-    }, [voted, submitted, showPostEdit]);
+    }, [voted, submitted, showPostEdit, commentDeleted]);
 
     useEffect(() => {
       window.localStorage.removeItem('show_nsfw')
@@ -277,6 +278,7 @@ const Post = () => {
   <Comment
   comment = {comment}
   onVote = {() => setVoted(!voted)}
+  onDelete = {() => setCommentDeleted(!commentDeleted)}
   ></Comment>
   )}
     <br/>
