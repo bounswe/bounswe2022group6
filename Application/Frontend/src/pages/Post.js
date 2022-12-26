@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect} from 'react'
 import { Link } from "react-router-dom";
 import styles from "./home.module.css";
 import { useState } from "react";
@@ -15,7 +15,8 @@ import Logo from '../assets/fav.png'
 import Image from 'react-bootstrap/Image'
 import moment from 'moment'
 import createComment from '../services/Create_Comment_API';
-
+import TextAnnotation from '../components/TextAnnotation';
+import ImageAnnotation from '../components/ImageAnnotation';
 
 const Post = () => {
     const id = useParams()?.postId
@@ -136,7 +137,7 @@ const Post = () => {
       >
         <ImArrowUp
           className={
-            post.upvoted_users.includes(window.localStorage.getItem("username")) ? styles.upvoteactive : styles.upvote
+            post.upvoted_users.some((user) => user.username === window.localStorage.getItem("username")) ? styles.upvoteactive : styles.upvote
           }
           onClick={() => vote('up')}
         />
@@ -149,7 +150,7 @@ const Post = () => {
         </h3>
         <ImArrowDown
           className={
-            post.downvoted_users.includes(window.localStorage.getItem("username")) ? styles.downvoteactive : styles.downvote
+            post.downvoted_users.some((user) => user.username === window.localStorage.getItem("username")) ? styles.downvoteactive : styles.downvote
           }
           onClick={() => vote('down')}
         />
@@ -164,7 +165,7 @@ const Post = () => {
               justifyContent: "flex-end",
             }}
           >
-            <p style={{textAlign:'left', marginRight:'auto'}}>{post.owner}</p>
+            <p style={{textAlign:'left', marginRight:'auto'}}>{post.owner.verified_as_doctor ? post.owner.username +" 🩺" :post.owner.username}</p>
             <div
               style={{
                 display: "flex",
@@ -189,20 +190,35 @@ const Post = () => {
                 </p>
               ))}
                 <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
-                    {moment(post.created_at).format('MMM DD YYYY hh:mm')}
+                    {moment(post.created_at).format('MMM DD YYYY h:mm a')}
                   </medium>
             </div>
           </div>
         </div>
-        <div style={{heigth: "fit-content"}}>
-          <p style={{ textAlign: "left", fontWeight: "bolder" }}>
+        <div style={{heigth: "fit-content", textAlign:"left"}}>
+          <p style={{ fontWeight: "bolder" }}>
             {post["title"]}
           </p>{" "}
-          <p style={{ textAlign: "left" }}>{post["description"]}</p>
+          <TextAnnotation
+          text = {post.description}
+          annotations = {post.text_annotations}
+          isGuestUser = {isGuestUser}
+          contentType = "post"
+          contentId = {post.postID}
+          />
+
         </div>
         { post.imageURL && 
           <div style={{ position:'relative' }}>
-          <Image src={'https://' + post.imageURL} style={{ maxWidth:"50%", maxHeight:'50%', filter: !window.localStorage.getItem("show_nsfw") && post.is_marked_nsfw ? 'blur(25px)' : '' }}></Image>
+            <div style={{ filter: !window.localStorage.getItem("show_nsfw") && post.is_marked_nsfw ? 'blur(25px)' : '' }}>
+              <ImageAnnotation 
+              source = {"https://" + post.imageURL} 
+              annotations = {post.image_annotations}
+              isGuestUser = {isGuestUser}
+              contentType = "post"
+              contentId = {post.postID}
+              ></ImageAnnotation>
+            </div>
           { !window.localStorage.getItem("show_nsfw")  && post.is_marked_nsfw &&
           <button className={styles.mybutton} onClick = {handleNSFW} style={{position:'absolute', top: '50%', left:'50%', transform:'translate(-50%, -50%)'}}> 
           See NSFW content

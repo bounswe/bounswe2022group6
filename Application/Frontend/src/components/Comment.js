@@ -1,9 +1,10 @@
 import React from 'react'
 import styles from "../pages/home.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ImArrowUp, ImArrowDown } from "react-icons/im";
 import contentvote from '../services/Vote_API';
 import moment from 'moment'
+import TextAnnotation from './TextAnnotation';
 
 const Comment = (props) => {
 
@@ -17,7 +18,6 @@ const Comment = (props) => {
             return
         }
         console.log("voting comment")
-        //change hardcoded 1
         contentvote(props.comment.commentID, direction, false).then(() => props.onVote())
     };
 
@@ -28,7 +28,7 @@ const Comment = (props) => {
       >
         <ImArrowUp
           className={
-            props.comment.upvoted_users.includes(window.localStorage.getItem("username")) ? styles.upvoteactive : styles.upvote
+            props.comment.upvoted_users.some((user) => user.username === window.localStorage.getItem("username")) ? styles.upvoteactive : styles.upvote
           }
           onClick={() => vote("up")}
         />
@@ -41,7 +41,7 @@ const Comment = (props) => {
         </h3>
         <ImArrowDown
           className={
-            props.comment.downvoted_users.includes(window.localStorage.getItem("username")) ? styles.downvoteactive : styles.downvote
+            props.comment.downvoted_users.some((user) => user.username === window.localStorage.getItem("username")) ? styles.downvoteactive : styles.downvote
           }
           onClick={() => vote("down")}
         />
@@ -56,7 +56,7 @@ const Comment = (props) => {
               justifyContent: "flex-end",
             }}
           >
-              <p style={{textAlign:'left', marginRight:'auto'}}>{props.comment.owner}</p>
+              <p style={{textAlign:'left', marginRight:'auto'}}>{props.comment.owner.verified_as_doctor ? props.comment.owner.username +" 🩺" :props.comment.owner.username}</p>
             <div
               style={{
                 display: "flex",
@@ -64,16 +64,21 @@ const Comment = (props) => {
               }}
             >
             <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
-                    {moment(props.comment.created_at).format('MMM DD YYYY hh:mm')}
+                    {moment(props.comment.created_at).format('MMM DD YYYY h:mm a')}
                   </medium>
             </div>
           </div>
         </div>
-        <div style={{heigth: "fit-content"}}>
+        <div style={{heigth: "fit-content", textAlign:'left'}}>
           <p style={{ textAlign: "left", fontWeight: "bolder" }}>
-            {props.comment["author"]}
           </p>{" "}
-          <p style={{ textAlign: "left" }}>{props.comment["description"]}</p>
+          <TextAnnotation
+          text = {props.comment.description}
+          annotations = {props.comment.text_annotations}
+          isGuestUser = {isGuestUser}
+          contentType = "comment"
+          contentId = {props.comment.commentID}
+          />
         </div>
       </div>
     </div>

@@ -5,6 +5,19 @@ async function create_post(data) {
     formData.append("title", data["title"]);
     formData.append("description", data["description"])
     formData.append("type", data["type"])
+    var location = ""
+    if (data["country"]){
+        location = data["country"]
+        if (data["state"]){
+            location = location + "/" + data["state"]
+            if (data["city"]){
+                location = location + "/" + data["city"]
+            }
+        }
+    }
+    if (location){
+        formData.append("location", location)
+    }
     const tmp = data["imageURL"]
     if(tmp){
         formData.append("imageURL", tmp.substring(0,tmp.indexOf("/")) + ".s3.amazonaws.com" + tmp.substring(tmp.indexOf("/")))
