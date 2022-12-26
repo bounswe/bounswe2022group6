@@ -97,12 +97,8 @@ const ForumPost = (props) => {
                   ))}
                   <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
                   {moment(props.post.created_at).format('MMM DD YYYY hh:mm')}
-                  <button src={EditIcon} onClick={handleClick}style={{width:"50px", marginLeft:'10px' }}>Edit</button>
                   </medium>
-                 {showPostEdit && <CreatePostForm
-                onCancel = {() => setPostEdit(false) }
-                >
-                </CreatePostForm>}
+                 
                 </div>
               </div>
             </div>
