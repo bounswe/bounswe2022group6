@@ -22,12 +22,9 @@ const PostRightContent = (props) => {
 
     const handleEditProfileButton = () => {
         toggleMenu()
-        props.navigation.navigate('Edit Post')
+        props.navigation.navigate('Edit Post', {post: (props.post ?? props.route.params.post)})
     }
 
-    console.log("RIGHT CONTENT", props)
-
-    console.log("RIGHT CONTENT PARAMS", props.route.params)
     return (
         <Menu visible={menuVisible} onDismiss={() => setMenuVisible(false)} anchor={<IconButton disabled={props.route.params.username === null} {...props} icon='dots-vertical' onPress={() => setMenuVisible(true)} />}>
             <Menu.Item icon='account-cancel-outline' onPress={handleBlockUser} title={isBlocked ? 'Unblock User' : 'Block User'} />

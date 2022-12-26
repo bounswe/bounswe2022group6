@@ -32,7 +32,15 @@ const LoginPage = ({ navigation }) => {
 
           // Get username and store it
           handleGetUserData().then((response) => {
-            navigation.navigate("Drawer", {username: response.username})
+            navigation.navigate("Drawer", {
+              screen: "Home Screen",
+              username: response.username,
+              params: {
+                username: response.username,
+                screen: 'Home Feed',
+                params: {
+                  username: response.username
+                }}})
           })
         }).catch(err => {
           setLoading(false)
