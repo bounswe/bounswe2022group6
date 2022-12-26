@@ -9,7 +9,8 @@ import json
 
 def deleteComments(comments):
     for comment in comments:
-        deleteComments(comment["comments"])
+        ncomments = Comment.objects.filter(parent_comment= comment).order_by('created_at')
+        deleteComments(ncomments)
         comment.delete()
 
 class IsGetOrIsAuthenticated(BasePermission):
@@ -256,8 +257,7 @@ class CommentView(APIView):
             return JsonResponse({"info":f"comment delete failed", "error": "not comment owner"}, status=403)
         
         try:
-            deleteComments(tcomment["comments"])
-            tcomment.delete()
+            deleteComments([tcomment])
             return JsonResponse({"info": "comment delete successful"}, status=201)
         except Exception as e:
             return JsonResponse({"info":"comment delete failed!", "error": str(e)}, status=500)
@@ -396,7 +396,8 @@ class PostView(APIView):
             return JsonResponse({"info":f"post delete failed", "error": "not post owner"}, status=403)
         
         try:
-            deleteComments(tpost["comments"])
+            ncomments = Comment.objects.filter(parent_post= tpost).order_by('created_at')
+            deleteComments(ncomments)
             tpost.delete()
             return JsonResponse({"info": "post delete successful"}, status=201)
         except Exception as e:
