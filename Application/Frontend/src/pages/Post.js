@@ -19,6 +19,8 @@ import editPost from '../services/EditProfile_API';
 import CreatePostEditForm from "../components/CreatePostEditForm";
 import TextAnnotation from '../components/TextAnnotation';
 import ImageAnnotation from '../components/ImageAnnotation';
+import delete_post from '../services/Delete_Post_API';
+import MessageBox from '../components/MessageBox';
 
 const Post = () => {
     const id = useParams()?.postId
@@ -36,6 +38,7 @@ const Post = () => {
       }
     )
     const [showPostEdit, setPostEdit] = useState(false)
+    const [deleted, setDeleted ] = useState(false)
 
     //send request to backend for post details.
     useEffect(() => {
@@ -100,6 +103,18 @@ const Post = () => {
     const handleEdit = () => {
         setPostEdit(!showPostEdit)
     }
+
+    const handleDelete = () => {
+        delete_post(id).then((res) => {
+          if (res=== null){
+            setDeleted(true)
+            setTimeout(() => {
+              history.push("/home");
+            }, "1000");
+          }
+        })
+    }
+
     return (
       <div className= {styles.body}>
           <Link to="/home">
@@ -242,12 +257,20 @@ const Post = () => {
         }
         
       </div>
-      {post.owner.username === window.localStorage.getItem("username") && <Button onClick={handleEdit}style={{width:"50px", marginLeft:'10px', position:'absolute', top:'0', right:'0' }}>Edit</Button>}
+      {post.owner.username === window.localStorage.getItem("username") &&
+      <Button onClick={handleEdit} style={{width:"5%", marginLeft:'10px', position:'absolute', top:'0', right:'0' }}>Edit</Button>
+      }
+      {post.owner.username === window.localStorage.getItem("username") &&
+      <Button onClick={handleDelete} style={{width:"5%", marginLeft:'10px', position:'absolute', top:'60px', right:'0', backgroundColor:'red' }}>Delete</Button>
+      }
     </div>
    
   </div> }
    
   {showPostEdit && post.owner.username === window.localStorage.getItem("username") && <CreatePostEditForm id={post["postID"]}  description={post["description"]} title={post["title"]} onCancel = {() => setPostEdit(false)}> </CreatePostEditForm>}
+  
+  {deleted && <MessageBox data = "Post Deleted Successfully" style = {{color: "#0f7375", fontSize: "2.5rem"}}> </MessageBox>}
+  
   {post &&
   <div>
   {post.comments && post["comments"].map((comment) =>
