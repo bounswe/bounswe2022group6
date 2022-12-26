@@ -1,9 +1,8 @@
 {
 	"info": {
-		"_postman_id": "bbf68ce7-58a5-47c6-a58b-562ffd995848",
+		"_postman_id": "7853e73b-d736-4089-9f96-da9d540f4291",
 		"name": "Post",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "24070174"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -870,6 +869,115 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"info\": \"comment update failed\",\n    \"error\": \"not comment owner\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Post",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token c4e543e9ddc1cfc32c94367c88d3a4799c3e1b09",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/contmgr/post?id=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"contmgr",
+						"post"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Post",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token c4e543e9ddc1cfc32c94367c88d3a4799c3e1b09",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/contmgr/post?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"contmgr",
+								"post"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 26 Dec 2022 14:36:46 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.9"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, PUT, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "34"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"info\": \"post delete successful\"\n}"
 				}
 			]
 		}
