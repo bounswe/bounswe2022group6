@@ -66,7 +66,6 @@ export default function Home() {
 
   useEffect(() => {
     getAllPosts().then(res => {
-      console.log(res)
       setPosts(res);
     });
   }, [voted]);
@@ -86,7 +85,6 @@ export default function Home() {
 
   useEffect(() => {
     get_labels().then(res => {
-      console.log(res.labels)
       setLabels(res.labels);
     });
   }, []);
@@ -195,7 +193,7 @@ export default function Home() {
             <BsSearch
               className={styles.BsSearch}
               onClick={()=>{
-                search_post(document.getElementById('searchtext').value).then(res =>{
+                search_post(document.getElementById('searchtext').value,"t").then(res =>{
                   setPosts(res["posts"]);
                 })
               }}
@@ -309,6 +307,11 @@ export default function Home() {
                     display: "flex",
                     alignItems: "center",
                     fontSize: "larger",
+                  }}
+                  onClick={()=>{
+                    search_post(addedlabels, "l").then(res =>{
+                      setPosts(res["posts"]);
+                    })
                   }}
                 >
                   Filter <BsFilter />
