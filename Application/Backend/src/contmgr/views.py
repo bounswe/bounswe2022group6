@@ -41,6 +41,8 @@ class SearchPost(APIView):
             for label in labels:
                 posts = posts.filter(labels__labelName=label)
 
+        posts = posts.order_by("-created_at")
+
         data = {"posts" : []}
         for post in posts:
             data["posts"].append(PostSerializer(post).data)
