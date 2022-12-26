@@ -1,0 +1,53 @@
+version: '3'
+services:
+  database:
+    image: medishare.database
+    build:
+      context: Backend/docker_database
+    env_file:
+      - Backend/.env
+    volumes:
+      - ./_temp_db:/var/lib/postgresql/data/
+    networks:
+      - db-backend
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -q -U data_yonetici"]
+      interval: 5s
+      timeout: 5s
+      retries: 120
+  backend:
+    image: medishare.backend
+    build:
+      context: Backend/.
+      dockerfile: docker_backend/Dockerfile
+    command: ../init_backend.sh
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=false
+    env_file:
+        - ./Backend/.env
+    depends_on:
+      database:
+        condition: service_healthy
+    networks:
+      - db-backend
+  frontend:
+    image: medishare.frontend
+    build:
+      context: Frontend/.
+    environment:
+      - CHOKIDAR_USEPOLLING=true # create-ui-app <= 5.x
+      - WATCHPACK_POLLING=true # create-ui-app >= 5.x
+      - FAST_REFRESH=false
+    env_file:
+        - Frontend/.env
+    command: npm start
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+networks:
+  db-backend:
+    name: db-backend
