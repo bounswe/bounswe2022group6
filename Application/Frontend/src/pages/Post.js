@@ -102,64 +102,60 @@ const Post = () => {
     }
     return (
       <div className= {styles.body}>
-      <Link to="/home">
-    <button className={styles.mybutton} style = {{position: "absolute", top: "20px", right: "245px"}}>home</button>
-    </Link>
-        {
- isGuestUser ? 
-    <div>
-    <Link to="/login">
-    <button className={styles.mybutton}>log in</button>
-    </Link>
-    <Link to="/register">
-    <button 
-    className={styles.mybutton}
-    style = {{position: "absolute", top: "20px", right: "5px"}}
-    >register</button>
-    </Link>
-    </div> 
-    : 
-    <div><Link to="/profile">
-    <button className={styles.mybutton}>Profile</button>
-  </Link>
-  <Link to="/">
-    <button
-      className={styles.mybutton}
-      style={{ position: "absolute", top: "20px", right: "5px" }}
-      onClick={handleClick}
-    >
-      Log out
-    </button>
-  </Link>
-  </div>
-  }
-      <h5 className="main-title home-page-title" style={{textShadow: "1px 1px #000000 "}}>
-      <Image src={Logo} style={{width:"70px"}}></Image>
+          <Link to="/home">
+        <button className={styles.mybutton} style = {{position: "absolute", top: "20px", right: "245px"}}>home</button>
+        </Link>
+          {isGuestUser ?  <div>
+          <Link to="/login">
+          <button className={styles.mybutton}>log in</button>
+          </Link>
+          <Link to="/register">
+          <button 
+          className={styles.mybutton}
+          style = {{position: "absolute", top: "20px", right: "5px"}}
+          >register</button>
+          </Link></div> 
+          : 
+          <div>
+            <Link to="/profile">
+          <button className={styles.mybutton}>Profile</button>
+            </Link>
+            <Link to="/">
+          <button
+            className={styles.mybutton}
+            style={{ position: "absolute", top: "20px", right: "5px" }}
+            onClick={handleClick}
+            >
+            Log out
+          </button>
+          </Link>
+          </div>}
+        <h5 className="main-title home-page-title" style={{textShadow: "1px 1px #000000 "}}>
+        <Image src={Logo} style={{width:"70px"}}></Image>
         <span style={{color:"#dde296"}}>Medi</span><span style={{color:"#9FcFb0"}}>Share</span></h5>  
         {post && <div>
       <div className={styles.mypostpage}>
-      <div className={styles.mypostright}
-      >
-        <ImArrowUp
-          className={
-            post.upvoted_users.some((user) => user.username === window.localStorage.getItem("username")) ? styles.upvoteactive : styles.upvote
-          }
-          onClick={() => vote('up')}
-        />
-        <h3
-          style={{
-            padding: "7px 0px",
-          }}
-        >
-          {post.result_vote}
-        </h3>
-        <ImArrowDown
-          className={
-            post.downvoted_users.some((user) => user.username === window.localStorage.getItem("username")) ? styles.downvoteactive : styles.downvote
-          }
-          onClick={() => vote('down')}
-        />
-      </div>
+          <div className={styles.mypostright} >
+            <ImArrowUp
+              className={
+                post.upvoted_users.some((user) => user.username === window.localStorage.getItem("username")) ? styles.upvoteactive : styles.upvote
+              }
+              onClick={() => vote('up')}
+            />
+            <h3
+              style={{
+                padding: "7px 0px",
+              }}
+            >
+              {post.result_vote}
+            </h3>
+            <ImArrowDown
+              className={
+                post.downvoted_users.some((user) => user.username === window.localStorage.getItem("username")) ? styles.downvoteactive : styles.downvote
+              }
+              onClick={() => vote('down')}
+            />
+          </div>
 
       <div style={{ width: "80%", margin: "auto" }}>
         <div>
@@ -197,7 +193,7 @@ const Post = () => {
                 <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
                     {moment(post.created_at).format('MMM DD YYYY h:mm a')}
                   </medium>
-                  {post.owner.username === window.localStorage.getItem("username") && <Button onClick={handleEdit}style={{width:"50px", marginLeft:'10px' }}>Edit</Button>}
+                 
 
             </div>
           </div>
@@ -235,9 +231,12 @@ const Post = () => {
         }
         
       </div>
+      {post.owner.username === window.localStorage.getItem("username") && <Button onClick={handleEdit}style={{width:"50px", marginLeft:'10px' }}>Edit</Button>}
     </div>
+   
   </div> }
-  {showPostEdit && post.owner.username === window.localStorage.getItem("username") && <CreatePostEditForm id={post["postID"]}  description={post["description"]} title={post["title"]} type={post["type"]} isNSFW={post.is_marked_nsfw} onCancel = {() => setPostEdit(false) } > </CreatePostEditForm>}
+   
+  {showPostEdit && post.owner.username === window.localStorage.getItem("username") && <CreatePostEditForm id={post["postID"]}  description={post["description"]} title={post["title"]} onCancel = {() => setPostEdit(false) } > </CreatePostEditForm>}
   {post &&
   <div>
   {post.comments && post["comments"].map((comment) =>
