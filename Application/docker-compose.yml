@@ -7,7 +7,7 @@ services:
     env_file:
       - Backend/.env
     volumes:
-      - ./_temp_db:/var/lib/postgresql/data/
+      - ./Backend/_temp_db:/var/lib/postgresql/data/
     networks:
       - db-backend
     healthcheck:
