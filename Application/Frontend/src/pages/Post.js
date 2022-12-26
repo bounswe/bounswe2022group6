@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect} from 'react'
 import { Link } from "react-router-dom";
 import styles from "./home.module.css";
 import { useState } from "react";
@@ -17,6 +17,8 @@ import moment from 'moment'
 import createComment from '../services/Create_Comment_API';
 import editPost from '../services/EditProfile_API';
 import CreatePostEditForm from "../components/CreatePostEditForm";
+import TextAnnotation from '../components/TextAnnotation';
+import ImageAnnotation from '../components/ImageAnnotation';
 
 const Post = () => {
     const id = useParams()?.postId
@@ -193,7 +195,7 @@ const Post = () => {
                 </p>
               ))}
                 <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
-                    {moment(post.created_at).format('MMM DD YYYY hh:mm')}
+                    {moment(post.created_at).format('MMM DD YYYY h:mm a')}
                   </medium>
                   {post.owner.username === window.localStorage.getItem("username") && <Button onClick={handleEdit}style={{width:"50px", marginLeft:'10px' }}>Edit</Button>}
 
@@ -201,15 +203,30 @@ const Post = () => {
           </div>
         </div>
 
-        <div style={{heigth: "fit-content"}}>
-          <p style={{ textAlign: "left", fontWeight: "bolder" }}>
+        <div style={{heigth: "fit-content", textAlign:"left"}}>
+          <p style={{ fontWeight: "bolder" }}>
             {post["title"]}
           </p>{" "}
-          <p style={{ textAlign: "left" }}>{post["description"]}</p>
+          <TextAnnotation
+          text = {post.description}
+          annotations = {post.text_annotations}
+          isGuestUser = {isGuestUser}
+          contentType = "post"
+          contentId = {post.postID}
+          />
+
         </div>
         { post.imageURL && 
           <div style={{ position:'relative' }}>
-          <Image src={'https://' + post.imageURL} style={{ maxWidth:"50%", maxHeight:'50%', filter: !window.localStorage.getItem("show_nsfw") && post.is_marked_nsfw ? 'blur(25px)' : '' }}></Image>
+            <div style={{ filter: !window.localStorage.getItem("show_nsfw") && post.is_marked_nsfw ? 'blur(25px)' : '' }}>
+              <ImageAnnotation 
+              source = {"https://" + post.imageURL} 
+              annotations = {post.image_annotations}
+              isGuestUser = {isGuestUser}
+              contentType = "post"
+              contentId = {post.postID}
+              ></ImageAnnotation>
+            </div>
           { !window.localStorage.getItem("show_nsfw")  && post.is_marked_nsfw &&
           <button className={styles.mybutton} onClick = {handleNSFW} style={{position:'absolute', top: '50%', left:'50%', transform:'translate(-50%, -50%)'}}> 
           See NSFW content
