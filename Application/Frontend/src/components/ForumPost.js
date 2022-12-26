@@ -94,7 +94,7 @@ const ForumPost = (props) => {
             </div>
             <div style={{display: "flex", justifyContent: "flex-end", marginTop:"-1.4rem"}}>
               <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
-                {props.post["location"] ? props.post["location"].replaceAll("/","  -  ") : "-"}
+                {props.post["location"] ? props.post["location"].replaceAll("/","  -  ") : <br/>}
               </medium>
             </div>
             <p style={{ textAlign: "left", fontWeight: "bolder" ,marginTop:"-1rem"}}>
