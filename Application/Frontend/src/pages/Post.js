@@ -195,10 +195,18 @@ const Post = () => {
             </div>
           </div>
         </div>
+        <div style={{display: "flex", justifyContent: "flex-end", marginTop:"-1.4rem"}}>
+            <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
+              {post["location"] ? post["location"].replaceAll("/","  -  ") : <br/>}
+            </medium>
+          </div>
         <div style={{heigth: "fit-content", textAlign:"left"}}>
-          <p style={{ fontWeight: "bolder" }}>
-            {post["title"]}
-          </p>{" "}
+          <div>
+            <p style={{ fontWeight: "bolder", display:"inline"}}>
+              {post["title"]}
+            </p>
+          </div>
+          <br/>
           <TextAnnotation
           text = {post.description}
           annotations = {post.text_annotations}
