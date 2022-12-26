@@ -92,7 +92,12 @@ const ForumPost = (props) => {
                 </div>
               </div>
             </div>
-            <p style={{ textAlign: "left", fontWeight: "bolder" }}>
+            <div style={{display: "flex", justifyContent: "flex-end", marginTop:"-1.4rem"}}>
+              <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
+                {props.post["location"] ? props.post["location"].replaceAll("/","  -  ") : "-"}
+              </medium>
+            </div>
+            <p style={{ textAlign: "left", fontWeight: "bolder" ,marginTop:"-1rem"}}>
               {props.post.title}
             </p>{" "}
             <p style={{ textAlign: "left" }}>{props.post.description}</p>
