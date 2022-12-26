@@ -43,7 +43,7 @@ const Post = () => {
         console.log(res)
         setPost(res);
       });
-    }, [voted, submitted]);
+    }, [voted, submitted, showPostEdit]);
 
     useEffect(() => {
       window.localStorage.removeItem('show_nsfw')
@@ -247,7 +247,7 @@ const Post = () => {
    
   </div> }
    
-  {showPostEdit && post.owner.username === window.localStorage.getItem("username") && <CreatePostEditForm id={post["postID"]}  description={post["description"]} title={post["title"]} onCancel = {() => setPostEdit(false) } > </CreatePostEditForm>}
+  {showPostEdit && post.owner.username === window.localStorage.getItem("username") && <CreatePostEditForm id={post["postID"]}  description={post["description"]} title={post["title"]} onCancel = {() => setPostEdit(false)}> </CreatePostEditForm>}
   {post &&
   <div>
   {post.comments && post["comments"].map((comment) =>
