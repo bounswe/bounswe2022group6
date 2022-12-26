@@ -202,7 +202,7 @@ const CreatePostForm = (props) => {
 
                     <Select 
                         name='state' 
-                        placeholder="Please select a country first"
+                        placeholder="Please select a State / Province"
                         value = {selectedState} 
                         onChange = {(e) => { locationIndex=1; setSelectedState(e) ;handleChange(e)}} 
                         options = {states} 
@@ -211,7 +211,7 @@ const CreatePostForm = (props) => {
 
                     <Select 
                         name='city' 
-                        placeholder="Please select a country and a State/Province first"
+                        placeholder="Please select a City / District"
                         value = {selectedCity} 
                         onChange = {(e) => { locationIndex=2; setSelectedCity(e); handleChange(e)}} 
                         options = {cities} 
