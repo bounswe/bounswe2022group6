@@ -4,7 +4,6 @@ import {useState} from "react"
 import {useHistory, Link} from 'react-router-dom'
 import styles from "../pages/home.module.css";
 import CreatePostForm from "./CreatePostForm";
-import getPostById, {getAllPosts} from "../services/Post_API";
 import contentvote from '../services/Vote_API';
 import moment from 'moment'
 
@@ -103,21 +102,13 @@ const ForumPost = (props) => {
       </div>
       )}
 
-const Posts = () => {
+const Posts = (props) => {
 
   const [showPostCreate, setPostCreate] = useState(false)
 
   const isGuestUser = window.localStorage.getItem("auth_token") ? false : true
 
-  const [posts, setPosts] = useState([]);
-  const [voted, setVoted] = useState(false)
 
-  useEffect(() => {
-    getAllPosts().then(res => {
-      setPosts(res);
-      console.log(res)
-    });
-  }, [voted]);
   
 
   const handleClick = () => {
@@ -141,13 +132,13 @@ const Posts = () => {
           onCancel = {() => setPostCreate(false) }
           >
           </CreatePostForm>}
-          {posts && posts.map((post) => 
+          {props.posts && (props.posts).map((post) => 
           <ForumPost
           post= {post}
-          onVote = {() => setVoted(!voted)}
+          onVote = {() => props.setVoted(!props.voted)}
           ></ForumPost> 
           )}
-      </div> )
+      </div>)
 }
 
 export default  Posts

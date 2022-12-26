@@ -13,6 +13,8 @@ import Image from 'react-bootstrap/Image'
 import get_labels from "../services/Label_API";
 import ChatbotIcon from '../assets/chatbot-icon.png';
 import ChatBotForm from '../components/ChatBotForm';
+import search_post from "../services/Search_API";
+import {getAllPosts} from "../services/Post_API";
 
 // const labels = [
 //   { name: "Medication", backgroundColor: "red", color: "white" },
@@ -59,6 +61,16 @@ export default function Home() {
   const [labels, setLabels] = useState([])
   const [showChatbot, setShowChatbot] = useState(false)
 
+  const [posts, setPosts] = useState([]);
+  const [voted, setVoted] = useState(false)
+
+  useEffect(() => {
+    getAllPosts().then(res => {
+      console.log(res)
+      setPosts(res);
+    });
+  }, [voted]);
+
 
   function handleClick(event) {
     event.preventDefault();
@@ -79,15 +91,12 @@ export default function Home() {
     });
   }, []);
 
-
   const addlabel = (label) => {
     if (addedlabels.indexOf(label) < 0) {
       addedlabels.push(label);
       setdummy(dummy + 1);
     }
   };
-
-
 
   const clearfilters = () => {
     setaddedlabels([]);
@@ -151,7 +160,7 @@ export default function Home() {
       </div>
 
       <div style={{ display: "flex" }}>
-        <Posts>
+        <Posts posts={posts} setPosts={setPosts} voted={voted} setVoted={setVoted}>
         </Posts>
         <div
           className="rightSide"
@@ -172,10 +181,11 @@ export default function Home() {
           >
             <input
               type="text"
+              id="searchtext"
               placeholder="Search For Post.."
               style={{
                 border: "1px solid gray",
-                width: "60%",
+                width: "90%",
                 height: "40px",
                 fontSize: "19px",
                 borderRadius: "5px 0px 0px 5px",
@@ -184,23 +194,20 @@ export default function Home() {
             />
             <BsSearch
               className={styles.BsSearch}
+              onClick={()=>{
+                search_post(document.getElementById('searchtext').value).then(res =>{
+                  setPosts(res["posts"]);
+                })
+              }}
               style={{
                 border: "1px solid gray",
                 height: "40px",
                 borderLeft: "0px",
                 padding: "0px 3px",
-                width: "25px",
+                width: "10%",
                 borderRadius: "0px 5px 5px 0px",
               }}
             />
-            <div className={styles.dropdown}>
-              <button className={styles.dropbtn}>Sort By</button>
-              <div className={styles.dropdowncontent}>
-                <p href="#">Time</p>
-                <p href="#">Rating</p>
-                <p href="#">Relevance</p>
-              </div>
-            </div>
           </div>
 
           {!showChatbot &&    <div
@@ -214,17 +221,6 @@ export default function Home() {
             >
               Labels
             </h3>
-            <input
-              type="text"
-              placeholder="Search For Label.."
-              style={{
-                border: "1px solid gray",
-                marginBlockEnd: "5px",
-                width: "100%",
-                background:"lightgoldenrodyellow"
-
-              }}
-            />
             <div
               style={{
                 height: "100px",
