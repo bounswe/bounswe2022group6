@@ -133,7 +133,7 @@ const EditProfileScreen = (props) => {
                 <Divider inset={true} />
                 <List.Item style={styles.listItem}
                     title="Notifications"
-                    right={(props2) => <Switch value={info.is_notifications_allowed} onValueChange={() => setInfo((prevInfo) => ({ ...prevInfo, is_notifications_allowed: !prevInfo.is_notifications_allowed }))} />}
+                    right={(props2) => <Switch value={info.is_notification_allowed} onValueChange={() => setInfo((prevInfo) => ({ ...prevInfo, is_notification_allowed: !prevInfo.is_notification_allowed }))} />}
                 />
             </List.Accordion>
             <Divider />
@@ -154,7 +154,7 @@ const EditProfileScreen = (props) => {
                 <Divider />
                 <List.Item
                     title="Profession"
-                    right={(props2) => <TextInput ref={ref7} placeholder="Profession" editable={props.route.params.user.profession == null} style={{ color: 'black' }} value={info.profession} onChangeText={newID => setInfo((prof) => ({ ...prevInfo, profession: prof }))} />}
+                    right={(props2) => <TextInput ref={ref7} placeholder="Profession" editable={props.route.params.user.profession == null} style={{ color: 'black' }} value={info.profession} onChangeText={prof => setInfo((prevInfo) => ({ ...prevInfo, profession: prof }))} />}
                 />
             </List.Accordion>
             <Divider />

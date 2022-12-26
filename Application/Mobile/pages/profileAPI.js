@@ -15,7 +15,7 @@ export const editProfileRequest = async (changedData) => {
 
     // Append each property of changedData to formdata
     Object.keys(changedData).forEach((key) => {
-        formdata.append(key, changedData[key])
+        formdata.append(key, (changedData[key] ?? ""))
     });
 
     // Request options (POST request)

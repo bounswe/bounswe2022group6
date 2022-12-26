@@ -12,8 +12,8 @@ const ProfileScreenHeader = (props) => {
         changedData.birth_date = changedData.birth_date.substring(0, 10)
 
         Object.keys(changedData).forEach((key) => {
-            if (changedData[key] === null)
-                changedData[key] = ""
+            if (changedData[key] === "")
+                changedData[key] = null
             if (changedData[key] === null && (key === "email" || key === "username")) {
                 alert(key + " can not be empty!")
                 return
@@ -21,6 +21,7 @@ const ProfileScreenHeader = (props) => {
             if (changedData[key] === props.route.params.user[key])
                 delete changedData[key]
         });
+        delete changedData.user_permissions
 
         if (Object.keys(changedData).length !== 0) {
             if ((("diplomaID" in changedData) && !("profession" in changedData)) || (!("diplomaID" in changedData) && ("profession" in changedData))) {
