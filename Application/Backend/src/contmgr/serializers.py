@@ -2,12 +2,19 @@ from rest_framework import serializers
 from .models import *
 from ..accmgr.serializers import RegisteredUserSerializer
 
+
+class LabelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Label
+        fields = '__all__'
+
 class PostSerializer(serializers.ModelSerializer):
 
     owner = RegisteredUserSerializer(read_only=True)
     mentioned_users = RegisteredUserSerializer(read_only=True, many=True)
     upvoted_users = RegisteredUserSerializer(read_only=True, many=True)
     downvoted_users = RegisteredUserSerializer(read_only=True, many=True)
+    labels = LabelSerializer(read_only=True, many=True)
     class Meta:
         model = Post
         fields = '__all__'
@@ -45,8 +52,3 @@ class CommentSerializer(serializers.ModelSerializer):
         data["text_annotations"] = [text_annotation.jsonld for text_annotation in text_annotations]
 
         return data
-
-class LabelSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Label
-        fields = '__all__'
