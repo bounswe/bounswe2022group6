@@ -113,52 +113,14 @@ const CreatePostEditForm = (props) => {
         <div> 
             <Form style = {formStyle} onSubmit={handleSubmit}>
                 <div style={{textAlign: 'left'}}>
-                    <h3 style={{color:"#0f7375", marginTop:-15}}><strong>Title</strong></h3>
+                    <h4 style={{color:"#0f7375", marginTop:-15}}><strong>Title</strong></h4>
                     <input style={{width: '100%', background:"lightgoldenrodyellow"}} type="text" name="title" defaultValue={props.title} onChange={handleChange} required />
                     <br/>
-                    <h3 style={{color:"#0f7375", marginTop:"5"}}><strong>Descriptionn</strong></h3>
+                    <h4 style={{color:"#0f7375", marginTop:"5"}}><strong>Description</strong></h4>
                     <textarea style= {{overflow:'hidden', width: '100%', background:"lightgoldenrodyellow" }} name="description" defaultValue={props.description} onChange={handleChange}></textarea>
                     <br/>
-                    <h3 style={{color:"#0f7375", marginTop:"5"}}><strong>Post Type</strong></h3>
-                    <select name='type' defaultValue = {props.type} onChange = {handleChange} style={{background:"lightgoldenrodyellow", fontSize:"1.5rem", borderRadius:"5px"}} required>
-                        <option value="i" >Information </option>
-                        <option value="q">Question</option> 
-                        <option value="a">Advice</option>
-                        <option value="e">Experience</option>
-                    </select>
-                    <br/><br/>
-                    <h3 style={{color:"#0f7375"}}><strong>Labels</strong></h3>
-                    <Select 
-                        onChange = {handleChange}
-                        isMulti
-                        name="labels"
-                        components={animatedComponents}
-                        options={options}
-                        className="basic-multi-select"
-                        classNamePrefix="select"
-                    />
-                    <br/>
-                    {postCreated &&  <div class="buttons text-center"> 
-                    <MessageBox data = "Post Created Successfully" style = {{color: "#0f7375", fontSize: "2.5rem"}}> </MessageBox>
-                    </div>}
-                    <br/>
-                    <h3 style={{color:"#0f7375"}}><strong>Attach Image <a style={{ marginLeft: '30rem' }}>Is NSFW?</a></strong></h3>
-                    <div style={{display: "inline-flex"}}>
-                        <div>
-                            <UploadToS3 
-                            bucket={bucket_name}
-                            awsRegion={aws_region}
-                            awsKey={aws_key}
-                            awsSecret={aws_secret}
-                            type="image"
-                            mediaConvertRole="mediaconvert_role"
-                            showNewUpload={false}
-                            onResult={photoUpload} />
-                        </div>
-                        <div style={{marginLeft:"22.5rem"}}>
-                            <input style={{transform:"scale(2.5)"}} type="checkbox" name="isNSFW" checked={props.isNSFW} onChange={handleChange}/>
-                        </div>
-                    </div>
+                    
+                    
                 </div>
                 <br/>
                 <div class="buttons text-center">
@@ -175,8 +137,8 @@ const CreatePostEditForm = (props) => {
 
 const formStyle = {
     backgroundColor: "#dde296",
-    width: "98%",
-    heigth: "50%",
+    width: "80%",
+    heigth: "10%",
     border: "1p",
     borderColor: "#0f7375",
     borderRadius: "5px"
