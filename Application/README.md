@@ -21,7 +21,7 @@ React and NodeJS has been used to make use of their useful frontend methods.
 * POSTGRES_USER: Username for SQL container
 * POSTGRES_PASSWORD: Password of the username
 
-* DJANGO_SECRET_KEY: Secret Key for Django to Kepp Backend Secure
+* DJANGO_SECRET_KEY: Secret Key for Django to Keep Backend Secure
 * DJANGO_SUPERUSER_USERNAME: Superuser's username for Django Application
 * DJANGO_SUPERUSER_EMAIL: Superuser's email for Django Application
 * DJANGO_SUPERUSER_PASSWORD: Superuser's pasword for Django Application
