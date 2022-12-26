@@ -32,7 +32,7 @@ function TextAnnotation(props){
     
   
     return (
-      <div>
+      <div style={{wordWrap:'break-word'}}>
         <div ref= {textRef}>{props.text}</div>
       </div>
       )

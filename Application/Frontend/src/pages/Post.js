@@ -134,7 +134,7 @@ const Post = () => {
         <Image src={Logo} style={{width:"70px"}}></Image>
         <span style={{color:"#dde296"}}>Medi</span><span style={{color:"#9FcFb0"}}>Share</span></h5>  
         {post && <div>
-      <div className={styles.mypostpage}>
+      <div className={styles.mypostpage} style={{position:'relative'}}>
           <div className={styles.mypostright} >
             <ImArrowUp
               className={
@@ -242,7 +242,7 @@ const Post = () => {
         }
         
       </div>
-      {post.owner.username === window.localStorage.getItem("username") && <Button onClick={handleEdit}style={{width:"50px", marginLeft:'10px' }}>Edit</Button>}
+      {post.owner.username === window.localStorage.getItem("username") && <Button onClick={handleEdit}style={{width:"50px", marginLeft:'10px', position:'absolute', top:'0', right:'0' }}>Edit</Button>}
     </div>
    
   </div> }
