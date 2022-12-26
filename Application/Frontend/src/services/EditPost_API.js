@@ -1,4 +1,4 @@
-async function editPost(data) {
+async function editPost(data,postId) {
 
     var formData = new FormData()
 
@@ -16,8 +16,11 @@ async function editPost(data) {
          }
     }
    // console.log("Sending Request")
+   const url = (
+    window.location.origin.replace(":3000", ":8000") + "/contmgr/post?" + new URLSearchParams({ id: postId})
+)
     
-    const response = await fetch( window.location.href.replace(":3000", ":8000"), requestOptions)
+    const response = await fetch( url, requestOptions)
     const resMessage = await response.json()
     if (response.status === 400) {
        
