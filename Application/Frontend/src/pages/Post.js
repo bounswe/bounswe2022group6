@@ -15,8 +15,8 @@ import Logo from '../assets/fav.png'
 import Image from 'react-bootstrap/Image'
 import moment from 'moment'
 import createComment from '../services/Create_Comment_API';
-import EditIcon from '../assets/edit-icon.png';
-import CreatePostForm from "../components/CreatePostForm";
+import editPost from '../services/EditProfile_API';
+import CreatePostEditForm from "../components/CreatePostEditForm";
 
 const Post = () => {
     const id = useParams()?.postId
@@ -34,6 +34,7 @@ const Post = () => {
       }
     )
     const [showPostEdit, setPostEdit] = useState(false)
+
     //send request to backend for post details.
     useEffect(() => {
       getPostById(id).then(res => {
@@ -194,11 +195,12 @@ const Post = () => {
                 <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
                     {moment(post.created_at).format('MMM DD YYYY hh:mm')}
                   </medium>
-                  <Button onClick={handleEdit}style={{width:"50px", marginLeft:'10px' }}>Edit</Button>
+                  {post.owner.username === window.localStorage.getItem("username") && <Button onClick={handleEdit}style={{width:"50px", marginLeft:'10px' }}>Edit</Button>}
 
             </div>
           </div>
         </div>
+
         <div style={{heigth: "fit-content"}}>
           <p style={{ textAlign: "left", fontWeight: "bolder" }}>
             {post["title"]}
@@ -218,6 +220,7 @@ const Post = () => {
       </div>
     </div>
   </div> }
+  {showPostEdit && post.owner.username === window.localStorage.getItem("username") && <CreatePostEditForm id={post["postID"]}  description={post["description"]} title={post["title"]} type={post["type"]} isNSFW={post.is_marked_nsfw} onCancel = {() => setPostEdit(false) } > </CreatePostEditForm>}
   {post &&
   <div>
   {post.comments && post["comments"].map((comment) =>
@@ -230,7 +233,7 @@ const Post = () => {
   </div>
 }
 
-{showPostEdit && <CreatePostForm  onCancel = {() => setPostEdit(false) } > </CreatePostForm>}
+
   {!isGuestUser &&
   <div className={styles.mypostpage} style= {{width:'72%', marginLeft:'18%'}}>
    <input type='text' style= {{overflow:'hidden', width: '100%' }} name="description" placeholder= 'Type your comment' value={formData.description} onChange={handleChange}></input>
