@@ -1,15 +1,31 @@
 import React, { useEffect, useRef, useState } from "react";
 import { View, ScrollView, StyleSheet, TextInput } from 'react-native';
-import { RadioButton, Text, Divider, List, Switch, Paragraph, Title } from "react-native-paper";
+import { RadioButton, Text, Divider, List, Switch, Paragraph, useTheme, Portal, Dialog, Button } from "react-native-paper";
 import DatePicker from 'react-native-date-picker';
-import {Picker} from '@react-native-picker/picker';
+import { Picker } from '@react-native-picker/picker';
 import ProfileScreenHeader from "./ProfileScreenHeader";
+import { deleteProfileRequest } from "../profileAPI";
 
 const EditProfileScreen = (props) => {
     const [info, setInfo] = useState({ ...props.route?.params?.user, birth_date: new Date(props.route?.params?.user.birth_date) }) // birth_date, diplomaID, email, first_name, gender, is_messaging_allowed, is_notifications_allowed, last_name, location, phone_number, profession, profile_picture, username, verified_as_doctor
     const [showDatePicker, setShowDatePicker] = useState(false)
+    const [visible, setVisible] = useState(false)
+    ;
+    const hideDialog = () => {setVisible(false)}
+    const showDialog = () => {setVisible(true)}
+
+    // Handles delete account action
+    const handleDeleteAccount = async () => {
+        const response = await deleteProfileRequest()
+        if (response.success)
+            alert(response.success)
+
+        props.navigation.getParent().popToTop()
+    }
 
     const [ref1, ref2, ref3, ref4, ref5, ref6, ref7, ref8] = [useRef(), useRef(), useRef(), useRef(), useRef(), useRef(), useRef(), useRef()];
+
+    const { colors } = useTheme();
 
     const GenderOption = (props) => {
         return (
@@ -133,20 +149,32 @@ const EditProfileScreen = (props) => {
                 }
                 <List.Item
                     title="Diploma ID"
-                    right={(props2) => <TextInput ref={ref6} editable={props.route.params.user.diplomaID == null} style={{ color: 'black' }} value={info.diplomaID} onChangeText={newID => setInfo((prevInfo) => ({ ...prevInfo, diplomaID: newID }))} />}
+                    right={(props2) => <TextInput ref={ref6} placeholder="Diploma ID" editable={props.route.params.user.diplomaID == null} style={{ color: 'black' }} value={info.diplomaID} onChangeText={newID => setInfo((prevInfo) => ({ ...prevInfo, diplomaID: newID }))} />}
                 />
                 <Divider />
                 <List.Item
                     title="Profession"
-                    right={(props2) => <TextInput ref={ref7} editable={props.route.params.user.profession == null} style={{ color: 'black' }} value={info.profession} onChangeText={newID => setInfo((prof) => ({ ...prevInfo, profession: prof }))} />}
+                    right={(props2) => <TextInput ref={ref7} placeholder="Profession" editable={props.route.params.user.profession == null} style={{ color: 'black' }} value={info.profession} onChangeText={newID => setInfo((prof) => ({ ...prevInfo, profession: prof }))} />}
                 />
             </List.Accordion>
             <Divider />
             <List.Accordion title="Delete Account" description="Delete your account permanently." id={5} left={(props) => <List.Icon {...props} icon="close-octagon" />}>
                 <Divider />
                 {/* Delete Account */}
-                <List.Item title="Delete Account"></List.Item>
+                <List.Item title="Delete Account" titleStyle={{ color: colors.error }} onPress={showDialog} />
             </List.Accordion>
+            <Portal>
+                <Dialog visible={visible} onDismiss={() => {setVisible(false)}}>
+                    <Dialog.Title>Alert</Dialog.Title>
+                    <Dialog.Content>
+                        <Paragraph>Are you sure you want to delete your account? This action CAN NOT be undone!</Paragraph>
+                    </Dialog.Content>
+                    <Dialog.Actions>
+                        <Button onPress={handleDeleteAccount}>CONFIRM</Button>
+                        <Button onPress={hideDialog}>CANCEL</Button>
+                    </Dialog.Actions>
+                </Dialog>
+            </Portal>
         </ScrollView>
     )
 }
