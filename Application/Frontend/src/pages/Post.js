@@ -15,7 +15,8 @@ import Logo from '../assets/fav.png'
 import Image from 'react-bootstrap/Image'
 import moment from 'moment'
 import createComment from '../services/Create_Comment_API';
-
+import EditIcon from '../assets/edit-icon.png';
+import CreatePostForm from "../components/CreatePostForm";
 
 const Post = () => {
     const id = useParams()?.postId
@@ -32,7 +33,7 @@ const Post = () => {
         description: "",
       }
     )
-
+    const [showPostEdit, setPostEdit] = useState(false)
     //send request to backend for post details.
     useEffect(() => {
       getPostById(id).then(res => {
@@ -93,7 +94,9 @@ const Post = () => {
           }
         });
       }
-
+    const handleEdit = () => {
+        setPostEdit(!showPostEdit)
+    }
     return (
       <div className= {styles.body}>
       <Link to="/home">
@@ -191,6 +194,8 @@ const Post = () => {
                 <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
                     {moment(post.created_at).format('MMM DD YYYY hh:mm')}
                   </medium>
+                  <Button onClick={handleEdit}style={{width:"50px", marginLeft:'10px' }}>Edit</Button>
+
             </div>
           </div>
         </div>
@@ -224,6 +229,8 @@ const Post = () => {
     <br/>
   </div>
 }
+
+{showPostEdit && <CreatePostForm  onCancel = {() => setPostEdit(false) } > </CreatePostForm>}
   {!isGuestUser &&
   <div className={styles.mypostpage} style= {{width:'72%', marginLeft:'18%'}}>
    <input type='text' style= {{overflow:'hidden', width: '100%' }} name="description" placeholder= 'Type your comment' value={formData.description} onChange={handleChange}></input>

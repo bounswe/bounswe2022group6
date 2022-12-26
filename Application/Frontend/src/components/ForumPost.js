@@ -7,10 +7,18 @@ import CreatePostForm from "./CreatePostForm";
 import getPostById, {getAllPosts} from "../services/Post_API";
 import contentvote from '../services/Vote_API';
 import moment from 'moment'
+import Image from 'react-bootstrap/Image'
+import EditIcon from '../assets/edit-icon.png';
 
 const ForumPost = (props) => {
   const isGuestUser = window.localStorage.getItem("auth_token") ? false : true
   const isDoctor = props.post.owner.verified_as_doctor ? true : false
+  const [showPostEdit, setPostEdit] = useState(false)
+
+  const handleClick = () => {
+    setPostEdit(!showPostEdit)
+  }
+
   let history = useHistory()
   console.log(props)
     const vote = (direction) => {
@@ -89,7 +97,12 @@ const ForumPost = (props) => {
                   ))}
                   <medium style={{ padding: "5px 5px", marginLeft: "15px"}}>
                   {moment(props.post.created_at).format('MMM DD YYYY hh:mm')}
+                  <button src={EditIcon} onClick={handleClick}style={{width:"50px", marginLeft:'10px' }}>Edit</button>
                   </medium>
+                 {showPostEdit && <CreatePostForm
+                onCancel = {() => setPostEdit(false) }
+                >
+                </CreatePostForm>}
                 </div>
               </div>
             </div>
