@@ -88,11 +88,13 @@ const LoginPage = ({ navigation }) => {
       <View style={styles.loginSignupButtons} >
         <Button mode='contained' style={styles.button}
           onPress={handleLogin}
+          testID='loginButton'
         >
           Log In
         </Button>
         <Button mode='contained' style={styles.button}
           onPress={handleGoSignUp}
+          testID='signUpButton'
         >
           Sign Up
         </Button>

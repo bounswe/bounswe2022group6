@@ -6,15 +6,15 @@ import { View, StyleSheet } from 'react-native'
 const HomeHeader = (props) => {
 
     return (
-        <Appbar.Header style={styles.topBar}>
-            <Appbar.Action icon="menu" color="white" onPress={() => props.navigation.toggleDrawer()} />
+        <Appbar.Header style={styles.topBar} testID='topBar'>
+            <Appbar.Action icon="menu" color="white" onPress={() => props.navigation.toggleDrawer()} testID='menuButton'/>
             <View style={styles.logoContainer}>
-                <Appbar.Action style={styles.logo} color ='white' icon={require('../../images/logo.png')}
+                <Appbar.Action style={styles.logo} color ='white' icon={require('../../images/logo.png')} testID='logo'
                 />
             </View>
             <View style={styles.rightContent}>
-                <Appbar.Action icon="magnify" color='white' onPress={() => props.navigation.navigate('Search', {username: props.route.params.username})} />
-                <Appbar.Action icon="robot-happy" color='white' onPress={() => props.navigation.navigate('Chatbot')} />
+                <Appbar.Action icon="magnify" color='white' onPress={() => props.navigation.navigate('Search', {username: props.route.params.username})} testID='searchButton/>
+                <Appbar.Action icon="robot-happy" color='white' onPress={() => props.navigation.navigate('Chatbot')} testID='chatBotButton'/>
             </View>
         </Appbar.Header>
     );
