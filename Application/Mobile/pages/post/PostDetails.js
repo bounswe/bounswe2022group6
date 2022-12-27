@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Card, Avatar, Button, IconButton, Text, withTheme, Menu, Divider, Chip, Paragraph } from 'react-native-paper';
-import { View, StyleSheet, TouchableOpacity, Pressable } from 'react-native';
+import { Card, Avatar, Button, IconButton, Text, withTheme, Menu, Chip, Paragraph } from 'react-native-paper';
+import { View, StyleSheet, TextInput } from 'react-native';
 import { ScrollView } from "react-native-gesture-handler";
 import { BACKEND_URL } from "@env"
+import Tooltip from 'react-native-walkthrough-tooltip';
+import { set } from "react-native-reanimated";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import Dialog from "react-native-dialog";
+
 
 // The details screen of a post
-const PostDetails = ({ route, navigation }) => {
-    const { owner, title, description, createdAt, createdAtTime, imageURL, labels, colors, postId } = route.params
+const PostDetails = ({ route, navigation, ...props }) => {
+    console.log(route.params)
+    const { owner, title, description, createdAt, createdAtTime, imageURL, labels, colors, postId, annotations } = route.params
     const upVoted = false
     const downVoted = false
 
@@ -14,6 +20,11 @@ const PostDetails = ({ route, navigation }) => {
     const handleDownvote = () => { }
 
     const [comments, setComments] = useState([]);
+    const [showAnnotate, setShowAnnotate] = useState(false);
+    const [annotation, setAnnotation] = useState();
+    const [showAnnotations, setShowAnnotatations] = useState(false);
+    const [annotationValue, setAnnotationValue] = useState("");
+    const [annotationInputShow, setAnnotationInputShow] = useState(false);
 
 
     const getComments = async () => {
@@ -33,9 +44,77 @@ const PostDetails = ({ route, navigation }) => {
         console.log("****", resp)
         setComments(resp)
     }, [])
+    console.log("dsds", annotations[0])
+
+    const onSelectionChange = ({ nativeEvent: { selection, text } }) => {
+        setTimeout(function () { setShowAnnotate(true) }, 3000)
+        setAnnotation(selection)
+        console.log(
+            "change selection to",
+            selection,
+            "for value"
+        );
+
+        // alert("Wanna annotate ?")
+    };
+
+
+    const randomIntFromInterval = () => {  
+        return Math.floor(Math.random() * (99 - 10 + 1) + 10)
+    }
+
+    const handleAnnotateText = async () => {
+        console.log(annotation)
+        console.log(description.substring(annotation?.start, annotation?.end))
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Token " + await AsyncStorage.getItem("token"));
+
+        var formdata = new FormData();
+        formdata.append("annotation_type", "text");
+        formdata.append("content_type", "post");
+        formdata.append("content_id", postId);
+        formdata.append("jsonld", "{\"@context\":\"http://www.w3.org/ns/anno.jsonld\",\"type\":\"Annotation\",\"body\":[{\"type\":\"TextualBody\",\"value\":\"" + annotationValue + "\",\"purpose\":\"commenting\",\"creator\":{\"id\":\"1\",\"name\":\"" + owner.username + "\"},\"created\":\"" + new Date().toISOString() + "\",\"modified\":\"" + new Date().toISOString() + "\"}],\"target\":{\"selector\":[{\"type\":\"TextQuoteSelector\",\"exact\":\"Annotations\"},{\"type\":\"TextPositionSelector\",\"start\":" + annotation.start + ",\"end\":" + annotation.end + "}]},\"id\":\"#5519fef0-7376-4630-96f8-4b6407419c" + randomIntFromInterval() + "\"}");
+        console.log(formdata)
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: formdata,
+            redirect: 'follow'
+        };
+
+        fetch(BACKEND_URL + "contmgr/annotations/", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+
+        alert("Annotation created!")
+    }
+
+    console.log(annotations[0][0].body[0].value)
 
     return (
         <>
+            <View>
+                <Dialog.Container visible={showAnnotations} >
+                    <Dialog.Title>Annotations</Dialog.Title>
+                    {annotations[0].map(annotation => (
+                        <Dialog.Description>
+                            {description.substring(annotation.target.selector[1].start, annotation.target.selector[1].end)}, {annotation.body[0].value}
+                        </Dialog.Description>
+                    ))}
+                    <Dialog.Button label="Close" onPress={() => { setShowAnnotatations(false) }} />
+                </Dialog.Container>
+            </View>
+            <View>
+                <Dialog.Container visible={annotationInputShow} >
+                    <Dialog.Title>Annotate</Dialog.Title>
+                    <Dialog.Description>{description.substring(annotation?.start, annotation?.end)}</Dialog.Description>
+                    <Dialog.Input onChangeText={(e) => { setAnnotationValue(e) }} ></Dialog.Input>
+                    <Dialog.Button label="Annotate" onPress={() => { setAnnotationInputShow(false); handleAnnotateText() }} />
+                    <Dialog.Button label="Close" onPress={() => { setAnnotationInputShow(false) }} />
+                </Dialog.Container>
+            </View>
             <Card
                 style={styles.card}>
                 <Card.Title
@@ -63,7 +142,14 @@ const PostDetails = ({ route, navigation }) => {
                 {/* Post Description */}
                 {description &&
                     <Card.Content>
-                        <Text numberOfLines={2}>{description}</Text>
+                        <Tooltip
+                            isVisible={showAnnotate}
+                            content={<Text onPress={() => { setAnnotationInputShow(true) }} >Annotate</Text>}
+                            placement="bottom"
+                            onClose={() => { setShowAnnotate(false) }}
+                        >
+                            <TextInput caretHidden={true} showSoftInputOnFocus={false} multiline value={description} onSelectionChange={onSelectionChange} numberOfLines={2}></TextInput>
+                        </Tooltip>
                     </Card.Content>
                 }
 
@@ -76,6 +162,10 @@ const PostDetails = ({ route, navigation }) => {
                             0{/*props.upvote - props.downvote + upVoted - downVoted*/}
                         </Text>
                         <IconButton color={colors.primary} animated={true} icon={downVoted ? 'arrow-down-drop-circle' : 'arrow-down-drop-circle-outline'} onPress={handleDownvote} />
+                        <IconButton color={colors.primary} animated={true} icon={'clipboard-outline'} onPress={() => { setShowAnnotatations(true) }} ></IconButton>
+                        <Text>
+                            {annotations[0]?.length ? annotations[0]?.length : 0}
+                        </Text>
                     </View>
                     {/* <Button labelStyle={{ fontSize: 23 }} contentStyle={styles.comment} icon='comment-outline' onPress={() => console.log('Clicked comment')}><Text style={{ fontSize: 13 }}>3</Text></Button> */}
                 </Card.Actions>
@@ -92,7 +182,8 @@ const PostDetails = ({ route, navigation }) => {
                         </Card>
                     ))}
                 </ScrollView>
-            : <></> }
+                : <></>}
+
         </>
     );
 }
@@ -132,6 +223,11 @@ const styles = StyleSheet.create({
     nsfwButton: {
         position: 'absolute',
         alignSelf: 'center',
+    },
+    fabStyle: {
+        bottom: 16,
+        right: 16,
+        position: 'absolute',
     }
 });
 
