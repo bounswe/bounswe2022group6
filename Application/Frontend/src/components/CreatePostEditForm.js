@@ -1,15 +1,8 @@
-import {useState, useEffect} from "react"
+import {useState} from "react"
 import React from "react";
 import styles from "../pages/home.module.css";
-import create_post from "../services/Create_Post_API"
-import makeAnimated from 'react-select/animated';
-import MessageBox from './MessageBox'
 import Form from "react-bootstrap/Form"
 import editPost from '../services/EditPost_API';
-
-const animatedComponents = makeAnimated();
-const options = []
-
 
 const CreatePostEditForm = (props) => {
 
@@ -18,7 +11,6 @@ const CreatePostEditForm = (props) => {
         description: props.description,
     })
 
-    const [isSuccessfull, setSuccessfull] = useState(false)
 
     const handleChange = (event) => {
         // If label event
@@ -45,10 +37,8 @@ const CreatePostEditForm = (props) => {
         editPost(formData,props.id).then(
             res => {
                 if(res===null){
-                    setSuccessfull(true)
                     props.onCancel()
                 }else {
-                    setSuccessfull(false)
                 }
             }
         )

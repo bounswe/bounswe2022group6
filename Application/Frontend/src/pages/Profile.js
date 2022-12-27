@@ -18,19 +18,9 @@ export default function Profile() {
     const [isLoggedout, setLoggedout] = useState(false)
     const [isDeleted, setDeleted] = useState(false)
     const [isDoctor, setIsDoctor] = useState(false);
-    const initialErrorState = {
-        username: "", 
-        email: "", 
-        password: "", 
-        date: ""
-    }
 
-    const [errors, setErrors] = useState(initialErrorState)
     const [isSuccessfull, setSuccessfull] = useState(false)
 
-    const clearErrorState = () => {
-        setErrors({...initialErrorState})
-    }
 
     const [profileInformation, setprofileInformation] = useState({
         username: "",
@@ -76,16 +66,10 @@ export default function Profile() {
         event.preventDefault();
         editProfile(profileData).then(
             res => {
-                clearErrorState()
                 if(res===null){
                     setSuccessfull(true)
                 }else {
-                    const jsonString = JSON.parse(res.replaceAll("'", "\""))
-                    var newErrors = {}
-                    for (const key of Object.keys(jsonString)){
-                        newErrors[key] = jsonString[key][0]
-                    }
-                    setErrors({...newErrors})
+                    return
                 }
             }
         )

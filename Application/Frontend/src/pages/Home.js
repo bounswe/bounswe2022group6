@@ -16,40 +16,6 @@ import ChatBotForm from '../components/ChatBotForm';
 import search_post from "../services/Search_API";
 import {getAllPosts} from "../services/Post_API";
 
-// const labels = [
-//   { name: "Medication", backgroundColor: "red", color: "white" },
-//   { name: "Other", backgroundColor: "Black", color: "white" },
-//   { name: "Article", backgroundColor: "Blue", color: "white" },
-//   { name: "Healthy Life", backgroundColor: "Green", color: "yellow" },
-//   { name: "Wound Care", backgroundColor: "yellow", color: "black" },
-//   { name: "Injury", backgroundColor: "lightblue", color: "black" },
-//   { name: "Mental Health", backgroundColor: "gray", color: "white" },
-//   { name: "Parasite Concern", backgroundColor: "orange", color: "white" },
-//   { name: "Rabies Concern", backgroundColor: "purple", color: "white" },
-//   { name: "Pregnancy", backgroundColor: "lightgreen", color: "white" },
-//   {
-//     name: "Skin issues/Rashes/Freckles/Moles",
-//     backgroundColor: "darkgray",
-//     color: "white",
-//   },
-//   { name: "Cardiac", backgroundColor: "darkgreen", color: "white" },
-//   {
-//     name: "Mouth/Gums/Throat/Cheeks",
-//     backgroundColor: "Salmon",
-//     color: "white",
-//   },
-//   { name: "Eyes", backgroundColor: "Lime", color: "white" },
-//   { name: "Illness", backgroundColor: "pink", color: "indigo" },
-//   { name: "Digestion/Stomach/Bowels", backgroundColor: "teal", color: "white" },
-//   {
-//     name: "Bones/Joints/Ligaments",
-//     backgroundColor: "SkyBlue",
-//     color: "white",
-//   },
-//   { name: "Help", backgroundColor: "palegreen", color: "white" },
-//   { name: "Advice", backgroundColor: "PaleTurquoise", color: "white" },
-// ];
-
 
 export default function Home() {
   let history = useHistory();

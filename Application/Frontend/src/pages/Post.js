@@ -15,7 +15,6 @@ import Logo from '../assets/fav.png'
 import Image from 'react-bootstrap/Image'
 import moment from 'moment'
 import createComment from '../services/Create_Comment_API';
-import editPost from '../services/EditProfile_API';
 import CreatePostEditForm from "../components/CreatePostEditForm";
 import TextAnnotation from '../components/TextAnnotation';
 import ImageAnnotation from '../components/ImageAnnotation';
