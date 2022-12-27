@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from "../pages/home.module.css";
-import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { ImArrowUp, ImArrowDown } from "react-icons/im";
 import contentvote from '../services/Vote_API';
 import moment from 'moment'
@@ -9,6 +9,8 @@ import delete_comment from '../services/Delete_comment_API';
 import Button from 'react-bootstrap/Button'
 
 const Comment = (props) => {
+
+  let history = useHistory();
 
   const isGuestUser = window.localStorage.getItem("auth_token") ? false : true
 
@@ -62,7 +64,7 @@ const Comment = (props) => {
               justifyContent: "flex-end",
             }}
           >
-              <p style={{textAlign:'left', marginRight:'auto'}}>{props.comment.owner.verified_as_doctor ? props.comment.owner.username +" 🩺" :props.comment.owner.username}</p>
+              <p style={{textAlign:'left', marginRight:'auto', cursor:"pointer"}} onClick={()=>{history.push('/view_profile/'+props.comment.owner.username)}}> <u>{props.comment.owner.verified_as_doctor ? props.comment.owner.username +" 🩺" :props.comment.owner.username}</u></p>
             <div
               style={{
                 display: "flex",
