@@ -7,7 +7,7 @@ const Chatbot = ({ navigation }) => {
 
     const [messages, setMessages] = useState(["Hello, how can i help you?"]);
     const [options, setOptions] = useState(["I don't feel good", "I want to search a medicine"]);
-
+    const [selectedMessages, setSelectedMessages] = useState([]);
 
     const decideRoute = (message) => {
 
@@ -30,18 +30,27 @@ const Chatbot = ({ navigation }) => {
 
     }
 
+
+    const handleSelectMessage = (message) => {
+        setMessages(messages => [...messages, message])
+        decideRoute(message)
+    }
+
     return (
         <>
             <View style={styles.body}>
-                {messages.map(message => (
-                    <View style={{ backgroundColor: "#c2cd23", justifyContent: "center", flex: 0.1 }} >
-                        <Text style={{ fontSize: 22, textAlign: "center" }} >{message}</Text>
-                    </View>
+                {messages.map((message, i) => (
+                    <>
+                        <View style={{ backgroundColor: i % 2 == 0 ? "#c2cd2345" : "#79e8a945", justifyContent: "center", flex: 0.1 }} >
+                            <Text style={{ fontSize: 22, textAlign: i % 2 == 0 ? "left" : "right", paddingLeft: 4, paddingRight: 4 }} >{message}</Text>
+                        </View>
+                        <View style={{ flexDirection: "column", height: 8 }}></View>
+                    </>
                 ))}
             </View>
             {options.map(message => message == "Input" ? <TextInput mode="outlined" onEndEditing={(e) => { decideRoute(e.nativeEvent.text) }} ></TextInput> : (
                 <View style={{ backgroundColor: "#95c3b3", justifyContent: "center", flex: 0.1 }} >
-                    <Text onPress={() => { decideRoute(message) }} style={{ fontSize: 16, textAlign: "center" }} >{message}</Text>
+                    <Text onPress={() => { handleSelectMessage(message) }} style={{ fontSize: 16, textAlign: "center" }} >{message}</Text>
                 </View>
             ))}
         </>
@@ -51,9 +60,8 @@ const Chatbot = ({ navigation }) => {
 const styles = StyleSheet.create({
     body: {
         flex: 1,
-        //flexGrow: 1,
         justifyContent: 'flex-start',
-        margin: '5%',
+        margin: '2%',
     },
     logo: {
         alignSelf: 'center',
