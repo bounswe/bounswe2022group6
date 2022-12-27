@@ -159,7 +159,7 @@ export const SignUpScreen = (props) => {
                     <HelperText type="error" visible={errors.gender != ""} >{errors.gender}</HelperText>
                 </View>
                 <View style={styles.footer}>
-                    <Button style={styles.signUpButton} mode='contained' onPress={handleClick}>
+                    <Button style={styles.signUpButton} mode='contained' onPress={handleClick} testID='signUpButton'>
                         Sign Up
                     </Button>
                 </View>
