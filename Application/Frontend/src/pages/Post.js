@@ -145,7 +145,8 @@ const Post = () => {
           </div>}
         <h5 className="main-title home-page-title" style={{textShadow: "1px 1px #000000 "}}>
         <Image src={Logo} style={{width:"70px"}}></Image>
-        <span style={{color:"#dde296"}}>Medi</span><span style={{color:"#9FcFb0"}}>Share</span></h5>  
+        <span style={{color:"#dde296"}}>Medi</span><span style={{color:"#9FcFb0"}}>Share</span></h5>
+        {isLoggedout && <MessageBox data = "Logout Successful!" style = {{color: "#0f7375", fontSize: "2.5rem"}}> </MessageBox>}
         {post && <div>
       <div className={styles.mypostpage} style={{position:'relative'}}>
           <div className={styles.mypostright} >
