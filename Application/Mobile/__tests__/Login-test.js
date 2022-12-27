@@ -2,6 +2,7 @@ import React from "react";
 import { render } from "@testing-library/react-native";
 import LoginPage from "../pages/authentication/Login";
 
+// Tests about login screen will be here
 describe('Login Screen', () => {
 
     const navigationMock = {}

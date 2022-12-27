@@ -2,7 +2,8 @@ import React from "react";
 import { render } from "@testing-library/react-native";
 import SignUpScreen from "../pages/authentication/SignUpScreen";
 
-describe('Login Screen', () => {
+// Tests about sign up screen will be here
+describe('Signup Screen', () => {
     const props = {}
     const page = render(<SignUpScreen />)
 

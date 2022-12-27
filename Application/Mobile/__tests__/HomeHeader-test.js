@@ -2,7 +2,8 @@ import React from "react";
 import { render } from "@testing-library/react-native";
 import HomeHeader from "../pages/home/HomeHeader";
 
-describe('Login Screen', () => {
+// Tests about home header will be here
+describe('Home Header', () => {
     const page = render(<HomeHeader />)
 
     it ('should render top bar on header', () => {

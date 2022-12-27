@@ -15,7 +15,7 @@ const SearchScreenHeader = (props) => {
 
     return (
         <Appbar.Header>
-            <Appbar.BackAction onPress={() => props.navigation.pop()} />
+            <Appbar.BackAction onPress={() => props.navigation.pop()} testID='backButton'/>
             <Searchbar
                 theme={{ roundness: 50 }}
                 placeholder="Search posts, users..."
@@ -25,8 +25,9 @@ const SearchScreenHeader = (props) => {
                 inputStyle={styles.searchInput}
                 autoFocus={true}
                 onSubmitEditing={props.handleSearch}
+                testID='searchbar'
             />
-            <Appbar.Action icon="filter-variant" color="white" onPress={toggleFilterModal} />
+            <Appbar.Action icon="filter-variant" color="white" onPress={toggleFilterModal} testID='filterButton' />
         </Appbar.Header>
     );
 }
