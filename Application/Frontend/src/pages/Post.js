@@ -15,7 +15,6 @@ import Logo from '../assets/fav.png'
 import Image from 'react-bootstrap/Image'
 import moment from 'moment'
 import createComment from '../services/Create_Comment_API';
-import editPost from '../services/EditProfile_API';
 import CreatePostEditForm from "../components/CreatePostEditForm";
 import TextAnnotation from '../components/TextAnnotation';
 import ImageAnnotation from '../components/ImageAnnotation';
@@ -44,7 +43,6 @@ const Post = () => {
     //send request to backend for post details.
     useEffect(() => {
       getPostById(id).then(res => {
-        console.log(res)
         setPost(res);
       });
     }, [voted, submitted, showPostEdit, commentDeleted]);
@@ -59,7 +57,6 @@ const Post = () => {
     }
 
     const handleSubmit = event => {
-      console.log('creating comment')
       if(formData.description !== '') {
         createComment(formData, id).then(() => {
           setSubmitted(!submitted)
@@ -85,7 +82,6 @@ const Post = () => {
           alert("You need to be logged in")
           return
       }
-      console.log("voting post")
       contentvote(id, direction, true).then(() => setVoted(!voted))
     };
 
@@ -148,7 +144,8 @@ const Post = () => {
           </div>}
         <h5 className="main-title home-page-title" style={{textShadow: "1px 1px #000000 "}}>
         <Image src={Logo} style={{width:"70px"}}></Image>
-        <span style={{color:"#dde296"}}>Medi</span><span style={{color:"#9FcFb0"}}>Share</span></h5>  
+        <span style={{color:"#dde296"}}>Medi</span><span style={{color:"#9FcFb0"}}>Share</span></h5>
+        {isLoggedout && <MessageBox data = "Logout Successful!" style = {{color: "#0f7375", fontSize: "2.5rem"}}> </MessageBox>}
         {post && <div>
       <div className={styles.mypostpage} style={{position:'relative'}}>
           <div className={styles.mypostright} >
@@ -182,7 +179,7 @@ const Post = () => {
               justifyContent: "flex-end",
             }}
           >
-            <p style={{textAlign:'left', marginRight:'auto'}}>{post.owner.verified_as_doctor ? post.owner.username +" 🩺" :post.owner.username}</p>
+            <p style={{textAlign:'left', marginRight:'auto', cursor:"pointer"}} onClick={()=>{history.push('/view_profile/'+post.owner.username)}}> <u>{post.owner.verified_as_doctor ? post.owner.username +" 🩺" :post.owner.username}</u></p>
             <div
               style={{
                 display: "flex",
@@ -259,10 +256,10 @@ const Post = () => {
         
       </div>
       {post.owner.username === window.localStorage.getItem("username") &&
-      <Button onClick={handleEdit} style={{width:"5%", marginLeft:'10px', position:'absolute', top:'0', right:'0' }}>Edit</Button>
+      <Button onClick={handleEdit} style={{width:"5%", marginLeft:'10px', position:'absolute', top:'10px', right:'0' }}>Edit</Button>
       }
       {post.owner.username === window.localStorage.getItem("username") &&
-      <Button onClick={handleDelete} style={{width:"5%", marginLeft:'10px', position:'absolute', top:'60px', right:'0', backgroundColor:'red' }}>Delete</Button>
+      <Button onClick={handleDelete} style={{width:"5%", marginLeft:'10px', position:'absolute', top:'70px', right:'0', backgroundColor:'red' }}>Delete</Button>
       }
     </div>
    
@@ -290,7 +287,7 @@ const Post = () => {
   <div className={styles.mypostpage} style= {{width:'72%', marginLeft:'18%'}}>
    <input type='text' style= {{overflow:'hidden', width: '100%' }} name="description" placeholder= 'Type your comment' value={formData.description} onChange={handleChange}></input>
 
-  <Button className={styles.createcomment} type = 'button' onClick={handleSubmit}>Comment</Button>
+  <button className={styles.createcomment} type = 'button' onClick={handleSubmit}>Comment</button>
   </div>
 }
 <br/><br/><br/>

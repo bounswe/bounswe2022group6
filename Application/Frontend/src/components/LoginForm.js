@@ -52,7 +52,6 @@ function LoginForm() {
                 const jsonString = JSON.parse(res.replaceAll("'", "\""))
                 var newErrors = {}
                 for (const key of Object.keys(jsonString)) {
-                    console.log(key)
                     if (key === "username" || key === "email") {
                         newErrors["useridentifier"] = jsonString[key][0]
                     } else {
