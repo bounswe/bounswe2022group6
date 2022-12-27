@@ -99,7 +99,7 @@ const PostDetails = (props) => {
     }
 
     return (
-        <>
+        <ScrollView>
             <View>
                 <Dialog.Container visible={showAnnotations} >
                     <Dialog.Title>Annotations</Dialog.Title>
@@ -192,7 +192,7 @@ const PostDetails = (props) => {
                 </ScrollView>
                 : <></>}
 
-        </>
+        </ScrollView>
     );
 }
 
