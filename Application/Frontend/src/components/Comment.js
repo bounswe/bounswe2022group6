@@ -89,7 +89,7 @@ const Comment = (props) => {
         </div>
       </div>
       {props.comment.owner.username === window.localStorage.getItem("username") &&
-      <Button onClick={handleDelete} style={{width:"5%", marginLeft:'10px', position:'absolute', top:'10px', right:'0', backgroundColor:'red' }}>Delete</Button>
+      <Button onClick={handleDelete} style={{width:"5%", marginLeft:'10px', position:'absolute', top:'45px', right:'0', backgroundColor:'red' }}>Delete</Button>
       }
     </div>
   </div>

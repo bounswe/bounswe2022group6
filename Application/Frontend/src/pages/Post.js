@@ -256,10 +256,10 @@ const Post = () => {
         
       </div>
       {post.owner.username === window.localStorage.getItem("username") &&
-      <Button onClick={handleEdit} style={{width:"5%", marginLeft:'10px', position:'absolute', top:'0', right:'0' }}>Edit</Button>
+      <Button onClick={handleEdit} style={{width:"5%", marginLeft:'10px', position:'absolute', top:'10px', right:'0' }}>Edit</Button>
       }
       {post.owner.username === window.localStorage.getItem("username") &&
-      <Button onClick={handleDelete} style={{width:"5%", marginLeft:'10px', position:'absolute', top:'60px', right:'0', backgroundColor:'red' }}>Delete</Button>
+      <Button onClick={handleDelete} style={{width:"5%", marginLeft:'10px', position:'absolute', top:'70px', right:'0', backgroundColor:'red' }}>Delete</Button>
       }
     </div>
    
@@ -287,7 +287,7 @@ const Post = () => {
   <div className={styles.mypostpage} style= {{width:'72%', marginLeft:'18%'}}>
    <input type='text' style= {{overflow:'hidden', width: '100%' }} name="description" placeholder= 'Type your comment' value={formData.description} onChange={handleChange}></input>
 
-  <Button className={styles.createcomment} type = 'button' onClick={handleSubmit}>Comment</Button>
+  <button className={styles.createcomment} type = 'button' onClick={handleSubmit}>Comment</button>
   </div>
 }
 <br/><br/><br/>
