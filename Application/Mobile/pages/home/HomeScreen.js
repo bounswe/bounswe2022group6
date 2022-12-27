@@ -29,6 +29,7 @@ const HomeScreen = (props) => {
           headerTitle: 'Post Details',
           animation: 'slide_from_right',
         }}
+        initialParams={{...props.route.params}}
       />
       {props.route.params.username &&
         <HomeFeedStack.Screen

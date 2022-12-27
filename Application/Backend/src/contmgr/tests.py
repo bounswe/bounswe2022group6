@@ -296,7 +296,7 @@ class SearchPostTest(TestCase):
         response_content = json.loads(response.content)
         posts = response_content["posts"]
         postIDs = [post["postID"] for post in posts]
-        self.assertEqual(postIDs, [3, 4])
+        self.assertEqual(postIDs, [4, 3])
 
 class AnnotationTest(TestCase):
 

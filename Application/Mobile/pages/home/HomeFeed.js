@@ -56,6 +56,7 @@ const HomeTitle = (props) => {
 
 const getAllPosts = async () => {
     try {
+        console.log(BACKEND_URL)
         const response = await fetch(BACKEND_URL + 'contmgr/allposts/');
         const json = await response.json();
         return json.posts
@@ -74,6 +75,7 @@ const HomeFeed = (props) => {
     const handleAllPosts = () => {
         getAllPosts().then((response) => {
             setHomeFeedPosts(response)
+            console.log(response)
             setRefreshing(false)
             setIsFetchingData(false)
         })

@@ -1,10 +1,27 @@
-export default async function search_post(keyword) {
+//sort_type represent either the given parameter is text or label.
+export default async function search_post(string, sort_type) {
 
     const requestOptions = {
         method: "GET",
     }
+    var url = window.location.origin.replace(":3000", ":8000") + "/contmgr/searchpost?"
+    if (sort_type === "t"){
+        console.log(string);
+        url = url + "keyword=" + string
+    } else if (sort_type === "l"){
+        // If at least 1 label is selected.
+        if (string.length >= 1){
+            console.log(string);
+            url = url + "label=" + string[0]["labelName"]
+            for (let index = 0; index < string.length -1; index++) {
+                url = url + "&label=" + string[index+1]["labelName"]
+            }
+        } else {
+            url +="keyword="
+        }
+    }
 
-    const response = await fetch(window.location.origin.replace(":3000", ":8000") + "/contmgr/searchpost?keyword=" + keyword, requestOptions)
+    const response = await fetch(url, requestOptions)
     const resMessage = await response.json()
 
     if (response.status !== 200) {
