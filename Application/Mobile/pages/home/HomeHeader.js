@@ -13,7 +13,7 @@ const HomeHeader = (props) => {
                 />
             </View>
             <View style={styles.rightContent}>
-                <Appbar.Action icon="magnify" color='white' onPress={() => props.navigation.navigate('Search', {username: props.route.params.username})} testID='searchButton/>
+                <Appbar.Action icon="magnify" color='white' onPress={() => props.navigation.navigate('Search', {username: props.route.params.username})} testID='searchButton' />
                 <Appbar.Action icon="robot-happy" color='white' onPress={() => props.navigation.navigate('Chatbot')} testID='chatBotButton'/>
             </View>
         </Appbar.Header>
