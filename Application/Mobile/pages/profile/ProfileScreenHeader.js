@@ -49,7 +49,7 @@ const ProfileScreenHeader = (props) => {
     return (
         <Appbar.Header style={styles.topBar}>
             {props.options.title == 'Edit Profile' &&
-                <Appbar.BackAction color="white" onPress={() => props.navigation.navigate('Profile')} />}
+                <Appbar.BackAction color="white" onPress={() => props.navigation.pop()} />}
             {props.options.title == 'Profile' &&
                 <Appbar.Action icon='menu' color="white" onPress={() => props.navigation.toggleDrawer()} />
             }

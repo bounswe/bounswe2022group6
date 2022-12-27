@@ -85,6 +85,7 @@ export const handleLogoutRequest = async () => {
                 throw new Error(errs[Object.keys(errs)[0]])
             } else {
                 await AsyncStorage.removeItem("token")
+                await AsyncStorage.removeItem("username")
                 return alert(responseJson.detail)
             }
         })

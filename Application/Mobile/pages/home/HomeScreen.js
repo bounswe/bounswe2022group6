@@ -7,19 +7,20 @@ import CreatePost from "../post/CreatePost";
 import Chatbot from "./Chatbot";
 import SearchScreenHeader from "../search/SearchScreenHeader";
 import SearchScreen from "../search/SearchScreen";
+import EditPost from "../post/EditPost";
+import Post_ChatbotHeader from "./BasicHeader";
 
 const HomeFeedStack = createNativeStackNavigator();
 
 const HomeScreen = (props) => {
   return (
-    <HomeFeedStack.Navigator initialRouteName='Home Feed'>
+    <HomeFeedStack.Navigator initialRouteName='Home Feed' screenOptions={{header: (props2) => <Post_ChatbotHeader {...props2}/>}}>
       <HomeFeedStack.Screen
         name='Home Feed'
         component={HomeFeed}
         options={{
           header: (props) => <HomeHeader {...props} />
         }}
-        initialParams={{...props.route.params}}
       />
       <HomeFeedStack.Screen
         name='Post Details'
@@ -30,7 +31,7 @@ const HomeScreen = (props) => {
         }}
         initialParams={{...props.route.params}}
       />
-      {props.route.params.isRegistered &&
+      {props.route.params.username &&
         <HomeFeedStack.Screen
           name='Create Post'
           component={CreatePost}
@@ -60,6 +61,14 @@ const HomeScreen = (props) => {
           searchQuery: null,
           filtersVisible: false,
           filters: null
+        }}
+      />
+      <HomeFeedStack.Screen
+        name='Edit Post'
+        component={EditPost}
+        options={{
+          headerTitle: 'Edit Post',
+          animation: 'slide_from_right',
         }}
       />
     </HomeFeedStack.Navigator>

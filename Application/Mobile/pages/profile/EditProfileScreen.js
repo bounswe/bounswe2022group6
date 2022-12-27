@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { View, ScrollView, StyleSheet, TextInput } from 'react-native';
 import { RadioButton, Text, Divider, List, Switch, Paragraph, useTheme, Portal, Dialog, Button } from "react-native-paper";
 import DatePicker from 'react-native-date-picker';
-import { Picker } from '@react-native-picker/picker';
 import ProfileScreenHeader from "./ProfileScreenHeader";
 import { deleteProfileRequest } from "../profileAPI";
 

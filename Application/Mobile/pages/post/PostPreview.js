@@ -1,39 +1,9 @@
 import React, { useState } from "react";
-import { Card, Avatar, Button, IconButton, Text, withTheme, Menu, Divider, Chip } from 'react-native-paper';
-import { View, StyleSheet, TouchableOpacity, Pressable } from 'react-native';
-import { BACKEND_URL } from '@env'
-
-// The content on the left of username
-const LeftContent = (props) => {
-    return (
-        <TouchableOpacity onPress={() => console.log('Clicked profile photo')}>
-            <Avatar.Icon {...props} icon='account' /* source={{ uri: props.profile }} */ />
-            {/* <Avatar.Image {...props} source={{ uri: props.profile }} /> */}
-        </TouchableOpacity>
-    );
-}
-
-// The content on the right of username
-const RightContent = (props) => {
-    const [menuVisible, setMenuVisible] = useState(false);
-    const [isBlocked, setIsBlocked] = useState(false);
-
-    const handleBlockUser = () => {
-        //TODO: block/unblock user.
-        const message = isBlocked ? 'User ' + props.author + ' is unblocked!' : 'User ' + props.author + ' is blocked!';
-        setIsBlocked(!isBlocked);
-
-        props.openSnackBar(message);
-    }
-
-    return (
-        <Menu visible={menuVisible} onDismiss={() => setMenuVisible(false)} anchor={<IconButton {...props} icon='dots-vertical' onPress={() => setMenuVisible(true)} />}>
-            <Menu.Item icon='account-cancel-outline' onPress={handleBlockUser} title={isBlocked ? 'Unblock User' : 'Block User'} />
-            <Divider />
-            <Menu.Item icon='alert-octagon-outline' onPress={() => console.log('clicked report!')} title="Report" />
-        </Menu>
-    );
-}
+import { Card, Button, IconButton, Text, withTheme, Chip } from 'react-native-paper';
+import { View, StyleSheet } from 'react-native';
+import { calculateDate, getFullDate } from "../components/DateFunctions";
+import PostRightContent from "./PostRightContent";
+import PostLeftContent from "./PostLeftContent";
 
 /*
 postID: number
@@ -56,9 +26,9 @@ const PostPreview = (props) => {
     const [isNSFW, setIsNSFW] = useState(props.is_marked_nsfw); // NSFW
     // Upvote & Downvote
     //TODO: the initial states should be taken from backend
-    const [downVoted, setDownvoted] = useState(props.userName != null && props.downvoted_users.filter((item) => item.username === props.userName).length > 0 ? true : false);
-    const [upVoted, setUpvoted] = useState(props.userName != null && props.upvoted_users.filter((item) => item.username === props.userName).length > 0 ? true : false);
-    const [dateClicked, setDateClicked] = useState(false); 
+    const [downVoted, setDownvoted] = useState(props.username !== null && props.post.downvoted_users.filter((item) => item.username === props.username).length > 0 ? true : false);
+    const [upVoted, setUpvoted] = useState(props.username !== null && props.post.upvoted_users.filter((item) => item.username === props.username).length > 0 ? true : false);
+    const [dateClicked, setDateClicked] = useState(false);
 
     /*     const handleVoteRequest = async () => {
             try {
@@ -81,82 +51,54 @@ const PostPreview = (props) => {
         //TODO: send request to upvote
     }
 
-
-    const calculateDate = (dateString) => {
-        const _date = new Date(dateString)
-        const differenceMS = new Date() - _date;
-
-        if (differenceMS < 0) {
-            return 'Not published yet!'
-        }
-
-        const diffDays = Math.floor(differenceMS / 86400000); // days
-        const diffHrs = Math.floor((differenceMS % 86400000) / 3600000); // hours
-        const diffMins = Math.floor(((differenceMS % 86400000) % 3600000) / 60000); // minutes
-
-        if (diffDays > 2) {
-            return _date.toLocaleDateString()
-        } else if (diffDays == 2) {
-            return '2 days ago'
-        } else if (diffDays == 1) {
-            return '1 day ago'
-        } else if (diffHrs > 0) {
-            return (diffHrs == 1 ? 'an hour ago' : diffHrs + ' hours ago')
-        } else if (diffMins > 1) {
-            return diffMins + ' minutes ago'
-        } else {
-            return 'just now'
-        }
-    }
-
     return (
         <Card
-            style={styles.card} onPress={() => props.navigation.navigate('Post Details', { owner: props.owner, title: props.title, description: props.description, imageURL: props.imageURL, createdAt: props.created_at_date, createdAtTime: props.created_at_time, labels: props.labels, colors: props.theme, postId: props.postID, annotations: [props.text_annotations, props.image_annotations] })}>
+            style={styles.card} onPress={() => props.navigation.navigate('Post Details', { post: props.post, ...props.route.params })}>
+
             {/* Username, profile photo, post date etc. */}
             <Card.Title
-                title={<Text onPress={() => console.log('clicked username')}>{props.owner.username}</Text>}
+                title={<Text onPress={() => console.log('clicked username')}>{props.post.owner.username}</Text>}
                 titleStyle={{ fontSize: 14 }}
-                subtitle={<Text onPress={() => setDateClicked((clicked) => !clicked)}>{dateClicked ? (new Date(props.created_at).toLocaleString()) : calculateDate(props.created_at)}</Text>}
+                subtitle={<Text onPress={() => setDateClicked((clicked) => !clicked)}>{dateClicked ? (getFullDate(props.post.created_at)) : calculateDate(props.post.created_at)}</Text>}
                 subtitleStyle={{ fontSize: 12, color: 'red' }}
-                left={(props2) => <LeftContent /* profile={props.authorProfilePhoto */ {...props2} />}
+                left={(props2) => <PostLeftContent {...props2} {...props}/>}
                 leftStyle={{ alignSelf: 'center' }}
-                right={(props2) => <RightContent {...props2} openSnackBar={props.openSnackBar} author={props.owner.username} />}
+                right={(props2) => <PostRightContent {...props2} {...props} openSnackBar={props.openSnackBar} />}
             />
             {/* Post Labels */}
-            {props.labels && <Card.Content style={styles.labelContainer}>
-                {props.labels.map(label => <Chip key={label.labelID} style={{ ...styles.label, borderColor: label.labelColor }} textStyle={{ color: label.labelColor }} mode='outlined'>{label.labelName}</Chip>)}
+            {props.post.labels && <Card.Content style={styles.labelContainer}>
+                {props.post.labels.map(label => <Chip key={label.labelID} style={{ ...styles.label, borderColor: label.labelColor }} textStyle={{ color: label.labelColor }} mode='outlined'>{label.labelName}</Chip>)}
             </Card.Content>
             }
 
             {/* Post title */}
-            <Card.Title title={props.title} titleNumberOfLines={2} />
+            <Card.Title title={props.post.title} titleNumberOfLines={2} />
 
             {/* Post Image */}
-            {props.imageURL &&
+            {props.post.imageURL &&
                 <Card.Content style={styles.cardCoverContainer}>
-                    <Card.Cover style={styles.cardCover} blurRadius={isNSFW ? 20 : 0} source={{ uri: props.imageURL?.includes("https://") ? props.imageURL : "https://" + props.imageURL }} />
+                    <Card.Cover style={styles.cardCover} blurRadius={isNSFW ? 20 : 0} source={{ uri: props.post.imageURL?.includes("https://") ? props.post.imageURL : "https://" + props.post.imageURL }} />
                     {isNSFW && <Button mode='contained' style={styles.nsfwButton} onPress={() => { setIsNSFW(false) }}>NSFW Content</Button>}
                 </Card.Content>
             }
 
             {/* Post Description */}
-            {props.description &&
+            {props.post.description &&
                 <Card.Content>
-                    <Text numberOfLines={2}>{props.description}</Text>
+                    <Text numberOfLines={2}>{props.post.description}</Text>
                 </Card.Content>
             }
-
 
             {/* Buttons */}
             <Card.Actions style={styles.cardFooter}>
                 <View style={styles.voteContainer}>
-                    <IconButton disabled={props.userName == null} color={colors.primary} animated={true} icon={upVoted ? 'arrow-up-drop-circle' : 'arrow-up-drop-circle-outline'} onPress={handleUpvote} />
+                    <IconButton disabled={props.route.params.username === null} color={colors.primary} animated={true} icon={upVoted ? 'arrow-up-drop-circle' : 'arrow-up-drop-circle-outline'} onPress={handleUpvote} />
                     <Text>
-                        {props.vote_count}
+                        {props.post.result_vote}
                     </Text>
-                    <IconButton disabled={props.userName == null} color={colors.primary} animated={true} icon={downVoted ? 'arrow-down-drop-circle' : 'arrow-down-drop-circle-outline'} onPress={handleDownvote} />
+                    <IconButton disabled={props.route.params.username === null} color={colors.primary} animated={true} icon={downVoted ? 'arrow-down-drop-circle' : 'arrow-down-drop-circle-outline'} onPress={handleDownvote} />
                 </View>
-                <Button labelStyle={{ fontSize: 23 }} contentStyle={styles.comment} icon='comment-outline' onPress={() => console.log('Clicked comment')}><Text style={{ fontSize: 13 }}>{props.comment_count}</Text></Button>
+                <Button labelStyle={{ fontSize: 23 }} contentStyle={styles.comment} icon='comment-outline' onPress={() => console.log('Clicked comment')}><Text style={{ fontSize: 13 }}>{props.post.comment_count}</Text></Button>
             </Card.Actions>
         </Card>
     );
