@@ -62,6 +62,31 @@ class PostsTest(TestCase):
         self.assertEqual(content["title"], 'Headache')
         self.assertEqual(content["type"], 'q')
 
+        # Create comment
+        response = self.client.post('/contmgr/comment/', { "parent_post_id": content_post["postID"],
+                "description": "Sorry mate!"}, HTTP_AUTHORIZATION=f"Token {self.tokens[1]}")
+        content_comment = json.loads(response.content)
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(content_comment["info"], "comment creation successful")
+
+        # Test delete post
+        response = self.client.delete(f'/contmgr/post?id={content_post["postID"]}', HTTP_AUTHORIZATION=f"Token {self.tokens[0]}")
+        response_content = json.loads(response.content)
+        print(response_content)
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(response_content["info"], "post delete successful")
+
+        # Check if both comment and post has been deleted
+        comment_response = self.client.get(f'/contmgr/comment?id={content_comment["commentID"]}')
+        comment_content = json.loads(comment_response.content)
+        self.assertEqual(comment_response.status_code, 404)
+        self.assertEqual(comment_content["info"], "comment get failed")
+
+        post_response = self.client.get(f'/contmgr/post?id={content_post["postID"]}')
+        post_content = json.loads(post_response.content)
+        self.assertEqual(post_response.status_code, 404)
+        self.assertEqual(post_content["info"], "post get failed")
+
 class CommentsTest(TestCase):
 
     databases = ['default', 'annotation']
@@ -98,9 +123,9 @@ class CommentsTest(TestCase):
         # Create another comment for this comment
         response = self.client.post('/contmgr/comment/', { "parent_comment_id": content_comment["commentID"],
                 "description": "Thanks"}, HTTP_AUTHORIZATION=f"Token {self.tokens[0]}")
-        content = json.loads(response.content)
+        content_child = json.loads(response.content)
         self.assertEqual(response.status_code, 201)
-        self.assertEqual(content["info"], "comment creation successful")
+        self.assertEqual(content_child["info"], "comment creation successful")
 
         # Test GET method and check if resulting data is valid
         post_response = self.client.get(f'/contmgr/post?id={self.postID}')
@@ -109,9 +134,9 @@ class CommentsTest(TestCase):
         comment_response = self.client.get(f'/contmgr/comment?id={content_comment["commentID"]}')
         comment_content = json.loads(comment_response.content)
         self.assertEqual(comment_response.status_code, 200)
+
         # Check if post includes the comment
         self.assertEqual(post_content["comments"][0]["commentID"], comment_content["commentID"])
-
         self.assertEqual(post_content["description"], 'Constant headache while sleeping')
         self.assertEqual(post_content["owner"]["username"], 'markine')
         self.assertEqual(post_content["result_vote"], 0)
@@ -120,6 +145,23 @@ class CommentsTest(TestCase):
         self.assertEqual(post_content["type"], 'q')
         self.assertEqual(comment_content["description"], "Sorry mate!")
         self.assertEqual(comment_content["comments"][0]["description"], "Thanks")
+
+        # Test delete comments
+        response = self.client.delete(f'/contmgr/comment?id={content_comment["commentID"]}', HTTP_AUTHORIZATION=f"Token {self.tokens[0]}")
+        response_content = json.loads(response.content)
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(response_content["info"], "comment delete successful")
+
+        # Check if both comment and its children has been deleted
+        comment_response = self.client.get(f'/contmgr/comment?id={content_comment["commentID"]}')
+        comment_content = json.loads(comment_response.content)
+        self.assertEqual(comment_response.status_code, 404)
+        self.assertEqual(comment_content["info"], "comment get failed")
+
+        comment_response = self.client.get(f'/contmgr/comment?id={content_child["commentID"]}')
+        comment_content = json.loads(comment_response.content)
+        self.assertEqual(comment_response.status_code, 404)
+        self.assertEqual(comment_content["info"], "comment get failed")
 
 class VoteTest(TestCase):
 
@@ -254,7 +296,7 @@ class SearchPostTest(TestCase):
         response_content = json.loads(response.content)
         posts = response_content["posts"]
         postIDs = [post["postID"] for post in posts]
-        self.assertEqual(postIDs, [3, 4])
+        self.assertEqual(postIDs, [4, 3])
 
 class AnnotationTest(TestCase):
 

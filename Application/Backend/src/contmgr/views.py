@@ -7,6 +7,12 @@ from ..accmgr.models import *
 from rest_framework.permissions import BasePermission, IsAuthenticated, AllowAny
 import json
 
+def deleteComments(comments):
+    for comment in comments:
+        ncomments = Comment.objects.filter(parent_comment= comment).order_by('created_at')
+        deleteComments(ncomments)
+        comment.delete()
+
 class IsGetOrIsAuthenticated(BasePermission):
     def has_permission(self, request, view):
         # allow all GET requests
@@ -34,6 +40,8 @@ class SearchPost(APIView):
         if labels:
             for label in labels:
                 posts = posts.filter(labels__labelName=label)
+
+        posts = posts.order_by("-created_at")
 
         data = {"posts" : []}
         for post in posts:
@@ -235,6 +243,27 @@ class CommentView(APIView):
         except Exception as e:
             return JsonResponse({"info":"users_mentioned initialization failed!", "error": str(e)}, status=500)
 
+    def delete(self, req):
+        user = RegisteredUser.objects.get(username=req.user)
+        try:
+            commentID = int(req.GET.get("id", None))
+        except:
+            return JsonResponse({"info":f"comment delete failed", "error": "id is either not given or not an integer"}, status=400)
+        
+        try:
+            tcomment = Comment.objects.get(commentID= commentID)
+        except:
+            return JsonResponse({"info":f"comment delete failed", "error": "Comment does not exists with given id"}, status=404)
+
+        if tcomment.owner != user:
+            return JsonResponse({"info":f"comment delete failed", "error": "not comment owner"}, status=403)
+        
+        try:
+            deleteComments([tcomment])
+            return JsonResponse({"info": "comment delete successful"}, status=201)
+        except Exception as e:
+            return JsonResponse({"info":"comment delete failed!", "error": str(e)}, status=500)
+
 
 class PostView(APIView):
     permission_classes = (IsGetOrIsAuthenticated,)
@@ -352,6 +381,30 @@ class PostView(APIView):
             return JsonResponse({"info": "post creation successful", "postID": new_post.postID}, status=201)
         except Exception as e:
             return JsonResponse({"info":"label or users_mentioned initialization failed!", "error": str(e)}, status=500)
+
+    def delete(self, req):
+        user = RegisteredUser.objects.get(username=req.user)
+        try:
+            postID = int(req.GET.get("id", None))
+        except:
+            return JsonResponse({"info":f"post delete failed", "error": "id is either not given or not an integer"}, status=400)
+        
+        try:
+            tpost = Post.objects.get(postID= postID)
+        except:
+            return JsonResponse({"info":f"post delete failed", "error": "Post does not exists with given id"}, status=404)
+
+        if tpost.owner != user:
+            return JsonResponse({"info":f"post delete failed", "error": "not post owner"}, status=403)
+        
+        try:
+            ncomments = Comment.objects.filter(parent_post= tpost).order_by('created_at')
+            deleteComments(ncomments)
+            tpost.delete()
+            return JsonResponse({"info": "post delete successful"}, status=201)
+        except Exception as e:
+            return JsonResponse({"info":"post delete failed!", "error": str(e)}, status=500)
+
 
 class AllPostsView(APIView):
 

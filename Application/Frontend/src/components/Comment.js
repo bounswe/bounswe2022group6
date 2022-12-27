@@ -5,6 +5,8 @@ import { ImArrowUp, ImArrowDown } from "react-icons/im";
 import contentvote from '../services/Vote_API';
 import moment from 'moment'
 import TextAnnotation from './TextAnnotation';
+import delete_comment from '../services/Delete_comment_API';
+import Button from 'react-bootstrap/Button'
 
 const Comment = (props) => {
 
@@ -21,9 +23,13 @@ const Comment = (props) => {
         contentvote(props.comment.commentID, direction, false).then(() => props.onVote())
     };
 
+    const handleDelete = () => {
+      delete_comment(props.comment.commentID).then(() => props.onDelete())
+  }
+
     return (
       <div style = {{marginTop: '8px'}}>
-      <div className={styles.mycomment}>
+      <div className={styles.mycomment} style={{position:'relative'}}>
       <div className={styles.mypostright}
       >
         <ImArrowUp
@@ -81,6 +87,9 @@ const Comment = (props) => {
           />
         </div>
       </div>
+      {props.comment.owner.username === window.localStorage.getItem("username") &&
+      <Button onClick={handleDelete} style={{width:"5%", marginLeft:'10px', position:'absolute', top:'10px', right:'0', backgroundColor:'red' }}>Delete</Button>
+      }
     </div>
   </div>
       )
