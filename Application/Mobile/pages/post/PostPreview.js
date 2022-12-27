@@ -82,7 +82,7 @@ const PostPreview = (props) => {
     }
 
     const calculateDate = (date, time) => {
-        const dateString = date.split('.').reverse().join('-') + 'T' + time.split('.').join(':') + "Z"
+        const dateString = date?.split('.').reverse().join('-') + 'T' + time?.split('.').join(':') + "Z"
         const _date = new Date(dateString)
         const differenceMS = new Date() - _date;
 
@@ -115,7 +115,7 @@ const PostPreview = (props) => {
     }
     return (
         <Card
-            style={styles.card} onPress={() => props.navigation.navigate('Post Details', { owner: props.owner, title: props.title, description: props.description, imageURL: props.imageURL, createdAt: props.created_at_date, createdAtTime: props.created_at_time, labels: props.labels, colors: props.theme, postId: props.postID })}>
+            style={styles.card} onPress={() => props.navigation.navigate('Post Details', { owner: props.owner, title: props.title, description: props.description, imageURL: props.imageURL, createdAt: props.created_at_date, createdAtTime: props.created_at_time, labels: props.labels, colors: props.theme, postId: props.postID, annotations: [props.text_annotations, props.image_annotations] })}>
             {/* Username, profile photo, post date etc. */}
             <Card.Title
                 title={<Text onPress={() => console.log('clicked username')}>{props.owner.username}</Text>}
