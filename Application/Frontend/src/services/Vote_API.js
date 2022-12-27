@@ -24,7 +24,6 @@ async function contentvote(id, direction, isPost) {
     const response = await fetch(url, requestOptions)
     const resMessage = await response.json()
 
-    console.log(resMessage)
     return resMessage
 }
 

@@ -15,7 +15,6 @@ import Logo from '../assets/fav.png'
 import Image from 'react-bootstrap/Image'
 import moment from 'moment'
 import createComment from '../services/Create_Comment_API';
-import editPost from '../services/EditProfile_API';
 import CreatePostEditForm from "../components/CreatePostEditForm";
 import TextAnnotation from '../components/TextAnnotation';
 import ImageAnnotation from '../components/ImageAnnotation';
@@ -44,7 +43,6 @@ const Post = () => {
     //send request to backend for post details.
     useEffect(() => {
       getPostById(id).then(res => {
-        console.log(res)
         setPost(res);
       });
     }, [voted, submitted, showPostEdit, commentDeleted]);
@@ -59,7 +57,6 @@ const Post = () => {
     }
 
     const handleSubmit = event => {
-      console.log('creating comment')
       if(formData.description !== '') {
         createComment(formData, id).then(() => {
           setSubmitted(!submitted)
@@ -85,7 +82,6 @@ const Post = () => {
           alert("You need to be logged in")
           return
       }
-      console.log("voting post")
       contentvote(id, direction, true).then(() => setVoted(!voted))
     };
 
@@ -148,7 +144,8 @@ const Post = () => {
           </div>}
         <h5 className="main-title home-page-title" style={{textShadow: "1px 1px #000000 "}}>
         <Image src={Logo} style={{width:"70px"}}></Image>
-        <span style={{color:"#dde296"}}>Medi</span><span style={{color:"#9FcFb0"}}>Share</span></h5>  
+        <span style={{color:"#dde296"}}>Medi</span><span style={{color:"#9FcFb0"}}>Share</span></h5>
+        {isLoggedout && <MessageBox data = "Logout Successful!" style = {{color: "#0f7375", fontSize: "2.5rem"}}> </MessageBox>}
         {post && <div>
       <div className={styles.mypostpage} style={{position:'relative'}}>
           <div className={styles.mypostright} >
