@@ -39,7 +39,10 @@ export const editPostRequest = async (changedData, postID) => {
 
   // Append each property of changedData to formdata
   Object.keys(changedData).forEach((key) => {
-      formdata.append(key, (changedData[key]))
+      if (typeof changedData[key] === 'object')
+        formdata.append(key, JSON.stringify(changedData[key]))
+      else
+        formdata.append(key, (changedData[key]))
   });
 
   // Request options (POST request)

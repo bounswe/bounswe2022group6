@@ -18,6 +18,7 @@ const Post_ChatbotHeader = (props) => {
         });
 
         if (props.info.length !== 0) {
+            console.log(props.info)
             
             const response =  await editPostRequest(props.info, props.route.params.post.postID)
             alert(response.info)

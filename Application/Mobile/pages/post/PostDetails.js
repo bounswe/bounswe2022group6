@@ -119,7 +119,7 @@ const PostDetails = (props) => {
                     titleStyle={{ fontSize: 14 }}
                     subtitle={<Text onPress={() => setDateClicked((clicked) => !clicked)}>{dateClicked ? (getFullDate(props.route.params.post.created_at)) : calculateDate(props.route.params.post.created_at)}</Text>}
                     subtitleStyle={{ fontSize: 12, color: 'red' }}
-                    left={(props2) => <PostLeftContent /* profile={props.authorProfilePhoto */ {...props2} {...props}/>}
+                    left={(props2) => <PostLeftContent /* profile={props.authorProfilePhoto */ {...props2} {...props} post={props.route.params.post}/>}
                     leftStyle={{ alignSelf: 'center' }}
                     right={(props2) => <PostRightContent {...props2} {...props} openSnackBar={props.openSnackBar} />}
                 />
