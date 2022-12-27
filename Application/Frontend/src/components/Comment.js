@@ -21,7 +21,6 @@ const Comment = (props) => {
             alert("You need to be logged in")
             return
         }
-        console.log("voting comment")
         contentvote(props.comment.commentID, direction, false).then(() => props.onVote())
     };
 

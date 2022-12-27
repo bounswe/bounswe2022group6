@@ -95,7 +95,6 @@ export default function Profile() {
         const name = e.target.name;
         const value = e.target.value;
         setprofileData({ [name]: value });
-        //console.log(profileData)
     };
     
     function handleClick(event) {

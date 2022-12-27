@@ -3,7 +3,6 @@ async function editProfile(data) {
     var formData = new FormData()
 
     for (var key in data) {
-        console.log(key, data[key])
         if (key === "gender") {
             formData.append(key, data[key][0])
         }

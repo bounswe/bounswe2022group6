@@ -3,7 +3,6 @@ async function createComment(data, parentId) {
     var formData = new FormData()
 
     for (var key in data) {
-        console.log(key, data[key])
         formData.append(key, data[key])
     }
     formData.append("parent_post_id", parentId)
@@ -15,11 +14,9 @@ async function createComment(data, parentId) {
          },
         body: formData
     }
-    console.log("Sending Request")
     
     const response = await fetch(window.location.origin.replace(":3000", ":8000") + "/contmgr/comment", requestOptions)
     const resMessage = await response.json()
-    console.log(resMessage)
     if (response.status === 400) {
         console.log(resMessage["error"])
         return resMessage["error"]

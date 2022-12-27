@@ -13,7 +13,6 @@ async function login(data) {
     
     const response = await fetch(window.location.origin.replace(":3000", ":8000") + "/login", requestOptions)
     const resMessage = await response.json()
-    console.log(resMessage)
     if (response.status === 400 || response.status === 401) {
         console.log(resMessage["error"])
         return resMessage["error"]

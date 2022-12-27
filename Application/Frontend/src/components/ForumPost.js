@@ -19,13 +19,11 @@ const ForumPost = (props) => {
   }
 
   let history = useHistory()
-  console.log(props)
     const vote = (direction) => {
         if(isGuestUser){
             alert("You need to be logged in")
             return
         }
-        console.log("voting post")
         contentvote(props.post.postID, direction, true).then(() => props.onVote())
       };
 

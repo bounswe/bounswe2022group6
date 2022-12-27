@@ -44,7 +44,6 @@ const Post = () => {
     //send request to backend for post details.
     useEffect(() => {
       getPostById(id).then(res => {
-        console.log(res)
         setPost(res);
       });
     }, [voted, submitted, showPostEdit, commentDeleted]);
@@ -59,7 +58,6 @@ const Post = () => {
     }
 
     const handleSubmit = event => {
-      console.log('creating comment')
       if(formData.description !== '') {
         createComment(formData, id).then(() => {
           setSubmitted(!submitted)
@@ -85,7 +83,6 @@ const Post = () => {
           alert("You need to be logged in")
           return
       }
-      console.log("voting post")
       contentvote(id, direction, true).then(() => setVoted(!voted))
     };
 

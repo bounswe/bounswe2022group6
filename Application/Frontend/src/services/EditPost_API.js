@@ -15,7 +15,6 @@ async function editPost(data,postId) {
             'Authorization': 'Token ' + window.localStorage.getItem("auth_token") 
          }
     }
-   // console.log("Sending Request")
    const url = (
     window.location.origin.replace(":3000", ":8000") + "/contmgr/post?" + new URLSearchParams({ id: postId})
 )

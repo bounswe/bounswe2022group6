@@ -10,7 +10,6 @@ function TextAnnotation(props){
       if(textRef.current){
         const recogito = new Recogito({ content: textRef.current, readOnly: props.isGuestUser})
         if(props.contentType === "comment") {
-            console.log(props)
         }
         recogito.setAnnotations(props.annotations)
 
