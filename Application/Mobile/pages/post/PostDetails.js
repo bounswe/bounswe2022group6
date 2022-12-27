@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Card, Button, IconButton, Text, Chip, Paragraph, useTheme } from 'react-native-paper';
 import { View, StyleSheet, TextInput } from 'react-native';
 import { ScrollView } from "react-native-gesture-handler";
@@ -10,6 +10,7 @@ import Dialog from "react-native-dialog";
 import { calculateDate, getFullDate } from "../components/DateFunctions";
 import PostLeftContent from "./PostLeftContent";
 import PostRightContent from "./PostRightContent";
+import { useFocusEffect } from "@react-navigation/native";
 
 // The details screen of a post
 const PostDetails = (props) => {
@@ -30,22 +31,29 @@ const PostDetails = (props) => {
 
 
     const getComments = async () => {
-        try {
-            console.log(props.route.params.postID)
-            const response = await fetch(BACKEND_URL + '/contmgr/post?id=' + props.route.params.post.postID);
-            const json = await response.json();
-            console.log("--", json.comments)
-            return json.comments
-        } catch (error) {
-            console.error(error);
-        }
+        
     }
 
-    useEffect(async () => {
-        let resp = await getComments()
-        console.log("****", resp)
-        setComments(resp)
-    }, [])
+    useFocusEffect(
+        useCallback(() => {
+            let isActive = true
+            const fetchComments = async () => {
+                try {
+                    const response = await fetch(BACKEND_URL + '/contmgr/post?id=' + props.route.params.post.postID);
+                    const json = await response.json();
+                    return json.comments
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+            const comments = fetchComments()
+            if (isActive) {
+                setComments(comments)
+            }
+
+            return () => {isActive = false}
+        }, [])
+    );
 
     const onSelectionChange = ({ nativeEvent: { selection, text } }) => {
         setTimeout(function () { setShowAnnotate(true) }, 3000)
