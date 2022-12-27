@@ -182,7 +182,7 @@ const Post = () => {
               justifyContent: "flex-end",
             }}
           >
-            <p style={{textAlign:'left', marginRight:'auto'}}>{post.owner.verified_as_doctor ? post.owner.username +" 🩺" :post.owner.username}</p>
+            <p style={{textAlign:'left', marginRight:'auto', cursor:"pointer"}} onClick={()=>{history.push('/view_profile/'+post.owner.username)}}> <u>{post.owner.verified_as_doctor ? post.owner.username +" 🩺" :post.owner.username}</u></p>
             <div
               style={{
                 display: "flex",
