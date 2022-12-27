@@ -1,31 +1,22 @@
-import React, { useEffect,useReducer } from 'react'
+import React from 'react'
 import { ImArrowUp, ImArrowDown } from "react-icons/im";
 import {useState} from "react"
-import {useHistory, Link} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import styles from "../pages/home.module.css";
 import CreatePostForm from "./CreatePostForm";
 import contentvote from '../services/Vote_API';
 import moment from 'moment'
-import Image from 'react-bootstrap/Image'
-import EditIcon from '../assets/edit-icon.png';
 
 const ForumPost = (props) => {
   const isGuestUser = window.localStorage.getItem("auth_token") ? false : true
   const isDoctor = props.post.owner.verified_as_doctor ? true : false
-  const [showPostEdit, setPostEdit] = useState(false)
-
-  const handleClick = () => {
-    setPostEdit(!showPostEdit)
-  }
 
   let history = useHistory()
-  console.log(props)
     const vote = (direction) => {
         if(isGuestUser){
             alert("You need to be logged in")
             return
         }
-        console.log("voting post")
         contentvote(props.post.postID, direction, true).then(() => props.onVote())
       };
 

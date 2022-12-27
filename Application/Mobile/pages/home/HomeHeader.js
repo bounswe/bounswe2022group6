@@ -3,7 +3,7 @@ import { Appbar } from 'react-native-paper';
 import { View, StyleSheet } from 'react-native'
 
 // The top navigation bar of home feed
-const HomeHeader = ({ navigation }) => {
+const HomeHeader = (props) => {
 
     return (
         <Appbar.Header style={styles.topBar} testID='topBar'>
@@ -13,8 +13,8 @@ const HomeHeader = ({ navigation }) => {
                 />
             </View>
             <View style={styles.rightContent}>
-                <Appbar.Action icon="magnify" color='white' onPress={() => props.navigation.navigate('Search', {username: props.route.params.username})} />
-                <Appbar.Action icon="robot-happy" color='white' onPress={() => props.navigation.navigate('Chatbot')} />
+                <Appbar.Action icon="magnify" color='white' onPress={() => props.navigation.navigate('Search', {username: props.route.params.username})} testID='searchButton/>
+                <Appbar.Action icon="robot-happy" color='white' onPress={() => props.navigation.navigate('Chatbot')} testID='chatBotButton'/>
             </View>
         </Appbar.Header>
     );

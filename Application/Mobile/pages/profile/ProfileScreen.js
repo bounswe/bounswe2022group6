@@ -12,7 +12,7 @@ import LoadingDisplay from "../components/LoadingDisplay";
 import ProfileScreenHeader from "./ProfileScreenHeader";
 import { ActivityIndicator, Avatar, List, Paragraph, Subheading, Title } from 'react-native-paper';
 
-const genders = { M: 'Male', F: 'Female', O: 'Other' }
+const genders = { M: ['gender-male','Male'], F: ['gender-female','Female'], O: ['gender-transgender','Other'] }
 
 const ProfileScreen = (props) => {
     const [user, setUser] = useState(null)
@@ -84,8 +84,8 @@ const ProfileScreen = (props) => {
                     }
                     {user.gender &&
                         <List.Item
-                            title={genders[user.gender]}
-                            left={props2 => <List.Icon {...props2} icon="gender-transgender" />}
+                            title={genders[user.gender][1]}
+                            left={props2 => <List.Icon {...props2} icon={genders[user.gender][0]} />}
                         />
                     }
                     {user.date_joined &&

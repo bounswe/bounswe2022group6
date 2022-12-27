@@ -3,7 +3,6 @@ async function editPost(data,postId) {
     var formData = new FormData()
 
     for (var key in data) {
-        console.log(key, data[key])
         formData.append(key, data[key])
     }
 
@@ -11,11 +10,9 @@ async function editPost(data,postId) {
         method: "PUT",
         body: formData,
         headers: {
-            //'Content-Type':  "multipart/form-data",
             'Authorization': 'Token ' + window.localStorage.getItem("auth_token") 
          }
     }
-   // console.log("Sending Request")
    const url = (
     window.location.origin.replace(":3000", ":8000") + "/contmgr/post?" + new URLSearchParams({ id: postId})
 )

@@ -6,12 +6,10 @@ export default async function search_post(string, sort_type) {
     }
     var url = window.location.origin.replace(":3000", ":8000") + "/contmgr/searchpost?"
     if (sort_type === "t"){
-        console.log(string);
         url = url + "keyword=" + string
     } else if (sort_type === "l"){
         // If at least 1 label is selected.
         if (string.length >= 1){
-            console.log(string);
             url = url + "label=" + string[0]["labelName"]
             for (let index = 0; index < string.length -1; index++) {
                 url = url + "&label=" + string[index+1]["labelName"]

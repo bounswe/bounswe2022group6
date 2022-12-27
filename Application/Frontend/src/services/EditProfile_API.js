@@ -3,7 +3,6 @@ async function editProfile(data) {
     var formData = new FormData()
 
     for (var key in data) {
-        console.log(key, data[key])
         if (key === "gender") {
             formData.append(key, data[key][0])
         }
@@ -21,11 +20,9 @@ async function editProfile(data) {
         method: "POST",
         body: formData,
         headers: {
-            //'Content-Type':  "multipart/form-data",
             'Authorization': 'Token ' + window.localStorage.getItem("auth_token") 
          }
     }
-   // console.log("Sending Request")
     
     const response = await fetch( window.location.href.replace(":3000", ":8000"), requestOptions)
     const resMessage = await response.json()

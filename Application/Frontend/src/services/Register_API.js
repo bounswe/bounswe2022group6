@@ -3,7 +3,6 @@ async function register(data) {
     var formData = new FormData()
 
     for (var key in data) {
-        console.log(key, data[key])
         if (key === "gender") {
             formData.append(key, data[key][0])
         }
@@ -22,7 +21,6 @@ async function register(data) {
         header: "Content-Type: multipart/form-data",
         body: formData
     }
-    console.log("Sending Request")
     
     const response = await fetch(window.location.origin.replace(":3000", ":8000") + "/register", requestOptions)
     const resMessage = await response.json()

@@ -1,5 +1,4 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { handleLogoutRequest } from './authAPI';
 import {BACKEND_URL} from '@env'
 
 export const handleCreatePost = async ( title, type, description, location, imageUrl, is_marked_nsfw ) => {
@@ -28,4 +27,37 @@ export const handleCreatePost = async ( title, type, description, location, imag
       .then(response => response.text())
       .then(result => result)
       .catch(error => console.log('error', error));
+}
+
+export const editPostRequest = async (changedData, postID) => {
+  // Add token to header
+  const token = await AsyncStorage.getItem("token")
+  var myHeaders = new Headers()
+  myHeaders.append("Authorization", "Token " + token);
+
+  var formdata = new FormData(); // Form data (required for POST method)
+
+  // Append each property of changedData to formdata
+  Object.keys(changedData).forEach((key) => {
+      if (typeof changedData[key] === 'object')
+        formdata.append(key, JSON.stringify(changedData[key]))
+      else
+        formdata.append(key, (changedData[key]))
+  });
+
+  // Request options (POST request)
+  const requestOptions = {
+      method: 'PUT',
+      body: formdata,
+      headers: myHeaders,
+  };
+  
+  // Send request
+  try {
+      const response = await fetch(BACKEND_URL + "contmgr/post?id=" + postID, requestOptions)
+      const json = await response.json()
+      return json
+  } catch (error) {
+      console.log("Error: ", error)
+  }
 }

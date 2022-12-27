@@ -44,7 +44,7 @@ body {
 }
 
 .mycomment{
-  background: #4b697b;
+  background: #9FcFb0;
   color: #000000;
   width: 80%;
   margin: auto;
@@ -215,16 +215,19 @@ p {
   width: 20%;
   margin: auto;
   background: #0f7375;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 10px;
-  color: white;
+  margin-right: 10px;
+  margin-left: 10px;
+  color: #dde296;
   height: 5%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 20px;
+  border-radius: 5px;
+  border-color: #0f7375;
   font-weight: bold;
-  font-size: larger;
+  font-size: large;
 }
 
 .createpost {

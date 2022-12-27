@@ -3,6 +3,8 @@ import LoadingDisplay from '../components/LoadingDisplay';
 import { Image, ScrollView, StyleSheet, View } from 'react-native';
 import { Button, TextInput, HelperText, Text } from 'react-native-paper';
 import { handleLoginRequest } from '../authAPI';
+import { handleGetUserData } from '../userAPI';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // The login page
 const LoginPage = ({ navigation }) => {
@@ -27,7 +29,19 @@ const LoginPage = ({ navigation }) => {
           setLoading(false)
           setMail("")
           setPassword("")
-          navigation.navigate("Drawer", {isRegistered: true})
+
+          // Get username and store it
+          handleGetUserData().then((response) => {
+            navigation.navigate("Drawer", {
+              screen: "Home Screen",
+              username: response.username,
+              params: {
+                username: response.username,
+                screen: 'Home Feed',
+                params: {
+                  username: response.username
+                }}})
+          })
         }).catch(err => {
           setLoading(false)
           alert(err)
@@ -40,7 +54,7 @@ const LoginPage = ({ navigation }) => {
   }
 
   const handleGuestLogin = () => {
-    navigation.navigate('Drawer', {isRegistered: false})
+    navigation.navigate('Drawer', {username: null})
   }
   const handleGoSignUp = () => {
     navigation.navigate('Sign Up')
