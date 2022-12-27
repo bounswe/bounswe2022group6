@@ -73,7 +73,7 @@ const SearchScreen = (props) => {
             <FlatList
                 ListHeaderComponent={(props2) => <SearchListHeader {...props2} {...props} filters={filters} setFilters={setFilters} searched={searchResults != null} handleSearch={handleSearch} />}
                 data={searchResults}
-                renderItem={({ item }) => <PostPreview {...item} navigation={props.navigation} openSnackBar={openSnackBar} />}
+                renderItem={({ item }) => <PostPreview {...props} post={item} navigation={props.navigation} openSnackBar={openSnackBar} />}
             />
             {/* Snackbar to inform about some events such as (un)blocking a user */}
             <Snackbar
