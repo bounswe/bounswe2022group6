@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Card, Button, IconButton, Text, Chip, Paragraph, useTheme } from 'react-native-paper';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TextInput } from 'react-native';
 import { ScrollView } from "react-native-gesture-handler";
 import { BACKEND_URL } from "@env"
 import Tooltip from 'react-native-walkthrough-tooltip';
-import { set } from "react-native-reanimated";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Dialog from "react-native-dialog";
 
@@ -33,7 +32,7 @@ const PostDetails = (props) => {
     const getComments = async () => {
         try {
             console.log(props.route.params.postID)
-            const response = await fetch(BACKEND_URL + '/contmgr/post?id=' + props.route.params.postID);
+            const response = await fetch(BACKEND_URL + '/contmgr/post?id=' + props.route.params.post.postID);
             const json = await response.json();
             console.log("--", json.comments)
             return json.comments
@@ -47,7 +46,6 @@ const PostDetails = (props) => {
         console.log("****", resp)
         setComments(resp)
     }, [])
-    console.log("dsds", annotations[0])
 
     const onSelectionChange = ({ nativeEvent: { selection, text } }) => {
         setTimeout(function () { setShowAnnotate(true) }, 3000)
@@ -67,8 +65,6 @@ const PostDetails = (props) => {
     }
 
     const handleAnnotateText = async () => {
-        console.log(annotation)
-        console.log(description.substring(annotation?.start, annotation?.end))
         var myHeaders = new Headers();
         myHeaders.append("Authorization", "Token " + await AsyncStorage.getItem("token"));
 
@@ -76,7 +72,7 @@ const PostDetails = (props) => {
         formdata.append("annotation_type", "text");
         formdata.append("content_type", "post");
         formdata.append("content_id", postId);
-        formdata.append("jsonld", "{\"@context\":\"http://www.w3.org/ns/anno.jsonld\",\"type\":\"Annotation\",\"body\":[{\"type\":\"TextualBody\",\"value\":\"" + annotationValue + "\",\"purpose\":\"commenting\",\"creator\":{\"id\":\"1\",\"name\":\"" + owner.username + "\"},\"created\":\"" + new Date().toISOString() + "\",\"modified\":\"" + new Date().toISOString() + "\"}],\"target\":{\"selector\":[{\"type\":\"TextQuoteSelector\",\"exact\":\"Annotations\"},{\"type\":\"TextPositionSelector\",\"start\":" + annotation.start + ",\"end\":" + annotation.end + "}]},\"id\":\"#5519fef0-7376-4630-96f8-4b6407419c" + randomIntFromInterval() + "\"}");
+        formdata.append("jsonld", "{\"@context\":\"http://www.w3.org/ns/anno.jsonld\",\"type\":\"Annotation\",\"body\":[{\"type\":\"TextualBody\",\"value\":\"" + annotationValue + "\",\"purpose\":\"commenting\",\"creator\":{\"id\":\"1\",\"name\":\"" + props.route.params.post.owner.username + "\"},\"created\":\"" + new Date().toISOString() + "\",\"modified\":\"" + new Date().toISOString() + "\"}],\"target\":{\"selector\":[{\"type\":\"TextQuoteSelector\",\"exact\":\"Annotations\"},{\"type\":\"TextPositionSelector\",\"start\":" + annotation.start + ",\"end\":" + annotation.end + "}]},\"id\":\"#5519fef0-7376-4630-96f8-4b6407419c" + randomIntFromInterval() + "\"}");
         console.log(formdata)
 
         var requestOptions = {
@@ -94,16 +90,14 @@ const PostDetails = (props) => {
         alert("Annotation created!")
     }
 
-    console.log(annotations[0][0].body[0].value)
-
     return (
         <>
             <View>
                 <Dialog.Container visible={showAnnotations} >
                     <Dialog.Title>Annotations</Dialog.Title>
-                    {annotations[0].map(annotation => (
+                    {props.route.params.post.text_annotations?.map(annotation => (
                         <Dialog.Description>
-                            {description.substring(annotation.target.selector[1].start, annotation.target.selector[1].end)}, {annotation.body[0].value}
+                            {props.route.params.post.description.substring(annotation.target.selector[1].start, annotation.target.selector[1].end)}, {annotation.body[0].value}
                         </Dialog.Description>
                     ))}
                     <Dialog.Button label="Close" onPress={() => { setShowAnnotatations(false) }} />
@@ -112,7 +106,7 @@ const PostDetails = (props) => {
             <View>
                 <Dialog.Container visible={annotationInputShow} >
                     <Dialog.Title>Annotate</Dialog.Title>
-                    <Dialog.Description>{description.substring(annotation?.start, annotation?.end)}</Dialog.Description>
+                    <Dialog.Description>{props.route.params.post.description.substring(annotation?.start, annotation?.end)}</Dialog.Description>
                     <Dialog.Input onChangeText={(e) => { setAnnotationValue(e) }} ></Dialog.Input>
                     <Dialog.Button label="Annotate" onPress={() => { setAnnotationInputShow(false); handleAnnotateText() }} />
                     <Dialog.Button label="Close" onPress={() => { setAnnotationInputShow(false) }} />
@@ -170,7 +164,7 @@ const PostDetails = (props) => {
                         <IconButton disabled={props.route.params.username === null} color={colors.primary} animated={true} icon={downVoted ? 'arrow-down-drop-circle' : 'arrow-down-drop-circle-outline'} onPress={handleDownvote} />
                         <IconButton color={colors.primary} animated={true} icon={'clipboard-outline'} onPress={() => { setShowAnnotatations(true) }} ></IconButton>
                         <Text>
-                            {annotations[0]?.length ? annotations[0]?.length : 0}
+                            {props.route.params.text_annotations?.length ? props.route.params.annotations[0]?.length : 0}
                         </Text>
                     </View>
                     {/* <Button labelStyle={{ fontSize: 23 }} contentStyle={styles.comment} icon='comment-outline' onPress={() => console.log('Clicked comment')}><Text style={{ fontSize: 13 }}>3</Text></Button> */}
