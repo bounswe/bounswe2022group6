@@ -41,16 +41,16 @@ const PostDetails = (props) => {
                 try {
                     const response = await fetch(BACKEND_URL + '/contmgr/post?id=' + props.route.params.post.postID);
                     const json = await response.json();
-                    return json.comments
+                    if (isActive) {
+                        console.log("COMMENTS: ",json.comments)
+                        setComments(json.comments)
+                    }
                 } catch (error) {
                     console.error(error);
                 }
             }
-            const comments = fetchComments()
-            if (isActive) {
-                setComments(comments)
-            }
-
+            fetchComments()
+        
             return () => {isActive = false}
         }, [])
     );
@@ -58,11 +58,6 @@ const PostDetails = (props) => {
     const onSelectionChange = ({ nativeEvent: { selection, text } }) => {
         setTimeout(function () { setShowAnnotate(true) }, 3000)
         setAnnotation(selection)
-        console.log(
-            "change selection to",
-            selection,
-            "for value"
-        );
 
         // alert("Wanna annotate ?")
     };
@@ -79,9 +74,8 @@ const PostDetails = (props) => {
         var formdata = new FormData();
         formdata.append("annotation_type", "text");
         formdata.append("content_type", "post");
-        formdata.append("content_id", postId);
-        formdata.append("jsonld", "{\"@context\":\"http://www.w3.org/ns/anno.jsonld\",\"type\":\"Annotation\",\"body\":[{\"type\":\"TextualBody\",\"value\":\"" + annotationValue + "\",\"purpose\":\"commenting\",\"creator\":{\"id\":\"1\",\"name\":\"" + props.route.params.post.owner.username + "\"},\"created\":\"" + new Date().toISOString() + "\",\"modified\":\"" + new Date().toISOString() + "\"}],\"target\":{\"selector\":[{\"type\":\"TextQuoteSelector\",\"exact\":\"Annotations\"},{\"type\":\"TextPositionSelector\",\"start\":" + annotation.start + ",\"end\":" + annotation.end + "}]},\"id\":\"#5519fef0-7376-4630-96f8-4b6407419c" + randomIntFromInterval() + "\"}");
-        console.log(formdata)
+        formdata.append("content_id", props.route.params.post.postID);
+        formdata.append("jsonld", "{\"@context\":\"http://www.w3.org/ns/anno.jsonld\",\"type\":\"Annotation\",\"body\":[{\"type\":\"TextualBody\",\"value\":\"" + annotationValue + "\",\"purpose\":\"commenting\",\"creator\":{\"id\":\"1\",\"name\":\"" + props.route.params.username + "\"},\"created\":\"" + new Date().toISOString() + "\",\"modified\":\"" + new Date().toISOString() + "\"}],\"target\":{\"selector\":[{\"type\":\"TextQuoteSelector\",\"exact\":\"Annotations\"},{\"type\":\"TextPositionSelector\",\"start\":" + annotation.start + ",\"end\":" + annotation.end + "}]},\"id\":\"#5519fef0-7376-4630-96f8-4b6407419c" + randomIntFromInterval() + "\"}");
 
         var requestOptions = {
             method: 'POST',
@@ -99,7 +93,7 @@ const PostDetails = (props) => {
     }
 
     return (
-        <>
+        <ScrollView>
             <View>
                 <Dialog.Container visible={showAnnotations} >
                     <Dialog.Title>Annotations</Dialog.Title>
@@ -143,7 +137,7 @@ const PostDetails = (props) => {
                 {props.route.params.post.imageURL &&
                     <Card.Content style={styles.cardCoverContainer}>
                         <Card.Cover style={styles.cardCover} blurRadius={false ? 20 : 0} source={{ uri: props.route.params.post.imageURL?.includes("https://") ? props.route.params.post.imageURL : "https://" + props.route.params.post.imageURL }} />
-                        {isNSFW && <Button mode='contained' style={styles.nsfwButton}>NSFW Content</Button>}
+                        {props.route.params.post.isNSFW && <Button mode='contained' style={styles.nsfwButton}>NSFW Content</Button>}
                     </Card.Content>
                 }
 
@@ -172,7 +166,7 @@ const PostDetails = (props) => {
                         <IconButton disabled={props.route.params.username === null} color={colors.primary} animated={true} icon={downVoted ? 'arrow-down-drop-circle' : 'arrow-down-drop-circle-outline'} onPress={handleDownvote} />
                         <IconButton color={colors.primary} animated={true} icon={'clipboard-outline'} onPress={() => { setShowAnnotatations(true) }} ></IconButton>
                         <Text>
-                            {props.route.params.text_annotations?.length ? props.route.params.annotations[0]?.length : 0}
+                            {props.route.params.post.text_annotations?.length ? props.route.params.post.text_annotations?.length : 0}
                         </Text>
                     </View>
                     {/* <Button labelStyle={{ fontSize: 23 }} contentStyle={styles.comment} icon='comment-outline' onPress={() => console.log('Clicked comment')}><Text style={{ fontSize: 13 }}>3</Text></Button> */}
@@ -182,7 +176,7 @@ const PostDetails = (props) => {
                 <ScrollView>
                     {comments.map(comment => (
                         <Card>
-                            <Card.Title title={comment.owner} />
+                            <Card.Title title={comment.owner.username} />
                             <Card.Content>
                                 {/* <Title>Card title</Title> */}
                                 <Paragraph>{comment.description}</Paragraph>
@@ -192,7 +186,7 @@ const PostDetails = (props) => {
                 </ScrollView>
                 : <></>}
 
-        </>
+        </ScrollView>
     );
 }
 
