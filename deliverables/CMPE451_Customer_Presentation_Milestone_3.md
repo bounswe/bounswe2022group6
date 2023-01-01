@@ -123,6 +123,11 @@
 
 ### Annotations
 
+In the current status of our project, annotations are supported in compliance with the W3C standard. The annotations crated are kept in a seperate database, and they are kept in the specified jsonld format with the specified fields.
+
+The app allows creation of text annotations on both the mobile and the web application. On both applications, only posts and comments can be text annotatated. The users are able to create and delete their annotations as well as see the annotations created by other users.
+
+In addition to the text annotations, the web application also supports image annotations where users can annotate the images attached to the the posts. Just like text annotations, the users can create and delete their image annotations and see the image annotations of other users.
 ### Standards
 
 ### Scenarios
