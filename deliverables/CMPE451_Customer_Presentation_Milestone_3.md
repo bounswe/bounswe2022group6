@@ -125,6 +125,9 @@
 
 ### Standards
 
+
+In our project, we have utilized annotations. The annotations we are using are in compliance with the W3C annotation standards. The annotation object are kept in jsonld format with the specified fields such as target, context etc. In addition to the standards, we also keep the annotations in a seperate database to better isolate the annotations from the contents of the application.
+
 ### Scenarios
 
 
