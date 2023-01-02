@@ -768,7 +768,15 @@ For the Postman Collections:
     
     <img src = "https://user-images.githubusercontent.com/73420291/206706063-9a4dc1f2-a2e0-42fc-bc06-9318381db395.png" width=400 />
     
-    * [Home Feed](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/home/HomeFeed.js) (Related Code: [HomeHeader.js](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/home/HomeHeader.js))
+    * [Guest User Home Feed (with disabled buttons)](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/home/HomeFeed.js) (Related Code: [HomeHeader.js](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/home/HomeHeader.js))
+    
+    <img src = "https://user-images.githubusercontent.com/73420291/210267956-320a1fff-e8f9-4853-89a7-c8aeb3da806a.png" width=400 />
+    
+    * [Guest User Drawer Options](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/home/HomeScreen.js)
+    
+    <img src = "https://user-images.githubusercontent.com/73420291/210267964-ae367262-98aa-49bb-b2a0-3fc956de1181.png" width=400 />
+    
+    * [Home Feed (Registered User)](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/home/HomeFeed.js) (Related Code: [HomeHeader.js](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/home/HomeHeader.js))
 
     <img src = "https://user-images.githubusercontent.com/73420291/206711167-78e90d69-79e7-4b86-b61a-97da6f58b437.png" width=400 />
     <img src = "https://user-images.githubusercontent.com/73420291/206706135-abe741c1-8e66-45d8-ab97-46e732ec0101.png" width=400 />
@@ -780,7 +788,17 @@ For the Postman Collections:
     * [Post Details (with Comments)](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/post/PostDetails.js)
     
     <img src = "https://user-images.githubusercontent.com/73420291/206707364-9add5ab9-662a-4a61-8bb8-90879cef9d4c.png" width=400 />
+    
+    * [Text Annotations in a Post](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/post/PostDetails.js)
+    
+    <img src = "https://user-images.githubusercontent.com/73420291/210268368-41734781-6d37-411f-b4be-6f8bb9fc9a6e.png" width=400 />
 
+    * [Edit Post](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/post/PostDetails.js)
+    
+    <img src = "https://user-images.githubusercontent.com/73420291/210268278-b99edc60-95c2-43a4-a148-21c17fd3f410.png" width=400 />
+    <img src = "https://user-images.githubusercontent.com/73420291/210268276-f66111bc-e9b7-4dd8-9c7f-200f5f92b80a.png" width=400 />
+    <img src = "https://user-images.githubusercontent.com/73420291/210268274-2d76b67f-5e03-4aa2-92c1-00c0a4b4bf08.png" width=400 />
+  
     * [Search Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/search/SearchScreen.js) (Related code: [SearchScreenHeader.js](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/search/SearchScreenHeader.js), [SearchListHeader.js](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/search/SearchListHeader.js))
 
     <img src = "https://user-images.githubusercontent.com/73420291/206707412-9fc7c3b6-6f2e-4d78-beca-b55697a59e19.png" width=400 />
@@ -806,22 +824,28 @@ For the Postman Collections:
     <img src = "https://user-images.githubusercontent.com/73420291/206707843-b42c9342-40fa-4a78-9a10-327b7d1cdc83.png" width=400 />
 
     * [ChatBot Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/home/Chatbot.js)
-    <img src = "https://user-images.githubusercontent.com/73420291/206708378-e5dfd2cd-c7a9-44d5-81b9-f84bae6d62aa.png" width=400 />
+    <img src = "https://user-images.githubusercontent.com/73420291/210268173-f330f550-7a47-4296-aab5-65d47205aca7.png" width=400 />
 
     * [Create New Post Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/post/CreatePost.js)
     <img src = "https://user-images.githubusercontent.com/73420291/206708389-fa2886b7-fdb4-4536-8197-ffb8551de3b7.png" width=400 />
 
     * [Drawer](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/home/HomeScreen.js)
-    <img src = "https://user-images.githubusercontent.com/73420291/206708402-774c25fa-83e2-4f48-a882-98665f0ed021.png" width=400 />
+    <img src = "https://user-images.githubusercontent.com/73420291/210267832-1114a66f-6d46-40ae-bc3c-cca3623ff912.png" width=400 />
 
-    * [Messages Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/messages/MessagesScreen.js)
-    <img src = "https://user-images.githubusercontent.com/73420291/206708413-9d17af5c-d231-42d0-9f9d-ca0ce435f0bb.png" width=400 />
+    * [Profile Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/profile/ProfileScreen.js) (Related: [ProfileScreenHeader.js](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/profile/ProfileScreenHeader.js))
+    <img src = "https://user-images.githubusercontent.com/73420291/210269385-00f87865-05c3-48ea-8ceb-5fe8ffd83638.png" width=400 />
 
-    * [Profile Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/profile/ProfileScreen.js)
-    <img src = "https://user-images.githubusercontent.com/73420291/206708422-9cbeafe5-a4b6-4191-b829-b37d930d64e5.png" width=400 />
-
-    * [Profile Edit Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/profile/EditProfileScreen.js)
-    <img src = "https://user-images.githubusercontent.com/73420291/206708440-4b5ab735-9498-4f19-baa7-09f110d4099d.png" width=400 />
+    * [Profile Edit Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/profile/EditProfileScreen.js) (Related: [ProfileScreenHeader.js](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/profile/ProfileScreenHeader.js))
+    
+    <img src = "https://user-images.githubusercontent.com/73420291/210268546-1dc6e88a-c7f2-4cc3-97a4-109dc0317540.png" width=400 />
+    <img src = "https://user-images.githubusercontent.com/73420291/210268544-855d36f1-d811-4a0b-ace2-c5ec2ee5479c.png" width=400 />
+    
+    * [Delete Account Confirmation](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/profile/EditProfileScreen.js)
+    
+    <img src = "https://user-images.githubusercontent.com/73420291/210268543-1d6ec095-0c2d-44d4-ab74-a4785e1b06b0.png" width=400 />
+    
+    * [Profile Page After Adding a Field (Phone number in this case)](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/profile/ProfileScreen.js) (Related: [ProfileScreenHeader.js](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/profile/ProfileScreenHeader.js))
+    <img src = "https://user-images.githubusercontent.com/73420291/210269390-eefb6692-f6c3-4356-a006-37331d133685.png" width=400 />
 
 
 ### Annotations
