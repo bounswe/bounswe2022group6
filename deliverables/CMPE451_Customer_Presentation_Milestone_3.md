@@ -225,6 +225,32 @@
 # Individual Milestone Report
 
 * [Artun Akdoğan](https://github.com/bounswe/bounswe2022group6/wiki/Artun-Akdo%C4%9Fan)
+## **Member:** [Artun Akdoğan](https://github.com/bounswe/bounswe2022group6/wiki/Artun-Akdo%C4%9Fan), Group 6 - Backend.
+
+
+
+### **Responsibilities:**
+
+## **Main contributions:**
+
+
+### **Code related significant issues:**
+
+### **Management related significant issues:**
+
+### **Pull requests:**
+
+Pull requests opened by me:
+
+Pull requests reviewed by me: 
+
+### **Unit Tests:**
+
+#### **Tests Related to Location Manager:**
+
+#### **Tests Related to Content Manager:**
+
+### **Additional Information:**
 
 * [İhsan Mert Atalay](https://github.com/bounswe/bounswe2022group6/wiki/%C4%B0hsan-Mert-Atalay)
 
