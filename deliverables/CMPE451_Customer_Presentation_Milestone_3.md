@@ -181,6 +181,67 @@ In our project, we have utilized annotations. The annotations we are using are i
 
 ## Software Design Documents
 
+### Use Case Diagram
+
+For a better view you can visit [LucidChart](https://lucid.app/lucidchart/55201991-c352-4fbb-8966-5f95d507477f/edit?invitationId=inv_7d68d82a-ab05-4a43-98ac-5cb552303d5f).
+
+![Use Case Diagram](https://user-images.githubusercontent.com/56560206/163480716-adca686d-c86b-4670-acbf-6a98a62dc302.png)
+
+### Class Diagram
+
+For a better view you can visit [LucidChart](https://lucid.app/lucidchart/55201991-c352-4fbb-8966-5f95d507477f/edit?invitationId=inv_7d68d82a-ab05-4a43-98ac-5cb552303d5f).
+
+![Use Case Diagram](https://user-images.githubusercontent.com/56560206/163480716-adca686d-c86b-4670-acbf-6a98a62dc302.png)
+
+### Sequence Diagrams
+
+For a better view you can visit [Lucidchart](https://lucid.app/lucidchart/596a52e4-1174-46d5-b40f-d13ed1a0bd6f/edit?invitationId=inv_4c11462b-4f78-472b-b9b5-0167423bf454).
+
+#### Creating a Post
+
+![Sequence Diagram - Creating a Post](https://user-images.githubusercontent.com/56560206/163482765-7e6c7d6f-4c14-41dd-bb51-ed618e76d1fc.png)
+
+#### Creating a Comment
+
+![Sequence Diagram - Creating a Comment](https://user-images.githubusercontent.com/56560206/163483313-417d9935-031f-40b2-89b0-9e6cd8c854da.png)
+
+#### Creating a Label
+
+![Sequence Diagram - Creating a Label](https://user-images.githubusercontent.com/56560206/163482793-00da756d-f7e8-40f3-ba98-382fe5a81741.png)
+
+#### Using Searchbar
+
+![Sequence Diagram - Using Searchbar](https://user-images.githubusercontent.com/56560206/163540386-000ff668-553b-4043-944a-f4439c93597b.png)
+
+#### Reporting a Post/Comment
+
+![Sequence Diagram - Reporting a Post_Comment](https://user-images.githubusercontent.com/56560206/163540349-5189ac6f-8ed2-45ed-a4a1-4986a9853983.png)
+
+#### Using Chatbot
+
+![Sequence Diagram - Using Chatbot](https://user-images.githubusercontent.com/56560206/163483567-975f1633-d8c8-4c57-bfe3-936fa0919090.png)
+
+#### Editing an Account
+
+![Sequence Diagram - Editing an Account](https://user-images.githubusercontent.com/56560206/163483506-4cb6f5f7-ce60-47c6-8ccf-1ab6c82cd6ca.png)
+
+#### Editing a Label's Name
+
+![Sequence Diagram - Editing a Label's Name](https://user-images.githubusercontent.com/56560206/163483642-a1392735-292e-4223-b9a7-981c84dab56c.png)
+
+#### Notifying the Doctor of a Post
+
+![Sequence Diagram - Notifying the Doctor of a Post](https://user-images.githubusercontent.com/56560206/163540304-716da3ab-42a8-4781-9799-2ed10648d518.png)
+
+#### Voting a Post/Comment
+
+![Sequence Diagram - Voting a Post_Comment](https://user-images.githubusercontent.com/56560206/163483253-b241fa0a-aa01-46c2-9309-30f39dff6110.png)
+
+#### Editing a Post
+
+![Sequence Diagram - Editing a Post](https://user-images.githubusercontent.com/56560206/163482917-b590c8b9-b1f4-409b-b392-32e4e5adcb5a.png)
+
+
 ## User Scenarios and Mockups
 
 ### Sharing a Post
