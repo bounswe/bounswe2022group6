@@ -31,7 +31,14 @@
 
     |Contribution|Link|
     |---|---|
-    |...|...|
+    | Designing HomePage for Frontend |[#202](https://github.com/bounswe/bounswe2022group6/issues/202), PR: [#205](https://github.com/bounswe/bounswe2022group6/pull/205)|
+    | Designing and colorizing homepage |[#343](https://github.com/bounswe/bounswe2022group6/issues/343), PR: [#321](https://github.com/bounswe/bounswe2022group6/pull/321)|
+    |Making and placing logo for homepage |[#343](https://github.com/bounswe/bounswe2022group6/issues/343), PR: [#321](https://github.com/bounswe/bounswe2022group6/pull/321)|
+    |Adding fav icon|[#343](https://github.com/bounswe/bounswe2022group6/issues/343), PR: [#321](https://github.com/bounswe/bounswe2022group6/pull/321)|
+    |Label filter search input maked functional|[#344](https://github.com/bounswe/bounswe2022group6/issues/344), PR: [#345](https://github.com/bounswe/bounswe2022group6/pull/345)|
+    |Voting system at home page  designed dynamically|[#266](https://github.com/bounswe/bounswe2022group6/issues/266), PR: [#321](https://github.com/bounswe/bounswe2022group6/pull/321)|
+    |Label and search styles at home page designed dynamically|[#267](https://github.com/bounswe/bounswe2022group6/issues/267), PR: [#321](https://github.com/bounswe/bounswe2022group6/pull/321)|
+
 
 
 * Hakan Balık
@@ -176,6 +183,43 @@
 * [Artun Akdoğan](https://github.com/bounswe/bounswe2022group6/wiki/Artun-Akdo%C4%9Fan)
 
 * [İhsan Mert Atalay](https://github.com/bounswe/bounswe2022group6/wiki/%C4%B0hsan-Mert-Atalay)
+
+## **Member:** İhsan Mert Atalay, Group 6 - Frontend
+
+### **Responsibilities:**
+
+I took part in the design side of the front end. While I was designing, I wrote the code in a way that could be object-based and dynamic on the frontend and prepared to connect it to the background. Generally ı worked on the homepage design.
+
+
+### **Main contributions:**
+
+- Designing and colorizing homepage 
+- Making and placing logo for homepage
+- Adding fav icon
+- Label filter search input maked functional
+- Voting system at home page designed dynamically
+
+#### **Code related significant issues:**
+
+- Created Issues:
+   1. [#344 - label filter search input should be functional](https://github.com/bounswe/bounswe2022group6/issues/344)
+   2. [#343 - colorize homopage,adding logo at home page and addin fav icon ](https://github.com/bounswe/bounswe2022group6/issues/343)
+   3. [#267 - Label and search styles at home page should be designed dynamically](https://github.com/bounswe/bounswe2022group6/issues/267)
+   4. [#266 - Voting system at home page should be designed dynamically](https://github.com/bounswe/bounswe2022group6/issues/266)
+   5. [#202 - Designing HomePage for Frontend](https://github.com/bounswe/bounswe2022group6/issues/202)
+   6. [#164 - Reviewing the System requirements 1.2.2 to 1.2.5](https://github.com/bounswe/bounswe2022group6/issues/164)
+   7. [#161 - As a fresh eyes. provide feedback to improve repo](https://github.com/bounswe/bounswe2022group6/issues/161)
+   8. [#159 - Creating a personal Wiki page for İhsan Mert Atalay](https://github.com/bounswe/bounswe2022group6/issues/159)
+
+### **Pull requests:**
+
+- Pull requests I created
+
+    1. [#345 - label filter search input maked functional](https://github.com/bounswe/bounswe2022group6/pull/345)
+    2. [#321 - home page colorized and designed, logo placed , fav icon added](https://github.com/bounswe/bounswe2022group6/pull/321)
+    3. [#205 - Home Page Designed.](https://github.com/bounswe/bounswe2022group6/pull/205) Merged
+    4. [#204 - Home Page Designed](https://github.com/bounswe/bounswe2022group6/pull/204) Canceled
+    5. [#237 - Home Page Changes ](https://github.com/bounswe/bounswe2022group6/pull/237) Merged
 
 * [Hakan Balık](https://github.com/bounswe/bounswe2022group6/wiki/Hakan-Bal%C4%B1k)
 
