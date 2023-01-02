@@ -304,9 +304,48 @@ Apart from the management issues we faced, we could also revise how we prioritiz
 
 * Alp Eren İnceoğlu
 
-    |Contribution|Link|
-    |---|---|
-    |...|...|
+    1. **Milestone 1**
+    
+        |Contribution|Link|
+        |------------|----|
+        |Rechecked previous documents|-|
+        |Attended all of the meetings.|-|
+        |Updated my personal wiki page.|-|
+        |Attended mobile meeting and decided on the communication method|-|
+        |Created communication method document for mobile group.|[#171](https://github.com/bounswe/bounswe2022group6/issues/171)|
+        |Reviewed the Requirement Sections 2.1 to 2.5|[#175](https://github.com/bounswe/bounswe2022group6/issues/175)|
+        |Created an error page, reconstronstructed the main page, added mock posts and scroll options.|Since I accidentaly did these on main I couldn't find the related pull request but the commit was done by me.|
+        
+
+
+    2. **Milestone 2**
+
+        |Contribution|Link|
+        |---|---|
+        |Attended all of the meetings.|-|
+        |Found a bug and worked on fixing it.|[#247](https://github.com/bounswe/bounswe2022group6/issues/247)|
+        |Researched similar projects.|[#373](https://github.com/bounswe/bounswe2022group6/issues/373)|
+        |Worked on implementing threaded comments.|[#374](https://github.com/bounswe/bounswe2022group6/issues/374)|
+        |Created post preview option.|[#375](https://github.com/bounswe/bounswe2022group6/issues/375)|
+        |Tried converting a React project to React Native in order to replicate an useful feature.|-|
+        |Wrote unit tests for threaded comment feature which gave negative response.|-|
+        
+    3. **Milestone 3**
+
+        |Contribution|Link|
+        |---|---|
+        |Attended all of the meetings.|-|
+        |Continued trying to implement the nested comment feature.|-|
+        |Researched 5 different sources with similar content to our app|-|
+        |Created couple example posts and comments using the web interface.|-|
+        |After the system restarted researched possible medical fields for labels.|-|
+        |Created all the labels and coloured them accordingly.|[#448](https://github.com/bounswe/bounswe2022group6/issues/448)|
+        |Created 50 posts using the previously mentioned research as well as AI|[#447](https://github.com/bounswe/bounswe2022group6/issues/447)|
+        |Created over 70 comments and gave doctor status the required users.|-|
+        
+     
+        
+
 
 
 * Yusuf Erdem Nacar
@@ -1939,6 +1978,45 @@ I believe I have contributed a lot to the projcet throughout the semester. One c
 ---
 
 * [Alp Eren İnceoğlu](https://github.com/bounswe/bounswe2022group6/wiki/Alp-Eren-%C4%B0nceo%C4%9Flu)
+## **Member:** Alp Eren İnceoğlu, Group 6 - Mobile
+
+### **Responsibilities:**
+I created the error page and most of the main page including the mock-up data. I took part in the research and additional features parts of the mobile. I have searched different approaches and contributed to the comment section, which is one of the main focuses of our app. From this point on my main responsibility was to research advanced features and figure out their feasabilities. Appart from that, since a hundred post database was required, I was responsible of creating almost all of this database as realistic as possible and putting as many different user instances as possible.
+
+### **Main contributions:**
+- Creating communication plan
+- Creating error page
+- Designing main page
+- Creating mock-up data
+- Contributing to the comment section
+- Researching threaded comments
+- Creating post preview with scaling images for posts
+- Learning normal React in order to translate helpful parts from other React projects if necessary
+- Researching and trying coding additional advanced features.
+- Deciding and adding necessary labels
+- Researching similar material and creating a realistic post, comment and user archive
+
+#### **Significant issues:**
+
+- Created Issues:
+   1. [#373- Researching similar projects ](https://github.com/bounswe/bounswe2022group6/issues/373)
+   2. [#374 - Implementing threaded comment  ](https://github.com/bounswe/bounswe2022group6/issues/374)
+   3. [#375 - Create post preview](https://github.com/bounswe/bounswe2022group6/issues/375)
+   4. [#447 - Creating 100 posts](https://github.com/bounswe/bounswe2022group6/issues/447)
+   5. [#448 - Creating labels and doctors](https://github.com/bounswe/bounswe2022group6/issues/448)
+### **Pull requests:**
+
+Pull requests I created
+
+- In the first commit I did I failed to create a pull request due to the changes being done on master. Afterwards, my experimental codes either failed or was merged with another group members work and pushed.
+- One of my biggest contributions to the project which was enriching the database was either done using the back-hand site or the front-hand app therefore creating a pull request was imposible.
+
+### **Unit Tests:**
+
+- Wrote unit tests about threaded comments, which gave error which were one of the main reasons this pull request couldn't be made in time.
+
+### **Additional Information:**
+- While the number of issues and pull requests are quite low, these definitely are not accurate represantations on the amount of time I commited to this project. I have spent countless hours trying to implement features that were in retrospect quite impossible, which I couldn't have known without that many hours. Also, creating the database was done with much care and it can be seen how many users have their backstories and defining features, as well as showcasing helpful comments side-by-side unhelpful comments in order to further showcase a realistic use for this project and how the admin should aproach possible threats possibly in a scenario. However, since all these additions were done using different interfaces on surface it looks like the project didn't change at all, which is simply not correct.
 
 ---
 ## **Member:** [Yusuf Erdem Nacar](https://github.com/bounswe/bounswe2022group6/wiki/Yusuf-Erdem-Nacar), Group 6 - Backend.
