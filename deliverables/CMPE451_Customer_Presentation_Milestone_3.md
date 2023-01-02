@@ -241,48 +241,48 @@
 ### **Pull requests:**
 
 Pull requests opened by me:
-* [#180: Refactor folder structure, update dockerfiles](https://github.com/bounswe/bounswe2022group6/pull/180)
-* [#189: Backend/fix/database port enclose](https://github.com/bounswe/bounswe2022group6/pull/189)
-* [#207: Add dockerfile and docker-compose.yml for containerization](https://github.com/bounswe/bounswe2022group6/pull/207)
-* [#209: Update frontend base image](https://github.com/bounswe/bounswe2022group6/pull/209)
-* [#228: Add profile API to get user details](https://github.com/bounswe/bounswe2022group6/pull/228)
-* [#229: Add docs for profile details Postman documents](https://github.com/bounswe/bounswe2022group6/pull/229)
-* [#260: Backend/feature/locmgr](https://github.com/bounswe/bounswe2022group6/pull/260)
-* [#262: Fix dockerization image dublication issue, add reset_db](https://github.com/bounswe/bounswe2022group6/pull/262)
-* [#274: Backend/update/database migration](https://github.com/bounswe/bounswe2022group6/pull/274)
-* [#276: Backend/feature/locmgr tests](https://github.com/bounswe/bounswe2022group6/pull/276)
-* [#283: Fix react-icons bug](https://github.com/bounswe/bounswe2022group6/pull/283)
-* [#287: Add contmgr app, refactor code](https://github.com/bounswe/bounswe2022group6/pull/287)
-* [#291: Frontend/fix/reload bug](https://github.com/bounswe/bounswe2022group6/pull/291)
-* [#303: Backend/feature/post view](https://github.com/bounswe/bounswe2022group6/pull/303)
-* [#304: Backend/feature/comment view](https://github.com/bounswe/bounswe2022group6/pull/304)
-* [#305: Backend/feature/content voting system](https://github.com/bounswe/bounswe2022group6/pull/305)
-* [#310: Add documents for content manager](https://github.com/bounswe/bounswe2022group6/pull/310)
-* [#346: Fix required items requested](https://github.com/bounswe/bounswe2022group6/pull/346)
-* [#389: Edit Post Comment Endpoint Implementation Merge](https://github.com/bounswe/bounswe2022group6/pull/389)
-* [#390: Contmgr Documentation and Tests](https://github.com/bounswe/bounswe2022group6/pull/390)
-* [#400: Implementing Reputation Field for Users and ViewProfile Endpoint](https://github.com/bounswe/bounswe2022group6/pull/400)
-* [#410: Implementation of Account and Post Image Upload/Delete (Cancelled)](https://github.com/bounswe/bounswe2022group6/pull/410)
-* [#425: Backend/feature/post comment delete](https://github.com/bounswe/bounswe2022group6/pull/425)
-* [#428: Implementation Production Docker Code and Its Documentations](https://github.com/bounswe/bounswe2022group6/pull/428)
+* [PR: #180](https://github.com/bounswe/bounswe2022group6/pull/180): Refactor folder structure, update dockerfiles
+* [PR: #189](https://github.com/bounswe/bounswe2022group6/pull/189): Backend/fix/database port enclose
+* [PR: #207](https://github.com/bounswe/bounswe2022group6/pull/207): Add dockerfile and docker-compose.yml for containerization
+* [PR: #209](https://github.com/bounswe/bounswe2022group6/pull/209): Update frontend base image
+* [PR: #228](https://github.com/bounswe/bounswe2022group6/pull/228): Add profile API to get user details
+* [PR: #229](https://github.com/bounswe/bounswe2022group6/pull/229): Add docs for profile details Postman documents
+* [PR: #260](https://github.com/bounswe/bounswe2022group6/pull/260): Backend/feature/locmgr
+* [PR: #262](https://github.com/bounswe/bounswe2022group6/pull/262): Fix dockerization image dublication issue, add reset_db
+* [PR: #274](https://github.com/bounswe/bounswe2022group6/pull/274): Backend/update/database migration
+* [PR: #276](https://github.com/bounswe/bounswe2022group6/pull/276): Backend/feature/locmgr tests
+* [PR: #283](https://github.com/bounswe/bounswe2022group6/pull/283): Fix react-icons bug
+* [PR: #287](https://github.com/bounswe/bounswe2022group6/pull/287): Add contmgr app, refactor code
+* [PR: #291](https://github.com/bounswe/bounswe2022group6/pull/291): Frontend/fix/reload bug
+* [PR: #303](https://github.com/bounswe/bounswe2022group6/pull/303): Backend/feature/post view
+* [PR: #304](https://github.com/bounswe/bounswe2022group6/pull/304): Backend/feature/comment view
+* [PR: #305](https://github.com/bounswe/bounswe2022group6/pull/305): Backend/feature/content voting system
+* [PR: #310](https://github.com/bounswe/bounswe2022group6/pull/310): Add documents for content manager
+* [PR: #346](https://github.com/bounswe/bounswe2022group6/pull/346): Fix required items requested
+* [PR: #389](https://github.com/bounswe/bounswe2022group6/pull/389): Edit Post Comment Endpoint Implementation Merge
+* [PR: #390](https://github.com/bounswe/bounswe2022group6/pull/390): Contmgr Documentation and Tests
+* [PR: #400](https://github.com/bounswe/bounswe2022group6/pull/400): Implementing Reputation Field for Users and ViewProfile Endpoint
+* [PR: #410](https://github.com/bounswe/bounswe2022group6/pull/410): Implementation of Account and Post Image Upload/Delete (Cancelled)
+* [PR: #425](https://github.com/bounswe/bounswe2022group6/pull/425): Backend/feature/post comment delete
+* [PR: #428](https://github.com/bounswe/bounswe2022group6/pull/428): Implementation Production Docker Code and Its Documentations
 
 Pull requests reviewed by me: 
-* [#191: Signup Feature Completion](https://github.com/bounswe/bounswe2022group6/pull/191)
-* [#215: Solving the encountered CORS error](https://github.com/bounswe/bounswe2022group6/pull/215)
-* [#217: Login Feature Completion](https://github.com/bounswe/bounswe2022group6/pull/217)
-* [#223: Logout Feature Completion](https://github.com/bounswe/bounswe2022group6/pull/223)
-* [#269: RegisteredUser Model Updated and Account Model Created](https://github.com/bounswe/bounswe2022group6/pull/269)
-* [#273: Profile View/Edit Functionalities Implemented](https://github.com/bounswe/bounswe2022group6/pull/273)
-* [#288: Content Models Added](https://github.com/bounswe/bounswe2022group6/pull/288)
-* [#297: Label Structure Implemented](https://github.com/bounswe/bounswe2022group6/pull/297)
-* [#306: Search Feature Implemented](https://github.com/bounswe/bounswe2022group6/pull/306)
-* [#332: Added Label Addition to Post Creation View](https://github.com/bounswe/bounswe2022group6/pull/332)
-* [#335: Post Model Class as_dict() Method Updated](https://github.com/bounswe/bounswe2022group6/pull/335)
-* [#336: Get All Posts Endpoint Added](https://github.com/bounswe/bounswe2022group6/pull/336)
-* [#398: Annotation Support for Backend Implemented](https://github.com/bounswe/bounswe2022group6/pull/398)
-* [#402: Enhanced Response Data of Profile, Post and Comment Retrieval](https://github.com/bounswe/bounswe2022group6/pull/402)
-* [#404: Annotation Retrieval Moved](https://github.com/bounswe/bounswe2022group6/pull/404)
-* [#470: API Endpoints are updated](https://github.com/bounswe/bounswe2022group6/pull/470)
+* [PR: #191](https://github.com/bounswe/bounswe2022group6/pull/191): Signup Feature Completion
+* [PR: #215](https://github.com/bounswe/bounswe2022group6/pull/215): Solving the encountered CORS error
+* [PR: #217](https://github.com/bounswe/bounswe2022group6/pull/217): Login Feature Completion
+* [PR: #223](https://github.com/bounswe/bounswe2022group6/pull/223): Logout Feature Completion
+* [PR: #269](https://github.com/bounswe/bounswe2022group6/pull/269): RegisteredUser Model Updated and Account Model Created
+* [PR: #273](https://github.com/bounswe/bounswe2022group6/pull/273): Profile View/Edit Functionalities Implemented
+* [PR: #288](https://github.com/bounswe/bounswe2022group6/pull/288): Content Models Added
+* [PR: #297](https://github.com/bounswe/bounswe2022group6/pull/297): Label Structure Implemented
+* [PR: #306](https://github.com/bounswe/bounswe2022group6/pull/306): Search Feature Implemented
+* [PR: #332](https://github.com/bounswe/bounswe2022group6/pull/332): Added Label Addition to Post Creation View
+* [PR: #335](https://github.com/bounswe/bounswe2022group6/pull/335): Post Model Class as_dict() Method Updated
+* [PR: #336](https://github.com/bounswe/bounswe2022group6/pull/336): Get All Posts Endpoint Added
+* [PR: #398](https://github.com/bounswe/bounswe2022group6/pull/398): Annotation Support for Backend Implemented
+* [PR: #402](https://github.com/bounswe/bounswe2022group6/pull/402): Enhanced Response Data of Profile, Post and Comment Retrieval
+* [PR: #404](https://github.com/bounswe/bounswe2022group6/pull/404): Annotation Retrieval Moved
+* [PR: #470](https://github.com/bounswe/bounswe2022group6/pull/470): API Endpoints are updated
 
 ### **Unit Tests:**
 
