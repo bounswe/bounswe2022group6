@@ -197,6 +197,271 @@
 
 ### API Endpoints
 
+API Documentation:
+
+The aim of this file is to create a document that shows how to use our API endpoints. All endpoints written below are well-defined with respect to input parameters and outputs. Necesarry parameters, error codes and successful requests given with examples. 
+
+Thanks to Django framework, you can access API endpoints with logging into system with admin priviliges. Postman request collections are also added to related sections.
+
+With in this documentation, you can find human readable description of endpoints, example requests, list of input parameters.
+
+API Endpoints: 
+
+** Authorization:
+    
+        *Registration: POST SERVER_URL/register/
+            Params:
+                username: String
+                email: String 
+                password: String
+                gender: Char (m/f)
+                birth_day: Integer
+                birth_month: Integer
+                birth_year: Integer 
+            On success:
+                "status": "Created",
+				"code": 201
+		
+		*Login: POST SERVER_URL/login/
+		    Params:
+		        useridentifier: String
+		        password: String
+		    On success:
+		        "status": "OK",
+				"code": 200
+		
+		*Logout: GET SERVER_URL/logout/
+		    Params:
+		        No parameters required. 
+		        Logout mechanism uses authorization token to logout user.
+		    On success:
+		        "status": "OK",
+				"code": 200
+
+** Profile
+
+        *Edit Profile: POST SERVER_URL/profile/
+            Params:
+                    username: String,
+                    first_name: String,
+                    last_name: String,
+                    email: String,
+                    phone_number: String,
+                    birth_date: Date,
+                    gender: Char
+            On success:
+                "status": "OK",
+				"code": 200
+		
+		*View Profile: GET SERVER_URL/viewprofile/
+		    Params:
+		            username: String,
+                    email: String,
+                    birth_date: Date,
+                    gender: Char(m/f),
+                    is_messaging_allowed: Boolean,
+                    is_notifications_allowed: Boolean,
+                    reputation: Integer,
+                    first_name: String,
+                    last_name: String,
+                    profile_picture: String,
+                    phone_number: String,
+                    verified_as_doctor: Boolean,
+                    profession: String,
+                    location: String,
+                    diplomaID: String
+            On Success:
+                "status": "OK",
+				"code": 200,
+
+**Content Manager
+
+        *Get Post: GET SERVER_URL/contmgr/post
+            Params:
+                id: Integer
+            On Success:
+                "status": "OK",
+				"code": 200,
+                "body": Post
+                
+        *Create Post: POST SERVER_URL/contmgr/post
+            Params:
+                title: String, Required
+                type: String, Required
+                description: Sring, Required
+                location: String
+                imageURL: String
+                is_marked_nsfw: Boolean
+            On success:
+                "status": "Created",
+				"code": 201,
+				"body": "{\n    \"info\": \"post creation successful\",\n    \"postID\": 1\n}"
+		
+		*Get Comment: GET SEVER_URL/contmgr/comment/
+		    Params:
+		        id: Integer
+		    On Success:
+		        "status": "OK",
+				"code": 200,
+				"body": Comment
+		
+		*Create a Comment to a Post: POST SERVER_URL/contmgr/comment/
+            Params:
+                description: String, Required
+                parent_post_id: Integer, Required
+                mentioned_users: String
+            On Success:
+                "status": "Created",
+				"code": 201,
+				"body": "{\n    \"info\": \"comment creation successful\",\n    \"commentID\": 3\n}"
+		
+		*Create a Comment to a Comment: POST SERVER_URL/contmgr/comment/
+            Params:
+                description: String, Required
+                parent_comment_id: Integer, Required
+                mentioned_users: String
+            On Success:
+                "status": "Created",
+				"code": 201,
+				"body": "{\n    \"info\": \"comment creation successful\",\n    \"commentID\": 3\n}"
+		
+		*Edit a Comment: PUT SERVER_URL/contmgr/comment/
+            Params:
+                id: Integer, Required
+                description: String, Required
+                mentioned_users: String
+            On Success:
+                "status": "Created",
+				"code": 201,
+				"body": "{\n    \"info\": \"comment update successful\",\n    \"postID\": 4\n}"
+		
+		*Delete a Comment: DEL SERVER_URL/contmgr/comment/
+		    Params:
+		        id: Integer, Required
+		    On Success:
+		        "status": "Created",
+				"code": 201,
+				"body": "{\n    \"info\": \"comment delete successful\"\n}"
+
+		*Vote a Post: POST SERVER_URL/contmgr/postvote/
+		    Params:
+		        id: Integer, Required
+		        vote: String (up, down), Required
+		    On Success:
+		        "status": "Created",
+				"code": 201,
+                "body": "{\n    \"info\": \"Upvote added to post for user\"\n}"
+        
+        *Vote a Comment: POST SERVER_URL/contmgr/commentvote/
+		    Params:
+		        id: Integer, Required
+		        vote: String (up, down), Required
+		    On Success:
+		        "status": "Created",
+				"code": 201,
+                "body": "{\n    \"info\": \"Upvote added to comment for user\"\n}"
+        
+        *Remove Vote from Post: POST SERVER_URL/contmgr/postvote/
+		    Params:
+		        id: Integer, Required
+		        vote: String (up, down), Required
+		    On Success:
+		        "status": "Created",
+				"code": 201,
+                "body": "{\n    \"info\": \"Upvote removed from post for user\"\n}"
+        
+        *Remove Vote from Comment: POST SERVER_URL/contmgr/commentvote/
+		    Params:
+		        id: Integer, Required
+		        vote: String (up, down), Required
+		    On Success:
+		        "status": "Created",
+				"code": 201,
+                "body": "{\n    \"info\": \"Upvote removed from comment for user\"\n}"
+        
+        * Get Labels: GET SERVER_URL/contmgr/labels
+            Params: -
+            On Success:
+                "status": "OK",
+				"code": 200,
+                "body": [Label]
+        
+        * Keyword Search: GET SERVER_URL/contmgr/searchpost
+            Params:
+                keyword: String
+            On Success: 
+                "status": "OK",
+				"code": 200,
+				body: [Post]
+		
+		*Label Search: GET SERVER_URL/contmgr/searchpost
+		    Params:
+                label: String
+            On Success: 
+                "status": "OK",
+				"code": 200,
+				body: [Post]
+				
+		*Combined Search: GET SERVER_URL/contmgr/searchpost
+		    Params:
+                label: String,
+                keyword: String
+            On Success: 
+                "status": "OK",
+				"code": 200,
+				body: [Post]
+				
+** Location Manager:
+    
+        *Information: GET SERVER_URL/locmgr/info/
+            Params:
+                country: String
+                state: String
+            On success:
+                [data]
+		
+		*Location: POST SERVER_URL/locmgr/location/
+		    Params:
+		        ip: String, Required
+		    On success:
+		        "loc": [country, state, city]
+		    On failure:
+		        "loc": []
+		       
+** Annotations:
+    
+        *Text Annotation Create: POST SERVER_URL/contmgr/annotations
+            Params:
+                annotation_type: String, Required
+                content_type: String, Required
+                content_id: String, Required
+                jsonld: String, Required
+            On Success:
+                "status": "OK",
+				"code": 200,
+                "body": "{\n    \"info\": \"annotation creation successful\",\n    \"annotation_id\": \"#48d7b458-fead-45af-b317-db2d9ddf4c38\"\n}"
+        
+        *Image Annotation Create: POST SERVER_URL/contmgr/annotations
+            Params:
+                annotation_type: String, Required
+                content_id: String, Required
+                jsonld: String, Required
+            On Success:
+                "status": "OK",
+				"code": 200,
+                "body": "{\n    \"info\": \"annotation creation successful\",\n    \"annotation_id\": \"#48d7b458-fead-45af-b317-db2d9ddf4c38\"\n}"
+                
+        *Image Annotation Delete: DELETE SERVER_URL/contmgr/annotations
+            Params:
+                annotation_id: String, Required
+                annotation_type: String, Required
+            On Success:
+                "status": "OK",
+				"code": 200,
+                "body": "{\n    \"info\": \"annotation delete successful\",\n    \"annotation_id\": \"#48d7b458-fead-45af-b317-db2d9ddf4c38\"\n}"
+
+For the Postman Collections:
+    https://github.com/bounswe/bounswe2022group6/tree/master/Application/Backend/api_docs
 
 ### User Interface / User Experience
 
