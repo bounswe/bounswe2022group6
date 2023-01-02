@@ -30,6 +30,13 @@ Overall, we have implemented the following features;
 
 ### Status of the Deliverables
 
+We have completed the following deliverables;
+
+1. Group Milestone Report - This report
+2. Project Artifacts - Included in this document
+3. Software Package - The application is dockerized and deployed
+4. Individual Reports - Included in this document
+
 ### Final Release Notes
 
 1. The web application is now fully functional. It has all the features that the mobile application has, and it is fully integrated with the backend.
