@@ -50,9 +50,61 @@
 
 * Ali Kaan Biber
 
-    |Contribution|Link|
-    |---|---|
-    |...|...|
+    1. **Milestone 1**
+
+        |Contribution|Link|
+        |------------|----|
+        |Attended all weekly meetings.||
+        |Reviewed requirements from 1.1.2.4 to 1.2.1 with Aral Dörtoğul.|[#168](https://github.com/bounswe/bounswe2022group6/issues/168)|
+        |Researched about popular frameworks for frontend development.||
+        |Learning and practicing ReactJS||
+        |Reviewed API documentation for Sign up feature of backend team.||
+        |Implemented the sign up functionality backend integration.|[#198](https://github.com/bounswe/bounswe2022group6/issues/198) [PR](https://github.com/bounswe/bounswe2022group6/pull/216)|
+        |Fixed the cors issue|[#214](https://github.com/bounswe/bounswe2022group6/issues/214) [PR](https://github.com/bounswe/bounswe2022group6/pull/215)|
+        |Reviewed pull request of frontend dockerization|[#207](https://github.com/bounswe/bounswe2022group6/pull/207)|
+        |Created AWS EC2 instance and deployed the app.|[#208](https://github.com/bounswe/bounswe2022group6/issues/208)|
+        |Reviewed pull requests of other front end team members|[#239](https://github.com/bounswe/bounswe2022group6/pull/239)|
+
+   2. **Milestone 2**
+
+      |Contribution|Link|
+      |---|---|
+      |Attended all general and frontend meetings.| - |
+      |Implemented a template for post creation page | [#284](https://github.com/bounswe/bounswe2022group6/issues/284) PR:[#289](https://github.com/bounswe/bounswe2022group6/pull/289)|
+      |Implemented a template for post detail page | [#284](https://github.com/bounswe/bounswe2022group6/issues/284) PR:[#289](https://github.com/bounswe/bounswe2022group6/pull/289) |
+      |Reviewed home page design. | [#202](https://github.com/bounswe/bounswe2022group6/issues/202) PR:[#268](https://github.com/bounswe/bounswe2022group6/pull/268)|
+      |Reviewed the frontend UI design | [#293](https://github.com/bounswe/bounswe2022group6/issues/293) PR:[#298](https://github.com/bounswe/bounswe2022group6/pull/298) |
+      |Reviewed and make changes to edit profile page functionality | [#281](https://github.com/bounswe/bounswe2022group6/issues/281) PR:[#294](https://github.com/bounswe/bounswe2022group6/pull/294) |
+      |Reviewed API document of backend team for post and comment related operations| [API docs](https://github.com/bounswe/bounswe2022group6/tree/master/Application/Backend/api_docs)|
+      |Reported what is needed from backend |[#322](https://github.com/bounswe/bounswe2022group6/issues/322)|
+      |Integrated get all posts endpoint | [#316](https://github.com/bounswe/bounswe2022group6/issues/316) PR:[#352](https://github.com/bounswe/bounswe2022group6/pull/352)|
+      |Integrated get post by id endpoint| [#316](https://github.com/bounswe/bounswe2022group6/issues/316) PR:[#352](https://github.com/bounswe/bounswe2022group6/pull/352)|
+      |Integrated post upvote/downvote endpoint | [#316](https://github.com/bounswe/bounswe2022group6/issues/316) PR:[#352](https://github.com/bounswe/bounswe2022group6/pull/352)|
+      |Integrated comment creation endpoint |[#337](https://github.com/bounswe/bounswe2022group6/issues/337) PR:[#352](https://github.com/bounswe/bounswe2022group6/pull/352) |
+      |Integrated comment upvote/downvote endpoint |[#337](https://github.com/bounswe/bounswe2022group6/issues/352) PR:[#352](https://github.com/bounswe/bounswe2022group6/pull/352) |
+      |Reviewed post creation functionality | [#315](https://github.com/bounswe/bounswe2022group6/issues/315) PR:[#338](https://github.com/bounswe/bounswe2022group6/pull/338)|
+      |Reviewed delete user functionality | [#342](https://github.com/bounswe/bounswe2022group6/issues/342) PR:[#350](https://github.com/bounswe/bounswe2022group6/pull/350) |
+      |Reviewed code updates| [#359](https://github.com/bounswe/bounswe2022group6/pull/359) |
+      |Fixed some namings in the frontend due to backend changes| [#361](https://github.com/bounswe/bounswe2022group6/pull/361)|
+
+   3. **Milestone 3**
+
+      |Contribution|Link|
+      |---|---|
+      |Attended all general and frontend meetings.| - |
+      |Made changes in frontend according to backend response enhancements | [#406](https://github.com/bounswe/bounswe2022group6/issues/406) PR:[#407](https://github.com/bounswe/bounswe2022group6/pull/407)|
+      |Reviewed API document of backend team for annotations| [API docs](https://github.com/bounswe/bounswe2022group6/tree/master/Application/Backend/api_docs)|
+      |Implemented text and image annotations | [#391](https://github.com/bounswe/bounswe2022group6/issues/391) PR:[#413](https://github.com/bounswe/bounswe2022group6/pull/413) |
+      |Reviewed API document of backend team for post and comment delete| [API docs](https://github.com/bounswe/bounswe2022group6/tree/master/Application/Backend/api_docs)|
+      |Implemented delete operation for posts| [#430](https://github.com/bounswe/bounswe2022group6/issues/430) PR:[#433](https://github.com/bounswe/bounswe2022group6/pull/433) |
+      |Implemented delete operation for comments| [#430](https://github.com/bounswe/bounswe2022group6/issues/430) PR:[#433](https://github.com/bounswe/bounswe2022group6/pull/433) |
+      |Reviewed and contributed to chatbot. | [#395](https://github.com/bounswe/bounswe2022group6/issues/395) PR:[#403](https://github.com/bounswe/bounswe2022group6/pull/403)|
+      |Reviewed adding location to create post | [#412](https://github.com/bounswe/bounswe2022group6/issues/412) PR:[#416](https://github.com/bounswe/bounswe2022group6/pull/416) |
+      |Reviewed search | [#418](https://github.com/bounswe/bounswe2022group6/issues/418) PR:[#420](https://github.com/bounswe/bounswe2022group6/pull/420) |
+      |Reviewed location information on posts | [#417](https://github.com/bounswe/bounswe2022group6/issues/417) PR:[#423](https://github.com/bounswe/bounswe2022group6/pull/423)|
+      |Reviewed label search| [#431](https://github.com/bounswe/bounswe2022group6/issues/431) PR:[#432](https://github.com/bounswe/bounswe2022group6/pull/432) |
+      |Reviewed code updates| [#405](https://github.com/bounswe/bounswe2022group6/pull/405) |
+
 
 
 * Yasir Dikbaş
@@ -1060,7 +1112,134 @@ I took part in the design side of the front end. While I was designing, I wrote 
 
 * [Ali Kaan Biber](https://github.com/bounswe/bounswe2022group6/wiki/Ali-Kaan-Biber)
 
----
+     **Member:** I am working as a frontend developer in the frontend team of group 6.
+
+    **Responsibilities:**
+
+    We started this semester with analyzing our requirements and introducing our project to our new team member. I reviewed and made changes
+    to some of the requirements if necessary. After we decided to use ReactJS for frontend development, I made some research and spent some time learning it since I had no prior experience with it.
+
+    For the milestone 1 my most important task in the frontend team was to integrate the register endpoint to our backend which was the first endpoint integration. I got CORS errors when I send requests to backend and also fixed it. After considerable amount of time I finished the integration and provide an overlay for my team members to follow for endpoint calls to integrate later on in the project.
+
+    Apart from these I took some meeting notes and participated the dockerization and deployment meeting.
+
+    For the milestone 2 I worked mostly for the post related operations such as preparing an initial template for post page and post creation form, integrating the backend endpoints for post and comment creation and upvote/downvote. I also adjusted the code to allow for unregistered users to browse and see the posts but not do unauthorized operations such as voting and creating a post.
+
+    For final milestone my biggest responsibility was to implement text and image annotations for the webpage. I have also implemented post and comment edit functionalities.
+
+    Apart from the above main responsibilities, fixed some minor bugs from previous developments and made some enhancements.
+
+    ## **Main contributions:**
+
+   1. **Milestone 1:**
+      - Reviewed the requirement subsections 1.1.2.4 to 1.2.1
+      - Implemented Sign-Up Functionality Backend Integration
+      - Fixed the encountered CORS error
+      - Taken part in the deployment meeting
+
+   1. **Milestone 2:**
+
+      - Implemented post detail page with its design.
+      - Integrated backend endpoints for getting a post details and all post details.
+      - Integrated backend endpoints for for voting posts and comments.
+      - Integrated backend endpoint for creating comment to a post.
+      - Used integrated label endpoint to replace the mock labels on the homepage.
+      - Implemented the functionality for guest users to browse the webpage.
+
+   1. **Milestone 3:**
+      - Implementing text and image annotations on frontend
+      - Made minor changes for accordance with backend enhanced responses
+      - Integrated backend endpoint for deleting a post
+      - Integrated backend endpoint for deleting a comment
+
+
+   ### **Code related significant issues:**
+
+   1. **Milestone 1:**
+
+      * Issues created by me:
+
+         * [#198](https://github.com/bounswe/bounswe2022group6/issues/198): Implementing Sign-Up Functionality Backend Integration
+         * [#214](https://github.com/bounswe/bounswe2022group6/issues/214): Fixing the CORS problem in Frontend
+         
+      * Issues assigned to me:
+
+         * [#208](https://github.com/bounswe/bounswe2022group6/issues/208): AWS EC2 instance creation and deployment
+
+   2. **Milestone 2:**
+
+      * Issues created by me:
+
+         * [#284](https://github.com/bounswe/bounswe2022group6/issues/284): Creating templates for post operations
+         * [#316](https://github.com/bounswe/bounswe2022group6/issues/316): Integrating get posts and post vote endpoints.
+         * [#337](https://github.com/bounswe/bounswe2022group6/issues/337): Implementing create comment API.
+
+
+   1. **Milestone 3:**
+
+      * Issues created by me:
+
+         * [#391](https://github.com/bounswe/bounswe2022group6/issues/391): Implementing Annotations on Frontend
+         * [#406](https://github.com/bounswe/bounswe2022group6/issues/406): Correcting Frontend According to Changes In Backend Responses
+         * [#430](https://github.com/bounswe/bounswe2022group6/issues/430): Integrating Post/Comment Delete APIs
+
+   ### **Management related significant issues:**
+
+   1. **Milestone 1:**
+
+      * Issues created by me:
+
+         * [#168](https://github.com/bounswe/bounswe2022group6/issues/168): Reviewing the Requirement Sections 1.1.2.4 to 1.2.1
+         * [#195](https://github.com/bounswe/bounswe2022group6/issues/195): Uploading Frontend Meeting #2 Notes
+
+   2. **Milestone 2:**
+
+      * Issues I contributed:
+
+         * [#322](https://github.com/bounswe/bounswe2022group6/issues/322): The issue is not opened by me but I contributed to it by letting the backend team know what we need for frontend development
+
+   3. **Milestone 3:**
+
+
+   ### **Pull requests:**
+
+   Pull requests opened by me:
+
+   1. **Milestone 1:**
+      * [#215](https://github.com/bounswe/bounswe2022group6/pull/215): Solving the encountered CORS error
+      * [#216](https://github.com/bounswe/bounswe2022group6/pull/216): Registration endpoint integration
+
+   2. **Milestone 2:**
+      - [#289](https://github.com/bounswe/bounswe2022group6/pull/289): Creating templates for post operations.
+      - [#352](https://github.com/bounswe/bounswe2022group6/pull/352): Integrating post and comment related endpoints except for post creation.
+      - [#361](https://github.com/bounswe/bounswe2022group6/pull/361): Bug Fix: Labels and comment count of the posts are corrected.
+
+   3. **Milestone 3:**
+      - [#407](https://github.com/bounswe/bounswe2022group6/pull/407): Changes in frontend due to backend response enhancements 
+      - [#413](https://github.com/bounswe/bounswe2022group6/pull/413): Annotations On Frontend
+      - [#433](https://github.com/bounswe/bounswe2022group6/pull/433): Delete operation for post and comment
+
+
+   Pull requests reviewed by me: 
+
+   1. **Milestone 1:**
+      * [#226](https://github.com/bounswe/bounswe2022group6/pull/226): Frontend/feature/log in api integration
+      * [#207](https://github.com/bounswe/bounswe2022group6/pull/207): Add dockerfile and docker-compose.yml for containerization
+
+   2. **Milestone 2:**
+      * [#294](https://github.com/bounswe/bounswe2022group6/pull/294): Edit Profile Page
+      * [#298](https://github.com/bounswe/bounswe2022group6/pull/298): Frontend UI design
+      * [#338](https://github.com/bounswe/bounswe2022group6/pull/338): Create Post API Integration
+      * [#350](https://github.com/bounswe/bounswe2022group6/pull/350): Delete User
+      * [#359](https://github.com/bounswe/bounswe2022group6/pull/359): Post Views Updated
+
+   3. **Milestone 3:**
+      * [#403](https://github.com/bounswe/bounswe2022group6/pull/403): Chatbot
+      * [#405](https://github.com/bounswe/bounswe2022group6/pull/405): Upvoted and Downvoted Users Details Added
+      * [#416](https://github.com/bounswe/bounswe2022group6/pull/416): Location
+      * [#420](https://github.com/bounswe/bounswe2022group6/pull/420): Search 
+      * [#423](https://github.com/bounswe/bounswe2022group6/pull/423): Post Location
+      * [#432](https://github.com/bounswe/bounswe2022group6/pull/432): Label Search
 
 * [Yasir Dikbaş](https://github.com/bounswe/bounswe2022group6/wiki/Yasir-Dikba%C5%9F)
 
