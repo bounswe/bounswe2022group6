@@ -400,6 +400,7 @@ Apart from the management issues we faced, we could also revise how we prioritiz
     |Implementing chatbot for frontend|[Pull Request #403](https://github.com/bounswe/bounswe2022group6/pull/403)|
     |Verified doctors' username should be distinguishable|[Pull Request #411](https://github.com/bounswe/bounswe2022group6/pull/411)|
     |Editing a post|[Pull Request #422](https://github.com/bounswe/bounswe2022group6/pull/422)|
+    |Updating Project Plan for Final Milestone|[Issue: 479](https://github.com/bounswe/bounswe2022group6/issues/479)|
     |Reviewed a bug about a library|[#283: Fix react-icons bug](https://github.com/bounswe/bounswe2022group6/pull/283)|
     |Reviewed a bug about reloading the page|[#291 Frontend/fix/reload bug](https://github.com/bounswe/bounswe2022group6/pull/291)|
     |Reviewed changes in frontend after backend enhancements|[#407 Changes in frontend due to backend response enhancements](https://github.com/bounswe/bounswe2022group6/pull/407)|
@@ -2211,6 +2212,7 @@ Overall, I have tried my best to be a good teammate and abide by the good practi
             * [Issue #367](https://github.com/bounswe/bounswe2022group6/issues/367): Project plan should be updated
             * [#160: Revising the Wiki](https://github.com/bounswe/bounswe2022group6/issues/160)
             * [#201: Updating Project Plan](https://github.com/bounswe/bounswe2022group6/issues/201)
+            * [#479: Updating Project Plan for Final Milestone](https://github.com/bounswe/bounswe2022group6/issues/479)
 
     **Pull Requests:**
     * Pull requests opened by me:
