@@ -1276,9 +1276,9 @@ For annotation feature and better management of location data for Location Manag
 #### **Milestone 3**
 For the final milestone, I was mainly responsible for creating Backend endpoints and writing the relevant testcases with Postman documents. Those endpoints were critical as both Backend and Mobile subteams needed them to finalize their work. Also, I was responsible for relevant Docker containerization updates and improvements that must be done to decrease container footprint on the AWS instances as we were working with very low RAM.
 
-I started my work by completing the missing tests from Milestone 2. After writing testcases and enhancing documents, I implemented necessary endpoints for other subteams to use. Besides, we were missing a production build for docker containers. Before this build, we were using development builds with their debug options enabled. This was a security breach, not to mention its extra overhead on the system.
+I started my work by completing the missing tests from Milestone 2. After writing testcases and enhancing documents, I implemented necessary endpoints for other subteams to use. Also, I have written necessary codes to store images in the volume of the container in AWS system. Nonetheless, we decided to keep those images in another AWS instance to increase the security and lower the storage footprint. Therefore, we discarded those changes and cancelled the pull request that I have created. Besides, we were missing a production build for docker containers. Before this build, we were using development builds with their debug options enabled. This was a security breach, not to mention its extra overhead on the system.
 
-Last but not least, I have contributed to Customer Milestone 2's report and Location Manager API's documentation for the group report.
+Last but not least, I have contributed to Customer Milestone 2's report as I kept the notes of the customer's advices and wishes. Also,I have contributed to the group report by writing the documentation of Location Manager API.
 
 
 ## **Main contributions:**
