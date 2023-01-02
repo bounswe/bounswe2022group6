@@ -234,9 +234,37 @@
 ## **Main contributions:**
 
 
-### **Code related significant issues:**
 
-### **Management related significant issues:**
+#### **Code related significant issues:**
+
+   1. Implementing "Account View" function - [#242](https://github.com/bounswe/bounswe2022group6/issues/242)
+   2. Frontend Containerization - [#206](https://github.com/bounswe/bounswe2022group6/issues/206)
+   3. Initializing Backend Framework - [#174](https://github.com/bounswe/bounswe2022group6/issues/174)
+   4. AWS EC2 instance creation and deployment - [#208](https://github.com/bounswe/bounswe2022group6/issues/208)
+   5. Implementing User Registration  - [#181](https://github.com/bounswe/bounswe2022group6/issues/181)
+   6. Implementing locmgr APIs for IP location retrieval and country/state/city list retrieval - [#257](https://github.com/bounswe/bounswe2022group6/issues/257)
+   7. Restructuring locmgr API's location data script by updating SQL file - [#272](https://github.com/bounswe/bounswe2022group6/issues/272)
+   8. Migrating the database from MySQL to PostgreSQL - [#271](https://github.com/bounswe/bounswe2022group6/issues/261)
+   9. Implementing Post View API - [#299](https://github.com/bounswe/bounswe2022group6/issues/299)
+   10. Implementing Comment View API - [#301](https://github.com/bounswe/bounswe2022group6/issues/301)
+   11. Implementing Content Voting System - [#302](https://github.com/bounswe/bounswe2022group6/issues/302)Wrote Content Manager's 
+   12. Documentation and Tests - [#309](https://github.com/bounswe/bounswe2022group6/pull/309)
+   13. Implemented Edit Post/Comment Endpoint - [#387](https://github.com/bounswe/bounswe2022group6/issues/387)
+   14. Implemented Reputation Field for Users and ViewProfile Endpoint - [#399](https://github.com/bounswe/bounswe2022group6/issues/399)
+   15. Implemented Picture Store for Posts and Accounts (Cancelled) - [#409](https://github.com/bounswe/bounswe2022group6/issues/409)
+   16. Implemented Delete Method for Comments and Posts - [#424](https://github.com/bounswe/bounswe2022group6/issues/424)
+   17. Implemented Production Docker Code and Its Documentations - [#427](https://github.com/bounswe/bounswe2022group6/issues/427)
+   
+
+#### **Management related significant issues:**
+
+   1. Creating a Communication Plan for Frontend, Backend and Mobile Subteams - [#166](https://github.com/bounswe/bounswe2022group6/issues/166)
+   2. Reviewing the Requirement Sections 1.1.1.1 to 1.1.1.6 - [#167](https://github.com/bounswe/bounswe2022group6/issues/167)
+   3. Uploading the Backend Meeting #1 Notes - [#169](https://github.com/bounswe/bounswe2022group6/issues/169)
+   4. Uploading the Group Meeting #5 Notes - [#263](https://github.com/bounswe/bounswe2022group6/issues/263)
+   5. Updating Running Manuals of Backend and Frontend - [#371](https://github.com/bounswe/bounswe2022group6/issues/371)
+   6. Writing Milestone 2 Customer Feedback - [#386](https://github.com/bounswe/bounswe2022group6/issues/386)
+   7. Wrote API Endpoints (Location Manager Part) for Final Group Report - [#461](https://github.com/bounswe/bounswe2022group6/issues/461)
 
 ### **Pull requests:**
 
@@ -286,11 +314,17 @@ Pull requests reviewed by me:
 
 ### **Unit Tests:**
 
-#### **Tests Related to Location Manager:**
+In latest release, I have following unit test classes:
+1. [Post Tests](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Backend/src/contmgr/tests.py#L24)
+2. [Comment Tests](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Backend/src/contmgr/tests.py#L90)
+3. [Vote Tests](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Backend/src/contmgr/tests.py#L166)
+4. [Location Tests](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Backend/src/locmgr/tests.py#L5)
 
-#### **Tests Related to Content Manager:**
+<b>Note:</b> Please note that my testcases for User Registration has been updated and therefore testcases that I wrote aren't available at the latest code. It is possible to find related information and old testcases in this issue: <br>
+[Implementing User Registration - #181](https://github.com/bounswe/bounswe2022group6/issues/181)
 
 ### **Additional Information:**
+Please view my [Home Wiki](https://github.com/bounswe/bounswe2022group6/wiki/Artun-Akdo%C4%9Fan) for details and for any missing information. All work related information is available at here since CmpE352.
 
 * [İhsan Mert Atalay](https://github.com/bounswe/bounswe2022group6/wiki/%C4%B0hsan-Mert-Atalay)
 
