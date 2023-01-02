@@ -473,13 +473,53 @@ Apart from the management issues we faced, we could also revise how we prioritiz
         |3.6.|Reviewing edit post and comment endpoints||[#389](https://github.com/bounswe/bounswe2022group6/pull/389)|
         |3.7.|Reviewing tests for content||[#390](https://github.com/bounswe/bounswe2022group6/pull/390)|
         |3.8.|Reviewing reputation system and view profile endpoints||[#400](https://github.com/bounswe/bounswe2022group6/pull/400)|
-        |3.9.|Reviewing delete post and comment endpoints||[#425](https://github.com/bounswe/bounswe2022group6/pull/425)
+        |3.9.|Reviewing delete post and comment endpoints||[#425](https://github.com/bounswe/bounswe2022group6/pull/425)|
 
 * Ramazan Bedirhan Pamukçuoğlu
 
-    |Contribution|Link|
-    |---|---|
-    |...|...|
+    1. **Milestone 1**
+        |Contribution|Link|
+        |------------|----|
+        |Attended weekly meetings.||
+        |Reviewed requirements from 1.1.1.7 to 1.1.2.2.4 with Hakan Balık.|[#163](https://github.com/bounswe/bounswe2022group6/issues/163)|
+        |Researched about the popular frameworks for mobile application development.||
+        |Creating a Communication Plan for Mobile|[#166](https://github.com/bounswe/bounswe2022group6/issues/166)|
+        |Decided on which mobile framework to use with the mobile team.|[#173](https://github.com/bounswe/bounswe2022group6/issues/173)|
+        |Uploading meeting notes|[#172](https://github.com/bounswe/bounswe2022group6/issues/172)|
+        |Researched about React Native for mobile application development.||
+        |Created a communication plan for mobile development with the mobile team.|[#171](https://github.com/bounswe/bounswe2022group6/issues/171)|
+        |Initialized the application with Aral|[#176](https://github.com/bounswe/bounswe2022group6/issues/176) [#187](https://github.com/bounswe/bounswe2022group6/pull/187)|
+        |Designed the login page of the mobile app.|[#210](https://github.com/bounswe/bounswe2022group6/issues/200)|
+        |Designed the signup page of the mobile app.|[#210](https://github.com/bounswe/bounswe2022group6/issues/200)|
+        |Implemented the api requests.|[#197](https://github.com/bounswe/bounswe2022group6/issues/197)|
+        |Created AWS EC2 instance and deployed the app.|[#208](https://github.com/bounswe/bounswe2022group6/issues/208)|
+        |Presented version [0.1.0-alpha](https://github.com/bounswe/bounswe2022group6/releases/tag/customer-presentation-1) to the customer in Milestone 1 with Aral.||
+
+    2. **Milestone 2** 
+     
+		|Contribution|Link|
+		|------------|----|
+		|Attending both team and group meetings||
+		|Implementing photo upload button as a generic component|[#307](https://github.com/bounswe/bounswe2022group6/issues/307)|
+		|Implementing create post page|[#308](https://github.com/bounswe/bounswe2022group6/issues/308)|
+		|Implementing post previews|[#356](https://github.com/bounswe/bounswe2022group6/issues/356)|
+		|Implementing basic chatbot|[#353](https://github.com/bounswe/bounswe2022group6/pull/353)|
+		|Bugfixing for demo|[#358](https://github.com/bounswe/bounswe2022group6/pull/358)|
+		|Deploying app to physical device||
+		|Creating scenario for demo with Hakan, Aral and Yusuf.||
+		|Presenting Milestone 2||
+		|Initiating a S3 server for image uploads with Hakan|[#277](https://github.com/bounswe/bounswe2022group6/issues/277)|
+		|Reviewing pull requests|[#361](https://github.com/bounswe/bounswe2022group6/pull/361) [#354](https://github.com/bounswe/bounswe2022group6/pull/354) [#341](https://github.com/bounswe/bounswe2022group6/pull/341) [#328](https://github.com/bounswe/bounswe2022group6/pull/328) [#270](https://github.com/bounswe/bounswe2022group6/pull/270) [#265](https://github.com/bounswe/bounswe2022group6/pull/270)
+	    
+    3. **Milestone 3**
+    
+		|Contribution|Link|
+		|------------|----|
+		|Attending both team and group meetings||
+		|Implemented text annotations on mobile|[#388](https://github.com/bounswe/bounswe2022group6/issues/388)|
+		|Improving chatbot to show answers by client|[#429](https://github.com/bounswe/bounswe2022group6/issues/429)|
+		|Prepraing API Endpoints section of milestone report|[#461](https://github.com/bounswe/bounswe2022group6/issues/465)|
+
 
 
 * Berfin Şimşek
@@ -3190,6 +3230,107 @@ Overall, I have tried my best to be a good teammate and abide by the good practi
 ---
 
 * [Ramazan Bedirhan Pamukçuoğlu](https://github.com/bounswe/bounswe2022group6/wiki/Bedirhan-Pamukcuoglu)
+## **Member:** Bedirhan PAMUKCUOGLU, Group 6 - Mobile
+
+### **Responsibilities:**
+As one of team members of the mobile team, I did contribute to project up to this point with all my efforts. First of all we had a meeting to decide on which communication plan and platform should be used and then decide to which framework should be used to develop application. We made necessarry searches about those topics as whole team and shared the results. We decide discord as communication platform and react-native as development framework. Since we using discord, anyone who is available is at the room can help each other in minutes. We like being agile as team :)
+    
+After choosing react-native, I've created an hello-world application from scratch and made project structure (where to put interface file, api files etc). I've pushed the so called "hello-world" application and asked to team to be sure that they can run the application on an emulator. We had a little meeting with Aral on Discord to run the application.
+
+After everyone of the team members can run the application we split the work among us and worked seperately most of the time. However, whenever is necesarry we were in touch. I waas responsible for the login/signup pages and API endpoints.
+
+I've also attended a meeting to deploy back-end and front-end applications to the AWS. I've initiated an AWS EC2 instance and deployed the containerized application. Special thanks to Artun for his efforts about dockerization.
+
+I've done some bugfixes along the way and resolved some conflicts.
+
+I've also handled the User Profile API implementation and edited the Profile Page and Edit Profile Page accordingly with the API response. Thanks to Aral for his works on Profile Pages.
+  
+Lastly, I've tested application end to end for presentation.
+    
+I've worked at mobile team to develop some new features and fixing some problems from the previous milestone. I've implemented create post page, post preview page, viewing comments on posts, upload photo feature. I've also prepared progress according to requirements part of the report. Addition to those, me and Hakan worked on creating a S3 server to upload and store image files. Lastly I've worked with teammates to create demo scenario and presented demo. 
+
+### **Main contributions:**
+
+In addition to preparing progress according to requirements, preparing for presentation and presenting I've also done some code related work. Which are listed below. 
+
+      
+* Researching group communication methods. 
+* Researching on technologies to use in Mobile development.
+* Reviewing the requirements.
+* Deciding on the file structure of Mobile Development with respect to requirements and meeting notes.
+* Initializing Mobile application with react-native.
+* Creating an AWS instance and deploy the application.
+* Implementing the Login View page.
+* Implementing the SignUp View page.
+* Implementing API requests to backend for login, logout, signup and get profile.
+* Documenting API's via Postman.
+* Fixing bugs that are related to Mobile.
+* Attending all meetings and taking notes for them.
+
+
+#### **Code related significant issues:**
+
+- Created Issues:
+   * [#200: Creating Base Pages for Mobile ](https://github.com/bounswe/bounswe2022group6/issues/200)
+   * [#197: Necessary Developments for the BackEnd API Integration ](https://github.com/bounswe/bounswe2022group6/issues/176)
+   * [#176: Mobile Application Inıtialization ](https://github.com/bounswe/bounswe2022group6/issues/176)
+   1. [#356](https://github.com/bounswe/bounswe2022group6/issues/356)
+   2. [#353](https://github.com/bounswe/bounswe2022group6/issues/353)
+   3. [#351](https://github.com/bounswe/bounswe2022group6/issues/351)
+   4. [#308](https://github.com/bounswe/bounswe2022group6/issues/308)
+   5. [#307](https://github.com/bounswe/bounswe2022group6/issues/307)
+   6. [#277](https://github.com/bounswe/bounswe2022group6/issues/277)
+ 
+- Contributes Issues:
+   - [#231 - Reporting Individual Contribution](https://github.com/bounswe/bounswe2022group6/issues/231)
+   - [#324](https://github.com/bounswe/bounswe2022group6/issues/324)
+   - Rest of the code related contributed issues are related to the pull requests that I reviewed. 
+
+#### **Management related significant issues:**
+
+- Created Issues:
+
+ 
+- Contributes Issues:
+    1. [#312](https://github.com/bounswe/bounswe2022group6/issues/312)
+    2. [#320](https://github.com/bounswe/bounswe2022group6/issues/320)
+
+### **Pull requests:**
+
+Pull requests I created
+1. [#248: Birth Date static value problem fixed ](https://github.com/bounswe/bounswe2022group6/pull/248)
+2. [#246: Login SignUp Pages API Problem Fixed! ](https://github.com/bounswe/bounswe2022group6/pull/246)
+3. [#245: Show Profile Screen implemented  ](https://github.com/bounswe/bounswe2022group6/pull/245)
+4. [#235: signup page implemented ](https://github.com/bounswe/bounswe2022group6/pull/235)
+5. [#203: login screen implemented  ](https://github.com/bounswe/bounswe2022group6/pull/203)
+6. [#187: application can be run on emulator ](https://github.com/bounswe/bounswe2022group6/pull/187)
+- [#360](https://github.com/bounswe/bounswe2022group6/pull/360)
+- [#358](https://github.com/bounswe/bounswe2022group6/pull/358)
+- [#357](https://github.com/bounswe/bounswe2022group6/pull/357)
+- [#355](https://github.com/bounswe/bounswe2022group6/pull/355)
+- [#348](https://github.com/bounswe/bounswe2022group6/pull/348)
+- [#347](https://github.com/bounswe/bounswe2022group6/pull/347)
+- [#319](https://github.com/bounswe/bounswe2022group6/pull/319)
+
+Pull requests I reviewed
+1. [#241: Messages Page Initialized ](https://github.com/bounswe/bounswe2022group6/pull/241)
+2. [#221: Main Navigation Framework Established ](https://github.com/bounswe/bounswe2022group6/pull/221)
+- [#361](https://github.com/bounswe/bounswe2022group6/pull/361)
+- [#354](https://github.com/bounswe/bounswe2022group6/pull/354)
+- [#341](https://github.com/bounswe/bounswe2022group6/pull/341)
+- [#328](https://github.com/bounswe/bounswe2022group6/pull/328)
+- [#270](https://github.com/bounswe/bounswe2022group6/pull/270)
+
+### Unit Tests
+
+I didn't work on unit test, planning to create tests before final milestone.
+
+### Additional Information
+
+I've put most signifact issues and pull requests here. Additional work can be accessed via GitHub Wiki. M1
+I've also helped mobile team mates in some problems that they faced. M2
+I've presented all the three presentations, created scenarios and prepared presentation with Hakan Balık, Yusuf Erdem Nacar, Aral Dörtoğul and Berfin Şimşek.
+
 
 ---
 
