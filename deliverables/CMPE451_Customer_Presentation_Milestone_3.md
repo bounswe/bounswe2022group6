@@ -24,7 +24,51 @@
 
     |Contribution|Link|
     |---|---|
-    |...|...|
+    |Attended all weekly group and backend meetings||
+    |Wrote personal reports for all customer milestones||
+    |Updated personal Wiki page for CmpE451 | [#160](https://github.com/bounswe/bounswe2022group6/issues/160)|
+    |Reviewed requirement items under [1.1.1.1](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1111-creating-an-account), [1.1.1.2](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1112-adding-information-to-a-account), [1.1.1.3](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1113-editing-the-information-in-an-account), [1.1.1.4](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1114-removing-information-from-an-account), [1.1.1.5](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1115-deleting-an-account), and [1.1.1.6](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1116-logging-inlogging-out) sections | [#167](https://github.com/bounswe/bounswe2022group6/issues/167)|
+    |Created [Backend Meeting #1](https://github.com/bounswe/bounswe2022group6/wiki/Backend-Meeting-%231-17.10.2022) template, updated meeting agenda, reviewed and updated meeting notes, updated Home Wiki page and Sidebar to include this meeting | [#169](https://github.com/bounswe/bounswe2022group6/issues/169)|
+    |Updated [Communication Plan](https://github.com/bounswe/bounswe2022group6/wiki/Communication-Plan) page for Backend Group, created Discord server, appointed the first meeting | [#166](https://github.com/bounswe/bounswe2022group6/issues/166)|
+    |Initialized the folder structure of the project Groups|
+    |Initialized Backend Group's workspace with Django, MySQL, and Docker | [#174](https://github.com/bounswe/bounswe2022group6/issues/174)|
+    |Refactor folder structure of Backend group for better reference | [#178](https://github.com/bounswe/bounswe2022group6/issues/178), [#180](https://github.com/bounswe/bounswe2022group6/pull/180), PR: [#180](https://github.com/bounswe/bounswe2022group6/pull/180)|
+    |Inplemented user registration REST API, and required models | [#181](https://github.com/bounswe/bounswe2022group6/issues/181), PR: [#191](https://github.com/bounswe/bounswe2022group6/pull/191)|
+    |Enclosed MySQL port on docker to prevent port conflict | [#188](https://github.com/bounswe/bounswe2022group6/issues/188), PR: [#189](https://github.com/bounswe/bounswe2022group6/pull/189)|
+    |Containerized Frontend workspace and unified Backend API with Frontend application via Docker Compose | [#206](https://github.com/bounswe/bounswe2022group6/issues/206), PR: [#207](https://github.com/bounswe/bounswe2022group6/pull/207)|
+    |Deployed and modified AWS EC2 instance with required settings | [#208](https://github.com/bounswe/bounswe2022group6/issues/208)|
+    |Resolved final problems regarding AWS deployment via bugfixes and minor modifications | [#240](https://github.com/bounswe/bounswe2022group6/issues/240)|
+    |Implemented "Account View" function | [#242](https://github.com/bounswe/bounswe2022group6/issues/242), PR: [#228](https://github.com/bounswe/bounswe2022group6/pull/228), [#229](https://github.com/bounswe/bounswe2022group6/pull/229)|
+    |Wrote Frontend Containerized Execution Notes | [#244](https://github.com/bounswe/bounswe2022group6/issues/244)|
+    |Wrote Individual Contribution Report | [#231](https://github.com/bounswe/bounswe2022group6/issues/231)|
+    |Uploaded [Backend Meeting #4](https://github.com/bounswe/bounswe2022group6/wiki/Backend-Meeting-%234---03.11.2022) notes | [#254](https://github.com/bounswe/bounswe2022group6/issues/254)|
+    |Reviewed and updated the requirements addressed in [Milestone 1](https://github.com/bounswe/bounswe2022group6/blob/master/deliverables/CMPE451_Customer_Presentation_Milestone_1.md#11-user-requirements) | [#251](https://github.com/bounswe/bounswe2022group6/issues/251)|
+    |Wrote my individual responsibilities and work in [Milestone 1](https://github.com/bounswe/bounswe2022group6/blob/master/deliverables/CMPE451_Customer_Presentation_Milestone_1.md)|
+    |Researched Location API Implementation | [#255](https://github.com/bounswe/bounswe2022group6/issues/255)||
+    |Fixed image replication issue and updated Docker with new service | [#261](https://github.com/bounswe/bounswe2022group6/issues/261), PR: [#262](https://github.com/bounswe/bounswe2022group6/pull/262)|
+    |Implemented locmgr APIs for IP location retrieval and country/state/city list retrieval | [#257](https://github.com/bounswe/bounswe2022group6/issues/257), PR: [#260](https://github.com/bounswe/bounswe2022group6/pull/260)|
+    |Fixed image replication issue on docker, and implemented reset-db command on docker compose | [#261](https://github.com/bounswe/bounswe2022group6/issues/261)|
+    |Uploaded the Group Meeting #5 Notes | [#263](https://github.com/bounswe/bounswe2022group6/issues/263)|
+    |Restructured locmgr API's location data script by updating SQL file | [#272](https://github.com/bounswe/bounswe2022group6/issues/272)|
+    |Migrated the database from MySQL to PostgreSQL | [#271](https://github.com/bounswe/bounswe2022group6/issues/261), PR: [#274](https://github.com/bounswe/bounswe2022group6/pull/274)|
+    |Wrote testcases and documentation for locmgr | [#275](https://github.com/bounswe/bounswe2022group6/issues/275), PR: [#276](https://github.com/bounswe/bounswe2022group6/pull/276)|
+    |Fixed error that causes frontend to not compile | [#282](https://github.com/bounswe/bounswe2022group6/issues/282), PR: [#283](https://github.com/bounswe/bounswe2022group6/pull/283)|
+    |Initialized contmgr Django Application | [#286](https://github.com/bounswe/bounswe2022group6/issues/286), PR: [#287](https://github.com/bounswe/bounswe2022group6/pull/287)|
+    |Fixed hot reload bug on Frontend | [#290](https://github.com/bounswe/bounswe2022group6/issues/290), PR: [#291](https://github.com/bounswe/bounswe2022group6/pull/291)|
+    |Implemented Post View API | [#299](https://github.com/bounswe/bounswe2022group6/issues/299), PR: [#303](https://github.com/bounswe/bounswe2022group6/pull/303)|
+    |Implemented Comment View API | [#301](https://github.com/bounswe/bounswe2022group6/issues/301), PR: [#304](https://github.com/bounswe/bounswe2022group6/pull/304)|
+    |Implemented Content Voting System | [#302](https://github.com/bounswe/bounswe2022group6/issues/302), PR: [#305](https://github.com/bounswe/bounswe2022group6/pull/305)|
+    |Wrote Content Manager's Documentation and Tests | [#309](https://github.com/bounswe/bounswe2022group6/pull/309), PR: [#390](https://github.com/bounswe/bounswe2022group6/pull/390)|
+    |Added documents for content manager to showcase endpoint API | [#310](https://github.com/bounswe/bounswe2022group6/pull/310), PR: [#310](https://github.com/bounswe/bounswe2022group6/pull/310)|
+    |Backend Bug Fix for Post | [#322](https://github.com/bounswe/bounswe2022group6/issues/322), PR: [#346](https://github.com/bounswe/bounswe2022group6/pull/346)|
+    |Updating Running Manuals of Backend and Frontend | [#371](https://github.com/bounswe/bounswe2022group6/issues/371)|
+    |Wrote Milestone 2 Customer Feedback | [#386](https://github.com/bounswe/bounswe2022group6/issues/386)|
+    |Implemented Edit Post/Comment Endpoint | [#387](https://github.com/bounswe/bounswe2022group6/issues/387), PR: [#389](https://github.com/bounswe/bounswe2022group6/pull/389)|
+    |Implemented Reputation Field for Users and ViewProfile Endpoint | [#399](https://github.com/bounswe/bounswe2022group6/issues/399), PR: [#400](https://github.com/bounswe/bounswe2022group6/pull/400)|
+    |Implemented Picture Store for Posts and Accounts (Cancelled) | [#409](https://github.com/bounswe/bounswe2022group6/issues/409), PR: [#410](https://github.com/bounswe/bounswe2022group6/pull/410)|
+    |Implemented Delete Method for Comments and Posts | [#424](https://github.com/bounswe/bounswe2022group6/issues/424), PR: [#425](https://github.com/bounswe/bounswe2022group6/pull/425)|
+    |Implemented Production Docker Code and Its Documentations | [#427](https://github.com/bounswe/bounswe2022group6/issues/427), PR: [#428](https://github.com/bounswe/bounswe2022group6/pull/428)|
+    |Wrote API Endpoints for Final Group Report | [#](https://github.com/bounswe/bounswe2022group6/issues/)|
 
 
 * İhsan Mert Atalay
