@@ -135,7 +135,216 @@
 
 ### Status of the Requirements
 
+* Provide progress according to requirements, being either not started, in progress, or completed (implemented, tested, documented, deployed)
 
+    |Requirement|Status|
+    |---|---|
+    |1 Functional Requirements||
+    |1.1 User Requirements||
+    |1.1.1 Account Management||
+	|1.1.1.1 Creating an Account||
+	|1.1.1.1.1 Unregistered users shall provide a unique username when creating an account.|Completed|
+	|1.1.1.1.2 Unregistered users shall provide a password when creating an account.|Completed|
+	|1.1.1.1.3 Unregistered users shall provide a unique phone number or a unique email address when creating an account.|Completed|
+	|1.1.1.1.4 Unregistered users shall provide their date of birth when creating an account.|Completed|
+	|1.1.1.2 Adding Information to a Account|Completed|
+	|1.1.1.2.1 Registered users shall be able to add an email address to their account if the account was created using only a phone number.|Completed|
+	|1.1.1.2.2 Registered users shall be able to add a phone number to their account if the account was created using only an email address.|Completed|
+	|1.1.1.2.3 Registered users shall be able to add their first name to their account.|Completed|
+	|1.1.1.2.4 Registered users shall be able to add a last name to their account.|Completed|
+	|1.1.1.2.5 Registered users shall be able to add a profession to their account.|Completed|
+	|1.1.1.2.6 Registered users shall be able to add a location to their account.|In progress|
+	|1.1.1.2.7 Registered users shall be able to update their account as a doctor account via doctor verification. (see 1.1.1.7)|Completed|
+	|1.1.1.3 Editing the Information in an Account||
+	|1.1.1.3.1 Registered users shall be able to change the email address in their account.|Completed|
+	|1.1.1.3.2 Registered users shall be able to change the phone number in their account.|Completed|
+	|1.1.1.3.3 Registered users shall be able to change the profile picture in their account.|Not started|
+	|1.1.1.3.4 Registered users shall be able to change the first name in their account.|Completed|
+	|1.1.1.3.5 Registered users shall be able to change the last name in their account.|Completed|
+	|1.1.1.3.6 Registered users shall be able to change the profession in their account.|Completed|
+	|1.1.1.3.7 Registered users shall be able to change the location of their account.|In progress|
+	|1.1.1.3.8 Registered users shall be able to change the password of their account.|Completed in web, not started in mobile|
+	|1.1.1.3.9 Registered users shall be able to turn off the messaging feature in order not to receive any messages.|Not started|
+	|1.1.1.3.10 Registered users shall be able to turn off the notifications feature in order not to receive any notifications related to posts.|Not started|
+	|1.1.1.3.11 Registered users shall be able to turn on the notifications feature in order to receive notifications related to posts.|Not started|
+	|1.1.1.3.12 Registered users shall be able to turn off the messaging feature in order not to receive messages.|Not started|
+	|1.1.1.3.13 Registered users shall be able to turn on the messaging feature in order to receive messages.|Not started|
+	|1.1.1.4 Removing Information from an Account||
+	|1.1.1.4.1 Registered users shall be able to remove the email address from their account if there is a phone number in it.|Completed|
+	|1.1.1.4.2 Registered users shall be able to remove the phone number from their account if there is an email address in it.|Completed|
+	|1.1.1.4.3 Registered users shall be able to remove the profile picture from their account.|Not started|
+	|1.1.1.4.4 Registered users shall be able to remove the first name from their account.|Completed|
+	|1.1.1.4.5 Registered users shall be able to remove the last name from their account.|Completed|
+	|1.1.1.4.6 Registered users shall be able to remove the profession from their account.|Completed in web, in progress in mobile|
+	|1.1.1.4.7 Registered users shall be able to remove the location from their account.|In progress|
+	|1.1.1.5 Deleting an Account||
+	|1.1.1.5.1 Registered users shall be able to delete their accounts.|Completed|
+	|1.1.1.5.2 Admins shall be able to delete any account.|Completed|
+	|1.1.1.5.3 Users shall confirm their request when deleting an account.|Completed|
+	|1.1.1.6 Logging in/Logging out||
+	|1.1.1.6.1 Registered users shall be able to log in by providing their password with either the username, phone number, or the email of their account.|Completed|
+	|1.1.1.6.2 Registered users shall not be able to log in after 5 failed attempts due to incorrect passwords.|Not started|
+	|1.1.1.6.3 Registered users shall be able to stay logged in.|Completed|
+	|1.1.1.6.4 Registered users shall be able to log out from the application.|Completed|
+	|1.1.1.7 Doctor verification||
+	|1.1.1.7.1 Registered users shall be able to verify that they are doctors via either "diploma tescil no" or "e-devlet bilgi bankası".|Completed|
+	|1.1.1.7.2 Admins shall be able to verify that a user who provided the information in 1.1.1.7.1 is a doctor.|Completed|
+	|1.1.1.7.3 Admins shall determine the area of expertise of a doctor with the information in 1.1.1.7.1.|Not started|
+	|1.1.1.7.4 Admins shall determine the graduation year of a doctor with the information in 1.1.1.7.1.|Not started|
+	|1.1.1.7.5 Admins shall determine the graduation place of a doctor with the information in 1.1.1.7.1.|Not started|
+	|1.1.2 Interactions Between The Users and Forum||
+	|1.1.2.1 Interactions Between the Users and the Searchbar/Search Results||
+	|1.1.2.1.1 Users shall be able to search for any number of searchables.|Completed|
+	|1.1.2.1.2 Users shall be able to filter the suggested searchables.|Completed|
+	|1.1.2.1.3 Users shall be able to sort the search results by time.|Not started|
+	|1.1.2.1.4 Users shall be able to sort the search results by vote count.|Not started|
+	|1.1.2.2 Interactions Between the Users and the Posts||
+	|1.1.2.2.1 Creating a Post||
+	|1.1.2.2.1.1 Registered users shall provide a title when creating a post.|Completed|
+	|1.1.2.2.1.2 Registered users shall provide a description when creating a post.|Completed|
+	|1.1.2.2.1.3 Registered users shall provide a post type label when creating a post.|Not started|
+	|1.1.2.2.1.4 Registered users shall be able to add any number of labels to their posts.|Completed in web, not started in mobile|
+	|1.1.2.2.1.5 Registered users shall be able to add media to their posts.|Completed|	
+	|1.1.2.2.1.6 Registered users shall be able to mark their posts as NSFW and blur the attached media.|Completed|
+	|1.1.2.2.1.7 Registered users shall be able to mention other registered users in the description of their post.|Not started|
+	|1.1.2.2.2 Editing a Post||
+	|1.1.2.2.2.1 Registered users shall be able to change their posts' title.|Completed|
+	|1.1.2.2.2.2 Registered users shall be able to change their posts' descriptions.|Completed|
+	|1.1.2.2.2.3 Registered users shall be able to change their posts' labels.|In progress|	
+	|1.1.2.2.2.4 Registered users shall be able to remove media from their posts.|Not started|	
+	|1.1.2.2.2.5 Registered users shall be able to add media to their posts.|Completed|
+	|1.1.2.2.3 Deleting a Post||
+	|1.1.2.2.3.1 Registered users shall be able to delete their posts along with their comments.|Completed|
+	|1.1.2.2.3.2 Admins shall be able to delete any post along with its comments.|Completed|	
+	|1.1.2.2.3.3 Users who are deleting a post shall confirm their request.|Not started|
+	|1.1.2.2.4 Viewing a Post||
+	|1.1.2.2.4.1 Users shall be able to view the title of a post.|Completed|
+	|1.1.2.2.4.2 Users shall be able to view the description of a post.|Completed|
+	|1.1.2.2.4.3 Users shall be able to view the vote counts of a post.|Completed|
+	|1.1.2.2.4.4 Users shall be able to view a truncated list of comments.|Completed|
+	|1.1.2.2.4.5 Users shall be able to view a truncated list of labels.|Completed|
+	|1.1.2.2.4.6 Users shall be able to expand the list of comments on a post.|Completed|
+	|1.1.2.2.4.7 Users shall be able to expand the list of labels of a post.|Completed|
+	|1.1.2.2.5 Voting a Post||
+	|1.1.2.2.5.1 Registered users shall be able to upvote posts.|In progress|	
+	|1.1.2.2.5.2 Registered users shall be able to downvote posts.|In progress|	
+	|1.1.2.2.5.3 Registered users shall be able to unvote posts.|In progress|
+	|1.1.2.3 Interactions Between the Users and the Comments||
+	|1.1.2.3.1 Creating a Comment||
+	|1.1.2.3.1.1 Registered users shall be able to comment under a post.|Completed in backend, not started in mobile|  
+	|1.1.2.3.1.2 Registered users shall be able to comment under a comment.|Completed in backend, not started in mobile|	
+	|1.1.2.3.1.3 Registered users shall be able to add media to their comments.|Completed in backend, not started in mobile|	
+	|1.1.2.3.1.4 Registered users shall be able to mark their comments as NSFW and blur the media attached to them.|Completed in backend, not started in mobile|
+	|1.1.2.3.1.5 Registered users shall be able to mention other registered users in their comments.|Completed in backend, not started in mobile|	
+	|1.1.2.3.2 Editing a Comment||
+	|1.1.2.3.2.1 Registered users shall be able to edit their comments' description.|Completed in backend, not started in mobile|	
+	|1.1.2.3.2.2 Registered users shall be able to add media to their comments.|Completed in backend, not started in mobile|	
+	|1.1.2.3.2.3 Registered users shall be able to remove media from their comments.|Completed in backend, not started in mobile|
+	|1.1.2.3.3 Deleting a Comment||
+	|1.1.2.3.3.1 Registered users shall be able to delete their comments along with their comments.|Completed in backend, not started in mobile|	
+	|1.1.2.3.3.2 Admins shall be able to delete any comment along with its comments.|Completed in backend, not started in mobile|	
+	|1.1.2.3.3.3 Users who delete a comment shall confirm their request.|Not started|
+	|1.1.2.3.4 Viewing a Comment||
+	|1.1.2.3.4.1 Users shall be able to view the title of a comment.|Completed|
+	|1.1.2.3.4.2 Users shall be able to view the description of a comment.|Completed|
+	|1.1.2.3.4.3 Users shall be able to view the vote counts of a comment.|Completed|
+	|1.1.2.3.4.4 Users shall be able to view a truncated list of comments.|Completed|
+	|1.1.2.3.4.5 Users shall be able to expand the list of comments on a comment.|Completed|
+	|1.1.2.3.5 Voting a Comment||
+	|1.1.2.3.5.1 Registered users shall be able to upvote comments.|Completed in backend, not started in mobile|	
+	|1.1.2.3.5.2 Registered users shall be able to downvote comments.|Completed in backend, not started in mobile|	
+	|1.1.2.3.5.3 Registered users shall be able to unvote comments.|Completed in backend, not started in mobile|	
+	|1.1.2.4 Label Management||
+	|1.1.2.4.1 Admins shall be able to add a label to the system.|Completed|
+	|1.1.2.4.2 Admins shall be able to edit a label.|Completed|
+	|1.1.2.4.3 Admins shall be able to remove a label.|Completed|
+	|1.1.3 Interactions Between The Users||
+	|1.1.3.1 Messaging||
+	|1.1.3.1.1 Registered users shall be able to send text messages to each other.|Not started|
+	|1.1.3.1.2 Registered users shall be able to send media messages to each other.|Not started|
+	|1.1.3.1.3 Registered users shall be able to choose if they want to see the message sent to them.|Not started|
+	|1.1.3.1.4 Registered users shall be able to block another user.|Not started|
+	|1.1.3.1.5 Registered users shall be able to unblock a user that they blocked.|Not started|
+	|1.1.3.1.6 Registered users shall not be able to send a message to a user who blocked them.|Not started|
+	|1.1.3.1.7 Registered users shall not be able to send a message to a user who turned off their messaging feature.|Not started|
+	|1.1.3.1.8 Registered users shall receive a prompt asking them if they want to receive the message sent if the sender is a user whom they have not messaged with before.|Not started|
+	|1.1.3.2 Reporting||
+	|1.1.3.2.1 Registered users shall be able to report other registered users for spam.|In progress|
+	|1.1.3.2.2 Registered users shall be able to report other registered users for harassment.|In progress|
+	|1.1.3.2.3 Registered users shall be able to report posts or comments for misinformation.|In progress|
+	|1.1.3.2.4 Registered users shall be able to report posts or comments for content violating the app rules.|In progress|
+	|1.1.3.2.5 Registered users shall be able to report posts or comments for content mislabeling.|In progress|
+	|1.1.3.2.6 Admins shall be able to list reported posts along with their reason for reporting.|In progress|
+	|1.1.4 Interactions Between The Users and the Chatbot||
+	|1.1.4.1 Users shall be able to ask predetermined questions to the chatbot.|Completed|
+	|1.1.4.2 Users shall be able to choose a predetermined answer to the follow-up questions of the chatbot.|Completed|
+	|1.1.4.3 Users shall be able to acquire information from the chatbot depending on their answers.|Not started|
+	|1.2 System Requirements|
+	|1.2.1 Reputation System|
+	|1.2.1.1 New accounts shall have 0 reputation.|Not started|
+	|1.2.1.2 Upvotes a user's posts and comments get shall increase their account's reputation.|Not started|
+	|1.2.1.3 Downvotes a user's posts and comments get shall decrease their account's reputation.|Not started|
+	|1.2.1.4 Accounts with a certain amount of negative reputation shall be deleted by the system automatically|Not started|
+	|1.2.2 Forum||
+	|1.2.2.1 Labels|
+	|1.2.2.1.1 Labels shall have a unique name.|Completed|
+	|1.2.2.1.2 Labels shall have a label type.|Not started|
+	|1.2.2.1.3 Content labels shall have an ontological connection to at least one of the field labels.|Not started|
+	|1.2.2.1.4 Label types shall have a unique and easily distinguishable color.|Completed|
+	|1.2.2.2 Searchbar||
+	|1.2.2.2.1 Suggestion List||
+	|1.2.2.2.1.1 Searchbar shall create a suggestion list, listing all searchables except strings, starting with the character sequence entered into the textbox.|In progress|
+	|1.2.2.2.1.2 Suggestion list shall filter out searchables as more characters are typed into the textbox.|In progress|
+	|1.2.2.2.1.3 Suggestion list shall have a row at the top containing filter switches for the names of the searchable classes.|Not started|
+	|1.2.2.2.1.4 Flipping a switch other than the string switch shall filter out all other types of searchables from the suggestion list.|Not started|
+	|1.2.2.2.1.5 Flipping the string switch shall add the string typed into the textbox of the search bar as a searchable to the search.|Not started|
+	|1.2.2.2.1.6 Selecting a searchable from the suggestion list shall add the selected searchable to the search.|Not started|
+	|1.2.2.2.2 Searching||
+	|1.2.2.2.2.1 Search results shall be a list of post previews of the posts having the searchables that the search is done by.|Completed|
+	|1.2.2.2.2.2 Search results shall be sorted by most upvoted in the last month by default.|Not started|
+	|1.2.2.3 Post Previews||
+	|1.2.2.3.1 Post preview shall act as a hyperlink to the post that it belongs to.|In progress|
+	|1.2.3 Chatbot||
+	|1.2.3.1 Chatbot shall have a set of questions that are predetermined in the system that the users can select to ask the chatbot.|Completed|
+	|1.2.3.2 The predetermined questions that the chatbot presents shall include how to use the app.|Not started|
+	|1.2.3.3 The chatbot shall have a set of predetermined follow-up questions that the users can select to get more detailed information about the topic or to ask about another topic.|In progress|
+	|1.2.3.4 Chatbot questions shall be semantically linked to each other to clarify the topic which the user is looking for.|In progress|
+	|1.2.3.5 Chatbot shall give information on the related topic depending on the questions selected by the user.|In progress|
+	|1.2.3.6 The replies generated by the chatbot should contain information about where to find and the functionality of a certain feature of the app.|Not started|
+	|1.2.4 Home Feed||
+	|1.2.4.1 Every account shall have a home feed.|Completed|
+	|1.2.4.2 Home feed shall be a list of post previews.|Completed|
+	|1.2.4.3 Post previews shall be listed in an account's HomeFeed in the order of the most upvote in the last 30 days.|In progress|
+	|1.2.4.4 HomeFeed shall consist of 50 post previews, grouped 10 by 10 in pages with indexes 1-5.|Not started|
+	|1.2.5 Notifications||
+	|1.2.5.1 When a post is shared, 3 randomly picked doctor-type users from the group of doctors whose expertise matches the content label of the post (see 1.1.1.7.3) and notifications are turned on (see 1.1.1.3.11) should be notified.|Not started|
+	|1.2.5.2 When a notification of a post is clicked by the user, it should take the user to the post.|Not started|
+	|1.2.5.3 When the number of upvotes or downvotes surpasses a certain amount, its author shall be notified.|Not started|
+	|1.2.5.4 When a post gets a comment, its author shall be notified.|Not started|
+	|1.2.5.5 When a user gets a message, the user shall be notified.|Not started|
+	|2 Non-Functional Requirements||
+	|2.1 Security||
+	|2.1.1 Two-factor authentication should be used for users who try to log in to their accounts.|Not started|
+	|2.1.2 The system shall regularly check for malware.|Not started|
+	|2.1.3 Interactions in the website shall use SSL technology.|Not started|
+	|2.1.4 The system shall use the HTTPS protocol.|Not started|
+	|2.1.5 Users' personal information should be hidden from other members.|Not started|
+	|2.2 Response||
+	|2.2.1 A request made to the server should be responded to in no more than 5 seconds.|Not started|
+	|2.3 Availability||
+	|2.3.1 The application shall be available as a native website via modern web browsers.|Not started|
+	|2.3.2 The application shall be available as a native mobile application on Android platforms.|Not started|
+	|2.3.3 The application shall be dockerized.|Completed|
+	|2.3.4 The application shall be deployable to a configurable server.|Completed|
+	|2.3.5 The application shall support the English characters.|Completed|
+	|2.4 Reliability||
+	|2.4.1 The system shall always run if not intentionally shut down.|Not started|
+	|2.4.2 The application shall be portable and have a dedicated server.|Not started|
+	|2.4.3 The server shall scale when needed.|Not started|
+	|2.5 Privacy||
+	|2.5.1 The system shall store the data securely.|Not started|
+	|2.5.2 The system shall provide a privacy policy to the users beforehand to inform what kind of data will be requested, how it will be stored, and with whom it will be shared.|In progress|
+    
 ### Progress according to requirements
 
 ### API Endpoints
