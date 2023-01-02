@@ -1257,12 +1257,68 @@ For a better view you can visit [Lucidchart](https://lucid.app/lucidchart/596a52
 * [Artun Akdoğan](https://github.com/bounswe/bounswe2022group6/wiki/Artun-Akdo%C4%9Fan)
 ## **Member:** [Artun Akdoğan](https://github.com/bounswe/bounswe2022group6/wiki/Artun-Akdo%C4%9Fan), Group 6 - Backend.
 
-
-
 ### **Responsibilities:**
+
+#### **Milestone 1**
+We started this semester by reviewing last semester's already-prepared requirements. I suggested and changed parts of the account management requirements to make them more precise and correct. Also, I was able to plan the Backend subteam's communication plan and initialize the communication channel via Discord.
+
+As a backend developer, I was responsible for initializing the application and implementing the basic API for the first milestone described in the requirements. I have taken an active role in containerizing both Backend and Frontend via Docker, finding the most suitable database for our project, and unifying them in a relevant, robust and secure manner via Docker Compose. I also took an active role in the Deployment of the pre-release on the AWS EC2 instance. Besides, I have created the profile view API and user registration API. Apart from those work, I was constantly dealing with bugs that are either caused by backend frameworks, or by Deployment.
+
+Last but not least, I was able to fix some deployment bugs on the Amazon instance and deploy the milestone demo. Also, I updated the project plan according to my work.
+
+#### **Milestone 2**
+As a member of Backend subteam, I was mainly responsible for developing required features on the backend that both Frontend and Mobile subteams can use. I wrote required code and made related changes on Backend and Database environments for this task. I also fixed lots of code on Backend and Frontend. Besides, I was responsible for containerization and deployment of the application.
+
+My main responsibility was developing appropriate Location manager and Content manager classes, and writing related code within it. For location manager, I have researched large amounts of existing API's, but I decided that it was best to keep world data in our database. So, I wrote relevant code and models to implement it. I wrote documentations and testcases for my work. I also implemented comment, post, and vote endpoints, for both GET and POST methods, on Content Manager app. I fixed related issues that raised afterwards, and wrote documentation for it.
+
+For annotation feature and better management of location data for Location Manager, I had to migrate our database from MySQL to PostgreSQL, and I created 3 different databases to store general data, annotation data, and location-based large data. For this mission, I have researched huge amounts of materials, and fixed already implemented code. Unfortunately, I required to remove reset-db feaute that mainly used for development purposes, as it wasn't compatible with PostgreSQL. Fortunately, I was able to connect our Django Backend with the new database successfully.
+
+#### **Milestone 3**
+For the final milestone, I was mainly responsible for creating Backend endpoints and writing the relevant testcases with Postman documents. Those endpoints were critical as both Backend and Mobile subteams needed them to finalize their work. Also, I was responsible for relevant Docker containerization updates and improvements that must be done to decrease container footprint on the AWS instances as we were working with very low RAM.
+
+I started my work by completing the missing tests from Milestone 2. After writing testcases and enhancing documents, I implemented necessary endpoints for other subteams to use. Besides, we were missing a production build for docker containers. Before this build, we were using development builds with their debug options enabled. This was a security breach, not to mention its extra overhead on the system.
+
+Last but not least, I have contributed to Customer Milestone 2's report and Location Manager API's documentation for the group report.
+
 
 ## **Main contributions:**
 
+#### **Milestone 1**
+* Researching on technologies to use in Backend development.
+* Deciding on the roadmap of Backend Development via meetings and requirements review.
+* Creating Application workspace folders for Backend, Frontend, and Mobile subteams.
+* Initializing Backend workspace via Django and with MySQL database.
+* Deploying the application via docker compose on AWS EC2 instance.
+* Containerizing both Backend and Frontend applications via Docker.
+* Implementing the Account View function.
+* Implementing the User Registration feature.
+* Documenting API's via Postman.
+* Fixing bugs that are related to Backend or Deployment.
+* Attending all meetings and taking notes for them.
+
+#### **Milestone 2**
+* Deployment of Backend and Frontend on Amazon AWS
+* Various bug fixes on backend and frontend
+* Reviewing pull requests
+* Implementing locmgr APIs for IP location retrieval and country/state/city list retrieval
+* Restructuring locmgr API's location data script by updating SQL file
+* Migrating the database from MySQL to PostgreSQL
+* Implementing Post View API
+* Implementing Comment View API
+* Implementing Content Voting System
+* Uploading the Group Meeting #5 Notes
+
+#### **Milestone 3**
+* Writing the missing tests for content manager
+* Implementing Edit Post/Comment Endpoint
+* Implementing Reputation Field for Users
+* Implementing ViewProfile Endpoint
+* Implementing Picture Store for Posts and Accounts (Its cancelled as we decided to keep data in another AWS instance)
+* Implementing Delete Method for Comments and Posts
+* Implementing Production Docker Code and Its Documentations
+* Updating Running Manuals of Backend and Frontend
+* Writing Milestone 2 Customer Feedback
+* Writing Location Manager API for Final Group Report
 
 
 #### **Code related significant issues:**
@@ -1288,12 +1344,12 @@ For a better view you can visit [Lucidchart](https://lucid.app/lucidchart/596a52
 
 #### **Management related significant issues:**
 
-   1. Creating a Communication Plan for Frontend, Backend and Mobile Subteams - [#166](https://github.com/bounswe/bounswe2022group6/issues/166)
-   2. Reviewing the Requirement Sections 1.1.1.1 to 1.1.1.6 - [#167](https://github.com/bounswe/bounswe2022group6/issues/167)
-   3. Uploading the Backend Meeting #1 Notes - [#169](https://github.com/bounswe/bounswe2022group6/issues/169)
-   4. Uploading the Group Meeting #5 Notes - [#263](https://github.com/bounswe/bounswe2022group6/issues/263)
-   5. Updating Running Manuals of Backend and Frontend - [#371](https://github.com/bounswe/bounswe2022group6/issues/371)
-   6. Writing Milestone 2 Customer Feedback - [#386](https://github.com/bounswe/bounswe2022group6/issues/386)
+   1. Created a Communication Plan for Frontend, Backend and Mobile Subteams - [#166](https://github.com/bounswe/bounswe2022group6/issues/166)
+   2. Reviewed the Requirement Sections 1.1.1.1 to 1.1.1.6 - [#167](https://github.com/bounswe/bounswe2022group6/issues/167)
+   3. Uploaded the Backend Meeting #1 Notes - [#169](https://github.com/bounswe/bounswe2022group6/issues/169)
+   4. Uploaded the Group Meeting #5 Notes - [#263](https://github.com/bounswe/bounswe2022group6/issues/263)
+   5. Updated Running Manuals of Backend and Frontend - [#371](https://github.com/bounswe/bounswe2022group6/issues/371)
+   6. Wrote Milestone 2 Customer Feedback - [#386](https://github.com/bounswe/bounswe2022group6/issues/386)
    7. Wrote API Endpoints (Location Manager Part) for Final Group Report - [#461](https://github.com/bounswe/bounswe2022group6/issues/461)
 
 ### **Pull requests:**
