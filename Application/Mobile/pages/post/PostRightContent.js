@@ -26,11 +26,11 @@ const PostRightContent = (props) => {
     }
 
     return (
-        <Menu visible={menuVisible} onDismiss={() => setMenuVisible(false)} anchor={<IconButton disabled={props.route.params.username === null} {...props} icon='dots-vertical' onPress={() => setMenuVisible(true)} />}>
+        <Menu visible={menuVisible} onDismiss={() => setMenuVisible(false)} anchor={<IconButton disabled={props.route.params?.username === undefined} {...props} icon='dots-vertical' onPress={() => setMenuVisible(true)} />}>
             <Menu.Item icon='account-cancel-outline' onPress={handleBlockUser} title={isBlocked ? 'Unblock User' : 'Block User'} />
             <Divider />
             <Menu.Item icon='alert-octagon-outline' onPress={() => console.log('clicked report!')} title="Report" />
-            {(props.post?.owner.username ?? props.route.params.post.owner.username) === props.route.params.username &&
+            {(props.post?.owner.username ?? props.route.params.post.owner.username) === props.route.params?.username === undefined&&
                 <View>
                     <Divider />
                     <Menu.Item icon='pencil-outline' onPress={handleEditProfileButton} title="Edit Post" />

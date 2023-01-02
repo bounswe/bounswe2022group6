@@ -67,6 +67,7 @@ const getAllPosts = async () => {
 
 // The home feed
 const HomeFeed = (props) => {
+    console.log(props.route.params)
     const [homeFeedPosts, setHomeFeedPosts] = useState([]);
     // Loading
     const [isFetchingData, setIsFetchingData] = useState(true);
@@ -130,7 +131,7 @@ return (
         />
 
         {/* Create new post button */}
-        {props.route.params.username &&
+        {props.route.params?.username &&
             <AnimatedFAB
                 icon={'plus'}
                 label={'New Post'}

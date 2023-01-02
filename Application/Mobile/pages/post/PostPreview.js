@@ -92,11 +92,11 @@ const PostPreview = (props) => {
             {/* Buttons */}
             <Card.Actions style={styles.cardFooter}>
                 <View style={styles.voteContainer}>
-                    <IconButton disabled={props.route.params.username === null} color={colors.primary} animated={true} icon={upVoted ? 'arrow-up-drop-circle' : 'arrow-up-drop-circle-outline'} onPress={handleUpvote} />
+                    <IconButton disabled={props.route.params?.username === undefined} color={colors.primary} animated={true} icon={upVoted ? 'arrow-up-drop-circle' : 'arrow-up-drop-circle-outline'} onPress={handleUpvote} />
                     <Text>
                         {props.post.result_vote}
                     </Text>
-                    <IconButton disabled={props.route.params.username === null} color={colors.primary} animated={true} icon={downVoted ? 'arrow-down-drop-circle' : 'arrow-down-drop-circle-outline'} onPress={handleDownvote} />
+                    <IconButton disabled={props.route.params?.username === undefined} color={colors.primary} animated={true} icon={downVoted ? 'arrow-down-drop-circle' : 'arrow-down-drop-circle-outline'} onPress={handleDownvote} />
                 </View>
                 <Button labelStyle={{ fontSize: 23 }} contentStyle={styles.comment} icon='comment-outline' onPress={() => console.log('Clicked comment')}><Text style={{ fontSize: 13 }}>{props.post.comment_count}</Text></Button>
             </Card.Actions>
