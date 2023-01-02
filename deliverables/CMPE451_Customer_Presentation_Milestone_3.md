@@ -244,11 +244,31 @@ Apart from the management issues we faced, we could also revise how we prioritiz
 
 
 
+
+
 * Yasir Dikbaş
 
     |Contribution|Link|
     |---|---|
-    |...|...|
+    |Attended most of the weekly meetings||
+    |Opened the issue for deciding programming language for mobile development|[#173](https://github.com/bounswe/bounswe2022group6/issues/173)|
+    |Studied for react native mobile app development and made research about it mainly reading medium articles||
+    |Initialized mobile application on my local|[#176]([[https://github.com/bounswe/bounswe2022group6/issues/176]
+    |Created base pages for mobile app on my local|[#200](https://github.com/bounswe/bounswe2022group6/issues/200)|
+    |Decided on communication method with mobile team for throughout the development process.|[#171](https://github.com/bounswe/bounswe2022group6/issues/171)|
+    |[#175: Reviewing the Requirement Sections 2.1 to 2.5][#175](https://github.com/bounswe/bounswe2022group6/issues/175)|
+    |Reviewed profile page initialization|[#234](https://github.com/bounswe/bounswe2022group6/issues/234)|
+    |Reviewed conflicts resolved|[#236](https://github.com/bounswe/bounswe2022group6/issues/236)|
+    |Reviewed our group logo and took ideas from a logo designer||
+    |Prepared software requirements specification for final delivarable|[Pull Request #475](https://github.com/bounswe/bounswe2022group6/pull/475)|
+    |Reviewed chatbot improvements|[Pull Request #446](https://github.com/bounswe/bounswe2022group6/pull/446)|
+    |Reviewed unit tests added|[Pull Request #449](https://github.com/bounswe/bounswe2022group6/pull/449)|
+    |Updated customer presentation file 1 and 2, directlt commited on master||
+    |Started to implement editing profiles functionality for mobile|
+    |Implemented tons of posts and comments in the web and mobile by registering multiple users|[#445](https://github.com/bounswe/bounswe2022group6/issues/445)|
+    |Tested whole web app before our final presentation and reported bugs to development team|
+    |Decided on the labels that should be used in our mobile and web application alongside with Alp Eren|[#448](https://github.com/bounswe/bounswe2022group6/issues/448)|
+    |Kept track of my detailed work in my personal wiki page and updated it regularly, made final changes to our report|[#481](https://github.com/bounswe/bounswe2022group6/issues/481)|
 
 
 * Aral Dörtoğul
