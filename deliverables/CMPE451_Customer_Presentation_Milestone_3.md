@@ -1093,6 +1093,125 @@ In our project, we have utilized annotations. The annotations we are using are i
 
 ### User Manual
 
+Welcome to Medishare!
+
+
+This manual will provide you with all the information you need to safely and effectively use our platform to share your medical experiences with others. Please read it carefully and keep it in a safe place for future reference.
+
+You do not necesseraily have to create an account initially. You can visit the website as guest user. An account creation is required for further functionalities such as creating a post, making a comment, voting etc.
+
+## Creating an Account
+
+1. Go to www.medishare.example.com and click "Sign Up" to create a new account.
+
+2. Follow the prompts to create your account, including entering a unique username, a password, a unique email address, your gender, and your birth date.
+
+## Adding Information to Your Account
+
+1. Once your account is created, you can add a phone number to your account by going to your profile and clicking "Edit Profile."
+
+2. To add your first name, go to your profile and click "Edit Profile." Enter your first name in the appropriate field and click "Save Changes."
+
+3. To add your last name, go to your profile and click "Edit Profile." Enter your last name in the appropriate field and click "Save Changes."
+
+4. To add your profession, go to your profile and click "Edit Profile." Enter your profession in the appropriate field and click "Save Changes."
+
+5. To add your location, go to your profile and click "Edit Profile." Enter your location in the appropriate field and click "Save Changes."
+
+## Editing the Information in Your Account
+
+1. To change the email address in your account, go to your profile and click "Edit Profile." Enter your new email address in the appropriate field and click "Save Changes."
+
+2. To change the phone number in your account, go to your profile and click "Edit Profile." Enter your new phone number in the appropriate field and click "Save Changes."
+
+2. To change the profile picture in your account, go to your profile and click "Edit Profile." Click "Change Picture" and select a new image from your computer. Click "Save Changes" to update your profile picture.
+
+3. To change the first name in your account, go to your profile and click "Edit Profile." Enter your new first name in the appropriate field and click "Save Changes."
+
+4. To change the last name in your account, go to your profile and click "Edit Profile." Enter your new last name in the appropriate field and click "Save Changes."
+
+5. To change the profession in your account, go to your profile and click "Edit Profile." Enter your new profession in the appropriate field and click "Save Changes."
+
+6. To change the location in your account, go to your profile and click "Edit Profile." Enter your new location in the appropriate field and click "Save Changes."
+
+7. To change the password in your account, go to your profile and click "Edit Profile." Enter your current password in the "Current Password" field and your new password in the "New Password" and "Confirm Password" fields. Click "Save Changes" to update your password.
+
+## Removing Information from Your Account
+
+1. To remove the email address from your account, go to your profile and click "Edit Profile." Delete the email address from the appropriate field and click "Save Changes." 
+
+Note: You must have a phone number in your account in order to remove the email address.
+
+2. To remove the phone number from your account, go to your profile and click "Edit Profile." Delete the phone number from the appropriate field and click "Save Changes." 
+
+Note: You must have an email address in your account in order to remove the phone number.
+
+3. To remove the profile picture from your account, go to your profile and click "Edit Profile." Click "Change Picture" and select the default image. Click "Save Changes" to update your profile picture.
+
+4. To remove the first name from your account, go to your profile and click "Edit Profile." Delete the first name from the appropriate field and click "Save Changes."
+
+5. To remove the last name from your account, go to your profile and click "Edit Profile." Delete the last name from the appropriate field and click "Save Changes."
+
+6. To remove the profession from your account, go to your profile and click "Edit Profile." Delete the profession from the appropriate field and click "Save Changes."
+
+7. To remove the location from your account, go to your profile and click "Edit Profile." Delete the location from the appropriate field and click "Save Changes."
+
+##Deleting Your Account
+
+1. To delete your account, go to your profile and click "Edit Profile." Click "Delete Account" and confirm your request.
+
+2. Admins can delete any account by going to the user's profile and clicking "Delete Account." They will be prompted to confirm the request.
+
+## Logging In/Logging Out
+
+1. To log in to your Medishare account, go to www.medishare.example.com and enter your password along with your username, phone number, or email in the appropriate fields. Click "Log In."
+
+2. To log out of your account, click on your username in the top right corner of the dashboard and select "Log Out."
+
+## Doctor Verification
+
+1. To update your account as a doctor account, go to your profile and click "Edit Profile."
+
+2. Click "Verify as a Doctor" and follow the prompts to provide proof of your medical credentials.
+
+3. Your request for doctor verification will be reviewed by the Medishare team. If approved, your account will be updated as a doctor account.
+
+## Using Medishare
+
+1. To share your medical experience, click "New Post" on the dashboard.
+
+2. Enter a title and description of your experience, and select the appropriate category from the menu.
+
+3. You can also add photos to your post by clicking "Add Media."
+
+4. When you are finished, click "Post" to share your post with the Medishare community.
+
+## Interacting with Other Users
+
+1. You can filter the experiences by category, location, or other criteria using the search bar.
+
+2. To interact with a user's post, you can click the "Upvote" or "Downvote" buttons or leave a comment.
+
+## Annotating Posts and Images
+
+1. To annotate a post or image, click on the post or image and select the "Annotate" button.
+
+2. A new window will open with the post or image.
+
+3. Click on the post or image to add the annotation at the desired location.
+
+4. Use the toolbar to adjust the size and other properties of the annotation as needed.
+
+5. To add multiple annotations to the same post or image, repeat steps 2-4.
+
+6. To delete an annotation, hover over the annotation and click the "Delete" button that appears.
+
+7. When you are finished annotating, click the "Save" button to save your changes.
+
+8. The annotated post or image will now be visible to other users.
+
+We hope you enjoy using Medishare! If you have any questions or need assistance, please don't hesitate to contact us.
+
 ### System Manual
 
 ## Software Requirements Specification
