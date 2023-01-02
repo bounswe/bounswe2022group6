@@ -459,7 +459,7 @@ Pull requests reviewed by me:
 
 ### **Additional Information:**
 
-In general, I tried my best to be consistent about my what I hove throughout the development of the application. All of my work, including issues, code, pull requests, tests, commit messages, etc. are very consistent within themselves and it makes them very easy to understand and track. This also helps my teammates and the development process overall, because a person whose work depends on mine could easily track the changes I implemented without needing to communicate with me.
+In general, I tried my best to be consistent about my what I have produced throughout the development of the application. All of my work, including issues, code, pull requests, tests, commit messages, etc. are very consistent within themselves and it makes them very easy to understand and track. This also helps my teammates and the development process, because a person whose work depends on mine could easily track the changes I implemented without needing to communicate with me.
 
 Additionally, I have been very careful about my responsibilities deadlines. Almost all, if not all, of my responsibilities are completed before their respective deadlines. This is also very important for the development process, because it helps my teammates to plan their work accordingly.
 
