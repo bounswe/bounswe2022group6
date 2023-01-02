@@ -183,6 +183,310 @@ In our project, we have utilized annotations. The annotations we are using are i
 
 ## User Scenarios and Mockups
 
+### Sharing a Post
+
+#### Melisa Dönmez
+
+<img src="https://user-images.githubusercontent.com/74210334/159339384-83104a53-6f63-44cc-b982-a8f6a1de5192.png"  width="250" height="250" />
+
+##### Persona
+
+* Age: 32 
+* Job: Accountant
+* Interest: sketching , solving sudoku, dancing 
+
+#### Story 
+
+* She hates spending a lot of time in traffic. That’s why, she bought a new model motorcycle, and she prefers using it over her old car. While driving to work, she had an unlucky traffic accident, and she broke her nose which caused permanent structural damage. She was feeling insecure about her look and looked for a reliable and affordable solution, which caused her to choose plastic surgery. 
+
+#### Goals
+
+* She felt like sharing her overall experience for informing other people who are contemplating having a similar surgery.
+
+#### Preconditions
+
+* Melisa is a registered user.
+* She uses this website time to time and while searching for her own condition, she was not able to come across a similar situation.	
+* She logged in and the website is open in her browser.
+
+####  Actions
+
+1.	She is on the Home page.
+2.	She clicks the “New Post” button. Post creation page opens.
+3.	She enters the title, fills the body part, and adds an image of her before and after plastic surgery.
+4.	She selects the related labels to make post be easily findable. Then, she clicks the “Post” button.
+5.	The post appears in Home page. She logs out.
+
+
+#### Acceptance Criteria
+
+* 1.1.1.6.3 Registered users shall be able to stay logged in.
+* 1.1.2.2.1.1 Registered users shall provide a title when creating a post.
+* 1.1.2.2.1.2 Registered users shall provide a description when creating a post.
+* 1.1.2.2.1.3 Registered users shall provide a post type label when creating a post.
+* 1.1.2.2.1.4 Registered users shall be able to add any number of labels to their posts.
+* 1.1.2.2.1.5 Registered users shall be able to add media to their posts.
+* 1.2.2.1.1 Labels shall have a unique name.
+* 1.2.2.1.2 Labels shall have a label type.
+* 1.2.2.3.1 Post preview shall act as a hyperlink to the post that it belongs to.
+* 1.2.4.1 Every account shall have a home feed.
+* 1.2.4.2 Home feed shall be a list of post previews.
+* 2.3.1 The application shall be available as a native website via modern web browsers.
+
+#### Mockups
+
+1. She already logged in and the website is open in her browser.
+
+![sayfa1](https://user-images.githubusercontent.com/74210334/161385131-235b7d62-2780-4829-b7be-0ac0b7c3c82d.png)
+
+2. She clicks the "New Post" button and post creation page opens.
+
+![sayfa2](https://user-images.githubusercontent.com/74210334/161385270-0fa880f5-5efa-452d-8992-2ae906cee6dd.png)
+
+3. She enters the title, fills the body part, and adds an image of her before and after plastic surgery.
+
+![sayfa3](https://user-images.githubusercontent.com/74210334/161385168-f2ddd1a6-8d2e-4514-8dcf-e269db0c3ec3.png)
+
+4. She selects the related labels to make post be easily findable. Then, she clicks the “Post” button.
+
+![sayfa4](https://user-images.githubusercontent.com/74210334/161385192-899c0de2-a905-41bc-b810-3662b4dece76.png)
+
+5. The post appears in Home page.
+
+![sayfa5](https://user-images.githubusercontent.com/74210334/161385220-f03fb5af-e606-499b-aa2d-3234c94aea07.png)
+
+### Using Chatbot
+
+#### Gizem Öztürk
+
+<img src="https://user-images.githubusercontent.com/45121414/159352530-be6bb299-951d-4518-94f0-9654946618e8.jpeg"  width="250" height="250" />
+
+#### Persona
+
+* Age: 19
+* Job: Arts Student
+* Interests: Gardening, Photography, Boxing
+* Province: İzmir / Turkey
+
+#### Story 
+
+* She loves the nature and taking pictures. She has had saved enough for an abroad trip and recently been to Japan and took some awesome shots. While returning home she thought it would be great to plant some Sakura trees ,that she admired most, to her garden so she brought some seeds. After 10 weeks the seeds sprouted and she was very excited about it. But unfortunately she felt itchy on her hands. She wanted to find out if the reason was the seedlings and if she was allergic to sakura.
+
+#### Goals
+
+* She wants to get a quick response from the app therefore uses the Chatbot feature.
+* She wants to find out if there were any prior shared experiences on the platform.
+
+#### Preconditions
+
+* Gizem is a registered user.
+* She is logged in to the website.
+* She is currently at the Home Page.
+* She knows where the Chatbot is placed but she had never used it before.
+
+#### Actions
+1. She clicks on the "Chatbot".
+1. She selects "Search for Experiences" on the prompt.
+1. She selects "Keyword" on the prompt.
+1. She types "sakura" as a keyword in Chatbot.
+1. Chatbot redirects her to search page with "sakura" related posts.
+1. She reads 2 experiences shared on the platform.
+1. She decides to see a doctor for treatment and logs out.
+
+#### Acceptance Criteria
+
+* 1.1.1.6.1 Registered users shall be able to log in by providing their password with either the username, phone number, or the email of their account.
+* 1.1.1.6.4 Registered users shall be able to log out from the application.
+* 1.1.2.1.1 Users shall be able to search for any number searchables.
+* 1.1.2.2.4 Viewing a Post (with all subrequirements).
+* 1.1.2.3.4 Viewing a Comment (with all subrequirements).
+* 1.1.4.1 Users shall be able to ask predetermined questions to the chatbot.
+* 1.1.4.2 Users shall be able to choose a predetermined answer to the follow-up questions of the chatbot.
+* 1.1.4.3 Users shall be able to acquire information from the chatbot depending on their answers to the questions asked by the chatbot.
+* 1.2.2.3.1 Post preview shall act as a hyperlink to the post it belongs to.
+* 1.2.3.1 Chatbot shall have a set of questions that are predetermined in the system that the users can select to ask the chatbot.
+* 1.2.3.2 The predetermined questions that the chatbot presents should be about how to use the app.
+* 1.2.3.3 The chatbot shall have a set of predetermined follow-up questions that the users can select to get more detailed information about the topic or to ask about another topic.
+* 1.2.3.4 Chatbot questions are semantically linked to each other in order to clarify the topic which the user is looking for.
+* 1.2.3.5 Chatbot shall give information on the related topic depending on the questions selected by the user.
+* 1.2.3.6 The information presented by the chatbot should contain information about the location or the functionality of a certain feature of the app.
+* 1.2.4 Home Feed (with all subrequirements).
+* 2.3.1 The application shall be available as a native website via modern web browsers.
+* 2.3.5 The application shall support the English characters.
+
+#### Mockup
+
+1. She clicks on the "Chatbot".
+
+![1](https://user-images.githubusercontent.com/74202057/161434124-256641fa-1a19-47a6-857a-61931f23c78d.png)
+
+2. She selects "Search for Experiences" on the prompt.
+
+![2](https://user-images.githubusercontent.com/74202057/161434099-813bfe65-d2b1-4039-b026-49d0a8d235df.png)
+
+3. She selects "Keyword" on the prompt.
+
+![3](https://user-images.githubusercontent.com/74202057/161434126-e98448eb-6279-4727-a7ff-71a8bb74948d.png)
+
+4. She types "sakura" as a keyword in Chatbot.
+
+![5](https://user-images.githubusercontent.com/74202057/161434158-da4fb951-ea89-4005-bb32-0bfb5b8be46e.png)
+
+5. Chatbot redirects her to search page with "sakura" related posts.
+
+![6](https://user-images.githubusercontent.com/74202057/161434163-f3f68107-6752-4708-aca5-5e0eff250b28.png)
+
+6. She reads 2 experiences shared on the platform.
+
+![7](https://user-images.githubusercontent.com/74202057/161434193-9dca46d6-3b68-47d4-807d-52ecaa43db8c.png)
+
+![8](https://user-images.githubusercontent.com/74202057/161434196-24b0e6e7-f474-4121-85a8-4699cbc39350.png)
+
+7. She decides to see a doctor for treatment and logs out.
+
+![9](https://user-images.githubusercontent.com/74202057/161434204-de705f77-121c-42a8-bfc5-27762ca54e69.png)
+
+### Reviewing a Post on the Forum
+
+#### John Sucuksever
+
+<img src="https://user-images.githubusercontent.com/74202008/159582930-e59b4da3-e498-45ba-b33c-e389e4cb7662.png" width=20% height=20%>
+
+#### Persona
+
+* Age: 45
+* Job: Obstetrician
+* Interests: Biking, Hiking, Wrist watches
+* Province: Wisconsin, USA
+
+#### Story 
+
+* John gets a notification of a post from a woman who gave birth to her first child 3 months ago. She wants to lose her extra pounds with a diet she found on the web, but she is concerned about how it would affect her breast-feeding. John wants to share his medical advice, also getting his friend Endocrinologist Ali’s opinion.
+
+#### Goals
+
+* He wants to help a concerned mother.
+* He wants to become a high ranked doctor in the forum.
+
+
+#### Preconditions
+
+* John is a doctor-type user on the platform.
+* John is logged in to his account on his phone.
+* John’s mobile notifications are turned on.
+* There is a post about which John got a notification.
+* Ali is a doctor-type user with nickname: DrAliDiyarbakirli
+
+
+####  Actions
+
+1. John clicks on the notification
+2. He comes across the relevant post
+3. He clicks to the part where he can write his comment.
+4. He writes his advice and mentions a colleague.
+5. He clicks the “Reply” button.
+6. 2 days later he gained the “10th upvote” batch after his comment getting 10 upvotes.
+
+#### Acceptance Criteria
+
+* 1.1.1.3.12 Registered users shall be able to turn on the notifications feature in order to receive notifications related to posts.
+* 1.1.1.6.3 Registered users shall be able to stay logged in.
+* 1.1.2.2.1.7 Registered users shall be able to mention other registered users in the description of their post.
+* 1.1.2.2.5.1 Registered users shall be able to upvote posts.
+* 1.1.2.2.5.2 Registered users shall be able to downvote posts.
+* 1.1.2.2.5.3 Registered users shall be able to unvote posts.
+* 1.1.2.3.1.1 Registered users shall be able to comment under a post.
+* 1.2.1.2 Upvotes a user's posts and comments get shall increase their account's reputation.
+* 1.2.5.2 When a notification of a post is clicked by the user, it should take the user to the post preview of the post.
+
+#### Mockups
+
+| 1. John receives a notification  | 2. He taps the notification and he sees the post | 3. He taps the "Create a Reply" button |
+| :---: | :---: | :---: |
+| ![notification](https://user-images.githubusercontent.com/74202008/159579751-cb6417f5-93bf-4adf-89e9-b98818f76e28.png) | ![frame1](https://user-images.githubusercontent.com/74202008/159580784-b36a2509-9712-412e-a3e4-86f1329c0cb9.png) | ![frame2](https://user-images.githubusercontent.com/74202008/159581490-c74d4f90-dc1c-4668-b214-81a990477aaf.png) |
+|4. He writes his response | 5. He taps "Post" and returns to the original post | 6. He receives a notification about his response |
+|![frame3](https://user-images.githubusercontent.com/74202008/159581805-59d811b3-42bb-4d90-be75-306693ce673a.png)|![frame4](https://user-images.githubusercontent.com/74202008/159582712-ab5ad55a-6215-4230-b51d-073ef1dc07cb.png)|![frame5](https://user-images.githubusercontent.com/74202008/159582635-3c2f12e9-4963-4047-86af-b6e477e1c138.png)|
+
+### Registering to the Website
+
+#### Fatma Elçim
+![image](https://user-images.githubusercontent.com/71015118/199179007-6b41cbc2-c3e3-4d6b-852f-fb576e3c2fb0.png)
+
+#### Persona
+
+* Age: 29
+* Job: Master Student
+* Interest: Skiing, theatre
+
+#### Story 
+
+* She has been having an occasional eye twitch for over a week, and she is really annoyed by that. Yet, she has no time to go to see a doctor because she is very busy as a master's student. Plus, it is really hard to get an appointment with a doctor due to the high demand. So she wanted to get some insight into what is going on and trying the solve her problem without going to a doctor.
+
+#### Goals
+
+* Fatma aims to search for her issue on the website and read the experience of the people who have been through the same process as her. Thus, she wants to register on the site.
+
+#### Preconditions
+
+* Fatma has an e-mail address.
+* Fatma is not a registered user.
+
+####  Actions
+
+1.	She is on the main page.
+2.	She clicks the “Register” button. 
+3.	She enters the necessary credentials such as e-mail, username, password, name, surname, and birthday.
+4.	She understands she is registered after getting a success message on the screen.
+
+
+#### Acceptance Criteria
+- 1.1.1.1.1 Unregistered users shall be able to create an account by providing a unique username, a password, a unique email address, gender, and birth date.
+- 1.1.1.2.1 Registered users shall be able to add a phone number to their account.
+- 1.1.1.2.2 Registered users shall be able to add their first name to their account.
+- 1.1.1.2.3 Registered users shall be able to add a last name to their account.
+
+
+### Log in to the Website
+
+#### Hakan Yıldırım
+![image](https://user-images.githubusercontent.com/71015118/199205080-d3aa9a65-38fc-4ac1-a0a2-fd56c466cfba.png)
+
+#### Persona
+
+* Age: 33
+* Job: Cashier
+* Interest: Body Building, Cars
+
+#### Story 
+
+* He likes to surf the internet a lot. His mom complains about the pain in her knees and asks him to find a doctor. Before searching for traditional solutions, he wants to check the comments about the nearby hospitals.
+
+#### Goals
+
+* Hakan aims to search for his mother's issue on the website and read the experience of people who went to the nearby orthopedist. Thus, he wants to log in to one of his favorite websites: MediShare.
+
+#### Preconditions
+
+* Hakan is a registered user.
+* Hakan wants to log in to the Medishare
+
+####  Actions
+
+1. He is on the main page.
+2. He clicks the "Log in" button. 
+3. He makes a typo while writing his password and tries again.
+4. He enters the necessary credentials, such as username and password.
+5. He is directed to the "Home" page.
+6. After he is finished, he logs out.
+
+
+#### Acceptance Criteria
+- 1.1.1.6.1 Registered users shall be able to log in by providing their password with either the username, phone number, or email of their account.
+- 1.1.1.6.2 Registered users shall not be able to log in after 5 failed attempts due to incorrect passwords.
+- 1.1.1.6.3 Registered users shall be able to stay logged in.
+- 1.1.1.6.4 Registered users shall be able to log out from the application.
+
+
 ## Project Plan
 
 ## Unit Tests
