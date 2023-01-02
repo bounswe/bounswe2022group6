@@ -156,10 +156,54 @@
 
 * Aral Dörtoğul
 
-    |Contribution|Link|
-    |---|---|
-    |...|...|
-   
+    * **Milestone 1**
+
+        |Contribution|Link|
+        |---|---|
+        |Attended weekly meetings.||
+        |Reviewed requirements from 1.1.2.4 to 1.2.1 with Ali Kaan Biber.|[#168](https://github.com/bounswe/bounswe2022group6/issues/168)|
+        |Researched about the popular frameworks for mobile application development.||
+        |Decided on which mobile framework to use with the mobile team.|[#173](https://github.com/bounswe/bounswe2022group6/issues/173)|
+        |Researched about React Native for mobile application development.||
+        |Created a communication plan for mobile development with the mobile team.|[#171](https://github.com/bounswe/bounswe2022group6/issues/171)|
+        |Set up my environment for React Native.||
+        |Initialized the mobile application with Bedirhan Pamukçuoğlu.|[#176](https://github.com/bounswe/bounswe2022group6/issues/176) [#187](https://github.com/bounswe/bounswe2022group6/pull/187)|
+        |Implemented the navigation of the mobile app.|[#218](https://github.com/bounswe/bounswe2022group6/issues/218)|
+        |Designed the profile page of the mobile app.|[#210](https://github.com/bounswe/bounswe2022group6/issues/210)|
+        |Designed the profile edit page of the mobile app.|[#210](https://github.com/bounswe/bounswe2022group6/issues/210)|
+        |Initialized the messages page of the mobile app.|[#241](https://github.com/bounswe/bounswe2022group6/pull/241)|
+        |Created AWS EC2 instance and deployed the app.|[#208](https://github.com/bounswe/bounswe2022group6/issues/208)|
+        |Updated the project plan with Berfin Şimşek.|[#201](https://github.com/bounswe/bounswe2022group6/issues/201)|
+        |Reviewed other people in Mobile Team's pull requests.|[#203](https://github.com/bounswe/bounswe2022group6/pull/203) [#236](https://github.com/bounswe/bounswe2022group6/pull/236) [#248](https://github.com/bounswe/bounswe2022group6/pull/248)|
+        |Presented version [0.1.0-alpha](https://github.com/bounswe/bounswe2022group6/releases/tag/customer-presentation-1) to the customer in Milestone 1 with Bedirhan.||
+
+    * **Milestone 2**
+        |Contribution|Link|
+        |---|---|
+        |Designing a logo for the app|[#250](https://github.com/bounswe/bounswe2022group6/issues/250)|
+        |Implementing home feed for mobile|[#270](https://github.com/bounswe/bounswe2022group6/pull/270)|
+        |Implementing themes for consistency in UI|[#265](https://github.com/bounswe/bounswe2022group6/pull/265)|
+        |Implementing post searching|[#328](https://github.com/bounswe/bounswe2022group6/pull/328)|
+        |Adding .env support for mobile|[#328](https://github.com/bounswe/bounswe2022group6/pull/328)|
+        |Connecting post search and home feed to backend|[#341](https://github.com/bounswe/bounswe2022group6/pull/341)|
+        |Updating project plan|[#367](https://github.com/bounswe/bounswe2022group6/issues/367)|
+        |Reviewing some mobile team's pull requests|[#319](https://github.com/bounswe/bounswe2022group6/pull/319) [#355](https://github.com/bounswe/bounswe2022group6/pull/355) [#357](https://github.com/bounswe/bounswe2022group6/pull/357) [#358](https://github.com/bounswe/bounswe2022group6/pull/358) [#360](https://github.com/bounswe/bounswe2022group6/pull/360)|
+        |Presenting Milestone 2||
+
+    * **Milestone 3**
+        |Contribution|Link|
+        |---|---|
+        |Implementing guest login for mobile|[#377](https://github.com/bounswe/bounswe2022group6/issues/377) PR: [#397](https://github.com/bounswe/bounswe2022group6/pull/397)|
+        |Improving a user's own profile page for mobile|[#378](https://github.com/bounswe/bounswe2022group6/issues/378) PR: [#414](https://github.com/bounswe/bounswe2022group6/pull/414)|
+        |Improving profile edit page for mobile.|[#378](https://github.com/bounswe/bounswe2022group6/issues/378) PR: [#414](https://github.com/bounswe/bounswe2022group6/pull/414)|
+        |Implementing delete account functionality for mobile.|[#379](https://github.com/bounswe/bounswe2022group6/issues/379) PR: [#426](https://github.com/bounswe/bounswe2022group6/pull/426)|
+        |Implementing doctor verification for mobile|[#380](https://github.com/bounswe/bounswe2022group6/issues/380) PR: [#414](https://github.com/bounswe/bounswe2022group6/pull/414)|
+        |Adding a markdown file to explain the setup steps of the mobile app.|[#381](https://github.com/bounswe/bounswe2022group6/issues/381)|
+        |Implementing post edit in mobile|[#438](https://github.com/bounswe/bounswe2022group6/issues/438) PR: [#442](https://github.com/bounswe/bounswe2022group6/pull/442)|
+        |Writing unit tests for mobile|[#449](https://github.com/bounswe/bounswe2022group6/pull/449)| 
+        |Reviewing some mobile team's pull requests|[#439](https://github.com/bounswe/bounswe2022group6/pull/439) [#446](https://github.com/bounswe/bounswe2022group6/pull/446)|
+        |Tracking final group deliverables|[#451](https://github.com/bounswe/bounswe2022group6/issues/451) [#452](https://github.com/bounswe/bounswe2022group6/issues/452) [#453](https://github.com/bounswe/bounswe2022group6/issues/453) [#454](https://github.com/bounswe/bounswe2022group6/issues/454)|
+        |Presenting the final demonstration to the customer with Bedirhan.||
 
 * Alp Eren İnceoğlu
 
@@ -289,14 +333,342 @@
 
 ### API Endpoints
 
+API Documentation:
+
+The aim of this file is to create a document that shows how to use our API endpoints. All endpoints written below are well-defined with respect to input parameters and outputs. Necesarry parameters, error codes and successful requests given with examples. 
+
+Thanks to Django framework, you can access API endpoints with logging into system with admin priviliges. Postman request collections are also added to related sections.
+
+With in this documentation, you can find human readable description of endpoints, example requests, list of input parameters.
+
+API Endpoints: 
+
+** Authorization:
+    
+        *Registration: POST SERVER_URL/register/
+            Params:
+                username: String
+                email: String 
+                password: String
+                gender: Char (m/f)
+                birth_day: Integer
+                birth_month: Integer
+                birth_year: Integer 
+            On success:
+                "status": "Created",
+				"code": 201
+		
+		*Login: POST SERVER_URL/login/
+		    Params:
+		        useridentifier: String
+		        password: String
+		    On success:
+		        "status": "OK",
+				"code": 200
+		
+		*Logout: GET SERVER_URL/logout/
+		    Params:
+		        No parameters required. 
+		        Logout mechanism uses authorization token to logout user.
+		    On success:
+		        "status": "OK",
+				"code": 200
+
+** Profile
+
+        *Edit Profile: POST SERVER_URL/profile/
+            Params:
+                    username: String,
+                    first_name: String,
+                    last_name: String,
+                    email: String,
+                    phone_number: String,
+                    birth_date: Date,
+                    gender: Char
+            On success:
+                "status": "OK",
+				"code": 200
+		
+		*View Profile: GET SERVER_URL/viewprofile/
+		    Params:
+		            username: String,
+                    email: String,
+                    birth_date: Date,
+                    gender: Char(m/f),
+                    is_messaging_allowed: Boolean,
+                    is_notifications_allowed: Boolean,
+                    reputation: Integer,
+                    first_name: String,
+                    last_name: String,
+                    profile_picture: String,
+                    phone_number: String,
+                    verified_as_doctor: Boolean,
+                    profession: String,
+                    location: String,
+                    diplomaID: String
+            On Success:
+                "status": "OK",
+				"code": 200,
+
+**Content Manager
+
+        *Get Post: GET SERVER_URL/contmgr/post
+            Params:
+                id: Integer
+            On Success:
+                "status": "OK",
+				"code": 200,
+                "body": Post
+                
+        *Create Post: POST SERVER_URL/contmgr/post
+            Params:
+                title: String, Required
+                type: String, Required
+                description: Sring, Required
+                location: String
+                imageURL: String
+                is_marked_nsfw: Boolean
+            On success:
+                "status": "Created",
+				"code": 201,
+				"body": "{\n    \"info\": \"post creation successful\",\n    \"postID\": 1\n}"
+		
+		*Get Comment: GET SEVER_URL/contmgr/comment/
+		    Params:
+		        id: Integer
+		    On Success:
+		        "status": "OK",
+				"code": 200,
+				"body": Comment
+		
+		*Create a Comment to a Post: POST SERVER_URL/contmgr/comment/
+            Params:
+                description: String, Required
+                parent_post_id: Integer, Required
+                mentioned_users: String
+            On Success:
+                "status": "Created",
+				"code": 201,
+				"body": "{\n    \"info\": \"comment creation successful\",\n    \"commentID\": 3\n}"
+		
+		*Create a Comment to a Comment: POST SERVER_URL/contmgr/comment/
+            Params:
+                description: String, Required
+                parent_comment_id: Integer, Required
+                mentioned_users: String
+            On Success:
+                "status": "Created",
+				"code": 201,
+				"body": "{\n    \"info\": \"comment creation successful\",\n    \"commentID\": 3\n}"
+		
+		*Edit a Comment: PUT SERVER_URL/contmgr/comment/
+            Params:
+                id: Integer, Required
+                description: String, Required
+                mentioned_users: String
+            On Success:
+                "status": "Created",
+				"code": 201,
+				"body": "{\n    \"info\": \"comment update successful\",\n    \"postID\": 4\n}"
+		
+		*Delete a Comment: DEL SERVER_URL/contmgr/comment/
+		    Params:
+		        id: Integer, Required
+		    On Success:
+		        "status": "Created",
+				"code": 201,
+				"body": "{\n    \"info\": \"comment delete successful\"\n}"
+
+		*Vote a Post: POST SERVER_URL/contmgr/postvote/
+		    Params:
+		        id: Integer, Required
+		        vote: String (up, down), Required
+		    On Success:
+		        "status": "Created",
+				"code": 201,
+                "body": "{\n    \"info\": \"Upvote added to post for user\"\n}"
+        
+        *Vote a Comment: POST SERVER_URL/contmgr/commentvote/
+		    Params:
+		        id: Integer, Required
+		        vote: String (up, down), Required
+		    On Success:
+		        "status": "Created",
+				"code": 201,
+                "body": "{\n    \"info\": \"Upvote added to comment for user\"\n}"
+        
+        *Remove Vote from Post: POST SERVER_URL/contmgr/postvote/
+		    Params:
+		        id: Integer, Required
+		        vote: String (up, down), Required
+		    On Success:
+		        "status": "Created",
+				"code": 201,
+                "body": "{\n    \"info\": \"Upvote removed from post for user\"\n}"
+        
+        *Remove Vote from Comment: POST SERVER_URL/contmgr/commentvote/
+		    Params:
+		        id: Integer, Required
+		        vote: String (up, down), Required
+		    On Success:
+		        "status": "Created",
+				"code": 201,
+                "body": "{\n    \"info\": \"Upvote removed from comment for user\"\n}"
+        
+        * Get Labels: GET SERVER_URL/contmgr/labels
+            Params: -
+            On Success:
+                "status": "OK",
+				"code": 200,
+                "body": [Label]
+        
+        * Keyword Search: GET SERVER_URL/contmgr/searchpost
+            Params:
+                keyword: String
+            On Success: 
+                "status": "OK",
+				"code": 200,
+				body: [Post]
+		
+		*Label Search: GET SERVER_URL/contmgr/searchpost
+		    Params:
+                label: String
+            On Success: 
+                "status": "OK",
+				"code": 200,
+				body: [Post]
+				
+		*Combined Search: GET SERVER_URL/contmgr/searchpost
+		    Params:
+                label: String,
+                keyword: String
+            On Success: 
+                "status": "OK",
+				"code": 200,
+				body: [Post]
+				
+** Location Manager:
+    
+        *Information: GET SERVER_URL/locmgr/info/
+            Params:
+                country: String
+                state: String
+            On success:
+                [data]
+		
+		*Location: POST SERVER_URL/locmgr/location/
+		    Params:
+		        ip: String, Required
+		    On success:
+		        "loc": [country, state, city]
+		    On failure:
+		        "loc": []
+		       
+** Annotations:
+    
+        *Text Annotation Create: POST SERVER_URL/contmgr/annotations
+            Params:
+                annotation_type: String, Required
+                content_type: String, Required
+                content_id: String, Required
+                jsonld: String, Required
+            On Success:
+                "status": "OK",
+				"code": 200,
+                "body": "{\n    \"info\": \"annotation creation successful\",\n    \"annotation_id\": \"#48d7b458-fead-45af-b317-db2d9ddf4c38\"\n}"
+        
+        *Image Annotation Create: POST SERVER_URL/contmgr/annotations
+            Params:
+                annotation_type: String, Required
+                content_id: String, Required
+                jsonld: String, Required
+            On Success:
+                "status": "OK",
+				"code": 200,
+                "body": "{\n    \"info\": \"annotation creation successful\",\n    \"annotation_id\": \"#48d7b458-fead-45af-b317-db2d9ddf4c38\"\n}"
+                
+        *Image Annotation Delete: DELETE SERVER_URL/contmgr/annotations
+            Params:
+                annotation_id: String, Required
+                annotation_type: String, Required
+            On Success:
+                "status": "OK",
+				"code": 200,
+                "body": "{\n    \"info\": \"annotation delete successful\",\n    \"annotation_id\": \"#48d7b458-fead-45af-b317-db2d9ddf4c38\"\n}"
+
+For the Postman Collections:
+    https://github.com/bounswe/bounswe2022group6/tree/master/Application/Backend/api_docs
 
 ### User Interface / User Experience
 
-
 * Frontend 
 
-
 * Mobile
+
+    For each UI design, hyperlinks are provided in bullet points:
+
+    * [Login Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/authentication/Login.js)
+    
+    <img src = "https://user-images.githubusercontent.com/73420291/206706024-4fc14fc2-9dad-4994-b0b6-16deb3b36e6d.png" width=400 />
+
+    * [Signup Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/authentication/SignUpScreen.js)
+    
+    <img src = "https://user-images.githubusercontent.com/73420291/206706063-9a4dc1f2-a2e0-42fc-bc06-9318381db395.png" width=400 />
+    
+    * [Home Feed](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/home/HomeFeed.js) (Related Code: [HomeHeader.js](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/home/HomeHeader.js))
+
+    <img src = "https://user-images.githubusercontent.com/73420291/206711167-78e90d69-79e7-4b86-b61a-97da6f58b437.png" width=400 />
+    <img src = "https://user-images.githubusercontent.com/73420291/206706135-abe741c1-8e66-45d8-ab97-46e732ec0101.png" width=400 />
+    
+    * [NSFW Button Click](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/post/PostPreview.js)
+
+    <img src = "https://user-images.githubusercontent.com/73420291/206706266-ac023c98-78a9-45d0-8d7e-61a25b574b4a.png" width=400 />
+    
+    * [Post Details (with Comments)](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/post/PostDetails.js)
+    
+    <img src = "https://user-images.githubusercontent.com/73420291/206707364-9add5ab9-662a-4a61-8bb8-90879cef9d4c.png" width=400 />
+
+    * [Search Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/search/SearchScreen.js) (Related code: [SearchScreenHeader.js](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/search/SearchScreenHeader.js), [SearchListHeader.js](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/search/SearchListHeader.js))
+
+    <img src = "https://user-images.githubusercontent.com/73420291/206707412-9fc7c3b6-6f2e-4d78-beca-b55697a59e19.png" width=400 />
+
+    * [Search Filters](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/search/FilterModal.js) (Related code: [FilterModal.js](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/search/FilterModal.js))
+    
+    <img src = "https://user-images.githubusercontent.com/73420291/206707483-079db9e9-dc5f-40d8-9b43-7f54f628dd0b.png" width=400 />
+
+    * [Search Results](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/search/SearchScreen.js)(first two images: only label search, third image: only keyword search, fourth image: both keyword and label search)
+    
+    1. Only label search
+    
+    <img src = "https://user-images.githubusercontent.com/73420291/206707542-dca21402-8c5d-4f52-8830-cbbbe1f48c28.png" width=400 />
+    
+    <img src = "https://user-images.githubusercontent.com/73420291/206707813-9c0f05fa-71d8-45e5-bd73-494816b9239f.png" width=400 />
+    
+    2. Only keyword search
+    
+    <img src = "https://user-images.githubusercontent.com/73420291/206707831-86244e15-2e07-4d07-b3ce-fbc5f7a04d42.png" width=400 />
+    
+    3. Both keyword and label search
+    
+    <img src = "https://user-images.githubusercontent.com/73420291/206707843-b42c9342-40fa-4a78-9a10-327b7d1cdc83.png" width=400 />
+
+    * [ChatBot Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/home/Chatbot.js)
+    <img src = "https://user-images.githubusercontent.com/73420291/206708378-e5dfd2cd-c7a9-44d5-81b9-f84bae6d62aa.png" width=400 />
+
+    * [Create New Post Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/post/CreatePost.js)
+    <img src = "https://user-images.githubusercontent.com/73420291/206708389-fa2886b7-fdb4-4536-8197-ffb8551de3b7.png" width=400 />
+
+    * [Drawer](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/home/HomeScreen.js)
+    <img src = "https://user-images.githubusercontent.com/73420291/206708402-774c25fa-83e2-4f48-a882-98665f0ed021.png" width=400 />
+
+    * [Messages Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/messages/MessagesScreen.js)
+    <img src = "https://user-images.githubusercontent.com/73420291/206708413-9d17af5c-d231-42d0-9f9d-ca0ce435f0bb.png" width=400 />
+
+    * [Profile Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/profile/ProfileScreen.js)
+    <img src = "https://user-images.githubusercontent.com/73420291/206708422-9cbeafe5-a4b6-4191-b829-b37d930d64e5.png" width=400 />
+
+    * [Profile Edit Page](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Mobile/pages/profile/EditProfileScreen.js)
+    <img src = "https://user-images.githubusercontent.com/73420291/206708440-4b5ab735-9498-4f19-baa7-09f110d4099d.png" width=400 />
 
 
 ### Annotations
@@ -701,11 +1073,39 @@ For a better view you can visit [Lucidchart](https://lucid.app/lucidchart/596a52
 
 ## Unit Tests
 
+### Backend:
 
+
+### Mobile:
+
+- Whole App
+
+    - renders correctly: [App-test.js, line 14](https://github.com/bounswe/bounswe2022group6/blob/dc49ca742ec820566d59bea79f8f9d06db537f36/Application/Mobile/__tests__/App-test.js#L14)
+
+- Home Header
+
+    - should render top bar on header: [HomeHeader-test.js, line 9](https://github.com/bounswe/bounswe2022group6/blob/dc49ca742ec820566d59bea79f8f9d06db537f36/Application/Mobile/__tests__/HomeHeader-test.js#L9)
+    - should render menu button on header: [HomeHeader-test.js, line 13](https://github.com/bounswe/bounswe2022group6/blob/dc49ca742ec820566d59bea79f8f9d06db537f36/Application/Mobile/__tests__/HomeHeader-test.js#L13)
+    - should render logo on header: [HomeHeader-test.js, line 17](https://github.com/bounswe/bounswe2022group6/blob/dc49ca742ec820566d59bea79f8f9d06db537f36/Application/Mobile/__tests__/HomeHeader-test.js#L17)
+    - should render search button on header: [HomeHeader-test.js, line 21](https://github.com/bounswe/bounswe2022group6/blob/dc49ca742ec820566d59bea79f8f9d06db537f36/Application/Mobile/__tests__/HomeHeader-test.js#L21)
+    - should render chatbot button on header: [HomeHeader-test.js, line 25](https://github.com/bounswe/bounswe2022group6/blob/dc49ca742ec820566d59bea79f8f9d06db537f36/Application/Mobile/__tests__/HomeHeader-test.js#L25)
+
+- Login Screen
+
+    - should render login button on page: [Login-test.js, line 11](https://github.com/bounswe/bounswe2022group6/blob/dc49ca742ec820566d59bea79f8f9d06db537f36/Application/Mobile/__tests__/Login-test.js#L11)
+    - should render sign up button on page: [Login-test.js, line 15](https://github.com/bounswe/bounswe2022group6/blob/dc49ca742ec820566d59bea79f8f9d06db537f36/Application/Mobile/__tests__/Login-test.js#L15)
+
+- Search Screen Header
+
+    - should render back button on header: [SearchHeader-test.js, line 9](https://github.com/bounswe/bounswe2022group6/blob/dc49ca742ec820566d59bea79f8f9d06db537f36/Application/Mobile/__tests__/SearchHeader-test.js#L9)
+    - should render searchbar on header: [SearchHeader-test.js, line 13](https://github.com/bounswe/bounswe2022group6/blob/dc49ca742ec820566d59bea79f8f9d06db537f36/Application/Mobile/__tests__/SearchHeader-test.js#L9)
+    - should render filter button on header: [SearchHeader-test.js, line 17](https://github.com/bounswe/bounswe2022group6/blob/dc49ca742ec820566d59bea79f8f9d06db537f36/Application/Mobile/__tests__/SearchHeader-test.js#L9)
 
 # Individual Milestone Report
 
 * [Artun Akdoğan](https://github.com/bounswe/bounswe2022group6/wiki/Artun-Akdo%C4%9Fan)
+
+---
 
 * [İhsan Mert Atalay](https://github.com/bounswe/bounswe2022group6/wiki/%C4%B0hsan-Mert-Atalay)
 
@@ -951,12 +1351,250 @@ Similar to old milestone where I mentioned about spending 6 to 8 hours just to c
 
 I believe I have contributed a lot to the projcet throughout the semester. One can check that the percentage of issues that are assigned to  me is approximately 25% of all the issues. Also, I have either created or reviewed approximately 30% of the pull requests which belong to different sub-teams. Being member of the frontend team I also helped backend team from time to time and was in close contact with the mobile team. On top of that I have helped the team on management side as well so it would be great to consider this aspect while reviewing individual efforts as well.
 
+---
 
 * [Ali Kaan Biber](https://github.com/bounswe/bounswe2022group6/wiki/Ali-Kaan-Biber)
 
+---
+
 * [Yasir Dikbaş](https://github.com/bounswe/bounswe2022group6/wiki/Yasir-Dikba%C5%9F)
 
+---
+
 * [Aral Dörtoğul](https://github.com/bounswe/bounswe2022group6/wiki/Aral-Dörtoğul)
+
+    **Member:**
+
+    I am working as a android UI/UX developer in the Mobile team of Group 6.
+
+    **Responsibilities:**
+
+    Last semester, we have worked on preparing the requirements of our project MediShare according to the standards of the software lifecycle processes. Before diving into the implementation, my group and I have reviewed the requirements and updated them according to the new customer's demands. We have also reviewed the mockups and scenarios so that they are in line with the requirements. Then, we have divided the group into three teams: Mobile, Frontend, and Backend, and I assigned myself to the mobile team.
+
+    For the first customer milestone, I was responsible for initializing the mobile application and implementing the most fundamental features with my team. The mobile team decided to use the popular mobile framework React Native to ease the software production. It was my first time with React Native, so it took a while for me to set up my working environment and get used to developing with this new framework. I have initialized the main navigation of the mobile application, the user profile page, and a page for editing the user profile. Moreover, I have supported my team in the deployment of the application.
+    
+    After the first milestone, we have tried to divide our total work evenly and I was assigned to implement the home feed and post searching mechanism of MediShare before Milestone 2. Moreover, I have added the logo of MediShare and a feature to theme our components to create a consistent look in our mobile app. To comply with the coding conventions, I have added .env (dotenv) support for the app, which stores the hardcoded API URL's and other secret keys in a private file. Before Milestone 2, I have connected the app to backend following the standards of RESTful API.
+
+    For the final milestone, we have checked the requirements that were not satisfied yet and tried to complete them. I had initialized the profile and edit profile pages before the first milestone; however, their full functionalities were supposed to be fully implemented by the other team members before the second milestone. I took over the responsibility of these pages and tried to implement their functionalities, which also included delete account functionality. I redesigned both pages according to the UI theme of the application. Moreover, I created the post edit page and added guest login feature. I have also written some component tests (unit test) for some screens.
+
+    Last but not least, I have kept the project plan updated with Berfin, which is important in terms of the overall project management.
+
+    I have also presented and demonstrated the application in front of the customer in all the three milestone presentations with Bedirhan.
+
+    **Main Contibutions**
+
+    Milestone 1:
+
+    - Deciding which programming language to use for mobile development
+    - Mobile application initiliaziton
+    - Creating base pages for mobile
+    - Initializing profile page for mobile app
+    - Designing navigation for mobile app
+    - AWS EC2 instance creation and deployment
+    - Presenting milestone 1 demonstration to the customer with Bedirhan.
+
+    Milestone 2:
+    - Designing a logo for the app with Hakan.
+    - Implementing home feed for mobile that shows post previews.
+    - Implementing post preview component.
+    - Expanding the navigation structure of the app and connecting post details, chatbot, search, create new post pages to home feed.
+    - Implementing themes for consistency in UI (for mobile)
+    - Implementing post searching with keywords and/or filters (labels only)
+    - Adding .env support for mobile
+    - Connecting post search and home feed to backend
+    - Updating project plan
+    - Presenting milestone 2 demonstration to the customer (with Bedirhan).
+
+    Milestone 3:
+
+    - Implementing guest login for mobile
+    - Improving a user's own profile page for mobile
+    - Improving profile edit page for mobile.
+    - Implementing delete account functionality for mobile.
+    - Implementing doctor verification for mobile
+    - Adding a markdown file to explain the setup steps of the mobile app.
+    - Implementing post edit in mobile
+    - Presenting the final demonstration to the customer with Bedirhan.
+
+
+
+    **Code Related Significant Issues**
+
+    Milestone 1
+
+    - Issues created by me:
+
+        - [#200](https://github.com/bounswe/bounswe2022group6/issues/200): Creating Base Pages for Mobile
+
+        - [#210](https://github.com/bounswe/bounswe2022group6/issues/210): Designing Profile Page for Mobile App
+
+        - [#218](https://github.com/bounswe/bounswe2022group6/issues/218): Designing Navigation for Mobile App
+        
+    - Issues assigned to me:
+
+        - [#173](https://github.com/bounswe/bounswe2022group6/issues/173): Deciding which programming language to use for mobile development
+
+        - [#176](https://github.com/bounswe/bounswe2022group6/issues/176): Mobile Application Initiliaziton
+
+        - [#197](https://github.com/bounswe/bounswe2022group6/issues/197): Necessary Developments for the BackEnd API Integration
+
+        - [#208](https://github.com/bounswe/bounswe2022group6/issues/208): AWS EC2 instance creation and deployment
+
+    Milestone 2
+    - [#250](https://github.com/bounswe/bounswe2022group6/issues/250): Designing a Logo for Medishare
+    - [#259](https://github.com/bounswe/bounswe2022group6/issues/259): Designing/Implementing the Home Feed for Mobile
+    - [#264](https://github.com/bounswe/bounswe2022group6/issues/264): Implementing Theming Functionality for Mobile
+    - [#285](https://github.com/bounswe/bounswe2022group6/issues/285): Implementing Searching Functionality
+    - [#326](https://github.com/bounswe/bounswe2022group6/issues/326): Initializing .env for Mobile
+    - [#339](https://github.com/bounswe/bounswe2022group6/issues/339): Connecting Mobile's Post Search to Backend
+    - [#340](https://github.com/bounswe/bounswe2022group6/issues/340): Connecting Mobile's Home Feed to Backend
+
+    Milestone 3
+
+    - [#377](https://github.com/bounswe/bounswe2022group6/issues/377): Implementing Guest Login for Mobile
+
+    - [#378](https://github.com/bounswe/bounswe2022group6/issues/378): Improving a User's Own Profile Page for Mobile
+
+    - [#379](https://github.com/bounswe/bounswe2022group6/issues/379): Implementing Delete Account Functionality
+
+    - [#380](https://github.com/bounswe/bounswe2022group6/issues/380): Implementing Doctor Verification for Mobile
+
+    - [#381](https://github.com/bounswe/bounswe2022group6/issues/381): Adding a Markdown File to Explain the Setup Steps of the Mobile App
+
+    - [#415](https://github.com/bounswe/bounswe2022group6/issues/415): Adding Locations to User Profiles in Mobile
+
+    - [#438](https://github.com/bounswe/bounswe2022group6/issues/438): Implementing Post Edit in Mobile
+
+
+    **Management Related Significant Issues**
+
+    Milestone 1
+
+    * Issues created by me:
+
+        * [#201](https://github.com/bounswe/bounswe2022group6/issues/201): Updating Project Plan
+
+        * [#227](https://github.com/bounswe/bounswe2022group6/issues/227): Preparing Customer Milestone 1 Deliverables
+
+    * Issues assigned to me:
+
+        * [#168](https://github.com/bounswe/bounswe2022group6/issues/168): Reviewing the Requirement Sections 1.1.2.4 to 1.2.1
+
+        * [#171](https://github.com/bounswe/bounswe2022group6/issues/171): Deciding a Communication Method for Mobile Development
+
+    Milestone 2
+
+    - [#367](https://github.com/bounswe/bounswe2022group6/issues/367): Project Plan should be updated
+
+    Milestone 3
+
+    - [#451](https://github.com/bounswe/bounswe2022group6/issues/451): Preparing Final Deliverables
+
+    - [#452](https://github.com/bounswe/bounswe2022group6/issues/452): Preparing the Group Milestone Report
+
+    - [#453](https://github.com/bounswe/bounswe2022group6/issues/453): Preparing the Project Artifacts
+
+    - [#454](https://github.com/bounswe/bounswe2022group6/issues/454): Preparing Individual Milestone Reports
+    
+
+    **Pull Requests**
+
+    *Pull requests opened by me:*
+
+    Milestone 1
+
+    * [#221](https://github.com/bounswe/bounswe2022group6/pull/221): Main Navigation Framework Established
+
+    * [#234](https://github.com/bounswe/bounswe2022group6/pull/234): Profile Page Initialized
+
+    Milestone 2
+
+    - [#265](https://github.com/bounswe/bounswe2022group6/pull/265): Added Light & Dark Theme Objects
+
+    - [#270](https://github.com/bounswe/bounswe2022group6/pull/270): Added Home Feed
+
+    - [#328](https://github.com/bounswe/bounswe2022group6/pull/328): Searching Page Initialized, .env Support Added
+
+    - [#341](https://github.com/bounswe/bounswe2022group6/pull/341): Post Search & Home Feed Backend Connection Established
+
+    - [#362](https://github.com/bounswe/bounswe2022group6/pull/362): Vote Buttons Initialized
+
+    Milestone 3
+    
+    - [#382](https://github.com/bounswe/bounswe2022group6/pull/382): Added ReadMe.md for the Mobile Folder
+    - [#396](https://github.com/bounswe/bounswe2022group6/pull/396): Home Feed and Post Preview Enhancements
+    - [#397](https://github.com/bounswe/bounswe2022group6/pull/397): Guest Login is Implemented for Mobile
+    - [#414](https://github.com/bounswe/bounswe2022group6/pull/414): Profile & Edit Profile Pages Redesigned, Doctor Verification Implemented
+    - [#426](https://github.com/bounswe/bounswe2022group6/pull/426): Delete Account Feature Implemented in Mobile
+    - [#442](https://github.com/bounswe/bounswe2022group6/pull/442): Edit Post is Implemented
+    - [#449](https://github.com/bounswe/bounswe2022group6/pull/449): Unit Tests Added in Mobile
+    - [#450](https://github.com/bounswe/bounswe2022group6/pull/450): Hot Fix - Post Details do not have scrollview
+
+
+    *Pull requests reviewed by me:* 
+
+    Milestone 1
+
+    * [#187](https://github.com/bounswe/bounswe2022group6/pull/187): Application Can Be Run on Emulator
+
+    * [#203](https://github.com/bounswe/bounswe2022group6/pull/203): Login Screen Implemented
+
+    * [#235](https://github.com/bounswe/bounswe2022group6/pull/235): Signup Page Implemented
+
+    * [#236](https://github.com/bounswe/bounswe2022group6/pull/236): Conflicts Resolved
+
+    Milestone 2
+
+    - [#319](https://github.com/bounswe/bounswe2022group6/pull/319): file upload is done
+
+    - [#355](https://github.com/bounswe/bounswe2022group6/pull/355): Mobile/chat bot
+
+    - [#357](https://github.com/bounswe/bounswe2022group6/pull/357): Mobile/post details
+
+    - [#358](https://github.com/bounswe/bounswe2022group6/pull/358): Mobile/hot fixes
+
+    - [#360](https://github.com/bounswe/bounswe2022group6/pull/360): post details comments added
+    
+    Milestone 3
+
+    - [#439](https://github.com/bounswe/bounswe2022group6/pull/439): text annotations implemented
+
+    - [#446](https://github.com/bounswe/bounswe2022group6/pull/446): chatbot improved
+
+    **Unit Tests**
+
+    Since the core functionalities are handled by the backend team's RESTful API, the unit tests are generally carried out by the backend team.
+    
+    However, I have written some unit tests about the rendering of some components before Milestone 3.
+
+    - Whole App
+    
+        - renders correctly: [App-test.js, line 14](https://github.com/bounswe/bounswe2022group6/blob/dc49ca742ec820566d59bea79f8f9d06db537f36/Application/Mobile/__tests__/App-test.js#L14)
+
+    - Home Header
+
+        - should render top bar on header: [HomeHeader-test.js, line 9](https://github.com/bounswe/bounswe2022group6/blob/dc49ca742ec820566d59bea79f8f9d06db537f36/Application/Mobile/__tests__/HomeHeader-test.js#L9)
+        - should render menu button on header: [HomeHeader-test.js, line 13](https://github.com/bounswe/bounswe2022group6/blob/dc49ca742ec820566d59bea79f8f9d06db537f36/Application/Mobile/__tests__/HomeHeader-test.js#L13)
+        - should render logo on header: [HomeHeader-test.js, line 17](https://github.com/bounswe/bounswe2022group6/blob/dc49ca742ec820566d59bea79f8f9d06db537f36/Application/Mobile/__tests__/HomeHeader-test.js#L17)
+        - should render search button on header: [HomeHeader-test.js, line 21](https://github.com/bounswe/bounswe2022group6/blob/dc49ca742ec820566d59bea79f8f9d06db537f36/Application/Mobile/__tests__/HomeHeader-test.js#L21)
+        - should render chatbot button on header: [HomeHeader-test.js, line 25](https://github.com/bounswe/bounswe2022group6/blob/dc49ca742ec820566d59bea79f8f9d06db537f36/Application/Mobile/__tests__/HomeHeader-test.js#L25)
+
+    - Login Screen
+
+        - should render login button on page: [Login-test.js, line 11](https://github.com/bounswe/bounswe2022group6/blob/dc49ca742ec820566d59bea79f8f9d06db537f36/Application/Mobile/__tests__/Login-test.js#L11)
+        - should render sign up button on page: [Login-test.js, line 15](https://github.com/bounswe/bounswe2022group6/blob/dc49ca742ec820566d59bea79f8f9d06db537f36/Application/Mobile/__tests__/Login-test.js#L15)
+
+    - Search Screen Header
+
+        - should render back button on header: [SearchHeader-test.js, line 9](https://github.com/bounswe/bounswe2022group6/blob/dc49ca742ec820566d59bea79f8f9d06db537f36/Application/Mobile/__tests__/SearchHeader-test.js#L9)
+        - should render searchbar on header: [SearchHeader-test.js, line 13](https://github.com/bounswe/bounswe2022group6/blob/dc49ca742ec820566d59bea79f8f9d06db537f36/Application/Mobile/__tests__/SearchHeader-test.js#L9)
+        - should render filter button on header: [SearchHeader-test.js, line 17](https://github.com/bounswe/bounswe2022group6/blob/dc49ca742ec820566d59bea79f8f9d06db537f36/Application/Mobile/__tests__/SearchHeader-test.js#L9)
+    
+    - Signup Screen
+
+        - should render sign up button on page: [SignUp-test.js, line 10](https://github.com/bounswe/bounswe2022group6/blob/dc49ca742ec820566d59bea79f8f9d06db537f36/Application/Mobile/__tests__/SignUp-test.js#L10)
+
+---
 
 * [Alp Eren İnceoğlu](https://github.com/bounswe/bounswe2022group6/wiki/Alp-Eren-%C4%B0nceo%C4%9Flu)
 
@@ -1185,7 +1823,11 @@ Overall, I have tried my best to be a good teammate and abide by the good practi
 
 ---
 
+---
+
 * [Ramazan Bedirhan Pamukçuoğlu](https://github.com/bounswe/bounswe2022group6/wiki/Bedirhan-Pamukcuoglu)
+
+---
 
 * [Berfin Şimşek](https://github.com/bounswe/bounswe2022group6/wiki/Berfin-%C5%9Eim%C5%9Fek)
 
@@ -1274,7 +1916,11 @@ Overall, I have tried my best to be a good teammate and abide by the good practi
         * [#416 Frontend/feature/location](https://github.com/bounswe/bounswe2022group6/pull/416)
         * [#441 Frontend/feature/view other profiles](https://github.com/bounswe/bounswe2022group6/pull/441)
 
+---
+
 * [Mustafa Berk Turgut](https://github.com/bounswe/bounswe2022group6/wiki/Mustafa-Berk-Turgut)
+
+---
 
 * [Beyza İrem Urhan](https://github.com/bounswe/bounswe2022group6/wiki/Beyza-%C4%B0rem-Urhan)
 
