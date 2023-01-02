@@ -130,8 +130,19 @@
 
     |Contribution|Link|
     |---|---|
-    |...|...|
-
+    |Attended weekly meetings||
+    |Reviewed the requirements for "Voting a Post" and "Interactions Between the Users and the Comments|[#165](https://github.com/bounswe/bounswe2022group6/issues/165)|
+    |Initializing Backend Framework|[#174](https://github.com/bounswe/bounswe2022group6/issues/174)|
+    |Researched and practiced Django framework||
+    |Creating Scenarios and Mockups for Milestone I|[#230](https://github.com/bounswe/bounswe2022group6/issues/230)|
+    |Implementing "Account Delete" function |[#233](https://github.com/bounswe/bounswe2022group6/issues/233)|
+    |Taking Note of The Milestone 1 Customer Feedback|[#249](https://github.com/bounswe/bounswe2022group6/issues/249)|
+    |Specifying the requirements addressed in Milestone 1|[#251](https://github.com/bounswe/bounswe2022group6/issues/251)|
+    |Evaluation of tools and processes used to manage team project|[#252](https://github.com/bounswe/bounswe2022group6/issues/252)|
+    |Searching for a tool for label ontologies|[#383](https://github.com/bounswe/bounswe2022group6/issues/383)|
+    |Searching for ways to implement semantic search functionality|[#384](https://github.com/bounswe/bounswe2022group6/issues/384)|
+    |Updating delete function according to the Milestone 2 feedback|[#385](https://github.com/bounswe/bounswe2022group6/issues/385)|
+    |Writing the status of the rquirements|[#469](https://github.com/bounswe/bounswe2022group6/issues/469)|
 
 ### Status of the Requirements
 
