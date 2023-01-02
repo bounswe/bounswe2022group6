@@ -806,6 +806,26 @@ In our project, we have utilized annotations. The annotations we are using are i
 ### System Manual
 
 ## Software Requirements Specification
+You can check our Requirements from the following links:
+   * [Glossary](https://github.com/bounswe/bounswe2022group6/wiki/Requirements#glossary-1)
+   * [1 Functional Requirements](https://github.com/bounswe/bounswe2022group6/wiki/Requirements#1-functional-requirements-1)
+     * [1.1 User Requirements](https://github.com/bounswe/bounswe2022group6/wiki/Requirements#11-user-requirements-1)
+         * [1.1.1 Account Management](https://github.com/bounswe/bounswe2022group6/wiki/Requirements#111-account-management)
+         * [1.1.2 Interactions Between The Users and Forum](https://github.com/bounswe/bounswe2022group6/wiki/Requirements#112-interactions-between-the-users-and-forum)
+         * [1.1.3 Interactions Between The Users](https://github.com/bounswe/bounswe2022group6/wiki/Requirements#113-interactions-between-the-users)
+         * [1.1.4 Interactions Between The Users and the Chatbot](https://github.com/bounswe/bounswe2022group6/wiki/Requirements#114-interactions-between-the-users-and-the-chatbot)
+     *  [1.2 System Requirements](https://github.com/bounswe/bounswe2022group6/wiki/Requirements#12-system-requirements-1)
+         * [1.2.1 Reputation System](https://github.com/bounswe/bounswe2022group6/wiki/Requirements#121-reputation-system)
+         * [1.2.2 Forum](https://github.com/bounswe/bounswe2022group6/wiki/Requirements#122-forum)
+         * [1.2.3 Chatbot](https://github.com/bounswe/bounswe2022group6/wiki/Requirements#123-chatbot)
+         * [1.2.4 Home Feed](https://github.com/bounswe/bounswe2022group6/wiki/Requirements#124-home-feed)
+         * [1.2.5 Notifications](https://github.com/bounswe/bounswe2022group6/wiki/Requirements#125-notifications)
+   *  [2 Non-Functional Requirements](https://github.com/bounswe/bounswe2022group6/wiki/Requirements#2-non-functional-requirements-1)
+      * [2.1 Security](https://github.com/bounswe/bounswe2022group6/wiki/Requirements#21-security-1)
+      * [2.2 Response](https://github.com/bounswe/bounswe2022group6/wiki/Requirements#22-response-1)
+      * [2.3 Availability](https://github.com/bounswe/bounswe2022group6/wiki/Requirements#23-availability-1)
+      * [2.4 Reliability](https://github.com/bounswe/bounswe2022group6/wiki/Requirements#24-reliability-1)
+      * [2.5 Privacy](https://github.com/bounswe/bounswe2022group6/wiki/Requirements#25-privacy-1)
 
 ## Software Design Documents
 
