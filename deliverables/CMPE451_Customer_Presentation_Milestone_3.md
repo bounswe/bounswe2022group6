@@ -511,36 +511,6 @@ For the Postman Collections:
 
 * Frontend 
 
-   * Landing Page
-   
-   ![image](https://user-images.githubusercontent.com/56560206/206656333-1fbbd388-2195-467f-bd88-ad4fa34f33ae.png)
-   ![image](https://user-images.githubusercontent.com/56560206/206656062-9f12f709-0bd3-45e6-bad4-724f24912e1c.png)
-   ![image](https://user-images.githubusercontent.com/56560206/206656373-445de345-e1bb-4e41-9cc2-65e36ccf784c.png)
-   
-   * Register Page
-   
-   ![image](https://user-images.githubusercontent.com/56560206/206656754-5e8f9c8b-8a05-41e8-b0de-e5dfd7109d85.png)
-   
-   * Login Page
-   
-   ![image](https://user-images.githubusercontent.com/56560206/206656630-9a5afff9-0221-4fc0-bf21-72fca80a78da.png)
-
-   * Home Page
-
-   ![image](https://user-images.githubusercontent.com/56560206/206656874-ff83cfa2-e2ec-4710-8436-22236135ddf1.png)
-
-   * Create Post Form
-   
-   ![image](https://user-images.githubusercontent.com/56560206/206656965-6361680f-07da-437a-96e7-6c7b9c274916.png)
-
-   * Profile Page
-
-   ![image](https://user-images.githubusercontent.com/56560206/206657137-b21792f8-536f-40ee-8d75-f107c21d9fba.png)
-
-   * Post Detail Page
-
-   ![image](https://user-images.githubusercontent.com/56560206/206657357-6ec48cfe-45e5-41ab-b230-fb8cbcb8c7c0.png)
-
 * Mobile
 
     For each UI design, hyperlinks are provided in bullet points:
