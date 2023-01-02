@@ -203,6 +203,61 @@
 
 * Frontend 
 
+   * Landing Page
+   
+   ![image](https://user-images.githubusercontent.com/56560206/206656333-1fbbd388-2195-467f-bd88-ad4fa34f33ae.png)
+   ![image](https://user-images.githubusercontent.com/56560206/206656062-9f12f709-0bd3-45e6-bad4-724f24912e1c.png)
+   ![image](https://user-images.githubusercontent.com/56560206/206656373-445de345-e1bb-4e41-9cc2-65e36ccf784c.png)
+   
+   * Register Page
+   
+   ![image](https://user-images.githubusercontent.com/56560206/206656754-5e8f9c8b-8a05-41e8-b0de-e5dfd7109d85.png)
+   
+   * Login Page
+   
+   ![image](https://user-images.githubusercontent.com/56560206/206656630-9a5afff9-0221-4fc0-bf21-72fca80a78da.png)
+
+   * Home Page
+
+   ![image](https://user-images.githubusercontent.com/56560206/210249034-e0d84a56-8e83-45f4-b91b-e9ecb1e31704.png)
+   
+   * Home Page with Chatbot open
+
+   ![image](https://user-images.githubusercontent.com/56560206/210249143-9e2d1351-eff6-41f8-89ca-98e2a97f479b.png)
+   
+   * Home Page with Search
+   
+   ![image](https://user-images.githubusercontent.com/56560206/210249216-5be2c464-c80b-4a9e-807f-0b84975dfa17.png)
+   
+   * Home Page with Label Filter
+
+   ![image](https://user-images.githubusercontent.com/56560206/210249301-777a64cb-657b-40d1-9155-02ac1e7e4c21.png)
+
+   * Create Post Form
+   
+   ![image](https://user-images.githubusercontent.com/56560206/210249384-4faa6d27-4ea5-4890-adb5-e36b40d181f9.png)
+
+   * Profile Page
+
+   ![image](https://user-images.githubusercontent.com/56560206/210249525-28353337-d4bd-4789-963a-0205e2891eac.png)
+   
+   * Profile Page of Other Users
+
+   ![image](https://user-images.githubusercontent.com/56560206/210249733-308df3bd-e70f-4ac6-8dff-fffda188df0d.png)
+
+
+   * Post Detail Page
+
+   ![image](https://user-images.githubusercontent.com/56560206/210249682-cd9f3c3f-2354-45f6-ae00-784acac8b2ed.png)
+   
+   * Post Detail with Annotations
+
+   ![image](https://user-images.githubusercontent.com/56560206/210249920-25258b52-c589-4f8a-a148-f377092f1985.png)
+   
+   * Post Detail Page of the Owner with Edit Section Open
+
+   ![image](https://user-images.githubusercontent.com/56560206/210250348-63b4ad9b-ae45-4f31-a6ad-61d738f23a75.png)
+
 
 * Mobile
 
