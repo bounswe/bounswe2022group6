@@ -2723,8 +2723,22 @@ I believe I have contributed a lot to the projcet throughout the semester. One c
       * [#432](https://github.com/bounswe/bounswe2022group6/pull/432): Label Search
 
 * [Yasir Dikbaş](https://github.com/bounswe/bounswe2022group6/wiki/Yasir-Dikba%C5%9F)
+* 
+    **Member:**
 
----
+    I am working as a mobile application developer in the Mobile team of Group 6.
+* 
+The last semester, we studied how to prepare the requirements of our project MediShare so that it meets the standards of software lifecycle processes. Then, my group and I reviewed the requirements to make sure they are still relevant to the new customer's demands. We also reviewed mockups and scenarios to make sure they are in line with the requirements. I was part of the mobile team throughout the development phase.
+
+    I made research about mobile app development and asked my seniors about advantages and disadvantages of certain frameworks. While choosing our programming language and framework we deeply cared about the reflection of the tools that we use on the sector as we wanted to make insvestment for after graduation. Then after carefully reviewing everything we decided to go on with react native as it made the development phase smoother with its rich libraries and community support.
+
+For the first milestone, I have not contributed significantly to the codebase as I was not familiar with both React Native and mobile app development so I had to study in order to be ready for making contributions for the following milestones and tasks. Despite this I took part in the meetings while developing the app and reviewed pull requests.
+
+Last but not the least, I was actively taking part in choosing  ways of communicating between the mobile team througout the semester. 
+
+After the first milestone I became more confident with using react native and as well as reviewing code changes and testing the mobile and web app on my local I started to write code. Specifically I took part in writing editing profile pages functionality. Other than that, as my network includes logo designers I communicated with one of my logo designer friends and took an online crash course from him on logo design. This way I made constructive criticism on our logo and shared it with my teammates. As a result they decided to make changes accordingly. The reason I took it serious was marketing is really important when it comes to attracting new users and getting investments. I took part in workload division and final milestone roles decision process. I tested our whole app both mobile and web. While testing I used all functionalities of our app and checked if we could keep in line with the software requirements that we have prepared. I reported errors that I faced to the development teams of backend and frontend. I implemented tons of posts and comments with unique content to our app. Moreover, I decided on the labels that should have been placed in our app and Alperen helped me adding them instantly. I reviewed lots of pull requests and also contributed to our codebase on my computer. Most of the contributions I made are documented above so I did not bother to rewrite them here. 
+
+
 
 * [Aral Dörtoğul](https://github.com/bounswe/bounswe2022group6/wiki/Aral-Dörtoğul)
 
