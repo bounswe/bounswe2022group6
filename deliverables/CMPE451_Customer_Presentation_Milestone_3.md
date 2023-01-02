@@ -69,7 +69,51 @@ Apart from the management issues we faced, we could also revise how we prioritiz
 
     |Contribution|Link|
     |---|---|
-    |...|...|
+    |Attended all weekly group and backend meetings||
+    |Wrote personal reports for all customer milestones||
+    |Updated personal Wiki page for CmpE451 | [#160](https://github.com/bounswe/bounswe2022group6/issues/160)|
+    |Reviewed requirement items under [1.1.1.1](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1111-creating-an-account), [1.1.1.2](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1112-adding-information-to-a-account), [1.1.1.3](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1113-editing-the-information-in-an-account), [1.1.1.4](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1114-removing-information-from-an-account), [1.1.1.5](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1115-deleting-an-account), and [1.1.1.6](https://github.com/bounswe/bounswe2022group6/wiki/D2:-Requirements#1116-logging-inlogging-out) sections | [#167](https://github.com/bounswe/bounswe2022group6/issues/167)|
+    |Created [Backend Meeting #1](https://github.com/bounswe/bounswe2022group6/wiki/Backend-Meeting-%231-17.10.2022) template, updated meeting agenda, reviewed and updated meeting notes, updated Home Wiki page and Sidebar to include this meeting | [#169](https://github.com/bounswe/bounswe2022group6/issues/169)|
+    |Updated [Communication Plan](https://github.com/bounswe/bounswe2022group6/wiki/Communication-Plan) page for Backend Group, created Discord server, appointed the first meeting | [#166](https://github.com/bounswe/bounswe2022group6/issues/166)|
+    |Initialized the folder structure of the project Groups|
+    |Initialized Backend Group's workspace with Django, MySQL, and Docker | [#174](https://github.com/bounswe/bounswe2022group6/issues/174)|
+    |Refactor folder structure of Backend group for better reference | [#178](https://github.com/bounswe/bounswe2022group6/issues/178), [#180](https://github.com/bounswe/bounswe2022group6/pull/180), PR: [#180](https://github.com/bounswe/bounswe2022group6/pull/180)|
+    |Inplemented user registration REST API, and required models | [#181](https://github.com/bounswe/bounswe2022group6/issues/181), PR: [#191](https://github.com/bounswe/bounswe2022group6/pull/191)|
+    |Enclosed MySQL port on docker to prevent port conflict | [#188](https://github.com/bounswe/bounswe2022group6/issues/188), PR: [#189](https://github.com/bounswe/bounswe2022group6/pull/189)|
+    |Containerized Frontend workspace and unified Backend API with Frontend application via Docker Compose | [#206](https://github.com/bounswe/bounswe2022group6/issues/206), PR: [#207](https://github.com/bounswe/bounswe2022group6/pull/207)|
+    |Deployed and modified AWS EC2 instance with required settings | [#208](https://github.com/bounswe/bounswe2022group6/issues/208)|
+    |Resolved final problems regarding AWS deployment via bugfixes and minor modifications | [#240](https://github.com/bounswe/bounswe2022group6/issues/240)|
+    |Implemented "Account View" function | [#242](https://github.com/bounswe/bounswe2022group6/issues/242), PR: [#228](https://github.com/bounswe/bounswe2022group6/pull/228), [#229](https://github.com/bounswe/bounswe2022group6/pull/229)|
+    |Wrote Frontend Containerized Execution Notes | [#244](https://github.com/bounswe/bounswe2022group6/issues/244)|
+    |Wrote Individual Contribution Report | [#231](https://github.com/bounswe/bounswe2022group6/issues/231)|
+    |Uploaded [Backend Meeting #4](https://github.com/bounswe/bounswe2022group6/wiki/Backend-Meeting-%234---03.11.2022) notes | [#254](https://github.com/bounswe/bounswe2022group6/issues/254)|
+    |Reviewed and updated the requirements addressed in [Milestone 1](https://github.com/bounswe/bounswe2022group6/blob/master/deliverables/CMPE451_Customer_Presentation_Milestone_1.md#11-user-requirements) | [#251](https://github.com/bounswe/bounswe2022group6/issues/251)|
+    |Wrote my individual responsibilities and work in [Milestone 1](https://github.com/bounswe/bounswe2022group6/blob/master/deliverables/CMPE451_Customer_Presentation_Milestone_1.md)|
+    |Researched Location API Implementation | [#255](https://github.com/bounswe/bounswe2022group6/issues/255)||
+    |Fixed image replication issue and updated Docker with new service | [#261](https://github.com/bounswe/bounswe2022group6/issues/261), PR: [#262](https://github.com/bounswe/bounswe2022group6/pull/262)|
+    |Implemented locmgr APIs for IP location retrieval and country/state/city list retrieval | [#257](https://github.com/bounswe/bounswe2022group6/issues/257), PR: [#260](https://github.com/bounswe/bounswe2022group6/pull/260)|
+    |Fixed image replication issue on docker, and implemented reset-db command on docker compose | [#261](https://github.com/bounswe/bounswe2022group6/issues/261)|
+    |Uploaded the Group Meeting #5 Notes | [#263](https://github.com/bounswe/bounswe2022group6/issues/263)|
+    |Restructured locmgr API's location data script by updating SQL file | [#272](https://github.com/bounswe/bounswe2022group6/issues/272)|
+    |Migrated the database from MySQL to PostgreSQL | [#271](https://github.com/bounswe/bounswe2022group6/issues/261), PR: [#274](https://github.com/bounswe/bounswe2022group6/pull/274)|
+    |Wrote testcases and documentation for locmgr | [#275](https://github.com/bounswe/bounswe2022group6/issues/275), PR: [#276](https://github.com/bounswe/bounswe2022group6/pull/276)|
+    |Fixed error that causes frontend to not compile | [#282](https://github.com/bounswe/bounswe2022group6/issues/282), PR: [#283](https://github.com/bounswe/bounswe2022group6/pull/283)|
+    |Initialized contmgr Django Application | [#286](https://github.com/bounswe/bounswe2022group6/issues/286), PR: [#287](https://github.com/bounswe/bounswe2022group6/pull/287)|
+    |Fixed hot reload bug on Frontend | [#290](https://github.com/bounswe/bounswe2022group6/issues/290), PR: [#291](https://github.com/bounswe/bounswe2022group6/pull/291)|
+    |Implemented Post View API | [#299](https://github.com/bounswe/bounswe2022group6/issues/299), PR: [#303](https://github.com/bounswe/bounswe2022group6/pull/303)|
+    |Implemented Comment View API | [#301](https://github.com/bounswe/bounswe2022group6/issues/301), PR: [#304](https://github.com/bounswe/bounswe2022group6/pull/304)|
+    |Implemented Content Voting System | [#302](https://github.com/bounswe/bounswe2022group6/issues/302), PR: [#305](https://github.com/bounswe/bounswe2022group6/pull/305)|
+    |Wrote Content Manager's Documentation and Tests | [#309](https://github.com/bounswe/bounswe2022group6/pull/309), PR: [#390](https://github.com/bounswe/bounswe2022group6/pull/390)|
+    |Added documents for content manager to showcase endpoint API | [#310](https://github.com/bounswe/bounswe2022group6/pull/310), PR: [#310](https://github.com/bounswe/bounswe2022group6/pull/310)|
+    |Backend Bug Fix for Post | [#322](https://github.com/bounswe/bounswe2022group6/issues/322), PR: [#346](https://github.com/bounswe/bounswe2022group6/pull/346)|
+    |Updating Running Manuals of Backend and Frontend | [#371](https://github.com/bounswe/bounswe2022group6/issues/371)|
+    |Wrote Milestone 2 Customer Feedback | [#386](https://github.com/bounswe/bounswe2022group6/issues/386)|
+    |Implemented Edit Post/Comment Endpoint | [#387](https://github.com/bounswe/bounswe2022group6/issues/387), PR: [#389](https://github.com/bounswe/bounswe2022group6/pull/389)|
+    |Implemented Reputation Field for Users and ViewProfile Endpoint | [#399](https://github.com/bounswe/bounswe2022group6/issues/399), PR: [#400](https://github.com/bounswe/bounswe2022group6/pull/400)|
+    |Implemented Picture Store for Posts and Accounts (Cancelled) | [#409](https://github.com/bounswe/bounswe2022group6/issues/409), PR: [#410](https://github.com/bounswe/bounswe2022group6/pull/410)|
+    |Implemented Delete Method for Comments and Posts | [#424](https://github.com/bounswe/bounswe2022group6/issues/424), PR: [#425](https://github.com/bounswe/bounswe2022group6/pull/425)|
+    |Implemented Production Docker Code and Its Documentations | [#427](https://github.com/bounswe/bounswe2022group6/issues/427), PR: [#428](https://github.com/bounswe/bounswe2022group6/pull/428)|
+    |Wrote API Endpoints (Location Manager Part) for Final Group Report | [#461](https://github.com/bounswe/bounswe2022group6/issues/461), PR: [#470](https://github.com/bounswe/bounswe2022group6/pull/470)|
 
 
 * İhsan Mert Atalay
@@ -2102,6 +2146,162 @@ For a better view you can visit [Lucidchart](https://lucid.app/lucidchart/596a52
 # Individual Milestone Report
 
 * [Artun Akdoğan](https://github.com/bounswe/bounswe2022group6/wiki/Artun-Akdo%C4%9Fan)
+## **Member:** [Artun Akdoğan](https://github.com/bounswe/bounswe2022group6/wiki/Artun-Akdo%C4%9Fan), Group 6 - Backend.
+
+### **Responsibilities:**
+
+#### **Milestone 1**
+We started this semester by reviewing last semester's already-prepared requirements. I suggested and changed parts of the account management requirements to make them more precise and correct. Also, I was able to plan the Backend subteam's communication plan and initialize the communication channel via Discord.
+
+As a backend developer, I was responsible for initializing the application and implementing the basic API for the first milestone described in the requirements. I have taken an active role in containerizing both Backend and Frontend via Docker, finding the most suitable database for our project, and unifying them in a relevant, robust and secure manner via Docker Compose. I also took an active role in the Deployment of the pre-release on the AWS EC2 instance. Besides, I have created the profile view API and user registration API. Apart from those work, I was constantly dealing with bugs that are either caused by backend frameworks, or by Deployment.
+
+Last but not least, I was able to fix some deployment bugs on the Amazon instance and deploy the milestone demo. Also, I updated the project plan according to my work.
+
+#### **Milestone 2**
+As a member of Backend subteam, I was mainly responsible for developing required features on the backend that both Frontend and Mobile subteams can use. I wrote required code and made related changes on Backend and Database environments for this task. I also fixed lots of code on Backend and Frontend. Besides, I was responsible for containerization and deployment of the application.
+
+My main responsibility was developing appropriate Location manager and Content manager classes, and writing related code within it. For location manager, I have researched large amounts of existing API's, but I decided that it was best to keep world data in our database. So, I wrote relevant code and models to implement it. I wrote documentations and testcases for my work. I also implemented comment, post, and vote endpoints, for both GET and POST methods, on Content Manager app. I fixed related issues that raised afterwards, and wrote documentation for it.
+
+For annotation feature and better management of location data for Location Manager, I had to migrate our database from MySQL to PostgreSQL, and I created 3 different databases to store general data, annotation data, and location-based large data. For this mission, I have researched huge amounts of materials, and fixed already implemented code. Unfortunately, I required to remove reset-db feaute that mainly used for development purposes, as it wasn't compatible with PostgreSQL. Fortunately, I was able to connect our Django Backend with the new database successfully.
+
+#### **Milestone 3**
+For the final milestone, I was mainly responsible for creating Backend endpoints and writing the relevant testcases with Postman documents. Those endpoints were critical as both Backend and Mobile subteams needed them to finalize their work. Also, I was responsible for relevant Docker containerization updates and improvements that must be done to decrease container footprint on the AWS instances as we were working with very low RAM.
+
+I started my work by completing the missing tests from Milestone 2. After writing testcases and enhancing documents, I implemented necessary endpoints for other subteams to use. Also, I have written necessary codes to store images in the volume of the container in AWS system. Nonetheless, we decided to keep those images in another AWS instance to increase the security and lower the storage footprint. Therefore, we discarded those changes and cancelled the pull request that I have created. Besides, we were missing a production build for docker containers. Before this build, we were using development builds with their debug options enabled. This was a security breach, not to mention its extra overhead on the system.
+
+Last but not least, I have contributed to Customer Milestone 2's report as I kept the notes of the customer's advices and wishes. Also,I have contributed to the group report by writing the documentation of Location Manager API.
+
+
+## **Main contributions:**
+
+#### **Milestone 1**
+* Researching on technologies to use in Backend development.
+* Deciding on the roadmap of Backend Development via meetings and requirements review.
+* Creating Application workspace folders for Backend, Frontend, and Mobile subteams.
+* Initializing Backend workspace via Django and with MySQL database.
+* Deploying the application via docker compose on AWS EC2 instance.
+* Containerizing both Backend and Frontend applications via Docker.
+* Implementing the Account View function.
+* Implementing the User Registration feature.
+* Documenting API's via Postman.
+* Fixing bugs that are related to Backend or Deployment.
+* Attending all meetings and taking notes for them.
+
+#### **Milestone 2**
+* Deployment of Backend and Frontend on Amazon AWS
+* Various bug fixes on backend and frontend
+* Reviewing pull requests
+* Implementing locmgr APIs for IP location retrieval and country/state/city list retrieval
+* Restructuring locmgr API's location data script by updating SQL file
+* Migrating the database from MySQL to PostgreSQL
+* Implementing Post View API
+* Implementing Comment View API
+* Implementing Content Voting System
+* Uploading the Group Meeting #5 Notes
+
+#### **Milestone 3**
+* Writing the missing tests for content manager
+* Implementing Edit Post/Comment Endpoint
+* Implementing Reputation Field for Users
+* Implementing ViewProfile Endpoint
+* Implementing Picture Store for Posts and Accounts (Its cancelled as we decided to keep data in another AWS instance)
+* Implementing Delete Method for Comments and Posts
+* Implementing Production Docker Code and Its Documentations
+* Updating Running Manuals of Backend and Frontend
+* Writing Milestone 2 Customer Feedback
+* Writing Location Manager API for Final Group Report
+
+
+#### **Code related significant issues:**
+
+   1. Implementing "Account View" function - [#242](https://github.com/bounswe/bounswe2022group6/issues/242)
+   2. Frontend Containerization - [#206](https://github.com/bounswe/bounswe2022group6/issues/206)
+   3. Initializing Backend Framework - [#174](https://github.com/bounswe/bounswe2022group6/issues/174)
+   4. AWS EC2 instance creation and deployment - [#208](https://github.com/bounswe/bounswe2022group6/issues/208)
+   5. Implementing User Registration  - [#181](https://github.com/bounswe/bounswe2022group6/issues/181)
+   6. Implementing locmgr APIs for IP location retrieval and country/state/city list retrieval - [#257](https://github.com/bounswe/bounswe2022group6/issues/257)
+   7. Restructuring locmgr API's location data script by updating SQL file - [#272](https://github.com/bounswe/bounswe2022group6/issues/272)
+   8. Migrating the database from MySQL to PostgreSQL - [#271](https://github.com/bounswe/bounswe2022group6/issues/261)
+   9. Implementing Post View API - [#299](https://github.com/bounswe/bounswe2022group6/issues/299)
+   10. Implementing Comment View API - [#301](https://github.com/bounswe/bounswe2022group6/issues/301)
+   11. Implementing Content Voting System - [#302](https://github.com/bounswe/bounswe2022group6/issues/302)Wrote Content Manager's 
+   12. Documentation and Tests - [#309](https://github.com/bounswe/bounswe2022group6/pull/309)
+   13. Implemented Edit Post/Comment Endpoint - [#387](https://github.com/bounswe/bounswe2022group6/issues/387)
+   14. Implemented Reputation Field for Users and ViewProfile Endpoint - [#399](https://github.com/bounswe/bounswe2022group6/issues/399)
+   15. Implemented Picture Store for Posts and Accounts (Cancelled) - [#409](https://github.com/bounswe/bounswe2022group6/issues/409)
+   16. Implemented Delete Method for Comments and Posts - [#424](https://github.com/bounswe/bounswe2022group6/issues/424)
+   17. Implemented Production Docker Code and Its Documentations - [#427](https://github.com/bounswe/bounswe2022group6/issues/427)
+   
+
+#### **Management related significant issues:**
+
+   1. Created a Communication Plan for Frontend, Backend and Mobile Subteams - [#166](https://github.com/bounswe/bounswe2022group6/issues/166)
+   2. Reviewed the Requirement Sections 1.1.1.1 to 1.1.1.6 - [#167](https://github.com/bounswe/bounswe2022group6/issues/167)
+   3. Uploaded the Backend Meeting #1 Notes - [#169](https://github.com/bounswe/bounswe2022group6/issues/169)
+   4. Uploaded the Group Meeting #5 Notes - [#263](https://github.com/bounswe/bounswe2022group6/issues/263)
+   5. Updated Running Manuals of Backend and Frontend - [#371](https://github.com/bounswe/bounswe2022group6/issues/371)
+   6. Wrote Milestone 2 Customer Feedback - [#386](https://github.com/bounswe/bounswe2022group6/issues/386)
+   7. Wrote API Endpoints (Location Manager Part) for Final Group Report - [#461](https://github.com/bounswe/bounswe2022group6/issues/461)
+
+### **Pull requests:**
+
+Pull requests opened by me:
+* [PR: #180](https://github.com/bounswe/bounswe2022group6/pull/180): Refactor folder structure, update dockerfiles
+* [PR: #189](https://github.com/bounswe/bounswe2022group6/pull/189): Backend/fix/database port enclose
+* [PR: #207](https://github.com/bounswe/bounswe2022group6/pull/207): Add dockerfile and docker-compose.yml for containerization
+* [PR: #209](https://github.com/bounswe/bounswe2022group6/pull/209): Update frontend base image
+* [PR: #228](https://github.com/bounswe/bounswe2022group6/pull/228): Add profile API to get user details
+* [PR: #229](https://github.com/bounswe/bounswe2022group6/pull/229): Add docs for profile details Postman documents
+* [PR: #260](https://github.com/bounswe/bounswe2022group6/pull/260): Backend/feature/locmgr
+* [PR: #262](https://github.com/bounswe/bounswe2022group6/pull/262): Fix dockerization image dublication issue, add reset_db
+* [PR: #274](https://github.com/bounswe/bounswe2022group6/pull/274): Backend/update/database migration
+* [PR: #276](https://github.com/bounswe/bounswe2022group6/pull/276): Backend/feature/locmgr tests
+* [PR: #283](https://github.com/bounswe/bounswe2022group6/pull/283): Fix react-icons bug
+* [PR: #287](https://github.com/bounswe/bounswe2022group6/pull/287): Add contmgr app, refactor code
+* [PR: #291](https://github.com/bounswe/bounswe2022group6/pull/291): Frontend/fix/reload bug
+* [PR: #303](https://github.com/bounswe/bounswe2022group6/pull/303): Backend/feature/post view
+* [PR: #304](https://github.com/bounswe/bounswe2022group6/pull/304): Backend/feature/comment view
+* [PR: #305](https://github.com/bounswe/bounswe2022group6/pull/305): Backend/feature/content voting system
+* [PR: #310](https://github.com/bounswe/bounswe2022group6/pull/310): Add documents for content manager
+* [PR: #346](https://github.com/bounswe/bounswe2022group6/pull/346): Fix required items requested
+* [PR: #389](https://github.com/bounswe/bounswe2022group6/pull/389): Edit Post Comment Endpoint Implementation Merge
+* [PR: #390](https://github.com/bounswe/bounswe2022group6/pull/390): Contmgr Documentation and Tests
+* [PR: #400](https://github.com/bounswe/bounswe2022group6/pull/400): Implementing Reputation Field for Users and ViewProfile Endpoint
+* [PR: #410](https://github.com/bounswe/bounswe2022group6/pull/410): Implementation of Account and Post Image Upload/Delete (Cancelled)
+* [PR: #425](https://github.com/bounswe/bounswe2022group6/pull/425): Backend/feature/post comment delete
+* [PR: #428](https://github.com/bounswe/bounswe2022group6/pull/428): Implementation Production Docker Code and Its Documentations
+
+Pull requests reviewed by me: 
+* [PR: #191](https://github.com/bounswe/bounswe2022group6/pull/191): Signup Feature Completion
+* [PR: #215](https://github.com/bounswe/bounswe2022group6/pull/215): Solving the encountered CORS error
+* [PR: #217](https://github.com/bounswe/bounswe2022group6/pull/217): Login Feature Completion
+* [PR: #223](https://github.com/bounswe/bounswe2022group6/pull/223): Logout Feature Completion
+* [PR: #269](https://github.com/bounswe/bounswe2022group6/pull/269): RegisteredUser Model Updated and Account Model Created
+* [PR: #273](https://github.com/bounswe/bounswe2022group6/pull/273): Profile View/Edit Functionalities Implemented
+* [PR: #288](https://github.com/bounswe/bounswe2022group6/pull/288): Content Models Added
+* [PR: #297](https://github.com/bounswe/bounswe2022group6/pull/297): Label Structure Implemented
+* [PR: #306](https://github.com/bounswe/bounswe2022group6/pull/306): Search Feature Implemented
+* [PR: #332](https://github.com/bounswe/bounswe2022group6/pull/332): Added Label Addition to Post Creation View
+* [PR: #335](https://github.com/bounswe/bounswe2022group6/pull/335): Post Model Class as_dict() Method Updated
+* [PR: #336](https://github.com/bounswe/bounswe2022group6/pull/336): Get All Posts Endpoint Added
+* [PR: #398](https://github.com/bounswe/bounswe2022group6/pull/398): Annotation Support for Backend Implemented
+* [PR: #402](https://github.com/bounswe/bounswe2022group6/pull/402): Enhanced Response Data of Profile, Post and Comment Retrieval
+* [PR: #404](https://github.com/bounswe/bounswe2022group6/pull/404): Annotation Retrieval Moved
+* [PR: #470](https://github.com/bounswe/bounswe2022group6/pull/470): API Endpoints are updated
+
+### **Unit Tests:**
+
+In latest release, I have following unit test classes:
+1. [Post Tests](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Backend/src/contmgr/tests.py#L24)
+2. [Comment Tests](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Backend/src/contmgr/tests.py#L90)
+3. [Vote Tests](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Backend/src/contmgr/tests.py#L166)
+4. [Location Tests](https://github.com/bounswe/bounswe2022group6/blob/master/Application/Backend/src/locmgr/tests.py#L5)
+
+<b>Note:</b> Please note that my testcases for User Registration has been updated and therefore testcases that I wrote aren't available at the latest code. It is possible to find related information and old testcases in this issue: <br>
+[Implementing User Registration - #181](https://github.com/bounswe/bounswe2022group6/issues/181)
+
+### **Additional Information:**
+Please view my [Home Wiki](https://github.com/bounswe/bounswe2022group6/wiki/Artun-Akdo%C4%9Fan) for details and for any missing information. All work related information is available at here since CmpE352.
 
 ---
 
