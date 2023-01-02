@@ -142,9 +142,48 @@
 
 * Ramazan Bedirhan Pamukçuoğlu
 
-    |Contribution|Link|
-    |---|---|
-    |...|...|
+    1. **Milestone 1**
+        |Contribution|Link|
+        |------------|----|
+        |Attended weekly meetings.||
+        |Reviewed requirements from 1.1.1.7 to 1.1.2.2.4 with Hakan Balık.|[#163](https://github.com/bounswe/bounswe2022group6/issues/163)|
+        |Researched about the popular frameworks for mobile application development.||
+        |Creating a Communication Plan for Mobile|[#166](https://github.com/bounswe/bounswe2022group6/issues/166)|
+        |Decided on which mobile framework to use with the mobile team.|[#173](https://github.com/bounswe/bounswe2022group6/issues/173)|
+        |Uploading meeting notes|[#172](https://github.com/bounswe/bounswe2022group6/issues/172)|
+        |Researched about React Native for mobile application development.||
+        |Created a communication plan for mobile development with the mobile team.|[#171](https://github.com/bounswe/bounswe2022group6/issues/171)|
+        |Initialized the application with Aral|[#176](https://github.com/bounswe/bounswe2022group6/issues/176) [#187](https://github.com/bounswe/bounswe2022group6/pull/187)|
+        |Designed the login page of the mobile app.|[#210](https://github.com/bounswe/bounswe2022group6/issues/200)|
+        |Designed the signup page of the mobile app.|[#210](https://github.com/bounswe/bounswe2022group6/issues/200)|
+        |Implemented the api requests.|[#197](https://github.com/bounswe/bounswe2022group6/issues/197)|
+        |Created AWS EC2 instance and deployed the app.|[#208](https://github.com/bounswe/bounswe2022group6/issues/208)|
+        |Presented version [0.1.0-alpha](https://github.com/bounswe/bounswe2022group6/releases/tag/customer-presentation-1) to the customer in Milestone 1 with Aral.||
+
+    2. **Milestone 2**
+    	|Contribution|Link|
+	|---|---|
+	|Attending both team and group meetings||
+	|Implementing photo upload button as a generic component|[#307](https://github.com/bounswe/bounswe2022group6/issues/307)|
+	|Implementing create post page|[#308](https://github.com/bounswe/bounswe2022group6/issues/308)|
+	|Implementing post previews|[#356](https://github.com/bounswe/bounswe2022group6/issues/356)|
+	|Implementing basic chatbot|[#353](https://github.com/bounswe/bounswe2022group6/pull/353)|
+	|Bugfixing for demo|[#358](https://github.com/bounswe/bounswe2022group6/pull/358)|
+	|Deploying app to physical device||
+	|Creating scenario for demo with Hakan, Aral and Yusuf.||
+	|Presenting Milestone 2||
+	|Initiating a S3 server for image uploads with Hakan|[#277](https://github.com/bounswe/bounswe2022group6/issues/277)|
+	|Reviewing pull requests|[#361](https://github.com/bounswe/bounswe2022group6/pull/361) [#354](https://github.com/bounswe/bounswe2022group6/pull/354) [#341](https://github.com/bounswe/bounswe2022group6/pull/341) [#328](https://github.com/bounswe/bounswe2022group6/pull/328) [#270](https://github.com/bounswe/bounswe2022group6/pull/270)
+	    [#265](https://github.com/bounswe/bounswe2022group6/pull/270)|
+	    
+    3. **Milestone 3**
+    	|Contribution|Link|
+	|---|---|
+	|Attending both team and group meetings||
+	|Implemented text annotations on mobile|[#388](https://github.com/bounswe/bounswe2022group6/issues/388)|
+	|Improving chatbot to show answers by client|[#429](https://github.com/bounswe/bounswe2022group6/issues/429)|
+	|Prepraing API Endpoints section of milestone report|[#461](https://github.com/bounswe/bounswe2022group6/issues/465)|
+
 
 
 * Berfin Şimşek
