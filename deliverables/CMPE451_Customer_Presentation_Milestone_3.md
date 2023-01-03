@@ -2135,6 +2135,8 @@ For a better view you can visit [Lucidchart](https://lucid.app/lucidchart/596a52
 
 ## Project Plan
 
+Project plan can be seen [here](https://github.com/bounswe/bounswe2022group6/blob/master/deliverables/projectplan-4.pdf).
+
 ## Unit Tests
 
 ### Backend:
